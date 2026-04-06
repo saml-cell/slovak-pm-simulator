@@ -1,0 +1,453 @@
+<body>
+
+<!-- LOADING OVERLAY -->
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="spinner" style="width:48px;height:48px;border-width:4px;"></div>
+  <div class="loading-text" id="loadingText">Analyzujem politiku...</div>
+</div>
+
+<!-- TOAST CONTAINER -->
+<div class="toast-container" id="toastContainer"></div>
+
+<!-- SETTINGS MODAL -->
+<div class="modal-overlay" id="settingsModal">
+  <div class="modal">
+    <h2>Nastavenia</h2>
+    <label for="apiKeyInput">Claude API kľúč (voliteľné)</label>
+    <p class="hint">Pre AI analýzu zadajte API kľúč. Bez neho sa použije zjednodušený systém kľúčových slov.</p>
+    <input type="password" id="apiKeyInput" placeholder="sk-ant-api03-...">
+    <label for="difficultySelect">Obtiažnosť</label>
+    <select id="difficultySelect" style="width:100%;padding:0.7rem;border:2px solid var(--border);border-radius:var(--radius-sm);margin-bottom:1rem;font-size:0.95rem;">
+      <option value="easy">Ľahká (pomalší pokles)</option>
+      <option value="normal" selected>Normálna</option>
+      <option value="hard">Ťažká (rýchlejší pokles)</option>
+    </select>
+    <div class="modal-buttons">
+      <button class="btn btn-secondary" onclick="closeSettings()">Zrušiť</button>
+      <button class="btn btn-primary" onclick="saveSettings()">Uložiť</button>
+    </div>
+  </div>
+</div>
+
+<!-- DEMAND MODAL -->
+<div class="modal-overlay" id="demandModal">
+  <div class="modal demand-modal-content">
+    <h2 id="demandModalTitle">Požiadavka koaličného partnera</h2>
+    <p id="demandModalText" style="margin-bottom:1rem;line-height:1.6;"></p>
+    <div id="demandModalActions" class="demand-actions" style="display:flex;gap:0.5rem;flex-wrap:wrap;justify-content:flex-end;"></div>
+  </div>
+</div>
+
+<!-- ============ SCREEN 1: TITLE ============ -->
+<div class="screen active" id="titleScreen">
+  <div class="title-content">
+    <div class="title-emblem">🏛️</div>
+    <div class="title-sub">Politický Simulátor</div>
+    <h1 class="title-main">Premiér<br>Slovenskej Republiky</h1>
+    <div class="title-period">Október 2023 — September 2027</div>
+    <p class="title-desc">
+      Prevzali ste vládu ako Robert Fico. Riaďte koalíciu, zvládnite krízy,
+      udržte si priazeň voličov a prežite 4 roky vo funkcii predsedu vlády SR.
+    </p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+      <button class="btn btn-primary btn-start" onclick="startGame()">Začať hru</button>
+      <button class="btn btn-ghost" onclick="loadGame()">Načítať hru</button>
+    </div>
+    <div style="margin-top:1.5rem;">
+      <button class="btn btn-ghost btn-small" onclick="openSettings()">⚙️ Nastavenia</button>
+    </div>
+    <div style="margin-top:2rem;display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;">
+      <div style="text-align:center;">
+        <div style="font-size:1.5rem;">📊</div>
+        <div style="font-size:0.75rem;color:rgba(255,255,255,0.5);">48 mesiacov</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:1.5rem;">👥</div>
+        <div style="font-size:0.75rem;color:rgba(255,255,255,0.5);">24 osobností</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:1.5rem;">🏛️</div>
+        <div style="font-size:0.75rem;color:rgba(255,255,255,0.5);">32 aktérov</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:1.5rem;">🗺️</div>
+        <div style="font-size:0.75rem;color:rgba(255,255,255,0.5);">8 krajov</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SCREEN 2: DASHBOARD ============ -->
+<div class="screen" id="dashboardScreen">
+  <div class="game-header">
+    <div class="header-left">
+      <span class="header-title">🏛️ Premiér SR</span>
+      <span class="header-month" id="headerMonth">Október 2023</span>
+    </div>
+    <div class="header-right">
+      <span class="header-stat approval" id="headerApproval">📊 60</span>
+      <span class="header-stat stability" id="headerStability">🏛️ 65</span>
+      <span class="header-stat coalition" id="headerCoalition">🤝 70</span>
+      <button class="header-btn" onclick="openSettings()" title="Nastavenia">⚙️</button>
+      <button class="header-btn" onclick="saveGame()" title="Uložiť">💾</button>
+    </div>
+  </div>
+  <div class="game-content">
+    <div class="section-header">
+      <h2 class="section-title" id="dashTitle">Prehľad — Október 2023</h2>
+      <div>
+        <span class="tag" style="background:var(--gold);color:var(--blue-dark);" id="dashMonthTag">Mesiac 1/48</span>
+      </div>
+    </div>
+    <!-- Progress bar -->
+    <div class="progress-bar" style="background:#dde3ed;height:8px;margin-bottom:1.5rem;">
+      <div class="progress-fill" id="dashProgress" style="width:2%;"></div>
+    </div>
+    <!-- Main Metrics -->
+    <div class="dash-metrics" id="dashMetrics"></div>
+    <!-- Quick Summary Grid -->
+    <div class="grid-2-1" id="dashGrid">
+      <div>
+        <div class="card mb-2" id="dashEconomyCard"></div>
+        <div class="card" id="dashCoalitionCard"></div>
+      </div>
+      <div>
+        <div class="card mb-2" id="dashDiploCard"></div>
+        <div class="card" id="dashFlagsCard"></div>
+      </div>
+    </div>
+    <!-- Navigation -->
+    <div class="dash-nav" id="dashNav">
+      <div class="dash-nav-btn" onclick="showScreen('mapScreen')"><span class="nav-icon">🗺️</span><span class="nav-label">Mapa regiónov</span></div>
+      <div class="dash-nav-btn" onclick="showScreen('coalitionScreen')"><span class="nav-icon">🤝</span><span class="nav-label">Koalícia</span></div>
+      <div class="dash-nav-btn" onclick="showScreen('economyScreen')"><span class="nav-icon">📈</span><span class="nav-label">Ekonomika</span></div>
+      <div class="dash-nav-btn" onclick="showScreen('diplomacyScreen')"><span class="nav-icon">🌍</span><span class="nav-label">Diplomacia</span></div>
+      <div class="dash-nav-btn" onclick="showScreen('historyScreen')"><span class="nav-icon">📜</span><span class="nav-label">História</span></div>
+    </div>
+    <!-- Proceed Button -->
+    <div class="dash-proceed">
+      <button class="btn btn-primary btn-block" onclick="proceedToEvent()" id="dashProceedBtn" style="max-width:400px;margin:1.5rem auto 0;">
+        Pokračovať na ďalší mesiac ➡️
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SCREEN 3: EVENT ============ -->
+<div class="screen" id="eventScreen">
+  <div class="game-header">
+    <div class="header-left">
+      <span class="header-title">🏛️ Premiér SR</span>
+      <span class="header-month" id="eventHeaderMonth"></span>
+    </div>
+    <div class="header-right">
+      <span class="header-stat approval" id="eventHeaderApproval">📊 60</span>
+      <span class="header-stat stability" id="eventHeaderStability">🏛️ 65</span>
+      <span class="header-stat coalition" id="eventHeaderCoalition">🤝 70</span>
+    </div>
+  </div>
+  <div class="game-content">
+    <div class="event-card card animate-in">
+      <div id="eventTierBadge"></div>
+      <h1 class="event-headline" id="eventHeadline"></h1>
+      <p class="event-description" id="eventDescription"></p>
+      <div class="event-context" id="eventContext"></div>
+      <div id="consequenceOrigin"></div>
+      <div class="event-input-area">
+        <label>Vaše politické rozhodnutie:</label>
+        <div class="suggestions" id="eventSuggestions"></div>
+        <textarea class="event-textarea" id="policyInput" placeholder="Napíšte vašu politiku alebo kliknite na návrh vyššie..."></textarea>
+        <div style="margin-top:1rem;display:flex;gap:0.75rem;justify-content:flex-end;flex-wrap:wrap;">
+          <button class="btn btn-secondary" onclick="showScreen('dashboardScreen')">Späť na prehľad</button>
+          <button class="btn btn-primary" onclick="submitPolicy()" id="submitPolicyBtn">Odoslať rozhodnutie 📝</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SCREEN 4: ANALYSIS ============ -->
+<div class="screen" id="analysisScreen">
+  <div class="game-header">
+    <div class="header-left">
+      <span class="header-title">🏛️ Premiér SR</span>
+      <span class="header-month" id="analysisHeaderMonth"></span>
+    </div>
+    <div class="header-right">
+      <span class="header-stat approval" id="analysisHeaderApproval">📊 60</span>
+      <span class="header-stat stability" id="analysisHeaderStability">🏛️ 65</span>
+      <span class="header-stat coalition" id="analysisHeaderCoalition">🤝 70</span>
+    </div>
+  </div>
+  <div class="game-content">
+    <div class="section-header">
+      <h2 class="section-title">Analýza rozhodnutia</h2>
+    </div>
+    <!-- Score Cards -->
+    <div class="grid-3 mb-2" id="analysisScores"></div>
+    <!-- Civil Service + Implementation -->
+    <div class="grid-2 mb-2">
+      <div class="card">
+        <div class="card-header"><span class="card-title">Hodnotenie úradníkov</span></div>
+        <p id="civilServiceText" style="font-size:0.9rem;line-height:1.6;"></p>
+      </div>
+      <div class="card">
+        <div class="card-header"><span class="card-title">Kontrolné mechanizmy</span></div>
+        <div id="checksContent"></div>
+        <div class="implementation-rate">
+          <div style="font-size:0.85rem;color:var(--text-light);margin-bottom:0.3rem;">Miera implementácie</div>
+          <div class="impl-value" id="implRate">100%</div>
+        </div>
+      </div>
+    </div>
+    <!-- Press Headlines -->
+    <div class="card mb-2">
+      <div class="card-header"><span class="card-title">Tlačové správy</span></div>
+      <div id="pressHeadlines"></div>
+    </div>
+    <div style="text-align:center;margin-top:1rem;">
+      <button class="btn btn-primary" onclick="showScreen('focusGroupScreen')">Zobraziť fokusovú skupinu ➡️</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SCREEN 5: FOCUS GROUP ============ -->
+<div class="screen" id="focusGroupScreen">
+  <div class="game-header">
+    <div class="header-left">
+      <span class="header-title">🏛️ Premiér SR</span>
+      <span class="header-month" id="focusHeaderMonth"></span>
+    </div>
+    <div class="header-right">
+      <span class="header-stat approval" id="focusHeaderApproval">📊 60</span>
+      <span class="header-stat stability" id="focusHeaderStability">🏛️ 65</span>
+      <span class="header-stat coalition" id="focusHeaderCoalition">🤝 70</span>
+    </div>
+  </div>
+  <div class="game-content-wide">
+    <div class="section-header">
+      <h2 class="section-title">Fokusová skupina — Reakcie voličov</h2>
+    </div>
+    <div class="persona-grid" id="personaGrid"></div>
+    <div style="text-align:center;margin-top:1.5rem;">
+      <button class="btn btn-primary" onclick="showScreen('stakeholderScreen')">Zobraziť aktérov ➡️</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SCREEN 6: STAKEHOLDERS ============ -->
+<div class="screen" id="stakeholderScreen">
+  <div class="game-header">
+    <div class="header-left">
+      <span class="header-title">🏛️ Premiér SR</span>
+      <span class="header-month" id="stakeHeaderMonth"></span>
+    </div>
+    <div class="header-right">
+      <span class="header-stat approval" id="stakeHeaderApproval">📊 60</span>
+      <span class="header-stat stability" id="stakeHeaderStability">🏛️ 65</span>
+      <span class="header-stat coalition" id="stakeHeaderCoalition">🤝 70</span>
+    </div>
+  </div>
+  <div class="game-content-wide">
+    <div class="section-header">
+      <h2 class="section-title">Reakcie kľúčových aktérov</h2>
+    </div>
+    <div class="stakeholder-grid" id="stakeholderGrid"></div>
+    <div style="text-align:center;margin-top:1.5rem;">
+      <button class="btn btn-primary" onclick="finishMonth()">Ukončiť mesiac a pokračovať ➡️</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SCREEN 7: MAP ============ -->
+<div class="screen" id="mapScreen">
+  <div class="game-header">
+    <div class="header-left">
+      <span class="header-title">🏛️ Premiér SR</span>
+      <span class="header-month" id="mapHeaderMonth"></span>
+    </div>
+    <div class="header-right">
+      <span class="header-stat approval" id="mapHeaderApproval">📊 60</span>
+      <span class="header-stat stability" id="mapHeaderStability">🏛️ 65</span>
+      <span class="header-stat coalition" id="mapHeaderCoalition">🤝 70</span>
+    </div>
+  </div>
+  <div class="game-content">
+    <div class="section-header">
+      <h2 class="section-title">Mapa regiónov</h2>
+      <span class="section-back" onclick="showScreen('dashboardScreen')">← Späť</span>
+    </div>
+    <div class="map-container">
+      <div class="map-svg-wrapper" id="mapWrapper">
+        <div class="map-tooltip" id="mapTooltip"></div>
+        <!-- SVG map injected by JS -->
+      </div>
+      <div class="map-legend">
+        <div class="legend-item"><div class="legend-color" style="background:#c62828;"></div> Nízka (&lt;30)</div>
+        <div class="legend-item"><div class="legend-color" style="background:#ef6c00;"></div> Slabá (30-45)</div>
+        <div class="legend-item"><div class="legend-color" style="background:#f9a825;"></div> Stredná (45-55)</div>
+        <div class="legend-item"><div class="legend-color" style="background:#7cb342;"></div> Dobrá (55-70)</div>
+        <div class="legend-item"><div class="legend-color" style="background:#2e7d32;"></div> Vysoká (&gt;70)</div>
+      </div>
+    </div>
+    <div class="region-details mt-2" id="regionDetails"></div>
+  </div>
+</div>
+
+<!-- ============ SCREEN 8: COALITION ============ -->
+<div class="screen" id="coalitionScreen">
+  <div class="game-header">
+    <div class="header-left">
+      <span class="header-title">🏛️ Premiér SR</span>
+      <span class="header-month" id="coalHeaderMonth"></span>
+    </div>
+    <div class="header-right">
+      <span class="header-stat approval" id="coalHeaderApproval">📊 60</span>
+      <span class="header-stat stability" id="coalHeaderStability">🏛️ 65</span>
+      <span class="header-stat coalition" id="coalHeaderCoalition">🤝 70</span>
+    </div>
+  </div>
+  <div class="game-content">
+    <div class="section-header">
+      <h2 class="section-title">Koaličná rada</h2>
+      <span class="section-back" onclick="showScreen('dashboardScreen')">← Späť</span>
+    </div>
+    <div class="card mb-2 parliament-seats" id="parliamentSeats"></div>
+    <div id="coalitionPartners"></div>
+  </div>
+</div>
+
+<!-- ============ SCREEN 9: ECONOMY ============ -->
+<div class="screen" id="economyScreen">
+  <div class="game-header">
+    <div class="header-left">
+      <span class="header-title">🏛️ Premiér SR</span>
+      <span class="header-month" id="econHeaderMonth"></span>
+    </div>
+    <div class="header-right">
+      <span class="header-stat approval" id="econHeaderApproval">📊 60</span>
+      <span class="header-stat stability" id="econHeaderStability">🏛️ 65</span>
+      <span class="header-stat coalition" id="econHeaderCoalition">🤝 70</span>
+    </div>
+  </div>
+  <div class="game-content">
+    <div class="section-header">
+      <h2 class="section-title">Ekonomický prehľad</h2>
+      <span class="section-back" onclick="showScreen('dashboardScreen')">← Späť</span>
+    </div>
+    <div class="grid-2" id="econGrid"></div>
+    <div class="card mt-2" id="econChartCard">
+      <div class="card-header"><span class="card-title">Vývoj HDP a inflácie</span></div>
+      <canvas id="econCanvas" width="800" height="250" style="width:100%;height:250px;"></canvas>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SCREEN 10: DIPLOMACY ============ -->
+<div class="screen" id="diplomacyScreen">
+  <div class="game-header">
+    <div class="header-left">
+      <span class="header-title">🏛️ Premiér SR</span>
+      <span class="header-month" id="diploHeaderMonth"></span>
+    </div>
+    <div class="header-right">
+      <span class="header-stat approval" id="diploHeaderApproval">📊 60</span>
+      <span class="header-stat stability" id="diploHeaderStability">🏛️ 65</span>
+      <span class="header-stat coalition" id="diploHeaderCoalition">🤝 70</span>
+    </div>
+  </div>
+  <div class="game-content">
+    <div class="section-header">
+      <h2 class="section-title">Medzinárodné vzťahy</h2>
+      <span class="section-back" onclick="showScreen('dashboardScreen')">← Späť</span>
+    </div>
+    <div class="diplo-grid" id="diploGrid"></div>
+  </div>
+</div>
+
+<!-- ============ SCREEN 11: HISTORY ============ -->
+<div class="screen" id="historyScreen">
+  <div class="game-header">
+    <div class="header-left">
+      <span class="header-title">🏛️ Premiér SR</span>
+      <span class="header-month" id="histHeaderMonth"></span>
+    </div>
+    <div class="header-right">
+      <span class="header-stat approval" id="histHeaderApproval">📊 60</span>
+      <span class="header-stat stability" id="histHeaderStability">🏛️ 65</span>
+      <span class="header-stat coalition" id="histHeaderCoalition">🤝 70</span>
+    </div>
+  </div>
+  <div class="game-content">
+    <div class="section-header">
+      <h2 class="section-title">História rozhodnutí</h2>
+      <span class="section-back" onclick="showScreen('dashboardScreen')">← Späť</span>
+    </div>
+    <div class="card">
+      <div class="timeline" id="historyTimeline"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SCREEN 12: ELECTION ============ -->
+<div class="screen" id="electionScreen">
+  <div class="game-header">
+    <div class="header-left">
+      <span class="header-title">🏛️ Premiér SR</span>
+      <span class="header-month" id="elecHeaderMonth"></span>
+    </div>
+    <div class="header-right"></div>
+  </div>
+  <div class="game-content">
+    <div class="card" style="max-width:700px;margin:0 auto;">
+      <div id="electionContent"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SCREEN 13: ELECTION RESULTS ============ -->
+<div class="screen" id="electionResultsScreen">
+  <div class="game-header">
+    <div class="header-left">
+      <span class="header-title">🏛️ Premiér SR</span>
+      <span class="header-month" id="elecResHeaderMonth"></span>
+    </div>
+    <div class="header-right"></div>
+  </div>
+  <div class="game-content">
+    <div class="card" style="max-width:700px;margin:0 auto;" id="electionResultsContent"></div>
+  </div>
+</div>
+
+<!-- ============ SCREEN 14: CONSEQUENCE ============ -->
+<div class="screen" id="consequenceScreen">
+  <div class="game-header">
+    <div class="header-left">
+      <span class="header-title">🏛️ Premiér SR</span>
+      <span class="header-month" id="conseqHeaderMonth"></span>
+    </div>
+    <div class="header-right">
+      <span class="header-stat approval" id="conseqHeaderApproval">📊 60</span>
+      <span class="header-stat stability" id="conseqHeaderStability">🏛️ 65</span>
+      <span class="header-stat coalition" id="conseqHeaderCoalition">🤝 70</span>
+    </div>
+  </div>
+  <div class="game-content">
+    <div class="card" style="max-width:800px;margin:0 auto;" id="consequenceContent"></div>
+  </div>
+</div>
+
+<!-- ============ SCREEN 15: GAME OVER ============ -->
+<div class="screen" id="gameOverScreen">
+  <div class="gameover-title" id="gameoverTitle">Koniec</div>
+  <div class="gameover-subtitle" id="gameoverSubtitle"></div>
+  <p id="gameoverDescription" style="max-width:600px;margin:0 auto 2rem;color:rgba(255,255,255,0.8);line-height:1.7;"></p>
+  <div class="gameover-stats" id="gameoverStats"></div>
+  <div class="gameover-chart" id="gameoverChart"></div>
+  <div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;">
+    <button class="btn btn-primary btn-start" onclick="startGame()">Hrať znova</button>
+    <button class="btn btn-ghost" onclick="showScreen('titleScreen')" style="border-color:rgba(255,255,255,0.3);color:white;">Hlavné menu</button>
+  </div>
+</div>
+
+<script>
