@@ -65,7 +65,7 @@
 
 ```bash
 # Clone the repo
-git clone https://github.com/your-username/slovak-pm-simulator.git
+git clone https://github.com/saml-cell/slovak-pm-simulator.git
 cd slovak-pm-simulator
 
 # Install dev dependencies (TypeScript + Vite only)
