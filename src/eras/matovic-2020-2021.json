@@ -43,449 +43,449 @@
   },
   "personas": [
     {
-      "id": "maria",
-      "name": "Mária",
-      "emoji": "👵",
-      "age": 67,
-      "demo": "Dôchodkyňa z Prešova. Celý život pracovala v textilke, teraz berie 480 EUR dôchodok. Volí SMER od roku 2006.",
-      "location": "Prešov",
-      "region": "presovsky",
-      "lean": "smer"
-    },
-    {
-      "id": "peter",
-      "name": "Peter",
-      "emoji": "👷",
-      "age": 45,
-      "demo": "Robotník v automobilke KIA Žilina. Živí dve deti, manželka učiteľka. Bojí sa o prácu kvôli elektromobilom.",
-      "location": "Žilina",
-      "region": "zilinsky",
-      "lean": "smer"
-    },
-    {
-      "id": "katarina",
-      "name": "Katarína",
-      "emoji": "💻",
-      "age": 30,
-      "demo": "IT špecialistka v Bratislave. Pracuje pre nemeckú firmu na remote. Zarába 3500 EUR. Zvažuje odchod do Viedne.",
+      "id": "andrea",
+      "name": "Andrea",
+      "emoji": "🏥",
+      "age": 34,
+      "demo": "Zdravotná sestra na JIS v Ružinovskej nemocnici v Bratislave. Robí 16-hodinové zmeny počas covidovej vlny. Slobodná, prenajíma garsonku.",
       "location": "Bratislava",
       "region": "bratislavsky",
-      "lean": "progressive"
-    },
-    {
-      "id": "jozef",
-      "name": "Jozef",
-      "emoji": "🌾",
-      "age": 55,
-      "demo": "Poľnohospodár z Nitrianskeho kraja. 200 hektárov. Bojí sa EÚ regulácií a vyschnutia potoka. Volí konzervatívne.",
-      "location": "Nitra",
-      "region": "nitriansky",
-      "lean": "conservative"
-    },
-    {
-      "id": "eva",
-      "name": "Eva",
-      "emoji": "📚",
-      "age": 40,
-      "demo": "Učiteľka základnej školy v B. Bystrici. Plat 1100 EUR. Sama vychováva syna. Chce reformy ale nechce extrémy.",
-      "location": "B. Bystrica",
-      "region": "banskobystricky",
       "lean": "moderate"
     },
     {
-      "id": "martin",
-      "name": "Martin",
-      "emoji": "🎓",
-      "age": 22,
-      "demo": "Študent politológie na UK Bratislava. Aktivista. Chodí na protesty. Zvažuje odísť z krajiny ak sa situácia nezlepší.",
-      "location": "Bratislava",
-      "region": "bratislavsky",
-      "lean": "progressive"
-    },
-    {
-      "id": "tomas",
-      "name": "Tomáš",
-      "emoji": "💼",
-      "age": 38,
-      "demo": "Majiteľ malej IT firmy v Trnave, 15 zamestnancov. Borí sa s byrokraciou a vysokými odvodmi. Chce stabilitu.",
-      "location": "Trnava",
-      "region": "trnavsky",
-      "lean": "moderate"
-    },
-    {
-      "id": "zuzana",
-      "name": "Zuzana",
-      "emoji": "⚕️",
-      "age": 48,
-      "demo": "Chirurgička v nemocnici Košice. Zarába 2800 EUR ale pracuje 60h/týždeň. Pol oddelenia odišlo do Čiech.",
+      "id": "miroslav",
+      "name": "Miroslav",
+      "emoji": "🍽️",
+      "age": 47,
+      "demo": "Majiteľ reštaurácie v Košiciach, 12 zamestnancov. Tri lockdowny ho takmer zlomili. Hypotéka na prevádzku, zásoby sa kazia.",
       "location": "Košice",
       "region": "kosicky",
       "lean": "moderate"
     },
     {
-      "id": "robert",
-      "name": "Róbert",
-      "emoji": "⛏️",
-      "age": 58,
-      "demo": "Býv. baník z Handlovej. Nezamestnaný 3 roky. Žije z dávok a práce na čierno. Nostalgik za starými časmi.",
-      "location": "B. Bystrica",
-      "region": "banskobystricky",
-      "lean": "smer"
+      "id": "igor_v",
+      "name": "Igor V.",
+      "emoji": "📢",
+      "age": 52,
+      "demo": "Vodič z Martina. Administrátor Facebook skupiny 'Pravda o covide SK' s 40-tisíc členmi. Neverí médiám ani vláde.",
+      "location": "Martin",
+      "region": "zilinsky",
+      "lean": "conspiracy"
     },
     {
-      "id": "lucia",
-      "name": "Lucia",
-      "emoji": "📰",
-      "age": 28,
-      "demo": "Investigatívna novinárka Denníka N. Odkryla viacero káuz. Dostáva výhrazy. Bojí sa o slobodu tlače.",
+      "id": "frantisek",
+      "name": "František",
+      "emoji": "👴",
+      "age": 74,
+      "demo": "Penzista z Nitry. Žije sám po smrti manželky. Zdravotné problémy, nechce záťažovať rodinu. Bojí sa covidu viac ako čohokoľvek iného.",
+      "location": "Nitra",
+      "region": "nitriansky",
+      "lean": "moderate"
+    },
+    {
+      "id": "jana",
+      "name": "Jana",
+      "emoji": "👩‍👧‍👦",
+      "age": 39,
+      "demo": "Matka troch detí z Prešova. Manžel kamionista, dlhé týždne preč. Počas lockdownu sama homeschooluje tri rôzne triedy.",
+      "location": "Prešov",
+      "region": "presovsky",
+      "lean": "conservative"
+    },
+    {
+      "id": "lukas",
+      "name": "Lukáš",
+      "emoji": "🔧",
+      "age": 31,
+      "demo": "Operátor montážnej linky v PSA Trnava. Na kurzarbeit od apríla 2020, 80% platu. Hypotéka 650 EUR mesačne.",
+      "location": "Trnava",
+      "region": "trnavsky",
+      "lean": "moderate"
+    },
+    {
+      "id": "filip",
+      "name": "Filip",
+      "emoji": "✊",
+      "age": 26,
+      "demo": "Aktivista a dobrovoľník z Bratislavy. Volil OĽaNO v roku 2020 po rokoch Smeru. Pracuje v neziskovom sektore, sleduje každý krok vlády.",
       "location": "Bratislava",
       "region": "bratislavsky",
       "lean": "progressive"
     },
     {
-      "id": "stefan",
-      "name": "Štefan",
-      "emoji": "👮",
-      "age": 45,
-      "demo": "Policajný nadporučík v Trenčíne. 20 rokov v službe. Chce poriadok a silný štát. Neverí politikom ale rieši bezpečnosť.",
-      "location": "Trenčín",
-      "region": "trenciansky",
-      "lean": "conservative"
+      "id": "katarina_ph",
+      "name": "Katarína",
+      "emoji": "💊",
+      "age": 43,
+      "demo": "Lekárnica v Banskej Bystrici. Vydáva rúška, antigénové testy, koordinuje očkovacie info. Každý deň čelí dezinformáciám aj panike.",
+      "location": "B. Bystrica",
+      "region": "banskobystricky",
+      "lean": "moderate"
     },
     {
-      "id": "helena",
-      "name": "Helena",
-      "emoji": "👩‍👧",
-      "age": 36,
-      "demo": "Slobodná matka dvoch detí z Prešova. Pracuje ako predavačka za 850 EUR. Závisí od sociálnych dávok. Volí toho kto dá viac.",
-      "location": "Prešov",
-      "region": "presovsky",
-      "lean": "smer"
+      "id": "richard_t",
+      "name": "Richard",
+      "emoji": "🚕",
+      "age": 44,
+      "demo": "Taxikár Bolt/Uber v Bratislave. Počas lockdownov nula zákazníkov, nula príjmov. Živí manželku a matku.",
+      "location": "Bratislava",
+      "region": "bratislavsky",
+      "lean": "moderate"
+    },
+    {
+      "id": "viera",
+      "name": "Viera",
+      "emoji": "🖥️",
+      "age": 48,
+      "demo": "Učiteľka slovenčiny na gymnáziu v Žiline. Zoom, Teams, Google Classroom — v šesťdesiatke žiakov nikto nemá vypnutú kameru.",
+      "location": "Žilina",
+      "region": "zilinsky",
+      "lean": "moderate"
+    },
+    {
+      "id": "boris",
+      "name": "Boris",
+      "emoji": "📊",
+      "age": 37,
+      "demo": "Analytik v súkromnej firme, volič SaS. Číta každý rozhovor Sulíka, frustrovaný Matovičovými výčitkami a chaotickými rozhodnutiami.",
+      "location": "Bratislava",
+      "region": "bratislavsky",
+      "lean": "sas"
+    },
+    {
+      "id": "martin_uk",
+      "name": "Martin",
+      "emoji": "🇬🇧",
+      "age": 33,
+      "demo": "Slovák v Londýne od roku 2015. IT developer. Sleduje slovenské správy každý deň. Brexit + COVID naraz, zvažuje návrat.",
+      "location": "Londýn",
+      "region": "zahranici",
+      "lean": "progressive"
     }
   ],
   "personaQuotes": {
-    "maria": {
+    "andrea": {
       "vp": [
-        "Matovič dal dôchodcom príspevok na lieky! Susedka Margita mi volala, aj jej prišlo. Daj Bože mu zdravie, aspoň niekto myslí na starých.",
-        "Konečne vláda chráni nás starých pred koronou. Polícia kontroluje, rúška povinné — správne! Farár v kostole tiež hovoril, treba sa chrániť.",
-        "Vnučka mi volá každý deň, nemôže prísť kvôli karanténe. Ale aspoň vláda testuje, to je správne. Boh daj nech to skončí."
+        "Prišli FFP2 rúška a ďalší personál. Konečne. Spím štyri hodiny ale aspoň viem že nás niekto vidí.",
+        "Lockdown funguje — na JIS sa trochu uvoľnilo. Dnes som mala prestávku na obed. To bol luxus.",
+        "Operácia Spoločná zodpovednosť dala dáta. Vieme kde sú ohniská. Aspoň raz má rozhodnutie zmysel."
       ],
       "p": [
-        "Testovanie je dobrý nápad. Aspoň vieme kto je chorý. Na naše pomery slušné, aj keď rada by som videla vnúčatá.",
-        "Niečo sa robí, vidím snahu. Susedka hovorí to isté — lepšie ako keby nič nerobili s tou koronou.",
-        "Rúška a dávky — aspoň vidím že vláda žije. Ja len chcem mať na lieky a raz vidieť vnúčatá bez strachu."
+        "Mohlo byť horšie. Pomôcky prišli, sestra sa uzdravila. Idem na ďalšiu zmenu.",
+        "Počula som že testovanie pomohlo znížiť prípad. Dúfam. Dnes je JIS na 80%, nie na 120%.",
+        "Vláda aspoň niečo robí. Nie dosť, ale niečo. Ráno idem znova — to je môj svet teraz."
       ],
       "n": [
-        "Neviem čo si myslieť. V televízii chvália, sused nadáva. Ja len chcem v kľude dožiť bez toho vírusu.",
-        "Lockdown — sedím doma, nikam nesmiem. Politika ma unavuje. Chcem len ísť do kostola a k vnučkám.",
-        "Čo ja viem, všetci nosia rúška aj tak. V obchode som počula rôzne názory. Hlavne nech to skončí."
+        "Dvanásta zmena za sebou. Politiku neriešim. Mám 8 pacientov na pľúcach, to je môj svet.",
+        "Lockdown, no lockdown — k nám chodí aj tak. Plné koridory, umorení kolegovia. Čo zmení tlačovka.",
+        "Počujem Matovič, Sulík, Sputnik. Ja počujem ventilátory. Nech sa dohadujú, ja idem robiť."
       ],
       "ng": [
-        "Mesiac sedím sama doma, vnúčatá nemôžu prísť. 480 euro dôchodok a všetko drahšie, obchody zatvorené.",
-        "Nikto sa nepýta starých ľudí. Celý život som robila a teraz som väzeň vo vlastnom byte kvôli lockdownu. Hanba.",
-        "Susedka Margita plakala — jej syn je v zahraničí, nemôže prísť. A vláda zaviedla ďalší zákaz vychádzania."
+        "Kolegyňa Zdenka dostala covid. Tretia tento mesiac. Pracujeme bez náhrady v podstate.",
+        "JIS je 115%. Chodby zapratané. A vláda sa hádala celý týždeň o Sputnik V namiesto aby poslala personál.",
+        "16 hodín na nohách. Pacient mi zomrel o šiestej ráno lebo nemal lôžko na JIS. To nie je možné."
       ],
       "vn": [
-        "Katastrofa! Dcéra mi posiela peniaze lebo lekárne sú polprázdne. Rok sedím sama a vláda to nevie zastaviť!",
-        "Celý život som robila pre túto krajinu a odmena je — sama doma, bez omše, bez vnúčat. Tohto som sa nedožiť chcela.",
-        "Plačem každý večer. Susedka Margita zomrela na covid a ja jej nemohla ani na pohreb. To je Slovensko roku 2020?"
+        "Plačem v šatni. Neviem kedy spím. Vláda priviezla Sputnik bez konzultácie s nami. S nami! Čo sme pre nich?",
+        "Podávam výpoveď. Nie. Nemôžem. Kto zostane? Ale takto ďalej nevydržím. 16 hodín, 650 eur v čistom.",
+        "Dnes mi plný JIS odmietol pacienta. Zomrel na chodbe. V Európe. 2021. Hanba tejto vláde aj všetkým pred ňou."
       ]
     },
-    "peter": {
+    "miroslav": {
       "vp": [
-        "Kurzarbeit funguje! V fabrike sme spokojní — aspoň niekomu záleží na robotníkoch keď sú linky zastavené.",
-        "Vláda dala kompenzácie firmám. V kantíne sme si podávali ruky — aspoň prácu nestratíme. Manželka sa usmievala.",
-        "KIA dostala pomoc, linky bežia ďalej. Matovič rozumie že bez fabrik niet Slovenska. Aj hypotéku zvládneme."
+        "Konečne reálna kompenzácia za zatvorenie! Nájom pokrytý, personál na kurzarbeit. Prežijeme tento mesiac.",
+        "Vláda preplatila čakárenské straty. Prvýkrát za rok mám pocit že na nás niekto myslí. Otváranie je na dohľad.",
+        "Kuchár mi hovoril včera — aspoň istota. Teraz viem čo bude budúci mesiac. To stačí na prežitie."
       ],
       "p": [
-        "Dobrý smer. Kurzarbeit zachránil miesta. V robote sa hovorí že to mohlo byť horšie bez tej pomoci.",
-        "Vláda aspoň niečo robí pre fabriky. V kantíne chlapci súhlasia — nie je to ideálne ale linky stoja a my máme plat.",
-        "Nie je to dokonalé ale ideme. Na zmene je lepšia nálada, aspoň nevyhodili ľudí kvôli lockdownu."
+        "Šéfkuchárka zostala. Kompenzácie nestačia úplne ale aspoň nie som sám. Pôžičku splatím neskôr.",
+        "Reštaurácia je zatvorená ale kuchyňu robíme ako výdaj. Aspoň niečo. Vláda aspoň nezakázala rozvoz.",
+        "Lockdown trvá ale aspoň viem pravidlá. Chaos predtým bol horší — neviem si plánovať zásoby."
       ],
       "n": [
-        "Nemám veľký názor. V robote sme pol zmeny vonku kvôli covid protokolom. Mzda rovnaká, aspoň nie je horšie.",
-        "Politiku moc neriešim. Rúšku nosím, testovanie absolvujem, idem do roboty. Čo zmôžem ja, robotník.",
-        "V kantíne sme sa o tom bavili ale nikto nevie čo bude. Linky bežia, to je hlavné. Uvidíme."
+        "Tretí mesiac zatvorené. Kompenzácie prídu ale neskoro — dlhy rastú rýchlejšie. Uvidíme.",
+        "Vláda hovorí o otváraní. Počúvam to od augusta. Sedím a čakám. Zásoby sa kazia.",
+        "Sulík hovorí otvoriť, Matovič hovorí zatvoriť. Ja medzitým platím nájom. Bez zákazníkov."
       ],
       "ng": [
-        "Linku zastavili kvôli lockdownu. Kurzarbeit je 80% platu — ako zaplatím hypotéku? Vláda robí chaos.",
-        "Kolega dostal výpoveď — firma ho prepustila napriek kompenzáciám. Tri deti a hypotéka. A lockdown trvá.",
-        "Kto zaplatí moju hypotéku keď zavrú linku? Len reči o testovaní a zákazoch. A my robotníci trpíme."
+        "Štvrtý lockdown. Šéfkuchár odišiel do Česka — tam platia a reštaurácie fungujú aspoň čiastočne.",
+        "Kompenzácie nestačia na nájom, energie, splátku. Vláda mi dala 40% straty. Vďaka pekne.",
+        "Dodávateľ mi zastavil kredit. Hovorí že nevie kedy otvorím. Ja tiež neviem. Matovič nevie tiež."
       ],
       "vn": [
-        "Hotové! Kolega prepustený, fabrika znižuje stavy kvôli korone. Manželka plače, neviem čo bude.",
-        "Tri zmeny zrušené, 200 ľudí bez práce! A Matovič robí tlačovku 4 hodiny namiesto toho aby pomohol!",
-        "Lockdown zničil fabriku. Linku zavreli natrvalo. Manželka učí online, ja bez práce. Neviem z čoho žijeme."
+        "Zatvárám. Dvanásť rokov práce. Dvanásť ľudí bez práce. Lockdown ma dobil, vláda ma nedokončila.",
+        "Kočner oslobodený, mne sa reštaurácia rozpadáva. Spravodlivosť v tejto krajine neexistuje na žiadnej úrovni.",
+        "Predávam vybavenie. Koniec. Sulík hovorí ekonomika, Matovič hovorí zdravie — obaja hovoria, ja zatváram."
       ]
     },
-    "katarina": {
+    "igor_v": {
       "vp": [
-        "Home office funguje skvele! Nemecká firma to ocenila — Zoom, Slack, full remote. Možno neodídem do Viedne.",
-        "Matovičovo plošné testovanie je actually smart policy. Zdieľam na LinkedIn — konečne dátami riadené rozhodnutie!",
-        "V IT komunite sme v pohode — pracujeme z domu, platy nezmenené. Slovensko zvláda pandémiu lepšie než som čakala."
+        "KONEČNE NIEKTO HOVORÍ PRAVDU!! Matovič aspoň priznal že testy nie sú 100%!! ĽUDIA PREBÚDZAJTE SA!!",
+        "VIDÍTE?! HOVORIL SOM ŽE LOCKDOWN JE EXPERIMENT NA ĽUĎOCH!! Zdieľajte kým môžete, cenzurujú nás!!",
+        "Skupina má 40000 členov!! PRAVDA SA ŠÍRI!! Bill Gates nás nemôže zastaviť!! Pridajte sa!!"
       ],
       "p": [
-        "OK, lockdown je nepríjemný ale zvládame ho. Na Slack-u v práci diskutujeme — väčšina súhlasí že treba chrániť zdravie.",
-        "Baby steps ale správnym smerom. Testovanie, obmedzenia — dáva to zmysel. Kolegovia z Berlína sa pýtajú na Slovensko pozitívne.",
-        "Nie je to revolúcia ale aspoň nie chaos. V IT firme home office funguje, objednávky idú. Nečakala som viac."
+        "Aspoň niektorí politici priznávajú problémy s vakcínami. Ešte nie dosť ale prebúdzajú sa!!",
+        "Testovanie je chaotické — AJ ONI TO VEDIA!! Preto menia pravidlá každý deň!! Dávajte pozor!!",
+        "Kamarát z Martina hovoril že po teste mal horúčku. NÁHODA?? Myslím že nie. Zdieľajte!!"
       ],
       "n": [
-        "Typicky slovenský kompromis — lockdown nie je dosť prísny ani dosť uvoľnený. V IT komunite sa tomu smejeme.",
-        "Meh. Na daily standup-e sme to predebatovali 5 minút. Pracujeme z domu, pre nás sa veľa nezmenilo.",
-        "Slovensko by potrebovalo konzistentnejší prístup, nie toto chaotické otváranie a zatváranie. Ale OK."
+        "Vláda drží ľudí v strachu. Čísla sú nafúknuté. Sám som bol chorý, prežil som bez nemocnice.",
+        "Lockdowny sú experiment. Globálna agenda. Niekto z toho profituje a nie sú to obyčajní ľudia.",
+        "Mám 500 správ denne v skupine. Ľudia sa pýtajú. Systémové médiá mlčia. My hovoríme pravdu."
       ],
       "ng": [
-        "Toto je ekonomická katastrofa. Kolegyňa Simona sa balí do Viedne — tam je viac istoty. Teraz ju chápem.",
-        "Lockdowny zatvoria celý sektor. Náš klient z retailu krachuje. Aj IT firmy to pocítia. Zvažujem odchod.",
-        "Na LinkedIn-e kolegovia z Česka píšu: poďte k nám, tu vládne zdravý rozum. A ja vážne zvažujem."
+        "SPUTNIK V JE ČIPOVANIE!! RUSI A GATES SPOLUPRACUJÚ!! POLÍCIA BUDE STRIEĽAŤ NA PROTESTUJÚCICH!!",
+        "Facebook mi zmazal skupinu! CENZÚRA!! Vytvárame novú!! Pravdu nezastavíte!! Šírte ďalej!!",
+        "Lekár z Nemecka napísal že vakcíny menia DNA!! MAINSTREAMOVÉ MÉDIÁ TO SKRÝVAJÚ!! Toto je genocída!!"
       ],
       "vn": [
-        "Chaos! Matovič zaviedol ďalší lockdown bez dát! Firma presúva tím do Brna. Ja idem s nimi.",
-        "Koaličná kríza, Sulík vytiahol dôveru — kto riadi krajinu?! Odchádzam, toto nie je prostredie pre IT.",
-        "Sputnik V bez EMA schválenia? Toto je tretí svet. Jednosmerný lístok do Viedne vyzerá čoraz lepšie."
+        "POVINNÉ OČKOVANIE = KONCENTRAČNÉ TÁBORY!! VSTÁVAJTE SLOVÁCI!! NEDOVOLÍME TO!! ZDIEĽAJTE KÝM MÔŽETE!!",
+        "KOČNER OSLOBODENÝ LEBO VIE PRAVDU O ELITÁCH!! SYSTEM CHRÁNI SYSTÉM!! PREBÚDZAJTE SA ĽUDIA!!",
+        "OPERÁCIA SPOLOČNÁ ZODPOVEDNOSŤ = MILITARIZÁCIA SLOVENSKA!! VIDEODÔKAZY V SKUPINE!! MUSIA NÁS ZASTAVIŤ!!"
       ]
     },
-    "jozef": {
+    "frantisek": {
       "vp": [
-        "Poľnohospodárstvo je otvorené! Konečne niekto chápe že polia sa obrábajú aj počas pandémie. Správne.",
-        "Dotácie prišli načas. Pri plote so susedom sme kývli: dobrá vláda. Aspoň farmárov nechali pracovať.",
-        "Na farme sme spokojní. Potravinová bezpečnosť je kľúčová, Matovič to pochopil. Slovenské potraviny musia byť."
+        "Prišla vakcína do nášho mesta! Obvolal som dcéru — zaregistroval ma. Prvýkrát za rok sa nebojím.",
+        "Prišli potravinové balíčky od obce pre seniorov. Dobrá vec. Cítim sa menej sám.",
+        "Testovanie v kultúrnom dome — mladí mi pomohli. Vláda myslela aj na nás starých. Vďaka."
       ],
       "p": [
-        "Prijateľné. Lockdown nás na vidieku moc nezasiahol. Pole sa obrába, zvieratá majú žrať. Aspoň nie horšie.",
-        "Na dedine potrebujeme kľudnú politiku. Toto je v poriadku — Covid je väčší problém pre mestá.",
-        "Nie je to ideálne ale farmári sme zvyknutí pracovať sami. Rúšku nosím, testujem sa, robím ďalej."
+        "Dcéra mi volá každý deň. Hovorí nech nevychádza. Poslúcham. Aspoň vedieť čo bude.",
+        "Soused Julo mi nosí nákup. Ľudia si pomáhajú. Vláda hovorí opatrne — dobre, je to rozumné.",
+        "Lockdown je ťažký ale rozumiem. Mám 74 rokov a cukrovku. Nechcem byť záťaž pre nemocnicu."
       ],
       "n": [
-        "Ani ryba ani rak. Lockdown nám na vidieku nevadí až tak, ale odbyt do reštaurácií padol. Dotácie chodia neskoro.",
-        "Brusel stále diktuje nariadenia. My oráme pole a oni píšu Covid protokoly. Aspoň nás nenútia zatvoriť farmu.",
-        "V dedine sa o politike moc nehovorí. Robíme čo treba — zvieratá nakŕmiť, úroda do skladu. Covid nie covid."
+        "Sedím doma štyri mesiace. Mesačne. Televízia, telefón, to je všetko. Aspoň som zdravý, myslím.",
+        "Nemocnica neodpovedá na telefón. Kartička na kontrolu preskočená. Neviem čo s tým.",
+        "V rádiu hovoria rôzne veci. Raz otvoria, raz zatvoria. Zostávam doma. To viem robiť."
       ],
       "ng": [
-        "Odbyt do gastropodnikov padol na nulu! Reštaurácie zatvorené, mlieko vylejeme. Kde je pomoc pre farmárov?",
-        "Zavreli nám trhy! Kde predám zeleninu? Supermarkety berú lacný dovoz. A vláda rieši testovanie v mestách.",
-        "Mladí odišli z dedín lebo nemali prácu. Teraz aj posledné pohostinstvo zatvorili kvôli lockdownu. Dedina umiera."
+        "Rok sám. Dcéra v Bratislave, syn v Brne — nemôžu prísť. Karantény, lockdowny. Starí ľudia sme zabudnutí.",
+        "Lekár mi zrušil kontrolu kvôli Covid obmedzeniam. Tlak nemám kde zmeriať. Bojím sa ale čo mám robiť.",
+        "Susedka Rozália zomrela v decembri. Bola sama. Nikto nevedel tri dni. Toto je naša realita."
       ],
       "vn": [
-        "Katastrofa! Odbyt na nule, dlhy rastú. Vláda pomáha mestám a farmárov ignoruje. Čo budem robiť?",
-        "Susedov syn predal kravy — nemohol platiť krmivo bez odbytu. Toto je výsledok lockdownov bez kompenzácií.",
-        "Dedina umiera. Posledný obchod zatvorili. Autobus nejde. A teraz ešte Covid zatvoril aj zberné strediská."
+        "Rok a štyri mesiace sám. Nevidel som vnuka. Narodil sa v auguste a ešte som ho nedržal v rukách.",
+        "Nemocnica odmietla previezť — plná. Bolelo ma srdce, zavolal som záchranku — čakal som dve hodiny.",
+        "Plačem v noci. Neviem čo ma prvé zabije — covid alebo samota. Politici sa hádajú. Ja čakám."
       ]
     },
-    "eva": {
+    "jana": {
       "vp": [
-        "Online vyučovanie funguje! Žiaci sa prihlásili, rodičia spolupracujú. Vláda aspoň dala tablety pre sociálne slabých.",
-        "Konečne vláda myslí na školstvo — príspevok na internet pre učiteľov, zariadenie pre deti. Takto sa to robí.",
-        "V zborovni cez Zoom sme sa tešili. Matovič chápe že školy sú dôležité. Uvidíme ako zvládneme semester."
+        "Škola poslala rozvrh a materiály! Funguje to — všetky tri deti sa pripojili dnes. Prvýkrát za týždeň mám chvíľu.",
+        "Vláda predĺžila OČR na plný plat. Aspoň jeden stres menej. Manžel pošle peniaze zo zahraničia.",
+        "Susedka mi pomohla s matematikou pre piatarov — cez záhradný plot, v rúškach. Ľudia sú dobrí."
       ],
       "p": [
-        "Rozumné kroky. Školy zatvorené pre bezpečnosť, online výučba beží. Nie perfektné ale snaha je viditeľná.",
-        "Ako učiteľka viem že treba prispôsobenie. Google Classroom funguje, rodičia pomáhajú. Aspoň niečo.",
-        "V zborovni cez Teams väčšina súhlasí: lepšie zavrieť školy ako riskovať zdravie detí. Ale treba viac podpory."
+        "Dáme to. Náročné ale dáme to. Nejmladšia plače že chce do škôlky, ale aspoň sme zdraví.",
+        "Teams funguje pre tú najstaršiu. Stredný má problémy s mikrofónom. Riešime. Každý deň niečo nové.",
+        "Vláda aspoň predĺžila platbu za škôlku aj keď je zatvorená. Malý gesto ale počíta sa."
       ],
       "n": [
-        "Priemerný výkon. Online výučba je ako domáca úloha — spĺňa minimum, ale chýba kontakt s deťmi.",
-        "Ani nie je na čo nadávať, ani nie je na čo byť hrdým. Polovica žiakov sa nepripája, čo mám robiť?",
-        "V škole — teda cez Zoom — sa o tom nikto nebavil. Učíme ďalej a dúfame že sa otvoríme na jar."
+        "Tri deti, tri triedy, jeden internet. Matematika, angličtina a prvouka súčasne. Manžel nedovolá.",
+        "Tá najmladšia dnes hodila tablet. Nechcem ju karhať — ona nechápe prečo nie je škola. Ja tiež nie celkom.",
+        "Deviaty mesiac doma. Neviem čo je normálne. Deti tiež nie. Aspoň záhrada funguje."
       ],
       "ng": [
-        "Šesť mesiacov online výučba a vláda nás nezaučila ako na to! 32 žiakov, polovica bez internetu. Hanba.",
-        "A vláda rieši testovanie na námestiach? Keď investujete do škôl a digitálneho vybavenia, investujete do budúcnosti!",
-        "Kolegyne plačú — deti im zaostávajú, rodičia kričia. Vláda nezabezpečila tablety pre všetkých. Zlyhanie."
+        "Najstaršia plakala — nestíha odovzdávať úlohy lebo internet padá. Škola to nechápe. Vláda tiež.",
+        "Manžel nemôže prísť domov — karanténa na hraniciach, pracovné povolenie. Tri mesiace sám. Ja sama.",
+        "Stredný zaostal o celý rok v čítaní. Pani učiteľka hovorí pracujte doma. Pracujem! Sama s troma deťmi!"
       ],
       "vn": [
-        "Nezmysel! Školy otvárajú a zatváraju bez plánu! Deti stratili celý rok a vláda to nerieši!",
-        "Kolegyne plakali v zborovni — teda cez Zoom. Rok online výučby bez poriadnej podpory. Toto je katastrofa.",
-        "Hanba! Deti si zaslúžia lepšie. Rok zahodený kvôli chaotickým lockdownom. A Matovič robí tlačovky."
+        "Dostala som zápal pľúc. Hospitalizácia. Deti u susedky. Manžel nemôže prísť. Vláda nič.",
+        "Najstaršia mi povedala že nechce do školy aj keď sa otvorí — bojí sa. 13-ročná. Čo sme to tým deťom urobili.",
+        "Rok homeschoolu, choroba, samota. Manžel volá každý večer ale čo mi to pomôže. Toto sa nesmie opakovať."
       ]
     },
-    "martin": {
+    "lukas": {
       "vp": [
-        "LET'S GOOO! Matovič otvoril trestné oznámenia na Kočnera a mafia sa trase! Zdieľam na všetky siete!",
-        "Plošné testovanie je genius move! Na UK Bratislava sme debatovali — dáta ukazujú že to funguje!",
-        "Wow! Kamaráti z Prahy závidia slovenský Ag+ test systém. Možno sa nemusím vysťahovať. Unexpected W."
+        "PSA obnovila linky! Kompenzácie od vlády fungovali — fabrika nemusela prepúšťať. Hypotéka zaplatená.",
+        "Kurzarbeit 80% — nestratil som prácu. V kantíne sme kývli — mohlo byť oveľa horšie.",
+        "Vláda dohodla s automobilkami zachovanie miest. Aspoň vieme čo bude. To stačí na spánok."
       ],
       "p": [
-        "Fajn, testovanie beží, korupčné kauzy sa vyšetrujú. Na univerzite — cez Zoom — väčšina súhlasí.",
-        "Baby steps ale správnym smerom. Anti-korupčný mandát sa plní aspoň čiastočne. Zdieľam s opatrným optimizmom.",
-        "Na politológii sme analyzovali: Matovič je chaotický ale úmysly sú dobré. Lepšie ako predtým. Ale treba viac."
+        "80% platu je málo ale existuje. Susedov ho vyhodili — tu aspoň kurzarbeit funguje.",
+        "Linky bežia na polovičnú kapacitu. Beriem každú zmenu čo dajú. Hypotéka nepočká.",
+        "Mohlo byť horšie. Kolega v Žiline hovorí v KIA to isté. Aspoň automobilky zachránili."
       ],
       "n": [
-        "Meh. Štandardný politický chaos — Matovič vs Sulík každý deň. Na politológii analyzujeme horšie veci.",
-        "Slovensko sa posúva tempom covidového testu — pomaly a chaoticky. Nie tragédia ale ani revolúcia.",
-        "Na prednáške — online, samozrejme — sme to rozobrali za 5 minút. Lockdown nuda. Idem na prechádzku."
+        "650 eur čistého namiesto 900. Hypotéka 650. Žijeme z manželkiných peňazí zo supermarketu.",
+        "Linka beží ale sme v bublách — iný vchod, iná kantína. Ani sa s kamarátmi nevidíme.",
+        "Vláda hovorí pomáhame. Vidím 80% platu. Lepšie ako nič. Horšie ako dosť."
       ],
       "ng": [
-        "Koalícia sa rozpadáva! Matovič vs Sulík každý týždeň. Toto je z učebnice ako zničiť reformnú vládu.",
-        "Protesty zakázané kvôli Covid! Ako máme vyjadriť nesúhlas?! Demokracia v lockdowne je ticho demokracia?",
-        "Acquittal Kočnera! Vrahovia Jana Kuciaka chodia slobodne! Systém je stále skorumpovaný. Čo ešte musíme urobiť?"
+        "Linku zastavili znova. Druhý lockdown — druhý raz kurzarbeit. Manželka hovorí nech hľadám iné.",
+        "Francúzi presúvajú výrobu. V kantíne šepkajú že PSA Trnava možno zatvorí natrvalo. Neviem spať.",
+        "Kompenzácie meškajú. Mesiac a pol bez plnej mzdy. Banka volala kvôli hypotéke. Hanba sa mi."
       ],
       "vn": [
-        "SHAME! Sputnik V bez schválenia EMA?! Matovič nás predáva! Toto je koniec dôvery v túto vládu!",
-        "Koalícia padá, pandémia nekončí, Kočner oslobodený. Budem emigrant, nie absolvent. Erasmus v Amsterdame.",
-        "Rok online školy, rok lockdownu, rok Matovičovho chaosu. Nechcem žiť v krajine čo nevie vládnuť ani počas krízy."
+        "Linku zavreli natrvalo. Presúvajú do Francúzska. 3000 ľudí. Vláda vedela a nič nerobila.",
+        "Výpoveď prišla emailom. Po ôsmich rokoch. Matovič robil tlačovku o Sputniku keď my sme prišli o prácu.",
+        "Hypotéka, dvojročné dieťa, manželka na materskej. Kurzarbeit skončil. Vláda sľubovala. Vždy sľubujú."
       ]
     },
-    "tomas": {
+    "filip": {
       "vp": [
-        "Kompenzácie fungujú! Vláda preplatila nájom a mzdy. Konečne štát ktorý pomáha podnikateľom v kríze.",
-        "Keď dostaneme reálnu pomoc počas lockdownu, dá sa prežiť. Toto je presne čo podnikatelia potrebujú.",
-        "Klient z Nemecka zostal — vďaka kompenzáciám som nemusel prepustiť tím. Super, Matovič to pochopil."
+        "OĽaNO to robí! Kočnerovi idú po krku, NAKA kopá v policajných archívoch. Za toto sme volili zmenu!",
+        "Plošné testovanie je geniálny ťah! Na Facebooku aktivisti diskutujeme — dáta ukazujú pokles.",
+        "Kamaráti z Česka volajú — čo to robíte na Slovensku? Konečne nás pozitívne citujú. Vybojované."
       ],
       "p": [
-        "Dobre, aspoň sú kompenzácie. Firma beží, zamestnanci majú prácu. Mohlo byť horšie.",
-        "Keď vláda nedáva len zákazy ale aj pomoc, dá sa podnikať aj počas pandémie. Aspoň niečo.",
-        "Nie je to ideálne — byrokracia je šialená — ale peniaze prišli. Objednávky idú online. Prežívame."
+        "Ťažké ale správne. Lockdown bolí všetkých — aj nás aktivistov. Ale pandémia si vyberá horšie.",
+        "Kočnerovo trestné konanie pokračuje. Pomalé ale ide. Reformy sa dajú robiť aj v pandémii.",
+        "Na online diskusii sme sa zhodli — Matovič je chaotický ale mandát plní. Dávame šancu."
       ],
       "n": [
-        "Bez veľkého efektu. Kompenzácie nestačia na nájom aj mzdy. Idem ďalej, improvizujem, dúfam v otvorenie.",
-        "Jednoducho ďalší lockdown. Firma prežíva online, ale klienti zo sektoru HoReCa krachujú. Čakáme.",
-        "V podnikateľskom klube sme cez Zoom pokrčili ramenami. Kompenzácie nestačia. Robíme ďalej."
+        "Koalícia sa skrípajúc pohybuje vpred. Sulík verzus Matovič každý týždeň. Únava nastavuje.",
+        "Protesty sú zakázané kvôli covidu. Frustrujúce. Ako vyjadrujeme nesúhlas teraz?",
+        "Sledoval som tlačovku tri hodiny. Matovič hovoril, Sulík mlčal, Kollár sa usmieval. Neviem čo to bolo."
       ],
       "ng": [
-        "Lockdown nás zabíja! Kompenzácie nestačia. Zvažujem presun firmy do Česka kde je rozumnejší prístup.",
-        "Tri klienti krachujú. Moje pohľadávky sú nevymožiteľné. A byrokracia okolo pomoci je neúnosná.",
-        "Obchodní partneri sa pýtajú na stabilitu. Matovič vs Sulík každý deň — čo im mám povedať? Chaos."
+        "Kočner OSLOBODENÝ! Ako?! Traja vrazi Jana Kuciaka chodia slobodne! Za toto sme volili OĽaNO?!",
+        "Matovič dováža Sputnik V bez konzultácie s koalíciou! To nie je demokracia, to je cirkus!",
+        "Sulík podáva hlasovanie o nedôvere. Koalícia na pokraji. A pandémia stále nie je pod kontrolou. Zlyhali sme."
       ],
       "vn": [
-        "Bankrot! Dvaja klienti skrachovali, tretí odišiel do Česka. Lockdown ma zlikvidoval.",
-        "Slovensko nie je krajina pre podnikateľov ani v normálnych časoch. V pandémii je to úplne jasné.",
-        "Zatvárám firmu. Pätnásť ľudí bez práce. Sputnik škandál zlomil posledného klienta. Idem do Prahy."
+        "Koniec. Matovič odišiel z premiéra ale zostal minister. Toto nie je zmena — to je preskladanie stoličiek.",
+        "Kočner slobodný, koalícia v ruinách, pandémia trvá. Volil som v roku 2020 plný nádeje. Dnes som prázdny.",
+        "Píšem na stenu aktivistickej skupiny: čo sme dosiahli? Systém vyhral znova. Neviem čo ďalej."
       ]
     },
-    "zuzana": {
+    "katarina_ph": {
       "vp": [
-        "Konečne vláda počúva lekárov! Lockdown bol správny — vidíme na JIS ako vyzerajú plné oddelenia. Ďakujem.",
-        "V nemocnici sme mali mini oslavu — prišli ochranné pomôcky. Prvý týždeň sme pracovali bez riadnych rúšok.",
-        "Testovanie pomáha — vieme kde sú ohniská. Matovič urobil správnu vec, aj keď to chaoticky komunikoval."
+        "Prišli antigénové testy! Konečne môžeme testovať priamo v lekárni. Rad pred dverami ale zvládame.",
+        "Vláda otvorila registráciu na vakcíny pre seniorov. Dvadsať starých ľudí som zaregistrovala osobne.",
+        "Zásoby FFP2 rúšok prišli načas. Prvý mesiac sme predávali textilné — teraz aspoň správne pomôcky."
       ],
       "p": [
-        "Lepšie ako nič. Pomôcky prišli, aspoň nie je situácia ako v Taliansku. Na oddelení sme opatrne optimistickí.",
-        "Uvidíme či vydržíme. Zatiaľ fungujeme — JIS plné ale nezrútili sme sa. Vláda aspoň zaviedla obmedzenia.",
-        "V nemocnici sme vyčerpaní ale vydržíme. Aspoň vieme že vláda chápe závažnosť. Sľuby sme počuli aj predtým."
+        "Záujem o testovanie rastie. Aspoň ľudia začínajú veriť. Rad je dlhý ale ľudia čakajú poctivo.",
+        "Informačný leták od ministerstva je konečne zrozumiteľný. Zákazníci sa menej pýtajú nezmyselné otázky.",
+        "Zásoby dezinfekcie sú stabilné. Pred rokom sme ich nemali vôbec. Aspoň logistika funguje."
       ],
       "n": [
-        "Zdravotníctvo sa opäť nerieši systémovo. Riešime pandémiu záplatami. Čakám 15 rokov na skutočnú reformu.",
-        "Pacienti s Covid-om obsadili oddelenia. Plánované operácie odkladáme. Politici sa bavia o Sputniku.",
-        "Na oddelení nikto ani nezdvihol hlavu od práce. Nemáme čas na politiku — máme plné koridory."
+        "Každý deň päť ľudí pýta či vakcína obsahuje čip. Vysvetľujem. Znova. Viem naspamäť.",
+        "Testy nám chýbajú každý druhý týždeň. Dodávky sú nepravidelné. Zákazníci sú frustrovaní, ja tiež.",
+        "Ministerstvo mení protokoly. Tretíkrát tento mesiac. Musím prerobiť celý vývesk. Unavuje ma to."
       ],
       "ng": [
-        "Kolegovia padajú od vyčerpania! Pol roka bez riadnej dovolenky. Platy smiešne pre to čo robíme.",
-        "JIS plné, personál chorý na Covid, a vláda sa háda o Sputnik! Ľudia umierajú kým Matovič robí tlačovky!",
-        "Sestra podala výpoveď. Štvrtá tento mesiac. Ide do Rakúska kde platia trojnásobok a nemajú takýto chaos."
+        "Zákazník mi dnes kričal že som agentka farmaceutickej mafie. Lebo predávam testy. V lekárni.",
+        "Prišiel dodatok — Sputnik V budeme vydávať v lekárňach. Bez EMA. Čo mám zákazníkom povedať?",
+        "Kolegyňa dostala výhrazy online po tom čo zdieľala info o vakcínach. Za odbornú informáciu. Hanba."
       ],
       "vn": [
-        "Zdravotnícky systém kolabuje! Pacienti na chodbách, kyslík dochádzal. Ja vážne zvažujem Viedeň.",
-        "Sestra plakala — 20 hodín v službe bez jedla. Matovič priviezol Sputnik V bez konzultácie s lekármi. Hanba!",
-        "Dnes mi zomrel pacient lebo nemal kde. Oddelenie plné, koridory plné. V EÚ. V roku 2021. Absolútna katastrofa."
+        "Pacient mi vynadal a pľuvol na pult lebo som ho odmietla zaregistrovať bez receptu. Volala polícia.",
+        "Sputnik V bez EMA — a my máme vydávať a vysvetľovať. Nie som politička ani experimentátor.",
+        "Zvažujem zavretie lekárne na poobede. Nemôžem vydržať — desinfekcia, testy, vakcinačné info, dezinformácie. Sama."
       ]
     },
-    "robert": {
+    "richard_t": {
       "vp": [
-        "Aspoň nám dali kompenzácie! V krčme sme sedeli a vraveli, že konečne niekto myslí na nás.",
-        "Konečne niekto, kto pozná problémy obyčajných ľudí. Matovič nie je dokonalý, ale snaží sa!",
-        "Sused Vlado hovorí, že aj jemu pomohli s kurzarbeitom. Aspoň niečo."
+        "Otvorili! Zákazníci sa vrátili! Dnes som mal plný deň. Prvýkrát za štyri mesiace som zaplatil splátku.",
+        "Vláda preplatila časť stratených príjmov SZČO! Konečne aj na taxikárov mysleli. Prišlo 600 eur.",
+        "Letisko funguje aspoň čiastočne. Zákazníci s certifikátmi. Beriem každú jazdu čo mi Bolt hodí."
       ],
       "p": [
-        "Dobre, niečo sa robí. Lockdown je ťažký, ale aspoň kompenzácie prišli.",
-        "Aspoň Matovič rozumie, čo značí byť robotník. Testovanie bolo divné, ale snažil sa.",
-        "V hospode chlapci hovorili, že je to fajn. Nie super, ale fajn. Prežijeme."
+        "Aspoň reštaurácie otvárajú na terasy. Zákazníci chodia von — to je aj pre mňa lepšie.",
+        "Prišla pomoc pre SZČO. Menesiac neskoro ale prišla. Zaplatím za benzín aspoň.",
+        "Bolt hovorí zákazníci sa vracajú. Opatrne optimistický. Nemôžem si dovoliť inak."
       ],
       "n": [
-        "Neviem. Pandémia všetko zastavila. Baňa je zavretá, prácu niet. Kto za to môže?",
-        "Chodia sem sľubovať a potom zabudnú, kde Handlová je. Pandémia sem, pandémia tam.",
-        "Čo sa tu zmenilo? Nič. Krčma zatvorená, fabrika stojí. Sedím doma a čakám."
+        "Letisko zatvorené, bary zatvorené, kancelárky na home office. Kto bude brať taxi?",
+        "Jazda raz za hodinu. Stojím pri letisku a čakám. Benzín beží. Aplikácia ticho.",
+        "Pomoc pre SZČO — áno, existuje, nie, nestačí. Záhrda je záhrada. Čakám."
       ],
       "ng": [
-        "Lockdown zabil poslednú krčmu v Handlovej! Kde sa teraz stretneme? Vláda nám berie aj to posledné.",
-        "Kurzarbeit nestačí. V meste je 20% nezamestnanosť a Covid im dáva výhovorku neriešiť nás.",
-        "Syn odišiel do Prahy — hovorí tam Covid zvládajú lepšie. Dcéra zvažuje Anglicko. A ja tu čakám sám."
+        "Druhý lockdown — nula jazdy. Nula príjmov. Matka má lieky za 200 eur mesačne. Neviem z čoho.",
+        "Bolt mi ponúka jazdy rozvoz jedla. 2 eurá za jazdu. Za to mám jazdiť cez celé Bratislava?",
+        "Pomoc pre SZČO meská dva mesiace. Banka nečaká. Prenajímateľ nečaká. Vláda čaká za mňa."
       ],
       "vn": [
-        "Zradili nás! Sputnik V bez schválenia! Matovič nás chce otráviť ruskou vakcínou! V Handlovej sme sa báli.",
-        "Kočner oslobodený, Covid nekončí, Handlová umiera. Všetci sú rovnakí — sľubujú a potom chaos.",
-        "Susedovi zomrela žena na Covid — nemocnica odmietla, plná. Mne sa to blíži. Matovič, PS, SMER — rovnakí podvodníci."
+        "Päť mesiacov nula príjmov. Predávam auto. Bez auta som taxikár bez taxi. Koniec.",
+        "Matka skončila v nemocnici — stres, podvýživa, chémia. Ja nemám peniaze, ona nemá zdravie. Vláda má tlačovky.",
+        "Manželka odišla k rodičom s deťmi. Ja tu sám v Bratislave. Dlhy, ticho, aplikácia bez jazdy. Neuveriteľné."
       ]
     },
-    "lucia": {
+    "viera": {
       "vp": [
-        "Matovič otvoril kauzy z éry predchádzajúcej vlády! Toto je presne o čom píšem — demokracia žije aj v pandémii.",
-        "Píšem o plošnom testovaní pre New York Times. Konečne dobré správy zo Slovenska! Svet si všíma.",
-        "V redakcii — cez Slack — sme sa tešili. Sloboda tlače sa nezhoršila. Toto je nádej pre žurnalistiku."
+        "Dnes sa pripojili všetci! 32 žiakov, 32 ikoniek. Prvýkrát za mesiac. Srdce mi skočilo.",
+        "Ministerstvo poslalo metodiku pre online výučbu. Konečne niečo konkrétne. Viem čo robiť v pondelok.",
+        "Kolega mi ukázal Jamboard. Žiaci píšu na virtuálnu tabuľu. Toto je zábava aj pre mňa."
       ],
       "p": [
-        "Pozitívne signály, aj keď treba byť opatrný. Transparentnosť testovania je dobrá. V redakcii väčšina súhlasí.",
-        "Budeme sledovať implementáciu — tam sa ukazuje pravda. Matovič komunikuje chaoticky ale dáta sú verejné.",
-        "Na porade v redakcii — cez Zoom — sme sa zhodli: lepšie ako skrývanie dát. Ale oči otvorené."
+        "Funguje to tak-tak. Niektorí sa nepripájajú ale väčšina áno. Horšie sa učí, ale učí.",
+        "Škola poslala tablety pre sociálne slabých žiakov. Aspoň tí sa môžu pripojiť. Ďakujem obci.",
+        "Zoom sa neskutočne zlepšil od marca. Aspoň technická stránka funguje. Obsah je iná vec."
       ],
       "n": [
-        "Klasický slovenský kompromis — transparentnosť v dátach, chaos v komunikácii. Nič sa zásadne nemení.",
-        "V novinách venujeme stĺpce Covid štatistikám. Krajina je unavená. Slovensko potrebuje konzistentnosť.",
-        "Na redakčnej porade sme pokrčili ramenami a riešili vlastné investigatívne kauzy. Pandémia je rutina."
+        "Deviaty mesiac cez obrazovku. Neviem či ich učím alebo len hovorím do prázdna. Kamery sú vypnuté.",
+        "Rodičia pošlú SMS — dieťa je choré. Alebo je internet nefunkčný. Alebo oboje. Každý deň.",
+        "Opravujem 32 prác poslaných emailom v rôznych formátoch. Word, fotka, pdf, raz prišla fotka fotky."
       ],
       "ng": [
-        "Matovič napáda novinárov na tlačovkách! Kritiku berie osobne. RSF nás opäť zníži v rebríčku.",
-        "Sledujeme rétoriku premiéra voči médiám — znepokojivá. Píšem o tom, dostávam agresívne komentáre.",
-        "Kolega dostal anonymné správy po článku o Sputniku. Toto nie je normálne ani v pandémii."
+        "Šiesty mesiac online školy a vláda neposlala žiadne školenie pre digitálne nástroje. Sama som sa učila.",
+        "Žiačka mi napísala — plakala lebo nestíhala. Jej mama stratila prácu, starali sa o babičku. Čo mám robiť?",
+        "Traja žiaci zaostali o rok. Rodičia kričia na mňa. Na mňa! Kto kričí na ministerstvo?"
       ],
       "vn": [
-        "SLOBODA TLAČE POD TLAKOM! Matovič útočí na Denník N na Facebooku! Medzinárodné organizácie varujú!",
-        "Sputnik V dovezený tajne, bez informovania verejnosti! Píšem o tom — dostávam výhrazy. Mám strach.",
-        "Kolegovia v redakcii zvažujú odchod. Ak premiér označuje novinárov za nepriateľov štátu, nič dobré to nesľubuje."
+        "Rok online školy. Výsledky testovania 9 — katastrofa. Deti stratili rok. Vláda stratila záujem.",
+        "Kolegyňa odišla na nemocenskú — vyhorenie. Trieda nemá učiteľa. Riaditeľ prosí mňa. Neplatene.",
+        "Keď sa otvoria školy neviem ako budem stáť pred triedou. Rok som hovorila do kamery. Deti tiež zabudli."
       ]
     },
-    "stefan": {
+    "boris": {
       "vp": [
-        "Konečne jasné právomoci! Zákaz vychádzania, kontrolné stanoviská — vieme čo robíme. Poriadok funguje.",
-        "Presne pre toto robím túto prácu 20 rokov. Štát koná, ľudia dodržiavajú pravidlá. Takto to má byť.",
-        "Na stanici sme spokojní — dostali sme pokyny, vybavenie, ochranu. Matovič počúval aj políciu. Výborne."
+        "Sulík mal pravdu — ekonomika sa nezrútila kde otvárali. Dáta to potvrdzujú. Aspoň niekto číta čísla.",
+        "Koaličná zmluva sa dodržiava v ekonomických bodoch. SaS dostala ministerstvá a ukazuje výsledky.",
+        "Matovič aspoň tentokrát konzultoval s Sulíkom pred vyhlásením. Možno sa učí. Opatrný optimizmus."
       ],
       "p": [
-        "Dobre pre poriadok. Zákaz vychádzania sa dá vymáhať. Na stanici sme spokojní s organizáciou.",
-        "Keď sú pravidlá jasné, dá sa pracovať. Rúšky, pokuty, kontroly — systém funguje aspoň základne.",
-        "Nie je to ideálne — niektoré predpisy sa menia každý deň — ale ideme správnym smerom. Vydržíme."
+        "Kompenzácie sú rozumne nastavené. Sulíkovo ministerstvo to zvládlo. Nie dokonale ale funkčne.",
+        "Koalícia skrípavá ale funguje. Väčšina zákonov prešla. Reforma daní ide pomaly ale ide.",
+        "Sulík hovorí otvoriť ekonomiku — som za. Ale chápe aj dáta. Aspoň v koalícii je niekto racionálny."
       ],
       "n": [
-        "Štandardné. V práci sa mení každý deň čo môžeme a čo nie. Stále papierová práca, stále málo ľudí.",
-        "Politici menia pravidlá každý týždeň a my to musíme vysvetľovať ľuďom v teréne. Nuda a frustrácia.",
-        "Na porade veliteľ čítal nové nariadenia. Nič nové. Kontrolujeme rúška, vypisujeme pokuty. Improvizujeme."
+        "Matovič opäť rozhodol bez koalície. Sulík sa sťažuje, Kollár mlčí. Typický týždeň.",
+        "Lockdown je ekonomicky katastrofálny. Sulík to hovorí. Matovič hovorí inak. Kto rozhoduje?",
+        "V práci analyzujeme škody z lockdownu. Čísla sú zlé. Vláda vidí iné čísla alebo žiadne."
       ],
       "ng": [
-        "Pravidlá sa menia každý deň! Ľudia sú naštvaní a my dostávame za uši. A nás sa nikto nepýtal na nič.",
-        "Výzbroj je z roku 2005, rúšky nám prišli po mesiaci. A ministerstvo robí PR kampane namiesto vybavenia.",
-        "Kolega sa nakazil pri kontrole — nemali sme poriadne ochranné pomôcky. Kto sa postará o nás?"
+        "Matovič doniesol Sputnik V bez konzultácie so Sulíkom! Bez konzultácie s nikým! SaS má pravdu — toto je chaos.",
+        "Sulík podáva hlasovanie o dôvere. Konečne. Matovičova impulzivita ničí dobrú koalíciu s dobrými ľuďmi.",
+        "Za čo som volil SaS? Za zodpovednú vládu. Nie za šoubiznisového premiéra s mesačnými skandálmi."
       ],
       "vn": [
-        "Polícia je zneužívaná na presadzovanie nezmyselných zákazov! Morálka na nule, kolegovia chorejú na Covid.",
-        "Zákaz vychádzania bez výnimiek — musím pokutovať ľudí čo idú k chorým rodičom. Za toto som nastúpil?",
-        "Po 20 rokoch služby zvažujem odchod. Sme terčom agresivity ľudí nespokojných s lockdownom. Za 1200 euro."
+        "Sulík odišiel z vlády. Matovič odišiel z premiéra. Reformy sú vo vzduchu. Volil som nadarmo.",
+        "Kočner slobodný, koalícia mŕtva, ekonomika pobouraná. Toto nie je čo SaS sľubovalo v roku 2020.",
+        "Ďalšie voľby. Znova. Tretíkrát za štyri roky. Slovensko je krajina večnej kampane, nie vládnutia."
       ]
     },
-    "helena": {
+    "martin_uk": {
       "vp": [
-        "Konečne príspevok na ošetrovné! S dvoma deťmi doma počas lockdownu je každé euro dôležité. Ďakujem!",
-        "Deti majú tablet na online školu — vláda ho dala zadarmo. Nemusím prosiť rodičov o pomoc. Konečne!",
-        "Plakala som od šťastia. 850 euro a dvoje deti a lockdown — aspoň ošetrovné pomôže. Dcéra sa smeje."
+        "Slovakia's mass testing is on the BBC! Kamaráti v Londýne sa pýtajú ako sme to zorganizovali. Hrdý moment.",
+        "Matovič vyzerá v zahraničných médiách rozumne — aspoň keď nerobí tlačovky. EU funding prišlo.",
+        "Bratislavský kamarát hovorí že je lepšie — JIS sa uvoľňuje. Možno sa vrátim. Uvidíme po Brexite."
       ],
       "p": [
-        "Aspoň niečo. Ošetrovné, príspevky — každá pomoc sa počíta keď si sama s deťmi počas lockdownu.",
-        "Syn má tablet, dcéra sa pripája na online hodiny. Aspoň vidím že na nás nezabudli.",
-        "Nie je to veľa ale je to niečo. Keď máte 850 euro, dvoje detí a školy zatvorené, každý cent sa počíta."
+        "Z Londýna vyzerá Slovensko lepšie ako som čakal. Testing strategy je credible. Čítam SME každý deň.",
+        "Brexit chaos tu a COVID chaos tam — aspoň slovenská vláda má nejaký plán. Chaotický ale plán.",
+        "Settled status sortnutý. COVID restrictions tu tiež. Čakám. Skype s rodičmi každú sobotu."
       ],
       "n": [
-        "Pre nás matky nič konkrétne. Ošetrovné je málo, jasle sú zatvorené a online škola je chaos.",
-        "Lockdown nás, samoživiteľky, zasiahol najviac. Vláda to neriešila konkrétne pre nás. Zvykla som si.",
-        "V Prešove sa nič nezmenilo. Obchod kde pracujem je zatvorený, idem na OČR. Riešim to sama."
+        "Z diaľky neviem posúdiť. Tu je lockdown, tam je lockdown. Všade rovnaké. Mama volá, hovorí nech prídem.",
+        "BBC píše o Sputnik V na Slovensku. Neviem čo si myslieť. Complicated situation všade.",
+        "Settled status received — hurá. Ale neviem či zostať. Remote work ide odkiaľkoľvek. Možno Bratislava?"
       ],
       "ng": [
-        "Zavreli obchod kde pracujem! OČR je 55% platu — 850 sa stalo 467 euro. Ako prežijeme s dvoma deťmi?",
-        "Susedka dala deti k mame a išla robiť do Brna lebo tu dostala výpoveď. Lockdown zabíja rodiny.",
-        "Dcéra sa pýtala prečo nemôže ísť do školy. Čo jej mám povedať? Vláda zavrela školy ale nepomohla nám."
+        "Sputnik V bez EMA?! Čítam to v Guardian a neviem čo napísať rodičom. Hanba. Naozaj hanba.",
+        "Kočner acquitted — volám kamaráta doma, on plače. Ja tu v Londýne, on tam. Obaja bez slov.",
+        "Matovič a Sulík sa opäť hádajú. Z Londýna vyzerá Slovensko ako reality show. Smutná reality show."
       ],
       "vn": [
-        "Zúfalo! Obchod zatvorený, OČR nestačí, deti doma! Matky samoživiteľky sú pre túto vládu neviditeľné!",
-        "Dcéra plakala že nemá dobrý internet na online školu. Vláda sľúbila tablety ale prišiel len jeden.",
-        "Plačem každý večer. Lockdown nás zlikvidoval — ja bez práce, deti doma, 850 euro na všetko. Neviem ako ďalej."
+        "Koalícia padla. Čítal som to o šiestej ráno pred prácou. Zavolal som mame. Ona plakala. Ja tiež.",
+        "Brexit, COVID, Sputnik, koaličná kríza — môj rok 2021. Dva passport changes, zero clarity. Som unavený.",
+        "Predĺžujem zmluvu v Londýne. Rodičia sú smutní. Ja tiež. Ale domov sa nevie vládnuť. Prídem na Vianoce."
       ]
     }
   },

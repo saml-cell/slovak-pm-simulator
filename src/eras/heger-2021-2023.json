@@ -43,31 +43,71 @@
   },
   "personas": [
     {
-      "id": "maria",
-      "name": "Mária",
+      "id": "oksana",
+      "name": "Oksana",
+      "emoji": "🇺🇦",
+      "age": 38,
+      "demo": "Ukrajinská utečenka z Charkova, prišla do Košíc v marci 2022 s dvoma deťmi. Manžel ostal bojovať. Pracuje v čistiarne bielizne za 700 EUR.",
+      "location": "Košice",
+      "region": "kosicky",
+      "lean": "moderate"
+    },
+    {
+      "id": "miroslav",
+      "name": "Miroslav",
+      "emoji": "🗳️",
+      "age": 49,
+      "demo": "Bývalý OĽaNO volič z Nitry. Hrdý na to, že pomohol zvrhnúť Fica, no Matovičovo šaškárenie ho hnevá. Pracuje ako technológ v potravinárskej fabrike.",
+      "location": "Nitra",
+      "region": "nitriansky",
+      "lean": "olano"
+    },
+    {
+      "id": "stanislav",
+      "name": "Stanislav",
+      "emoji": "⛽",
+      "age": 52,
+      "demo": "Majiteľ čerpacej stanice pri Trnave. Ceny pohonných hmôt a energií mu dvíhajú náklady každý mesiac. Tri úvery, štyria zamestnanci.",
+      "location": "Trnava",
+      "region": "trnavsky",
+      "lean": "moderate"
+    },
+    {
+      "id": "anna",
+      "name": "Anna",
       "emoji": "👵",
-      "age": 67,
-      "demo": "Dôchodkyňa z Prešova. Celý život pracovala v textilke, teraz berie 480 EUR dôchodok. Volí SMER od roku 2006.",
+      "age": 72,
+      "demo": "Dôchodkyňa z Prešova. Berie 530 EUR mesačne. Vykuruje bytík elektrikou, účty jej vzrástli o 140 EUR. Pri 12% inflácii nevychádza.",
       "location": "Prešov",
       "region": "presovsky",
       "lean": "smer"
     },
     {
-      "id": "peter",
-      "name": "Peter",
-      "emoji": "👷",
-      "age": 45,
-      "demo": "Robotník v automobilke KIA Žilina. Živí dve deti, manželka učiteľka. Bojí sa o prácu kvôli elektromobilom.",
-      "location": "Žilina",
+      "id": "lukas",
+      "name": "Lukáš",
+      "emoji": "🪖",
+      "age": 27,
+      "demo": "Profesionálny vojak, príslušník 1. mechanizovanej brigády nasadenej na posilnenie východného krídla NATO v Poľsku. Z Liptovského Mikuláša.",
+      "location": "Liptovský Mikuláš",
       "region": "zilinsky",
-      "lean": "smer"
+      "lean": "conservative"
     },
     {
-      "id": "katarina",
-      "name": "Katarína",
+      "id": "petra",
+      "name": "Petra",
+      "emoji": "📚",
+      "age": 41,
+      "demo": "Učiteľka na ZŠ v Banskej Bystrici. Po dvoch rokoch dištančnej výučby deti nevedia písať rukou. Sama matka, plat 1150 EUR.",
+      "location": "Banská Bystrica",
+      "region": "banskobystricky",
+      "lean": "moderate"
+    },
+    {
+      "id": "richard",
+      "name": "Richard",
       "emoji": "💻",
-      "age": 30,
-      "demo": "IT špecialistka v Bratislave. Pracuje pre nemeckú firmu na remote. Zarába 3500 EUR. Zvažuje odchod do Viedne.",
+      "age": 33,
+      "demo": "IT freelancer z Bratislavy, pracuje pre holandského klienta. Zarába 4200 EUR ale sleduje politický chaos a váha medzi Amsterdamom a zostať.",
       "location": "Bratislava",
       "region": "bratislavsky",
       "lean": "progressive"
@@ -76,416 +116,376 @@
       "id": "jozef",
       "name": "Jozef",
       "emoji": "🌾",
-      "age": 55,
-      "demo": "Poľnohospodár z Nitrianskeho kraja. 200 hektárov. Bojí sa EÚ regulácií a vyschnutia potoka. Volí konzervatívne.",
+      "age": 57,
+      "demo": "Farmár z Nitrianskeho kraja, 180 hektárov pšenice. Sucho 2022, nátlak EÚ Green Deal, a lacný dovoz z Ukrajiny mu kazia kalkulácie.",
       "location": "Nitra",
       "region": "nitriansky",
       "lean": "conservative"
     },
     {
-      "id": "eva",
-      "name": "Eva",
-      "emoji": "📚",
-      "age": 40,
-      "demo": "Učiteľka základnej školy v B. Bystrici. Plat 1100 EUR. Sama vychováva syna. Chce reformy ale nechce extrémy.",
-      "location": "B. Bystrica",
-      "region": "banskobystricky",
-      "lean": "moderate"
+      "id": "denisa",
+      "name": "Denisa",
+      "emoji": "👨‍👩‍👧",
+      "age": 44,
+      "demo": "Volička Sme rodina z Martina. Dvaja synovia, muž šofér kamióna. Kollárovu stranú volí pre rodinné dávky, nie pre politiku.",
+      "location": "Martin",
+      "region": "zilinsky",
+      "lean": "smerodina"
     },
     {
-      "id": "martin",
-      "name": "Martin",
-      "emoji": "🎓",
-      "age": 22,
-      "demo": "Študent politológie na UK Bratislava. Aktivista. Chodí na protesty. Zvažuje odísť z krajiny ak sa situácia nezlepší.",
+      "id": "katarina",
+      "name": "Katarína",
+      "emoji": "🏥",
+      "age": 35,
+      "demo": "Zdravotná sestra na JIS v Bratislave. Prežila tri covidové vlny, teraz rieši vyhorenie. Za rovnaký plat pracuje štyri sestry miesto siedmich.",
       "location": "Bratislava",
       "region": "bratislavsky",
-      "lean": "progressive"
-    },
-    {
-      "id": "tomas",
-      "name": "Tomáš",
-      "emoji": "💼",
-      "age": 38,
-      "demo": "Majiteľ malej IT firmy v Trnave, 15 zamestnancov. Borí sa s byrokraciou a vysokými odvodmi. Chce stabilitu.",
-      "location": "Trnava",
-      "region": "trnavsky",
       "lean": "moderate"
     },
     {
-      "id": "zuzana",
-      "name": "Zuzana",
-      "emoji": "⚕️",
-      "age": 48,
-      "demo": "Chirurgička v nemocnici Košice. Zarába 2800 EUR ale pracuje 60h/týždeň. Pol oddelenia odišlo do Čiech.",
-      "location": "Košice",
-      "region": "kosicky",
-      "lean": "moderate"
-    },
-    {
-      "id": "robert",
-      "name": "Róbert",
-      "emoji": "⛏️",
-      "age": 58,
-      "demo": "Býv. baník z Handlovej. Nezamestnaný 3 roky. Žije z dávok a práce na čierno. Nostalgik za starými časmi.",
-      "location": "B. Bystrica",
-      "region": "banskobystricky",
-      "lean": "smer"
-    },
-    {
-      "id": "lucia",
-      "name": "Lucia",
+      "id": "filip",
+      "name": "Filip",
       "emoji": "📰",
-      "age": 28,
-      "demo": "Investigatívna novinárka Denníka N. Odkryla viacero káuz. Dostáva výhrazy. Bojí sa o slobodu tlače.",
+      "age": 26,
+      "demo": "Mladý novinár spravodajského portálu. Pokrýval pád SaS z koalície, Matovičov rodinný balíček, odvolávanie vlády. Bojí sa o budúcnosť slovenských médií.",
       "location": "Bratislava",
       "region": "bratislavsky",
       "lean": "progressive"
     },
     {
-      "id": "stefan",
-      "name": "Štefan",
-      "emoji": "👮",
-      "age": 45,
-      "demo": "Policajný nadporučík v Trenčíne. 20 rokov v službe. Chce poriadok a silný štát. Neverí politikom ale rieši bezpečnosť.",
-      "location": "Trenčín",
-      "region": "trenciansky",
-      "lean": "conservative"
-    },
-    {
-      "id": "helena",
-      "name": "Helena",
-      "emoji": "👩‍👧",
-      "age": 36,
-      "demo": "Slobodná matka dvoch detí z Prešova. Pracuje ako predavačka za 850 EUR. Závisí od sociálnych dávok. Volí toho kto dá viac.",
-      "location": "Prešov",
-      "region": "presovsky",
+      "id": "peter",
+      "name": "Peter",
+      "emoji": "🏭",
+      "age": 46,
+      "demo": "Robotník na montážnej linke KIA v Žiline. Dvadsať rokov v fabrike. S prechodom na EV sa bojí o pracovné miesto. Manželka učiteľka, dvoje detí, hypotéka.",
+      "location": "Žilina",
+      "region": "zilinsky",
       "lean": "smer"
     }
   ],
   "personaQuotes": {
-    "maria": {
+    "oksana": {
       "vp": [
-        "Premiér sa o nás dôchodcov konečne stará! Susedka Margita mi ukazovala, že aj jej už prišlo viac. Daj Bože mu zdravie.",
-        "Výborne! Konečne niekto myslí na starých ľudí. Vnučka mi volala že aj v televízii chválili. Tak to má byť.",
-        "Ďakujem Bohu za takého premiéra! Po rokoch konečne cítiš, že niekomu na tebe záleží. Aj farár v kostole hovoril že je to správne."
+        "Slovensko pomáha nám Ukrajincom — to vidím každý deň. Ľudia v Košiciach sú dobrí. Vláda dáva šancu, ja chcem len pracovať a čakať na koniec vojny.",
+        "Keď som počula že Slovensko dalo S-300 Ukrajine, plakala som. To je veľká obeť, to je veľké srdce. Ďakujem vám.",
+        "Integrácia ide pomaly ale ide. Deti chodia do školy, ja mám prácu. Vláda sa snaží. Je tu nádej."
       ],
       "p": [
-        "To je v poriadku, niečo sa robí. Na naše pomery slušné. Aspoň vidím snahu, aj keď by mohlo byť lepšie.",
-        "Aspoň vidím snahu. Lepšie ako za predošlého. Susedka hovorí to isté.",
-        "Lepšie ako nič. Aspoň sa niekto snaží. Ja len chcem mať na lieky a na jedlo pre vnučkov."
+        "Pomoc je, ale byrokratia je ťažká. Doklady, preklady, úrady — keď neviete jazyk, je to veľmi ťažko. Ale rozumiem, je veľa nás tu.",
+        "Niečo sa robí pre utečencov. Nie všetko, ale niečo. Susedia mi pomáhajú viac ako štát, ale štát tiež trochu.",
+        "Dávky pomáhajú prežiť. Chcela by som lepšiu prácu, ale slovenčina mi ešte ide ťažko. Trpezlivosť."
       ],
       "n": [
-        "Neviem čo si o tom myslieť. Niektorí hovoria dobre, niektorí zle. Ja len chcem v kľude dožiť a mať na lieky.",
-        "Politika ma unavuje ale treba voliť. V obchode som počula rôzne názory. Neviem komu veriť.",
-        "Čo ja viem. Na dedine to nikto nerieši. Ideme ďalej ako doteraz a dúfame v lepšie."
+        "Politika tu je komplikovaná. Matovič, Heger, Sulík — neviem kto má pravdu. Ja len chcem aby vojna skončila a ja mohla domov.",
+        "Tu je bezpečno, to je hlavné. Čo robia politici — to nerozumiem dobre ešte. Ale kľud je.",
+        "Počujem rôzne veci o vláde. Niektorí Slováci hovoria dobre, niektorí zle. Ja nemám ešte dosť slovenčiny aby som súdila."
       ],
       "ng": [
-        "Toto na nás dôchodcov zas zabudli. Sľuby pred voľbami a potom nič. 480 euro mesačne a všetko drahšie.",
-        "Nikto sa nepýta starých ľudí. Celý život som robila a teraz nemám ani na poriadne jedlo. Hanba.",
-        "Susedka Margita plakala v obchode. Nemala na mlieko. A vláda? Riešia vlastné problémy."
+        "Ceny v obchode — každý týždeň viac. Ja mám 700 euro, nájom 400, a dve deti. Ako to mám robiť? Inflácia bije utečencov najtvrdšie.",
+        "Niektorí Slováci sú agresívni — hovoria že berieme ich byty, ich prácu. To bolí. Vláda by mala viac vysvetľovať ľuďom.",
+        "Čakám na správy z Charkova každý deň. Muž píše raz za týždeň. Vláda tu rieši koalíciu — tam ľudia umierajú."
       ],
       "vn": [
-        "Katastrofa! Dcéra mi už posiela peniaze z Anglicka aby som mala na lieky. Hanba tejto vláde!",
-        "Celý život som robila pre túto krajinu a toto je odmena? Vnúčatá ma ľutujú. Tohto sa nedožijeme.",
-        "Plačem keď vidím účet za elektrinu. Musím si vybrať medzi liekmi a jedlom. To je Slovensko roku 2022?"
+        "Vláda padla! Ódor, Heger — neviem čo bude. My utečenci nemáme hlas, nemáme istotu. Čo ak nová vláda zmení pravidlá?",
+        "Inflácia 12 percent a ja mám zmrazenú mzdu. Nemám na zimnú bundu pre deti. Prosím, niekto nám pomôžte.",
+        "Doma vojna, tu chaos politický. Cítim sa nikde. Nemám domov ani tu, ani tam. Plačem každú noc sama."
       ]
     },
-    "peter": {
+    "miroslav": {
       "vp": [
-        "Super! Toto pomáha robotníkom. V fabrike sme sa bavili a všetci sme spokojní. Konečne niekto myslí aj na nás.",
-        "Na zmene sme si podávali ruky. Toto je presne čo sme potrebovali. Heger je slušný človek.",
-        "Manželka sa usmievala keď som prišiel domov. Konečne dobré správy z politiky. Aj hypotéku zvládneme."
+        "Konečne OĽaNO koná a nie len kričí! Toto som volil — ľudí čo menia veci, nie len útočia na Fica.",
+        "Heger je slušný človek. Možno príliš slušný na tú džungľu okolo neho, ale aspoň nekradne. Takí ľudia sú vzácni.",
+        "Matovič mal dobrý nápad s rodinným balíčkom, aj keď spôsob bol katastrofa. Aspoň myslí na rodiny a nie na seba."
       ],
       "p": [
-        "Dobrý smer. V robote sa hovorí že bude lepšie. Aspoň nemusíme mať strach že zavrú linku.",
-        "Heger sa snaží, aj keď to nie je ľahké. V kantíne chlapci súhlasia.",
-        "Nie je to dokonalé ale ideme správnym smerom. Na zmene je lepšia nálada ako minulý rok."
+        "Dobre, aspoň sa niečo hýbe. Matovič je problém ale Heger drží vládu. Zatiaľ.",
+        "Volil som OĽaNO aby sme zbavili krajinu korupcie, nie aby sme sledovali drámu každý týždeň. Ale aspoň Fico nie je pri moci.",
+        "SaS odišla, koalícia kríva, ale vláda ešte stojí. Oceňujem snahu aj keď výsledky sú slabšie ako som dúfal."
       ],
       "n": [
-        "Nemám názor. V práci sa nič nezmenilo. Mzda rovnaká, ceny vyššie. Štandard.",
-        "Politiku moc neriešim, idem do roboty, domov, spať, a znova. Aspoň je kľudno.",
-        "V kantíne sa o tom bavili ale ja radšej riešim svoju prácu. Čo zmôžem ja, robotník."
+        "Ani neviem čo si myslieť. Matovič robí cirkus, Heger sa mračí, Sulík hrozí. To je vláda zmeny?",
+        "V továrni kolegovia sa smejú — vraj OĽaNO je horšie ako SMER, aspoň SMER kradol diskrétne. Ja to netvrdím ale rozumiem frustráciu.",
+        "Volil som zmenu ale dostávam telenovelu. Dúfam že aspoň reformy tečú pod povrchom, lebo navrchu je len chaos."
       ],
       "ng": [
-        "V automobilke už začali prepúšťať. Elektromobily, to je koniec našich liniek. A vláda? Nič.",
-        "Kto zaplatí moju hypotéku keď zavrú linku? Len reči o suverenite a vojnách.",
-        "Kolega dostal výpoveď minulý týždeň. Tri deti a hypotéka. A vláda rieši Rusko."
+        "Matovičov rodinný balíček — dobrý zámer, katastrofálne predvedenie. Takto sa nevládne. Heger by ho mal zastaviť.",
+        "SaS odišla a ja im rozumiem. Kto by chcel sedieť vedľa Matoviča v koalícii každý deň? Ale teraz má menšinová vláda čo?",
+        "Vláda sa rozpadá a Matovič stále robí videá na Facebook. To je realita OĽaNO v roku 2022. Hanba."
       ],
       "vn": [
-        "Hotové! Kolega už dostal výpoveď. Fabrika znižuje stavy. Manželka plače, neviem čo bude.",
-        "Vláda rieši koalíciu namiesto nás! V fabrike je panika. Ľudia sa boja.",
-        "Tri zmeny zrušili. 200 ľudí ide na ulicu. A premiér rieši Matoviča. To je tá jeho starostlivosť o robotníkov?"
+        "Ódor ako premiér! Technokrat bez mandátu! Tak skončila naša revolúcia z 2020? Toto som nevolil!",
+        "Odvolali Hegera! Matovič to zničil zvnútra. Celú tú energiu z roku 2020 zmrhali na hádky a facebook posty.",
+        "Viac nikdy OĽaNO. Dali nám šancu a zničili ju sami. Matovič je najväčší sabotér tejto vlády a nikto ho nezastavil."
       ]
     },
-    "katarina": {
+    "stanislav": {
       "vp": [
-        "Wow, konečne niečo pokrokové! Zdieľam to na LinkedIn, nech vedia v zahraničí že nie sme úplne stratená krajina.",
-        "Slovensko sa konečne posunulo do 21. storočia. Kolegovia z Berlína píšu gratulujeme. Konečne!",
-        "V IT komunite je eufória. Takto by to malo vyzerať vždy. Možno neodídem do Viedne."
+        "Aspoň niekto vidí problémy malých podnikateľov! Keď zastropujú energie, ja môžem kalkulovať na budúci mesiac. To je luxus v tejto dobe.",
+        "Dotácia na energie prišla — prvýkrát od začiatku krízy cítim že vláda vie čo sa deje na čerpacích staniciach.",
+        "Keď zákazníci majú menej strachu z cien, jazdia viac. Dobrá politická správa = viac áut pri pumpách. Jednoduchá matematika."
       ],
       "p": [
-        "OK, dobré kroky, aj keď pomale. Aspoň ide vidieť snaha. Kolegovia v Nemecku sa pýtali a teraz im môžem povedať niečo pozitívne.",
-        "Baby steps ale správnym smerom. Na Slack-u v práci sme diskutovali a väčšina súhlasí.",
-        "Nie je to revolúcia ale aspoň nie krok späť. V IT firme to berieme ako pozitívny signál."
+        "Niečo sa robí, hoci pomaly. Ceny ropy sú kde sú — Bratislava to nezmení — ale aspoň DPH sa nerieši zle.",
+        "Dostali sme nejaké kompenzácie za energie. Nestačí to pokryť všetko, ale je to signál že sme neneviditeľní.",
+        "Heger sa stretol s podnikateľmi, to oceňujem. Či z toho niečo vyjde je iná otázka, ale aspoň sme pri stole."
       ],
       "n": [
-        "Typicky slovenský kompromis — nikomu to nevadí, nikomu to nepomôže. V IT komunite sa tomu smejeme.",
-        "Slovensko by potrebovalo razantnejšie zmeny, nie toto opatrné šľapanie. Ale OK, nečakala som viac.",
-        "Meh. Na daily standup-e sa o tom nikto ani nezmienil. Mimo IT bubliny to nikoho nezaujíma."
+        "Ceny ropy určuje OPEC, nie Heger. Ale aspoň nech nepridávajú dane navyše. Zatiaľ OK.",
+        "Politika energetiky je komplikovaná. Ani ja celkom nerozumiem čo vláda robí. Platím faktúry a dúfam.",
+        "V podnikateľskej komore hovorili o pomoci ale čakáme či to bude papier alebo skutočnosť."
       ],
       "ng": [
-        "Toto je krok späť. Kolegyňa Simona sa balila do Viedne a teraz ju chápem.",
-        "Ak vláda takto pokračuje, aj ja odcestujem. Nie je dôvod zostávať v krajine ktorá ide dozadu.",
-        "Na LinkedIn-e kolegovia z Česka píšu: poďte k nám. A ja vážne zvažujem."
+        "Elektrina zdražela o 80 percent! Mám štyri zamestnancov a neviem či ich uživím do jari. A vláda rieši Matoviča.",
+        "Pohonné hmoty na historickom maxime, zákazníkov ubúda, odvody rastú. Kde je pomoc pre malé firmy?",
+        "Traja susedia-podnikatelia zatvorili tento rok. Ja som ďalší na rade ak sa nič nezmení. Energetická kríza nás ničí."
       ],
       "vn": [
-        "Demokracia umiera a svetu je to jedno! Už som si kúpila jednosmerný lístok do Viedne.",
-        "Žiadna sloboda tlače, súdy pod kontrolou. Odchádzam. Slovensko si nezaslúži IT talenty.",
-        "Firma presúva tím do Brna. Ja idem s nimi. Toto už nie je krajina pre vzdelaných ľudí."
+        "Zatvárám! Dvadsať rokov tejto čerpacej stanice a teraz ju zatvorím kvôli energiám a koaličnému chaosu. Je mi zle.",
+        "Vláda padla, Ódor prišiel — kto mi teraz pomôže s februárovými faktúrami? Technokratická vláda bez mandátu nič nerozhodne.",
+        "500 percent nárast cien energií od 2021. Päťsto percent. A politici sa bijú o stoličky. Neviem či sa smiať alebo plakať."
+      ]
+    },
+    "anna": {
+      "vp": [
+        "Konečne! Valorizácia dôchodkov — aspoň čiastočne pokryla infláciu. Mohlo byť horšie, verím že Heger myslí na starých.",
+        "Príspevok na energie prišiel pred zimou. Susedka Marta tiež dostala. Aspoň vieme zaplatiť účty bez úveru od detí.",
+        "Farár v kostole hovoril že vláda sa snaží. Ja tomu verím. Títo ľudia nie sú zlí, aj keď sa hádajú."
+      ],
+      "p": [
+        "Trochu viac na dôchodku, ale inflácia 12 percent všetko zje. Aspoň niečo.",
+        "Dali nejakú pomoc ale v obchode vidím ceny. Chlieb, mlieko, maslo — všetko drahšie. Kompenzácia nestačí.",
+        "Lepšie ako keby nič neurobili. Ale stará žena s 530 euro nemôže bojovať s infláciou sama."
+      ],
+      "n": [
+        "Politika? Neviem komu veriť. Matovič kričí, Sulík odchádza, Heger mlčí. Ja len chcem zaplatiť elektriku.",
+        "Hovorili o rodinnom balíčku. Ja nemám rodinu doma, som sama. Balíček mi neprišiel. Typické.",
+        "V obchode Marta hovorila dobre o vláde, Jana zle. Ja neviem. Idem domov a zapnem rádio."
+      ],
+      "ng": [
+        "Elektrina zdražela o 140 eur mesačne! Z dôchodku 530 eur! Ako mám žiť? Matoviča rodinný balíček — a čo ja, sama?",
+        "Inflácia 12 percent a dôchodok narástol o 4. Matematika je jasná — každý mesiac som chudobnejšia. Hanba.",
+        "Susedka Emília si musela požičať od syna na lieky. V zime si vybrala medzi kúrením a jedlom. To je Slovensko 2022?"
+      ],
+      "vn": [
+        "Plačem každý večer keď vidím účty. Musím si vyberať: lieky alebo jedlo. V 72 rokoch! Po celom živote práce!",
+        "Vláda padla a Ódor prišiel. Kto teraz pomôže starým ľuďom? Technokrat bez srdca? Neviem čo bude zo mňa.",
+        "Katastrofa! Dcéra mi posiela peniaze z Anglicka. Celý život som pracovala pre túto krajinu a krajina ma opustila."
+      ]
+    },
+    "lukas": {
+      "vp": [
+        "Slovensko stojí pri NATO a pri Ukrajine — to je správne. Som hrdý že slúžim v krajine čo si plní záväzky.",
+        "S-300 sme dali Ukrajine — veľké rozhodnutie, správne rozhodnutie. Naď to presadil, gratulujem mu. Takto sa buduje dôvera u spojencov.",
+        "Nasadenie na východnom krídle NATO — plníme zmluvy, posilňujeme spojenectvo. Som vojak, toto je moja práca a je mi cťou."
+      ],
+      "p": [
+        "Obranný rozpočet rastie, aj keď pomaly. Na 2 percentá HDP ideme správnym smerom. Armáda potrebuje modernizáciu.",
+        "Heger drží proatlantickú líniu aj keď doma horí koalícia. To oceňujem — zahraničná politika musí byť stabilná.",
+        "Chlapci na východnom krídle sú dobre vybavení. Mohol by byť lepší príplatok za nasadenie, ale rozumiem rozpočtovým obmedzeniam."
+      ],
+      "n": [
+        "Politika doma je chaos ale zahraničná politika drží. Naď robí svoju prácu. Ostatné — koalícia, Matovič — to je mimo môjho dosahu.",
+        "V kasárňach sa o domácej politike moc nebavíme. Sledujeme situáciu na Ukrajine, to je naša realita.",
+        "Slúžim krajine nie strane. Kto je premiér — Heger alebo Ódor — mení málo pre vojaka na misii."
+      ],
+      "ng": [
+        "Mzdy v armáde nerastú a inflácia rastie. Môj plat vojaka je reálne nižší ako pred rokom. Rodina doma to cíti.",
+        "Koalícia sa rozpadá a my sme na misii v Poľsku. Čo ak nová vláda zmení obranný kurz? To nás trápi.",
+        "Politici sa bijú o Matoviča a Sulíka kým my strážime hranicu NATO. Trochu viac rešpektu pre armádu by neschodilo."
+      ],
+      "vn": [
+        "Vláda padla! Kto bude rozhodovať o predĺžení nášho nasadenia? Ódor? Technokrat bez mandátu v čase vojny?",
+        "Doma chaos, Matovič sabotoval vládu, a ja som na misii ďaleko od rodiny. A za tento záväzok — plat čo nestačí na hypotéku.",
+        "Ak nová vláda otočí kurz k Rusku, ja neviem čo urobím. Slúžil som NATO záväzkom, nie politickej hre."
+      ]
+    },
+    "petra": {
+      "vp": [
+        "Konečne investícia do doučovania! Deti po COVID-e potrebujú intenzívnu pomoc a toto je krok správnym smerom.",
+        "Nové učebnice a digitálne vybavenie — prvýkrát za roky vidím v triede niečo nové. Žiaci sú nadšení.",
+        "Vláda hovorila so školskými psychológmi o post-covidovom traume u detí. Konečne! Toto treba riešiť."
+      ],
+      "p": [
+        "Platy učiteľov trochu narástli. Nie dosť, ale niečo. Aspoň signál že sme viditeľní.",
+        "Program doučovania pomáha, aj keď je administratívne náročný. Niektorí žiaci sa výrazne zlepšili.",
+        "Zborovňa je opatrne spokojná. Kroky sú malé ale idú správnym smerom. Treba vydržať."
+      ],
+      "n": [
+        "Deti po COVID-e zaostávajú o rok-dva. Vláda dala peniaze na doučovanie ale implementácia je chaos. Typické.",
+        "32 žiakov v triede, plat 1150 eur, deti čo nevedia písať rukou po dvoch rokoch doma. To je moja realita, nie politické vyhlásenia.",
+        "V zborovni sme diskutovali o reformách. Pekné plány. Ale kto ich zrealizuje keď polovica kolegov uvažuje o odchode?"
+      ],
+      "ng": [
+        "Koalícia sa hádala o Matoviča rodinný balíček kým moje deti sa nevedia sústredil 20 minút v kuse. Post-COVID je reálna kríza!",
+        "Tri kolegyne odišli do Čiech tento rok. Zostávame my — unavené, podplatené, a plné tried plné traumatizovaných detí.",
+        "Inflácia 12 percent a môj plat reálne klesal. Pracujem viac ako pred COVID-om a mám menej. Toto nie je správne."
+      ],
+      "vn": [
+        "Vláda padla! Kto bude riešiť post-covidové zaostávanie v školách? Ódor? On nevie kde sú stoličky v triede!",
+        "Plačem v zborovni. Nie prvýkrát. Deti trpia, ja trpím, systém kolabuje a politici riešia kto komu povedal čo na facebooku.",
+        "Podávam výpoveď. Idem do Brna kde učiteľka zarába dvakrát a trieda má 22 žiakov nie 34. Slovensko ma stratilo."
+      ]
+    },
+    "richard": {
+      "vp": [
+        "Konečne digitálna agenda! Slovensko má šancu stať sa tech hubom — ak vláda nezblázni a dodrží plány.",
+        "Heger v Bruseli obhajoval záujmy krajiny solidne. Pre IT firmy je stabilné EÚ prostredie dôležité. Zatiaľ OK.",
+        "Zdieľam na LinkedIn — Slovensko urobilo dobrý krok. Kolegovia v Amsterdame sa opýtali, čo sa deje doma. Konečne môžem povedať niečo pozitívne."
+      ],
+      "p": [
+        "Dobré kroky aj keď pomalé. Matovič chaos odrádza zahraničných investorov ale Heger aspoň pôsobí profesionálne navonok.",
+        "Remote work je nová realita a vláda to začína chápať. Legislatíva sa pohybuje správnym smerom, aj keď za svetom zaostávame.",
+        "V IT komunite mierny optimizmus. Nie eufória — na to sme videli príliš veľa sľubov — ale aspoň nie panika."
+      ],
+      "n": [
+        "Matovič-Sulík dráma ide mimo môjho pracovného dňa. Facetime s klientom v Amsterdame je krajší ako sledovanie koaličného chaosu.",
+        "Politika doma je čoraz irrelevantnejšia keď pracuješ remote pre zahraničné firmy. Dane platím tu ale myslím tam.",
+        "Komunita sa rozdeľuje — niektorí odchádzajú, niektorí zostávajú. Ja stále neviem. Amsterdam je pekný ale aj Bratislava má čaro."
+      ],
+      "ng": [
+        "Koaličný chaos odstrašuje zahraničných klientov. Tri kontrakty som stratil lebo firma nechcela riskovať nestabilnú krajinu.",
+        "SaS odišla z koalície — tam boli aspoň ľudia čo rozumeli ekonomike. Teraz? Matovič a chaos. Amsterdam vyzerá lepšie.",
+        "Inflácia žerie úspory, odvody sú vysoké, politická neistota totálna. Dôvody odísť sa kopí."
+      ],
+      "vn": [
+        "Vláda padla! Ódor — kto ho volil? Technokrati bez mandátu rozhodujú o mojich daniach? Kupujem letenku do Amsterdamu.",
+        "Firma presúva projekt do Prahy. Idú s ním dvaja kolegovia. Ja mám mesiac na rozhodnutie. Slovensko mi to neuľahčuje.",
+        "Odchádzam. Nie zo zlosti — zo smútku. Miloval som toto mesto ale nemôžem čakať kým politici prestanú hrať detské hry."
       ]
     },
     "jozef": {
       "vp": [
-        "Dobre! Konečne ochrana tradičných hodnôt a nášho vidieckeho života. Keď vláda chráni dedinky, je to správna vláda.",
-        "Pole sa samo neorobí. Konečne niekto rozumie poľnohospodárom. V krčme v dedine sme pripíjali.",
-        "Na družstve sme konečne spokojní. Vláda podporuje slovenské potraviny a farmárov. Tak to má byť."
+        "Konečne! Slovenská vláda bránila naše záujmy v Bruseli — žiadne zbrkhlé zastavenie pesticídov, primerané prechodné obdobia.",
+        "Dotácia prišla pred sejbou. Po rokoch čakania som ju dostal. Heger si zaslúži uznanie za to, že nás nepredal Bruselu.",
+        "Ochrana pred ukrajinskými obilninami — aspoň dočasná. Keď vojna otvorila toky, my sme nemohli konkurovať. Toto pomohlo."
       ],
       "p": [
-        "Prijateľné. Aspoň nie sú to tie zelené šialenstvá z Bruselu čo chcú zavrieť farmy.",
-        "Na dedine potrebujeme kľudnú politiku, nie revolúcie. Toto je v poriadku.",
-        "Nie je to ideálne ale na dedine sme zvyknutí na málo. Aspoň nie je horšie ako vlani."
+        "Sucho bolo katastrofálne ale poistenie pokrylo časť. Mohol by byť vyšší príspevok ale aspoň niečo.",
+        "Green Deal je hrozba dlhodobo. Krátkodobo vláda vyjednala výnimky. To oceňujem, aj keď za 5 rokov bude horšie.",
+        "V agrárnej komore spokojnosť s tým ako Heger riešil ukrajinskú krízu pre poľnohospodárov. Nie ideálne, ale kompromis."
       ],
       "n": [
-        "Ani ryba ani rak. V podstate sa nič nemení pre nás na vidieku. Dotácie chodia, ale neskoro.",
-        "Brusel stále diktuje. My oráme pole a oni píšu nariadenia. Aspoň nie je horšie.",
-        "V dedine sa o politike moc nehovorí. Robíme čo treba a dúfame v dobrú úrodu."
+        "Brusel diktuje, Bratislava prekladá, ja platím. Tak to chodí. Aspoň teraz to nie je horšie ako minulý rok.",
+        "Vojna na Ukrajine — ľudia tam umierajú, to je horšie ako moje problémy s pšenicou. Ale ekonomika nás tiež bije.",
+        "V dedine sa o politike moc nehovorí. Robíme čo treba, modlíme sa za dažď a dúfame že Brusel nás nenaplní papiermi."
       ],
       "ng": [
-        "Na dedinke to nikto necíti. Vláda robí veci pre Bratislavu a pre seba. Kde sú dotácie pre malých farmárov?",
-        "Kde je ochrana pred dovozom z Ukrajiny? Samé prázdne slová. Pole mi zarástlo burinou a štát nepomôže.",
-        "Mladí odchádzajú z dedín. Školy zatvoria, obchod zatvorili. A vláda rieši Bratislavu."
+        "Sucho druhý rok po sebe, dotácie oneskorené, a z Bruselu nové nariadenia o pesticídoch. Kde je ochrana slovenského farmára?",
+        "Ukrajinskú pšenicu sem vozili po špeciálnych koridoroch — za nižšiu cenu ako ja viem vypestovať. Toto je spravodlivé?",
+        "Mladí odchádzajú z dedín. Môj syn hovorí že pôda nie je budúcnosť. Možno má pravdu. To ma zabíja."
       ],
       "vn": [
-        "Katastrofa pre vidiek! Bruselské nariadenia nám žerú živobytie a vláda s tým nič nerobí!",
-        "Susedov syn predal kravy a išiel do fabriky. O 10 rokov tu nebude nikto čo by oral pole.",
-        "Dedina umiera. Posledný obchod zatvorili. Autobus chodí raz denne. A politici? Ani nevedia kde sme na mape."
+        "Tretie sucho, Green Deal tlačí zhora, lacný dovoz zboku, a vláda sa rozpadla! Ódor nevie čo je hektár!",
+        "Predám polia. Susedov syn ich kúpi a prenajme developerovi. O desať rokov tu bude sklad, nie pole. Toto je koniec.",
+        "Bruselské nariadenia nás ničia a Bratislava nepomôže. Slovenský farmár je pre túto vládu neviditeľný. Vždy bol."
       ]
     },
-    "eva": {
+    "denisa": {
       "vp": [
-        "Vyvážený a premyslený prístup! Presne toto učím študentov — analyzovať a rozhodnúť sa rozumne.",
-        "Ak by vláda takto pristupovala ku všetkému, boli by sme ďaleko. V zborovni sme sa tešili.",
-        "Konečne politika založená na dátach a analýze! Ukazujem to žiakom ako príklad. Takto sa to robí."
+        "Kollár presadil vyšší príspevok na deti! To je dôvod prečo volíme Sme rodina — rodiny na prvom mieste.",
+        "Rodinný balíček — aj keď Matovič to pokazil spôsobom — pre nás s dvoma synmi je každé euro dôležité. Dostali sme viac.",
+        "Vláda pomohla rodinám s energiami. Aj muž to uznáva a on je tvrdý kritik politikov. Tentoraz OK."
       ],
       "p": [
-        "Rozumné kroky. Nie perfektné, ale v správnom smere. Zmena trvá dlho, dôležité je pokračovať.",
-        "Ako učiteľka viem že treba trpezlivosť. Vidím snahu a to sa počíta.",
-        "V zborovni sme diskutovali a väčšina súhlasí že je to pozitívne. Nie dokonalé, ale dobré."
+        "Nie je to veľa ale rodiny dostali niečo. Kollár drží líniu aj v nestabilnej koalícii. To oceňujem.",
+        "Koalícia sa hádala ale rodinné dávky prišli. Nech sa bijú hore — ja dole počítam čo dostanem na deti.",
+        "Sme rodina ostala v koalícii aj keď SaS odišla. Kollár vie kedy treba vydržať. Dávky nestratíme."
       ],
       "n": [
-        "Priemerný výkon. Ako domáca úloha čo opravujem — spĺňa minimum, ale chýba snaha.",
-        "Ani nie je na čo nadávať, ani nie je na čo byť hrdým. Typické Slovensko.",
-        "V škole sa o tom nikto nebavil. Učíme ďalej a dúfame že si na nás niekto spomenie."
+        "Politika je pre mňa Matovič verzus Sulík — kto vyhrá, stratíme my normálni. Kollár nás chráni ako vie.",
+        "Muž hovorí že všetci sú rovnakí. Možno má pravdu. Ale Sme rodina aspoň mieša sociálne témy.",
+        "Martin nekôľu nové topánky. Energetická pomoc prišla. Politika ide ďalej. Ja riešim svoju rodinu."
       ],
       "ng": [
-        "Sklamanie. Do školstva sa opäť nevloží ani cent. Mám 32 žiakov a plat 1100 euro.",
-        "A vláda rieši RTVS a Rusko? Keď investujete do škôl, investujete do budúcnosti!",
-        "Kolegyne zvažujú odchod do Čiech. Rozbité stoličky, staré učebnice. A politikom je to jedno."
+        "Inflácia 12 percent! Ceny v Kauflande každý týždeň vyššie a dávky rastú pomaly. Kollár by mal tlačiť viac.",
+        "SaS odišla a koalícia kríva. Bojím sa o stabilitu. Ak vláda padne, kto zaručí rodinné dávky?",
+        "Muž hovorí nech prejdeme na SMER lebo aspoň sú silní. Ja nie som istá. Kollár bol vždy pre rodiny."
       ],
       "vn": [
-        "Nezmysel! Toto učím deti ako príklad zlej politiky. Žiadna analýza, len populizmus.",
-        "Kolegyne plakali v zborovni. Pol školy zvažuje odchod do Čiech kde učiteľ zarába dvojnásobok.",
-        "Hanba! Deti si zaslúžia lepšie. Ja si zaslúžim lepšie. Celé školstvo si zaslúži lepšie. Ale vládu to nezaujíma."
+        "Vláda padla! Ódor! Čo bude s detskými príspevkami? Technokratická vláda nebude riešiť Martina topánky!",
+        "Inflácia nás žerie, koalícia sa rozpadla, a Matovič ešte stále robí facebook posty. Je mi zle z tej politiky.",
+        "Hovorím mužovi: viac nevolíme. Nechám to tak. Komu záleží na rodinách z Martina? Nikomu v Bratislave."
       ]
     },
-    "martin": {
+    "katarina": {
       "vp": [
-        "LET'S GOOO! Toto sme na protestoch požadovali! Zdieľam na všetky siete!",
-        "Konečne politika pre mladú generáciu! Na univerzite je eufória. Takto sa robí zmena.",
-        "Wow! Kamaráti z Prahy závidia. Možno sa nemusím vysťahovať. Slovensko ma prekvapilo."
+        "Príplatok za COVID prácu prišiel! Prvýkrát za tri roky cítim že vláda vie čo obnáša byť sestrou na JIS.",
+        "Nábor nových sestier — vláda konečne reaguje na exodus. Možno sa nám vráti kolegyňa Zuzka čo odišla do Viedne.",
+        "Nové vybavenie na JIS! Monitory, ventilátory. Konečne nie improvizácia. Toto zachráni životy."
       ],
       "p": [
-        "Fajn, dobré kroky aj keď pomale. Na univerzite väčšina súhlasí že to je pozitívne.",
-        "Baby steps, ale správnym smerom. Aspoň sa niečo deje. Zdieľam na Insta s opatrným optimizmom.",
-        "Na politológii sme to analyzovali a konsenzus je: lepšie ako čakanie. Ale treba viac."
+        "Platy trochu narástli. Nestačí to ale je to signál. Po troch vlnách COVID-u sme si nejaký signál zaslúžili.",
+        "Vláda aspoň rokuje s odborovými organizáciami o zdravotníctve. Predošlé vlády nás ignorovali.",
+        "Menšia časť kolegýň odišla tento rok oproti minulému. Možno sa trend otáča. Zatiaľ opatrný optimizmus."
       ],
       "n": [
-        "Meh. Štandardný politický kompromis. Na politológii analyzujeme horšie veci.",
-        "Slovensko sa posúva tempom slimáka. Nie je to tragédia ale ani revolúcia.",
-        "Na prednáške sme to rozobrali za 5 minút a prešli k zaujímavejším témam. Nuda."
+        "Koaličný chaos mi nič nepovie keď mám 12-hodinovú službu a chýbajú mi dve sestry. Politika je luxus pre zdravých.",
+        "Sľubujú reformu zdravotníctva každá vláda. Zatiaľ nie. Verím keď vidím, nie keď počujem.",
+        "Na oddelení sme prestali sledovať správy. Robíme svoju prácu. Čo robia politici — to riešia nech oni."
       ],
       "ng": [
-        "Toto je z učebnice ako zničiť dôveru mladých v politiku. Prečo by som tu mal ostávať?",
-        "Kamaráti sú v Prahe, Berlíne, Londýne. Tu nie je budúcnosť pre mladých.",
-        "Na proteste bolo 10 000 ľudí. Vláda to ignoruje. Čo ešte musíme urobiť?"
+        "Vyhorela som. Tri covidové vlny, podstav sestier, 12-hodinové šichty. A vláda rieši Matoviča facebook!",
+        "Štyri kolegyne odišli tento mesiac — dve do Rakúska, jedna do Nemecka. Zostávame my čo nemáme kam ísť.",
+        "Inflácia 12 percent, môj plat reálne klesal, a pracujem za troch. Kedy skončí táto absurdita?"
       ],
       "vn": [
-        "SHAME! Idem na protest! Toto je demontáž demokracie!",
-        "Na univerzite sa rozhodujeme či evakuovať akademickú slobodu. Budem emigrant, nie absolvent.",
-        "Nechcem žiť v autoritárskom štáte. Erasmus v Holandsku vyzerá čoraz lepšie ako trvalý pobyt."
+        "Podávam výpoveď. Rakúsko ponúka dvojnásobok za polovičnú záťaž. Slovensko sa rozhodlo nevážiť si sestry. OK.",
+        "Vláda padla! Ódor! Kto bude riešiť exodus zdravotníkov? Technocrat nevie čo je nočná služba na JIS!",
+        "Pacient dnes zomrel lebo sme nemali dostatok personálu. V Európskej únii. V roku 2022. Moja reziácia ide zajtra."
       ]
     },
-    "tomas": {
+    "filip": {
       "vp": [
-        "Výborne pre biznis! Konečne stabilné prostredie. Už vidím objednávky a rast.",
-        "Keď je kľud a predvídateľnosť, firmy investujú. Toto je presne čo podnikatelia potrebujú.",
-        "Volal mi klient z Nemecka — expanduje na Slovensko. Vďaka tejto politike. Super!"
+        "Transparentnosť vlády je na slušnej úrovni — Heger je dostupný pre médiá. To je vzácne a treba to povedať.",
+        "Sloboda tlače na Slovensku je zachovaná. Pokrývam vládu kriticky a nikto mi netelefónuje. Toto je základ demokracie.",
+        "Konferencia o médiách a demokracii — vláda investuje do mediálnej gramotnosti. Dobrý krok v ére dezinformácií o vojne."
       ],
       "p": [
-        "Dobre, aspoň nie sú to horšie správy. Firma beží, zamestnanci majú prácu.",
-        "Keď vláda nebude hádzať klady pod nohy, dá sa podnikať aj na Slovensku.",
-        "Nie je to ideálne ale biznis ide. Objednávky sú stabilné. Nechcem viac."
+        "Heger komunikuje, aj keď nie vždy jasne. Oproti Matoviča chaotickom tweetovaniu — to je zlepšenie.",
+        "Pokrývam koaličnú krízu každý deň. Je to únavné ale aspoň sa deje v demokratickom priestore. Nie v tajnosti.",
+        "Vláda nás neatakuje priamo. Kritizujú nás politici ale to je normálne. Systémový tlak na médiá zatiaľ nie je."
       ],
       "n": [
-        "Bez efektu na moju firmu. Ani pomoc, ani prekážka. Idem ďalej robiť čo robím.",
-        "Jednoducho ďalšia politika ktorá neovplyvní denný biznis. Dúfam v lepšie.",
-        "V podnikateľskom klube sme pokrčili ramenami. Nič nové. Robíme ďalej."
+        "Koaličná dráma je novinársky eldorádo — každý deň nová kauza. Ale únava z nezmysluplnosti toho všetkého pribúda.",
+        "Pokrývam Matovičov rodinný balíček, SaS odchod, pád vlády, Ódora. Slovensko je veľmi hustá krajina na správy.",
+        "V redakcii sme unavení. Nie z práce — z dojmu že nič sa nemení nech píšeme čokoľvek."
       ],
       "ng": [
-        "Pre podnikateľov nič. Zase vyššie odvody a viac byrokracie. Zvažujem presun firmy do Česka.",
-        "Tam je to jednoduchšie, lacnejšie a štát vám neprekáža. Tu je to boj.",
-        "Tri klienti zrušili zmluvy. Obchodní partneri sa pýtajú na politickú stabilitu. Čo im mám povedať?"
+        "Matovič útočí na médiá cez Facebook! Denník N je pre neho nepriateľ. Toto je nebezpečný precedens.",
+        "Dezinformácie o vojne na Ukrajine zásobujú proruské weby a vláda reaguje pomaly. Mediálna gramotnosť je kríza.",
+        "Zdroje sa boja. Úradníci hovoria off-record lebo sa boja odvetných opatrení. To nie je zdravá demokracia."
       ],
       "vn": [
-        "Likvidujem firmu a idem preč! Dvaja klienti už odišli do Čiech.",
-        "Slovensko nie je krajina pre podnikateľov. Konkurencia z Brna nám berie ľudí.",
-        "Posledná kvapka. Balím kanceláriu. Založím firmu v Prahe kde podnikateľa rešpektujú."
+        "Vláda padla a ja pokrývam Ódora — premiera bez mandátu, bez tlačovky, bez transparentnosti. Regres pre žurnalistiku.",
+        "Proruská dezinformačná kampaň počas vojny na Slovensku a štát nemá nástroje ani vôľu to zastaviť. Nebezpečné.",
+        "Kolega dostal vyhrážky po článku o zbrojárskom kontrakte. Polícia to rieši pomaly. Sloboda tlače nie je samozrejmosť."
       ]
     },
-    "zuzana": {
+    "peter": {
       "vp": [
-        "Konečne investícia do zdravotníctva! Možno prestanú odchádzať sestry do Rakúska.",
-        "V nemocnici sme mali mini oslavu. Toto je krok správnym smerom. Konečne!",
-        "Kolegovia necveria ale ja som optimistka. Ak to splnia, zachránia životy. Doslova."
+        "V KIA konečne rokujú o zachovaní liniek pri prechode na EV! Heger ide do Kórey — to je správna politika pre Žilinu.",
+        "Odbory vyjednali príplatok k mzde. Nie je to veľa ale pri tejto inflácii každé euro počíta. Manželka sa usmievala.",
+        "Fabrika investuje do rekvalifikácie — EV technológia, nové línie. Možno neprídem o prácu. Dúfam."
       ],
       "p": [
-        "Lepšie ako nič. Aspoň vidíme snahu. Na oddelení máme stále problémy ale je signál.",
-        "Uvidíme či splnia sľuby. Zatiaľ aspoň vieme že si vláda uvedomuje problém.",
-        "V nemocnici sme opatrne optimistickí. Ale sľuby sme počuli aj predtým."
+        "Vláda rokuje s KIA o budúcnosti závodu. Nič konkrétne ešte ale aspoň sedia za stolom. To je viac ako minulý rok.",
+        "Príspevok na energiu pre domácnosti pomohol. Manželka ušetrila na účtoch, niečo ostalo na hypotéku.",
+        "Kolegovia sú opatrne optimistickí. Prepúšťania zatiaľ nie sú masové. Dúfame že to tak zostane."
       ],
       "n": [
-        "Zdravotníctvo sa opäť nerieši. Čakám 15 rokov na skutočnú reformu.",
-        "Pacienti čakajú v chodbách a politici sa bavia o suverenite. Typické.",
-        "Na oddelení nikto ani nezdvihol hlavu od práce. Politika nás nezaujíma — nemáme čas."
+        "V kantíne sa debatuje každý deň — EV, Matovič, Sulík, Rusko. Ja riešim či budem mať prácu o päť rokov.",
+        "Vláda rieši koalíciu a ja riešim linku. Kto bude vyrábať elektrické motory? My alebo Poliaci?",
+        "Politika je vzdialená od fabriky. Čo rozhodujú v Bratislave príde sem s oneskorením. Zatiaľ kľud."
       ],
       "ng": [
-        "Kolegovia utekajú! Pol chirurgie odišlo do Brna. Platy sú smiešne pre to čo robíme.",
-        "A vláda? Rieši RTVS! Prosím vás, ľudia umierajú v čakárňach!",
-        "Sestra mi povedala že podala výpoveď. Štvrtá tento mesiac. Čo budem robiť sama?"
+        "KIA oznamuje znižovanie stavov na spaľovacích linkách. Päťdesiat chlapov ide na ulicu. Ja som ďalší?",
+        "Inflácia 12 percent, hypotéka rastie, a fabrika prepúšťa. Manželka plače. Vláda rieši Matoviča.",
+        "Vláda nesedí s odborármi o EV prechode. Bratislava nevie čo sa deje v Žiline. Toto nás zradí."
       ],
       "vn": [
-        "Zdravotnícky systém kolabuje! Pacient čakal 14 hodín na pohotovosti. Ja zvažujem Viedeň.",
-        "Sestra plakala lebo nezvláda 16-hodinové služby. Za hranicou platia trojnásobok.",
-        "Dnes mi zomrel pacient v čakárni. Na chodbách. V 21. storočí. V EÚ. Hanba tejto krajine!"
-      ]
-    },
-    "robert": {
-      "vp": [
-        "SMER sa o nás stará! V krčme sme sedeli a vraveli že toto je ono. Heger je slušný človek.",
-        "Konečne niekto kto pozná problémy obyčajných ľudí. V Handlovej sa konečne niečo deje!",
-        "Sused Vlado hovorí že aj jemu pomohli. Heger, drž sa, my ťa podporujeme!"
-      ],
-      "p": [
-        "Dobre, niečo sa robí. Lepšie ako za tých z PS čo by nás predali Bruselu.",
-        "Aspoň premiér sa snaží pomôcť robotníkom a nemať prácu. Ale treba viac.",
-        "V hospode chlapci hovorili že je to fajn. Nie super, ale fajn. Ideme ďalej."
-      ],
-      "n": [
-        "Neviem. Premiér rozpráva, ale v Handlovej sa nič nezmenilo. Baňa je zavretá, prácu niet.",
-        "Chodia sem sľubovať pred voľbami a potom zabudnú kde Handlová je.",
-        "Čo sa tu zmenilo? Nič. Krčma stojí, fabrika nie. Ale aspoň je kľudno, čo ja viem."
-      ],
-      "ng": [
-        "Opäť nič pre nás! Banujem že som volil SMER. V meste je 20% nezamestnanosť.",
-        "Potrebujeme prácu, nie reči. Kde sú tie sľúbené investície do Handlovej?",
-        "Syn odišiel do Prahy. Dcéra zvažuje Anglicko. A ja tu čakám na čo? Na ďalšie sľuby?"
-      ],
-      "vn": [
-        "Zradili nás! Všetci sú rovnakí — sľubujú a kradnú! V Handlovej umierajú ľudia na alkohol.",
-        "A čo vláda? Rieši vojnu na Ukrajine! Kto sa postará o nás v zabudnutom meste?",
-        "Susedovi vypli elektrinu. Mne sa to blíži. SMER, PS, SNS — všetci sú rovnakí podvodníci."
-      ]
-    },
-    "lucia": {
-      "vp": [
-        "Fantastický krok pre transparentnosť! Toto je presne o čom píšem — demokracia žije.",
-        "Píšem editoriál a zdieľam medzinárodne. Konečne dobré správy zo Slovenska!",
-        "V redakcii sme otvárali šampanské. Toto je nádej pre nezávislú žurnalistiku."
-      ],
-      "p": [
-        "Pozitívne signály, aj keď treba byť opatrný. V redakcii väčšina súhlasí.",
-        "Budeme sledovať implementáciu — tam sa ukazuje pravda. Zatiaľ OK.",
-        "Na porade v redakcii sme sa zhodli: lepšie ako čakanie. Ale oči otvorené."
-      ],
-      "n": [
-        "Klasický kompromis ktorý nezmení nič. Ani krok vpred, ani vzad.",
-        "V novinách tomu venujeme stĺpec a zajtra to zabudnú. Slovensko potrebuje odvahu.",
-        "Na redakčnej porade sme sa pozreli, pokrčili ramenami a riešili vlastné kauzy."
-      ],
-      "ng": [
-        "Ohrozenie slobody tlače! Kolegovia dostali výhrazy. RSF nás opäť zníži v rebríčku.",
-        "Sledujeme zužovanie priestoru pre nezávislú žurnalistiku. Píšem o tom medzinárodne.",
-        "Kolega dostal anonymné vyhrážky. Šéfredaktor zvažuje ochranku. Toto nie je normálne."
-      ],
-      "vn": [
-        "SLOBODA TLAČE UMIERA! Kolega dostal telefón z policajnej inšpekcie. Redakcii hrozia.",
-        "Medzinárodné organizácie varujú ale nikto nepočúva! Píšem cez VPN lebo sa bojím.",
-        "Dvaja kolegovia emigrovali. Ja zvažujem. Investigatívna žurnalistika na Slovensku umiera."
-      ]
-    },
-    "stefan": {
-      "vp": [
-        "Poriadok a bezpečnosť! To je základ! Silný štát, silná polícia, občania v bezpečí.",
-        "Presne pre toto robím túto prácu 20 rokov. Vláda koná a ľudia sú v bezpečí.",
-        "Na stanici sme konečne spokojní. Nová technika, viac ľudí. Takto sa to robí."
-      ],
-      "p": [
-        "Dobre pre bezpečnosť. Na stanici sme spokojní. Autorita štátu je posilnená.",
-        "Keď je autorita štátu posilnená, kriminalita klesá. Ľudia to nechápu ale je to tak.",
-        "Nie je to ideálne ale ideme správnym smerom. Policajti potrebujú podporu, nie kritiku."
-      ],
-      "n": [
-        "Štandardné. V práci sa nič nezmenilo. Stále málo ľudí, stále veľa papierovej práce.",
-        "Politici rozprávajú ale policajti stále zarábajú málo a riskujú každý deň.",
-        "Na porade veliteľ len pokrčil ramenami. Nič nové. Riešime čo máme a improvizujeme."
-      ],
-      "ng": [
-        "Kriminalita rastie a vláda robí čo? Nič! Na stanici máme nedostatok ľudí.",
-        "Technika je z roku 2005 a politici sa riešia medzi sebou. Kto chráni občanov?",
-        "Kolega dostal po službe bitku a nemáme ani kamery. Ale ministerstvo má nové autá."
-      ],
-      "vn": [
-        "Bezpečnosť krajiny je ohrozená! Kolegovia odchádzajú, morálka na nule.",
-        "Gangy na východe rastú a my nemáme ľudí ani techniku. Ochráňte najprv vlastných občanov!",
-        "Po 20 rokoch služby zvažujem odchod. Za toto som riskoval život? Za 1200 euro a ignoráciu?"
-      ]
-    },
-    "helena": {
-      "vp": [
-        "Konečne pomoc pre matky samoživiteľky! S dvoma deťmi je každé euro dôležité.",
-        "Deti budú mať na olovrant a ja nebudem musieť prosiť rodičov o pomoc. Ďakujem!",
-        "Plakala som od šťastia. Konečne niekto vidí aj nás. Dcéra pôjde na školský výlet!"
-      ],
-      "p": [
-        "Aspoň niečo. Každá pomoc sa počíta keď vychovávaš deti sama.",
-        "Syn potrebuje nové topánky a dcéra plavky na telocvik. Aspoň vidím že na nás nezabudli.",
-        "Nie je to veľa ale je to niečo. Keď máte 850 euro a dvoje detí, každý cent sa počíta."
-      ],
-      "n": [
-        "Pre nás matky nič konkrétne. Ja by som chcela jasle v Prešove a dotácie na školské potreby.",
-        "Politika sa tu nikdy o nás nezaujímala. Zvykla som si. Idem ďalej bojovať sama.",
-        "V Prešove sa nič nezmenilo. Ale čo už, riešim si to sama ako vždy."
-      ],
-      "ng": [
-        "Zase nič pre rodiny! Susedka už dala deti k mame a išla robiť do Brna.",
-        "850 euro, dvoje deti, a ceny rastú každý mesiac. Kto nám pomôže?",
-        "Dcéra sa pýtala prečo nemôže mať nové topánky. Čo jej mám povedať?"
-      ],
-      "vn": [
-        "Zúfalo! Nemám na školské potreby pre deti! Matky samoživiteľky sú neviditeľné!",
-        "Dcéra sa pýtala prečo nemôže ísť na školský výlet. Vláda nemá peniaze ale na ministerské autá má!",
-        "Plačem každý večer. Elektrina zdražela, jedlo zdraželo. Neviem ako prežijem ďalší mesiac s dvoma deťmi."
+        "Dostal som výpoveď. Dvadsať rokov v KIA a papier za päť minút. Manželka plače, deti sa pýtajú. Neviem čo im povedať.",
+        "Vláda padla! Ódor! Kto bude vyjednávať s KIA o zachovaní žilinského závodu? Technocrat bez mandátu? Koniec.",
+        "Tri zmeny zrušené, dvestopäťdesiat ľudí von. Toto je koniec Žiliny akú sme poznali. A premiér — kto je vlastne premiér?"
       ]
     }
   },
@@ -3019,12 +3019,12 @@
     "coalition": 60,
     "impl": 80,
     "econ": {
-      "gdp": 97.1,
-      "gdpGrowth": 3.0,
-      "unemp": 6.8,
-      "infl": 3.2,
-      "deficit": -5.4,
-      "debt": 62.2,
+      "gdp": 104.6,
+      "gdpGrowth": 1.9,
+      "unemp": 6.9,
+      "infl": 2.2,
+      "deficit": -5.5,
+      "debt": 63.1,
       "minW": 623
     },
     "diplo": {
