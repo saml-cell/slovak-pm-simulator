@@ -1,6 +1,6 @@
 import '../styles/main.css';
 import { loadEra } from './loader';
-import { setEra, initGame, initCalendar, getState, getEra, setState } from './state';
+import { setEra, initGame, initCalendar, getState } from './state';
 import { showScreen } from './screen';
 import { displayEvent, updateCC } from './events';
 import { analyze } from './analysis';

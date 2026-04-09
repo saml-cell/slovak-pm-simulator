@@ -15,7 +15,7 @@ function getQuietMonths(): { h: string; d: string; c: string }[] {
   return (era as unknown as Record<string, unknown>).quietMonths as typeof defaultQuietMonths || defaultQuietMonths;
 }
 
-export function getEvent(m: number): ActiveEvent {
+function getEvent(m: number): ActiveEvent {
   const G = getState();
   const era = getEra();
 

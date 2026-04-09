@@ -16,9 +16,10 @@
 
 ## Features
 
-- **8 Playable Eras** — 33 years of Slovak political history, from Mečiar's authoritarian rule to the post-assassination-attempt Fico IV government
-- **48-Month Gameplay** per era with real historical events triggering at the correct dates
-- **12 Unique Personas** per era (96 total) with 180 era-specific quotes
+- **9 Playable Eras** — 35 years of Slovak political history, from Mečiar's authoritarian rule through Radičová's historic premiership to Fico IV
+- **Up to 48-Month Gameplay** per era with real historical events triggering at the correct dates
+- **12 Unique Personas** per era (108 total) with 180+ era-specific quotes each
+- **Real PM Comparison** — game over screen compares your performance vs the real PM's historical results
 - **AI Policy Analysis** — pluggable backend: Puter.js (free), Groq (free), Anthropic (paid), or offline keyword scoring when no key is present
 - **Nash Bargaining Coalition Mechanics** with Shapley power index for realistic coalition negotiations
 - **Economic Simulation** — Okun's Law, business cycles, FDI dynamics, and EU funds modelling
@@ -31,18 +32,19 @@
 
 ---
 
-## The 8 Eras
+## The 9 Eras
 
 | # | Era | Period | Theme |
 |---|-----|--------|-------|
 | 1 | Mečiar | 1994–1998 | Authoritarian governance, EU/NATO exclusion |
 | 2 | Dzurinda | 1998–2006 | EU & NATO accession, structural reforms |
-| 3 | Fico II | 2012–2016 | Single-party majority, social spending |
-| 4 | Fico III | 2016–2018 | Kučiak murder, mass protests |
-| 5 | Pellegrini | 2018–2020 | Post-protest transitional government |
-| 6 | Matovič | 2020–2021 | COVID crisis, mass testing programme |
-| 7 | Heger | 2021–2023 | Ukraine war, energy crisis, coalition collapse |
-| 8 | Fico IV | 2023–2027 | Return to power, assassination attempt |
+| 3 | Radičová | 2010–2012 | First female PM, Gorilla scandal, EFSF crisis |
+| 4 | Fico II | 2012–2016 | Single-party majority, social spending |
+| 5 | Fico III | 2016–2018 | Kučiak murder, mass protests |
+| 6 | Pellegrini | 2018–2020 | Post-protest transitional government |
+| 7 | Matovič | 2020–2021 | COVID crisis, mass testing programme |
+| 8 | Heger | 2021–2023 | Ukraine war, energy crisis, coalition collapse |
+| 9 | Fico IV | 2023–2027 | Return to power, assassination attempt |
 
 ---
 

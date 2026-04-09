@@ -6,7 +6,7 @@ import { esc } from './sanitize';
 import { trackAnalytics } from './analytics';
 import { applyMomentum, socialInfluence, econFeedback, policyConsistency, oppositionMove, nashBargaining, simulateElection, businessCycleTick, deficitDynamics, euFundsLink, smartMinWage, econCrisisCheck, incumbencyPenalty, crisisFatigueTick, politicalCapitalTick, diploFeedback, computeShapley, fiscalHealth, fdiDynamics, okunsLaw, mediaCycleTick, updatePolling, laborMarketTick } from './advanced';
 
-export function handleDem(id: string, action: string) {
+function handleDem(id: string, action: string) {
   const G = getState();
   const p = G.cp[id];
   if (!p || !p.dem) return;
@@ -17,7 +17,7 @@ export function handleDem(id: string, action: string) {
   updateDash();
 }
 
-export function kickP(id: string) {
+function kickP(id: string) {
   const era = getEra();
   const cp = era.coalitionPartners.find(x => x.id === id);
   if (!cp) return;
@@ -29,7 +29,7 @@ export function kickP(id: string) {
   document.getElementById('coalitionModal')!.classList.add('active');
 }
 
-export function doKick(id: string) {
+function doKick(id: string) {
   const G = getState();
   G.cp[id].on = 0;
   G.cp[id].sat = 10;
@@ -40,7 +40,7 @@ export function doKick(id: string) {
   updateDash();
 }
 
-export function closeModal() {
+function closeModal() {
   document.getElementById('coalitionModal')!.classList.remove('active');
 }
 
@@ -215,7 +215,7 @@ export function proceed(a: AnalysisResult) {
   }
 }
 
-export function gameOver(collapsed: boolean) {
+function gameOver(collapsed: boolean) {
   const G = getState();
   const era = getEra();
   let title = '', narr = '';

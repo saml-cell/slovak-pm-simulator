@@ -230,6 +230,50 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:700;letter-spacing:-.01em}
         </div>
       </div>
 
+      <div class="era-card" onclick="toggleEra(this)">
+        <div class="era-card-header">
+          <span class="era-card-period">2010 &ndash; 2012</span>
+          <span class="era-card-difficulty diff-hard">Ťažké</span>
+        </div>
+        <div class="era-card-body">
+          <div class="era-card-title">Radičová &mdash; Prvá premiérka</div>
+          <div class="era-card-pm">Iveta Radičová &bull; SDKÚ-DS</div>
+          <div class="era-card-desc">Prvá žena na čele vlády SR. Gorila škandál, grécka dlhová kríza, EFSF hlasovanie. Sulík rebeluje — vláda padá po 20 mesiacoch.</div>
+          <div class="era-card-coalition">
+            <span class="coalition-tag" style="background:#dbeafe;color:#1e40af">SDKÚ (28)</span>
+            <span class="coalition-tag" style="background:#e0f2fe;color:#0369a1">SaS (22)</span>
+            <span class="coalition-tag" style="background:#fef3c7;color:#92400e">KDH (15)</span>
+            <span class="coalition-tag" style="background:#dcfce7;color:#166534">Most-Híd (14)</span>
+          </div>
+          <div style="display:flex;gap:12px;font-size:.75rem;color:var(--muted);margin-top:8px">
+            <span>📊 Podpora: ~22%</span>
+            <span>📉 Min: 15%</span>
+            <span>⏱ Mesiacov: 20</span>
+          </div>
+        </div>
+        <div class="era-card-footer">
+          <span class="era-card-seats">79 / 150 kresiel</span>
+          <button class="era-play-btn">Vybrať &rarr;</button>
+        </div>
+        <div class="era-expand">
+          <div class="era-politicians">
+            <div class="politician-option selected" data-era="radicova-2010-2012" data-pm="radicova">
+              <div class="politician-avatar">👩‍💼</div>
+              <div class="politician-info">
+                <div class="politician-name">Iveta Radičová</div>
+                <div class="politician-role">Predsedníčka vlády &bull; SDKÚ-DS &bull; Prvá žena-premiérka</div>
+                <div class="politician-traits">
+                  <span class="trait-tag">Reformistka</span>
+                  <span class="trait-tag">Pro-EÚ</span>
+                  <span class="trait-tag">Akademička</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="play-era-btn" onclick="event.stopPropagation();startEra('radicova-2010-2012')">Hrať ako Radičová (2010&ndash;2012) &rarr;</button>
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -656,7 +700,7 @@ function toggleEra(card) {
   if (!wasOpen) expand.classList.add('open');
 }
 
-const AVAILABLE_ERAS = ['meciar-1994-1998', 'dzurinda-1998-2006', 'fico-2012-2016', 'fico-2016-2018', 'pellegrini-2018-2020', 'matovic-2020-2021', 'heger-2021-2023', 'fico-2023-present'];
+const AVAILABLE_ERAS = ['meciar-1994-1998', 'dzurinda-1998-2006', 'radicova-2010-2012', 'fico-2012-2016', 'fico-2016-2018', 'pellegrini-2018-2020', 'matovic-2020-2021', 'heger-2021-2023', 'fico-2023-present'];
 
 function startEra(eraId) {
   if (!AVAILABLE_ERAS.includes(eraId)) {

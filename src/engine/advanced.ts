@@ -261,7 +261,7 @@ export function policyConsistency(G: GameState, policy: string): { bonus: number
 // ═══════════════════════════════════════════════════════════
 //  6. ELECTION SIMULATION (Monte Carlo + D'Hondt)
 // ═══════════════════════════════════════════════════════════
-export interface ElectionResult {
+interface ElectionResult {
   seats: Record<string, { mean: number; low: number; high: number }>;
   winProbability: number;
   narrative: string;
