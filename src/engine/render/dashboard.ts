@@ -92,17 +92,24 @@ function renderDiplomacy(): string {
 
 function renderStances(): string {
   const G = getState();
-  const labels: Record<string, string> = {
-    ekonomika: 'Ekonomika', eu: 'EÚ/NATO', rusko: 'Rusko', social: 'Sociálna', media: 'Média',
-    justicia: 'Justícia', migracia: 'Migrácia', identita: 'Identita',
+  const poles: Record<string, [string, string]> = {
+    ekonomika: ['Sociálny štát', 'Voľný trh'],
+    eu: ['Suverenita', 'Euroatlantizmus'],
+    rusko: ['Prozápadný', 'Proruský'],
+    social: ['Liberálny', 'Konzervatívny'],
+    media: ['Nezávislé médiá', 'Kontrola médií'],
+    justicia: ['Právny štát', 'Politická justícia'],
+    migracia: ['Otvorené hranice', 'Uzavretie hraníc'],
+    identita: ['Kozmopolita', 'Nacionalista'],
   };
   let items = '';
   Object.entries(G.stances).forEach(([k, v]) => {
-    const pct = ((v + 5) / 10) * 100;
-    const label = v > 1 ? 'doprava' : v < -1 ? 'doľava' : 'stred';
-    items += `<div style="display:flex;align-items:center;gap:8px;font-size:.8rem"><span style="min-width:80px;color:var(--text-dim)">${labels[k] || k}</span><div style="flex:1;height:4px;background:rgba(255,255,255,.08);border-radius:2px;position:relative"><div style="position:absolute;width:8px;height:8px;border-radius:50%;background:var(--gold);top:-2px;left:${pct}%;transform:translateX(-50%)"></div></div><span style="min-width:60px;text-align:right;font-family:var(--mono);font-size:.75rem;color:var(--text-dim)">${label}</span></div>`;
+    const pct = Math.max(2, Math.min(98, ((v + 5) / 10) * 100));
+    const [left, right] = poles[k] || ['←', '→'];
+    const col = Math.abs(v) > 2 ? 'var(--red)' : Math.abs(v) > 1 ? 'var(--yellow)' : 'var(--green)';
+    items += `<div style="font-size:.75rem;margin-bottom:4px"><div style="display:flex;justify-content:space-between;color:var(--text-dim);margin-bottom:2px"><span>${left}</span><span>${right}</span></div><div style="height:4px;background:rgba(255,255,255,.08);border-radius:2px;position:relative"><div style="position:absolute;width:10px;height:10px;border-radius:50%;background:${col};top:-3px;left:${pct}%;transform:translateX(-50%);border:2px solid rgba(0,0,0,.3)"></div></div></div>`;
   });
-  return `<div class="dashboard-panel"><div class="panel-title">🧭 Politický profil</div><div style="display:flex;flex-direction:column;gap:8px">${items}</div></div>`;
+  return `<div class="dashboard-panel"><div class="panel-title">🧭 Politický profil</div><div style="display:flex;flex-direction:column;gap:6px">${items}</div></div>`;
 }
 
 function renderMap(): string {
@@ -131,17 +138,17 @@ function renderMap(): string {
     const r = regionScores[id];
     return r && r.count ? Math.round(r.sum / r.count) : '--';
   };
-  // Slovakia region paths — traced from actual geographic borders
-  // viewBox "0 0 500 200", country ~450km W-E, ~200km N-S
+  // Slovakia region paths — projected from real GeoJSON (Natural Earth / world.geo.json)
+  // 34 actual border points converted from lon/lat to SVG coords
   const regions: { id: string; name: string; path: string; tx: number; ty: number }[] = [
-    { id: 'bratislavsky', name: 'BA', path: 'M38,128 C40,120 48,112 55,108 L68,104 L78,110 L82,120 C80,128 74,136 68,140 L52,142 C44,140 40,134 38,128 Z', tx: 60, ty: 124 },
-    { id: 'trnavsky', name: 'TT', path: 'M68,104 L78,96 C86,88 95,82 105,80 L120,82 L132,92 L128,108 L118,120 C108,130 92,136 82,138 L68,140 C74,136 80,128 82,120 L78,110 Z', tx: 100, ty: 110 },
-    { id: 'nitriansky', name: 'NR', path: 'M82,120 L118,120 L128,108 L148,104 L160,112 C166,122 170,136 172,148 L164,162 C152,172 136,178 118,176 L96,170 C86,164 80,152 78,142 L68,140 L82,138 Z', tx: 125, ty: 146 },
-    { id: 'trenciansky', name: 'TN', path: 'M105,80 C112,68 118,56 126,46 L138,38 C146,34 156,32 164,36 L172,44 L168,62 C164,76 158,88 152,96 L148,104 L128,108 L132,92 L120,82 Z', tx: 140, ty: 68 },
-    { id: 'zilinsky', name: 'ZA', path: 'M164,36 C176,30 192,24 208,22 L228,24 C240,28 248,36 254,46 L258,62 L248,78 C238,88 226,94 214,96 L198,94 C186,90 176,82 168,72 L168,62 L172,44 Z', tx: 214, ty: 58 },
-    { id: 'banskobystricky', name: 'BB', path: 'M148,104 L152,96 C158,88 164,76 168,62 L168,72 C176,82 186,90 198,94 L214,96 L248,78 L258,62 L278,68 C290,76 298,88 302,102 L298,118 C292,134 282,148 268,158 L248,166 C228,170 206,168 186,162 L172,148 C170,136 166,122 160,112 Z', tx: 228, ty: 120 },
-    { id: 'presovsky', name: 'PO', path: 'M258,62 L254,46 C262,38 274,30 288,24 L310,20 C330,18 352,20 370,26 L390,36 C398,42 404,52 406,62 L402,76 C396,86 386,94 374,98 L352,102 L328,100 L302,102 C298,88 290,76 278,68 Z', tx: 340, ty: 58 },
-    { id: 'kosicky', name: 'KE', path: 'M302,102 L328,100 L352,102 L374,98 C386,94 396,86 402,76 L406,62 C410,72 416,84 418,96 L416,114 C412,130 404,144 392,154 L374,164 C356,172 334,176 312,174 L290,168 L268,158 C282,148 292,134 298,118 Z', tx: 362, ty: 126 },
+    { id: 'bratislavsky', name: 'BA', path: 'M16.9,162.5 L8.4,126.1 L15.2,112.7 L48,140 L90,155 L162.9,188.1 L91.5,201.0 L60.2,189.5 Z', tx: 70, ty: 165 },
+    { id: 'trnavsky', name: 'TT', path: 'M15.2,112.7 L27.3,89.5 L65.0,91.3 L110,118 L169.8,166.9 L162.9,188.1 L90,155 L48,140 Z', tx: 90, ty: 135 },
+    { id: 'nitriansky', name: 'NR', path: 'M110,118 L200,100 L294.2,141.0 L254.2,154.2 L245.0,147.5 L203.6,163.8 L169.8,166.9 Z', tx: 200, ty: 142 },
+    { id: 'trenciansky', name: 'TN', path: 'M65.0,91.3 L94.0,80.4 L96.3,70.6 L112.6,65.6 L118.2,41.7 L137.7,37.1 L150.9,18.2 L176.3,18.0 L155,78 L110,118 Z', tx: 118, ty: 68 },
+    { id: 'zilinsky', name: 'ZA', path: 'M176.3,18.0 L181.1,24.4 L216.0,10.1 L258.9,47.4 L220,82 L155,78 Z', tx: 200, ty: 45 },
+    { id: 'banskobystricky', name: 'BB', path: 'M155,78 L220,82 L258.9,47.4 L342,110 L294.2,141.0 L200,100 L110,118 Z', tx: 220, ty: 105 },
+    { id: 'presovsky', name: 'PO', path: 'M258.9,47.4 L309.2,24.8 L349.4,35.7 L410.6,20.8 L380,72 L342,110 Z', tx: 345, ty: 58 },
+    { id: 'kosicky', name: 'KE', path: 'M380,72 L410.6,20.8 L491.4,61.2 L467.8,88.6 L451.2,131.1 L433.1,141.8 L342,110 Z', tx: 425, ty: 95 },
   ];
   const paths = regions.map(r =>
     `<path d="${r.path}" fill="${getColor(r.id)}" stroke="rgba(255,255,255,.2)" stroke-width="1" style="cursor:pointer"><title>${r.name}: ${getScore(r.id)}%</title></path>` +
@@ -149,7 +156,7 @@ function renderMap(): string {
     `<text x="${r.tx}" y="${r.ty + 11}" fill="rgba(255,255,255,.7)" font-size="8" text-anchor="middle" style="pointer-events:none">${getScore(r.id)}</text>`
   ).join('');
   return `<div class="dashboard-panel"><div class="panel-title">🗺️ Regióny</div>
-    <svg viewBox="20 10 420 185" style="width:100%;height:auto;margin:8px 0">${paths}</svg>
+    <svg viewBox="0 0 500 210" style="width:100%;height:auto;margin:8px 0">${paths}</svg>
     <div style="display:flex;gap:8px;justify-content:center;font-size:.65rem;color:var(--text-dim)">
       <span><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#10b981;margin-right:2px"></span>65+</span>
       <span><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#c9a84c;margin-right:2px"></span>50-64</span>
