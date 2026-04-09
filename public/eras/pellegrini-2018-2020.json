@@ -1,0 +1,3003 @@
+{
+  "meta": {
+    "id": "pellegrini-2018-2020",
+    "pmName": "Peter Pellegrini",
+    "headerTitle": "Peter Pellegrini",
+    "saveKey": "spm_pellegrini_save",
+    "pellegriniMonth": 15,
+    "presidentName": "Andrej Kiska",
+    "presidentFriendly": "Zuzana Čaputová"
+  },
+  "calendar": {
+    "startMonthOffset": 2,
+    "startYear": 2018
+  },
+  "totalMonths": 24,
+  "gameOverThreshold": 12,
+  "titleScreen": {
+    "pmName": "Peter Pellegrini",
+    "subtitle": "Marec 2018 - Marec 2020",
+    "description": "Prevezmite vládu po vražde Jána Kuciaka ako Peter Pellegrini. Obnovte dôveru verejnosti, udržte koalíciu a preveďte Slovensko cez najhlbšiu politickú krízu od vzniku republiky.",
+    "startButtonText": "Začať hru"
+  },
+  "partyDisplay": {
+    "colors": {
+      "smer": "#dc2626",
+      "sns_c": "#065f46",
+      "most": "#eab308",
+      "sas": "#0ea5e9",
+      "olano": "#7c3aed",
+      "sme_rodina": "#854d0e",
+      "lsns": "#1f2937",
+      "other": "#9ca3af"
+    },
+    "names": {
+      "smer": "SMER-SD",
+      "sns_c": "SNS",
+      "most": "Most-Híd",
+      "sas": "SaS",
+      "olano": "OĽaNO",
+      "sme_rodina": "Sme rodina",
+      "lsns": "ĽSNS",
+      "other": "Ostatní"
+    }
+  },
+  "personas": [
+    {
+      "id": "maria",
+      "name": "Mária",
+      "emoji": "👵",
+      "age": 62,
+      "demo": "Dôchodkyňa z Prešova. Celý život pracovala v textilke, teraz berie 420 EUR dôchodok. Volí SMER od roku 2006. Šokovaná vraždou Kuciaka.",
+      "location": "Prešov",
+      "region": "presovsky",
+      "lean": "smer"
+    },
+    {
+      "id": "peter",
+      "name": "Peter",
+      "emoji": "👷",
+      "age": 40,
+      "demo": "Robotník v automobilke KIA Žilina. Živí dve deti, manželka učiteľka. Ekonomika rastie ale politická kríza ho znepokojuje.",
+      "location": "Žilina",
+      "region": "zilinsky",
+      "lean": "smer"
+    },
+    {
+      "id": "katarina",
+      "name": "Katarína",
+      "emoji": "💻",
+      "age": 25,
+      "demo": "IT špecialistka v Bratislave. Pracuje pre nemeckú firmu. Zarába 2200 EUR. Chodila na protesty Za slušné Slovensko.",
+      "location": "Bratislava",
+      "region": "bratislavsky",
+      "lean": "progressive"
+    },
+    {
+      "id": "jozef",
+      "name": "Jozef",
+      "emoji": "🌾",
+      "age": 50,
+      "demo": "Poľnohospodár z Nitrianskeho kraja. 200 hektárov. Bojí sa EÚ regulácií. Volí konzervatívne. Neverí žiadnej vláde.",
+      "location": "Nitra",
+      "region": "nitriansky",
+      "lean": "conservative"
+    },
+    {
+      "id": "eva",
+      "name": "Eva",
+      "emoji": "📚",
+      "age": 35,
+      "demo": "Učiteľka základnej školy v B. Bystrici. Plat 780 EUR. Sama vychováva syna. Štrajkovala za vyššie platy učiteľov.",
+      "location": "B. Bystrica",
+      "region": "banskobystricky",
+      "lean": "moderate"
+    },
+    {
+      "id": "martin",
+      "name": "Martin",
+      "emoji": "🎓",
+      "age": 20,
+      "demo": "Študent politológie na UK Bratislava. Aktivista. Chodil na protesty po vražde Kuciaka. Podporuje Čaputovú.",
+      "location": "Bratislava",
+      "region": "bratislavsky",
+      "lean": "progressive"
+    },
+    {
+      "id": "tomas",
+      "name": "Tomáš",
+      "emoji": "💼",
+      "age": 33,
+      "demo": "Majiteľ malej IT firmy v Trnave, 10 zamestnancov. Borí sa s byrokraciou a odvodmi. Chce stabilitu a právny štát.",
+      "location": "Trnava",
+      "region": "trnavsky",
+      "lean": "moderate"
+    },
+    {
+      "id": "zuzana",
+      "name": "Zuzana",
+      "emoji": "⚕️",
+      "age": 43,
+      "demo": "Chirurgička v nemocnici Košice. Zarába 1800 EUR ale pracuje 60h/týždeň. Kolegovia odchádzajú do Čiech za lepším platom.",
+      "location": "Košice",
+      "region": "kosicky",
+      "lean": "moderate"
+    },
+    {
+      "id": "robert",
+      "name": "Róbert",
+      "emoji": "⛏️",
+      "age": 53,
+      "demo": "Býv. baník z Handlovej. Nezamestnaný 2 roky. Žije z dávok. Nostalgik. Stále verí SMERu ale je sklamaný z korupcie.",
+      "location": "B. Bystrica",
+      "region": "banskobystricky",
+      "lean": "smer"
+    },
+    {
+      "id": "lucia",
+      "name": "Lucia",
+      "emoji": "📰",
+      "age": 26,
+      "demo": "Investigatívna novinárka. Kolega Ján Kuciak bol zavraždený. Bojí sa ale pokračuje v práci. Požaduje spravodlivosť.",
+      "location": "Bratislava",
+      "region": "bratislavsky",
+      "lean": "progressive"
+    },
+    {
+      "id": "stefan",
+      "name": "Štefan",
+      "emoji": "👮",
+      "age": 40,
+      "demo": "Policajný nadporučík v Trenčíne. 15 rokov v službe. Chce poriadok. Znepokojený prepojením polície a mafie po kauze Kuciak.",
+      "location": "Trenčín",
+      "region": "trenciansky",
+      "lean": "conservative"
+    },
+    {
+      "id": "helena",
+      "name": "Helena",
+      "emoji": "👩‍👧",
+      "age": 31,
+      "demo": "Slobodná matka dvoch detí z Prešova. Pracuje ako predavačka za 620 EUR. Závisí od sociálnych dávok. Chce spravodlivosť pre Kuciaka.",
+      "location": "Prešov",
+      "region": "presovsky",
+      "lean": "smer"
+    }
+  ],
+  "personaQuotes": {
+    "maria": {
+      "vp": [
+        "Pellegrini je slušný chlapec, aspoň vyzerá poriadne. Susedka Margita hovorí to isté. Daj Bože mu zdravie.",
+        "Výborne! Konečne niekto slušný na čele. Po tom čo sa stalo tomu novinarovi, aspoň vidíme zmenu.",
+        "Ďakujem Bohu že sa to upokojilo. Po tých protestoch som sa bála. Aspoň Pellegrini pôsobí kľudne."
+      ],
+      "p": [
+        "To je v poriadku, niečo sa robí. Na naše pomery slušné. Aspoň vidím snahu po tej hrôze.",
+        "Aspoň vidím snahu. Lepšie ako keď boli tie protesty. Susedka hovorí to isté.",
+        "Lepšie ako nič. Ja len chcem mať na lieky a pokoj. Nech vyšetria tú vraždu."
+      ],
+      "n": [
+        "Neviem čo si o tom myslieť. Tá vražda novinára ma šokovala. Ale čo ja viem o politike.",
+        "Politika ma unavuje. V obchode sa všetci hádajú. Jedni za protesty, druhí proti. Chcem pokoj.",
+        "Čo ja viem. Na dedine to nikto nerieši. Ideme ďalej ako doteraz."
+      ],
+      "ng": [
+        "Toto na nás dôchodcov zas zabudli. Sľuby po protestoch a potom nič. 420 euro mesačne a všetko drahšie.",
+        "Nikto sa nepýta starých ľudí. Celý život som robila a teraz nemám na poriadne jedlo. A ešte tá vražda...",
+        "Susedka plakala. Nemala na mlieko. A vláda? Len sľubuje po protestoch. Kde je spravodlivosť pre Kuciaka?"
+      ],
+      "vn": [
+        "Katastrofa! Novinára zavraždili a nikto za to nesedí! Dcéra mi posiela peniaze z Anglicka na lieky.",
+        "Celý život som robila a toto je odmena? Vraždy, protesty, chaos. Vnúčatá ma ľutujú.",
+        "Plačem keď vidím správy. Najprv vražda, teraz sľuby. Kedy bude na Slovensku normálne?"
+      ]
+    },
+    "peter": {
+      "vp": [
+        "Super! Toto pomáha robotníkom. V fabrike sme sa bavili a všetci sme spokojní. Ekonomika rastie, to je hlavné.",
+        "Na zmene sme si podávali ruky. Pellegrini aspoň rozumie fabrikom. Objednávky idú.",
+        "Manželka sa usmievala keď som prišiel domov. Konečne dobré správy. Automobilka má zákazky."
+      ],
+      "p": [
+        "Dobrý smer. V robote sa hovorí že bude lepšie. Aspoň nemusíme mať strach o zákazky.",
+        "Pellegrini pôsobí pokojne, to je dôležité pre stabilitu. V kantíne chlapci súhlasia.",
+        "Nie je to dokonalé ale ekonomika ide. Na zmene je lepšia nálada ako počas protestov."
+      ],
+      "n": [
+        "Nemám názor. V práci sa nič nezmenilo. Mzda rovnaká, ceny vyššie. Štandard.",
+        "Politiku moc neriešim. Protesty boli, teraz je kľud. Idem do roboty a domov.",
+        "V kantíne sa o tom bavili ale ja radšej riešim svoju prácu. Čo zmôžem ja, robotník."
+      ],
+      "ng": [
+        "A čo z tých sľubov po protestoch? V automobilke platy nestúpli. Len reči.",
+        "Kto zaplatí moju hypotéku? Sľubovali zmenu po Kuciakovej vražde a nič sa nezmenilo.",
+        "Kolega hovorí že v Čechách zarábajú viac. A vláda rieši len svoju prežitie."
+      ],
+      "vn": [
+        "Hotové! Nič sa nezmenilo. Len vymenili Fica za Pellegriniho a idú ďalej rovnako.",
+        "Vražda novinára, protesty, a výsledok? Nulový! V fabrike sú ľudia naštvaní.",
+        "Manželka je učiteľka za 780 euro. Štrajkujú a nikto ich nepočúva. Táto vláda je prázdna."
+      ]
+    },
+    "katarina": {
+      "vp": [
+        "Wow, konečne signál zmeny! Zdieľam to na LinkedIn. Slovensko potrebuje takéto kroky po Kuciakovi.",
+        "Slovensko sa konečne posúva vpred. Kolegovia z Berlína píšu že sledujú. Čaputová dáva nádej!",
+        "V IT komunite je nádej. Ak Čaputová vyhrá prezidentské, možno neodídem do Viedne."
+      ],
+      "p": [
+        "OK, dobré kroky. Po vražde Kuciaka sme potrebovali signál. Kolegovia v zahraničí to sledujú.",
+        "Baby steps ale správnym smerom. Na Slack-u v práci sme diskutovali. Väčšina opatrne súhlasí.",
+        "Nie je to revolúcia ale Pellegrini aspoň nie je Fico. V IT firme to berieme ako signál."
+      ],
+      "n": [
+        "Typicky slovenský kompromis — vymenili tvár ale systém ostal. V IT komunite sa tomu smejeme.",
+        "Slovensko by potrebovalo razantnejšie zmeny. Pellegrini je len Fico s lepším účesom.",
+        "Meh. Na daily standup-e sa o tom nikto ani nezmienil. Čakáme na voľby 2020."
+      ],
+      "ng": [
+        "Toto je fasáda. Kolegyňa Simona sa balí do Viedne. Nič sa nezmenilo, len PR.",
+        "Kuciak je mŕtvy a Kočner sa smeje. Ak toto pokračuje, odchádzam.",
+        "Na LinkedIn-e kolegovia z Česka píšu: poďte k nám. A ja vážne zvažujem."
+      ],
+      "vn": [
+        "Spravodlivosť pre Kuciaka nikdy nepríde s touto vládou! Kupujem jednosmerný lístok do Viedne.",
+        "Mafián Kočner na slobode a vláda robí kozmetiku. Odchádzam z tejto krajiny.",
+        "Firma presúva tím do Brna. Ja idem s nimi. Po Kuciakovi tu niet čo hľadať."
+      ]
+    },
+    "jozef": {
+      "vp": [
+        "Dobre! Konečne kľud po tých protestoch. Pole sa samo neorobí a ja potrebujem stabilitu.",
+        "Na družstve sme spokojní. Aspoň nás nechajú pracovať. Pellegrini neprovokuje.",
+        "Vláda podporuje farmárov. V krčme v dedine sme hovorili že Pellegrini je lepší ako Fico."
+      ],
+      "p": [
+        "Prijateľné. Aspoň nie sú tu tie protesty každý týždeň. Na dedine potrebujeme kľud.",
+        "Nie je to ideálne ale na dedine sme zvyknutí na málo. Hlavne nech je stabilita.",
+        "V poriadku. Dotácie chodia, úroda bola slušná. Neriešim politiku v Bratislave."
+      ],
+      "n": [
+        "Ani ryba ani rak. V podstate sa nič nemení pre nás na vidieku. Ako vždy.",
+        "Brusel stále diktuje, my oráme pole. Kto je premiér je mi jedno.",
+        "V dedine sa o politike moc nehovorí. Protesty boli v Bratislave, nie u nás."
+      ],
+      "ng": [
+        "Na dedinke to nikto necíti. Vláda robí veci pre Bratislavu. Kde sú dotácie pre malých farmárov?",
+        "Kučiak odkrýval aj kauzy s pôdou. A čo sa zmenilo? Mafie stále kupujú pozemky.",
+        "Mladí odchádzajú z dedín. Školy zatvoria. A vláda rieši len vlastné prežitie."
+      ],
+      "vn": [
+        "Katastrofa pre vidiek! Mafie skupujú pôdu, novinári za odkrývanie umierajú!",
+        "Kuciak písal aj o agromafii. A vláda? Kryje ich! Toto je zrada slovenského vidieka.",
+        "Dedina umiera. Obchod zatvorili. A v Bratislave riešia kto bude premiér. Na nás kašlú."
+      ]
+    },
+    "eva": {
+      "vp": [
+        "Konečne rozumný prístup! Presne toto učím študentov — analyzovať a konať zodpovedne.",
+        "Ak by vláda takto pristupovala ku školstvu, nemušeli by sme štrajkovať. V zborovni sme sa tešili.",
+        "Konečne politika založená na rozume! Ukazujem to žiakom. Aj Čaputová dáva nádej."
+      ],
+      "p": [
+        "Rozumné kroky. Nie perfektné, ale lepšie ako chaos počas protestov. Vidím snahu.",
+        "Ako učiteľka viem že zmena trvá dlho. Vidím snahu a to sa počíta. Ale platy stále nízke.",
+        "V zborovni sme diskutovali. Lepšie ako za Fica. Ale stále čakáme na platy."
+      ],
+      "n": [
+        "Priemerný výkon. Ako domáca úloha — spĺňa minimum, chýba snaha. A o platoch učiteľov ticho.",
+        "Ani nie je na čo nadávať, ani nie je na čo byť hrdou. A stále zarábam 780 euro.",
+        "V škole sa o tom nikto nebavil. Učíme ďalej za almužnu a dúfame."
+      ],
+      "ng": [
+        "Sklamanie. Školstvo sa opäť nerieši. Mám 32 žiakov a plat 780 euro. Ideme štrajkovať!",
+        "Učitelia sú neviditeľní. Novinára zavraždili a vláda sľubuje. A čo my? Nič!",
+        "Kolegyne zvažujú odchod do Čiech. Tam učiteľ zarába dvojnásobok. A politikom je to jedno."
+      ],
+      "vn": [
+        "Nezmysel! Štrajkujeme a nikto nás nepočúva! Žiadna reforma, len prázdne sľuby.",
+        "Kolegyne plakali v zborovni. 780 euro za prácu s 32 deťmi. Hanba tejto krajine!",
+        "Deti si zaslúžia lepšie. Učitelia si zaslúžia lepšie. Ale vládu zaujíma len vlastné prežitie."
+      ]
+    },
+    "martin": {
+      "vp": [
+        "LET'S GOOO! Toto sme na námestiach požadovali! Za slušné Slovensko! Zdieľam na všetky siete!",
+        "Konečne politika pre mladú generáciu! Čaputová vyhrala a teraz toto. Takto sa robí zmena!",
+        "Wow! Kamaráti z Prahy závidia. Slovensko sa prebúdza po Kuciakovej vražde!"
+      ],
+      "p": [
+        "Fajn, dobré kroky aj keď pomale. Na univerzite väčšina súhlasí. Za slušné Slovensko pokračuje.",
+        "Baby steps. Aspoň Pellegrini nie je Fico. Čakáme na voľby 2020. Zdieľam s opatrným optimizmom.",
+        "Na politológii sme analyzovali — lepšie ako za Fica. Ale systém treba zmeniť celý."
+      ],
+      "n": [
+        "Meh. Kozmetická zmena. Pellegrini je len Fico s lepším oblekom. Na univerzite sa smejeme.",
+        "Slovensko sa posúva tempom slimáka. Kuciak je mŕtvy a vinníci na slobode.",
+        "Na prednáške sme to rozobrali za 5 minút. Čakáme na Čaputovú a voľby 2020."
+      ],
+      "ng": [
+        "Toto je z učebnice fasádovej demokracie. Vymenili tvár, systém ostal. Prečo by som tu mal byť?",
+        "Kamaráti sú v Prahe, Berlíne. Kuciak zomrel za pravdu a vláda kryje mafiu.",
+        "Na proteste bolo 50 000 ľudí. A výsledok? Pellegrini namiesto Fica. Smiešne."
+      ],
+      "vn": [
+        "SHAME! Idem na protest! Kuciak zomrel za pravdu a Kočner je na slobode!",
+        "Budem emigrant, nie absolvent. Táto krajina nechráni novinárov ani mladých.",
+        "Nechcem žiť v mafianskom štáte. Erasmus v Holandsku vyzerá čoraz lepšie."
+      ]
+    },
+    "tomas": {
+      "vp": [
+        "Výborne pre biznis! Ekonomika rastie, objednávky pribúdajú. Pellegrini aspoň nebúra veci.",
+        "Keď je kľud a predvídateľnosť, firmy investujú. Po protestoch je to úľava.",
+        "Klient z Nemecka volal — expanduje na Slovensko. Ekonomický rast 4% pomáha."
+      ],
+      "p": [
+        "Dobre, aspoň stabilita. Firma beží, zamestnanci majú prácu. Po protestoch úľava.",
+        "Keď vláda nebude hádzať klady pod nohy, dá sa podnikať. Pellegrini je OK.",
+        "Nie je to ideálne ale biznis ide. Objednávky sú stabilné. HDP rastie."
+      ],
+      "n": [
+        "Bez efektu na moju firmu. Ani pomoc, ani prekážka. Idem ďalej robiť čo robím.",
+        "Ďalšia vláda, rovnaká byrokracia. V podnikateľskom klube sme pokrčili ramenami.",
+        "Kto je premiér ma nezaujíma. Zaujímajú ma dane a odvody. A tie sa nezmenili."
+      ],
+      "ng": [
+        "Pre podnikateľov nič. Byrokracia rovnaká, odvody vysoké. A ešte korupčné kauzy.",
+        "Obchodní partneri zo zahraničia sa pýtajú na mafiu a vraždu novinára. Čo im mám povedať?",
+        "Tri klienti zrušili zmluvy. Reputácia Slovenska je po Kuciakovej vražde na dne."
+      ],
+      "vn": [
+        "Likvidujem firmu! Mafianský štát kde vraždía novinárov nie je miesto pre podnikanie.",
+        "Slovensko nie je krajina pre podnikateľov. Kočner a mafie ovládajú štát.",
+        "Posledná kvapka. Balím kanceláriu. V Prahe je právny štát a rešpekt k podnikateľom."
+      ]
+    },
+    "zuzana": {
+      "vp": [
+        "Konečne investícia do zdravotníctva! Možno prestanú odchádzať sestry do Rakúska.",
+        "V nemocnici sme mali mini oslavu. Toto je krok správnym smerom!",
+        "Kolegovia nečakali nič ale toto je pozitívne. Ak splnia sľuby, zachránia životy."
+      ],
+      "p": [
+        "Lepšie ako nič. Aspoň vidíme snahu. Na oddelení máme stále problémy ale je signál.",
+        "Uvidíme či splnia sľuby. Zatiaľ aspoň vieme že vláda vidí problémy zdravotníctva.",
+        "V nemocnici sme opatrne optimistickí. Ale sľuby sme počuli aj od Fica."
+      ],
+      "n": [
+        "Zdravotníctvo sa opäť nerieši. Čakám 10 rokov na skutočnú reformu. Nič nové.",
+        "Pacienti čakajú v chodbách a politici riešia vlastné krízy. Typické.",
+        "Na oddelení nikto ani nezdvihol hlavu. Nemáme čas na politiku, máme pacientov."
+      ],
+      "ng": [
+        "Kolegovia utekajú! Pol chirurgie odišlo do Brna. Platy 1800 za 60 hodín týždenne!",
+        "A vláda? Rieši vlastné prežitie po protestoch! Ľudia umierajú v čakárňach!",
+        "Sestra podala výpoveď. Štvrtá tento mesiac. Ministerka zdravotníctva rezignovala. Chaos."
+      ],
+      "vn": [
+        "Zdravotnícky systém kolabuje! Ministerka odišla! Pacienti čakajú 14 hodín!",
+        "Sestra plakala lebo nezvláda 16-hodinové služby. V Čechách platia dvojnásobok.",
+        "Dnes mi zomrel pacient na chodbe. V 21. storočí. V EÚ. A vláda rieši svoju prežitie. Hanba!"
+      ]
+    },
+    "robert": {
+      "vp": [
+        "SMER sa o nás stará! V krčme sme hovorili že Pellegrini je slušný chlapec.",
+        "Konečne niekto kto pozná problémy obyčajných ľudí. V Handlovej aspoň niečo.",
+        "Sused Vlado hovorí že Pellegrini je lepší ako Fico. Slušnejší. Uvidíme."
+      ],
+      "p": [
+        "Dobre, niečo sa robí. Aspoň ten chaos po protestoch skončil.",
+        "Pellegrini pôsobí slušne. V hospode chlapci hovorili že je to fajn. Uvidíme.",
+        "Nie super, ale fajn. Hlavne nech je pokoj po tých protestoch."
+      ],
+      "n": [
+        "Neviem. Pellegrini rozpráva, ale v Handlovej sa nič nezmenilo. Prácu niet.",
+        "Chodia sem sľubovať a potom zabudnú kde Handlová je. Fico aj Pellegrini.",
+        "Čo sa tu zmenilo? Nič. Len premiér. Krčma stojí, fabrika nie."
+      ],
+      "ng": [
+        "Opäť nič pre nás! Sľuby po protestoch a potom nič. V meste je nezamestnanosť.",
+        "Potrebujeme prácu, nie výmenu premiéra! Kde sú investície do Handlovej?",
+        "Syn odišiel do Prahy. Dcéra zvažuje Anglicko. SMER nás zradil."
+      ],
+      "vn": [
+        "Zradili nás! Fico odišiel ale nič sa nezmenilo! V Handlovej umierajú ľudia na alkohol.",
+        "A čo vláda? Rieši Kočnera a protesty! Kto sa postará o nás v zabudnutom meste?",
+        "Susedovi vypli elektrinu. SMER, SNS — všetci rovnakí. Sľubujú a kradnú."
+      ]
+    },
+    "lucia": {
+      "vp": [
+        "Dôležitý krok pre spravodlivosť! Toto je presne o čom Janko Kuciak písal. Musíme pokračovať.",
+        "Píšem editoriál. Konečne posun vo vyšetrovaní. Janko nezomrel nadarmo!",
+        "V redakcii sme cítili nádej. Možno spravodlivosť príde. Pre Janka a Martinu."
+      ],
+      "p": [
+        "Pozitívne signály. V redakcii väčšina súhlasí že Pellegrini je lepší ako Fico.",
+        "Budeme sledovať vyšetrovanie. Janko by chcel aby sme pokračovali v práci.",
+        "Na porade v redakcii sme sa zhodli: lepšie ako za Fica. Ale oči otvorené."
+      ],
+      "n": [
+        "Kozmetická zmena. Pellegrini je Fico v lepšom obleku. Systém sa nezmenil.",
+        "V novinách to pokryjeme ale realita je rovnaká. Kočner je stále na slobode.",
+        "Na redakčnej porade sme pokrčili ramenami. Vyšetrovanie ide pomaly."
+      ],
+      "ng": [
+        "Vyšetrovanie stagnuje! Kolegovia dostávajú vyhrážky. RSF nás znižuje v rebríčku.",
+        "Janko je rok mŕtvy a Kočner na slobode. Sledujeme zlyhanie spravodlivosti.",
+        "Kolega dostal anonymné vyhrážky. Po Jankovej vražde sa bojíme všetci."
+      ],
+      "vn": [
+        "SPRAVODLIVOSŤ PRE JANKA! Vyšetrovanie je fraška! Kočner sa smeje za mrežami — nie!",
+        "Medzinárodné organizácie varujú ale nikto nepočúva! Janko zomrel za pravdu!",
+        "Dvaja kolegovia emigrovali po vyhrážkach. Investigatívna žurnalistika na Slovensku umiera s Jankom."
+      ]
+    },
+    "stefan": {
+      "vp": [
+        "Poriadok a bezpečnosť! Konečne sa rieši aj vyšetrovanie vraždy. Polícia pracuje.",
+        "Presne pre toto robím túto prácu. Vyšetrovanie Kuciaka musí uspieť. Vláda koná.",
+        "Na stanici vidíme posun. Vyšetrovanie beží, špeciálny prokurátor pracuje."
+      ],
+      "p": [
+        "Dobre pre bezpečnosť. Na stanici sme spokojní že vyšetrovanie pokračuje.",
+        "Pellegrini aspoň nebráni vyšetrovaniu. To je viac ako sa dalo čakať.",
+        "Nie je to ideálne ale ideme správnym smerom. Policajti potrebujú podporu."
+      ],
+      "n": [
+        "Štandardné. V práci sa nič nezmenilo. Vyšetrovanie ide pomaly ale ide.",
+        "Politici rozprávajú, policajti robia. Stále málo ľudí, stále veľa papierov.",
+        "Na porade veliteľ len pokrčil ramenami. Nič nové. Riešime čo máme."
+      ],
+      "ng": [
+        "Prepojenie polície a mafie odkryté po Kuciakovi! Na stanici máme nedostatok ľudí.",
+        "Technika zastaralá a verejnosť nám neverí po kauze Kaliňák. Kto chráni občanov?",
+        "Kolega bol preložený lebo vyšetroval nepohodlných. Toto nie je právny štát."
+      ],
+      "vn": [
+        "Bezpečnosť krajiny ohrozená! Mafie prenikli do polície! Kolegovia odchádzajú.",
+        "Vraždia novinárov a my nemáme ľudí ani techniku. Systém je zhnilý zvnútra!",
+        "Po 15 rokoch služby zvažujem odchod. Polícia chráni mafiu, nie občanov."
+      ]
+    },
+    "helena": {
+      "vp": [
+        "Konečne pomoc pre matky samoživiteľky! S dvoma deťmi je každé euro dôležité. Pellegrini aspoň vidí rodiny.",
+        "Deti budú mať na olovrant. Konečne niekto vidí aj nás. Po tom čo sa stalo Kuciakovi, aspoň niečo pozitívne.",
+        "Plakala som od šťastia. Konečne niekto myslí na matky. Dcéra pôjde na školský výlet!"
+      ],
+      "p": [
+        "Aspoň niečo. Každá pomoc sa počíta keď vychovávaš deti sama za 620 euro.",
+        "Syn potrebuje topánky a dcéra zošity. Aspoň vidím snahu po tom chaose.",
+        "Nie je to veľa ale niečo. Keď máte 620 euro a dvoje detí, každý cent sa počíta."
+      ],
+      "n": [
+        "Pre nás matky nič konkrétne. Ja chcem jasle v Prešove a dotácie na školské potreby.",
+        "Politika sa tu nikdy o nás nezaujímala. Protesty v Bratislave, ale čo z toho máme my v Prešove?",
+        "V Prešove sa nič nezmenilo. Ale čo už, riešim si to sama ako vždy."
+      ],
+      "ng": [
+        "Zase nič pre rodiny! Susedka dala deti k mame a išla robiť do Brna.",
+        "620 euro, dvoje deti, a ceny rastú. Novinára zavraždili a nás to nezaujíma?",
+        "Dcéra sa pýtala prečo nemôže mať topánky. Čo jej mám povedať? Že štát nemá peniaze?"
+      ],
+      "vn": [
+        "Zúfalo! Nemám na školské potreby! Matky samoživiteľky sú neviditeľné!",
+        "Dcéra sa pýtala prečo nemôže ísť na výlet. Vláda nemá peniaze ale na ministerské autá má!",
+        "Plačem každý večer. 620 euro na dvoje detí. Vraždy novinárov, protesty. Čo je toto za krajinu?"
+      ]
+    }
+  },
+  "politicians": [
+    {
+      "id": "fico_pol",
+      "name": "Robert Fico",
+      "party": "SMER-SD",
+      "role": "Predseda SMER-SD",
+      "emoji": "🔴",
+      "kw_pos": [
+        "social",
+        "sovereign",
+        "strong",
+        "smer",
+        "pension"
+      ],
+      "kw_neg": [
+        "transparency",
+        "reform",
+        "ngo",
+        "media"
+      ],
+      "reactions": {
+        "pos": [
+          "Správne rozhodnutie. SMER stojí za Pellegrinim.",
+          "Pokračujeme v politike pre ľudí. Tak to má byť.",
+          "Moja vláda to začala, Pellegrini pokračuje."
+        ],
+        "neg": [
+          "Pellegrini by mal byť opatrnejší. Nesmie podľahnúť tlaku ulice.",
+          "Protestujúci sú platení z Ameriky. Nenechajme sa manipulovať!",
+          "Toto nie je smer ktorý som navrhol. SMER to prerokuje."
+        ],
+        "neu": [
+          "SMER podporuje vládu. Ale sledujeme situáciu.",
+          "Pellegrini má moju dôveru. Zatiaľ."
+        ]
+      }
+    },
+    {
+      "id": "caputova",
+      "name": "Zuzana Čaputová",
+      "party": "PS / nezávislá",
+      "role": "Prezidentská kandidátka / Prezidentka",
+      "emoji": "🟣",
+      "kw_pos": [
+        "transparency",
+        "reform",
+        "eu",
+        "dialog",
+        "compromise",
+        "ngo",
+        "kuciak",
+        "vysetrovanie"
+      ],
+      "kw_neg": [
+        "cenzur",
+        "zavriet",
+        "russia",
+        "korupcia",
+        "mafie"
+      ],
+      "reactions": {
+        "pos": [
+          "Dôležitý krok pre budúcnosť Slovenska. Spravodlivosť pre Kuciaka je priorita.",
+          "Toto je signál, že Slovensko sa mení k lepšiemu.",
+          "Vítam snahu o obnovu dôvery. Musíme pokračovať."
+        ],
+        "neg": [
+          "Veľmi ma to znepokojuje. Občania si zaslúžia viac transparentnosti.",
+          "Vyzývam vládu na skutočnú zmenu, nie len výmenu tvárí.",
+          "Slovensko potrebuje systémovú zmenu, nie kozmetiku."
+        ],
+        "neu": [
+          "Sledujem situáciu. Dôležité je dokázať zmenu činmi.",
+          "Občania rozhodnú vo voľbách. Dôverujem ich úsudku."
+        ]
+      }
+    },
+    {
+      "id": "simecka",
+      "name": "Michal Šimečka",
+      "party": "PS",
+      "role": "Rastúca hviezda opozície",
+      "emoji": "🔵",
+      "kw_pos": [
+        "eu",
+        "reform",
+        "transparency",
+        "nato",
+        "dialog",
+        "kuciak"
+      ],
+      "kw_neg": [
+        "russia",
+        "sovereign",
+        "korupcia",
+        "mafie"
+      ],
+      "reactions": {
+        "pos": [
+          "Vítam tento krok. Slovensko potrebuje takéto rozhodnutia po Kuciakovej vražde.",
+          "Konečne zodpovedná politika. Ale musíme ísť ďalej.",
+          "PS podporuje kroky k spravodlivosti a transparentnosti."
+        ],
+        "neg": [
+          "Toto je len fasáda. Rovnaká koalícia, rovnaký systém.",
+          "Vymenili Fica za Pellegriniho ale mafie ostali.",
+          "PS požaduje skutočnú zmenu, nie výmenu premiéra."
+        ],
+        "neu": [
+          "Budeme to sledovať. Čakáme na konkrétne výsledky.",
+          "Zatiaľ len slová. Čakáme na činy."
+        ]
+      }
+    },
+    {
+      "id": "sulik",
+      "name": "Richard Sulík",
+      "party": "SaS",
+      "role": "Líder opozície",
+      "emoji": "🟡",
+      "kw_pos": [
+        "invest",
+        "business",
+        "reform",
+        "tax",
+        "startup"
+      ],
+      "kw_neg": [
+        "social",
+        "pension",
+        "subsid",
+        "deficit",
+        "korupcia"
+      ],
+      "reactions": {
+        "pos": [
+          "Konečne rozumná ekonomická politika! Toto podporujem.",
+          "Správny krok pre podnikateľské prostredie.",
+          "Ak to zníži byrokraciu, som za."
+        ],
+        "neg": [
+          "Toto zruinuje štátny rozpočet! Populizmus na dlh!",
+          "Ekonomický nezmysel. SMER len rozdáva pred voľbami.",
+          "SaS pripraví alternatívny návrh."
+        ],
+        "neu": [
+          "Uvidíme aký bude dopad na rozpočet.",
+          "Pellegrini zatiaľ nepreukázal ekonomickú víziu."
+        ]
+      }
+    },
+    {
+      "id": "danko",
+      "name": "Andrej Danko",
+      "party": "SNS",
+      "role": "Predseda NR SR",
+      "emoji": "🟢",
+      "kw_pos": [
+        "sovereign",
+        "national",
+        "strong",
+        "security",
+        "tradition",
+        "migration"
+      ],
+      "kw_neg": [
+        "eu",
+        "nato",
+        "ngo",
+        "transparency"
+      ],
+      "reactions": {
+        "pos": [
+          "Výborne! Slovensko na prvom mieste! Suverenita!",
+          "Toto je politika pre SLOVÁKOV, nie pre Brusel!",
+          "SNS toto plne podporuje! Koalícia drží!"
+        ],
+        "neg": [
+          "Toto je zrada národných záujmov! SNS bude proti!",
+          "Odmietame podriadiť sa tlaku ulice a médií!",
+          "Navrhujem mimoriadne zasadnutie koaličnej rady."
+        ],
+        "neu": [
+          "SNS to prerokuje na predsedníctve.",
+          "Koalícia musí držať spolu v tejto ťažkej dobe."
+        ]
+      }
+    },
+    {
+      "id": "kocner",
+      "name": "Marian Kočner",
+      "party": "—",
+      "role": "Obvinený z objednávky vraždy Kuciaka",
+      "emoji": "⚫",
+      "kw_pos": [],
+      "kw_neg": [
+        "kuciak",
+        "vysetrovanie",
+        "spravodlivost",
+        "sud",
+        "transparency"
+      ],
+      "reactions": {
+        "pos": [
+          "*bez komentára — cez advokáta odmieta všetky obvinenia*"
+        ],
+        "neg": [
+          "Moji advokáti podajú námietku. Som nevinný!",
+          "Toto je politický proces! Nemám s vraždou nič spoločné!",
+          "Médiá ma lynčujú bez dôkazov!"
+        ],
+        "neu": [
+          "*bez vyjadrenia*",
+          "Moji právnici komunikujú s médiami."
+        ]
+      }
+    }
+  ],
+  "coalitionPartners": [
+    {
+      "id": "smer",
+      "name": "SMER-SD",
+      "seats": 49,
+      "freq": 8
+    },
+    {
+      "id": "sns_c",
+      "name": "SNS",
+      "seats": 15,
+      "freq": 5
+    },
+    {
+      "id": "most",
+      "name": "Most-Híd",
+      "seats": 13,
+      "freq": 4
+    }
+  ],
+  "demands": [
+    {
+      "partner": "sns_c",
+      "text": "SNS požaduje tvrdší postoj voči migračným kvótam EÚ."
+    },
+    {
+      "partner": "sns_c",
+      "text": "SNS požaduje väčší dôraz na národnú suverenitu."
+    },
+    {
+      "partner": "sns_c",
+      "text": "SNS požaduje zastavenie kritiky koaličných partnerov v médiách."
+    },
+    {
+      "partner": "sns_c",
+      "text": "SNS požaduje ministerské posty pre svojich nominantov."
+    },
+    {
+      "partner": "most",
+      "text": "Most-Híd požaduje väčšie investície do maďarských regiónov na juhu."
+    },
+    {
+      "partner": "most",
+      "text": "Most-Híd požaduje kompromisné riešenie jazykového zákona."
+    },
+    {
+      "partner": "most",
+      "text": "Most-Híd požaduje väčší podiel na rozhodovaní v koalícii."
+    },
+    {
+      "partner": "smer",
+      "text": "SMER požaduje ochranu Fica pred vyšetrovaním."
+    },
+    {
+      "partner": "smer",
+      "text": "SMER požaduje zvýšenie sociálnych dávok pred voľbami."
+    },
+    {
+      "partner": "smer",
+      "text": "SMER požaduje spomalenie protikorupčných opatrení."
+    }
+  ],
+  "regions": [
+    {
+      "id": "bratislavsky",
+      "name": "Bratislavský",
+      "pop": 670,
+      "personas": [
+        "katarina",
+        "martin",
+        "lucia"
+      ]
+    },
+    {
+      "id": "trnavsky",
+      "name": "Trnavský",
+      "pop": 565,
+      "personas": [
+        "tomas"
+      ]
+    },
+    {
+      "id": "trenciansky",
+      "name": "Trenčiansky",
+      "pop": 584,
+      "personas": [
+        "stefan"
+      ]
+    },
+    {
+      "id": "nitriansky",
+      "name": "Nitriansky",
+      "pop": 674,
+      "personas": [
+        "jozef"
+      ]
+    },
+    {
+      "id": "zilinsky",
+      "name": "Žilinský",
+      "pop": 691,
+      "personas": [
+        "peter"
+      ]
+    },
+    {
+      "id": "banskobystricky",
+      "name": "Banskobystrický",
+      "pop": 645,
+      "personas": [
+        "eva",
+        "robert"
+      ]
+    },
+    {
+      "id": "presovsky",
+      "name": "Prešovský",
+      "pop": 827,
+      "personas": [
+        "maria",
+        "helena"
+      ]
+    },
+    {
+      "id": "kosicky",
+      "name": "Košický",
+      "pop": 802,
+      "personas": [
+        "zuzana"
+      ]
+    }
+  ],
+  "stakeholders": [
+    {
+      "id": "smer",
+      "name": "SMER-SD",
+      "desc": "Koalícia (oslabený)",
+      "fp": 5,
+      "type": "coalition",
+      "seats": 49,
+      "color": "#dc2626"
+    },
+    {
+      "id": "sns_c",
+      "name": "SNS",
+      "desc": "Koalícia",
+      "fp": 4,
+      "type": "coalition",
+      "seats": 15,
+      "color": "#065f46"
+    },
+    {
+      "id": "most",
+      "name": "Most-Híd",
+      "desc": "Koalícia",
+      "fp": 3,
+      "type": "coalition",
+      "seats": 13,
+      "color": "#f59e0b"
+    },
+    {
+      "id": "ps",
+      "name": "Progresívne Slovensko",
+      "desc": "Opozícia (rastúce!)",
+      "fp": 4,
+      "type": "opposition",
+      "seats": 0,
+      "color": "#7c3aed"
+    },
+    {
+      "id": "sas",
+      "name": "SaS",
+      "desc": "Opozícia",
+      "fp": 3,
+      "type": "opposition",
+      "seats": 21,
+      "color": "#f97316"
+    },
+    {
+      "id": "media_ind",
+      "name": "Nezávislé médiá",
+      "desc": "Médiá (posilnené po Kuciakovi)",
+      "fp": 4,
+      "type": "media"
+    },
+    {
+      "id": "business",
+      "name": "Podnikateľský sektor",
+      "desc": "Ekonomika",
+      "fp": 4,
+      "type": "economy"
+    },
+    {
+      "id": "unions",
+      "name": "Odbory a zamestnanci",
+      "desc": "Ekonomika",
+      "fp": 3,
+      "type": "economy"
+    },
+    {
+      "id": "judiciary",
+      "name": "Súdnictvo a inštitúcie",
+      "desc": "Inštitúcie",
+      "fp": 3,
+      "type": "institution"
+    },
+    {
+      "id": "eu_nato",
+      "name": "Európska únia a NATO",
+      "desc": "Medzinárodné",
+      "fp": 5,
+      "type": "international"
+    }
+  ],
+  "diplomacy": [
+    {
+      "key": "eu",
+      "name": "Európska únia",
+      "emoji": "<img src=\"https://flagcdn.com/w20/eu.png\" style=\"width:18px;height:12px;vertical-align:middle;margin-right:4px\">"
+    },
+    {
+      "key": "usa",
+      "name": "USA",
+      "emoji": "<img src=\"https://flagcdn.com/w20/us.png\" style=\"width:18px;height:12px;vertical-align:middle;margin-right:4px\">"
+    },
+    {
+      "key": "russia",
+      "name": "Rusko",
+      "emoji": "<img src=\"https://flagcdn.com/w20/ru.png\" style=\"width:18px;height:12px;vertical-align:middle;margin-right:4px\">"
+    },
+    {
+      "key": "czech",
+      "name": "Česko",
+      "emoji": "<img src=\"https://flagcdn.com/w20/cz.png\" style=\"width:18px;height:12px;vertical-align:middle;margin-right:4px\">"
+    },
+    {
+      "key": "hungary",
+      "name": "Maďarsko",
+      "emoji": "<img src=\"https://flagcdn.com/w20/hu.png\" style=\"width:18px;height:12px;vertical-align:middle;margin-right:4px\">"
+    },
+    {
+      "key": "poland",
+      "name": "Poľsko",
+      "emoji": "<img src=\"https://flagcdn.com/w20/pl.png\" style=\"width:18px;height:12px;vertical-align:middle;margin-right:4px\">"
+    },
+    {
+      "key": "nato_r",
+      "name": "NATO",
+      "emoji": "🛡️"
+    },
+    {
+      "key": "germany",
+      "name": "Nemecko",
+      "emoji": "<img src=\"https://flagcdn.com/w20/de.png\" style=\"width:18px;height:12px;vertical-align:middle;margin-right:4px\">"
+    }
+  ],
+  "keywords": {
+    "social": {
+      "p": {
+        "maria": 8,
+        "peter": 6,
+        "robert": 7,
+        "helena": 6
+      },
+      "s": {
+        "smer": 5,
+        "unions": 6,
+        "sas": -4,
+        "business": -4
+      },
+      "e": {
+        "deficit": 0.25,
+        "gdpGrowth": 0.03
+      }
+    },
+    "pension": {
+      "p": {
+        "maria": 12,
+        "robert": 6,
+        "helena": 4
+      },
+      "s": {
+        "smer": 6,
+        "most": 4,
+        "sas": -3
+      },
+      "e": {
+        "deficit": 0.25,
+        "gdpGrowth": 0.02
+      }
+    },
+    "dochodok": {
+      "p": {
+        "maria": 12,
+        "robert": 6,
+        "helena": 4
+      },
+      "s": {
+        "smer": 6,
+        "most": 4
+      },
+      "e": {
+        "deficit": 0.25
+      }
+    },
+    "wage": {
+      "p": {
+        "peter": 10,
+        "eva": 8,
+        "zuzana": 7,
+        "stefan": 6,
+        "helena": 5
+      },
+      "s": {
+        "unions": 8,
+        "smer": 4,
+        "business": -6
+      },
+      "e": {
+        "deficit": 0.2,
+        "gdpGrowth": 0.05
+      }
+    },
+    "plat": {
+      "p": {
+        "peter": 10,
+        "eva": 8,
+        "zuzana": 7,
+        "helena": 5
+      },
+      "s": {
+        "unions": 8,
+        "smer": 4,
+        "business": -6
+      },
+      "e": {
+        "deficit": 0.2,
+        "gdpGrowth": 0.05
+      }
+    },
+    "eu": {
+      "p": {
+        "katarina": 8,
+        "lucia": 7,
+        "martin": 6,
+        "tomas": 5
+      },
+      "s": {
+        "eu_nato": 8,
+        "ps": 6,
+        "most": 4,
+        "sns_c": -8
+      },
+      "dp": {
+        "eu": 3
+      },
+      "e": {
+        "gdpGrowth": 0.05
+      }
+    },
+    "brusel": {
+      "p": {
+        "katarina": 5,
+        "lucia": 5,
+        "martin": 4
+      },
+      "s": {
+        "eu_nato": 5,
+        "ps": 4,
+        "sns_c": -10
+      },
+      "dp": {
+        "eu": 2
+      }
+    },
+    "nato": {
+      "p": {
+        "stefan": 7,
+        "katarina": 5
+      },
+      "s": {
+        "eu_nato": 6,
+        "sns_c": -5
+      },
+      "dp": {
+        "nato_r": 3
+      }
+    },
+    "sovereign": {
+      "p": {
+        "jozef": 8,
+        "stefan": 7,
+        "robert": 6
+      },
+      "s": {
+        "sns_c": 10,
+        "smer": 6,
+        "eu_nato": -8,
+        "ps": -6
+      },
+      "dp": {
+        "eu": -3,
+        "russia": 2
+      }
+    },
+    "suverenita": {
+      "p": {
+        "jozef": 8,
+        "stefan": 7,
+        "robert": 5
+      },
+      "s": {
+        "sns_c": 10,
+        "smer": 6,
+        "eu_nato": -8
+      },
+      "dp": {
+        "eu": -3
+      }
+    },
+    "russia": {
+      "p": {
+        "robert": 5,
+        "maria": 3
+      },
+      "s": {
+        "sns_c": 5,
+        "eu_nato": -8,
+        "ps": -8
+      },
+      "dp": {
+        "russia": 5,
+        "eu": -4
+      }
+    },
+    "rusko": {
+      "p": {
+        "robert": 5,
+        "maria": 3
+      },
+      "s": {
+        "sns_c": 5,
+        "eu_nato": -8,
+        "ps": -8
+      },
+      "dp": {
+        "russia": 5,
+        "eu": -4
+      }
+    },
+    "peace": {
+      "p": {
+        "maria": 6,
+        "eva": 5,
+        "jozef": 4,
+        "helena": 4
+      },
+      "s": {
+        "smer": 5,
+        "most": 4
+      }
+    },
+    "mier": {
+      "p": {
+        "maria": 6,
+        "eva": 5,
+        "helena": 4
+      },
+      "s": {
+        "smer": 5
+      }
+    },
+    "reform": {
+      "p": {
+        "katarina": 6,
+        "martin": 5,
+        "lucia": 5,
+        "tomas": 4
+      },
+      "s": {
+        "ps": 4,
+        "sas": 5,
+        "eu_nato": 4,
+        "smer": -2
+      },
+      "dp": {
+        "eu": 1
+      },
+      "e": {
+        "deficit": -0.1,
+        "gdpGrowth": 0.1
+      }
+    },
+    "reforma": {
+      "p": {
+        "katarina": 6,
+        "martin": 5,
+        "lucia": 5,
+        "tomas": 4
+      },
+      "s": {
+        "ps": 4,
+        "sas": 5,
+        "eu_nato": 4,
+        "smer": -2
+      },
+      "dp": {
+        "eu": 1
+      },
+      "e": {
+        "deficit": -0.1,
+        "gdpGrowth": 0.1
+      }
+    },
+    "transparency": {
+      "p": {
+        "lucia": 10,
+        "katarina": 7,
+        "martin": 7
+      },
+      "s": {
+        "ps": 8,
+        "media_ind": 8,
+        "eu_nato": 6,
+        "smer": -5
+      }
+    },
+    "corruption": {
+      "p": {
+        "lucia": 6,
+        "katarina": 5,
+        "martin": 5
+      },
+      "s": {
+        "ps": 5,
+        "media_ind": 5,
+        "judiciary": 5,
+        "smer": -6
+      }
+    },
+    "korupcia": {
+      "p": {
+        "lucia": 6,
+        "katarina": 5,
+        "martin": 5
+      },
+      "s": {
+        "ps": 5,
+        "judiciary": 5,
+        "smer": -6
+      }
+    },
+    "kuciak": {
+      "p": {
+        "lucia": 12,
+        "katarina": 8,
+        "martin": 10,
+        "eva": 6
+      },
+      "s": {
+        "ps": 8,
+        "media_ind": 10,
+        "judiciary": 6,
+        "eu_nato": 5,
+        "smer": -8
+      }
+    },
+    "vysetrovanie": {
+      "p": {
+        "lucia": 10,
+        "katarina": 7,
+        "martin": 8,
+        "stefan": 5
+      },
+      "s": {
+        "ps": 6,
+        "media_ind": 8,
+        "judiciary": 8,
+        "smer": -5
+      }
+    },
+    "dovera": {
+      "p": {
+        "eva": 8,
+        "tomas": 6,
+        "katarina": 5,
+        "lucia": 5
+      },
+      "s": {
+        "ps": 5,
+        "eu_nato": 5,
+        "media_ind": 4,
+        "smer": -3
+      }
+    },
+    "caputova": {
+      "p": {
+        "katarina": 8,
+        "martin": 10,
+        "lucia": 8,
+        "eva": 5
+      },
+      "s": {
+        "ps": 10,
+        "media_ind": 5,
+        "eu_nato": 4,
+        "smer": -6,
+        "sns_c": -4
+      }
+    },
+    "covid": {
+      "p": {
+        "zuzana": 8,
+        "eva": 6,
+        "maria": 5,
+        "helena": 5
+      },
+      "s": {
+        "eu_nato": 3,
+        "business": -5
+      },
+      "e": {
+        "gdpGrowth": -0.3,
+        "unemp": 0.3
+      }
+    },
+    "pandemia": {
+      "p": {
+        "zuzana": 8,
+        "eva": 6,
+        "maria": 5
+      },
+      "s": {
+        "eu_nato": 3
+      },
+      "e": {
+        "gdpGrowth": -0.3,
+        "unemp": 0.3
+      }
+    },
+    "protest": {
+      "p": {
+        "martin": 8,
+        "katarina": 6,
+        "lucia": 6
+      },
+      "s": {
+        "ps": 6,
+        "media_ind": 5,
+        "smer": -6,
+        "sns_c": -4
+      }
+    },
+    "health": {
+      "p": {
+        "zuzana": 10,
+        "maria": 7,
+        "helena": 6
+      },
+      "s": {
+        "most": 5,
+        "unions": 3
+      },
+      "e": {
+        "deficit": 0.4,
+        "gdpGrowth": 0.05
+      }
+    },
+    "zdravotnictvo": {
+      "p": {
+        "zuzana": 10,
+        "maria": 7,
+        "helena": 6
+      },
+      "s": {
+        "most": 5,
+        "unions": 3
+      },
+      "e": {
+        "deficit": 0.4,
+        "gdpGrowth": 0.05
+      }
+    },
+    "education": {
+      "p": {
+        "eva": 10,
+        "martin": 8,
+        "katarina": 5
+      },
+      "s": {
+        "ps": 4,
+        "unions": 3
+      },
+      "e": {
+        "deficit": 0.18,
+        "gdpGrowth": 0.05
+      }
+    },
+    "skolstvo": {
+      "p": {
+        "eva": 10,
+        "martin": 8
+      },
+      "s": {
+        "unions": 3
+      },
+      "e": {
+        "deficit": 0.18,
+        "gdpGrowth": 0.05
+      }
+    },
+    "tax": {
+      "p": {
+        "tomas": -5,
+        "katarina": -3
+      },
+      "s": {
+        "business": -6,
+        "sas": -5,
+        "smer": 3
+      },
+      "e": {
+        "deficit": -0.2,
+        "gdpGrowth": -0.1
+      }
+    },
+    "dan": {
+      "p": {
+        "tomas": -5,
+        "katarina": -3
+      },
+      "s": {
+        "business": -6,
+        "sas": -5
+      },
+      "e": {
+        "deficit": -0.2,
+        "gdpGrowth": -0.1
+      }
+    },
+    "invest": {
+      "p": {
+        "tomas": 8,
+        "katarina": 6
+      },
+      "s": {
+        "business": 8,
+        "eu_nato": 4
+      },
+      "e": {
+        "deficit": 0.2,
+        "gdpGrowth": 0.15
+      }
+    },
+    "investicia": {
+      "p": {
+        "tomas": 8,
+        "katarina": 6
+      },
+      "s": {
+        "business": 8,
+        "eu_nato": 4
+      },
+      "e": {
+        "deficit": 0.2,
+        "gdpGrowth": 0.15
+      }
+    },
+    "security": {
+      "p": {
+        "stefan": 8,
+        "robert": 4
+      },
+      "s": {
+        "sns_c": 4,
+        "eu_nato": 2
+      },
+      "e": {
+        "deficit": 0.12
+      }
+    },
+    "bezpecnost": {
+      "p": {
+        "stefan": 8,
+        "robert": 4
+      },
+      "s": {
+        "sns_c": 4
+      },
+      "e": {
+        "deficit": 0.12
+      }
+    },
+    "media": {
+      "p": {
+        "lucia": 8,
+        "katarina": 5,
+        "martin": 4
+      },
+      "s": {
+        "media_ind": 5,
+        "ps": 4,
+        "smer": -3
+      }
+    },
+    "tradition": {
+      "p": {
+        "jozef": 7,
+        "stefan": 5,
+        "maria": 4
+      },
+      "s": {
+        "sns_c": 6,
+        "sas": 3,
+        "ps": -5
+      }
+    },
+    "family": {
+      "p": {
+        "jozef": 6,
+        "helena": 7,
+        "maria": 5
+      },
+      "s": {
+        "sns_c": 4,
+        "most": 3
+      }
+    },
+    "rodina": {
+      "p": {
+        "helena": 7,
+        "maria": 5,
+        "jozef": 5
+      },
+      "s": {
+        "sns_c": 4
+      }
+    },
+    "compromise": {
+      "p": {
+        "eva": 6,
+        "tomas": 5,
+        "zuzana": 5
+      },
+      "s": {
+        "most": 6,
+        "sas": 4,
+        "eu_nato": 4,
+        "sns_c": -4
+      }
+    },
+    "kompromis": {
+      "p": {
+        "eva": 6,
+        "tomas": 5,
+        "zuzana": 5
+      },
+      "s": {
+        "most": 6,
+        "eu_nato": 4,
+        "sns_c": -4
+      }
+    },
+    "dialogue": {
+      "p": {
+        "eva": 7,
+        "zuzana": 5,
+        "tomas": 4
+      },
+      "s": {
+        "most": 5,
+        "eu_nato": 5,
+        "ps": 3
+      }
+    },
+    "dialog": {
+      "p": {
+        "eva": 7,
+        "zuzana": 5
+      },
+      "s": {
+        "most": 5,
+        "eu_nato": 5,
+        "ps": 3
+      }
+    },
+    "unity": {
+      "p": {
+        "eva": 6,
+        "maria": 5,
+        "helena": 4
+      },
+      "s": {
+        "most": 5,
+        "smer": 3
+      }
+    },
+    "jednota": {
+      "p": {
+        "eva": 6,
+        "maria": 5,
+        "helena": 4
+      },
+      "s": {
+        "most": 5
+      }
+    },
+    "strong": {
+      "p": {
+        "stefan": 5,
+        "robert": 5,
+        "peter": 4
+      },
+      "s": {
+        "smer": 5,
+        "sns_c": 5
+      }
+    },
+    "energy": {
+      "p": {
+        "peter": 5,
+        "tomas": 5,
+        "maria": 4
+      },
+      "s": {
+        "business": 4
+      },
+      "e": {
+        "deficit": 0.25,
+        "gdpGrowth": 0.03
+      }
+    },
+    "energia": {
+      "p": {
+        "peter": 5,
+        "tomas": 4
+      },
+      "s": {
+        "business": 3
+      },
+      "e": {
+        "deficit": 0.25,
+        "gdpGrowth": 0.03
+      }
+    },
+    "it": {
+      "p": {
+        "katarina": 8,
+        "tomas": 5,
+        "martin": 4
+      },
+      "s": {
+        "business": 6
+      }
+    },
+    "startup": {
+      "p": {
+        "katarina": 7,
+        "tomas": 6,
+        "martin": 5
+      },
+      "s": {
+        "business": 5
+      }
+    },
+    "roma": {
+      "p": {
+        "eva": 4,
+        "lucia": 4
+      },
+      "s": {
+        "eu_nato": 4,
+        "ps": 3,
+        "sns_c": -5
+      }
+    },
+    "cirkev": {
+      "p": {
+        "jozef": 7,
+        "maria": 5
+      },
+      "s": {
+        "sns_c": 3
+      }
+    },
+    "ngo": {
+      "p": {
+        "lucia": 5,
+        "katarina": 4
+      },
+      "s": {
+        "media_ind": 4,
+        "ps": 4,
+        "smer": -4,
+        "sns_c": -5
+      }
+    },
+    "subsid": {
+      "p": {
+        "peter": 5,
+        "jozef": 6,
+        "robert": 4
+      },
+      "s": {
+        "smer": 3,
+        "unions": 4,
+        "business": -3
+      },
+      "e": {
+        "deficit": 0.12,
+        "gdpGrowth": 0.05
+      }
+    },
+    "dotacia": {
+      "p": {
+        "peter": 5,
+        "jozef": 6,
+        "robert": 4
+      },
+      "s": {
+        "smer": 3,
+        "unions": 4
+      },
+      "e": {
+        "deficit": 0.12,
+        "gdpGrowth": 0.05
+      }
+    },
+    "spravodlivost": {
+      "p": {
+        "lucia": 10,
+        "katarina": 7,
+        "martin": 8,
+        "eva": 5
+      },
+      "s": {
+        "ps": 6,
+        "judiciary": 8,
+        "media_ind": 6,
+        "smer": -4
+      }
+    },
+    "mafie": {
+      "p": {
+        "lucia": 8,
+        "martin": 7,
+        "katarina": 6,
+        "stefan": 5
+      },
+      "s": {
+        "ps": 5,
+        "judiciary": 5,
+        "smer": -8,
+        "sns_c": -3
+      }
+    },
+    "sud": {
+      "p": {
+        "lucia": 7,
+        "martin": 6,
+        "katarina": 5
+      },
+      "s": {
+        "judiciary": 8,
+        "ps": 5,
+        "media_ind": 4
+      }
+    },
+    "migration": {
+      "p": {
+        "jozef": 5,
+        "stefan": 4
+      },
+      "s": {
+        "sns_c": 8,
+        "smer": 4,
+        "eu_nato": -4,
+        "ps": -3
+      }
+    },
+    "migracia": {
+      "p": {
+        "jozef": 5,
+        "stefan": 4
+      },
+      "s": {
+        "sns_c": 8,
+        "smer": 4,
+        "eu_nato": -4
+      }
+    }
+  },
+  "consequenceChains": [
+    {
+      "flag": "kuciak_whitewash",
+      "delay": 2,
+      "prob": 0.8,
+      "ev": {
+        "h": "Verejný hnev — vláda kryje vyšetrovanie!",
+        "d": "Verejnosť verí že vláda sabotuje vyšetrovanie Kuciakovej vraždy. Masívne protesty sa obnovujú.",
+        "c": "Dôvera vo vládu klesá na historické minimum.",
+        "t": "consequence",
+        "cat": "Justícia",
+        "s": [
+          "Posilniť nezávislosť vyšetrovania",
+          "Verejná výzva k trpezlivosti",
+          "Odvolať zodpovedných"
+        ]
+      }
+    },
+    {
+      "flag": "caputova_support",
+      "delay": 3,
+      "prob": 0.7,
+      "ev": {
+        "h": "Demokratický impulz — medzinárodné uznanie",
+        "d": "Podpora Čaputovej a protikorupčných reforiem prináša medzinárodné uznanie. EÚ chváli Slovensko.",
+        "c": "Pozitívny signál ale koalícia je nepohodlná.",
+        "t": "consequence",
+        "cat": "Zahraničná politika",
+        "s": [
+          "Pokračovať v reformnom kurze",
+          "Využiť medzinárodné uznanie",
+          "Vybalancovať s koalíciou"
+        ]
+      }
+    },
+    {
+      "flag": "healthcare_crisis",
+      "delay": 3,
+      "prob": 0.7,
+      "ev": {
+        "h": "Lekári emigrujú — personálna kríza",
+        "d": "Masový odchod zdravotníkov do Čiech a Rakúska. Nemocnice zatvárajú oddelenia.",
+        "c": "Bez lekárov nie je zdravotníctvo.",
+        "t": "consequence",
+        "cat": "Ekonomika",
+        "s": [
+          "Núdzové zvýšenie platov",
+          "Nábor zo zahraničia",
+          "Reforma systému"
+        ]
+      }
+    },
+    {
+      "flag": "teacher_capitulation",
+      "delay": 2,
+      "prob": 0.6,
+      "ev": {
+        "h": "Rozpočtový tlak po ústupkoch učiteľom",
+        "d": "Splnenie požiadaviek učiteľov zvyšuje deficit. Ratingové agentúry varujú.",
+        "c": "Rozpočtová disciplína vs. sociálny zmier.",
+        "t": "consequence",
+        "cat": "Ekonomika",
+        "s": [
+          "Kompenzovať úsporami inde",
+          "Zvýšiť dane",
+          "Prijať vyšší deficit"
+        ]
+      }
+    },
+    {
+      "flag": "investigation_success",
+      "delay": 4,
+      "prob": 0.6,
+      "ev": {
+        "h": "Súdny proces vzbudzuje nádej",
+        "d": "Úspešné vyšetrovanie a začiatok procesu s Kočnerom posilňuje dôveru v justíciu.",
+        "c": "Vláda môže tvrditi že systém funguje.",
+        "t": "consequence",
+        "cat": "Justícia",
+        "s": [
+          "Prezentovať ako úspech vlády",
+          "Pokračovať v reformách justície",
+          "Nechať justíciu pracovať nezávisle"
+        ]
+      }
+    },
+    {
+      "flag": "eu_confrontation",
+      "delay": 3,
+      "prob": 0.65,
+      "ev": {
+        "h": "EÚ vyjadruje obavy o právny štát",
+        "d": "Európska komisia kritizuje Slovensko za pomalý pokrok v reforme justície po vražde novinára.",
+        "c": "Reputácia krajiny je v stávke.",
+        "t": "consequence",
+        "cat": "Zahraničná politika",
+        "s": [
+          "Splniť požiadavky EÚ",
+          "Vyjednávať kompromis",
+          "Odmietnuť kritiku"
+        ]
+      }
+    },
+    {
+      "flag": "media_control",
+      "delay": 2,
+      "prob": 0.8,
+      "ev": {
+        "h": "RSF znižuje hodnotenie SR — vražda novinára",
+        "d": "Reportéri bez hraníc zaradili Slovensko nižšie po vražde Kuciaka.",
+        "c": "Medzinárodná reputácia vážne poškodená.",
+        "t": "consequence",
+        "cat": "Médiá",
+        "s": [
+          "Prijať ochranné opatrenia pre novinárov",
+          "Dialóg s médiami",
+          "Odmietnuť kritiku"
+        ]
+      }
+    },
+    {
+      "flag": "coalition_strain",
+      "delay": 2,
+      "prob": 0.7,
+      "ev": {
+        "h": "SNS hrozí odchodom z koalície",
+        "d": "SNS sa cíti ignorovaná. Danko hrozí odchodom ak nedostane viac vplyvu.",
+        "c": "Rozpad koalície by znamenal predčasné voľby.",
+        "t": "consequence",
+        "cat": "Sociálna politika",
+        "s": [
+          "Ustúpiť SNS v kľúčových otázkach",
+          "Vyjednávať kompromis",
+          "Nechať SNS odísť"
+        ]
+      }
+    },
+    {
+      "flag": "infra_investment",
+      "delay": 5,
+      "prob": 0.7,
+      "ev": {
+        "h": "Ekonomický rast prináša plody",
+        "d": "Investície a silný automobilový priemysel prinášajú rekordný rast. Nezamestnanosť klesá.",
+        "c": "Ekonomické úspechy ale nestačia na politickú nespokojnosť.",
+        "t": "consequence",
+        "cat": "Ekonomika",
+        "s": [
+          "Zdôrazniť ekonomické úspechy",
+          "Investovať ďalej",
+          "Využiť na sociálne programy"
+        ]
+      }
+    },
+    {
+      "flag": "corruption_crackdown",
+      "delay": 3,
+      "prob": 0.6,
+      "ev": {
+        "h": "Oligarchovia sa bránia — mediálny protiútok",
+        "d": "Podnikatelia napojení na SMER financujú kampaň proti protikorupčným opatreniam.",
+        "c": "Peniaze vs. spravodlivosť.",
+        "t": "consequence",
+        "cat": "Justícia",
+        "s": [
+          "Pokračovať v boji proti korupcii",
+          "Kompromis",
+          "Ustúpiť"
+        ]
+      }
+    }
+  ],
+  "forcedEvents": [
+    {
+      "id": "takeover",
+      "m": 0,
+      "h": "Krízové prevzatie vlády",
+      "d": "Fico rezignoval 15. marca po masívnych protestoch. Ste vymenovaný za premiéra. Rovnaká koalícia SMER+SNS+Most-Híd ale dôvera verejnosti je na dne. Kabinet schválený 81-61 za pokračujúcich protestov.",
+      "c": "Vražda Kuciaka otriasla Slovenskom. Verejnosť požaduje spravodlivosť a systémovú zmenu.",
+      "t": "crisis",
+      "cat": "Bezpečnosť",
+      "s": [
+        "Okamžitá výmena kľúčových ministrov",
+        "Prisľúbiť transparentné vyšetrovanie",
+        "Výzva k národnému zmiereniu a jednote"
+      ]
+    },
+    {
+      "id": "interior_reshuffle",
+      "m": 1,
+      "h": "Rošáda na ministerstve vnútra",
+      "d": "Kaliňák odstúpil kvôli prepojeniu na Kočnera. Drucker menovaný za nového ministra vnútra — signál zmeny.",
+      "c": "Verejnosť a EÚ sledujú či ide o skutočnú zmenu alebo kozmetiku.",
+      "t": "situation",
+      "cat": "Justícia",
+      "s": [
+        "Podporiť agresívne vyšetrovanie",
+        "Navrhnúť reformu justície podľa EÚ",
+        "Chrániť vyšetrovanie pred politickým vplyvom"
+      ]
+    },
+    {
+      "id": "drucker_resign",
+      "m": 2,
+      "h": "Druckerov rýchly koniec — Saková nastupuje",
+      "d": "Drucker rezignuje po 3 týždňoch. Denisa Saková, bývalá zástupkyňa Kaliňáka, ho nahrádza. Maďarič tiež odchádza z kultúry. Naratív \"nového začiatku\" sa rúca.",
+      "c": "Personálne zmeny odhaľujú hlbšie systémové problémy. Verejnosť je skeptická.",
+      "t": "crisis",
+      "cat": "Justícia",
+      "s": [
+        "Urýchliť protikorupčné iniciatívy",
+        "Navrhnúť zákon o transparentnosti",
+        "Priznať problémy a sľúbiť nápravu"
+      ]
+    },
+    {
+      "id": "kiska_tensions",
+      "m": 3,
+      "h": "Napätie s prezidentom Kiskom",
+      "d": "Prezident Kiska verejne kritizuje vašu vládu za nedostatočnú reakciu na korupciu. Vyšetrovanie Kuciaka odhaľuje prepojenia biznisu a vlády.",
+      "c": "Kiska predstavuje kontrolnú funkciu prezidenta. Vyšetrovanie zvyšuje tlak.",
+      "t": "situation",
+      "cat": "Justícia",
+      "s": [
+        "Posilniť nezávislosť súdnictva",
+        "Zaviazať sa k hlbšiemu vyšetrovaniu",
+        "Navrhnúť parlamentný dozor nad prokuratúrou"
+      ]
+    },
+    {
+      "id": "summer_investigation",
+      "m": 4,
+      "h": "Letné vyšetrovanie — stopy vedú ku Kočnerovi",
+      "d": "Vyšetrovanie pokračuje bez veľkých zatýkaní ale stopy vedú k podnikateľovi Mariánovi Kočnerovi. Ekonomika rastie, cestovný ruch silný.",
+      "c": "Leto prináša dočasnú úľavu ale vyšetrovanie musí pokračovať.",
+      "t": "situation",
+      "cat": "Ekonomika",
+      "s": [
+        "Využiť ekonomický rast na pozitívne správy",
+        "Podporiť vyšetrovateľov zdrojmi",
+        "Pripraviť sa na výročie vraždy"
+      ]
+    },
+    {
+      "id": "presidential_speculation",
+      "m": 6,
+      "h": "Špekulácie o prezidentských voľbách",
+      "d": "Kiska oznámil že nebude kandidovať. Opozícia sa pripravuje. Meno Zuzany Čaputovej sa objavuje. Protikorupční kandidáti začínajú kampane.",
+      "c": "Prezidentské voľby budú referendom o vašej vláde.",
+      "t": "situation",
+      "cat": "Zahraničná politika",
+      "s": [
+        "Pripraviť silného kandidáta za koalíciu",
+        "Zostať neutrálny",
+        "Snažiť sa spolupracovať s budúcim prezidentom"
+      ]
+    },
+    {
+      "id": "teacher_crisis",
+      "m": 7,
+      "h": "Kríza platov učiteľov",
+      "d": "Iniciatíva slovenských učiteľov eskaluje požiadavky: +250 EUR k platom, +400 mil. EUR do rozpočtu. Hrozí štrajk 11 500 učiteľov na 705 školách.",
+      "c": "Učitelia majú najnižšie platy v EÚ. Verejnosť ich podporuje.",
+      "t": "crisis",
+      "cat": "Školstvo",
+      "s": [
+        "Ponúknuť postupné zvyšovanie platov",
+        "Pokúsiť sa o mediáciu",
+        "Odmietnuť požiadavky — rozpočtová disciplína"
+      ]
+    },
+    {
+      "id": "healthcare_reform",
+      "m": 8,
+      "h": "Reforma zdravotníctva — nemocnice v kríze",
+      "d": "Slovenské nemocnice sú zadlžené miliardou eur. Lekári odchádzajú do zahraničia. Ministerka Kalavská navrhuje reformu — stratifikáciu nemocníc. Odpor regiónov.",
+      "c": "Zdravotníctvo je chronický problém. Reforma je nutná ale politicky riskantná.",
+      "t": "situation",
+      "cat": "Zdravotníctvo",
+      "s": [
+        "Podporiť Kalavskej reformu plne",
+        "Kompromisná reforma bez zatvorenia nemocníc",
+        "Odložiť reformu na pokojnejšie časy"
+      ]
+    },
+    {
+      "id": "teacher_strike",
+      "m": 10,
+      "h": "Štrajk učiteľov — vláda pod tlakom",
+      "d": "Učitelia vyhlásili neobmedzený štrajk v januári 2019. 11 500 učiteľov na 705 školách štrajkuje. Rodičia sú frustrovaní. Blíži sa výročie Kuciaka.",
+      "c": "Štrajk sa prekrýva s výročím vraždy. Dvojitá kríza pre vládu.",
+      "t": "crisis",
+      "cat": "Školstvo",
+      "s": [
+        "Rokovať o kompromise s postupným zvyšovaním",
+        "Pokúsiť sa o legislatívne riešenie",
+        "Navrhnúť reformu vzdelávania"
+      ]
+    },
+    {
+      "id": "kuciak_anniversary",
+      "m": 11,
+      "h": "Výročie vraždy Kuciaka — obnovené protesty",
+      "d": "21. február 2019 — rok od vraždy. Masívne spomienkové akcie a protesty. Vyšetrovanie neprinieslo zatýkanie objednávateľov. Štrajk učiteľov pokračuje.",
+      "c": "Dokonalá búrka: výročie, štrajk, blížiace sa prezidentské voľby.",
+      "t": "crisis",
+      "cat": "Justícia",
+      "s": [
+        "Oznámiť pokrok vo vyšetrovaní",
+        "Verejne sa ospravedlniť za zlyhania",
+        "Vyriešiť učiteľský štrajk ako dôkaz kompetentnosti"
+      ]
+    },
+    {
+      "id": "caputova_wins",
+      "m": 12,
+      "h": "Čaputová vyhráva prezidentské voľby!",
+      "d": "Zuzana Čaputová poráža SMERom podporeného Šefčoviča 58,4% : 41,6%. Prvá žena a najmladšia prezidentka SR. Jasný mandát proti korupcii.",
+      "c": "Verejnosť hlasuje proti SMERu. Inaugurácia 15. júna. Predzvesť volieb 2020.",
+      "t": "open",
+      "cat": "Zahraničná politika",
+      "s": [
+        "Pokúsiť sa o spoluprácu s novou prezidentkou",
+        "Urýchliť protikorupčné reformy",
+        "Začať prípravu na parlamentné voľby 2020"
+      ]
+    },
+    {
+      "id": "auto_investment",
+      "m": 12,
+      "h": "Jaguar Land Rover — expanzia v Nitre",
+      "d": "Jaguar Land Rover zvažuje rozšírenie výroby v Nitre. Investícia 500 miliónov eur. Ale požadujú daňové úľavy a infraštruktúru. Bratislava musí rozhodnúť rýchlo.",
+      "c": "Automobilový priemysel je chrbticou ekonomiky. Konkurencia z Maďarska a Poľska.",
+      "t": "situation",
+      "cat": "Ekonomika",
+      "s": [
+        "Schváliť balík stimulov pre JLR",
+        "Vyjednávať tvrdšie podmienky",
+        "Diversifikovať — nepodporovať len autá"
+      ]
+    },
+    {
+      "id": "presidential_election",
+      "m": 12,
+      "h": "Prezidentské voľby — Čaputová víťazí",
+      "d": "Zuzana Čaputová získava 58% hlasov a stáva sa prvou ženou-prezidentkou SR. Porazila Šefčoviča, kandidáta SMERu. Je to signál zmeny nálad v spoločnosti.",
+      "c": "Prehra Šefčoviča je ranou pre SMER. Čaputová symbolizuje protest proti korupcii.",
+      "t": "situation",
+      "cat": "Politika",
+      "s": [
+        "Gratulujte a ponúknite spoluprácu",
+        "Minimálna reakcia — pokračujte vo vládnutí",
+        "Kritizujte výsledok ako mediálnu manipuláciu"
+      ]
+    },
+    {
+      "id": "kocner_arrested",
+      "m": 14,
+      "h": "Kočner zatknutý — spravodlivosť sa hýbe",
+      "d": "Marian Kočner a spolupáchatelia Zsuzsová, Szabó a Marček sú obvinení. Proces sa pripravuje na január 2020. Vláda to prezentuje ako úspech.",
+      "c": "Zatýkanie prišlo po 15 mesiacoch. Verejnosť je opatrne nádejná ale skeptická.",
+      "t": "open",
+      "cat": "Justícia",
+      "s": [
+        "Prezentovať zatýkanie ako dôkaz fungujúceho štátu",
+        "Podporiť transparentný súdny proces",
+        "Navrhnúť reformu na ochranu novinárov"
+      ]
+    },
+    {
+      "id": "caputova_inauguration",
+      "m": 15,
+      "h": "Inaugurácia Čaputovej — nová éra",
+      "d": "15. júna 2019 sa Čaputová ujíma prezidentského úradu. Zdôrazňuje protikorupčné hodnoty a právny štát. Vaša vláda čelí inštitucionálnemu oponentovi.",
+      "c": "Čaputová predstavuje opozičný hlas na najvyššom úrade.",
+      "t": "open",
+      "cat": "Zahraničná politika",
+      "s": [
+        "Budovať konštruktívny vzťah s prezidentkou",
+        "Ukázať vládu ako kompetentnú a reformnú",
+        "Pripraviť stratégiu pre voľby 2020"
+      ]
+    },
+    {
+      "id": "teachers_salary",
+      "m": 16,
+      "h": "Učitelia hrozia štrajkom",
+      "d": "Odborový zväz školstva požaduje 10% zvýšenie platov. Učitelia zarábajú 800-1000 EUR. Hrozia celoslovenským štrajkom ak vláda nesplní sľuby.",
+      "c": "Platy učiteľov sú pod priemerom OECD. Štrajk by zasiahol stovky tisíc rodín.",
+      "t": "crisis",
+      "cat": "Školstvo",
+      "s": [
+        "Súhlasiť s 10% zvýšením",
+        "Ponúknuť 5% kompromis",
+        "Odmietnuť — rozpočet to neumožňuje"
+      ]
+    },
+    {
+      "id": "election_campaign",
+      "m": 17,
+      "h": "Volebná kampaň 2020 sa rozbieha",
+      "d": "Prieskumy ukazujú pokles SMERu. OĽaNO (Matovič) rastie ako hlavná protikorupčná alternatíva. Koaliční partneri SNS a Most-Híd tiež strácajú.",
+      "c": "Verejnosť chce zmenu. Ekonomický rast 2,5% nestačí na vyváženie politickej nespokojnosti.",
+      "t": "situation",
+      "cat": "Sociálna politika",
+      "s": [
+        "Kampaň postavená na ekonomických úspechoch",
+        "Zdôrazniť stabilitu vs. riziko zmeny",
+        "Protiútok na opozíciu"
+      ]
+    },
+    {
+      "id": "kuciak_trial_start",
+      "m": 19,
+      "h": "Začiatok procesu s Kočnerom",
+      "d": "Proces s Marianom Kočnerom, obvineným z objednávky vraždy Kuciaka, začína. Slovensko a svet sledujú. Dôkazy z Threemy odhaľujú prepojenia na politikov.",
+      "c": "Proces je testom nezávislosti justície. Threema ukazuje kontakty Kočnera s vládnymi predstaviteľmi.",
+      "t": "crisis",
+      "cat": "Justícia",
+      "s": [
+        "Podporiť nezávislosť súdu verejne",
+        "Nechať justíciu konať bez komentára",
+        "Spochybniť niektoré dôkazy"
+      ]
+    },
+    {
+      "id": "kocner_trial",
+      "m": 22,
+      "h": "Proces s Kočnerom — Marček sa priznal!",
+      "d": "13. januára 2020 začína proces na Špeciálnom trestnom súde v Pezinku. Senzácia: strelec Marček sa prizná k vražde Kuciaka a Kušnírovej v prvý deň!",
+      "c": "Priznanie potvrdí vyšetrovanie ale otázka objednávateľa zostáva otvorená.",
+      "t": "crisis",
+      "cat": "Justícia",
+      "s": [
+        "Prezentovať proces ako víťazstvo spravodlivosti",
+        "Pripraviť verejnosť na dlhý proces",
+        "Zdôrazniť záväzok vlády k právnemu štátu"
+      ]
+    },
+    {
+      "id": "election_day",
+      "m": 23,
+      "h": "Voľby 2020 a príchod COVID-19",
+      "d": "29. februára voľby: OĽaNO 25% (53 kresiel), SMER len 18,3% (38). SNS a Most-Híd vypadli. 6. marca prvý prípad COVID-19. 21. marca Matovič menovaný premiérom. Vaša éra končí.",
+      "c": "Historická porážka SMERu po 12 rokoch. COVID-19 prichádza presne keď odovzdávate moc.",
+      "t": "open",
+      "cat": "Sociálna politika",
+      "s": [
+        "Prijať porážku a odovzdať moc dôstojne",
+        "Zdôrazniť ekonomické úspechy vlády",
+        "Pripraviť SMER na opozičnú úlohu"
+      ]
+    },
+    {
+      "id": "covid_arrival",
+      "m": 23,
+      "h": "COVID-19 prichádza na Slovensko",
+      "d": "Prvý potvrdený prípad COVID-19 na Slovensku. Vírus sa šíri Európou. Taliansko je v lockdowne. Slovensko musí okamžite reagovať — zatvorenie škôl, hraníc, obchodov.",
+      "c": "Pandémia mení všetko. Voľby sa blížia o týždne. Zdravotný systém nie je pripravený.",
+      "t": "crisis",
+      "cat": "Zdravotníctvo",
+      "s": [
+        "Okamžitý lockdown a núdzový stav",
+        "Cielené opatrenia bez lockdownu",
+        "Minimálne opatrenia, priorita ekonomika"
+      ]
+    }
+  ],
+  "randomEvents": [
+    {
+      "id": "r_corr",
+      "h": "Nový korupčný škandál",
+      "d": "Médiá odkryli ďalšie prepojenia medzi úradníkmi SMERu a podnikateľmi napojenými na Kočnera.",
+      "c": "Tlak na vyšetrovanie rastie po Kuciakovej vražde.",
+      "t": "crisis",
+      "cat": "Justícia",
+      "s": [
+        "Podporiť vyšetrovanie",
+        "Relativizovať a brániť stranu",
+        "Odvolať implikovaných"
+      ]
+    },
+    {
+      "id": "r_flood",
+      "h": "Záplavy na východe",
+      "d": "Silné dažde spôsobia záplavy na východnom Slovensku. Tisíce evakuovaných.",
+      "c": "Humanitárna kríza vyžaduje rýchlu reakciu vlády.",
+      "t": "crisis",
+      "cat": "Bezpečnosť",
+      "s": [
+        "Stav núdze a armáda",
+        "Finančná pomoc postihnutým",
+        "Dlhodobý plán protipovodňovej ochrany"
+      ]
+    },
+    {
+      "id": "r_roma",
+      "h": "Napätie v rómskych osadách",
+      "d": "Napätie eskaluje po incidente s políciou v osade na východe.",
+      "c": "Dlhodobý problém sociálnej exklúzie. EÚ tlačí na inklúziu.",
+      "t": "situation",
+      "cat": "Sociálna politika",
+      "s": [
+        "Investičný program pre osady",
+        "Posilnená policajná prítomnosť",
+        "Dialóg a mediácia"
+      ]
+    },
+    {
+      "id": "r_housing",
+      "h": "Rastúce ceny nehnuteľností",
+      "d": "Ceny bytov v Bratislave nedostupné pre mladých. Bublina na trhu?",
+      "c": "Hypotéky rastú, mladí nemôžu bývať.",
+      "t": "situation",
+      "cat": "Ekonomika",
+      "s": [
+        "Štátne nájomné byty",
+        "Regulácia hypoték",
+        "Zvýhodnené úvery pre mladých"
+      ]
+    },
+    {
+      "id": "r_gas",
+      "h": "Spor o tranzit plynu cez Ukrajinu",
+      "d": "Napätie medzi Ruskom a Ukrajinou ohrozuje tranzit plynu cez SR. Slovensko stráca tranzitné poplatky.",
+      "c": "Energetická závislosť na Rusku je riziko.",
+      "t": "crisis",
+      "cat": "Energetika",
+      "s": [
+        "Rokovania s oboma stranami",
+        "Diverzifikácia dodávok",
+        "Posilniť prepojenia so susedmi"
+      ]
+    },
+    {
+      "id": "r_brain",
+      "h": "Odliv mozgov — rekord",
+      "d": "Rekordný počet mladých odchádza do Česka a Rakúska. IT a zdravotníctvo najzasiahnutejšie.",
+      "c": "Nízke platy a politická nestabilita po Kuciakovej kríze.",
+      "t": "situation",
+      "cat": "Školstvo",
+      "s": [
+        "Program návratu talentov",
+        "Zvýšenie platov v kľúčových sektoroch",
+        "Zlepšenie kvality života"
+      ]
+    },
+    {
+      "id": "r_v4",
+      "h": "Summit V4",
+      "d": "Orbán tlačí spoločnú pozíciu proti migračným kvótam. Česko a Poľsko zdržanlivejšie.",
+      "c": "V4 je dôležitý regionálny blok pre Slovensko.",
+      "t": "open",
+      "cat": "Zahraničná politika",
+      "s": [
+        "Silná podpora Orbánovej línie",
+        "Mosty medzi V4 a EÚ",
+        "Praktická spolupráca bez ideológie"
+      ]
+    },
+    {
+      "id": "r_judicial",
+      "h": "EÚ tlačí na reformu justície",
+      "d": "EÚ podmieňuje fondy reformou súdnictva. Sudcovská rada požaduje nezávislosť od politiky.",
+      "c": "Po Kuciakovej vražde je dôveryhodnosť justície kľúčová.",
+      "t": "situation",
+      "cat": "Justícia",
+      "s": [
+        "Komplexná reforma podľa EÚ",
+        "Kozmetické zmeny",
+        "Reforma pod kontrolou vlády"
+      ]
+    },
+    {
+      "id": "r_press",
+      "h": "RSF znížilo hodnotenie SR",
+      "d": "Reportéri bez hraníc znížili hodnotenie Slovenska po vražde Kuciaka. Medzinárodný tlak rastie.",
+      "c": "Vražda novinára je bezprecedentná v histórii SR.",
+      "t": "situation",
+      "cat": "Médiá",
+      "s": [
+        "Prijať kritiku a konať",
+        "Ochranné opatrenia pre novinárov",
+        "Odmietnuť kritiku ako nespravodlivú"
+      ]
+    },
+    {
+      "id": "r_hockey",
+      "h": "Slovensko na MS v hokeji 2019!",
+      "d": "Slovenská hokejová reprezentácia hrá na domácom MS v Košiciach a Bratislave. Národná hrdosť rastie!",
+      "c": "Hokej je náš národný šport. Domáce MS sú príležitosť.",
+      "t": "open",
+      "cat": "Sociálna politika",
+      "s": [
+        "Osobne podporiť tím",
+        "Investovať do športovej infraštruktúry",
+        "Využiť národnú hrdosť na zjednotenie"
+      ]
+    },
+    {
+      "id": "r_ep_elections",
+      "h": "Voľby do Európskeho parlamentu 2019",
+      "d": "Blížia sa voľby do EP. SMER súperí s PS o slovenské mandáty. Progresívne Slovensko rastie po Čaputovej víťazstve.",
+      "c": "EP voľby sú ďalší test popularity vládnej koalície.",
+      "t": "situation",
+      "cat": "Zahraničná politika",
+      "s": [
+        "Mobilizovať voličov SMERu",
+        "Sústrediť sa na domáce témy",
+        "Spojiť sa s európskymi spojencami v S&D"
+      ]
+    },
+    {
+      "id": "r_slota",
+      "h": "Kontroverzný výrok Danka",
+      "d": "Predseda SNS Andrej Danko urobil kontroverzný výrok o menšinách. Médiá a opozícia požadujú odsúdenie.",
+      "c": "Koaličná disciplína vs. medzinárodná reputácia po Kuciakovej kríze.",
+      "t": "crisis",
+      "cat": "Sociálna politika",
+      "s": [
+        "Verejne odsúdiť výrok",
+        "Bagatelizovať incident",
+        "Žiadať ospravedlnenie od SNS"
+      ]
+    },
+    {
+      "id": "r_health_minister",
+      "h": "Rezignácia ministerky zdravotníctva",
+      "d": "Ministerka zdravotníctva Andrea Kalavská rezignuje. Ďalšia personálna strata pre nestabilnú vládu.",
+      "c": "Opakujúce sa rezignácie podkopávajú dôveru v kompetentnosť vlády.",
+      "t": "situation",
+      "cat": "Zdravotníctvo",
+      "s": [
+        "Rýchlo nájsť náhradu",
+        "Navrhnúť reformu zdravotníctva",
+        "Delegovať na štátneho tajomníka"
+      ]
+    },
+    {
+      "id": "r_pension",
+      "h": "Debata o dôchodkovej reforme",
+      "d": "Demografická kríza ohrozuje dôchodkový systém. Ekonómovia varujú pred neudržateľnosťou.",
+      "c": "Populácia starne, pracujúcich ubúda.",
+      "t": "situation",
+      "cat": "Ekonomika",
+      "s": [
+        "Zvýšiť vekovú hranicu odchodu",
+        "Posilniť druhý pilier",
+        "Zvýšiť odvody"
+      ]
+    },
+    {
+      "id": "r_auto_boom",
+      "h": "Automobilový priemysel — rekordný rok",
+      "d": "Slovenské automobilky hlasia rekordnú produkciu. VW, KIA a PSA produkujú viac áut než kedykoľvek.",
+      "c": "Automobilky tvoria 13% HDP. Ale závislosť na jednom sektore je riziko.",
+      "t": "open",
+      "cat": "Ekonomika",
+      "s": [
+        "Podporiť ďalší rast sektora",
+        "Diverzifikovať ekonomiku",
+        "Investovať do výskumu a vývoja"
+      ]
+    },
+    {
+      "id": "r_kuciak_aftermath",
+      "h": "Kuciak — nové odhalenia",
+      "d": "Investigatívni novinári zverejnili ďalšie z Kuciakovej práce. Prepojenia talianskej mafie na slovenských politikov sú hlbšie než sa zdalo.",
+      "c": "Kuciakov odkaz žije. Každé nové odhalenie zvyšuje tlak na vládu.",
+      "t": "crisis",
+      "cat": "Justícia",
+      "s": [
+        "Podporiť pokračovanie vyšetrovania",
+        "Distancovať sa od implikovaných",
+        "Relativizovať obvinenia"
+      ]
+    },
+    {
+      "id": "r_judicial_corruption",
+      "h": "Korupcia na súdoch — Threema správy",
+      "d": "Uniknuté správy z aplikácie Threema odhaľujú, že sudcovia komunikovali s Kočnerom o rozsudkoch. Justícia je v kríze dôvery.",
+      "c": "Threema škandál otriasa dôverou v právny štát. EÚ vyjadruje obavy.",
+      "t": "crisis",
+      "cat": "Justícia",
+      "s": [
+        "Okamžitá disciplinárna komisia",
+        "Komplexná reforma justície",
+        "Minimálna reakcia — nech rozhodne súdna rada"
+      ]
+    },
+    {
+      "id": "r_nitra_waste",
+      "h": "Environmentálna kríza v Nitre",
+      "d": "Nelegálna skládka toxického odpadu pri Nitre. Obyvatelia hlásia zdravotné problémy. Environmentálna inšpekcia zlyhala.",
+      "c": "Environmentálne problémy rastú. Slovensko zaostáva v ochrane životného prostredia.",
+      "t": "crisis",
+      "cat": "Životné prostredie",
+      "s": [
+        "Núdzová sanácia za štátne prostriedky",
+        "Trestné stíhanie zodpovedných",
+        "Posilniť environmentálnu legislatívu"
+      ]
+    },
+    {
+      "id": "r_cyber",
+      "h": "Kybernetický útok na štátne systémy",
+      "d": "Hackeri napadli systémy ministerstva financií. Údaje tisícov daňovníkov ohrozené. NASES priznáva zastarané bezpečnostné systémy.",
+      "c": "Slovensko je zraniteľné voči kyberútokom. Digitalizácia zaostáva.",
+      "t": "crisis",
+      "cat": "Bezpečnosť",
+      "s": [
+        "Investovať do kybernetickej bezpečnosti",
+        "Vytvoriť krízový tím a audit systémov",
+        "Minimalizovať informácie o útoku"
+      ]
+    },
+    {
+      "id": "r_bratislava_dev",
+      "h": "Kontroverzia okolo zástavby Bratislavy",
+      "d": "Developer prepojený na politikov plánuje výškové budovy v centre Bratislavy. Občianski aktivisti protestujú. Stavebný úrad schválil projekt za nejasných okolností.",
+      "c": "Urbanizmus a korupcia v stavebníctve. Bratislava sa rýchlo mení.",
+      "t": "situation",
+      "cat": "Ekonomika",
+      "s": [
+        "Podporiť transparentné územné plánovanie",
+        "Nechať na mestskú samosprávu",
+        "Zablokovať kontroverzný projekt"
+      ]
+    },
+    {
+      "id": "r_eset_growth",
+      "h": "ESET a slovenský tech sektor rastú",
+      "d": "ESET expanduje globálne. Slovenský tech sektor vytvára tisíce pracovných miest. Ale chýba kvalifikovaná pracovná sila a legislatíva zaostáva.",
+      "c": "IT je svetlý bod ekonomiky. Podpora sektora môže diverzifikovať závislosť na autách.",
+      "t": "situation",
+      "cat": "Ekonomika",
+      "s": [
+        "Daňové úľavy pre IT sektor",
+        "Reforma vzdelávania pre digitálnu éru",
+        "Nechať trh fungovať sám"
+      ]
+    },
+    {
+      "id": "r_brain_drain",
+      "h": "Odliv mozgov — mladí odchádzajú",
+      "d": "Štatistiky ukazujú, že 300 000 Slovákov žije v zahraničí. Najmä mladí a vzdelaní. Nemocnice, školy a firmy hlásia nedostatok ľudí.",
+      "c": "Brain drain je chronický problém. Návrat talentov je kľúčový pre budúcnosť.",
+      "t": "situation",
+      "cat": "Školstvo",
+      "s": [
+        "Program návratu talentov s dotáciami",
+        "Zlepšiť pracovné podmienky doma",
+        "Uľahčiť prácu na diaľku zo zahraničia"
+      ]
+    },
+    {
+      "id": "r_v4_tensions",
+      "h": "Napätie vo V4 — migračná politika",
+      "d": "V4 nie je jednotná. Poľsko a Maďarsko idú do konfrontácie s EÚ ohľadom migrácie. Slovensko je v strede — nechce rozhnevať ani Brusel ani partnerov.",
+      "c": "V4 bola silný blok, ale trhliny rastú. Slovensko hľadá rovnováhu.",
+      "t": "situation",
+      "cat": "Zahraničná politika",
+      "s": [
+        "Držať líniu V4 proti kvótam",
+        "Pragmatický kompromis s EÚ",
+        "Distancovať sa od radikálnych pozícií"
+      ]
+    },
+    {
+      "id": "r_protest_anniversary",
+      "h": "Výročie protestov Za slušné Slovensko",
+      "d": "Rok od vraždy Kuciaka. Tisíce ľudí opäť vyšli do ulíc. Požadujú pokračovanie vyšetrovania a systémové zmeny. Atmosféra je emotívna.",
+      "c": "Protesty sú testom, či sa niečo naozaj zmenilo od Ficovho odchodu.",
+      "t": "situation",
+      "cat": "Politika",
+      "s": [
+        "Pridať sa k spomienkovému podujatiu",
+        "Prezentovať dosiahnuté zmeny",
+        "Ignorovať protesty a pokračovať v práci"
+      ]
+    },
+    {
+      "id": "r_auto_ev",
+      "h": "Automobilky a elektromobilita",
+      "d": "VW Bratislava oznamuje prechod na elektromobily. Subdodávatelia sa obávajú, že nestíhajú transformáciu. Tisíce pracovných miest v ohrození.",
+      "c": "Slovensko vyrába milión áut ročne. Prechod na EV je existenčná výzva.",
+      "t": "situation",
+      "cat": "Ekonomika",
+      "s": [
+        "Fond na rekvalifikáciu pracovníkov",
+        "Prilákať výrobcov batérií na Slovensko",
+        "Lobovať v EÚ za pomalší prechod"
+      ]
+    },
+    {
+      "id": "r_smer_internal",
+      "h": "SMER sa štiepi — Pellegrini vs. Fico",
+      "d": "Napätie v SMERe rastie. Vy ako premiér získavate popularitu, zatiaľ čo Fico v pozadí ťahá za nitky. Rastú špekulácie o rozchode.",
+      "c": "Vnútrostranícka dynamika ovplyvňuje vládnutie. Fico nechce stratiť kontrolu.",
+      "t": "situation",
+      "cat": "Politika",
+      "s": [
+        "Lojálnosť Ficovi — zachovať jednotu",
+        "Budovať vlastnú pozíciu postupne",
+        "Otvoriť diskusiu o smerovaní strany"
+      ]
+    }
+  ],
+  "headlines": {
+    "left": {
+      "name": "Denník N",
+      "entries": [
+        {
+          "kw": [
+            "pretlacit",
+            "rychlo",
+            "push"
+          ],
+          "h": "Koalícia valcuje parlament: ",
+          "sub": "Demokratické brzdy opäť zlyhali. Opozícia varuje pred precedensom, analytici hovoria o najrýchlejšom legislatívnom procese v histórii SR. Ústavný súd zvažuje preskúmanie."
+        },
+        {
+          "kw": [
+            "eu",
+            "brusel",
+            "fond"
+          ],
+          "h": "Slovensko hraje ruskú ruletu s EÚ fondami",
+          "sub": "Miliardy na stole, ego na tróne. Brusel stratil trpezlivosť s Ficovou vládou a zvažuje bezprecedentné kroky. Experti varujú, že zmrazenie fondov by zasiahlo tisíce projektov naprieč Slovenskom."
+        },
+        {
+          "kw": [
+            "russia",
+            "rusko",
+            "mier"
+          ],
+          "h": "Ficov \"mierový plán\": Pomoc Putinovi s extra krokmi",
+          "sub": "Kremeľ sa usmieva, NATO menej. Diplomatické zdroje potvrdzujú rastúcu izoláciu Bratislavy v rámci Aliancie. Slovenské zastupiteľstvá hlásia chladnejšie prijatie na bilaterálnych stretnutiach."
+        },
+        {
+          "kw": [
+            "media",
+            "rtvs",
+            "stvr"
+          ],
+          "h": "Sloboda tlače? Ďalšia obeť Ficovej vlády",
+          "sub": "RSF neplače od radosti. Medzinárodné organizácie opäť znížili hodnotenie Slovenska v indexe slobody médií. Novinári reportujú rastúci tlak na redakcie a autocenzúru aj v komerčných médiách."
+        },
+        {
+          "kw": [
+            "zdravotnictvo",
+            "lekar",
+            "health"
+          ],
+          "h": "Lekári utekajú, vláda debatuje",
+          "sub": "Kto bude liečiť, keď všetci odídu? Podľa Lekárskej komory odišlo za posledný rok rekordných 800 lekárov. Pohotovosti kolabujú a pacienti čakajú hodiny na základnú starostlivosť."
+        },
+        {
+          "kw": [
+            "dan",
+            "tax",
+            "dph"
+          ],
+          "h": "Daňová lahôdka: Viac platíš, menej dostávaš",
+          "sub": "Ministerstvo financií to nazýva \"konsolidácia\", občania to cítia v peňaženkách. Analytici NBS vypočítali, že priemerná domácnosť stratí ročne 400 EUR. Podnikatelia hovoria o likvidačných podmienkach."
+        },
+        {
+          "kw": [
+            "korupcia",
+            "corruption",
+            "skandal"
+          ],
+          "h": "Korupcia na Slovensku: Business as usual",
+          "sub": "Vyšetrovatelia sa boja, politici nie. Najnovší škandál odhaľuje systémové prepojenia medzi vládnymi nominantmi a verejnými zákazkami. Transparency International varuje pred najhorším stavom od roku 2018."
+        },
+        {
+          "kw": [
+            "bezpecnost",
+            "security",
+            "policia"
+          ],
+          "h": "Bezpečnosť à la Fico: Rétorická polievka",
+          "sub": "Silné slová, slabé činy. Policajné odbory poukazujú na chronický nedostatok personálu a zastaranú techniku. Medzitým kriminalita v niektorých regiónoch vzrástla o desiatky percent."
+        },
+        {
+          "kw": [
+            "skolstvo",
+            "education",
+            "ucitel"
+          ],
+          "h": "Školstvo: Nulová priorita, maximálna kríza",
+          "sub": "Učitelia štrajkujú, žiaci trpia, budúcnosť krajiny je v ohrození. OECD zaradilo Slovensko medzi krajiny s najväčším poklesom vzdelávacích výsledkov v Európe. Vláda mlčí."
+        },
+        {
+          "kw": [
+            "dochodok",
+            "pension",
+            "socialne"
+          ],
+          "h": "Sociálne sľuby, prázdna kasa",
+          "sub": "Vláda sľubuje dôchodcom raj, ale rozpočtové čísla hovoria inak. Fiškálna rada varuje, že súčasné tempo výdavkov je neudržateľné a dlh sa blíži k nebezpečnej hranici 60% HDP."
+        }
+      ],
+      "fallback": {
+        "headline": "Ficova vláda opäť prekvapuje — ale nie v dobrom",
+        "subhead": "Analytici z viacerých think-tankov hodnotia najnovšie kroky vlády kriticky. Podľa nich sa Slovensko vzďaľuje od európskych štandardov a riskuje ďalšiu izoláciu na medzinárodnej scéne."
+      }
+    },
+    "center": {
+      "name": "Aktuality.sk / Markíza",
+      "entries": [
+        {
+          "kw": [
+            "pretlacit",
+            "rychlo"
+          ],
+          "h": "Vláda schválila kontroverzný návrh",
+          "sub": "Opozícia protestuje, koalícia obhajuje. Právni experti upozorňujú na procesné nedostatky, zatiaľ čo vládna strana zdôrazňuje mandát od voličov. Verejná diskusia je rozdelená."
+        },
+        {
+          "kw": [
+            "eu",
+            "brusel",
+            "fond"
+          ],
+          "h": "EÚ fondy: Slovensko rokuje s Bruselom",
+          "sub": "Kompromis možný, ale zďaleka nie istý. Diplomati z oboch strán naznačujú ochotu rokovať, no kľúčové míľniky zostávajú nesplnené. Výsledok rokovaní určí osud miliárd eur."
+        },
+        {
+          "kw": [
+            "russia",
+            "rusko",
+            "ukraine",
+            "ukrajina"
+          ],
+          "h": "Zahraničná politika SR: Balansovanie medzi Východom a Západom",
+          "sub": "Diplomatický tanec pokračuje a pozície sa spresňujú. Analytici upozorňujú, že Slovensko sa pohybuje na tenkom ľade medzinárodných vzťahov. Reakcie spojencov sú zatiaľ zdržanlivé."
+        },
+        {
+          "kw": [
+            "media",
+            "rtvs",
+            "stvr"
+          ],
+          "h": "Reforma vysielania rozdeľuje verejnosť",
+          "sub": "Podporovatelia aj kritici majú argumenty. Zákon prešiel prvým čítaním napriek výhradám mediálnych organizácií. Prezident zvažuje možnosť veta, vláda naznačuje ochotu na kozmetické úpravy."
+        },
+        {
+          "kw": [
+            "zdravotnictvo",
+            "health",
+            "lekar"
+          ],
+          "h": "Zdravotníctvo: Kríza sa prehlbuje",
+          "sub": "Riešenia sú na stole, otázkou je financovanie a politická vôľa. Minister zdravotníctva predstavil plán, no odborníci ho považujú za nedostatočný. Lekárske odbory zvažujú protestné akcie."
+        },
+        {
+          "kw": [
+            "dan",
+            "tax",
+            "dph"
+          ],
+          "h": "Daňové zmeny: Čo to znamená pre vás",
+          "sub": "Kalkulačka pre domácnosti ukazuje zmiešané výsledky. Niektoré skupiny si polepšia, iné si prihoršia. Ekonómovia diskutujú o dlhodobých dopadoch na ekonomický rast a konkurencieschopnosť."
+        },
+        {
+          "kw": [
+            "bezpecnost",
+            "security"
+          ],
+          "h": "Bezpečnostná situácia: Fakty a obavy",
+          "sub": "Štatistiky kriminality ukazujú zmiešaný obraz. V niektorých kategóriách dochádza k zlepšeniu, v iných k zhoršeniu. Policajný prezident žiada navýšenie rozpočtu o 15%."
+        },
+        {
+          "kw": [
+            "skolstvo",
+            "education"
+          ],
+          "h": "Školstvo hľadá cestu z krízy",
+          "sub": "Vláda predstavila reformný plán, odborníci sú skeptickí. Učitelia požadujú konkrétne kroky namiesto ďalších stratégií. Slovensko zaostáva za priemerom EÚ vo väčšine vzdelávacích ukazovateľov."
+        },
+        {
+          "kw": [
+            "korupcia",
+            "corruption"
+          ],
+          "h": "Protikorupčné opatrenia pod drobnohľadom",
+          "sub": "Vláda tvrdí, že bojuje s korupciou, opozícia hovorí o opaku. Medzinárodní pozorovatelia konštatujú zmiešané výsledky. Kľúčové bude fungovanie nových kontrolných mechanizmov."
+        },
+        {
+          "kw": [
+            "invest",
+            "ekonom"
+          ],
+          "h": "Ekonomické opatrenia: Šanca alebo riziko?",
+          "sub": "Analytici hodnotia najnovšie kroky vlády s opatrným optimizmom. Kľúčové bude, či sa podarí prilákať investície bez neprimeraného zadlženia. NBS upozorňuje na rastúce riziká."
+        }
+      ],
+      "fallback": {
+        "headline": "Vláda prijala nové opatrenia",
+        "subhead": "Reakcie sú zmiešané, dopady sa ukážu v nasledujúcich mesiacoch. Odborníci upozorňujú na potrebu dôslednej implementácie a monitorovania výsledkov. Verejnosť je zatiaľ rozdelená."
+      }
+    },
+    "right": {
+      "name": "Hlavné správy",
+      "entries": [
+        {
+          "kw": [
+            "pretlacit",
+            "rychlo",
+            "silne",
+            "strong"
+          ],
+          "h": "Fico koná! Rozhodné vedenie pre Slovensko",
+          "sub": "Opozícia len šteká, ale nehrá. Premiér opäť ukázal že vie robiť rozhodnutia v záujme slovenského ľudu, na rozdiel od predchádzajúcich vlád ktoré len debatovali. Občania si zaslúžia akciu, nie reči."
+        },
+        {
+          "kw": [
+            "eu",
+            "brusel"
+          ],
+          "h": "Brusel opäť zasahuje do našich vecí",
+          "sub": "Slovenská suverenita nie je na predaj! Premiér Fico jasne povedal bruselským byroktatom, že Slovensko si samo určí svoju budúcnosť. Občania podporujú tvrdú líniu voči zahraničnému diktátu."
+        },
+        {
+          "kw": [
+            "russia",
+            "rusko",
+            "mier"
+          ],
+          "h": "Fico buduje mosty: Slovensko ako mierový hráč",
+          "sub": "Západ by sa mohol učiť od slovenského premiéra, ktorý ako jeden z mála európskych lídrov hľadá diplomatické riešenie konfliktu. Mierová politika je silnejšia než posielanie zbraní do cudzích vojen."
+        },
+        {
+          "kw": [
+            "ukraine",
+            "ukrajina"
+          ],
+          "h": "Slovensko na prvom mieste, nie cudzie vojny",
+          "sub": "Naši občania, naše priority! Kým západní politici posielajú miliardy na Ukrajinu, Fico investuje do slovenských rodín, dôchodcov a infraštruktúry. To je skutočný patriotizmus v praxi."
+        },
+        {
+          "kw": [
+            "media",
+            "rtvs",
+            "stvr"
+          ],
+          "h": "Konečne poriadok vo verejnoprávnych médiách!",
+          "sub": "Roky zaujatosti sú za nami. Nové vedenie STVR prináša objektívne spravodajstvo namiesto opozičnej propagandy. Občania konečne uvidia aj druhú stranu mince, nielen liberálny naratív."
+        },
+        {
+          "kw": [
+            "zdravotnictvo",
+            "health"
+          ],
+          "h": "Vláda rieši zdravotníctvo: Historické investície",
+          "sub": "Fico plní sľuby a dokazuje to činmi. Najväčšia investícia do zdravotníctva v histórii SR zabezpečí lepšiu starostlivosť pre všetkých občanov. Opoziční politici len kritizujú, ale nič neurobili."
+        },
+        {
+          "kw": [
+            "dan",
+            "tax",
+            "dph"
+          ],
+          "h": "Zodpovedná ekonomická politika vlády",
+          "sub": "Konsolidácia pre budúcnosť našich detí. Premiér ukázal odvahu prijať nepopulárne ale potrebné opatrenia, čo sa predchádzajúce vlády nikdy neodvážili. Slovensko bude silnejšie."
+        },
+        {
+          "kw": [
+            "bezpecnost",
+            "security",
+            "policia"
+          ],
+          "h": "Bezpečnosť občanov je priorita číslo jeden!",
+          "sub": "Vláda posilňuje políciu a armádu. Slovensko bude bezpečnejšie vďaka rozhodným krokom premiéra. Na rozdiel od opozície, ktorá sa starala len o migrantov a NGO-čky."
+        },
+        {
+          "kw": [
+            "skolstvo",
+            "education"
+          ],
+          "h": "Investícia do budúcnosti: Vláda mení školstvo",
+          "sub": "Historická reforma školstva prinesie Slovensku vzdelanú generáciu. Premiér osobne garantuje, že učitelia dostanú zaslúžené ocenenie. Opozícia za 4 roky neurobila nič."
+        },
+        {
+          "kw": [
+            "dochodok",
+            "pension",
+            "social"
+          ],
+          "h": "Fico myslí na našich dôchodcov!",
+          "sub": "Rekordné zvýšenie dôchodkov dokazuje, že táto vláda stojí na strane obyčajných ľudí. Zatiaľ čo liberáli riešia LGBT a Brusel, Fico rieši problémy slovenských rodín."
+        }
+      ],
+      "fallback": {
+        "headline": "Silné rozhodnutie vlády v prospech Slovenska",
+        "subhead": "Opozícia opäť kritizuje, ale občania sú spokojní. Premiér Fico opäť dokázal, že vie konať v záujme slovenského ľudu, zatiaľ čo opozičné strany len debatujú a kritizujú bez vlastných riešení."
+      }
+    }
+  },
+  "initialState": {
+    "approval": 60,
+    "stability": 65,
+    "coalition": 70,
+    "impl": 85,
+    "econ": {
+      "gdp": 89.7,
+      "gdpGrowth": 3.7,
+      "unemp": 6.5,
+      "infl": 2.5,
+      "deficit": -0.7,
+      "debt": 48.9,
+      "minW": 480
+    },
+    "diplo": {
+      "eu": 65,
+      "usa": 60,
+      "russia": 40,
+      "czech": 75,
+      "hungary": 60,
+      "poland": 65,
+      "nato_r": 65,
+      "germany": 70
+    },
+    "social": {
+      "press": 65,
+      "corrupt": 45,
+      "emigr": 60
+    },
+    "cp": {
+      "smer": {
+        "on": 1,
+        "sat": 70,
+        "pat": 100,
+        "dem": null,
+        "lastD": -5
+      },
+      "sns_c": {
+        "on": 1,
+        "sat": 60,
+        "pat": 80,
+        "dem": null,
+        "lastD": -3
+      },
+      "most": {
+        "on": 1,
+        "sat": 55,
+        "pat": 75,
+        "dem": null,
+        "lastD": -2
+      }
+    },
+    "parl": {
+      "smer": 49,
+      "sns_c": 15,
+      "most": 13,
+      "sas": 21,
+      "olano": 19,
+      "sme_rodina": 11,
+      "lsns": 14,
+      "other": 8
+    },
+    "stances": {
+      "ekonomika": 0,
+      "eu": 0,
+      "rusko": 0,
+      "social": 0,
+      "media": 0,
+      "justicia": 0,
+      "migracia": 0,
+      "identita": 0
+    }
+  },
+  "quietMonths": [
+    {
+      "h": "Pokojný mesiac",
+      "d": "Žiadne veľké udalosti tento mesiac. Vláda funguje v bežnom režime. Máte priestor na vlastné iniciatívy a dlhodobé plány.",
+      "c": "Využite čas na posilnenie pozície alebo riešenie dlhodobých problémov."
+    },
+    {
+      "h": "Rutinný mesiac",
+      "d": "Politická scéna je tento mesiac relatívne pokojná. Koalícia funguje bez väčších konfliktov. Opozícia pripravuje vlastné návrhy.",
+      "c": "Ideálny čas na presadenie menších, ale dôležitých zmien."
+    },
+    {
+      "h": "Stabilný mesiac",
+      "d": "Bez veľkých kríz. Ekonomika beží svojim tempom. Diplomatické vzťahy sú stabilné. Občania riešia bežné starosti.",
+      "c": "Môžete sa sústrediť na čokoľvek — od ekonomiky po zahraničnú politiku."
+    },
+    {
+      "h": "Mesiac bez kríz",
+      "d": "Tento mesiac sa nič dramatické nedeje. Slovensko žije bežným životom. Parlament sa zaoberá legislatívnou agendou.",
+      "c": "Dobrý čas na budovanie vzťahov v koalícii alebo diplomatické iniciatívy."
+    },
+    {
+      "h": "Čas na stratégiu",
+      "d": "Politická atmosféra je pokojná. Médiá sa zaoberajú bežnými témami. Koaličná rada zasadá rutinne.",
+      "c": "Využite priestor na dlhodobé plánovanie a strategické rozhodnutia."
+    }
+  ]
+}

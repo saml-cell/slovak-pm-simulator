@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slovak Prime Minister Simulator</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://js.puter.com; style-src 'self' 'unsafe-inline'; connect-src 'self' https://api.groq.com https://api.anthropic.com; font-src 'self'">
+  <link rel="stylesheet" href="/fonts/fonts.css">
+  <link rel="stylesheet" href="/src/styles/main.css">
+</head>
+<body>
+  <!-- Title Screen -->
+  <div id="titleScreen" class="screen active">
+    <div class="ai-indicator" id="aiIndicator">AI Mode Active</div>
+    <button class="settings-toggle" id="settingsToggle">Nastavenia</button>
+    <div class="settings-panel" id="settingsPanel">
+      <label>AI Provider
+        <select id="aiProviderSelect">
+          <option value="none">Lokálne bodovanie (offline)</option>
+          <option value="puter">Puter.js (zadarmo, bez kľúča)</option>
+          <option value="groq">Groq (zadarmo, treba kľúč)</option>
+          <option value="anthropic">Anthropic (platený)</option>
+        </select>
+      </label>
+      <div id="apiKeyGroup" style="display:none">
+        <label>API Key<input type="password" id="apiKeyInput" placeholder="Vlož API kľúč..." autocomplete="off"></label>
+        <p style="font-size:.65rem;color:#f59e0b;margin-top:4px">Kľúč sa ukladá len v prehliadači (sessionStorage) a nikdy sa neodosiela na náš server. Po zatvorení karty sa automaticky vymaže.</p>
+      </div>
+      <div id="groqHelp" style="display:none;margin-top:8px;padding:10px;background:rgba(255,255,255,.05);border-radius:6px;border:1px solid rgba(255,255,255,.1)">
+        <p style="font-size:.8rem;font-weight:600;color:#fff;margin-bottom:6px">Ako získať Groq API kľúč (zadarmo):</p>
+        <ol style="font-size:.75rem;color:var(--text-dim);padding-left:16px;line-height:1.7">
+          <li>Choď na <a href="https://console.groq.com" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:underline">console.groq.com</a></li>
+          <li>Zaregistruj sa (stačí Google účet)</li>
+          <li>Klikni na <strong style="color:#fff">API Keys</strong> v ľavom menu</li>
+          <li>Klikni <strong style="color:#fff">Create API Key</strong></li>
+          <li>Skopíruj kľúč a vlož ho sem hore</li>
+        </ol>
+        <p style="font-size:.7rem;color:var(--text-dim);margin-top:6px">Groq je zadarmo (rate limit ~30 req/min). AI analyzuje tvoje politiky realistickejšie než lokálny systém.</p>
+      </div>
+      <div id="anthropicHelp" style="display:none;margin-top:8px;padding:10px;background:rgba(255,255,255,.05);border-radius:6px;border:1px solid rgba(255,255,255,.1)">
+        <p style="font-size:.8rem;font-weight:600;color:#fff;margin-bottom:6px">Ako získať Anthropic API kľúč:</p>
+        <ol style="font-size:.75rem;color:var(--text-dim);padding-left:16px;line-height:1.7">
+          <li>Choď na <a href="https://console.anthropic.com" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:underline">console.anthropic.com</a></li>
+          <li>Zaregistruj sa a pridaj platobnú metódu</li>
+          <li>Choď do <strong style="color:#fff">Settings → API Keys</strong></li>
+          <li>Vytvor nový kľúč a vlož ho sem hore</li>
+        </ol>
+        <p style="font-size:.7rem;color:var(--text-dim);margin-top:6px">Anthropic je platený (~$0.001 za ťah). Najkvalitnejšia AI analýza.</p>
+      </div>
+      <p style="font-size:.7rem;color:var(--text-dim);margin-top:8px">Predvolené: lokálne bodovanie (funguje offline). AI provideri sú voliteľní — zlepšia kvalitu analýzy vašich politík.</p>
+    </div>
+    <div class="title-content">
+      <h1>Slovak Prime Minister Simulator</h1>
+      <p class="subtitle" id="titleSubtitle"></p>
+      <p class="desc" id="titleDesc"></p>
+      <button class="start-button" id="startButton">Začať hru</button>
+    </div>
+  </div>
+
+  <!-- Dashboard -->
+  <div id="dashboardScreen" class="screen">
+    <div class="dashboard-header">
+      <div style="display:flex;gap:6px">
+        <button id="backToMenuBtn" class="nav-button">← Menu</button>
+        <button id="historyBtn" class="nav-button">Kronika</button>
+        <button id="bugReportBtn" class="nav-button" style="color:#f59e0b">Bug</button>
+        <button id="resignBtn" class="resign-button">Rezignovať</button>
+      </div>
+      <div class="header-left"><h2 id="dashPmName"></h2><div class="month-counter" id="monthDisplay"></div></div>
+      <div class="header-right"><div>Predseda vlády SR</div><div style="font-size:.8rem;margin-top:4px;opacity:.7">Mesiac <span id="monthNumber">1</span> zo <span id="totalMonthsDisplay">48</span></div></div>
+      <div class="ai-indicator" id="aiIndicator2">AI</div>
+    </div>
+    <div class="dashboard-content">
+      <div class="warning-banner" id="warningBanner"></div>
+      <div id="stanceNotification" style="display:none;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.3);border-radius:8px;padding:8px 12px;margin-bottom:8px;font-size:.8rem;color:var(--gold);text-align:center"></div>
+      <div id="oppositionAction" style="display:none;background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.3);border-radius:8px;padding:8px 12px;margin-bottom:12px;font-size:.8rem;color:#ef4444;text-align:center"></div>
+      <button class="play-button" id="playButton" style="margin-bottom:20px">▶ Hrať mesiac: <span id="playMonthName"></span></button>
+      <div class="metrics-row">
+        <div class="metric-card"><div class="metric-label">Podpora</div><div class="metric-value" id="approvalValue">--</div><div class="metric-bar"><div class="metric-fill" id="approvalFill" style="background:linear-gradient(90deg,var(--green),var(--yellow));width:0%"></div></div><div class="metric-trend" id="approvalTrend"></div></div>
+        <div class="metric-card"><div class="metric-label">Stabilita vlády</div><div class="metric-value" id="stabilityValue">--</div><div class="metric-bar"><div class="metric-fill" id="stabilityFill" style="background:linear-gradient(90deg,#8b5cf6,#ec4899);width:0%"></div></div><div class="metric-trend" id="stabilityTrend"></div></div>
+        <div class="metric-card"><div class="metric-label">Koalícia</div><div class="metric-value" id="coalitionValue">--</div><div class="metric-bar"><div class="metric-fill" id="coalitionFill" style="background:linear-gradient(90deg,#06b6d4,#ec4899);width:0%"></div></div><div class="metric-trend" id="coalitionTrend"></div></div>
+        <div class="metric-card"><div class="metric-label">Implementácia</div><div class="metric-value" id="implValue">--</div><div class="metric-bar"><div class="metric-fill" id="implFill" style="background:linear-gradient(90deg,var(--yellow),var(--green));width:0%"></div></div><div class="metric-trend" id="implTrend"></div></div>
+      </div>
+      <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:16px;margin-bottom:16px">
+        <div id="dashMap"></div>
+        <div>
+          <div id="dashEconCoalition"></div>
+          <div id="dashParliament" style="margin-top:12px"></div>
+        </div>
+      </div>
+      <div id="dashStances" style="margin-bottom:16px"></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
+        <div id="dashDiplomacy"></div>
+        <div id="dashHistory"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Event Screen -->
+  <div id="eventScreen" class="screen">
+    <div class="event-header">
+      <h2>Mesiac <span id="eventMonthNumber">1</span> zo <span id="eventTotalMonths">48</span></h2>
+      <div class="event-nav"><button class="nav-button" id="backFromEventButton">Späť</button></div>
+    </div>
+    <div class="event-content">
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <div class="event-card situation" id="eventCard">
+          <div class="event-tier situation" id="eventTierLabel">SITUÁCIA</div>
+          <h3 class="event-headline" id="eventHeadline"></h3>
+          <p class="event-description" id="eventDescription"></p>
+          <p class="event-context" id="eventContext"></p>
+          <div class="event-origin" id="eventOrigin" style="display:none"></div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <div class="suggestions-box"><div class="suggestions-title">Návrhy politík</div><div class="suggestion-chips" id="suggestionsContainer"></div></div>
+        <div class="policy-input-box">
+          <div class="policy-label">Vaša odpoveď — napíšte vlastnú politiku!</div>
+          <p style="font-size:.75rem;color:var(--text-dim);margin-bottom:8px">Píšte čokoľvek: oznámenie, tajnú dohodu, provokatívny ťah, alebo kompletný plán. Čím detailnejšie, tým presnejšia analýza. Môžete použiť návrhy vyššie alebo písať úplne vlastné.</p>
+          <textarea class="policy-textarea" id="policyInput" placeholder="Napr: Oznamujem núdzové opatrenia... / Tajne vyjednám dohodu s... / Zvolávam mimoriadnu tlačovú konferenciu kde obviňujem... / Predložím zákon ktorý..." maxlength="2000"></textarea>
+          <div class="char-count" id="charCount">0 / 2000</div>
+          <div style="margin-top:12px">
+            <div style="cursor:pointer;font-size:.8rem;color:var(--text-dim)" id="spinToggle">🎯 Pridať verejnú komunikáciu (voliteľné)</div>
+            <div id="spinSection" style="display:none;margin-top:8px;padding:12px;background:rgba(255,255,255,.03);border-radius:8px;border:1px solid var(--card-border)">
+              <p style="font-size:.75rem;color:var(--text-dim);margin-bottom:6px">Rovnaká politika pôsobí inak podľa toho, ako ju predáte verejnosti.</p>
+              <textarea id="spinInput" maxlength="300" rows="2" placeholder='Napr: "Chránime pracovné miesta Slovákov" alebo "Modernizujeme krajinu pre budúce generácie"' style="width:100%;padding:8px;border:1px solid var(--card-border);border-radius:4px;background:rgba(255,255,255,.03);color:var(--text);font-family:var(--sans);font-size:.85rem;resize:vertical"></textarea>
+            </div>
+          </div>
+          <button class="submit-policy-button" id="submitPolicyButton">Odoslať a analyzovať</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Analysis Screen -->
+  <div id="analysisScreen" class="screen">
+    <div class="analysis-content">
+      <div class="analysis-navigation">
+        <button class="analysis-nav-button continue" id="continueButton">Ďalej: Fokusová skupina →</button>
+      </div>
+      <h2 class="analysis-title">Analýza politiky</h2>
+      <div class="score-cards" id="scoreCardsContainer"></div>
+      <div class="analysis-section" id="checksSection" style="display:none"><h3 class="section-title">Kontroly a rovnováhy</h3><div class="checks-grid" id="checksContent"></div></div>
+      <div class="analysis-section"><h3 class="section-title">Analýza štátnej správy</h3><div class="section-content" id="civilServiceContent"></div></div>
+      <div id="budgetSection"></div>
+      <div class="analysis-section"><h3 class="section-title">Mediálne pokrytie</h3><div class="section-content" id="pressContent"></div></div>
+      <div class="analysis-section" id="politicianSection"><h3 class="section-title">🏛️ Reakcie politikov</h3><div id="politicianContent"></div></div>
+      <div class="analysis-section" id="consequenceSection" style="display:none"><h3 class="section-title">Možné dôsledky</h3><div class="section-content" id="consequenceContent"></div></div>
+    </div>
+  </div>
+
+  <!-- Focus Group -->
+  <div id="focusGroupScreen" class="screen">
+    <div class="analysis-navigation">
+      <button class="analysis-nav-button" id="backToAnalysisButton">← Späť na analýzu</button>
+      <button class="analysis-nav-button continue" id="continueFromFGButton">Pokračovať do ďalšieho mesiaca →</button>
+    </div>
+    <h2 class="screen-title">Fokusová skupina</h2>
+    <div class="average-banner"><div class="average-label">Priemerná podpora</div><div class="average-score" id="averagePersonaScore">--</div></div>
+    <div class="personas-grid" id="personasContainer"></div>
+  </div>
+
+  <!-- Stakeholders -->
+  <div id="stakeholderScreen" class="screen">
+    <h2 class="screen-title">Zainteresované strany</h2>
+    <div class="average-banner"><div class="average-label">Priemerná podpora</div><div class="average-score" id="averageStakeholderScore">--</div></div>
+    <div class="stakeholders-grid" id="stakeholdersContainer"></div>
+    <div class="analysis-navigation">
+      <button class="analysis-nav-button" id="backToFGButton">Späť</button>
+      <button class="analysis-nav-button continue" id="continueFromStakeholderButton">Pokračovať</button>
+    </div>
+  </div>
+
+  <!-- Game Over -->
+  <div id="gameOverScreen" class="screen">
+    <div class="game-over-content">
+      <div class="game-over-header"><h1 class="game-over-title" id="gameOverTitle">Koniec</h1><p class="game-over-narrative" id="gameOverNarrative"></p></div>
+      <div class="game-over-stats" id="gameOverStats"></div>
+      <div class="approval-chart"><h3 class="chart-title">Podpora verejnosti</h3><div class="chart-container" id="approvalChart"></div></div>
+      <div id="electionResults"></div>
+      <div style="text-align:center;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <button class="play-again-button" id="playAgainButton">Hrať znova</button>
+        <button class="play-again-button" id="wikiButton" style="background:linear-gradient(135deg,#854d0e,#a16207)">Generovať Wikipédiu</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Coalition Modal -->
+  <div class="modal-overlay" id="coalitionModal"><div class="modal"><h3 id="modalTitle"></h3><p id="modalText"></p><div id="modalActions"></div></div></div>
+
+  <!-- History Modal -->
+  <div class="modal-overlay" id="historyModal">
+    <div class="modal" style="max-width:650px;max-height:80vh;overflow-y:auto">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+        <h3 style="color:#fff">Kronika vládnutia</h3>
+        <button id="closeHistoryBtn" style="background:none;border:none;color:var(--text-dim);font-size:20px;cursor:pointer">&#10005;</button>
+      </div>
+      <div id="historyList"></div>
+    </div>
+  </div>
+
+  <!-- Resign Modal -->
+  <div class="modal-overlay" id="resignModal">
+    <div class="modal">
+      <h3 style="color:var(--red)">Rezignácia</h3>
+      <p>Naozaj chcete rezignovať z funkcie predsedu vlády Slovenskej republiky? Tento krok je nezvratný.</p>
+      <div style="display:flex;gap:8px;margin-top:12px">
+        <button class="partner-btn refuse" id="confirmResignBtn" style="padding:10px 20px">Áno, rezignujem</button>
+        <button class="partner-btn concede" id="cancelResignBtn" style="padding:10px 20px">Nie, pokračujem</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bug Report Modal -->
+  <div class="modal-overlay" id="bugReportModal">
+    <div class="modal" style="max-width:550px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+        <h3 style="color:#fff">Nahlasiť chybu</h3>
+        <button id="closeBugReportBtn" style="background:none;border:none;color:var(--text-dim);font-size:20px;cursor:pointer">&#10005;</button>
+      </div>
+      <div style="margin-bottom:12px">
+        <label style="font-size:.8rem;color:var(--text-dim);display:block;margin-bottom:4px">Typ chyby</label>
+        <select id="bugType" style="width:100%;padding:8px 12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:#fff;font-size:.85rem">
+          <option value="gameplay">Gameplay / logika hry</option>
+          <option value="ui">Grafika / rozhranie</option>
+          <option value="event">Chybná udalosť / historický fakt</option>
+          <option value="crash">Pád / zamrznutie hry</option>
+          <option value="other">Iné</option>
+        </select>
+      </div>
+      <div style="margin-bottom:12px">
+        <label style="font-size:.8rem;color:var(--text-dim);display:block;margin-bottom:4px">Popis chyby</label>
+        <textarea id="bugDescription" rows="4" placeholder="Popíšte čo sa stalo, čo ste očakávali a kde v hre sa chyba vyskytla..." style="width:100%;padding:10px 12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:#fff;font-size:.85rem;resize:vertical;font-family:var(--sans)"></textarea>
+      </div>
+      <div style="display:flex;gap:8px">
+        <button id="submitBugBtn" class="partner-btn concede" style="padding:10px 20px;flex:1">Odoslať</button>
+        <button id="cancelBugBtn" class="partner-btn refuse" style="padding:10px 20px">Zrušiť</button>
+      </div>
+      <p id="bugSubmitStatus" style="display:none;font-size:.75rem;color:var(--green);margin-top:8px;text-align:center"></p>
+    </div>
+  </div>
+
+  <!-- Loading -->
+  <div class="loading-overlay" id="loadingOverlay"><div class="loading-spinner"></div><div class="loading-text" id="loadingText">Analyzujem...</div></div>
+
+  <!-- Map Tooltip -->
+  <div class="map-tooltip" id="mapTooltip"></div>
+
+  <script type="module" src="/src/engine/index.ts"></script>
+</body>
+</html>

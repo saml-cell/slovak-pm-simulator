@@ -1,0 +1,3042 @@
+{
+  "meta": {
+    "id": "dzurinda-1998-2006",
+    "pmName": "Mikuláš Dzurinda",
+    "headerTitle": "Mikuláš Dzurinda",
+    "saveKey": "spm_dzurinda_save",
+    "pellegriniMonth": 8,
+    "presidentName": "Michal Kováč",
+    "presidentFriendly": "Rudolf Schuster",
+    "currency": "Sk",
+    "currencyBig": "mld Sk"
+  },
+  "calendar": {
+    "startMonthOffset": 9,
+    "startYear": 1998
+  },
+  "totalMonths": 48,
+  "gameOverThreshold": 12,
+  "titleScreen": {
+    "pmName": "Mikuláš Dzurinda",
+    "subtitle": "Október 1998 - Október 2002",
+    "description": "Prevezmite moc po Mečiarovi. Obnovte demokraciu, integrujte Slovensko do NATO a EÚ, a transformujte ekonomiku. Koalícia 4 strán s 93 kreslami — ale plná vnútorných napätí.",
+    "startButtonText": "Začať reformy"
+  },
+  "partyDisplay": {
+    "colors": {
+      "sdk": "#3b82f6",
+      "sdl": "#dc2626",
+      "smk": "#059669",
+      "sop": "#8b5cf6",
+      "hzds": "#1e40af",
+      "sns": "#065f46",
+      "other": "#9ca3af"
+    },
+    "names": {
+      "sdk": "SDK",
+      "sdl": "SDĽ",
+      "smk": "SMK",
+      "sop": "SOP",
+      "hzds": "HZDS",
+      "sns": "SNS",
+      "other": "Ostatní"
+    }
+  },
+  "personas": [
+    {
+      "id": "jana",
+      "name": "Jana",
+      "emoji": "🎓",
+      "age": 25,
+      "demo": "Študentka práva na UK Bratislava. Bola na protestoch proti Mečiarovi. Verí v Európu a demokratické Slovensko.",
+      "lean": "progressive",
+      "region": "bratislavsky"
+    },
+    {
+      "id": "peter_r",
+      "name": "Peter",
+      "emoji": "👷",
+      "age": 50,
+      "demo": "Robotník v Považských strojárňach. Bojí sa privatizácie a straty práce. Volil SDK ale s obavami.",
+      "lean": "moderate",
+      "region": "trenciansky"
+    },
+    {
+      "id": "maria_d",
+      "name": "Mária",
+      "emoji": "👵",
+      "age": 68,
+      "demo": "Dôchodkyňa z Prešova. Nostalgická za istotami. Volila HZDS ale je unavená z Mečiara.",
+      "lean": "conservative",
+      "region": "presovsky"
+    },
+    {
+      "id": "tibor",
+      "name": "Tibor",
+      "emoji": "💼",
+      "age": 45,
+      "demo": "Podnikateľ z Bratislavy. Chce voľný trh, reformy a zahraničné investície. Podporuje Dzurindu.",
+      "lean": "reformist",
+      "region": "bratislavsky"
+    },
+    {
+      "id": "eva_d",
+      "name": "Eva",
+      "emoji": "📚",
+      "age": 35,
+      "demo": "Učiteľka v B. Bystrici. Plat 6000 Sk. Verí v reformy ale chce aj sociálnu istotu.",
+      "lean": "moderate",
+      "region": "banskobystricky"
+    },
+    {
+      "id": "laszlo",
+      "name": "László",
+      "emoji": "🇭🇺",
+      "age": 55,
+      "demo": "Maďarský farmár z Komárna. Volí SMK. Chce jazykové práva a decentralizáciu.",
+      "lean": "hungarian",
+      "region": "nitriansky"
+    },
+    {
+      "id": "milan_d",
+      "name": "Milan",
+      "emoji": "📰",
+      "age": 32,
+      "demo": "Investigatívny novinár SME. Odhaľuje Mečiarove machinácie. Podporuje transparentnosť.",
+      "lean": "progressive",
+      "region": "bratislavsky"
+    },
+    {
+      "id": "zuzana_d",
+      "name": "Zuzana",
+      "emoji": "⚕️",
+      "age": 40,
+      "demo": "Lekárka v Košiciach. Zarába 8000 Sk. Zvažuje odchod do Česka.",
+      "lean": "moderate",
+      "region": "kosicky"
+    },
+    {
+      "id": "jozef_v",
+      "name": "Jozef",
+      "emoji": "🎖️",
+      "age": 58,
+      "demo": "Bývalý vojak z Trenčína. Skeptický voči NATO. Konzervativec ale nie Mečiarovec.",
+      "lean": "conservative",
+      "region": "trenciansky"
+    },
+    {
+      "id": "helena_d",
+      "name": "Helena",
+      "emoji": "💻",
+      "age": 30,
+      "demo": "IT začínajúca v Bratislave. Zarába 12000 Sk. Chce EÚ a moderné Slovensko.",
+      "lean": "progressive",
+      "region": "bratislavsky"
+    },
+    {
+      "id": "robert_b",
+      "name": "Róbert",
+      "emoji": "⛏️",
+      "age": 48,
+      "demo": "Baník z Prievidze. Bojí sa o prácu pri reštrukturalizácii. Mečiarovec z presvedčenia.",
+      "lean": "hzds",
+      "region": "banskobystricky"
+    },
+    {
+      "id": "anna_k",
+      "name": "Anna",
+      "emoji": "⛪",
+      "age": 62,
+      "demo": "Veriaca z Nitry. Volí KDH. Tradičné hodnoty sú pre ňu najdôležitejšie.",
+      "lean": "kdh",
+      "region": "nitriansky"
+    }
+  ],
+  "personaQuotes": {
+    "jana": {
+      "vp": [
+        "Konečne! Toto je Slovensko aké chcem — demokratické, európske, slobodné! Na proteste sme za toto bojovali!",
+        "Úžasné! Kolegovia na práve diskutujú a všetci sa zhodujú — toto je správny smer pre krajinu.",
+        "Zdieľam to všetkým. Slovensko sa konečne posúva vpred. Mečiar je minulosť!"
+      ],
+      "p": [
+        "Dobré kroky. Pomalé, ale správnym smerom. Aspoň už nie sme v hanbe pred Európou.",
+        "Fajn, vidím snahu. Na fakulte sa o tom hovorí pozitívne.",
+        "Lepšie ako za Mečiara, to je isté. Ale chcela by som viac odvahy."
+      ],
+      "n": [
+        "Neviem. Reformy sú pomalé a koalícia sa stále háda. Kedy konečne budeme normálna krajina?",
+        "Čakala som viac. Ale aspoň máme slobodné médiá a nikto neuníma ľudí.",
+        "Priemerne. Ani krok vpred, ani vzad."
+      ],
+      "ng": [
+        "Sklamanie. Sľubovali zmenu a nič sa nedeje. Moji spolužiaci už odchádzajú do Prahy.",
+        "Koalícia sa rozpadá a reformy stoja. Načo sme volili ak sa nič nemení?",
+        "Začínam strácať nádej. Ak toto je demokracia, tak je pomalá."
+      ],
+      "vn": [
+        "Katastrofa! Horšie ako za Mečiara! Aspoň vtedy boli platy istejšie! Odchádzam do Česka!",
+        "Zrada na voličoch! Sľubovali Európu a dodali chudobu! Tisíce ľudí odchádza!",
+        "Nemám budúcnosť na Slovensku. Toto nie je reforma, toto je chaos."
+      ]
+    },
+    "peter_r": {
+      "vp": [
+        "Výborne! V strojárňach sa konečne hovorí o nových objednávkach. Privatizácia môže priniesť investície!",
+        "Na zmene sme si podávali ruky. Konečne niekto myslí na fabriky. Možno nebudú prepúšťať.",
+        "Manželka sa usmievala. Ak prídu zahraniční investori, bude práca aj pre nás."
+      ],
+      "p": [
+        "Dobre, aspoň sa niečo robí. V Považských strojárňach čakáme na nového vlastníka. Snáď to vyjde.",
+        "Nie je to ideálne ale aspoň viem že fabrika bude fungovať. To je pre mňa najdôležitejšie.",
+        "V kantíne chlapci hovoria že je to fajn. Aspoň nie sme v neistote ako za Mečiara."
+      ],
+      "n": [
+        "V práci sa nič nezmenilo. Mzda 7000 Sk, ceny rastú. Kedy bude lepšie?",
+        "Politiku neriešim, idem do roboty a dúfam že fabrika prežije. Čo zmôžem ja.",
+        "Ani lepšie ani horšie. V strojárňach stále čakáme čo bude."
+      ],
+      "ng": [
+        "Privatizácia je len predaj cudzincom za babku! V strojárňach sa bojíme o prácu!",
+        "Kto zaplatí moju hypotéku keď zavrú fabriku? Dzurinda sľubuje ale robotníci trpia!",
+        "Kolega dostal výpoveď. Reštrukturalizácia, hovoria. My tomu hovoríme prepúšťanie."
+      ],
+      "vn": [
+        "Strojárne zatvárajú linku! 200 ľudí na ulici! A Dzurinda rieši NATO? Kto sa postará o nás?",
+        "Zradili robotníkov! Predali fabriky cudzincom a tí nás vyhodia! 7000 Sk mesačne a ani to nebude!",
+        "Manželka plače, deti sa pýtajú prečo nemôžu ísť na výlet. A vláda predáva štát kus po kuse!"
+      ]
+    },
+    "maria_d": {
+      "vp": [
+        "No, to je pekné. Aspoň sa niečo deje. Za Mečiara to bolo pokojnejšie ale toto je tiež dobré.",
+        "Susedka Margita hovorí že je to správne. Ja tomu moc nerozumiem ale verím že bude lepšie.",
+        "Vnučka mi volala z Bratislavy že je to dobré. Ona študuje, ona tomu rozumie."
+      ],
+      "p": [
+        "Tak uvidíme. Za Mečiara bolo viac istoty ale ľudia hovoria že toto je lepšie.",
+        "Aspoň vidím snahu. Dôchodok je stále malý ale aspoň chodia lieky.",
+        "V obchode susedky hovoria že sa to zlepšuje. Ja to moc necítim ale verím im."
+      ],
+      "n": [
+        "Neviem čo si myslieť. Za Mečiara som vedela na čom som. Teraz je všetko neisté.",
+        "Dôchodok 4500 Sk a všetko drahšie. Či Mečiar či Dzurinda, na nás zabudnú.",
+        "Politiku neriešim. Idem do kostola a prosím Boha o lepšie časy."
+      ],
+      "ng": [
+        "Za Mečiara bolo lepšie! Aspoň sme vedeli čo bude! Teraz je len chaos a predražené lieky!",
+        "Celý život som robila a mám dôchodok na ktorý sa nedá žiť. Kde sú tie sľúbené reformy?",
+        "Susedka Margita nemala na lieky. To je tá demokracia? Radšej starý režim!"
+      ],
+      "vn": [
+        "Katastrofa! Za Mečiara sme mali aspoň istoty! Teraz nemám ani na chleba! Hanba Dzurindovi!",
+        "Plačem keď idem do lekárne. Lieky zdraželi a dôchodok stojí. Toto som si za celý život nezaslúžila!",
+        "Mečiar mal pravdu! Títo nás predávajú Západu a my tu hladujeme! Chcem späť starých!"
+      ]
+    },
+    "tibor": {
+      "vp": [
+        "Fantastické! Konečne proeuropská politika! Zahraniční investori volajú — Slovensko je na mape!",
+        "Moja firma rastie, klienti z Rakúska prichádzajú. Dzurinda robí presne to čo podnikateľ potrebuje!",
+        "Burza reaguje pozitívne, koruna sa stabilizuje. Takto sa buduje moderná ekonomika!"
+      ],
+      "p": [
+        "Dobré kroky pre biznis. Privatizácia ide pomaly ale správnym smerom. Investori sledujú.",
+        "Nie je to dokonalé ale aspoň máme predvídateľné prostredie. V Bratislave sa dá podnikať.",
+        "Klienti z Viedne hovoria že Slovensko je zaujímavé. To je dobrý signál."
+      ],
+      "n": [
+        "Reformy idú pomaly. Byrokracia je stále obrovská. Ale aspoň nie sme v izolácii.",
+        "V podnikateľskom klube sme pokrčili ramenami. Mohlo by to byť rýchlejšie.",
+        "Štandard. Ani špeciálne dobré ani zlé pre biznis. Čakáme na viac."
+      ],
+      "ng": [
+        "Koalícia sa háda a reformy stoja! Investori odchádzajú do Česka kde je stabilita!",
+        "Byrokracia je horšia ako za Mečiara! Aspoň vtedy sa dalo dohodnúť. Teraz nikto nevie kto rozhoduje!",
+        "Klient z Nemecka zrušil investíciu. Vraj politická nestabilita. Ďakujem, koalícia!"
+      ],
+      "vn": [
+        "Likvidujem firmu! Presúvam sa do Prahy! Slovensko nie je krajina pre podnikateľov!",
+        "Zahraničné investície klesajú, koruna slabne. Dzurinda sľuboval reformy a dodal chaos!",
+        "Podnikatelia utekajú. Ja som posledný. O mesiac budem v Brne. Slovensko, zbohom!"
+      ]
+    },
+    "eva_d": {
+      "vp": [
+        "Výborne! Konečne sa investuje do školstva! Možno konečne dostaneme nové učebnice!",
+        "V zborovni sme sa tešili. Ak sa platy učiteľov zvýšia, možno kolegyne neodídu do Čiech.",
+        "Toto je presne čo deti potrebujú. Vzdelanie je budúcnosť krajiny!"
+      ],
+      "p": [
+        "Rozumné kroky. Nie perfektné ale vidím snahu. Aspoň sa o školstve hovorí.",
+        "V zborovni väčšina súhlasí. Pomalé ale správnym smerom. Treba trpezlivosť.",
+        "Lepšie ako za Mečiara keď sa o školstve nehovorilo vôbec. Ale treba viac."
+      ],
+      "n": [
+        "Priemerné. Plat 6000 Sk a učebnice z roku 1989. Kedy sa niečo zmení?",
+        "Ani dobre ani zle. V škole učíme ďalej a dúfame. Ako vždy.",
+        "Politiku neriešim, nemám čas. 32 detí v triede a ja sama."
+      ],
+      "ng": [
+        "Zase nič pre školstvo! Plat 6000 Sk a kolegyne odchádzajú do Čiech kde zarobia trojnásobok!",
+        "Reformy, reformy, ale na učiteľov zabudli! Kto bude učiť keď všetci odídu?",
+        "Rozbité stoličky, staré učebnice. A vláda rieši NATO. Kde sú priority?"
+      ],
+      "vn": [
+        "Katastrofa pre školstvo! Kolegyňa odišla učiť do Brna za 15000 Sk! Ja mám 6000!",
+        "Deti si zaslúžia lepšie! Vláda dáva miliardy na privatizáciu a na školy nič!",
+        "Plačem od frustrácie. 10 rokov učím a nemám ani na slušné oblečenie. Hanba!"
+      ]
+    },
+    "laszlo": {
+      "vp": [
+        "Výborne! SMK víta tento krok. Konečne sa rešpektujú práva maďarskej menšiny na Slovensku!",
+        "Na juhu Slovenska sa tešíme. Decentralizácia a jazykové práva sú základom spolužitia.",
+        "Konečne! Po rokoch Mečiarovho útlaku maďarská komunita dýcha slobodnejšie!"
+      ],
+      "p": [
+        "Dobré kroky. Nie všetko čo SMK chce ale ideme správnym smerom. Spolužitie sa zlepšuje.",
+        "V Komárne to berieme pozitívne. Aspoň sa o nás hovorí normálne, nie ako o nepriateľoch.",
+        "Lepšie ako za Mečiara, určite. Ale jazykové práva stále nie sú dostatočné."
+      ],
+      "n": [
+        "Pre maďarskú menšinu nič konkrétne. Čakáme na jazykový zákon a samosprávu.",
+        "V Komárne sa nič nezmenilo. Sľuby boli veľké ale realita je iná.",
+        "SMK je v koalícii ale naše požiadavky stále čakajú. Trpezlivosť má hranice."
+      ],
+      "ng": [
+        "SMK je sklamané! Koalícia ignoruje naše požiadavky! Jazykový zákon stále nie je!",
+        "Na juhu Slovenska sa cítime ako občania druhej kategórie. Kde je tá sľúbená rovnosť?",
+        "Mečiar nám ubližoval otvorene. Dzurinda nám ubližuje ignorovaním. Čo je horšie?"
+      ],
+      "vn": [
+        "Zrada! SMK zvažuje odchod z koalície! Maďarská menšina je opäť obetným baránkom!",
+        "Na juhu Slovenska rastie frustrácia. Budapešť sleduje situáciu. Toto nemôže pokračovať!",
+        "SMK bude musieť konať! Koalícia nás ignoruje a nacionalisti nás útočia. Dosť!"
+      ]
+    },
+    "milan_d": {
+      "vp": [
+        "Fantastické! Konečne transparentnosť! V SME píšeme o tom s nadšením — demokracia víťazí!",
+        "V redakcii sme otvárali šampanské. Po Mečiarových temných rokoch konečne svetlo!",
+        "Píšem investigatívu a konečne mám prístup k informáciám. Toto je sloboda tlače!"
+      ],
+      "p": [
+        "Pozitívne signály. V redakcii SME väčšina súhlasí že ide to správnym smerom.",
+        "Budeme sledovať implementáciu. Zatiaľ dobré. Ale novinárov ešte nechráni zákon.",
+        "Lepšie ako za Mečiara keď nás odpočúvali. Ale opatrný optimizmus."
+      ],
+      "n": [
+        "Kompromis. Ani krok vpred ani vzad pre slobodu médií. Typický politický ťah.",
+        "V SME tomu venujeme stĺpec a zajtra to zabudnú. Slovensko potrebuje odvahu.",
+        "Na redakčnej porade pokrčenie ramenami. Nič prevratné. Pokračujeme."
+      ],
+      "ng": [
+        "Sloboda tlače je ohrozená aj pod Dzurindom! Koaličné strany tlačia na redakcie!",
+        "Kolegovia dostávajú výhrážky od ľudí blízkych HZDS. A vláda nás nechráni!",
+        "Investigatíva odhaľuje korupciu aj v novej vláde. Ale nikto nereaguje. Frustrácia."
+      ],
+      "vn": [
+        "Demokracia je len fasáda! Mečiaroví ľudia sú stále v inštitúciách a ohrozujú novinárov!",
+        "Kolega dostal výhrážky smrťou. Polícia nič nerobí. Toto je tá nová demokracia?",
+        "Sloboda tlače umiera potichu. Odchádzam do Prahy kde si novinárov vážia!"
+      ]
+    },
+    "zuzana_d": {
+      "vp": [
+        "Konečne investícia do zdravotníctva! Možno prestanú kolegovia odchádzať do Čiech!",
+        "V nemocnici v Košiciach sme sa tešili. Ak zdvihnú platy, ostaneme. 8000 Sk je málo.",
+        "Pacientom bude lepšie. Toto je presne čo slovenské zdravotníctvo potrebuje!"
+      ],
+      "p": [
+        "Lepšie ako nič. Aspoň sa o zdravotníctve hovorí. V Košiciach čakáme na reformu.",
+        "Plat 8000 Sk je stále málo ale aspoň vidím snahu. V Česku platia 15000.",
+        "Opatrný optimizmus. Sľuby sme počuli aj predtým. Ale tentoraz to vyzerá lepšie."
+      ],
+      "n": [
+        "Zdravotníctvo sa opäť nerieši. V Košiciach čakáme na reformu už roky.",
+        "Pacienti čakajú a my nemáme vybavenie. Ale politici riešia NATO. Typické.",
+        "Na oddelení nikto nezdvihol hlavu. Robíme čo musíme za plat čo nestačí."
+      ],
+      "ng": [
+        "Kolegovia utekajú do Čiech! V Česku je plat dvojnásobný! Kto bude liečiť na Slovensku?",
+        "Nemocnica v Košiciach nemá základné vybavenie. A vláda privatizuje banky. Priority!",
+        "Sestra podala výpoveď. Tretia tento mesiac. Čoskoro budem na oddelení sama."
+      ],
+      "vn": [
+        "Zdravotníctvo kolabuje! Pacient čakal 10 hodín na chirurgii! Odchádzam do Prahy!",
+        "V Česku zarábam trojnásobok. Prečo by som mala ostať? Slovensko si neváži lekárov!",
+        "Dnes mi zomrel pacient lebo sme nemali lieky. V roku 1999. V strede Európy. Hanba!"
+      ]
+    },
+    "jozef_v": {
+      "vp": [
+        "Dobre! Silná armáda a bezpečnosť. To je základ štátu. Dzurinda to chápe.",
+        "Na kasárňach sme spokojní. Konečne sa investuje do obrany. Tak to má byť.",
+        "Aj keď som skeptický voči NATO, bezpečnosť je priorita. Toto je správne."
+      ],
+      "p": [
+        "Prijateľné. Aspoň sa o armáde hovorí. Za Mečiara sme boli zabudnutí.",
+        "Nie je to ideálne ale ideme správnym smerom. Vojaci potrebujú podporu.",
+        "V Trenčíne sa o tom diskutuje pozitívne. Konzervativci súhlasia."
+      ],
+      "n": [
+        "Ani dobre ani zle. Armáda stále nemá poriadne vybavenie. Sľuby, sľuby.",
+        "NATO? Nie som si istý či to je pre nás. Ale aspoň je kľud.",
+        "Na kasárňach pokrčenie ramenami. Čakáme a uvidíme."
+      ],
+      "ng": [
+        "NATO je americký projekt! Prečo by sme mali riskovať našich vojakov pre cudzí záujem?",
+        "Armáda je v rozklade a vláda rieši diplomatické hry. Kde je technika, kde sú platy?",
+        "Dvadsať rokov som slúžil a plat je smiešny. Kolega odišiel do civilu. Rozumiem mu."
+      ],
+      "vn": [
+        "NATO nás vtiahne do cudzích vojen! Slovensko má byť neutrálne! Toto je zrada!",
+        "Armáda je v katastrofálnom stave a Dzurinda sľubuje NATO! Najprv opravte kasárne!",
+        "Po 20 rokoch služby odchádzam. Za toto som riskoval život? Za sľuby a chaos?"
+      ]
+    },
+    "helena_d": {
+      "vp": [
+        "Super! Slovensko ide do Európy! V IT komunite v Bratislave je eufória! Moderná krajina!",
+        "Konečne! Klienti z Rakúska volajú, internet sa rozvíja. Toto je budúcnosť!",
+        "Zarábam 12000 Sk v IT a vidím rast. Ak vojdeme do EÚ, bude ešte lepšie!"
+      ],
+      "p": [
+        "Dobré kroky. IT sektor rastie a Slovensko sa otvára. Optimizmus ale opatrný.",
+        "V Bratislave sa dá žiť a podnikať. Nie je to Viedeň ale ide to vpred.",
+        "Reformy sú pomalé ale smer je správny. V IT to cítime pozitívne."
+      ],
+      "n": [
+        "Pre IT sektor nič špeciálne. Internet je pomalý a drahý. Ale žijeme.",
+        "Bratislava je bublina. Zvyšok Slovenska to necíti. Ale aspoň tu je dobre.",
+        "Ani dobre ani zle. Pracujem, zarábam, čakám na lepšie časy."
+      ],
+      "ng": [
+        "Reformy stoja a IT talenty odchádzajú! V Česku je lepšie prostredie pre technológie!",
+        "Internet je drahý, infraštruktúra slabá. Ako chceme do EÚ s technológiami z 90-tych rokov?",
+        "Kolegyňa odišla do Viedne. Trojnásobný plat. Ja zvažujem to isté."
+      ],
+      "vn": [
+        "Slovensko nie je krajina pre IT! Odchádzam do Prahy! Tu nie je budúcnosť pre technológie!",
+        "Koalícia sa háda a reformy stoja! Internet je najdrahší v regióne! Prečo tu ostávať?",
+        "Kúpila som si jednosmerný lístok do Viedne. Slovensko ma stratilo. Zbohom!"
+      ]
+    },
+    "robert_b": {
+      "vp": [
+        "No, nie je to zlé. Aj keď Mečiar by to urobil lepšie. Ale aspoň sa niečo deje v bani.",
+        "V hospode chlapci hovoria že je to fajn. Nie super, ale fajn. Aspoň je práca.",
+        "Možno som sa mýlil ohľadom Dzurindu. Ale Mečiar je stále najlepší politik."
+      ],
+      "p": [
+        "Ujde to. Ale za Mečiara bolo lepšie. Aspoň sme vedeli na čom sme.",
+        "V Prievidzi sa nič moc nemení. Ale aspoň baňa funguje. Zatiaľ.",
+        "Nie je to Mečiar ale nie je to ani katastrofa. Žijeme ďalej."
+      ],
+      "n": [
+        "V bani sa nič nezmenilo. Plat rovnaký, práca ťažšia. Kto to tu rieši?",
+        "Dzurinda, Mečiar, všetci rovnakí. Na baníkov zabudnú hneď po voľbách.",
+        "Čo sa zmenilo? Nič. Baňa stojí, ja robím, a politici sa hádajú v Bratislave."
+      ],
+      "ng": [
+        "Reštrukturalizácia! To je len pekné slovo pre zatváranie baní! Mečiar by to nedopustil!",
+        "500 baníkov ide na ulicu a Dzurinda rieši EÚ! Kde sú jeho sľuby?!",
+        "Syn odišiel do Prahy. Dcéra chce do Brna. A ja tu čakám na dôchodok z bane čo zavrú."
+      ],
+      "vn": [
+        "Mečiar mal pravdu! Dzurinda predáva Slovensko cudzincom! Baňu zavrú a my nemáme nič!",
+        "Zradili nás! HZDS by toto nikdy nedopustilo! Privatizácia je krádež národného majetku!",
+        "V Prievidzi je 25% nezamestnanosť! A Dzurinda sa fotí s Clintonom! Hanba! Chceme Mečiara späť!"
+      ]
+    },
+    "anna_k": {
+      "vp": [
+        "Chvála Bohu! Konečne politika založená na hodnotách. KDH robí dobrú prácu v koalícii.",
+        "V kostole sme sa modlili za vládu. Toto je správna cesta pre kresťanské Slovensko.",
+        "Tradičné hodnoty a európske smerovanie. Presne toto Slovensko potrebuje."
+      ],
+      "p": [
+        "Dobré kroky. KDH v koalícii je zárukou morálnych hodnôt. Verím v lepšie časy.",
+        "V Nitre sa o tom hovorí pozitívne. Cirkev podporuje reformy ak zachovajú hodnoty.",
+        "Nie je to dokonalé ale s Božou pomocou to zvládneme. KDH sa snaží."
+      ],
+      "n": [
+        "Neviem. Politika je komplikovaná. Dôležité je aby sa zachovali tradičné hodnoty.",
+        "V kostole farár nehovoril o politike. Ja sa modlím a dúfam v lepšie.",
+        "Ani dobre ani zle. Hlavne aby rodiny mali čo jesť a deti kam chodiť do školy."
+      ],
+      "ng": [
+        "Liberálne hodnoty prenikajú do politiky! KDH musí byť silnejší v koalícii!",
+        "Tradičná rodina je ohrozená! Západ na nás tlačí svoje hodnoty! Kde je KDH?",
+        "V kostole sa ľudia sťažujú. Reformy idú ale na úkor tradičných hodnôt."
+      ],
+      "vn": [
+        "KDH zradilo kresťanské hodnoty! Koalícia s liberálmi je hriech! Slovensko stráca dušu!",
+        "Tradičná rodina, viera, národ — všetko je ohrozené! Toto nie je kresťanská politika!",
+        "Plačem za starým Slovenskom. Bolo chudobné ale malo hodnoty. Teraz nemáme ani to!"
+      ]
+    }
+  },
+  "politicians": [
+    {
+      "id": "meciar_op",
+      "name": "Vladimír Mečiar",
+      "party": "HZDS",
+      "role": "Líder opozície",
+      "emoji": "🏛️",
+      "kw_pos": [
+        "sovereign",
+        "narod",
+        "amnestia",
+        "strong"
+      ],
+      "kw_neg": [
+        "eu",
+        "nato",
+        "reforma",
+        "transparentnost",
+        "demokracia"
+      ],
+      "reactions": {
+        "pos": [
+          "Vítam návrat k rozumu. Slovensko potrebuje silnú ruku, nie tieto experimenty.",
+          "Konečne niečo správne. HZDS to hovorilo od začiatku."
+        ],
+        "neg": [
+          "Ďalšia zrada národných záujmov! Dzurinda predáva Slovensko Bruselu!",
+          "Katastrofálna politika! HZDS toto nikdy nedopustí! Ľudia sa prebudia!",
+          "Títo amatéri ničia všetko čo sme vybudovali. Slovensko si zaslúži lepšie."
+        ],
+        "neu": [
+          "HZDS sleduje situáciu. Ľudia si urobia vlastný názor.",
+          "Uvidíme. Zatiaľ sa nevyjadrujeme."
+        ]
+      }
+    },
+    {
+      "id": "fico_young",
+      "name": "Robert Fico",
+      "party": "SMER (od 1999)",
+      "role": "Nový hráč",
+      "emoji": "🔴",
+      "kw_pos": [
+        "social",
+        "plat",
+        "robotnik",
+        "odbory"
+      ],
+      "kw_neg": [
+        "privatizacia",
+        "dan",
+        "reforma",
+        "investicia"
+      ],
+      "reactions": {
+        "pos": [
+          "SMER podporuje sociálne opatrenia pre ľudí. Toto je správny smer.",
+          "Konečne niekto myslí na obyčajných ľudí, nie len na oligarchov."
+        ],
+        "neg": [
+          "Dzurindove reformy ničia sociálne istoty! SMER ponúka alternatívu!",
+          "Privatizácia do rúk cudzincov — to je Dzurindovo dedičstvo!",
+          "Ľudia trpia a vláda sa pozerá. SMER toto zmení."
+        ],
+        "neu": [
+          "SMER rastie. Ľudia hľadajú alternatívu.",
+          "Sledujeme situáciu a pripravujeme program."
+        ]
+      }
+    },
+    {
+      "id": "bugar_dz",
+      "name": "Béla Bugár",
+      "party": "SMK",
+      "role": "Koaličný partner",
+      "emoji": "🇭🇺",
+      "kw_pos": [
+        "menšina",
+        "madarsko",
+        "decentraliz",
+        "samosprav",
+        "jazyk"
+      ],
+      "kw_neg": [
+        "narod",
+        "sovereign",
+        "centralizac"
+      ],
+      "reactions": {
+        "pos": [
+          "SMK víta tento krok. Menšinové práva sú súčasťou európskych hodnôt.",
+          "Správny smer pre spolužitie národov na Slovensku."
+        ],
+        "neg": [
+          "SMK má obavy. Toto ohrozuje práva maďarskej menšiny.",
+          "Vyžadujeme konzultácie v koaličnej rade. Toto nie je akceptovateľné."
+        ],
+        "neu": [
+          "SMK to prerokuje na predsedníctve.",
+          "Čakáme na detaily pred vyjadrením."
+        ]
+      }
+    },
+    {
+      "id": "migas",
+      "name": "Jozef Migaš",
+      "party": "SDĽ",
+      "role": "Koaličný partner",
+      "emoji": "🔴",
+      "kw_pos": [
+        "social",
+        "odbory",
+        "plat",
+        "robotnik",
+        "zdravotnictvo"
+      ],
+      "kw_neg": [
+        "privatizacia",
+        "dan",
+        "flat_tax",
+        "reforma"
+      ],
+      "reactions": {
+        "pos": [
+          "SDĽ podporuje sociálne opatrenia. Toto je zodpovedná politika.",
+          "Správne. Reformy musia mať sociálny rozmer."
+        ],
+        "neg": [
+          "SDĽ odmieta asociálne reformy! Ľudia nie sú štatistiky!",
+          "Privatizácia bez sociálnych záruk je neprijateľná. SDĽ bude proti."
+        ],
+        "neu": [
+          "SDĽ zvažuje postoj. Očakávame sociálny dopad.",
+          "Konzultujeme s odbormi."
+        ]
+      }
+    },
+    {
+      "id": "schuster",
+      "name": "Rudolf Schuster",
+      "party": "SOP/Prezident",
+      "role": "Prezident SR (od 1999)",
+      "emoji": "🟣",
+      "kw_pos": [
+        "demokracia",
+        "eu",
+        "nato",
+        "reforma",
+        "transparentnost"
+      ],
+      "kw_neg": [
+        "amnestia",
+        "cenzur",
+        "autoritarsk"
+      ],
+      "reactions": {
+        "pos": [
+          "Ako prezident vítam tento krok. Slovensko sa vracia do Európy.",
+          "Zodpovedná politika. Podpisujem s presvedčením."
+        ],
+        "neg": [
+          "Mám obavy. Zvážim použitie prezidentského práva.",
+          "Vyzývam vládu na dialóg pred konečným rozhodnutím."
+        ],
+        "neu": [
+          "Sledujem situáciu. Verím v demokratický proces.",
+          "Prezident je nad stranami. Čakám na finálnu verziu."
+        ]
+      }
+    },
+    {
+      "id": "slota_dz",
+      "name": "Ján Slota",
+      "party": "SNS",
+      "role": "Opozícia",
+      "emoji": "🟢",
+      "kw_pos": [
+        "narod",
+        "sovereign",
+        "strong",
+        "bezpecnost"
+      ],
+      "kw_neg": [
+        "madarsko",
+        "menšina",
+        "eu",
+        "nato",
+        "reforma"
+      ],
+      "reactions": {
+        "pos": [
+          "Konečne ochrana slovenského národa! SNS toto podporuje!",
+          "Správne! Slovensko na prvom mieste!"
+        ],
+        "neg": [
+          "Zrada! Predávajú Slovensko Maďarom a Bruselu!",
+          "SNS bude bojovať proti rozpredaju národného majetku!",
+          "Dzurinda je bábka Západu. Slovensko si zaslúži lepšie."
+        ],
+        "neu": [
+          "SNS sleduje situáciu.",
+          "Nemám komentár."
+        ]
+      }
+    },
+    {
+      "id": "miklos",
+      "name": "Ivan Mikloš",
+      "party": "SDKÚ",
+      "role": "Minister financií, architekt reforiem",
+      "emoji": "📊",
+      "kw_pos": [
+        "reforma",
+        "dan",
+        "flat_tax",
+        "invest",
+        "privatizacia",
+        "business"
+      ],
+      "kw_neg": [
+        "social",
+        "odbory",
+        "plat",
+        "dotacie"
+      ],
+      "reactions": {
+        "pos": [
+          "Reformy fungujú! Slovensko je na správnej ceste k prosperite.",
+          "Rovná daň pritiahne investície. Čísla hovoria jasne."
+        ],
+        "neg": [
+          "Populizmus nás vráti do éry Mečiara! Reformy sú nevyhnutné!",
+          "Bez bolestivých reforiem nemáme šancu dobehnúť Západ.",
+          "Kto sľubuje všetkým všetko, klame. Ekonomika má pravidlá."
+        ],
+        "neu": [
+          "Počkajme na dáta. Reformy potrebujú čas na prejavenie.",
+          "Ministerstvo analyzuje dopady."
+        ]
+      }
+    },
+    {
+      "id": "kukan",
+      "name": "Eduard Kukan",
+      "party": "SDKÚ",
+      "role": "Minister zahraničných vecí",
+      "emoji": "🌍",
+      "kw_pos": [
+        "eu",
+        "nato",
+        "demokracia",
+        "reforma",
+        "transparentnost",
+        "diplomacia"
+      ],
+      "kw_neg": [
+        "sovereign",
+        "narod",
+        "autoritarsk",
+        "russia"
+      ],
+      "reactions": {
+        "pos": [
+          "Slovensko sa vracia do Európy. Toto je historický moment.",
+          "Naši partneri v NATO a EÚ oceňujú slovenské reformy."
+        ],
+        "neg": [
+          "Toto ohrozuje našu integráciu do EÚ a NATO!",
+          "Zahraničie sleduje. Nemôžeme si dovoliť krok späť.",
+          "Musíme dodržiavať medzinárodné záväzky."
+        ],
+        "neu": [
+          "Konzultujeme s partnermi v EÚ.",
+          "MZV sleduje situáciu a informuje spojencov."
+        ]
+      }
+    }
+  ],
+  "coalitionPartners": [
+    {
+      "id": "sdk",
+      "name": "SDK/SDKÚ",
+      "seats": 42,
+      "freq": 8
+    },
+    {
+      "id": "sdl",
+      "name": "SDĽ",
+      "seats": 18,
+      "freq": 5
+    },
+    {
+      "id": "smk",
+      "name": "SMK",
+      "seats": 15,
+      "freq": 4
+    },
+    {
+      "id": "sop",
+      "name": "SOP",
+      "seats": 9,
+      "freq": 3
+    }
+  ],
+  "demands": [
+    {
+      "partner": "sdl",
+      "text": "SDĽ požaduje zvýšenie sociálnych dávok a ochranu zamestnanosti."
+    },
+    {
+      "partner": "sdl",
+      "text": "SDĽ požaduje spomalenie privatizácie strategických podnikov."
+    },
+    {
+      "partner": "sdl",
+      "text": "SDĽ odmieta plán na zrušenie dotácii do ťažkého priemyslu."
+    },
+    {
+      "partner": "smk",
+      "text": "SMK požaduje zákon o používaní maďarského jazyka na úradoch."
+    },
+    {
+      "partner": "smk",
+      "text": "SMK požaduje väčšiu regionálnu samosprávu pre južné Slovensko."
+    },
+    {
+      "partner": "smk",
+      "text": "SMK požaduje maďarskú univerzitu."
+    },
+    {
+      "partner": "sop",
+      "text": "SOP požaduje rýchlejšie protikorupčné opatrenia."
+    },
+    {
+      "partner": "sop",
+      "text": "SOP požaduje transparentnú privatizáciu bez politických vplyvov."
+    },
+    {
+      "partner": "sdk",
+      "text": "SDK požaduje urýchlenie prípravy na vstup do NATO."
+    },
+    {
+      "partner": "sdk",
+      "text": "SDK požaduje novú ústavu s priamou voľbou prezidenta."
+    }
+  ],
+  "regions": [
+    {
+      "id": "bratislavsky",
+      "name": "Bratislavský",
+      "pop": 620,
+      "personas": [
+        "jana",
+        "tibor",
+        "milan_d",
+        "helena_d"
+      ]
+    },
+    {
+      "id": "trnavsky",
+      "name": "Trnavský",
+      "pop": 555,
+      "personas": []
+    },
+    {
+      "id": "trenciansky",
+      "name": "Trenčiansky",
+      "pop": 610,
+      "personas": [
+        "peter_r",
+        "jozef_v"
+      ]
+    },
+    {
+      "id": "nitriansky",
+      "name": "Nitriansky",
+      "pop": 720,
+      "personas": [
+        "laszlo",
+        "anna_k"
+      ]
+    },
+    {
+      "id": "zilinsky",
+      "name": "Žilinský",
+      "pop": 695,
+      "personas": []
+    },
+    {
+      "id": "banskobystricky",
+      "name": "Banskobystrický",
+      "pop": 665,
+      "personas": [
+        "eva_d",
+        "robert_b"
+      ]
+    },
+    {
+      "id": "presovsky",
+      "name": "Prešovský",
+      "pop": 800,
+      "personas": [
+        "maria_d"
+      ]
+    },
+    {
+      "id": "kosicky",
+      "name": "Košický",
+      "pop": 775,
+      "personas": [
+        "zuzana_d"
+      ]
+    }
+  ],
+  "stakeholders": [
+    {
+      "id": "sdk",
+      "name": "SDK/SDKÚ",
+      "desc": "Vládna strana Dzurindu",
+      "fp": 4,
+      "type": "coalition",
+      "seats": 42,
+      "color": "#3b82f6"
+    },
+    {
+      "id": "sdl",
+      "name": "SDĽ",
+      "desc": "Strana demokratickej ľavice",
+      "fp": 3,
+      "type": "coalition",
+      "seats": 18,
+      "color": "#dc2626"
+    },
+    {
+      "id": "smk",
+      "name": "SMK",
+      "desc": "Strana maďarskej koalície",
+      "fp": 3,
+      "type": "coalition",
+      "seats": 15,
+      "color": "#059669"
+    },
+    {
+      "id": "sop",
+      "name": "SOP",
+      "desc": "Strana občianskeho porozumenia",
+      "fp": 2,
+      "type": "coalition",
+      "seats": 9,
+      "color": "#8b5cf6"
+    },
+    {
+      "id": "hzds",
+      "name": "HZDS",
+      "desc": "Mečiarova opozícia",
+      "fp": 4,
+      "type": "opposition",
+      "seats": 43,
+      "color": "#1e40af"
+    },
+    {
+      "id": "media_dz",
+      "name": "Nezávislé médiá",
+      "desc": "SME, Pravda",
+      "fp": 3,
+      "type": "media"
+    },
+    {
+      "id": "business_dz",
+      "name": "Podnikateľský sektor",
+      "desc": "Domáci aj zahraniční",
+      "fp": 4,
+      "type": "economy"
+    },
+    {
+      "id": "unions_dz",
+      "name": "Odbory",
+      "desc": "KOZ SR",
+      "fp": 3,
+      "type": "economy"
+    },
+    {
+      "id": "judiciary_dz",
+      "name": "Súdnictvo",
+      "desc": "Súdy, prokuratura",
+      "fp": 3,
+      "type": "institution"
+    },
+    {
+      "id": "eu_nato",
+      "name": "EÚ a NATO",
+      "desc": "Západ sleduje reformy",
+      "fp": 5,
+      "type": "international"
+    }
+  ],
+  "diplomacy": [
+    {
+      "key": "eu",
+      "name": "Európska únia",
+      "emoji": "<img src=\"https://flagcdn.com/w20/eu.png\" style=\"width:18px;height:12px;vertical-align:middle;margin-right:4px\">"
+    },
+    {
+      "key": "nato_r",
+      "name": "NATO",
+      "emoji": "🛡️"
+    },
+    {
+      "key": "usa",
+      "name": "USA",
+      "emoji": "<img src=\"https://flagcdn.com/w20/us.png\" style=\"width:18px;height:12px;vertical-align:middle;margin-right:4px\">"
+    },
+    {
+      "key": "czech",
+      "name": "Česko",
+      "emoji": "<img src=\"https://flagcdn.com/w20/cz.png\" style=\"width:18px;height:12px;vertical-align:middle;margin-right:4px\">"
+    },
+    {
+      "key": "hungary",
+      "name": "Maďarsko",
+      "emoji": "<img src=\"https://flagcdn.com/w20/hu.png\" style=\"width:18px;height:12px;vertical-align:middle;margin-right:4px\">"
+    },
+    {
+      "key": "austria",
+      "name": "Rakúsko",
+      "emoji": "<img src=\"https://flagcdn.com/w20/at.png\" style=\"width:18px;height:12px;vertical-align:middle;margin-right:4px\">"
+    },
+    {
+      "key": "poland",
+      "name": "Poľsko",
+      "emoji": "<img src=\"https://flagcdn.com/w20/pl.png\" style=\"width:18px;height:12px;vertical-align:middle;margin-right:4px\">"
+    },
+    {
+      "key": "russia",
+      "name": "Rusko",
+      "emoji": "<img src=\"https://flagcdn.com/w20/ru.png\" style=\"width:18px;height:12px;vertical-align:middle;margin-right:4px\">"
+    }
+  ],
+  "keywords": {
+    "reforma": {
+      "p": {
+        "jana": 6,
+        "tibor": 6,
+        "milan_d": 5,
+        "helena_d": 5
+      },
+      "s": {
+        "sdk": 5,
+        "eu_nato": 5,
+        "sdl": -3,
+        "hzds": -5
+      },
+      "dp": {
+        "eu": 2
+      },
+      "e": {
+        "deficit": -0.1,
+        "gdpGrowth": 0.1
+      }
+    },
+    "reform": {
+      "p": {
+        "jana": 6,
+        "tibor": 6,
+        "milan_d": 5,
+        "helena_d": 5
+      },
+      "s": {
+        "sdk": 5,
+        "eu_nato": 5,
+        "sdl": -3,
+        "hzds": -5
+      },
+      "dp": {
+        "eu": 2
+      },
+      "e": {
+        "deficit": -0.1,
+        "gdpGrowth": 0.1
+      }
+    },
+    "privatizacia": {
+      "p": {
+        "tibor": 8,
+        "helena_d": 5,
+        "peter_r": -6,
+        "robert_b": -8
+      },
+      "s": {
+        "business_dz": 8,
+        "sdk": 4,
+        "sdl": -8,
+        "unions_dz": -6,
+        "hzds": -4
+      },
+      "e": {
+        "deficit": -0.3,
+        "gdpGrowth": 0.12
+      }
+    },
+    "eu": {
+      "p": {
+        "jana": 8,
+        "helena_d": 7,
+        "tibor": 6,
+        "milan_d": 5
+      },
+      "s": {
+        "eu_nato": 8,
+        "sdk": 5,
+        "smk": 4,
+        "hzds": -6
+      },
+      "dp": {
+        "eu": 3
+      },
+      "e": {
+        "gdpGrowth": 0.05
+      }
+    },
+    "europa": {
+      "p": {
+        "jana": 7,
+        "helena_d": 6,
+        "tibor": 5
+      },
+      "s": {
+        "eu_nato": 7,
+        "sdk": 4,
+        "hzds": -5
+      },
+      "dp": {
+        "eu": 2
+      }
+    },
+    "brusel": {
+      "p": {
+        "jana": 5,
+        "helena_d": 5,
+        "tibor": 4
+      },
+      "s": {
+        "eu_nato": 5,
+        "sdk": 3,
+        "hzds": -5
+      },
+      "dp": {
+        "eu": 2
+      }
+    },
+    "nato": {
+      "p": {
+        "jozef_v": -3,
+        "jana": 5,
+        "helena_d": 4
+      },
+      "s": {
+        "eu_nato": 7,
+        "sdk": 5,
+        "hzds": -4
+      },
+      "dp": {
+        "nato_r": 4,
+        "usa": 2
+      }
+    },
+    "aliancia": {
+      "p": {
+        "jana": 4,
+        "helena_d": 3
+      },
+      "s": {
+        "eu_nato": 5,
+        "sdk": 3
+      },
+      "dp": {
+        "nato_r": 3
+      }
+    },
+    "meciare": {
+      "p": {
+        "jana": 5,
+        "milan_d": 5,
+        "robert_b": -8,
+        "maria_d": -3
+      },
+      "s": {
+        "hzds": -8,
+        "sdk": 3,
+        "media_dz": 3
+      }
+    },
+    "hzds": {
+      "p": {
+        "robert_b": 5,
+        "maria_d": 3,
+        "jana": -5,
+        "milan_d": -5
+      },
+      "s": {
+        "hzds": 5,
+        "sdk": -3
+      }
+    },
+    "amnestia": {
+      "p": {
+        "jana": 6,
+        "milan_d": 8,
+        "robert_b": -5
+      },
+      "s": {
+        "judiciary_dz": 6,
+        "media_dz": 5,
+        "hzds": -8,
+        "eu_nato": 3
+      }
+    },
+    "menšina": {
+      "p": {
+        "laszlo": 10,
+        "jana": 3
+      },
+      "s": {
+        "smk": 8,
+        "eu_nato": 4,
+        "hzds": -6
+      },
+      "dp": {
+        "hungary": 3
+      }
+    },
+    "madarsko": {
+      "p": {
+        "laszlo": 8,
+        "anna_k": -3,
+        "jozef_v": -3
+      },
+      "s": {
+        "smk": 6,
+        "hzds": -5
+      },
+      "dp": {
+        "hungary": 4
+      }
+    },
+    "demokracia": {
+      "p": {
+        "jana": 7,
+        "milan_d": 7,
+        "helena_d": 5
+      },
+      "s": {
+        "eu_nato": 6,
+        "media_dz": 5,
+        "sdk": 4,
+        "hzds": -5
+      },
+      "dp": {
+        "eu": 2
+      }
+    },
+    "transparentnost": {
+      "p": {
+        "milan_d": 10,
+        "jana": 7,
+        "tibor": 5
+      },
+      "s": {
+        "media_dz": 8,
+        "eu_nato": 6,
+        "sop": 5,
+        "hzds": -5
+      }
+    },
+    "investicia": {
+      "p": {
+        "tibor": 8,
+        "helena_d": 6,
+        "peter_r": 4
+      },
+      "s": {
+        "business_dz": 8,
+        "eu_nato": 4,
+        "sdk": 3
+      },
+      "e": {
+        "deficit": 0.2,
+        "gdpGrowth": 0.15
+      }
+    },
+    "invest": {
+      "p": {
+        "tibor": 8,
+        "helena_d": 6
+      },
+      "s": {
+        "business_dz": 8,
+        "eu_nato": 4
+      },
+      "e": {
+        "deficit": 0.2,
+        "gdpGrowth": 0.15
+      }
+    },
+    "dan": {
+      "p": {
+        "tibor": -5,
+        "peter_r": -3
+      },
+      "s": {
+        "business_dz": -6,
+        "sdk": -3,
+        "sdl": 3
+      },
+      "e": {
+        "deficit": -0.2,
+        "gdpGrowth": -0.1
+      }
+    },
+    "skolstvo": {
+      "p": {
+        "eva_d": 10,
+        "jana": 5
+      },
+      "s": {
+        "unions_dz": 4,
+        "sdl": 3
+      },
+      "e": {
+        "deficit": 0.18,
+        "gdpGrowth": 0.05
+      }
+    },
+    "education": {
+      "p": {
+        "eva_d": 10,
+        "jana": 5
+      },
+      "s": {
+        "unions_dz": 4
+      },
+      "e": {
+        "deficit": 0.18,
+        "gdpGrowth": 0.05
+      }
+    },
+    "zdravotnictvo": {
+      "p": {
+        "zuzana_d": 10,
+        "maria_d": 6,
+        "eva_d": 4
+      },
+      "s": {
+        "sdl": 5,
+        "unions_dz": 4
+      },
+      "e": {
+        "deficit": 0.4,
+        "gdpGrowth": 0.05
+      }
+    },
+    "health": {
+      "p": {
+        "zuzana_d": 10,
+        "maria_d": 6
+      },
+      "s": {
+        "sdl": 5,
+        "unions_dz": 3
+      },
+      "e": {
+        "deficit": 0.4,
+        "gdpGrowth": 0.05
+      }
+    },
+    "koruna": {
+      "p": {
+        "tibor": 3,
+        "peter_r": 3,
+        "maria_d": 3
+      },
+      "s": {
+        "business_dz": 4
+      },
+      "e": {
+        "infl": -0.1
+      }
+    },
+    "bezpecnost": {
+      "p": {
+        "jozef_v": 8,
+        "peter_r": 4
+      },
+      "s": {
+        "sdk": 3
+      },
+      "e": {
+        "deficit": 0.12
+      }
+    },
+    "security": {
+      "p": {
+        "jozef_v": 8
+      },
+      "s": {
+        "sdk": 3,
+        "eu_nato": 2
+      },
+      "e": {
+        "deficit": 0.12
+      }
+    },
+    "media": {
+      "p": {
+        "milan_d": 8,
+        "jana": 5,
+        "helena_d": 4
+      },
+      "s": {
+        "media_dz": 6,
+        "sop": 4,
+        "hzds": -3
+      }
+    },
+    "social": {
+      "p": {
+        "maria_d": 8,
+        "peter_r": 6,
+        "robert_b": 7,
+        "eva_d": 5
+      },
+      "s": {
+        "sdl": 6,
+        "unions_dz": 6,
+        "business_dz": -4
+      },
+      "e": {
+        "deficit": 0.25,
+        "gdpGrowth": 0.03
+      }
+    },
+    "plat": {
+      "p": {
+        "eva_d": 8,
+        "zuzana_d": 7,
+        "peter_r": 6
+      },
+      "s": {
+        "unions_dz": 8,
+        "sdl": 4,
+        "business_dz": -5
+      },
+      "e": {
+        "deficit": 0.2,
+        "gdpGrowth": 0.05
+      }
+    },
+    "robotnik": {
+      "p": {
+        "peter_r": 8,
+        "robert_b": 6
+      },
+      "s": {
+        "unions_dz": 6,
+        "sdl": 5
+      }
+    },
+    "odbory": {
+      "p": {
+        "peter_r": 6,
+        "robert_b": 5
+      },
+      "s": {
+        "unions_dz": 8,
+        "sdl": 5,
+        "business_dz": -4
+      }
+    },
+    "decentraliz": {
+      "p": {
+        "laszlo": 7,
+        "eva_d": 4
+      },
+      "s": {
+        "smk": 6,
+        "sop": 4,
+        "hzds": -4
+      }
+    },
+    "samosprav": {
+      "p": {
+        "laszlo": 6,
+        "eva_d": 3
+      },
+      "s": {
+        "smk": 5,
+        "sop": 3
+      }
+    },
+    "jazyk": {
+      "p": {
+        "laszlo": 8,
+        "anna_k": -4,
+        "jozef_v": -3
+      },
+      "s": {
+        "smk": 7,
+        "hzds": -6
+      },
+      "dp": {
+        "hungary": 3
+      }
+    },
+    "narod": {
+      "p": {
+        "jozef_v": 6,
+        "anna_k": 5,
+        "robert_b": 5,
+        "laszlo": -5
+      },
+      "s": {
+        "hzds": 6,
+        "smk": -5
+      }
+    },
+    "sovereign": {
+      "p": {
+        "jozef_v": 6,
+        "robert_b": 5
+      },
+      "s": {
+        "hzds": 8,
+        "eu_nato": -6
+      },
+      "dp": {
+        "eu": -3,
+        "russia": 2
+      }
+    },
+    "cirkev": {
+      "p": {
+        "anna_k": 8,
+        "maria_d": 5
+      },
+      "s": {
+        "sdk": 3
+      }
+    },
+    "roma": {
+      "p": {
+        "eva_d": 4,
+        "milan_d": 4
+      },
+      "s": {
+        "eu_nato": 4,
+        "smk": 3,
+        "hzds": -4
+      }
+    },
+    "kompromis": {
+      "p": {
+        "eva_d": 6,
+        "zuzana_d": 5,
+        "tibor": 4
+      },
+      "s": {
+        "sop": 5,
+        "eu_nato": 4,
+        "smk": 3
+      }
+    },
+    "dialog": {
+      "p": {
+        "eva_d": 7,
+        "zuzana_d": 5
+      },
+      "s": {
+        "sop": 5,
+        "eu_nato": 5,
+        "sdl": 3
+      }
+    },
+    "strong": {
+      "p": {
+        "jozef_v": 5,
+        "robert_b": 5
+      },
+      "s": {
+        "hzds": 4
+      }
+    },
+    "russia": {
+      "p": {
+        "robert_b": 3,
+        "jozef_v": 3
+      },
+      "s": {
+        "hzds": 4,
+        "eu_nato": -6
+      },
+      "dp": {
+        "russia": 4,
+        "eu": -3
+      }
+    },
+    "rusko": {
+      "p": {
+        "robert_b": 3,
+        "jozef_v": 3
+      },
+      "s": {
+        "hzds": 4,
+        "eu_nato": -6
+      },
+      "dp": {
+        "russia": 4,
+        "eu": -3
+      }
+    },
+    "dotacia": {
+      "p": {
+        "peter_r": 5,
+        "robert_b": 4
+      },
+      "s": {
+        "sdl": 4,
+        "unions_dz": 4,
+        "business_dz": -3
+      },
+      "e": {
+        "deficit": 0.12,
+        "gdpGrowth": 0.05
+      }
+    },
+    "automobilka": {
+      "p": { "peter_r": 8, "tibor": 7, "helena_d": 5 },
+      "s": { "business_dz": 8, "sdk": 5, "unions_dz": 4 },
+      "e": { "gdpGrowth": 0.2, "unemp": -0.5 }
+    },
+    "rovn": {
+      "p": { "tibor": 8, "jana": 5, "peter_r": -5, "maria_d": -6, "robert_b": -8 },
+      "s": { "business_dz": 8, "sdk": 6, "sdl": -8, "hzds": -5, "unions_dz": -6 },
+      "e": { "gdpGrowth": 0.15, "deficit": -0.2 }
+    },
+    "dochodk": {
+      "p": { "maria_d": -6, "peter_r": -4, "tibor": 5, "jana": 3 },
+      "s": { "sdk": 4, "sdl": -6, "hzds": -5 },
+      "e": { "deficit": 0.3 }
+    },
+    "pracovn": {
+      "p": { "peter_r": -5, "robert_b": -7, "tibor": 6, "helena_d": 4 },
+      "s": { "unions_dz": -8, "business_dz": 7, "sdk": 4 },
+      "e": { "unemp": -0.3, "gdpGrowth": 0.08 }
+    },
+    "kosovo": {
+      "p": { "jana": 5, "tibor": 4, "maria_d": -5, "robert_b": -4 },
+      "s": { "eu_nato": 6, "hzds": -6, "sns": -8 },
+      "dp": { "nato_r": 4, "usa": 3 }
+    },
+    "schengen": {
+      "p": { "jana": 6, "helena_d": 5, "tibor": 5, "laszlo": 4 },
+      "s": { "eu_nato": 5, "smk": 4, "sdk": 3 },
+      "dp": { "eu": 3 }
+    },
+    "euro": {
+      "p": { "jana": 6, "tibor": 6, "helena_d": 5 },
+      "s": { "eu_nato": 6, "business_dz": 5, "sdk": 4 },
+      "dp": { "eu": 3 },
+      "e": { "infl": -0.3, "deficit": -0.2 }
+    },
+    "korupci": {
+      "p": { "jana": 7, "helena_d": 6, "milan_d": 5 },
+      "s": { "sdk": 5, "eu_nato": 4, "hzds": -8 }
+    },
+    "visegrad": {
+      "p": { "jana": 4, "helena_d": 4, "tibor": 3 },
+      "s": { "eu_nato": 4, "sdk": 3 },
+      "dp": { "czech": 3, "poland": 3, "hungary": 2 }
+    },
+    "iraq": {
+      "p": { "jana": -4, "maria_d": -5, "robert_b": -6, "tibor": 3 },
+      "s": { "eu_nato": 3, "hzds": -4, "sdl": -6 },
+      "dp": { "usa": 5, "nato_r": 3, "russia": -3 }
+    },
+    "zahranicn": {
+      "p": { "tibor": 5, "jana": 4, "helena_d": 4 },
+      "s": { "business_dz": 6, "sdk": 4 },
+      "e": { "gdpGrowth": 0.1 }
+    },
+    "slobod": {
+      "p": { "jana": 7, "helena_d": 5, "milan_d": 5 },
+      "s": { "sdk": 5, "eu_nato": 4, "hzds": -4 },
+      "dp": { "eu": 2 }
+    },
+    "kia": {
+      "p": { "peter_r": 8, "tibor": 7, "robert_b": 5 },
+      "s": { "business_dz": 8, "unions_dz": 5, "sdk": 5 },
+      "e": { "gdpGrowth": 0.2, "unemp": -0.8 }
+    },
+    "peugeot": {
+      "p": { "peter_r": 7, "tibor": 7, "robert_b": 4 },
+      "s": { "business_dz": 7, "unions_dz": 4, "sdk": 4 },
+      "e": { "gdpGrowth": 0.15, "unemp": -0.5 }
+    },
+    "referendum": {
+      "p": { "jana": 6, "helena_d": 5, "tibor": 5, "laszlo": 5 },
+      "s": { "eu_nato": 6, "sdk": 5, "smk": 4 },
+      "dp": { "eu": 3 }
+    },
+    "september": {
+      "p": { "jana": -3, "tibor": 3, "maria_d": -4 },
+      "s": { "eu_nato": 3, "hzds": -3 },
+      "dp": { "usa": 3, "nato_r": 2 }
+    }
+  },
+  "consequenceChains": [
+    {
+      "flag": "privatizacia_agresivna",
+      "delay": 3,
+      "prob": 0.7,
+      "ev": {
+        "h": "Odbory vyhlásili generálny štrajk",
+        "d": "Agresívna privatizácia viedla k masovému prepúšťaniu. Odbory KOZ SR vyhlásili generálny štrajk. SDĽ hrozí odchodom z koalície.",
+        "c": "Sociálne náklady reforiem sú obrovské.",
+        "t": "consequence",
+        "cat": "Ekonomika",
+        "s": [
+          "Sociálny balíček pre prepustených",
+          "Spomaliť privatizáciu",
+          "Pokračovať — reformy sú nevyhnutné"
+        ]
+      }
+    },
+    {
+      "flag": "amnestie_zrusene",
+      "delay": 4,
+      "prob": 0.6,
+      "ev": {
+        "h": "HZDS organizuje masové protesty",
+        "d": "Zrušenie amnestií viedlo k mobilizácii Mečiarových voličov. Tisíce ľudí protestujú v Bratislave.",
+        "c": "Polarizácia spoločnosti sa prehlbuje.",
+        "t": "consequence",
+        "cat": "Justícia",
+        "s": [
+          "Ignorovať protesty — spravodlivosť víťazí",
+          "Ponúknuť dialóg s HZDS",
+          "Zmierňovacia rétorika"
+        ]
+      }
+    },
+    {
+      "flag": "smk_ignored",
+      "delay": 3,
+      "prob": 0.65,
+      "ev": {
+        "h": "SMK hrozí odchodom z koalície",
+        "d": "Maďarská koalícia je frustrovaná z ignorovania jazykových práv. Bugár varuje pred rozpadom koalície.",
+        "c": "Strata SMK = strata 15 kresiel. Menšinová vláda.",
+        "t": "consequence",
+        "cat": "Sociálna politika",
+        "s": [
+          "Urýchlene splniť požiadavky SMK",
+          "Rokovať o kompromise",
+          "Nechať SMK odísť — hľadať iných partnerov"
+        ]
+      }
+    },
+    {
+      "flag": "deficit_crisis",
+      "delay": 4,
+      "prob": 0.7,
+      "ev": {
+        "h": "MMF varuje pred fiškálnou krízou",
+        "d": "Medzinárodný menový fond znížil rating Slovenska. Úrokové sadzby na dlhopisoch rastú.",
+        "c": "Slovensko si požičiava drahšie. Reformy sú nevyhnutné.",
+        "t": "consequence",
+        "cat": "Ekonomika",
+        "s": [
+          "Drastické úsporné opatrenia",
+          "Požiadať o pomoc MMF",
+          "Zvýšiť dane"
+        ]
+      }
+    },
+    {
+      "flag": "eu_progress",
+      "delay": 6,
+      "prob": 0.7,
+      "ev": {
+        "h": "EÚ chváli pokrok Slovenska",
+        "d": "Európska komisia ocenila reformné úsilie SR. Slovensko je na dobrej ceste k členstvu.",
+        "c": "Pozitívny signál pre investorov aj občanov.",
+        "t": "consequence",
+        "cat": "Zahraničná politika",
+        "s": [
+          "Využiť momentum na ďalšie reformy",
+          "Prezentovať úspech verejnosti",
+          "Požiadať o urýchlenie rokovaní"
+        ]
+      }
+    },
+    {
+      "flag": "nato_progress",
+      "delay": 5,
+      "prob": 0.6,
+      "ev": {
+        "h": "NATO pozitívne hodnotí reformy armády",
+        "d": "Aliancia ocenila pokrok v reforme ozbrojených síl. MAP pokračuje úspešne.",
+        "c": "Členstvo v NATO sa približuje.",
+        "t": "consequence",
+        "cat": "Zahraničná politika",
+        "s": [
+          "Pokračovať v reformách",
+          "Zvýšiť rozpočet na obranu",
+          "Prezentovať úspech"
+        ]
+      }
+    },
+    {
+      "flag": "sdk_rozpad",
+      "delay": 3,
+      "prob": 0.8,
+      "ev": {
+        "h": "Poslanci SDK odchádzajú — koaličná kríza",
+        "d": "Rozpad SDK spôsobil odchod viacerých poslancov. Koaličná väčšina je ohrozená.",
+        "c": "Parlamentná matematika sa dramaticky mení.",
+        "t": "consequence",
+        "cat": "Sociálna politika",
+        "s": [
+          "Založiť novú stranu SDKÚ",
+          "Individuálne rokovať s poslancami",
+          "Požiadať o predčasné voľby"
+        ]
+      }
+    },
+    {
+      "flag": "social_unrest",
+      "delay": 3,
+      "prob": 0.6,
+      "ev": {
+        "h": "Sociálne nepokoje v regiónoch",
+        "d": "Vysoká nezamestnanosť v niektorých regiónoch viedla k protestom. Ľudia blokujú cesty.",
+        "c": "Reformy majú nerovnomerný dopad na regióny.",
+        "t": "consequence",
+        "cat": "Ekonomika",
+        "s": [
+          "Cielená pomoc zasiahnutým regiónom",
+          "Rekvalifikačné programy",
+          "Posilnenie polície"
+        ]
+      }
+    }
+  ],
+  "forcedEvents": [
+    {
+      "id": "formation",
+      "m": 0,
+      "h": "Formovanie koalície",
+      "d": "Po páde Mečiara musíte zostaviť širokú koalíciu. SDK (42), SDĽ (29), SMK (15) a SOP (9) — spolu 93/150 kresiel. Štyri strany s rôznymi ideológiami.",
+      "c": "HZDS (43) a SNS (14) sú v opozícii. Koalícia je rôznorodá — od pravice po ľavicu.",
+      "t": "situation",
+      "cat": "Justícia",
+      "s": [
+        "Vyvážená koalícia s jasnými pravidlami",
+        "Dominancia SDK — tvrdé reformy",
+        "Kompromisná dohoda so silnou SDĽ"
+      ]
+    },
+    {
+      "id": "meciar_amnestie",
+      "m": 1,
+      "h": "Mečiarove amnestie",
+      "d": "Debata o zrušení Mečiarových amnestií z roku 1998 — vrátane únosu prezidentovho syna a referenda. Právnici sa nezhodujú.",
+      "c": "Amnestie chránia ľudí podozrivých z únosu Michala Kováča ml. Verejnosť žiada spravodlivosť.",
+      "t": "crisis",
+      "cat": "Justícia",
+      "s": [
+        "Zrušiť amnestie okamžite",
+        "Nechať rozhodnúť Ústavný súd",
+        "Odložiť — nie je to priorita"
+      ]
+    },
+    {
+      "id": "ustava_prezident",
+      "m": 2,
+      "h": "Ústavná zmena — priama voľba prezidenta",
+      "d": "Slovensko nemá prezidenta od marca 1998. Parlament nedokázal zvoliť. Návrh na priamu voľbu občanmi vyžaduje ústavnú zmenu.",
+      "c": "90 hlasov potrebných na zmenu ústavy. Koalícia má 84 — potrebujete opozičné hlasy.",
+      "t": "situation",
+      "cat": "Justícia",
+      "s": [
+        "Presadiť priamu voľbu za každú cenu",
+        "Rokovať s HZDS o podpore",
+        "Kompromisný návrh s obmedzeniami"
+      ]
+    },
+    {
+      "id": "rozpocet_1999",
+      "m": 4,
+      "h": "Rozpočet 1999 — zdedený deficit",
+      "d": "Mečiarova vláda zanechala skrytý deficit. Skutočný stav verejných financií je horší ako sa čakalo. Treba drastické škrty alebo nové dane.",
+      "c": "MMF a Svetová banka sledujú. Rating Slovenska je ohrozený.",
+      "t": "crisis",
+      "cat": "Ekonomika",
+      "s": [
+        "Drastické úsporné opatrenia",
+        "Zvýšenie daní",
+        "Kombinácia škrtov a daní s EU pomocou"
+      ]
+    },
+    {
+      "id": "nato_map",
+      "m": 5,
+      "h": "NATO MAP — žiadosť o členstvo",
+      "d": "Slovensko žiada o Membership Action Plan — prvý krok k členstvu v NATO. Washington sleduje reformy. Generálny tajomník Robertson navštívi Bratislavu.",
+      "c": "Slovensko bolo vynechané z prvej vlny rozšírenia kvôli Mečiarovi. Teraz máme šancu.",
+      "t": "situation",
+      "cat": "Zahraničná politika",
+      "s": [
+        "Maximálne úsilie — splniť všetky podmienky",
+        "Postupné reformy armády",
+        "Požiadať o výnimky z niektorých požiadaviek"
+      ]
+    },
+    {
+      "id": "privatizacia_bank",
+      "m": 6,
+      "h": "Privatizácia bánk a telekomunikácií",
+      "d": "Slovenská sporiteľňa, VÚB a Slovenské telekomunikácie sú na predaj. Zahraniční investori majú záujem. SDĽ a odbory protestujú.",
+      "c": "Banky sú v zlom stave po Mečiarových privatizáciách. Treba kapitál.",
+      "t": "situation",
+      "cat": "Ekonomika",
+      "s": [
+        "Transparentná privatizácia zahraničným investorom",
+        "Privatizácia s ochranou zamestnanosti",
+        "Ponechať v štátnych rukách a reštrukturalizovať"
+      ]
+    },
+    {
+      "id": "prezident_schuster",
+      "m": 8,
+      "h": "Prezidentské voľby — Schuster",
+      "d": "Prvá priama voľba prezidenta v histórii SR. Rudolf Schuster (SOP) vs Vladimír Mečiar (HZDS). Celé Slovensko sleduje.",
+      "c": "Výsledok ukáže silu demokratických zmien. Schuster = koaličný kandidát.",
+      "t": "situation",
+      "cat": "Sociálna politika",
+      "s": [
+        "Plná podpora Schustera — koaličná mobilizácia",
+        "Nechať voličov rozhodnúť — neutrálna pozícia",
+        "Využiť kampaň na propagáciu reforiem"
+      ]
+    },
+    {
+      "id": "rozpocet_skrty",
+      "m": 3,
+      "h": "Rozpočtové škrty — fiškálna stabilizácia",
+      "d": "Ministerka financií Schmögnerová presadzuje bolestivé škrty. Deficit treba znížiť zo 7.6% na 5.5% HDP. Dôchodky, zdravotníctvo a školstvo sú ohrozené.",
+      "c": "SDĽ sa bojí straty voličov. MMF a EÚ požadujú disciplínu. Opozícia útočí na 'Dzurindove škrty'.",
+      "t": "crisis",
+      "cat": "Ekonomika",
+      "s": [
+        "Plné škrty podľa plánu — disciplína",
+        "Postupné znižovanie s ochranou dôchodkov",
+        "Kompromis — škrty aj nové dane"
+      ]
+    },
+    {
+      "id": "kosovo_kriza",
+      "m": 7,
+      "h": "Kríza v Kosove — NATO bombarduje Srbsko",
+      "d": "NATO začalo letecké útoky na Srbsko kvôli Kosovu. Slovensko ako kandidát na členstvo musí zaujať jasný postoj. Povolíte prelet cez slovenský vzdušný priestor?",
+      "c": "Opozícia tvrdí, že NATO vťahuje Slovensko do cudzích vojen. Podpora NATO je test pre členstvo.",
+      "t": "crisis",
+      "cat": "Zahraničná politika",
+      "s": [
+        "Plná podpora NATO — povoliť prelety",
+        "Diplomatická podpora bez vojenskej účasti",
+        "Neutralita — odmietnutie účasti"
+      ]
+    },
+    {
+      "id": "decentralizacia",
+      "m": 9,
+      "h": "Decentralizácia — vytvorenie samosprávnych krajov",
+      "d": "Vláda navrhuje vznik 8 samosprávnych krajov. Presun právomocí z Bratislavy do regiónov. Ministerstvá strácajú kontrolu, regióny získavajú moc.",
+      "c": "Centralizácia za Mečiara vytvorila frustráciu v regiónoch. EÚ decentralizáciu požaduje.",
+      "t": "situation",
+      "cat": "Sociálna politika",
+      "s": [
+        "Ambiciózna decentralizácia — veľký presun právomocí",
+        "Opatrný presun s postupným rozširovaním",
+        "Zachovať centrálnu kontrolu s regionálnymi konzultáciami"
+      ]
+    },
+    {
+      "id": "amnesty_court",
+      "m": 10,
+      "h": "Ústavný súd — amnestie sú platné",
+      "d": "Ústavný súd potvrdil platnosť Mečiarových amnestií vrátane únosu Kováčovho syna. Spravodlivosť zlyháva. Medzinárodná kritika.",
+      "c": "Vláda chce zrušiť amnestie ale nemá ústavnú väčšinu. HZDS blokuje.",
+      "t": "crisis",
+      "cat": "Justícia",
+      "s": [
+        "Tlačiť na ústavnú zmenu na zrušenie amnestií",
+        "Akceptovať rozhodnutie a zamerať sa na budúcnosť",
+        "Alternatívne cesty k spravodlivosti — medzinárodný tlak"
+      ]
+    },
+    {
+      "id": "us_steel",
+      "m": 11,
+      "h": "U.S. Steel kupuje VSŽ Košice",
+      "d": "Americká oceliareň U.S. Steel kupuje Východoslovenské železiarne v Košiciach. Najväčšia zahraničná investícia v histórii SR. 15 000 pracovných miest zachránených.",
+      "c": "Privatizácia za Mečiara bola netransparentná. Teraz prichádzajú seriózni zahraniční investori.",
+      "t": "situation",
+      "cat": "Ekonomika",
+      "s": [
+        "Transparentná privatizácia — plná podpora investora",
+        "Podmienky na udržanie zamestnanosti",
+        "Ponechať čiastočný štátny podiel"
+      ]
+    },
+    {
+      "id": "roma_kriz",
+      "m": 12,
+      "h": "Rómska otázka — tlak z EÚ",
+      "d": "Európska komisia kritizuje Slovensko za zaobchádzanie s Rómami. Podmienka pre vstup do EÚ. Segregácia v školách, chudoba v osadách.",
+      "c": "Rómska menšina tvorí 8-10% populácie. Sociálne vylúčenie je hlboké.",
+      "t": "situation",
+      "cat": "Sociálna politika",
+      "s": [
+        "Komplexný program inklúzie — vzdelávanie, bývanie, práca",
+        "Cielené programy v najchudobnejších regiónoch",
+        "Minimálne opatrenia — zamerať sa na iné priority"
+      ]
+    },
+    {
+      "id": "sdk_kriza",
+      "m": 14,
+      "h": "SDK kríza — rozpad strany",
+      "d": "SDK bola volebná koalícia 5 strán. Teraz sa rozpadá. KDH odchádza, DS tiež. Dzurinda stráca poslancov.",
+      "c": "Koaličná väčšina je ohrozená. Treba založiť novú stranu alebo stratiť moc.",
+      "t": "crisis",
+      "cat": "Sociálna politika",
+      "s": [
+        "Založiť novú stranu SDKÚ",
+        "Pokúsiť sa zachrániť SDK",
+        "Rokovať individuálne s poslancami"
+      ]
+    },
+    {
+      "id": "sdku_zalozenie",
+      "m": 16,
+      "h": "Založenie SDKÚ",
+      "d": "Dzurinda zakladá Slovenskú demokratickú a kresťanskú úniu. Časť poslancov SDK sa pridá, časť odíde. Nová politická realita.",
+      "c": "Koaličná matematika sa mení. Niektorí poslanci ostávajú nezaradení.",
+      "t": "situation",
+      "cat": "Sociálna politika",
+      "s": [
+        "Agresívny nábor poslancov do SDKÚ",
+        "Vyvážený prístup — neznepriateliť si KDH",
+        "Ponúknuť KDH koaličnú dohodu"
+      ]
+    },
+    {
+      "id": "reforma_samospravy",
+      "m": 18,
+      "h": "Reforma verejnej správy",
+      "d": "Decentralizácia — vytvorenie 8 samosprávnych krajov. SMK chce iné hranice (aby mali maďarskú väčšinu). SNS protestuje.",
+      "c": "Reforma je kľúčová pre EÚ. Ale hranice krajov sú politicky výbušné.",
+      "t": "situation",
+      "cat": "Sociálna politika",
+      "s": [
+        "Kompromisné hranice krajov",
+        "Vyhovieť SMK — silnejšie maďarské regióny",
+        "Centralistický model — menej právomocí pre kraje"
+      ]
+    },
+    {
+      "id": "eu_rokovania",
+      "m": 20,
+      "h": "Rokovania o vstupe do EÚ",
+      "d": "Slovensko otvára rokovacie kapitoly s EÚ. Brusel požaduje reformy justície, ekonomiky a verejnej správy. Tempo je kľúčové.",
+      "c": "Česko, Poľsko a Maďarsko sú ďalej. Slovensko musí dobehnúť náskok.",
+      "t": "situation",
+      "cat": "Zahraničná politika",
+      "s": [
+        "Maximálne tempo — splniť všetko",
+        "Selektívne reformy — chrániť citlivé sektory",
+        "Požiadať o prechodné obdobia"
+      ]
+    },
+    {
+      "id": "volby_samosprava",
+      "m": 22,
+      "h": "Prvé regionálne voľby v histórii SR",
+      "d": "Slovensko volí predsedov a zastupiteľstvá 8 samosprávnych krajov. Nízka účasť (26%) ale historický míľnik decentralizácie. HZDS vyhráva viacero krajov.",
+      "c": "Regionálna samospráva je nová. Ľudia jej ešte nerozumejú. Výsledky naznačujú, že opozícia je silná v regiónoch.",
+      "t": "situation",
+      "cat": "Sociálna politika",
+      "s": [
+        "Kampaň za koaličných kandidátov v krajoch",
+        "Nechať regióny rozhodnúť samostatne",
+        "Zvýšiť propagáciu decentralizácie"
+      ]
+    },
+    {
+      "id": "zakon_informacie",
+      "m": 24,
+      "h": "Zákon o slobodnom prístupe k informáciám",
+      "d": "Historický zákon zaručujúci občanom prístup k informáciám štátu. Progresívny krok pre transparentnosť. Niektorí v koalícii váhajú.",
+      "c": "Jeden z najdôležitejších demokratických zákonov. Vzor pre región.",
+      "t": "open",
+      "cat": "Justícia",
+      "s": [
+        "Silný zákon bez výnimiek",
+        "Zákon s výnimkami pre bezpečnosť",
+        "Odložiť — nie je priorita"
+      ]
+    },
+    {
+      "id": "volby_2002",
+      "m": 25,
+      "h": "Parlamentné voľby 2002 — reformy na skúške",
+      "d": "Voľby 2002 rozhodnú o budúcnosti reforiem. Dzurindova SDKÚ vs Mečiarov HZDS vs Ficov SMER. Kampaň je intenzívna. Ide o vstup do EÚ a NATO.",
+      "c": "Ak reformisti zvíťazia, Slovensko vstúpi do EÚ a NATO. Ak Mečiar vyhrá, integrácia je ohrozená.",
+      "t": "crisis",
+      "cat": "Sociálna politika",
+      "s": [
+        "Agresívna kampaň — zdôrazniť úspechy reforiem",
+        "Pozitívna kampaň — EÚ a NATO budúcnosť",
+        "Útočná kampaň — varovať pred návratom Mečiara"
+      ]
+    },
+    {
+      "id": "nova_koalicia",
+      "m": 26,
+      "h": "Formovanie druhej vlády Dzurindu",
+      "d": "SDKÚ vyhrala s 28% (42 kresiel). Nová koalícia: SDKÚ + KDH + SMK + ANO = 104 kresiel. Ešte silnejšia väčšina pre reformy.",
+      "c": "Mečiar skončil druhý ale nikto s ním nechce vládnuť. Fico tretí — rastúca sila.",
+      "t": "situation",
+      "cat": "Sociálna politika",
+      "s": [
+        "Vyvážená koalícia — každý dostane kľúčové ministerstvá",
+        "SDKÚ dominancia — tvrdé reformy",
+        "Kompromisná dohoda s KDH — konzervatívne hodnoty"
+      ]
+    },
+    {
+      "id": "ekonomicka_reforma",
+      "m": 28,
+      "h": "Ekonomická reforma",
+      "d": "Reštrukturalizácia priemyslu pokračuje. Nezamestnanosť v niektorých regiónoch nad 25%. Odbory hrozia štrajkmi. Zahraniční investori prichádzajú.",
+      "c": "Bolestivá transformácia ale nevyhnutná pre EÚ vstup.",
+      "t": "crisis",
+      "cat": "Ekonomika",
+      "s": [
+        "Pokračovať v reformách napriek protestom",
+        "Spomaliť reformy — sociálny vankúš",
+        "Cielená pomoc najzasiahnutejším regiónom"
+      ]
+    },
+    {
+      "id": "flat_tax",
+      "m": 29,
+      "h": "Rovná daň 19% — revolúcia v Európe",
+      "d": "Minister financií navrhuje rovnú daň 19% — jednotnú sadzbu pre príjmy, firmy aj DPH. Radikálna reforma. Ekonómovia chvália, odbory protestujú. The Economist nazýva Slovensko 'Tatranskym tigrom'.",
+      "c": "Nikde v Európe niečo také neskúšali. Prilákať investorov alebo zničiť sociálny štát?",
+      "t": "crisis",
+      "cat": "Ekonomika",
+      "s": [
+        "Schváliť rovnú daň 19% — revolúcia",
+        "Kompromis — nižšia sadzba pre nízke príjmy",
+        "Odmietnuť — zachovať progresívne zdanenie"
+      ]
+    },
+    {
+      "id": "pension_reform",
+      "m": 30,
+      "h": "Dôchodková reforma — tri piliere",
+      "d": "Zavedenie trojpilierového dôchodkového systému. II. pilier — povinné súkromné sporenie. Mladí budú sporiť na svoj dôchodok. Starší ostanú v štátnom systéme.",
+      "c": "Reforma je nevyhnutná — populácia starne. Ale prechodné náklady sú obrovské.",
+      "t": "crisis",
+      "cat": "Ekonomika",
+      "s": [
+        "Povinný II. pilier pre všetkých pod 35",
+        "Dobrovoľný II. pilier s motiváciou",
+        "Odložiť reformu — nie je čas"
+      ]
+    },
+    {
+      "id": "referendum_eu",
+      "m": 32,
+      "h": "Príprava na referendum o EÚ",
+      "d": "Vstup do EÚ vyžaduje referendum. Prieskumy ukazujú podporu ale nízku účasť. HZDS je nejednoznačné.",
+      "c": "Nízka účasť by mohla zmariť vstup. Treba mobilizáciu.",
+      "t": "situation",
+      "cat": "Zahraničná politika",
+      "s": [
+        "Masívna kampaň za EÚ",
+        "Koaličná mobilizácia",
+        "Požiadať HZDS o podporu referenda"
+      ]
+    },
+    {
+      "id": "eu_referendum_day",
+      "m": 33,
+      "h": "Referendum o vstupe do EÚ — historický deň",
+      "d": "16.-17. mája 2003. Slováci hlasujú o vstupe do EÚ. Účasť 52.15%, za vstup 92.46%. Slovensko vstúpi do EÚ 1. mája 2004!",
+      "c": "Nízka účasť takmer ohrozila platnosť referenda. Ale výsledok je jednoznačný — áno EÚ.",
+      "t": "situation",
+      "cat": "Zahraničná politika",
+      "s": [
+        "Veľkolepé oslavy — historický moment",
+        "Zdržanlivé oslavy — práca pokračuje",
+        "Využiť eufóriu na ťažké reformy"
+      ]
+    },
+    {
+      "id": "labor_reform",
+      "m": 34,
+      "h": "Reforma zákonníka práce",
+      "d": "Liberalizácia pracovného trhu. Flexibilnejšie prepúšťanie, kratšie výpovedné lehoty, agentúrna práca. Odbory organizujú masívne protesty pred parlamentom.",
+      "c": "Investori požadujú flexibilitu. Pracovníci sa boja. Nezamestnanosť je stále 17%.",
+      "t": "crisis",
+      "cat": "Ekonomika",
+      "s": [
+        "Plná liberalizácia — prilákať investorov",
+        "Kompromis — flexibilita s ochranou pracovníkov",
+        "Zachovať súčasný zákonník — sociálna ochrana"
+      ]
+    },
+    {
+      "id": "usa_pressure",
+      "m": 36,
+      "h": "USA žiadajú vojenskú spoluprácu",
+      "d": "Washington posilňuje tlak na spojencov v boji proti terorizmu po 11. septembri. Slovensko ako kandidát NATO musí preukázať lojalitu.",
+      "c": "Podpora USA môže pomôcť s NATO členstvom. Otázka vojenskej spolupráce sa stáva kľúčovou.",
+      "t": "crisis",
+      "cat": "Zahraničná politika",
+      "s": [
+        "Podporiť USA — vyslať jednotku",
+        "Diplomatická podpora bez vojakov",
+        "Odmietnuť účasť — riskovať vzťahy s USA"
+      ]
+    },
+    {
+      "id": "iraq_deployment",
+      "m": 37,
+      "h": "Slovensko vysiela vojakov do Iraku",
+      "d": "Pod tlakom USA vysiela Slovensko ženijnú jednotku do Iraku. Kontroverzné rozhodnutie. Verejnosť je rozdelená — je to cena za NATO?",
+      "c": "NATO členstvo bolo garantované. Teraz prichádzajú záväzky.",
+      "t": "crisis",
+      "cat": "Zahraničná politika",
+      "s": [
+        "Vyslať vojakov — spojenecký záväzok",
+        "Len humanitárnu misiu — nie bojovú",
+        "Odmietnuť — nezávislosť zahraničnej politiky"
+      ]
+    },
+    {
+      "id": "eu_accession_day",
+      "m": 38,
+      "h": "1. MÁJ 2004 — Slovensko v EÚ!",
+      "d": "Historický deň. Slovensko sa stáva členom Európskej únie. Oslavy po celej krajine. Od medzinárodnej izolácie k plnoprávnemu členstvu za 6 rokov.",
+      "c": "Dzurindova najväčšia zahraničnopolitická výhra. Ale výzvy pokračujú — Schengen, eurozóna.",
+      "t": "situation",
+      "cat": "Zahraničná politika",
+      "s": [
+        "Veľkolepé oslavy — Dzurindov triumf",
+        "Zdržanlivé oslavy — poďakovať všetkým",
+        "Okamžite oznámiť plán pre euro a Schengen"
+      ]
+    },
+    {
+      "id": "kia_investment",
+      "m": 40,
+      "h": "KIA Motors prichádza do Žiliny",
+      "d": "Kórejská automobilka KIA oznamuje investíciu 1 miliardy EUR — nový závod v Žiline. 3 500 priamych a 6 000+ nepriamych pracovných miest. Slovensko sa stáva automobilovou veľmocou.",
+      "c": "Rovná daň a flexibilný trh práce pritiahli investora. Ale vláda musela ponúknuť daňové úľavy.",
+      "t": "situation",
+      "cat": "Ekonomika",
+      "s": [
+        "Plná podpora — štedrý investičný balík",
+        "Podmienky na lokálnych dodávateľov",
+        "Tvrdé vyjednávanie — menej úľav"
+      ]
+    },
+    {
+      "id": "eu_progress",
+      "m": 42,
+      "h": "Prístupové rokovania s EÚ — finálna fáza",
+      "d": "Slovensko uzatvára posledné kapitoly prístupových rokovaní s EÚ. Kodanský summit v decembri 2002 rozhodne o pozvánke. Reformy sú kľúčové.",
+      "c": "Najväčší zahraničnopolitický projekt od vzniku SR. Závisí od tempa reforiem a výsledkov volieb.",
+      "t": "situation",
+      "cat": "Zahraničná politika",
+      "s": [
+        "Veľkolepé oslavy a prezentácia úspechu",
+        "Zdôrazniť že práca pokračuje",
+        "Ponúknuť ruku opozícii — toto je víťazstvo všetkých"
+      ]
+    },
+    {
+      "id": "nato_summit",
+      "m": 44,
+      "h": "NATO summit v Prahe — pozvánka na dosah!",
+      "d": "Novembrový summit NATO v Prahe sa blíži. Slovensko je medzi kandidátmi na pozvanie! Historický moment — po rokoch Mečiarovej izolácie.",
+      "c": "Česko, Poľsko a Maďarsko sú už členmi od 1999. Slovensko dobieha. Výsledok závisí od vašich reforiem.",
+      "t": "situation",
+      "cat": "Zahraničná politika",
+      "s": [
+        "Oslavovať úspech a poďakovať spojencom",
+        "Zdôrazniť vlastný podiel na úspechu",
+        "Využiť momentum na ďalšie reformy"
+      ]
+    },
+    {
+      "id": "predvolebna",
+      "m": 45,
+      "h": "Predvolebná kampaň 2002",
+      "d": "Blížia sa voľby. Fico so SMER-om rastie v prieskumoch. HZDS sa vracia. SDKÚ musí obhájiť reformy.",
+      "c": "Voliči sú unavení z reforiem ale vedia že fungujú. Otázka: odmenia Dzurindu?",
+      "t": "situation",
+      "cat": "Sociálna politika",
+      "s": [
+        "Kampaň na úspechy — EÚ, NATO, ekonomika",
+        "Populistické opatrenia pred voľbami",
+        "Útok na opozíciu — Mečiar sa vracia!"
+      ]
+    },
+    {
+      "id": "election_day",
+      "m": 46,
+      "h": "Deň volieb 2002",
+      "d": "Slovensko rozhoduje. 4 roky reforiem za vami. Výsledok závisí od celkovej podpory a ekonomickej situácie.",
+      "c": "Prieskumy sú tesné medzi SDKÚ, HZDS a SMER.",
+      "t": "open",
+      "cat": "Sociálna politika",
+      "s": [
+        "Mobilizovať voličov na poslednú chvíľu",
+        "Čakať na výsledky",
+        "Veľká predvolebná rally"
+      ]
+    },
+    {
+      "id": "final",
+      "m": 47,
+      "h": "Záverečné hodnotenie",
+      "d": "4 roky sú za vami. Médiá hodnotia éru Dzurindu. Od Mečiarovej izolácie k prahu EÚ a NATO.",
+      "c": "Vaša osobná história dominuje. Reformy boleli ale priniesli ovocie.",
+      "t": "open",
+      "cat": "Ekonomika",
+      "s": [
+        "Kandidatúra na ďalšie obdobie",
+        "Zdôrazniť historické úspechy",
+        "Ponúknuť víziu pre ďalšie 4 roky"
+      ]
+    }
+  ],
+  "randomEvents": [
+    {
+      "id": "r_corr",
+      "h": "Korupčný škandál pri privatizácii",
+      "d": "Vyšetrovatelia odhalili podozrivý predaj štátneho podniku za zlomok ceny. Stopy vedú ku koaličným politikom.",
+      "c": "Tlak na transparentnú privatizáciu rastie. Médiá požadujú vyšetrenie.",
+      "t": "crisis",
+      "cat": "Justícia",
+      "s": [
+        "Podporiť vyšetrovanie a odvolať zodpovedných",
+        "Relativizovať — dedičstvo Mečiara",
+        "Tichá dohoda — zastaviť vyšetrovanie"
+      ]
+    },
+    {
+      "id": "r_flood",
+      "h": "Záplavy na východe",
+      "d": "Silné dažde spôsobili záplavy v Košickom a Prešovskom kraji. Tisíce evakuovaných, infraštruktúra poškodená.",
+      "c": "Východ Slovenska je najchudobnejší región. Pomoc je urgentná.",
+      "t": "crisis",
+      "cat": "Bezpečnosť",
+      "s": [
+        "Stav núdze a nasadenie armády",
+        "Finančná pomoc z rezervy",
+        "Požiadať o medzinárodnú pomoc"
+      ]
+    },
+    {
+      "id": "r_strike",
+      "h": "Štrajk odborov proti privatizácii",
+      "d": "Odbory KOZ SR vyhlásili výstražný štrajk proti privatizácii strategických podnikov. SDĽ sympatizuje.",
+      "c": "Napätie medzi reformnou a sociálnou časťou koalície.",
+      "t": "crisis",
+      "cat": "Ekonomika",
+      "s": [
+        "Rokovať s odbormi — sociálny balíček",
+        "Pokračovať v privatizácii — ignorovať štrajk",
+        "Kompromis — spomaliť tempo"
+      ]
+    },
+    {
+      "id": "r_roma",
+      "h": "Nepokoje v rómskych osadách",
+      "d": "Napätie eskaluje v osadách na východe po zásahu polície. Medzinárodné organizácie sledujú situáciu.",
+      "c": "Rómska otázka je citlivá pre EÚ vstup. Diskriminácia je systémová.",
+      "t": "situation",
+      "cat": "Sociálna politika",
+      "s": [
+        "Integračný program s EÚ fondmi",
+        "Posilnenie policajnej prítomnosti",
+        "Dialóg a mediácia s komunitami"
+      ]
+    },
+    {
+      "id": "r_brain",
+      "h": "Odliv mozgov do Česka",
+      "d": "Rekordný počet mladých Slovákov odchádza do Prahy a Brna za vyššími platmi. Lekári, učitelia, IT odborníci.",
+      "c": "Platy v Česku sú 2-3 násobne vyššie. Slovensko stráca generáciu.",
+      "t": "situation",
+      "cat": "Školstvo",
+      "s": [
+        "Program na zvýšenie platov kvalifikovaných",
+        "Investície do univerzít",
+        "Zlepšenie pracovných podmienok"
+      ]
+    },
+    {
+      "id": "r_housing",
+      "h": "Bytová kríza",
+      "d": "Nedostatok bytov najmä v Bratislave a Košiciach. Mladé rodiny nemajú kde bývať. Hypotéky sú nedostupné.",
+      "c": "Stavebníctvo sa zotavuje z transformácie len pomaly.",
+      "t": "situation",
+      "cat": "Ekonomika",
+      "s": [
+        "Štátny program výstavby bytov",
+        "Zvýhodnené hypotéky pre mladých",
+        "Regulácia nájomného"
+      ]
+    },
+    {
+      "id": "r_currency",
+      "h": "Tlak na korunu",
+      "d": "Slovenská koruna je pod tlakom. NBS zvyšuje úrokové sadzby. Dovozné ceny rastú.",
+      "c": "Mená okolitých krajín sú stabilnejšie. Špekulanti tlačia na devalváciu.",
+      "t": "crisis",
+      "cat": "Ekonomika",
+      "s": [
+        "Podpora NBS — nezávislosť centrálnej banky",
+        "Kapitálové kontroly",
+        "Fiškálna disciplína — znížiť deficit"
+      ]
+    },
+    {
+      "id": "r_media_law",
+      "h": "Zákon o médiách",
+      "d": "Návrh nového zákona o médiách. Novinári chcú silnejšiu ochranu, politici kontrolu.",
+      "c": "Sloboda médií je kľúčová pre EÚ hodnotenie.",
+      "t": "situation",
+      "cat": "Médiá",
+      "s": [
+        "Silná ochrana novinárov podľa EÚ štandardov",
+        "Kompromisný zákon",
+        "Odložiť — nie je priorita"
+      ]
+    },
+    {
+      "id": "r_v4_summit",
+      "h": "Summit V4",
+      "d": "Stretnutie premiérov V4. Česko, Poľsko a Maďarsko koordinujú spoločný postup k EÚ. Slovensko musí dobehnúť.",
+      "c": "V4 spolupráca je kľúčová pre regionálne záujmy.",
+      "t": "open",
+      "cat": "Zahraničná politika",
+      "s": [
+        "Posilniť V4 spoluprácu",
+        "Bilaterálne vzťahy s Českom — priorita",
+        "Využiť V4 na lobbovanie v EÚ"
+      ]
+    },
+    {
+      "id": "r_pension",
+      "h": "Dôchodková reforma",
+      "d": "Systém je neudržateľný. Ekonómovia navrhujú druhý pilier — osobné dôchodkové účty. Dôchodcovia sa boja.",
+      "c": "Reforma je bolestivá ale nevyhnutná pre dlhodobú stabilitu.",
+      "t": "situation",
+      "cat": "Ekonomika",
+      "s": [
+        "Zaviesť druhý pilier",
+        "Reformovať len prvý pilier",
+        "Odložiť — príliš politicky riskantné"
+      ]
+    },
+    {
+      "id": "r_hockey",
+      "h": "Slovensko na MS v hokeji 2002!",
+      "d": "Slovenská hokejová reprezentácia bojuje na majstrovstvách sveta. Celá krajina sleduje. Šanca na medailu!",
+      "c": "Hokej spája národ. Úspech môže zdvihnúť morálku po bolestivých reformách.",
+      "t": "open",
+      "cat": "Sociálna politika",
+      "s": [
+        "Osobne podporiť tím a využiť úspech",
+        "Sľúbiť investície do športu",
+        "Nechať šport športovcom"
+      ]
+    },
+    {
+      "id": "r_slota_vyrok",
+      "h": "Slotov kontroverzný výrok",
+      "d": "Ján Slota (SNS) urobil rasistický výrok proti Maďarom a Rómom. Medzinárodné médiá reagujú. SMK požaduje odsúdenie.",
+      "c": "Výrok ohrozuje medzinárodnú reputáciu SR pred EÚ vstupom.",
+      "t": "crisis",
+      "cat": "Sociálna politika",
+      "s": [
+        "Ostro odsúdiť výrok",
+        "Diplomatická reakcia — nechceme eskalovať",
+        "Ignorovať — opozičný politik"
+      ]
+    },
+    {
+      "id": "r_Kosovo",
+      "h": "Kríza v Kosove",
+      "d": "Napätie na Balkáne rastie. NATO zvažuje zásah. Slovensko ako aspirant NATO musí zaujať postoj.",
+      "c": "Balkánska kríza testuje zahraničnopolitickú orientáciu SR.",
+      "t": "situation",
+      "cat": "Zahraničná politika",
+      "s": [
+        "Podporiť NATO pozíciu",
+        "Humanitárna pomoc bez vojenskej účasti",
+        "Neutralita"
+      ]
+    },
+    {
+      "id": "r_inflation",
+      "h": "Rast cien potravín",
+      "d": "Ceny základných potravín rastú. Inflácia zasiahla najmä dôchodcov a nízko-príjmové rodiny. Mlieko, chlieb, mäso drahšie.",
+      "c": "Transformácia ekonomiky má sociálne náklady.",
+      "t": "crisis",
+      "cat": "Ekonomika",
+      "s": [
+        "Regulácia cien základných potravín",
+        "Jednorazový príspevok pre ohrozených",
+        "Nechať trh — ceny sa stabilizujú"
+      ]
+    },
+    {
+      "id": "r_eu_accession",
+      "h": "EÚ prístupové rokovania — náročné kapitoly",
+      "d": "Rokovania o vstupe do EÚ pokračujú. Kapitola poľnohospodárstvo je najťažšia — slovenským farmárom hrozia nižšie dotácie než v EÚ-15.",
+      "c": "EÚ vstup je národná priorita. Ale podmienky sú tvrdé.",
+      "t": "situation",
+      "cat": "Zahraničná politika",
+      "s": [
+        "Tvrdé vyjednávanie o prechodných obdobiach",
+        "Prijať podmienky pre rýchly vstup",
+        "Hľadať spojencov medzi kandidátskymi krajinami"
+      ]
+    },
+    {
+      "id": "r_nato_path",
+      "h": "NATO — Slovensko konečne na ceste",
+      "d": "Po summite vo Washingtone je Slovensko na zozname kandidátov. Armáda potrebuje modernizáciu. NATO žiada 2% HDP na obranu.",
+      "c": "Po odmietnutí za Mečiara je to historická šanca. Ale reforma armády je drahá.",
+      "t": "situation",
+      "cat": "Zahraničná politika",
+      "s": [
+        "Maximálne investície do armády",
+        "Postupná modernizácia v rámci rozpočtu",
+        "Symbolická účasť na misiách NATO"
+      ]
+    },
+    {
+      "id": "r_flat_tax",
+      "h": "Rovná daň — revolúcia alebo katastrofa?",
+      "d": "Minister Mikloš navrhuje 19% rovnú daň. Podnikatelia jásajú, odbory protestujú. Svetové médiá hovoria o slovenskom ekonomickom zázraku.",
+      "c": "Flat tax je najradikálnejšia reforma v regióne. Riziko: sociálne dopady.",
+      "t": "crisis",
+      "cat": "Ekonomika",
+      "s": [
+        "Plná podpora rovnej dane",
+        "Rovná daň s výnimkami pre nízkopríjmových",
+        "Odmietnuť — príliš radikálne"
+      ]
+    },
+    {
+      "id": "r_bank_priv",
+      "h": "Privatizácia bánk — zahraničný kapitál",
+      "d": "Slovenská sporiteľňa, VÚB a IRB sa predávajú zahraničným bankám. Erste, Intesa, ING kupujú za miliardy. Kritici varujú pred stratou kontroly.",
+      "c": "Banky boli v zlom stave po Mečiarovi. Zahraničný kapitál prinesie stabilitu ale aj zisky odtečú.",
+      "t": "situation",
+      "cat": "Ekonomika",
+      "s": [
+        "Predať a stabilizovať bankový sektor",
+        "Ponechať čiastočný štátny podiel",
+        "Odmietnuť predaj — banky sú strategické"
+      ]
+    },
+    {
+      "id": "r_roma_dz",
+      "h": "Rómska inklúzia — tlak EÚ",
+      "d": "Európska komisia podmieňuje vstup do EÚ zlepšením podmienok Rómov. Segregácia v školách, nezamestnanosť 80% v osadách. Slovensko musí konať.",
+      "c": "Rómska otázka je podmienkou pre EÚ. Ale riešenie je dlhodobé a drahé.",
+      "t": "situation",
+      "cat": "Sociálna politika",
+      "s": [
+        "Komplexný integračný program",
+        "Kozmetické opatrenia pre EÚ",
+        "Investície do vzdelávania a bývania"
+      ]
+    },
+    {
+      "id": "r_schengen_prep",
+      "h": "Príprava na Schengen",
+      "d": "Slovensko sa pripravuje na vstup do Schengenského priestoru. Potrebné sú masívne investície do ochrany hraníc s Ukrajinou. EÚ hodnotí pripravenosť.",
+      "c": "Schengen znamená voľný pohyb ale aj zodpovednosť za vonkajšiu hranicu EÚ.",
+      "t": "situation",
+      "cat": "Bezpečnosť",
+      "s": [
+        "Maximálne investície do hraničnej infraštruktúry",
+        "Požiadať EÚ o finančnú pomoc",
+        "Zvýšiť počet pohraničníkov"
+      ]
+    },
+    {
+      "id": "r_brain_drain_dz",
+      "h": "Odliv mozgov po vstupe do EÚ",
+      "d": "Po vstupe do EÚ sa otvorili pracovné trhy. Tisíce Slovákov odchádzajú za lepšími platmi do Británie, Írska a Rakúska. Nemocnice strácajú lekárov.",
+      "c": "Voľný pohyb je výhoda EÚ, ale odliv kvalifikovaných je hrozba.",
+      "t": "situation",
+      "cat": "Školstvo",
+      "s": [
+        "Program udržania talentov",
+        "Zvýšenie platov v kľúčových sektoroch",
+        "Prilákať investície s vyššou pridanou hodnotou"
+      ]
+    },
+    {
+      "id": "r_cultural_id",
+      "h": "Debata o slovenskej identite v EÚ",
+      "d": "Vstup do EÚ otvára debatu: stratíme svoju identitu? Konzervatívci varujú pred liberalizáciou. Progresívci oslavujú návrat do Európy.",
+      "c": "Kultúrna vojna medzi tradičným a moderným Slovenskom.",
+      "t": "situation",
+      "cat": "Sociálna politika",
+      "s": [
+        "Podporiť slovenskú kultúru a jazyk v EÚ",
+        "Zdôrazniť výhody kultúrnej výmeny",
+        "Ignorovať debatu — zamerať sa na ekonomiku"
+      ]
+    },
+    {
+      "id": "r_utility_priv",
+      "h": "Privatizácia energetík",
+      "d": "SSE, VSE a ZSE sa predávajú zahraničným investorom. E.ON, EdF a RWE kupujú slovenské distribučky. Kritici varujú pred rastom cien energií.",
+      "c": "Privatizácia energetík je kontroverzná. Príjmy rozpočtu vs. dlhodobé ceny.",
+      "t": "crisis",
+      "cat": "Energetika",
+      "s": [
+        "Predať a regulovať ceny úradom",
+        "Ponechať strategické podiely v štáte",
+        "Zastaviť privatizáciu energetík"
+      ]
+    },
+    {
+      "id": "r_auto_boom",
+      "h": "Automobilový boom — KIA prichádza",
+      "d": "KIA Motors buduje závod v Žiline. Investícia 1 miliarda eur. Ale požaduje daňové prázdniny a infraštruktúru. Slovensko sa stáva automobilovou veľmocou.",
+      "c": "Tretí automobilový závod. Slovensko bude najväčší výrobca áut na hlavu. Ale závislosť na jednom sektore.",
+      "t": "situation",
+      "cat": "Ekonomika",
+      "s": [
+        "Maximálne ústupky pre KIA",
+        "Vyjednávať tvrdšie podmienky",
+        "Diverzifikovať — nechceme len autá"
+      ]
+    }
+  ],
+  "headlines": {
+    "left": {
+      "name": "SME",
+      "entries": [
+        {
+          "kw": [
+            "pretlacit",
+            "rychlo",
+            "push"
+          ],
+          "h": "Koalícia presadila návrh: ",
+          "sub": "Široká koalícia ukázala silu. Štyri strany sa zhodli napriek vnútorným napätiam. HZDS protestuje ale nemá hlasy na blokovanie."
+        },
+        {
+          "kw": [
+            "eu",
+            "brusel",
+            "europa"
+          ],
+          "h": "Slovensko sa vracia do Európy",
+          "sub": "Po rokoch Mečiarovej izolácie konečne pokrok. Brusel oceňuje reformné úsilie Dzurindovej vlády. Rokovacie kapitoly sa otvárajú jedna za druhou."
+        },
+        {
+          "kw": [
+            "nato",
+            "aliancia"
+          ],
+          "h": "NATO dvere sa otvárajú pre Slovensko",
+          "sub": "Washington hodnotí reformy armády pozitívne. MAP pokračuje. Po vylúčení z prvej vlny rozšírenia konečne šanca na členstvo."
+        },
+        {
+          "kw": [
+            "privatizacia",
+            "banka"
+          ],
+          "h": "Privatizácia: Transparentne alebo po starom?",
+          "sub": "Predaj bánk zahraničným investorom je nevyhnutný. Ale otázky o transparentnosti pretrvávajú. SME prináša analýzu kto profituje."
+        },
+        {
+          "kw": [
+            "zdravotnictvo",
+            "lekar",
+            "health"
+          ],
+          "h": "Lekári odchádzajú do Česka — kto nás bude liečiť?",
+          "sub": "Platy zdravotníkov sú smiešne. V Česku zarobia dvojnásobok. Nemocnice na východe zatvárajú oddelenia."
+        },
+        {
+          "kw": [
+            "amnestia",
+            "meciar"
+          ],
+          "h": "Mečiarove amnestie: Spravodlivosť alebo politika?",
+          "sub": "Debate o zrušení amnestií rozdeľuje spoločnosť. Právnici sa nezhodujú na ústavnosti. Obete žiadajú spravodlivosť."
+        },
+        {
+          "kw": [
+            "korupcia",
+            "corruption",
+            "skandal"
+          ],
+          "h": "Korupcia pri privatizácii — kto zodpovedá?",
+          "sub": "Investigatíva SME odhaľuje prepojenia medzi politikmi a privatizérmi. Dedičstvo Mečiara žije ďalej."
+        },
+        {
+          "kw": [
+            "skolstvo",
+            "education",
+            "ucitel"
+          ],
+          "h": "Učitelia zarábajú menej ako predavačky",
+          "sub": "Platy v školstve sú katastrofálne. Mladí učitelia odchádzajú. Reforma školstva je na papieri ale nie v praxi."
+        },
+        {
+          "kw": [
+            "dan",
+            "tax"
+          ],
+          "h": "Daňová reforma: Kto zaplatí transformáciu?",
+          "sub": "Zvýšenie daní zasiahne najchudobnejších. Ekonómovia varujú pred sociálnymi dôsledkami reformy."
+        },
+        {
+          "kw": [
+            "menšina",
+            "madarsko",
+            "smk"
+          ],
+          "h": "Maďarská otázka rozdeľuje koalíciu",
+          "sub": "SMK požaduje viac práv, SNS v opozícii kričí zradu. Dzurinda balansuje medzi partnermi."
+        }
+      ],
+      "fallback": {
+        "headline": "Dzurindova koalícia pokračuje v reformách",
+        "subhead": "Široká koalícia štyroch strán balansuje medzi reformami a sociálnymi nárokmi. Analytici hodnotia kroky vlády pozitívne ale upozorňujú na vnútorné napätia."
+      }
+    },
+    "center": {
+      "name": "Pravda",
+      "entries": [
+        {
+          "kw": [
+            "pretlacit",
+            "rychlo"
+          ],
+          "h": "Vláda schválila nové opatrenia",
+          "sub": "Koalícia sa zhodla po dlhých rokovaniach. SDĽ presadila sociálne záruky. Opozícia kritizuje tempo zmien."
+        },
+        {
+          "kw": [
+            "eu",
+            "brusel",
+            "europa"
+          ],
+          "h": "Rokovania s EÚ pokračujú",
+          "sub": "Slovensko otvára ďalšie kapitoly. Brusel ocenuje pokrok ale požaduje viac reforiem. Výsledok rokovaní určí budúcnosť krajiny."
+        },
+        {
+          "kw": [
+            "nato",
+            "aliancia"
+          ],
+          "h": "NATO: Slovensko plní podmienky",
+          "sub": "Reforma armády postupuje. Generálny štáb hlási pokrok. Otázkou zostáva rozpočet na obranu."
+        },
+        {
+          "kw": [
+            "privatizacia",
+            "banka"
+          ],
+          "h": "Privatizácia bánk: Čo to znamená pre sporiteľov?",
+          "sub": "Zahraniční investori prichádzajú. Vklady sú chránené ale obavy pretrvávajú. Odbory žiadajú záruky zamestnanosti."
+        },
+        {
+          "kw": [
+            "zdravotnictvo",
+            "health",
+            "lekar"
+          ],
+          "h": "Zdravotníctvo čaká na reformu",
+          "sub": "Ministerstvo predstavilo plán ale chýba financovanie. Lekárske komory sú skeptické. Pacienti čakajú."
+        },
+        {
+          "kw": [
+            "dan",
+            "tax"
+          ],
+          "h": "Daňové zmeny zasiahnú domácnosti",
+          "sub": "Analytici vypočítali dopady na rôzne skupiny. Niektorí si polepšia, mnohí prihoršia. Vláda sľubuje kompenzácie."
+        },
+        {
+          "kw": [
+            "bezpecnost",
+            "security"
+          ],
+          "h": "Bezpečnostná situácia: Zmiešané výsledky",
+          "sub": "Kriminalita klesá v niektorých oblastiach ale rastie v iných. Polícia žiada viac zdrojov."
+        },
+        {
+          "kw": [
+            "skolstvo",
+            "education"
+          ],
+          "h": "Školstvo hľadá cestu",
+          "sub": "Vláda sľubuje reformu ale učitelia sú skeptickí. Platy zostávajú nízke. Slovensko zaostáva za susedmi."
+        },
+        {
+          "kw": [
+            "korupcia",
+            "corruption"
+          ],
+          "h": "Boj s korupciou pokračuje pomaly",
+          "sub": "Vyšetrovatelia narážajú na prekážky. Mečiarovi ľudia sú stále v inštitúciách. Transparentnosť sa zlepšuje len postupne."
+        },
+        {
+          "kw": [
+            "invest",
+            "ekonom"
+          ],
+          "h": "Ekonomika rastie ale nie pre všetkých",
+          "sub": "Zahraničné investície prichádzajú do Bratislavy. Východ zaostáva. Nezamestnanosť v niektorých okresoch nad 30%."
+        }
+      ],
+      "fallback": {
+        "headline": "Vláda prijala nové opatrenia",
+        "subhead": "Reakcie sú zmiešané. Koalícia SDK, SDĽ, SMK a SOP sa zhodla po dlhých rokovaniach. Opozícia kritizuje tempo zmien."
+      }
+    },
+    "right": {
+      "name": "Slovenská republika",
+      "entries": [
+        {
+          "kw": [
+            "pretlacit",
+            "rychlo",
+            "silne",
+            "strong"
+          ],
+          "h": "Dzurindova koalícia ignoruje ľudí",
+          "sub": "Štyri strany sa hádajú a občania trpia. Mečiar by to zvládol lepšie. HZDS ponúka stabilitu a istotu namiesto experimentov."
+        },
+        {
+          "kw": [
+            "eu",
+            "brusel",
+            "europa"
+          ],
+          "h": "Brusel diktuje — Dzurinda poslúcha",
+          "sub": "Slovensko stráca suverenitu. Dzurinda predáva národné záujmy za prísľub členstva v EÚ. HZDS varuje pred stratou identity."
+        },
+        {
+          "kw": [
+            "nato",
+            "aliancia"
+          ],
+          "h": "NATO: Za koho budú bojovať naši vojaci?",
+          "sub": "Vstup do NATO znamená podriadenie sa americkým záujmom. Slovensko by malo byť neutrálne. Mečiar presadzoval nezávislosť."
+        },
+        {
+          "kw": [
+            "privatizacia",
+            "banka"
+          ],
+          "h": "Rozpredaj národného majetku cudzincom!",
+          "sub": "Dzurinda predáva banky a telekomunikácie za zlomok ceny. Zisky pôjdu do zahraničia. HZDS by chránilo slovenský majetok."
+        },
+        {
+          "kw": [
+            "zdravotnictvo",
+            "health"
+          ],
+          "h": "Zdravotníctvo kolabuje pod Dzurindovou vládou",
+          "sub": "Za Mečiara fungovali nemocnice. Teraz lekári utekajú a pacienti čakajú. Vláda sa zaoberá NATO namiesto zdravia ľudí."
+        },
+        {
+          "kw": [
+            "amnestia",
+            "meciar"
+          ],
+          "h": "Politická pomsta — nie spravodlivosť!",
+          "sub": "Zrušenie amnestií je politicky motivované. Dzurinda sa mstí Mečiarovi namiesto riadenia krajiny. HZDS to odmieta."
+        },
+        {
+          "kw": [
+            "dan",
+            "tax"
+          ],
+          "h": "Vyššie dane — Dzurindov darček pre ľudí",
+          "sub": "Občania platia viac a dostávajú menej. Za Mečiara boli dane nižšie a ceny stabilnejšie. Reformy ničia životnú úroveň."
+        },
+        {
+          "kw": [
+            "bezpecnost",
+            "security",
+            "policia"
+          ],
+          "h": "Kriminalita rastie — vláda mlčí",
+          "sub": "Občania sa neboja. Dzurindova vláda zlyháva v základnej povinnosti štátu. HZDS by obnovilo poriadok."
+        },
+        {
+          "kw": [
+            "skolstvo",
+            "education"
+          ],
+          "h": "Učitelia hladujú, Dzurinda cestuje po svete",
+          "sub": "Platy učiteľov sú hanba. Premiér sa fotí so zahraničnými lídrami namiesto riešenia problémov doma."
+        },
+        {
+          "kw": [
+            "menšina",
+            "madarsko",
+            "smk"
+          ],
+          "h": "Maďari dostávajú viac ako Slováci!",
+          "sub": "SMK v koalícii presadzuje záujmy Budapešti. Dzurinda predáva slovenské záujmy za koaličnú stabilitu. Národ je ohrozený."
+        }
+      ],
+      "fallback": {
+        "headline": "Dzurinda opäť zlyháva — HZDS ponúka alternatívu",
+        "subhead": "Občania trpia pod reformami a Dzurinda rieši zahraničnú politiku. Mečiar pripomína že za jeho vlády bola stabilita a istota. HZDS je pripravené prevziať zodpovednosť."
+      }
+    }
+  },
+  "initialState": {
+    "approval": 52,
+    "stability": 55,
+    "coalition": 60,
+    "impl": 75,
+    "econ": {
+      "gdp": 850,
+      "gdpGrowth": 4.2,
+      "unemp": 12.5,
+      "infl": 6.7,
+      "deficit": -25,
+      "debt": 280,
+      "minW": 3600
+    },
+    "diplo": {
+      "eu": 35,
+      "nato_r": 30,
+      "usa": 50,
+      "czech": 70,
+      "hungary": 40,
+      "austria": 60,
+      "poland": 55,
+      "russia": 35
+    },
+    "social": {
+      "press": 55,
+      "corrupt": 40,
+      "emigr": 50
+    },
+    "cp": {
+      "sdk": {
+        "on": 1,
+        "sat": 70,
+        "pat": 100,
+        "dem": null,
+        "lastD": -5
+      },
+      "sdl": {
+        "on": 1,
+        "sat": 55,
+        "pat": 90,
+        "dem": null,
+        "lastD": -3
+      },
+      "smk": {
+        "on": 1,
+        "sat": 55,
+        "pat": 85,
+        "dem": null,
+        "lastD": -3
+      },
+      "sop": {
+        "on": 1,
+        "sat": 60,
+        "pat": 75,
+        "dem": null,
+        "lastD": -2
+      }
+    },
+    "parl": {
+      "sdk": 42,
+      "sdl": 18,
+      "smk": 15,
+      "sop": 9,
+      "hzds": 43,
+      "sns": 14,
+      "other": 9
+    },
+    "stances": {
+      "ekonomika": 0,
+      "eu": 0,
+      "rusko": 0,
+      "social": 0,
+      "media": 0,
+      "justicia": 0,
+      "migracia": 0,
+      "identita": 0
+    }
+  },
+  "quietMonths": [
+    {
+      "h": "Pokojný mesiac",
+      "d": "Žiadne veľké udalosti tento mesiac. Vláda funguje v bežnom režime. Máte priestor na vlastné iniciatívy a dlhodobé plány.",
+      "c": "Využite čas na posilnenie pozície alebo riešenie dlhodobých problémov."
+    },
+    {
+      "h": "Rutinný mesiac",
+      "d": "Politická scéna je tento mesiac relatívne pokojná. Koalícia funguje bez väčších konfliktov. Opozícia pripravuje vlastné návrhy.",
+      "c": "Ideálny čas na presadenie menších, ale dôležitých zmien."
+    },
+    {
+      "h": "Stabilný mesiac",
+      "d": "Bez veľkých kríz. Ekonomika beží svojim tempom. Diplomatické vzťahy sú stabilné. Občania riešia bežné starosti.",
+      "c": "Môžete sa sústrediť na čokoľvek — od ekonomiky po zahraničnú politiku."
+    },
+    {
+      "h": "Mesiac bez kríz",
+      "d": "Tento mesiac sa nič dramatické nedeje. Slovensko žije bežným životom. Parlament sa zaoberá legislatívnou agendou.",
+      "c": "Dobrý čas na budovanie vzťahov v koalícii alebo diplomatické iniciatívy."
+    },
+    {
+      "h": "Čas na stratégiu",
+      "d": "Politická atmosféra je pokojná. Médiá sa zaoberajú bežnými témami. Koaličná rada zasadá rutinne.",
+      "c": "Využite priestor na dlhodobé plánovanie a strategické rozhodnutia."
+    }
+  ]
+}
