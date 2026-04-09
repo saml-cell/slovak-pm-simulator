@@ -5,25 +5,66 @@ function generateHeadlines(policy: string, ev: ActiveEvent | null): AnalysisResu
   const era = getEra();
   const low = policy.toLowerCase();
   const topic = ev ? (ev.headline || '') : '';
+  const cat = ev?.category || '';
+  const tier = ev?.tier || 'situation';
 
-  function pickHeadline(entries: EraConfig['headlines']['left']['entries'], fallbackH: string, fallbackS: string) {
-    for (const item of entries) {
-      if (item.kw.some(k => low.includes(k))) return { headline: item.h.replace('{topic}', topic), subhead: item.sub };
+  function pickHeadline(entries: EraConfig['headlines']['left']['entries'], fallbacks: { headline: string; subhead: string }[]) {
+    // Collect ALL matching headlines, not just first
+    const matches = entries.filter(item => item.kw.some(k => low.includes(k)));
+    if (matches.length > 0) {
+      const pick = matches[Math.floor(Math.random() * matches.length)];
+      return {
+        headline: pick.h.replace('{topic}', topic).replace('{cat}', cat),
+        subhead: pick.sub.replace('{topic}', topic),
+      };
     }
-    return { headline: fallbackH, subhead: fallbackS };
+    // Rotate through multiple fallbacks
+    return fallbacks[Math.floor(Math.random() * fallbacks.length)];
   }
 
   const hl = era.headlines;
+
+  // Dynamic fallbacks based on event tier
+  const leftFallbacks = tier === 'crisis'
+    ? [
+        { headline: 'Vláda zlyhala v kríze — občania platia cenu', subhead: 'Analytici varujú pred dlhodobými dôsledkami.' },
+        { headline: 'Kríza odhalila neschopnosť kabinetu', subhead: 'Opozícia žiada vyvodenie zodpovednosti.' },
+        { headline: 'Premiér pod paľbou kritiky', subhead: 'Odborníci hovoria o systémovom zlyhaní.' },
+      ]
+    : [
+        { headline: hl.left.fallback?.headline || 'Vláda opäť prekvapuje — ale nie v dobrom', subhead: hl.left.fallback?.subhead || 'Analytici hodnotia kroky vlády kriticky.' },
+        { headline: 'Otázky bez odpovedí z vládneho kabinetu', subhead: 'Opozícia žiada vysvetlenie.' },
+        { headline: 'Koalícia sa nevie dohodnúť na prioritách', subhead: 'Vnútorné napätia brzdia legislatívny proces.' },
+      ];
+
+  const centerFallbacks = tier === 'crisis'
+    ? [
+        { headline: 'Vláda reaguje na krízu — reakcie sú zmiešané', subhead: 'Analytici hodnotia opatrenia opatrne.' },
+        { headline: 'Krízové opatrenia vyvolávajú debatu', subhead: 'Odborníci sa nezhodujú na efektivite.' },
+        { headline: 'Kabinet prijal rozhodnutie pod tlakom', subhead: 'Dopady sa ukážu v nasledujúcich týždňoch.' },
+      ]
+    : [
+        { headline: hl.center.fallback?.headline || 'Vláda prijala nové opatrenia', subhead: hl.center.fallback?.subhead || 'Reakcie sú zmiešané.' },
+        { headline: 'Nový legislatívny návrh na stole parlamentu', subhead: 'Koalícia verí v schválenie, opozícia pochybuje.' },
+        { headline: 'Premiér predstavil ďalšie plány', subhead: 'Občania čakajú na konkrétne výsledky.' },
+      ];
+
+  const rightFallbacks = tier === 'crisis'
+    ? [
+        { headline: 'Rázny krok vlády v záujme stability', subhead: 'Premiér ukázal odhodlanie chrániť krajinu.' },
+        { headline: 'Silné rozhodnutie v ťažkej situácii', subhead: 'Vláda koná rozhodne.' },
+        { headline: 'Premiér preberá zodpovednosť za riešenie krízy', subhead: 'Občania ocenili rýchlu reakciu.' },
+      ]
+    : [
+        { headline: hl.right.fallback?.headline || 'Silné rozhodnutie vlády v prospech Slovenska', subhead: hl.right.fallback?.subhead || 'Občania sú spokojní.' },
+        { headline: 'Vláda napĺňa sľuby z programového vyhlásenia', subhead: 'Koalícia drží slovo.' },
+        { headline: 'Slovensko na správnej ceste', subhead: 'Ekonomika a spoločnosť profitujú z rozhodnutí vlády.' },
+      ];
+
   return {
-    left: pickHeadline(hl.left.entries,
-      hl.left.fallback?.headline || 'Vláda opäť prekvapuje — ale nie v dobrom',
-      hl.left.fallback?.subhead || 'Analytici z viacerých think-tankov hodnotia najnovšie kroky vlády kriticky.'),
-    center: pickHeadline(hl.center.entries,
-      hl.center.fallback?.headline || 'Vláda prijala nové opatrenia',
-      hl.center.fallback?.subhead || 'Reakcie sú zmiešané, dopady sa ukážu v nasledujúcich mesiacoch.'),
-    right: pickHeadline(hl.right.entries,
-      hl.right.fallback?.headline || 'Silné rozhodnutie vlády v prospech Slovenska',
-      hl.right.fallback?.subhead || 'Opozícia opäť kritizuje, ale občania sú spokojní.'),
+    left: pickHeadline(hl.left.entries, leftFallbacks),
+    center: pickHeadline(hl.center.entries, centerFallbacks),
+    right: pickHeadline(hl.right.entries, rightFallbacks),
   };
 }
 

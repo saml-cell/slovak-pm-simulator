@@ -6,7 +6,30 @@
     "saveKey": "spm_pellegrini_save",
     "pellegriniMonth": 15,
     "presidentName": "Andrej Kiska",
-    "presidentFriendly": "Zuzana Čaputová"
+    "presidentFriendly": "Zuzana Čaputová",
+    "realComparison": {
+      "approval": {
+        "value": 38,
+        "label": "Reálna podpora na konci"
+      },
+      "gdpGrowth": {
+        "value": 2.3,
+        "label": "Reálny rast HDP"
+      },
+      "unemployment": {
+        "value": 5.8,
+        "label": "Reálna nezamestnanosť"
+      },
+      "inflation": {
+        "value": 2.7,
+        "label": "Reálna inflácia"
+      },
+      "lasted": {
+        "value": 24,
+        "label": "Reálne mesiacov vo funkcii"
+      },
+      "verdict": "Pellegrini stabilizoval situáciu ale prehral voľby 2020. COVID zasiahol v posledných dňoch."
+    }
   },
   "calendar": {
     "startMonthOffset": 2,
@@ -2964,12 +2987,9 @@
     "stances": {
       "ekonomika": 0,
       "eu": 0,
-      "rusko": 0,
       "social": 0,
       "media": 0,
-      "justicia": 0,
-      "migracia": 0,
-      "identita": 0
+      "justicia": 0
     }
   },
   "quietMonths": [

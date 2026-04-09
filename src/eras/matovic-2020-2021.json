@@ -5,7 +5,30 @@
     "headerTitle": "Igor Matovič",
     "saveKey": "spm_matovic_save",
     "pellegriniMonth": -1,
-    "presidentName": "Zuzana Čaputová"
+    "presidentName": "Zuzana Čaputová",
+    "realComparison": {
+      "approval": {
+        "value": 15,
+        "label": "Reálna podpora na konci"
+      },
+      "gdpGrowth": {
+        "value": -4.4,
+        "label": "Reálny rast HDP"
+      },
+      "unemployment": {
+        "value": 7.6,
+        "label": "Reálna nezamestnanosť"
+      },
+      "inflation": {
+        "value": 2.1,
+        "label": "Reálna inflácia"
+      },
+      "lasted": {
+        "value": 13,
+        "label": "Reálne mesiacov vo funkcii"
+      },
+      "verdict": "Najkratšia vláda. Sputnik V škandál a koaličné hádky viedli k Matovičovej demisii po 13 mesiacoch."
+    }
   },
   "calendar": {
     "startMonthOffset": 2,
@@ -2859,9 +2882,7 @@
     "stances": {
       "ekonomika": 0,
       "eu": 0,
-      "rusko": 0,
       "social": 0,
-      "media": 0,
       "justicia": 0,
       "covid": 0,
       "koalicia": 0

@@ -7,7 +7,30 @@
     "pellegriniMonth": -1,
     "presidentName": "Andrej Kiska",
     "presidentFriendly": "Ivan Gašparovič",
-    "presidentUnfriendlyMonth": 26
+    "presidentUnfriendlyMonth": 26,
+    "realComparison": {
+      "approval": {
+        "value": 35,
+        "label": "Reálna podpora na konci"
+      },
+      "gdpGrowth": {
+        "value": 3.8,
+        "label": "Reálny rast HDP"
+      },
+      "unemployment": {
+        "value": 9.7,
+        "label": "Reálna nezamestnanosť"
+      },
+      "inflation": {
+        "value": 0.5,
+        "label": "Reálna inflácia"
+      },
+      "lasted": {
+        "value": 48,
+        "label": "Reálne mesiacov vo funkcii"
+      },
+      "verdict": "Jednofarebná vláda skončila migračnou krízou a škandálmi. SMER stratil absolútnu väčšinu."
+    }
   },
   "calendar": {
     "startMonthOffset": 3,

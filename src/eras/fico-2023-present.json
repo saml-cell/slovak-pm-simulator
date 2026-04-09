@@ -6,7 +6,30 @@
     "saveKey": "spm_save",
     "pellegriniMonth": 8,
     "presidentName": "Zuzana Čaputová",
-    "presidentFriendly": "Peter Pellegrini"
+    "presidentFriendly": "Peter Pellegrini",
+    "realComparison": {
+      "approval": {
+        "value": 38,
+        "label": "Reálna podpora na konci"
+      },
+      "gdpGrowth": {
+        "value": 2.2,
+        "label": "Reálny rast HDP"
+      },
+      "unemployment": {
+        "value": 5.6,
+        "label": "Reálna nezamestnanosť"
+      },
+      "inflation": {
+        "value": 3.2,
+        "label": "Reálna inflácia"
+      },
+      "lasted": {
+        "value": 0,
+        "label": "Reálne mesiacov vo funkcii"
+      },
+      "verdict": "Fico prežil atentát. Konsolidačný balíček a novela trestného zákona polarizujú spoločnosť."
+    }
   },
   "calendar": {
     "startMonthOffset": 9,
@@ -1076,19 +1099,18 @@
     },
     "plat": {
       "p": {
-        "peter": 10,
-        "eva": 8,
-        "zuzana": 7,
-        "helena": 5
+        "eva": 7,
+        "peter": 6,
+        "helena": 5,
+        "zuzana": 6
       },
       "s": {
-        "unions": 8,
-        "smer": 4,
-        "business": -6
+        "unions": 5,
+        "smer": 3
       },
       "e": {
-        "deficit": 0.2,
-        "gdpGrowth": 0.05
+        "deficit": 0.1,
+        "infl": 0.1
       }
     },
     "eu": {
@@ -1897,104 +1919,286 @@
       }
     },
     "infraštruktúr": {
-      "p": { "peter": 6, "eva": 5, "jozef": 4 },
-      "s": { "business": 5, "smer": 3 },
-      "e": { "gdpGrowth": 0.15, "deficit": 0.1 }
+      "p": {
+        "peter": 6,
+        "eva": 5,
+        "jozef": 4
+      },
+      "s": {
+        "business": 5,
+        "smer": 3
+      },
+      "e": {
+        "gdpGrowth": 0.15,
+        "deficit": 0.1
+      }
     },
     "infrastruktur": {
-      "p": { "peter": 6, "eva": 5, "jozef": 4 },
-      "s": { "business": 5, "smer": 3 },
-      "e": { "gdpGrowth": 0.15, "deficit": 0.1 }
+      "p": {
+        "peter": 6,
+        "eva": 5,
+        "jozef": 4
+      },
+      "s": {
+        "business": 5,
+        "smer": 3
+      },
+      "e": {
+        "gdpGrowth": 0.15,
+        "deficit": 0.1
+      }
     },
     "nemocnic": {
-      "p": { "maria": 7, "eva": 6, "helena": 5, "zuzana": 8 },
-      "s": { "healthcare": 6, "smer": 3 },
-      "e": { "deficit": 0.15 }
+      "p": {
+        "maria": 7,
+        "eva": 6,
+        "helena": 5,
+        "zuzana": 8
+      },
+      "s": {
+        "healthcare": 6,
+        "smer": 3
+      },
+      "e": {
+        "deficit": 0.15
+      }
     },
     "škol": {
-      "p": { "eva": 8, "martin": 6, "helena": 5 },
-      "s": { "ps": 3, "smer": 2 },
-      "e": { "deficit": 0.1 }
+      "p": {
+        "eva": 8,
+        "martin": 6,
+        "helena": 5
+      },
+      "s": {
+        "ps": 3,
+        "smer": 2
+      },
+      "e": {
+        "deficit": 0.1
+      }
     },
     "skol": {
-      "p": { "eva": 8, "martin": 6, "helena": 5 },
-      "s": { "ps": 3, "smer": 2 },
-      "e": { "deficit": 0.1 }
+      "p": {
+        "eva": 8,
+        "martin": 6,
+        "helena": 5
+      },
+      "s": {
+        "ps": 3,
+        "smer": 2
+      },
+      "e": {
+        "deficit": 0.1
+      }
     },
     "nezamestn": {
-      "p": { "peter": 7, "robert": 6, "helena": 5, "maria": 5 },
-      "s": { "smer": 4, "hlas": 3, "unions": 5 },
-      "e": { "unemp": -0.3 }
+      "p": {
+        "peter": 7,
+        "robert": 6,
+        "helena": 5,
+        "maria": 5
+      },
+      "s": {
+        "smer": 4,
+        "hlas": 3,
+        "unions": 5
+      },
+      "e": {
+        "unemp": -0.3
+      }
     },
     "dôchod": {
-      "p": { "maria": 8, "jozef": 5, "eva": 4 },
-      "s": { "smer": 5, "hlas": 4 },
-      "e": { "deficit": 0.2 }
+      "p": {
+        "maria": 8,
+        "jozef": 5,
+        "eva": 4
+      },
+      "s": {
+        "smer": 5,
+        "hlas": 4
+      },
+      "e": {
+        "deficit": 0.2
+      }
     },
     "dochod": {
-      "p": { "maria": 8, "jozef": 5, "eva": 4 },
-      "s": { "smer": 5, "hlas": 4 },
-      "e": { "deficit": 0.2 }
-    },
-    "plat": {
-      "p": { "eva": 7, "peter": 6, "helena": 5, "zuzana": 6 },
-      "s": { "unions": 5, "smer": 3 },
-      "e": { "deficit": 0.1, "infl": 0.1 }
+      "p": {
+        "maria": 8,
+        "jozef": 5,
+        "eva": 4
+      },
+      "s": {
+        "smer": 5,
+        "hlas": 4
+      },
+      "e": {
+        "deficit": 0.2
+      }
     },
     "bývan": {
-      "p": { "martin": 7, "katarina": 5, "helena": 6 },
-      "s": { "ps": 4, "hlas": 3 },
-      "e": { "deficit": 0.15 }
+      "p": {
+        "martin": 7,
+        "katarina": 5,
+        "helena": 6
+      },
+      "s": {
+        "ps": 4,
+        "hlas": 3
+      },
+      "e": {
+        "deficit": 0.15
+      }
     },
     "byvan": {
-      "p": { "martin": 7, "katarina": 5, "helena": 6 },
-      "s": { "ps": 4, "hlas": 3 },
-      "e": { "deficit": 0.15 }
+      "p": {
+        "martin": 7,
+        "katarina": 5,
+        "helena": 6
+      },
+      "s": {
+        "ps": 4,
+        "hlas": 3
+      },
+      "e": {
+        "deficit": 0.15
+      }
     },
     "infláci": {
-      "p": { "maria": 5, "peter": 5, "eva": 4, "helena": 4 },
-      "s": { "business": 4, "smer": 3 },
-      "e": { "infl": -0.5, "deficit": -0.1 }
+      "p": {
+        "maria": 5,
+        "peter": 5,
+        "eva": 4,
+        "helena": 4
+      },
+      "s": {
+        "business": 4,
+        "smer": 3
+      },
+      "e": {
+        "infl": -0.5,
+        "deficit": -0.1
+      }
     },
     "inflaci": {
-      "p": { "maria": 5, "peter": 5, "eva": 4, "helena": 4 },
-      "s": { "business": 4, "smer": 3 },
-      "e": { "infl": -0.5, "deficit": -0.1 }
+      "p": {
+        "maria": 5,
+        "peter": 5,
+        "eva": 4,
+        "helena": 4
+      },
+      "s": {
+        "business": 4,
+        "smer": 3
+      },
+      "e": {
+        "infl": -0.5,
+        "deficit": -0.1
+      }
     },
     "cen": {
-      "p": { "maria": 5, "peter": 4, "helena": 4 },
-      "s": { "smer": 3 },
-      "e": { "infl": -0.3 }
+      "p": {
+        "maria": 5,
+        "peter": 4,
+        "helena": 4
+      },
+      "s": {
+        "smer": 3
+      },
+      "e": {
+        "infl": -0.3
+      }
     },
     "konsolidáci": {
-      "p": { "tomas": 5, "katarina": 4 },
-      "s": { "business": 5, "eu_nato": 3 },
-      "e": { "deficit": -0.3, "infl": -0.2 }
+      "p": {
+        "tomas": 5,
+        "katarina": 4
+      },
+      "s": {
+        "business": 5,
+        "eu_nato": 3
+      },
+      "e": {
+        "deficit": -0.3,
+        "infl": -0.2
+      }
     },
     "konsolidaci": {
-      "p": { "tomas": 5, "katarina": 4 },
-      "s": { "business": 5, "eu_nato": 3 },
-      "e": { "deficit": -0.3, "infl": -0.2 }
+      "p": {
+        "tomas": 5,
+        "katarina": 4
+      },
+      "s": {
+        "business": 5,
+        "eu_nato": 3
+      },
+      "e": {
+        "deficit": -0.3,
+        "infl": -0.2
+      }
     },
     "úspor": {
-      "p": { "tomas": 4, "katarina": 3, "maria": -4, "peter": -3 },
-      "s": { "business": 4, "eu_nato": 3, "smer": -3 },
-      "e": { "deficit": -0.4, "infl": -0.2, "gdpGrowth": -0.1 }
+      "p": {
+        "tomas": 4,
+        "katarina": 3,
+        "maria": -4,
+        "peter": -3
+      },
+      "s": {
+        "business": 4,
+        "eu_nato": 3,
+        "smer": -3
+      },
+      "e": {
+        "deficit": -0.4,
+        "infl": -0.2,
+        "gdpGrowth": -0.1
+      }
     },
     "uspor": {
-      "p": { "tomas": 4, "katarina": 3, "maria": -4, "peter": -3 },
-      "s": { "business": 4, "eu_nato": 3, "smer": -3 },
-      "e": { "deficit": -0.4, "infl": -0.2, "gdpGrowth": -0.1 }
+      "p": {
+        "tomas": 4,
+        "katarina": 3,
+        "maria": -4,
+        "peter": -3
+      },
+      "s": {
+        "business": 4,
+        "eu_nato": 3,
+        "smer": -3
+      },
+      "e": {
+        "deficit": -0.4,
+        "infl": -0.2,
+        "gdpGrowth": -0.1
+      }
     },
     "doprav": {
-      "p": { "peter": 5, "jozef": 5, "eva": 4 },
-      "s": { "business": 4 },
-      "e": { "gdpGrowth": 0.1, "deficit": 0.1 }
+      "p": {
+        "peter": 5,
+        "jozef": 5,
+        "eva": 4
+      },
+      "s": {
+        "business": 4
+      },
+      "e": {
+        "gdpGrowth": 0.1,
+        "deficit": 0.1
+      }
     },
     "turizm": {
-      "p": { "jozef": 5, "eva": 4, "helena": 4 },
-      "s": { "business": 4 },
-      "e": { "gdpGrowth": 0.1, "unemp": -0.2 }
+      "p": {
+        "jozef": 5,
+        "eva": 4,
+        "helena": 4
+      },
+      "s": {
+        "business": 4
+      },
+      "e": {
+        "gdpGrowth": 0.1,
+        "unemp": -0.2
+      }
     }
   },
   "forcedEvents": [

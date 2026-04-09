@@ -5,7 +5,30 @@
     "headerTitle": "Robert Fico",
     "saveKey": "spm_fico3_save",
     "pellegriniMonth": -1,
-    "presidentName": "Andrej Kiska"
+    "presidentName": "Andrej Kiska",
+    "realComparison": {
+      "approval": {
+        "value": 25,
+        "label": "Reálna podpora na konci"
+      },
+      "gdpGrowth": {
+        "value": 3.2,
+        "label": "Reálny rast HDP"
+      },
+      "unemployment": {
+        "value": 6.6,
+        "label": "Reálna nezamestnanosť"
+      },
+      "inflation": {
+        "value": 2.5,
+        "label": "Reálna inflácia"
+      },
+      "lasted": {
+        "value": 24,
+        "label": "Reálne mesiacov vo funkcii"
+      },
+      "verdict": "Vražda Kuciaka a protesty Za slušné Slovensko prinútili Fica rezignovať po 24 mesiacoch."
+    }
   },
   "calendar": {
     "startMonthOffset": 2,

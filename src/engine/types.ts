@@ -109,6 +109,20 @@ export interface TitleScreenConfig {
   startButtonText: string;
 }
 
+export interface RealComparisonStat {
+  value: number;
+  label: string;
+}
+
+export interface RealComparison {
+  approval: RealComparisonStat;
+  gdpGrowth: RealComparisonStat;
+  unemployment: RealComparisonStat;
+  inflation: RealComparisonStat;
+  lasted: RealComparisonStat;
+  verdict: string;
+}
+
 export interface EraMeta {
   id: string;
   pmName: string;
@@ -119,6 +133,7 @@ export interface EraMeta {
   presidentFriendly?: string;
   currency?: string;
   currencyBig?: string;
+  realComparison?: RealComparison;
 }
 
 export interface EconomyState {

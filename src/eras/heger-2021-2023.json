@@ -5,7 +5,30 @@
     "headerTitle": "Eduard Heger",
     "saveKey": "spm_heger_save",
     "pellegriniMonth": -1,
-    "presidentName": "Zuzana Čaputová"
+    "presidentName": "Zuzana Čaputová",
+    "realComparison": {
+      "approval": {
+        "value": 12,
+        "label": "Reálna podpora na konci"
+      },
+      "gdpGrowth": {
+        "value": 1.7,
+        "label": "Reálny rast HDP"
+      },
+      "unemployment": {
+        "value": 6.3,
+        "label": "Reálna nezamestnanosť"
+      },
+      "inflation": {
+        "value": 12.8,
+        "label": "Reálna inflácia"
+      },
+      "lasted": {
+        "value": 20,
+        "label": "Reálne mesiacov vo funkcii"
+      },
+      "verdict": "Heger daroval S-300 Ukrajine ale koalícia sa rozpadla. Najvyššia inflácia za 22 rokov."
+    }
   },
   "calendar": {
     "startMonthOffset": 3,
@@ -3091,10 +3114,7 @@
       "eu": 0,
       "rusko": 0,
       "social": 0,
-      "media": 0,
-      "justicia": 0,
-      "migracia": 0,
-      "identita": 0
+      "media": 0
     },
     "personaBaseScores": {
       "smer": 30,

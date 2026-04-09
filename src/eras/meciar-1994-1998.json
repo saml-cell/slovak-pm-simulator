@@ -7,7 +7,30 @@
     "pellegriniMonth": -1,
     "presidentName": "Michal Kováč",
     "currency": "Sk",
-    "currencyBig": "mld Sk"
+    "currencyBig": "mld Sk",
+    "realComparison": {
+      "approval": {
+        "value": 30,
+        "label": "Reálna podpora na konci"
+      },
+      "gdpGrowth": {
+        "value": 6.2,
+        "label": "Reálny rast HDP"
+      },
+      "unemployment": {
+        "value": 15.6,
+        "label": "Reálna nezamestnanosť"
+      },
+      "inflation": {
+        "value": 6.7,
+        "label": "Reálna inflácia"
+      },
+      "lasted": {
+        "value": 48,
+        "label": "Reálne mesiacov vo funkcii"
+      },
+      "verdict": "Mečiar prehral voľby 1998. Slovensko bolo vylúčené z prvej vlny NATO a ohrozené vylúčením z EÚ."
+    }
   },
   "calendar": {
     "startMonthOffset": 11,
@@ -2930,10 +2953,8 @@
       "ekonomika": 0,
       "eu": 0,
       "rusko": 0,
-      "social": 0,
       "media": 0,
       "justicia": 0,
-      "migracia": 0,
       "identita": 0
     },
     "personaBaseScores": {

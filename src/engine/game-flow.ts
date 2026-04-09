@@ -252,6 +252,78 @@ export function gameOver(collapsed: boolean) {
     { l: 'Inflácia', v: G.econ.infl.toFixed(1) + '%' }, { l: 'Dlh', v: G.econ.debt.toFixed(1) + ' ' + (era.meta.currencyBig || 'mld €') },
   ].map(s => `<div class="game-over-stat"><div class="game-over-stat-label">${s.l}</div><div class="game-over-stat-value">${s.v}</div></div>`).join('');
 
+  // Reality comparison section
+  const rcEl = document.getElementById('realComparisonSection');
+  if (rcEl) {
+    const rc = era.meta.realComparison;
+    if (rc) {
+      const lastedReal = rc.lasted.value > 0 ? rc.lasted.value : era.totalMonths;
+      const rows: Array<{ label: string; player: string; real: string; better: boolean | null }> = [
+        {
+          label: 'Podpora',
+          player: Math.round(G.approval) + '%',
+          real: rc.approval.value + '%',
+          better: G.approval > rc.approval.value ? true : G.approval < rc.approval.value ? false : null,
+        },
+        {
+          label: 'Rast HDP',
+          player: G.econ.gdpGrowth.toFixed(1) + '%',
+          real: rc.gdpGrowth.value + '%',
+          better: G.econ.gdpGrowth > rc.gdpGrowth.value ? true : G.econ.gdpGrowth < rc.gdpGrowth.value ? false : null,
+        },
+        {
+          label: 'Nezamestnanosť',
+          player: G.econ.unemp.toFixed(1) + '%',
+          real: rc.unemployment.value + '%',
+          // lower is better for unemployment
+          better: G.econ.unemp < rc.unemployment.value ? true : G.econ.unemp > rc.unemployment.value ? false : null,
+        },
+        {
+          label: 'Inflácia',
+          player: G.econ.infl.toFixed(1) + '%',
+          real: rc.inflation.value + '%',
+          // lower is better for inflation
+          better: G.econ.infl < rc.inflation.value ? true : G.econ.infl > rc.inflation.value ? false : null,
+        },
+        {
+          label: 'Mesiace vo funkcii',
+          player: String(G.month),
+          real: lastedReal > 0 ? String(lastedReal) : 'prebieha',
+          better: G.month >= lastedReal ? true : G.month < lastedReal ? false : null,
+        },
+      ];
+      const rowsHtml = rows.map(r => {
+        const playerCol = r.better === true ? 'var(--green)' : r.better === false ? 'var(--red)' : '#fff';
+        const badge = r.better === true ? '▲' : r.better === false ? '▼' : '=';
+        return `<tr>
+          <td style="padding:6px 10px;color:var(--text-dim);font-size:.8rem">${esc(r.label)}</td>
+          <td style="padding:6px 10px;text-align:center;font-family:var(--mono);font-size:.85rem;color:${playerCol};font-weight:600">${esc(r.player)} <span style="font-size:.65rem">${badge}</span></td>
+          <td style="padding:6px 10px;text-align:center;font-family:var(--mono);font-size:.85rem;color:var(--text-dim)">${esc(r.real)}</td>
+        </tr>`;
+      }).join('');
+      rcEl.innerHTML = `<div class="dashboard-panel" style="margin-top:16px">
+        <div class="panel-title">🏛️ Porovnanie s realitou</div>
+        <table style="width:100%;border-collapse:collapse;margin:12px 0">
+          <thead>
+            <tr style="border-bottom:1px solid rgba(255,255,255,.1)">
+              <th style="padding:6px 10px;text-align:left;font-size:.75rem;color:var(--text-dim);font-weight:500">Ukazovateľ</th>
+              <th style="padding:6px 10px;text-align:center;font-size:.75rem;color:var(--gold);font-weight:500">Vy</th>
+              <th style="padding:6px 10px;text-align:center;font-size:.75rem;color:var(--text-dim);font-weight:500">Realita</th>
+            </tr>
+          </thead>
+          <tbody>${rowsHtml}</tbody>
+        </table>
+        <div style="margin-top:10px;padding:10px 12px;background:rgba(255,255,255,.04);border-radius:6px;border-left:3px solid var(--gold)">
+          <div style="font-size:.7rem;color:var(--gold);font-weight:600;margin-bottom:4px;text-transform:uppercase;letter-spacing:.05em">Ako to v realite dopadlo</div>
+          <p style="font-size:.85rem;color:var(--text-dim);margin:0;line-height:1.5">${esc(rc.verdict)}</p>
+        </div>
+        <div style="font-size:.65rem;color:var(--text-dim);margin-top:8px;text-align:center">▲ lepšie ako realita &nbsp;|&nbsp; ▼ horšie ako realita</div>
+      </div>`;
+    } else {
+      rcEl.innerHTML = '';
+    }
+  }
+
   el('approvalChart').innerHTML = G.approvalH.map((v, i) =>
     `<div class="chart-bar" style="height:${(v / 100) * 160}px"><div class="chart-bar-label">${i % 6 === 0 ? getCalendarDate(i).substring(0, 3) : ''}</div></div>`
   ).join('');

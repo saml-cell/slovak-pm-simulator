@@ -8,7 +8,30 @@
     "presidentName": "Michal Kováč",
     "presidentFriendly": "Rudolf Schuster",
     "currency": "Sk",
-    "currencyBig": "mld Sk"
+    "currencyBig": "mld Sk",
+    "realComparison": {
+      "approval": {
+        "value": 25,
+        "label": "Reálna podpora na konci"
+      },
+      "gdpGrowth": {
+        "value": 5.4,
+        "label": "Reálny rast HDP"
+      },
+      "unemployment": {
+        "value": 18.5,
+        "label": "Reálna nezamestnanosť"
+      },
+      "inflation": {
+        "value": 3.3,
+        "label": "Reálna inflácia"
+      },
+      "lasted": {
+        "value": 96,
+        "label": "Reálne mesiacov vo funkcii"
+      },
+      "verdict": "Dzurinda doviedol Slovensko do EÚ a NATO (2004). Reformy boleli ale priniesli \"Tatranského tigra\"."
+    }
   },
   "calendar": {
     "startMonthOffset": 9,
@@ -1613,84 +1636,263 @@
       }
     },
     "automobilka": {
-      "p": { "peter_r": 8, "tibor": 7, "helena_d": 5 },
-      "s": { "business_dz": 8, "sdk": 5, "unions_dz": 4 },
-      "e": { "gdpGrowth": 0.2, "unemp": -0.5 }
+      "p": {
+        "peter_r": 8,
+        "tibor": 7,
+        "helena_d": 5
+      },
+      "s": {
+        "business_dz": 8,
+        "sdk": 5,
+        "unions_dz": 4
+      },
+      "e": {
+        "gdpGrowth": 0.2,
+        "unemp": -0.5
+      }
     },
     "rovn": {
-      "p": { "tibor": 8, "jana": 5, "peter_r": -5, "maria_d": -6, "robert_b": -8 },
-      "s": { "business_dz": 8, "sdk": 6, "sdl": -8, "hzds": -5, "unions_dz": -6 },
-      "e": { "gdpGrowth": 0.15, "deficit": -0.2 }
+      "p": {
+        "tibor": 8,
+        "jana": 5,
+        "peter_r": -5,
+        "maria_d": -6,
+        "robert_b": -8
+      },
+      "s": {
+        "business_dz": 8,
+        "sdk": 6,
+        "sdl": -8,
+        "hzds": -5,
+        "unions_dz": -6
+      },
+      "e": {
+        "gdpGrowth": 0.15,
+        "deficit": -0.2
+      }
     },
     "dochodk": {
-      "p": { "maria_d": -6, "peter_r": -4, "tibor": 5, "jana": 3 },
-      "s": { "sdk": 4, "sdl": -6, "hzds": -5 },
-      "e": { "deficit": 0.3 }
+      "p": {
+        "maria_d": -6,
+        "peter_r": -4,
+        "tibor": 5,
+        "jana": 3
+      },
+      "s": {
+        "sdk": 4,
+        "sdl": -6,
+        "hzds": -5
+      },
+      "e": {
+        "deficit": 0.3
+      }
     },
     "pracovn": {
-      "p": { "peter_r": -5, "robert_b": -7, "tibor": 6, "helena_d": 4 },
-      "s": { "unions_dz": -8, "business_dz": 7, "sdk": 4 },
-      "e": { "unemp": -0.3, "gdpGrowth": 0.08 }
+      "p": {
+        "peter_r": -5,
+        "robert_b": -7,
+        "tibor": 6,
+        "helena_d": 4
+      },
+      "s": {
+        "unions_dz": -8,
+        "business_dz": 7,
+        "sdk": 4
+      },
+      "e": {
+        "unemp": -0.3,
+        "gdpGrowth": 0.08
+      }
     },
     "kosovo": {
-      "p": { "jana": 5, "tibor": 4, "maria_d": -5, "robert_b": -4 },
-      "s": { "eu_nato": 6, "hzds": -6, "sns": -8 },
-      "dp": { "nato_r": 4, "usa": 3 }
+      "p": {
+        "jana": 5,
+        "tibor": 4,
+        "maria_d": -5,
+        "robert_b": -4
+      },
+      "s": {
+        "eu_nato": 6,
+        "hzds": -6,
+        "sns": -8
+      },
+      "dp": {
+        "nato_r": 4,
+        "usa": 3
+      }
     },
     "schengen": {
-      "p": { "jana": 6, "helena_d": 5, "tibor": 5, "laszlo": 4 },
-      "s": { "eu_nato": 5, "smk": 4, "sdk": 3 },
-      "dp": { "eu": 3 }
+      "p": {
+        "jana": 6,
+        "helena_d": 5,
+        "tibor": 5,
+        "laszlo": 4
+      },
+      "s": {
+        "eu_nato": 5,
+        "smk": 4,
+        "sdk": 3
+      },
+      "dp": {
+        "eu": 3
+      }
     },
     "euro": {
-      "p": { "jana": 6, "tibor": 6, "helena_d": 5 },
-      "s": { "eu_nato": 6, "business_dz": 5, "sdk": 4 },
-      "dp": { "eu": 3 },
-      "e": { "infl": -0.3, "deficit": -0.2 }
+      "p": {
+        "jana": 6,
+        "tibor": 6,
+        "helena_d": 5
+      },
+      "s": {
+        "eu_nato": 6,
+        "business_dz": 5,
+        "sdk": 4
+      },
+      "dp": {
+        "eu": 3
+      },
+      "e": {
+        "infl": -0.3,
+        "deficit": -0.2
+      }
     },
     "korupci": {
-      "p": { "jana": 7, "helena_d": 6, "milan_d": 5 },
-      "s": { "sdk": 5, "eu_nato": 4, "hzds": -8 }
+      "p": {
+        "jana": 7,
+        "helena_d": 6,
+        "milan_d": 5
+      },
+      "s": {
+        "sdk": 5,
+        "eu_nato": 4,
+        "hzds": -8
+      }
     },
     "visegrad": {
-      "p": { "jana": 4, "helena_d": 4, "tibor": 3 },
-      "s": { "eu_nato": 4, "sdk": 3 },
-      "dp": { "czech": 3, "poland": 3, "hungary": 2 }
+      "p": {
+        "jana": 4,
+        "helena_d": 4,
+        "tibor": 3
+      },
+      "s": {
+        "eu_nato": 4,
+        "sdk": 3
+      },
+      "dp": {
+        "czech": 3,
+        "poland": 3,
+        "hungary": 2
+      }
     },
     "iraq": {
-      "p": { "jana": -4, "maria_d": -5, "robert_b": -6, "tibor": 3 },
-      "s": { "eu_nato": 3, "hzds": -4, "sdl": -6 },
-      "dp": { "usa": 5, "nato_r": 3, "russia": -3 }
+      "p": {
+        "jana": -4,
+        "maria_d": -5,
+        "robert_b": -6,
+        "tibor": 3
+      },
+      "s": {
+        "eu_nato": 3,
+        "hzds": -4,
+        "sdl": -6
+      },
+      "dp": {
+        "usa": 5,
+        "nato_r": 3,
+        "russia": -3
+      }
     },
     "zahranicn": {
-      "p": { "tibor": 5, "jana": 4, "helena_d": 4 },
-      "s": { "business_dz": 6, "sdk": 4 },
-      "e": { "gdpGrowth": 0.1 }
+      "p": {
+        "tibor": 5,
+        "jana": 4,
+        "helena_d": 4
+      },
+      "s": {
+        "business_dz": 6,
+        "sdk": 4
+      },
+      "e": {
+        "gdpGrowth": 0.1
+      }
     },
     "slobod": {
-      "p": { "jana": 7, "helena_d": 5, "milan_d": 5 },
-      "s": { "sdk": 5, "eu_nato": 4, "hzds": -4 },
-      "dp": { "eu": 2 }
+      "p": {
+        "jana": 7,
+        "helena_d": 5,
+        "milan_d": 5
+      },
+      "s": {
+        "sdk": 5,
+        "eu_nato": 4,
+        "hzds": -4
+      },
+      "dp": {
+        "eu": 2
+      }
     },
     "kia": {
-      "p": { "peter_r": 8, "tibor": 7, "robert_b": 5 },
-      "s": { "business_dz": 8, "unions_dz": 5, "sdk": 5 },
-      "e": { "gdpGrowth": 0.2, "unemp": -0.8 }
+      "p": {
+        "peter_r": 8,
+        "tibor": 7,
+        "robert_b": 5
+      },
+      "s": {
+        "business_dz": 8,
+        "unions_dz": 5,
+        "sdk": 5
+      },
+      "e": {
+        "gdpGrowth": 0.2,
+        "unemp": -0.8
+      }
     },
     "peugeot": {
-      "p": { "peter_r": 7, "tibor": 7, "robert_b": 4 },
-      "s": { "business_dz": 7, "unions_dz": 4, "sdk": 4 },
-      "e": { "gdpGrowth": 0.15, "unemp": -0.5 }
+      "p": {
+        "peter_r": 7,
+        "tibor": 7,
+        "robert_b": 4
+      },
+      "s": {
+        "business_dz": 7,
+        "unions_dz": 4,
+        "sdk": 4
+      },
+      "e": {
+        "gdpGrowth": 0.15,
+        "unemp": -0.5
+      }
     },
     "referendum": {
-      "p": { "jana": 6, "helena_d": 5, "tibor": 5, "laszlo": 5 },
-      "s": { "eu_nato": 6, "sdk": 5, "smk": 4 },
-      "dp": { "eu": 3 }
+      "p": {
+        "jana": 6,
+        "helena_d": 5,
+        "tibor": 5,
+        "laszlo": 5
+      },
+      "s": {
+        "eu_nato": 6,
+        "sdk": 5,
+        "smk": 4
+      },
+      "dp": {
+        "eu": 3
+      }
     },
     "september": {
-      "p": { "jana": -3, "tibor": 3, "maria_d": -4 },
-      "s": { "eu_nato": 3, "hzds": -3 },
-      "dp": { "usa": 3, "nato_r": 2 }
+      "p": {
+        "jana": -3,
+        "tibor": 3,
+        "maria_d": -4
+      },
+      "s": {
+        "eu_nato": 3,
+        "hzds": -3
+      },
+      "dp": {
+        "usa": 3,
+        "nato_r": 2
+      }
     }
   },
   "consequenceChains": [
@@ -3006,9 +3208,7 @@
       "eu": 0,
       "rusko": 0,
       "social": 0,
-      "media": 0,
       "justicia": 0,
-      "migracia": 0,
       "identita": 0
     }
   },
