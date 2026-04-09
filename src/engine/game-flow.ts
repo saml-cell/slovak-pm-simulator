@@ -150,13 +150,8 @@ export function proceed(a: AnalysisResult) {
   diploFeedback(G);
   // Incumbency penalty (natural approval/stability erosion)
   incumbencyPenalty(G);
-  // Economic crisis triggers
+  // Economic crisis triggers (displayed after updateDash to avoid being overwritten)
   const crisisMsg = econCrisisCheck(G);
-  const crisisEl = document.getElementById('warningBanner');
-  if (crisisMsg && crisisEl) {
-    crisisEl.innerHTML = (crisisEl.innerHTML || '') + (crisisEl.innerHTML ? '<br>' : '') + crisisMsg;
-    crisisEl.classList.add('show');
-  }
 
   // ═══ NEW MECHANICS ═══
   okunsLaw(G);
@@ -212,6 +207,10 @@ export function proceed(a: AnalysisResult) {
     gameOver(false);
   } else {
     updateDash();
+    if (crisisMsg) {
+      const crisisEl = document.getElementById('warningBanner');
+      if (crisisEl) { crisisEl.innerHTML = (crisisEl.innerHTML || '') + (crisisEl.innerHTML ? '<br>' : '') + crisisMsg; crisisEl.classList.add('show'); }
+    }
     showScreen('dashboardScreen');
   }
 }

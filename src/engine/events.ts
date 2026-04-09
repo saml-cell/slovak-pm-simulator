@@ -77,6 +77,8 @@ export function displayEvent() {
 
   const el = (id: string) => document.getElementById(id)!;
   el('eventMonthNumber').textContent = String(G.month + 1);
+  const totalEl = document.getElementById('eventTotalMonths');
+  if (totalEl) totalEl.textContent = String(getEra().totalMonths);
   el('eventHeadline').textContent = ev.headline;
   el('eventDescription').textContent = ev.description;
   el('eventContext').textContent = ev.context;

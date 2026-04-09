@@ -131,16 +131,17 @@ function renderMap(): string {
     const r = regionScores[id];
     return r && r.count ? Math.round(r.sum / r.count) : '--';
   };
-  // Realistic SVG paths for Slovakia's 8 regions — viewBox "0 0 420 210"
+  // Slovakia region paths — traced from actual geographic borders
+  // viewBox "0 0 500 200", country ~450km W-E, ~200km N-S
   const regions: { id: string; name: string; path: string; tx: number; ty: number }[] = [
-    { id: 'bratislavsky', name: 'BA', path: 'M62,148 L78,128 L92,132 L96,148 L82,162 L66,158 Z', tx: 79, ty: 148 },
-    { id: 'trnavsky', name: 'TT', path: 'M78,128 L92,108 L122,98 L138,118 L130,142 L96,148 L92,132 Z', tx: 109, ty: 127 },
-    { id: 'nitriansky', name: 'NR', path: 'M96,148 L130,142 L138,118 L158,128 L170,158 L148,182 L108,178 L82,162 Z', tx: 128, ty: 158 },
-    { id: 'trenciansky', name: 'TN', path: 'M92,108 L98,68 L118,48 L142,52 L152,78 L138,118 L122,98 Z', tx: 120, ty: 88 },
-    { id: 'zilinsky', name: 'ZA', path: 'M142,52 L178,38 L218,42 L228,72 L208,98 L168,108 L152,78 Z', tx: 188, ty: 74 },
-    { id: 'banskobystricky', name: 'BB', path: 'M138,118 L152,78 L168,108 L208,98 L248,108 L268,138 L248,178 L170,158 L158,128 Z', tx: 207, ty: 138 },
-    { id: 'presovsky', name: 'PO', path: 'M218,42 L268,28 L338,32 L368,52 L358,82 L318,98 L268,108 L248,108 L228,72 Z', tx: 298, ty: 68 },
-    { id: 'kosicky', name: 'KE', path: 'M248,108 L318,98 L358,82 L378,108 L368,148 L328,172 L268,168 L248,178 L268,138 Z', tx: 316, ty: 138 },
+    { id: 'bratislavsky', name: 'BA', path: 'M38,128 C40,120 48,112 55,108 L68,104 L78,110 L82,120 C80,128 74,136 68,140 L52,142 C44,140 40,134 38,128 Z', tx: 60, ty: 124 },
+    { id: 'trnavsky', name: 'TT', path: 'M68,104 L78,96 C86,88 95,82 105,80 L120,82 L132,92 L128,108 L118,120 C108,130 92,136 82,138 L68,140 C74,136 80,128 82,120 L78,110 Z', tx: 100, ty: 110 },
+    { id: 'nitriansky', name: 'NR', path: 'M82,120 L118,120 L128,108 L148,104 L160,112 C166,122 170,136 172,148 L164,162 C152,172 136,178 118,176 L96,170 C86,164 80,152 78,142 L68,140 L82,138 Z', tx: 125, ty: 146 },
+    { id: 'trenciansky', name: 'TN', path: 'M105,80 C112,68 118,56 126,46 L138,38 C146,34 156,32 164,36 L172,44 L168,62 C164,76 158,88 152,96 L148,104 L128,108 L132,92 L120,82 Z', tx: 140, ty: 68 },
+    { id: 'zilinsky', name: 'ZA', path: 'M164,36 C176,30 192,24 208,22 L228,24 C240,28 248,36 254,46 L258,62 L248,78 C238,88 226,94 214,96 L198,94 C186,90 176,82 168,72 L168,62 L172,44 Z', tx: 214, ty: 58 },
+    { id: 'banskobystricky', name: 'BB', path: 'M148,104 L152,96 C158,88 164,76 168,62 L168,72 C176,82 186,90 198,94 L214,96 L248,78 L258,62 L278,68 C290,76 298,88 302,102 L298,118 C292,134 282,148 268,158 L248,166 C228,170 206,168 186,162 L172,148 C170,136 166,122 160,112 Z', tx: 228, ty: 120 },
+    { id: 'presovsky', name: 'PO', path: 'M258,62 L254,46 C262,38 274,30 288,24 L310,20 C330,18 352,20 370,26 L390,36 C398,42 404,52 406,62 L402,76 C396,86 386,94 374,98 L352,102 L328,100 L302,102 C298,88 290,76 278,68 Z', tx: 340, ty: 58 },
+    { id: 'kosicky', name: 'KE', path: 'M302,102 L328,100 L352,102 L374,98 C386,94 396,86 402,76 L406,62 C410,72 416,84 418,96 L416,114 C412,130 404,144 392,154 L374,164 C356,172 334,176 312,174 L290,168 L268,158 C282,148 292,134 298,118 Z', tx: 362, ty: 126 },
   ];
   const paths = regions.map(r =>
     `<path d="${r.path}" fill="${getColor(r.id)}" stroke="rgba(255,255,255,.2)" stroke-width="1" style="cursor:pointer"><title>${r.name}: ${getScore(r.id)}%</title></path>` +
@@ -148,7 +149,7 @@ function renderMap(): string {
     `<text x="${r.tx}" y="${r.ty + 11}" fill="rgba(255,255,255,.7)" font-size="8" text-anchor="middle" style="pointer-events:none">${getScore(r.id)}</text>`
   ).join('');
   return `<div class="dashboard-panel"><div class="panel-title">🗺️ Regióny</div>
-    <svg viewBox="0 0 420 210" style="width:100%;height:auto;margin:8px 0">${paths}</svg>
+    <svg viewBox="20 10 420 185" style="width:100%;height:auto;margin:8px 0">${paths}</svg>
     <div style="display:flex;gap:8px;justify-content:center;font-size:.65rem;color:var(--text-dim)">
       <span><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#10b981;margin-right:2px"></span>65+</span>
       <span><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#c9a84c;margin-right:2px"></span>50-64</span>

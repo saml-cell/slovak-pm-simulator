@@ -57,9 +57,12 @@ export function kwScore(policy: string): AnalysisResult {
   era.stakeholders.forEach(s => { a.sScores[s.id] = G.sScores[s.id] || 50; });
   era.diplomacy.forEach(d => { a.diploFx[d.key] = 0; });
 
-  // Apply keyword effects
+  // Apply keyword effects (short keywords use word-boundary matching to avoid false positives)
   Object.entries(era.keywords).forEach(([kw, fx]) => {
-    if (low.includes(kw)) {
+    const matched = kw.length <= 3
+      ? new RegExp(`(?:^|[\\s,;.!?()"])${kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?:$|[\\s,;.!?()"])`, 'i').test(low)
+      : low.includes(kw);
+    if (matched) {
       if (fx.p) Object.entries(fx.p).forEach(([pid, d]) => { a.pScores[pid] = (a.pScores[pid] || 50) + d; });
       if (fx.s) Object.entries(fx.s).forEach(([sid, d]) => { a.sScores[sid] = (a.sScores[sid] || 50) + d; });
       if (fx.dp) Object.entries(fx.dp).forEach(([k, d]) => { a.diploFx[k] = (a.diploFx[k] || 0) + d; });
