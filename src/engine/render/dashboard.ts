@@ -131,24 +131,24 @@ function renderMap(): string {
     const r = regionScores[id];
     return r && r.count ? Math.round(r.sum / r.count) : '--';
   };
-  // Simplified SVG paths for Slovakia's 8 regions (approximate)
+  // Realistic SVG paths for Slovakia's 8 regions — viewBox "0 0 420 210"
   const regions: { id: string; name: string; path: string; tx: number; ty: number }[] = [
-    { id: 'bratislavsky', name: 'BA', path: 'M30,85 L45,75 L55,85 L45,100 Z', tx: 40, ty: 90 },
-    { id: 'trnavsky', name: 'TT', path: 'M55,70 L80,55 L95,70 L85,90 L55,85 Z', tx: 72, ty: 75 },
-    { id: 'nitriansky', name: 'NR', path: 'M55,85 L85,90 L95,110 L70,120 L50,105 Z', tx: 73, ty: 100 },
-    { id: 'trenciansky', name: 'TN', path: 'M80,30 L105,20 L115,45 L95,70 L80,55 Z', tx: 95, ty: 45 },
-    { id: 'zilinsky', name: 'ZA', path: 'M105,20 L140,15 L155,40 L140,60 L115,45 Z', tx: 130, ty: 38 },
-    { id: 'banskobystricky', name: 'BB', path: 'M95,70 L140,60 L165,80 L155,110 L95,110 Z', tx: 128, ty: 88 },
-    { id: 'presovsky', name: 'PO', path: 'M155,40 L200,25 L215,55 L200,70 L165,80 L155,60 Z', tx: 183, ty: 52 },
-    { id: 'kosicky', name: 'KE', path: 'M165,80 L200,70 L220,95 L200,120 L155,110 Z', tx: 190, ty: 95 },
+    { id: 'bratislavsky', name: 'BA', path: 'M62,148 L78,128 L92,132 L96,148 L82,162 L66,158 Z', tx: 79, ty: 148 },
+    { id: 'trnavsky', name: 'TT', path: 'M78,128 L92,108 L122,98 L138,118 L130,142 L96,148 L92,132 Z', tx: 109, ty: 127 },
+    { id: 'nitriansky', name: 'NR', path: 'M96,148 L130,142 L138,118 L158,128 L170,158 L148,182 L108,178 L82,162 Z', tx: 128, ty: 158 },
+    { id: 'trenciansky', name: 'TN', path: 'M92,108 L98,68 L118,48 L142,52 L152,78 L138,118 L122,98 Z', tx: 120, ty: 88 },
+    { id: 'zilinsky', name: 'ZA', path: 'M142,52 L178,38 L218,42 L228,72 L208,98 L168,108 L152,78 Z', tx: 188, ty: 74 },
+    { id: 'banskobystricky', name: 'BB', path: 'M138,118 L152,78 L168,108 L208,98 L248,108 L268,138 L248,178 L170,158 L158,128 Z', tx: 207, ty: 138 },
+    { id: 'presovsky', name: 'PO', path: 'M218,42 L268,28 L338,32 L368,52 L358,82 L318,98 L268,108 L248,108 L228,72 Z', tx: 298, ty: 68 },
+    { id: 'kosicky', name: 'KE', path: 'M248,108 L318,98 L358,82 L378,108 L368,148 L328,172 L268,168 L248,178 L268,138 Z', tx: 316, ty: 138 },
   ];
   const paths = regions.map(r =>
     `<path d="${r.path}" fill="${getColor(r.id)}" stroke="rgba(255,255,255,.2)" stroke-width="1" style="cursor:pointer"><title>${r.name}: ${getScore(r.id)}%</title></path>` +
-    `<text x="${r.tx}" y="${r.ty}" fill="#fff" font-size="8" text-anchor="middle" font-weight="700" style="pointer-events:none">${r.name}</text>` +
-    `<text x="${r.tx}" y="${r.ty + 10}" fill="rgba(255,255,255,.7)" font-size="7" text-anchor="middle" style="pointer-events:none">${getScore(r.id)}</text>`
+    `<text x="${r.tx}" y="${r.ty}" fill="#fff" font-size="9" text-anchor="middle" font-weight="700" style="pointer-events:none">${r.name}</text>` +
+    `<text x="${r.tx}" y="${r.ty + 11}" fill="rgba(255,255,255,.7)" font-size="8" text-anchor="middle" style="pointer-events:none">${getScore(r.id)}</text>`
   ).join('');
   return `<div class="dashboard-panel"><div class="panel-title">🗺️ Regióny</div>
-    <svg viewBox="20 10 210 120" style="width:100%;height:auto;margin:8px 0">${paths}</svg>
+    <svg viewBox="0 0 420 210" style="width:100%;height:auto;margin:8px 0">${paths}</svg>
     <div style="display:flex;gap:8px;justify-content:center;font-size:.65rem;color:var(--text-dim)">
       <span><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#10b981;margin-right:2px"></span>65+</span>
       <span><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#c9a84c;margin-right:2px"></span>50-64</span>
