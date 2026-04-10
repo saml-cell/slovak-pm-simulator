@@ -3059,5 +3059,101 @@
       "du": "DÚ",
       "smk": "SMK"
     }
+  },
+  "court": {
+    "judges": [
+      { "id": "cic", "name": "Milan Čič", "ideology": 6, "competence": 7, "conviction": 5, "loyalty": 6, "termEnd": 24, "isChair": true },
+      { "id": "sramek", "name": "Juraj Šrámek", "ideology": 5, "competence": 6, "conviction": 6, "loyalty": 4, "termEnd": 36, "isChair": false },
+      { "id": "fodor", "name": "Tibor Šafárik", "ideology": 6, "competence": 5, "conviction": 5, "loyalty": 5, "termEnd": 30, "isChair": false },
+      { "id": "ogurcan", "name": "Ján Ogurčák", "ideology": 4, "competence": 7, "conviction": 7, "loyalty": 3, "termEnd": -1, "isChair": false },
+      { "id": "brzobohatá", "name": "Eva Brzobohatá", "ideology": 5, "competence": 6, "conviction": 6, "loyalty": 4, "termEnd": 42, "isChair": false },
+      { "id": "drgonec", "name": "Ján Drgonec", "ideology": 3, "competence": 9, "conviction": 8, "loyalty": 2, "termEnd": -1, "isChair": false },
+      { "id": "cernak", "name": "Štefan Ogurčák", "ideology": 7, "competence": 5, "conviction": 4, "loyalty": 7, "termEnd": -1, "isChair": false },
+      { "id": "kresak", "name": "Peter Kresák", "ideology": 4, "competence": 7, "conviction": 7, "loyalty": 3, "termEnd": -1, "isChair": false },
+      { "id": "baranová", "name": "Viera Baranová", "ideology": 5, "competence": 6, "conviction": 5, "loyalty": 5, "termEnd": 18, "isChair": false },
+      { "id": "slotka", "name": "Ladislav Orosz", "ideology": 6, "competence": 6, "conviction": 5, "loyalty": 6, "termEnd": -1, "isChair": false }
+    ],
+    "candidates": [
+      { "id": "cand_mazak", "name": "Ján Mazák", "ideology": 3, "competence": 9, "conviction": 8, "loyalty": 2, "bio": "Sudca známy nezávislosťou a odbornosťou. Kritik autoritárskych tendencií." },
+      { "id": "cand_svecova", "name": "Anna Švecová", "ideology": 5, "competence": 6, "conviction": 6, "loyalty": 5, "bio": "Právnička z Bratislavy, centristka s dlhoročnou praxou na krajskom súde." },
+      { "id": "cand_lauko", "name": "Vladimír Lauko", "ideology": 7, "competence": 5, "conviction": 4, "loyalty": 8, "bio": "Právny poradca HZDS. Oddaný Mečiarovej línii." },
+      { "id": "cand_moravcik", "name": "Tibor Moravčík", "ideology": 4, "competence": 7, "conviction": 7, "loyalty": 3, "bio": "Odborník na ústavné právo z Trnavskej univerzity." },
+      { "id": "cand_brostl", "name": "Ján Brostal", "ideology": 3, "competence": 8, "conviction": 8, "loyalty": 2, "bio": "Profesor práva na UPJŠ Košice. Demokraticky orientovaný." },
+      { "id": "cand_reznak", "name": "Peter Režnák", "ideology": 7, "competence": 4, "conviction": 3, "loyalty": 9, "bio": "Advokát blízky vládnej koalícii. Obhajoval záujmy HZDS v súdnych sporoch." },
+      { "id": "cand_bartova", "name": "Marta Bartová", "ideology": 6, "competence": 5, "conviction": 5, "loyalty": 6, "bio": "Prokurátorka generálnej prokuratúry. Pragmatička, národne orientovaná." },
+      { "id": "cand_kollar", "name": "Dušan Kollár", "ideology": 4, "competence": 7, "conviction": 7, "loyalty": 3, "bio": "Nezávislý sudca Najvyššieho súdu SR. Odporca politického vplyvu na justíciu." }
+    ]
+  },
+  "cabinet": {
+    "ministries": [
+      { "id": "mv", "name": "Ministerstvo vnútra", "emoji": "🛡️", "domain": ["polícia", "bezpečnosť", "SIS", "migrácia"], "allocatedTo": "hzds" },
+      { "id": "mf", "name": "Ministerstvo financií", "emoji": "💰", "domain": ["dane", "rozpočet", "privatizácia", "ekonomika"], "allocatedTo": "hzds" },
+      { "id": "ms", "name": "Ministerstvo spravodlivosti", "emoji": "⚖️", "domain": ["justícia", "súdy", "právny štát"], "allocatedTo": "hzds" },
+      { "id": "mzv", "name": "Ministerstvo zahraničných vecí", "emoji": "🌍", "domain": ["diplomacia", "EÚ", "NATO", "V4"], "allocatedTo": "hzds" },
+      { "id": "mo", "name": "Ministerstvo obrany", "emoji": "🎖️", "domain": ["armáda", "NATO", "obrana"], "allocatedTo": "hzds" },
+      { "id": "mh", "name": "Ministerstvo hospodárstva", "emoji": "🏭", "domain": ["priemysel", "privatizácia", "investície", "podnikanie"], "allocatedTo": "hzds" },
+      { "id": "mpsvr", "name": "Ministerstvo práce", "emoji": "👷", "domain": ["sociálna", "dôchodky", "zamestnanosť"], "allocatedTo": "zrs" },
+      { "id": "mz", "name": "Ministerstvo zdravotníctva", "emoji": "🏥", "domain": ["zdravotníctvo", "nemocnice", "lekári"], "allocatedTo": "zrs" },
+      { "id": "msmt", "name": "Ministerstvo školstva", "emoji": "📚", "domain": ["školstvo", "veda", "univerzity"], "allocatedTo": "sns_c" },
+      { "id": "mdv", "name": "Ministerstvo dopravy", "emoji": "🚄", "domain": ["doprava", "infraštruktúra", "pošta", "telekomunikácie"], "allocatedTo": "sns_c" },
+      { "id": "mzp", "name": "Ministerstvo životného prostredia", "emoji": "🌿", "domain": ["ekológia", "voda", "lesy"], "allocatedTo": "hzds" },
+      { "id": "mk", "name": "Ministerstvo kultúry", "emoji": "🎭", "domain": ["kultúra", "STV", "médiá", "pamiatky"], "allocatedTo": "sns_c" },
+      { "id": "mprv", "name": "Ministerstvo pôdohospodárstva", "emoji": "🌾", "domain": ["poľnohospodárstvo", "potraviny", "vidiek"], "allocatedTo": "hzds" }
+    ],
+    "ministers": [
+      { "id": "hudek", "name": "Ľudovít Hudek", "party": "hzds", "ministry": "mv", "ideology": 7, "competence": 5, "loyalty": 9, "partyLoyalty": 9, "corruption": 8, "publicProfile": 7 },
+      { "id": "kozlik", "name": "Sergej Kozlík", "party": "hzds", "ministry": "mf", "ideology": 6, "competence": 6, "loyalty": 8, "partyLoyalty": 9, "corruption": 6, "publicProfile": 5 },
+      { "id": "baco", "name": "Jozef Liščák", "party": "hzds", "ministry": "ms", "ideology": 7, "competence": 4, "loyalty": 8, "partyLoyalty": 8, "corruption": 5, "publicProfile": 4 },
+      { "id": "schenk", "name": "Pavol Hamžík", "party": "hzds", "ministry": "mzv", "ideology": 6, "competence": 6, "loyalty": 7, "partyLoyalty": 8, "corruption": 3, "publicProfile": 6 },
+      { "id": "sitek", "name": "Ján Sitek", "party": "hzds", "ministry": "mo", "ideology": 7, "competence": 5, "loyalty": 9, "partyLoyalty": 9, "corruption": 5, "publicProfile": 5 },
+      { "id": "kalman", "name": "Jozef Kalman", "party": "hzds", "ministry": "mh", "ideology": 7, "competence": 5, "loyalty": 8, "partyLoyalty": 9, "corruption": 7, "publicProfile": 5 },
+      { "id": "tkac", "name": "Vojtech Tkáč", "party": "zrs", "ministry": "mpsvr", "ideology": 8, "competence": 5, "loyalty": 6, "partyLoyalty": 8, "corruption": 4, "publicProfile": 4 },
+      { "id": "javorcik", "name": "Ľubomír Javorčík", "party": "zrs", "ministry": "mz", "ideology": 7, "competence": 4, "loyalty": 5, "partyLoyalty": 7, "corruption": 5, "publicProfile": 3 },
+      { "id": "slavkovska", "name": "Eva Slavkovská", "party": "sns_c", "ministry": "msmt", "ideology": 8, "competence": 4, "loyalty": 5, "partyLoyalty": 8, "corruption": 3, "publicProfile": 5 },
+      { "id": "rezesm", "name": "Alexander Rezeš", "party": "hzds", "ministry": "mdv", "ideology": 7, "competence": 5, "loyalty": 7, "partyLoyalty": 8, "corruption": 7, "publicProfile": 6 },
+      { "id": "zlocha", "name": "Jozef Zlocha", "party": "hzds", "ministry": "mzp", "ideology": 6, "competence": 5, "loyalty": 7, "partyLoyalty": 8, "corruption": 4, "publicProfile": 3 },
+      { "id": "hudec_k", "name": "Ivan Hudec", "party": "sns_c", "ministry": "mk", "ideology": 8, "competence": 4, "loyalty": 5, "partyLoyalty": 8, "corruption": 4, "publicProfile": 5 },
+      { "id": "baco_p", "name": "Peter Baco", "party": "hzds", "ministry": "mprv", "ideology": 7, "competence": 6, "loyalty": 8, "partyLoyalty": 9, "corruption": 5, "publicProfile": 4 }
+    ],
+    "candidates": [
+      { "id": "cand_minist_1", "name": "Ivan Lexa", "party": "hzds", "ideology": 8, "competence": 6, "loyalty": 10, "partyLoyalty": 10, "corruption": 8, "publicProfile": 9, "bio": "Šéf SIS, Mečiarov najvernejší muž. Obvinený z únosu, kontroverzná postava." },
+      { "id": "cand_minist_2", "name": "Augustín Marián Húska", "party": "hzds", "ideology": 7, "competence": 6, "loyalty": 9, "partyLoyalty": 10, "corruption": 4, "publicProfile": 6, "bio": "Ideológ HZDS, podpredseda NR SR. Ekonóm a politický stratég." },
+      { "id": "cand_minist_3", "name": "Vojtech Tkáč", "party": "zrs", "ideology": 8, "competence": 5, "loyalty": 6, "partyLoyalty": 8, "corruption": 4, "publicProfile": 4, "bio": "Funkcionár ZRS. Sociálne orientovaný, bývalý odborár." },
+      { "id": "cand_minist_4", "name": "Ján Slota", "party": "sns_c", "ideology": 9, "competence": 3, "loyalty": 4, "partyLoyalty": 10, "corruption": 6, "publicProfile": 9, "bio": "Predseda SNS. Kontroverzný nacionalista, primátor Žiliny." },
+      { "id": "cand_minist_5", "name": "Dušan Slobodník", "party": "hzds", "ideology": 7, "competence": 5, "loyalty": 8, "partyLoyalty": 9, "corruption": 4, "publicProfile": 5, "bio": "Diplomat z éry HZDS. Lojálny k Mečiarovi, skúsenosti v zahraničí." },
+      { "id": "cand_minist_6", "name": "Anna Malíková", "party": "sns_c", "ideology": 9, "competence": 4, "loyalty": 4, "partyLoyalty": 9, "corruption": 3, "publicProfile": 6, "bio": "Poslankyňa SNS, nacionalistka, blízka Slotovi." },
+      { "id": "cand_minist_7", "name": "Miroslav Maxon", "party": "hzds", "ideology": 6, "competence": 5, "loyalty": 7, "partyLoyalty": 8, "corruption": 5, "publicProfile": 4, "bio": "Funkcionár HZDS zo stredného Slovenska. Pragmatik." },
+      { "id": "cand_minist_8", "name": "Irena Belohorská", "party": "hzds", "ideology": 6, "competence": 6, "loyalty": 7, "partyLoyalty": 8, "corruption": 3, "publicProfile": 5, "bio": "Poslankyňa HZDS, neskôr europoslanka. Centristické krídlo." }
+    ]
+  },
+  "institutions": {
+    "institutions": [
+      { "id": "sis", "name": "Riaditeľ SIS", "emoji": "🕵️", "appointedBy": "pm_parliament", "replaceCost": 8, "description": "Slovenská informačná služba — tajná služba. PM navrhuje, parlament volí." },
+      { "id": "gp", "name": "Generálny prokurátor", "emoji": "⚖️", "appointedBy": "parliament", "replaceCost": 35, "description": "Rozhoduje o trestných stíhaniach. Takmer nemožné odvolať." },
+      { "id": "pp", "name": "Policajný prezident", "emoji": "👮", "appointedBy": "interior", "replaceCost": 10, "description": "Velí polícii. Menuje minister vnútra — kto ovláda MV, ovláda políciu." },
+      { "id": "nbs", "name": "Guvernér NBS", "emoji": "🏦", "appointedBy": "president", "replaceCost": 18, "description": "Národná banka Slovenska. Riadi menovú politiku, kľúčová pre stabilitu koruny." },
+      { "id": "stv", "name": "Riaditeľ STV", "emoji": "📺", "appointedBy": "parliament", "replaceCost": 12, "description": "Slovenská televízia. Verejnoprávne médiá, dôležitý nástroj politického vplyvu." },
+      { "id": "nku", "name": "Predseda NKÚ", "emoji": "📋", "appointedBy": "parliament", "replaceCost": 20, "description": "Najvyšší kontrolný úrad. Audituje vládne výdavky." }
+    ],
+    "heads": [
+      { "id": "head_sis", "name": "Ivan Lexa", "institution": "sis", "ideology": 8, "competence": 6, "loyalty": 10, "conviction": 2, "termEnd": -1, "appointedBy": "Mečiar 1995" },
+      { "id": "head_gp", "name": "Michal Valek", "institution": "gp", "ideology": 6, "competence": 5, "loyalty": 7, "conviction": 4, "termEnd": 36, "appointedBy": "Mečiar 1994" },
+      { "id": "head_pp", "name": "Jaroslav Svěchota", "institution": "pp", "ideology": 7, "competence": 5, "loyalty": 8, "conviction": 3, "termEnd": -1, "appointedBy": "Hudek 1995" },
+      { "id": "head_nbs", "name": "Vladimír Masár", "institution": "nbs", "ideology": 5, "competence": 7, "loyalty": 4, "conviction": 7, "termEnd": 24, "appointedBy": "Kováč 1993" },
+      { "id": "head_stv", "name": "Ján Klepáč", "institution": "stv", "ideology": 7, "competence": 4, "loyalty": 8, "conviction": 3, "termEnd": 12, "appointedBy": "Mečiar 1996" },
+      { "id": "head_nku", "name": "Štefan Balejík", "institution": "nku", "ideology": 6, "competence": 5, "loyalty": 6, "conviction": 5, "termEnd": 30, "appointedBy": "Mečiar 1994" }
+    ],
+    "candidates": [
+      { "id": "cand_inst_1", "name": "Jaroslav Svěchota", "institution": "pp", "ideology": 7, "competence": 5, "loyalty": 8, "conviction": 3, "bio": "Policajný funkcionár lojálny k ministrovi vnútra. Ochotný plniť politické pokyny." },
+      { "id": "cand_inst_2", "name": "Milan Lučanský", "institution": "pp", "ideology": 6, "competence": 6, "loyalty": 5, "conviction": 5, "bio": "Policajný dôstojník z východu, relatívne nezávislý." },
+      { "id": "cand_inst_3", "name": "Vladimír Mitro", "institution": "sis", "ideology": 4, "competence": 7, "loyalty": 3, "conviction": 7, "bio": "Spravodajský dôstojník, demokraticky orientovaný. Kritik politizácie SIS." },
+      { "id": "cand_inst_4", "name": "Anton Bobrík", "institution": "sis", "ideology": 7, "competence": 5, "loyalty": 9, "conviction": 3, "bio": "Mečiarov muž v tajných službách. Lojálny vykonávateľ rozkazov." },
+      { "id": "cand_inst_5", "name": "Milan Hanzel", "institution": "gp", "ideology": 4, "competence": 7, "loyalty": 3, "conviction": 7, "bio": "Prokurátor so záujmom o nezávislé stíhanie. Odporca politického tlaku." },
+      { "id": "cand_inst_6", "name": "Dobroslav Trnka", "institution": "gp", "ideology": 6, "competence": 5, "loyalty": 6, "conviction": 4, "bio": "Ambiciózny prokurátor. Pragmatik, prispôsobivý politickej situácii." },
+      { "id": "cand_inst_7", "name": "Ľubomír Tokár", "institution": "stv", "ideology": 6, "competence": 5, "loyalty": 7, "conviction": 4, "bio": "Mediálny manažér blízky HZDS. Ochotný prispôsobiť vysielanie vládnej línii." },
+      { "id": "cand_inst_8", "name": "Richard Rybníček", "institution": "stv", "ideology": 3, "competence": 7, "loyalty": 2, "conviction": 8, "bio": "Novinár so záujmom o nezávislé médiá. Kritik vládnej kontroly STV." },
+      { "id": "cand_inst_9", "name": "Marián Vanko", "institution": "nbs", "ideology": 5, "competence": 7, "loyalty": 4, "conviction": 6, "bio": "Ekonóm z bankovej rady NBS. Odborník na menovú politiku." },
+      { "id": "cand_inst_10", "name": "Elena Kohútiková", "institution": "nbs", "ideology": 4, "competence": 8, "loyalty": 3, "conviction": 7, "bio": "Viceguvernérka NBS. Technokratka s medzinárodným rešpektom." }
+    ]
   }
 }

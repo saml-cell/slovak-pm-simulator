@@ -1024,6 +1024,30 @@
       "desc": "Finančné inštitúcie",
       "fp": 4,
       "type": "international"
+    },
+    {
+      "id": "sdku",
+      "name": "SDKÚ-DS",
+      "desc": "Stredopravá strana Ivety Radičovej a Mikuláša Dzurindu",
+      "type": "coalition"
+    },
+    {
+      "id": "sas",
+      "name": "SaS",
+      "desc": "Sloboda a Solidarita — libertariánska strana Richarda Sulíka",
+      "type": "coalition"
+    },
+    {
+      "id": "kdh",
+      "name": "KDH",
+      "desc": "Kresťanskodemokratické hnutie — konzervatívni kresťanskí demokrati",
+      "type": "coalition"
+    },
+    {
+      "id": "mosthid",
+      "name": "Most-Híd",
+      "desc": "Most-Híd — maďarsko-slovenská strana Bélu Bugára",
+      "type": "coalition"
     }
   ],
   "diplomacy": [
@@ -2951,5 +2975,831 @@
       "partner": "sdku",
       "text": "SDKÚ-DS požaduje proeurópsky zahraničnopolitický kurz a podporu EFSF."
     }
-  ]
+  ],
+  "court": {
+    "judges": [
+      {
+        "id": "macejkova",
+        "name": "Ivetta Macejková",
+        "ideology": 7,
+        "competence": 5,
+        "conviction": 4,
+        "loyalty": 7,
+        "termEnd": -1,
+        "isChair": true
+      },
+      {
+        "id": "barik",
+        "name": "Peter Brňák",
+        "ideology": 6,
+        "competence": 6,
+        "conviction": 5,
+        "loyalty": 6,
+        "termEnd": -1,
+        "isChair": false
+      },
+      {
+        "id": "lalik",
+        "name": "Milan Ľalík",
+        "ideology": 7,
+        "competence": 5,
+        "conviction": 4,
+        "loyalty": 7,
+        "termEnd": -1,
+        "isChair": false
+      },
+      {
+        "id": "moczo",
+        "name": "Ľudmila Gajdošíková",
+        "ideology": 6,
+        "competence": 7,
+        "conviction": 6,
+        "loyalty": 5,
+        "termEnd": -1,
+        "isChair": false
+      },
+      {
+        "id": "orosz",
+        "name": "Ladislav Orosz",
+        "ideology": 4,
+        "competence": 8,
+        "conviction": 8,
+        "loyalty": 2,
+        "termEnd": -1,
+        "isChair": false
+      },
+      {
+        "id": "straka",
+        "name": "Rudolf Tkáčik",
+        "ideology": 7,
+        "competence": 5,
+        "conviction": 4,
+        "loyalty": 7,
+        "termEnd": -1,
+        "isChair": false
+      },
+      {
+        "id": "korecky",
+        "name": "Juraj Horváth",
+        "ideology": 5,
+        "competence": 6,
+        "conviction": 6,
+        "loyalty": 5,
+        "termEnd": -1,
+        "isChair": false
+      },
+      {
+        "id": "fulop",
+        "name": "Lajos Mészáros",
+        "ideology": 5,
+        "competence": 6,
+        "conviction": 6,
+        "loyalty": 5,
+        "termEnd": -1,
+        "isChair": false
+      },
+      {
+        "id": "husarova",
+        "name": "Jana Baricová",
+        "ideology": 4,
+        "competence": 7,
+        "conviction": 7,
+        "loyalty": 3,
+        "termEnd": -1,
+        "isChair": false
+      },
+      {
+        "id": "tolnai",
+        "name": "Sergej Kohut",
+        "ideology": 6,
+        "competence": 6,
+        "conviction": 5,
+        "loyalty": 5,
+        "termEnd": -1,
+        "isChair": false
+      },
+      {
+        "id": "stena",
+        "name": "Mojmír Mamojka",
+        "ideology": 7,
+        "competence": 5,
+        "conviction": 4,
+        "loyalty": 8,
+        "termEnd": -1,
+        "isChair": false
+      },
+      {
+        "id": "hornik",
+        "name": "Marianna Mochnáčová",
+        "ideology": 6,
+        "competence": 6,
+        "conviction": 5,
+        "loyalty": 6,
+        "termEnd": -1,
+        "isChair": false
+      },
+      {
+        "id": "pokryvka",
+        "name": "Ján Auxt",
+        "ideology": 5,
+        "competence": 7,
+        "conviction": 7,
+        "loyalty": 3,
+        "termEnd": -1,
+        "isChair": false
+      }
+    ],
+    "candidates": [
+      {
+        "id": "cand_fiacan",
+        "name": "Ivan Fiačan",
+        "ideology": 5,
+        "competence": 7,
+        "conviction": 6,
+        "loyalty": 4,
+        "bio": "Mladý právnik, centristický profil. Neskôr predseda ÚS."
+      },
+      {
+        "id": "cand_harabin",
+        "name": "Štefan Harabin",
+        "ideology": 8,
+        "competence": 5,
+        "conviction": 3,
+        "loyalty": 9,
+        "bio": "Kontroverzný predseda Najvyššieho súdu, blízky SMER a SNS."
+      },
+      {
+        "id": "cand_domin",
+        "name": "Daniela Ježová",
+        "ideology": 5,
+        "competence": 7,
+        "conviction": 6,
+        "loyalty": 5,
+        "bio": "Sudkyňa, centristka. Kompromisná kandidátka."
+      },
+      {
+        "id": "cand_horvath",
+        "name": "Marek Števček",
+        "ideology": 5,
+        "competence": 8,
+        "conviction": 7,
+        "loyalty": 3,
+        "bio": "Právnik, akademik. Odborník na občianske právo."
+      },
+      {
+        "id": "cand_blahova",
+        "name": "Lucia Žitňanská",
+        "ideology": 3,
+        "competence": 8,
+        "conviction": 9,
+        "loyalty": 2,
+        "bio": "Ministerka spravodlivosti SDKÚ, reform-oriented."
+      },
+      {
+        "id": "cand_gabris",
+        "name": "Ján Mazák",
+        "ideology": 4,
+        "competence": 8,
+        "conviction": 7,
+        "loyalty": 3,
+        "bio": "Bývalý predseda ÚS, rešpektovaný právnik."
+      },
+      {
+        "id": "cand_soltis",
+        "name": "Radoslav Procházka",
+        "ideology": 4,
+        "competence": 8,
+        "conviction": 8,
+        "loyalty": 3,
+        "bio": "Právnik, neskôr politik. Konzervatívny intelektuál."
+      },
+      {
+        "id": "cand_mikova",
+        "name": "Zuzana Čaputová",
+        "ideology": 3,
+        "competence": 7,
+        "conviction": 9,
+        "loyalty": 1,
+        "bio": "Právnička Via Iuris, protikorupčná aktivistka. Neskôr prezidentka."
+      }
+    ]
+  },
+  "cabinet": {
+    "ministries": [
+      {
+        "id": "mv",
+        "name": "Ministerstvo vnútra",
+        "emoji": "🛡️",
+        "domain": [
+          "polícia",
+          "bezpečnosť",
+          "migrácia",
+          "verejná správa"
+        ],
+        "allocatedTo": "kdh"
+      },
+      {
+        "id": "mf",
+        "name": "Ministerstvo financií",
+        "emoji": "💰",
+        "domain": [
+          "dane",
+          "rozpočet",
+          "fiškálna konsolidácia",
+          "eurozóna"
+        ],
+        "allocatedTo": "sdku"
+      },
+      {
+        "id": "ms",
+        "name": "Ministerstvo spravodlivosti",
+        "emoji": "⚖️",
+        "domain": [
+          "justícia",
+          "súdy",
+          "právny štát",
+          "prokuratúra"
+        ],
+        "allocatedTo": "sdku"
+      },
+      {
+        "id": "mzv",
+        "name": "Ministerstvo zahraničných vecí",
+        "emoji": "🌍",
+        "domain": [
+          "diplomacia",
+          "EÚ",
+          "NATO",
+          "V4"
+        ],
+        "allocatedTo": "sdku"
+      },
+      {
+        "id": "mo",
+        "name": "Ministerstvo obrany",
+        "emoji": "🎖️",
+        "domain": [
+          "armáda",
+          "NATO",
+          "obrana",
+          "modernizácia"
+        ],
+        "allocatedTo": "sdku"
+      },
+      {
+        "id": "mh",
+        "name": "Ministerstvo hospodárstva",
+        "emoji": "🏭",
+        "domain": [
+          "priemysel",
+          "energetika",
+          "investície",
+          "podnikanie"
+        ],
+        "allocatedTo": "sas"
+      },
+      {
+        "id": "mpsvr",
+        "name": "Ministerstvo práce",
+        "emoji": "👷",
+        "domain": [
+          "sociálna",
+          "dôchodky",
+          "minimálna mzda",
+          "zamestnanosť"
+        ],
+        "allocatedTo": "sdku"
+      },
+      {
+        "id": "mz",
+        "name": "Ministerstvo zdravotníctva",
+        "emoji": "🏥",
+        "domain": [
+          "zdravotníctvo",
+          "nemocnice",
+          "lekári",
+          "reformy"
+        ],
+        "allocatedTo": "sdku"
+      },
+      {
+        "id": "msmt",
+        "name": "Ministerstvo školstva",
+        "emoji": "📚",
+        "domain": [
+          "školstvo",
+          "veda",
+          "univerzity",
+          "učitelia"
+        ],
+        "allocatedTo": "sdku"
+      },
+      {
+        "id": "mdv",
+        "name": "Ministerstvo dopravy",
+        "emoji": "🚄",
+        "domain": [
+          "doprava",
+          "infraštruktúra",
+          "diaľnice",
+          "železnice"
+        ],
+        "allocatedTo": "sas"
+      },
+      {
+        "id": "mzp",
+        "name": "Ministerstvo životného prostredia",
+        "emoji": "🌿",
+        "domain": [
+          "ekológia",
+          "klíma",
+          "odpady",
+          "voda"
+        ],
+        "allocatedTo": "mosthid"
+      },
+      {
+        "id": "mk",
+        "name": "Ministerstvo kultúry",
+        "emoji": "🎭",
+        "domain": [
+          "kultúra",
+          "STV",
+          "médiá",
+          "pamiatky"
+        ],
+        "allocatedTo": "kdh"
+      },
+      {
+        "id": "mprv",
+        "name": "Ministerstvo pôdohospodárstva",
+        "emoji": "🌾",
+        "domain": [
+          "poľnohospodárstvo",
+          "potraviny",
+          "dotácie",
+          "vidiek"
+        ],
+        "allocatedTo": "mosthid"
+      }
+    ],
+    "ministers": [
+      {
+        "id": "lipsic",
+        "name": "Daniel Lipšic",
+        "party": "kdh",
+        "ministry": "mv",
+        "ideology": 3,
+        "competence": 8,
+        "loyalty": 5,
+        "partyLoyalty": 8,
+        "corruption": 1,
+        "publicProfile": 8
+      },
+      {
+        "id": "miklos",
+        "name": "Ivan Mikloš",
+        "party": "sdku",
+        "ministry": "mf",
+        "ideology": 2,
+        "competence": 9,
+        "loyalty": 7,
+        "partyLoyalty": 9,
+        "corruption": 2,
+        "publicProfile": 7
+      },
+      {
+        "id": "zitnanska",
+        "name": "Lucia Žitňanská",
+        "party": "sdku",
+        "ministry": "ms",
+        "ideology": 3,
+        "competence": 8,
+        "loyalty": 6,
+        "partyLoyalty": 8,
+        "corruption": 1,
+        "publicProfile": 6
+      },
+      {
+        "id": "dzurinda_mzv",
+        "name": "Mikuláš Dzurinda",
+        "party": "sdku",
+        "ministry": "mzv",
+        "ideology": 3,
+        "competence": 7,
+        "loyalty": 8,
+        "partyLoyalty": 10,
+        "corruption": 3,
+        "publicProfile": 9
+      },
+      {
+        "id": "galko",
+        "name": "Ľubomír Galko",
+        "party": "sas",
+        "ministry": "mo",
+        "ideology": 3,
+        "competence": 5,
+        "loyalty": 4,
+        "partyLoyalty": 8,
+        "corruption": 3,
+        "publicProfile": 6
+      },
+      {
+        "id": "juroscik",
+        "name": "Juraj Miškov",
+        "party": "sas",
+        "ministry": "mh",
+        "ideology": 2,
+        "competence": 6,
+        "loyalty": 4,
+        "partyLoyalty": 8,
+        "corruption": 2,
+        "publicProfile": 5
+      },
+      {
+        "id": "mihail",
+        "name": "Jozef Mihál",
+        "party": "sas",
+        "ministry": "mpsvr",
+        "ideology": 2,
+        "competence": 7,
+        "loyalty": 4,
+        "partyLoyalty": 7,
+        "corruption": 1,
+        "publicProfile": 5
+      },
+      {
+        "id": "uhliarik",
+        "name": "Ivan Uhliarik",
+        "party": "kdh",
+        "ministry": "mz",
+        "ideology": 4,
+        "competence": 6,
+        "loyalty": 5,
+        "partyLoyalty": 8,
+        "corruption": 2,
+        "publicProfile": 5
+      },
+      {
+        "id": "jurak",
+        "name": "Eugen Jurzyca",
+        "party": "sas",
+        "ministry": "msmt",
+        "ideology": 2,
+        "competence": 7,
+        "loyalty": 4,
+        "partyLoyalty": 7,
+        "corruption": 1,
+        "publicProfile": 4
+      },
+      {
+        "id": "figelovci",
+        "name": "Ján Figeľ",
+        "party": "kdh",
+        "ministry": "mdv",
+        "ideology": 4,
+        "competence": 7,
+        "loyalty": 5,
+        "partyLoyalty": 9,
+        "corruption": 2,
+        "publicProfile": 6
+      },
+      {
+        "id": "nagy",
+        "name": "József Nagy",
+        "party": "mosthid",
+        "ministry": "mzp",
+        "ideology": 3,
+        "competence": 6,
+        "loyalty": 5,
+        "partyLoyalty": 7,
+        "corruption": 2,
+        "publicProfile": 3
+      },
+      {
+        "id": "krajcer",
+        "name": "Daniel Krajcer",
+        "party": "sas",
+        "ministry": "mk",
+        "ideology": 2,
+        "competence": 5,
+        "loyalty": 4,
+        "partyLoyalty": 7,
+        "corruption": 2,
+        "publicProfile": 5
+      },
+      {
+        "id": "simon",
+        "name": "Zsolt Simon",
+        "party": "mosthid",
+        "ministry": "mprv",
+        "ideology": 4,
+        "competence": 5,
+        "loyalty": 5,
+        "partyLoyalty": 8,
+        "corruption": 4,
+        "publicProfile": 4
+      }
+    ],
+    "candidates": [
+      {
+        "id": "cand_minist_1",
+        "name": "Iveta Radičová",
+        "party": "sdku",
+        "ideology": 3,
+        "competence": 7,
+        "loyalty": 6,
+        "partyLoyalty": 8,
+        "corruption": 1,
+        "publicProfile": 9,
+        "bio": "Premiérka, sociologička. Prvá žena v čele vlády SR."
+      },
+      {
+        "id": "cand_minist_2",
+        "name": "Richard Sulík",
+        "party": "sas",
+        "ideology": 2,
+        "competence": 7,
+        "loyalty": 2,
+        "partyLoyalty": 10,
+        "corruption": 2,
+        "publicProfile": 9,
+        "bio": "Predseda SaS a parlamentu. Odmietol EFSF, čo zvrhlo vládu."
+      },
+      {
+        "id": "cand_minist_3",
+        "name": "Béla Bugár",
+        "party": "mosthid",
+        "ideology": 4,
+        "competence": 6,
+        "loyalty": 5,
+        "partyLoyalty": 10,
+        "corruption": 3,
+        "publicProfile": 7,
+        "bio": "Predseda Most-Híd. Pragmatik maďarskej menšiny."
+      },
+      {
+        "id": "cand_minist_4",
+        "name": "Ján Figeľ",
+        "party": "kdh",
+        "ideology": 4,
+        "competence": 7,
+        "loyalty": 5,
+        "partyLoyalty": 9,
+        "corruption": 2,
+        "publicProfile": 6,
+        "bio": "Líder KDH, eurokomisár. Kresťanskodemokratický centrist."
+      },
+      {
+        "id": "cand_minist_5",
+        "name": "Mikuláš Dzurinda",
+        "party": "sdku",
+        "ideology": 3,
+        "competence": 7,
+        "loyalty": 8,
+        "partyLoyalty": 10,
+        "corruption": 3,
+        "publicProfile": 9,
+        "bio": "Bývalý premiér, minister zahraničia. Reformná legenda SDKÚ."
+      },
+      {
+        "id": "cand_minist_6",
+        "name": "Radoslav Procházka",
+        "party": "kdh",
+        "ideology": 4,
+        "competence": 8,
+        "loyalty": 3,
+        "partyLoyalty": 5,
+        "corruption": 1,
+        "publicProfile": 5,
+        "bio": "Právnik, poslanec KDH. Neskôr založil vlastnú stranu."
+      },
+      {
+        "id": "cand_minist_7",
+        "name": "Pavol Hrušovský",
+        "party": "kdh",
+        "ideology": 5,
+        "competence": 6,
+        "loyalty": 6,
+        "partyLoyalty": 9,
+        "corruption": 2,
+        "publicProfile": 5,
+        "bio": "Dlhoročný poslanec KDH, predseda parlamentu."
+      },
+      {
+        "id": "cand_minist_8",
+        "name": "Martin Poliačik",
+        "party": "sas",
+        "ideology": 1,
+        "competence": 5,
+        "loyalty": 3,
+        "partyLoyalty": 7,
+        "corruption": 1,
+        "publicProfile": 5,
+        "bio": "Liberálny poslanec SaS, kultúra a ľudské práva."
+      }
+    ]
+  },
+  "institutions": {
+    "institutions": [
+      {
+        "id": "sis",
+        "name": "Riaditeľ SIS",
+        "emoji": "🕵️",
+        "appointedBy": "pm_parliament",
+        "replaceCost": 8,
+        "description": "Slovenská informačná služba. PM navrhuje, parlament volí."
+      },
+      {
+        "id": "gp",
+        "name": "Generálny prokurátor",
+        "emoji": "⚖️",
+        "appointedBy": "parliament",
+        "replaceCost": 35,
+        "description": "Rozhoduje o trestných stíhaniach. 7-ročný mandát."
+      },
+      {
+        "id": "pp",
+        "name": "Policajný prezident",
+        "emoji": "👮",
+        "appointedBy": "interior",
+        "replaceCost": 10,
+        "description": "Velí polícii. Menuje minister vnútra."
+      },
+      {
+        "id": "nbs",
+        "name": "Guvernér NBS",
+        "emoji": "🏦",
+        "appointedBy": "president",
+        "replaceCost": 18,
+        "description": "Národná banka Slovenska. Regulátor po vstupe do eurozóny (2009)."
+      },
+      {
+        "id": "rtvs",
+        "name": "Riaditeľ STV/SRo",
+        "emoji": "📺",
+        "appointedBy": "parliament",
+        "replaceCost": 12,
+        "description": "Slovenská televízia a Slovenský rozhlas. Pred zlúčením do RTVS."
+      },
+      {
+        "id": "nku",
+        "name": "Predseda NKÚ",
+        "emoji": "📋",
+        "appointedBy": "parliament",
+        "replaceCost": 20,
+        "description": "Najvyšší kontrolný úrad. Audituje vládne výdavky."
+      }
+    ],
+    "heads": [
+      {
+        "id": "head_sis",
+        "name": "Karol Mitrík",
+        "institution": "sis",
+        "ideology": 5,
+        "competence": 6,
+        "loyalty": 4,
+        "conviction": 6,
+        "termEnd": -1,
+        "appointedBy": "Radičová 2010"
+      },
+      {
+        "id": "head_gp",
+        "name": "Dobroslav Trnka",
+        "institution": "gp",
+        "ideology": 7,
+        "competence": 5,
+        "loyalty": 7,
+        "conviction": 3,
+        "termEnd": 8,
+        "appointedBy": "Fico 2004"
+      },
+      {
+        "id": "head_pp",
+        "name": "Jaroslav Spišiak",
+        "institution": "pp",
+        "ideology": 4,
+        "competence": 6,
+        "loyalty": 4,
+        "conviction": 6,
+        "termEnd": -1,
+        "appointedBy": "Lipšic 2010"
+      },
+      {
+        "id": "head_nbs",
+        "name": "Jozef Makúch",
+        "institution": "nbs",
+        "ideology": 5,
+        "competence": 7,
+        "loyalty": 5,
+        "conviction": 6,
+        "termEnd": -1,
+        "appointedBy": "Gašparovič 2010"
+      },
+      {
+        "id": "head_rtvs",
+        "name": "Štefan Nižňanský",
+        "institution": "rtvs",
+        "ideology": 5,
+        "competence": 5,
+        "loyalty": 4,
+        "conviction": 5,
+        "termEnd": 12,
+        "appointedBy": "Parlament 2009"
+      },
+      {
+        "id": "head_nku",
+        "name": "Ján Jasovský",
+        "institution": "nku",
+        "ideology": 6,
+        "competence": 5,
+        "loyalty": 6,
+        "conviction": 5,
+        "termEnd": 12,
+        "appointedBy": "Parlament 2005"
+      }
+    ],
+    "candidates": [
+      {
+        "id": "cand_inst_1",
+        "name": "Dobroslav Trnka",
+        "institution": "gp",
+        "ideology": 7,
+        "competence": 5,
+        "loyalty": 7,
+        "conviction": 3,
+        "bio": "Aktuálny GP, kompromitovaný nahrávkou Gorila. Mandát končí."
+      },
+      {
+        "id": "cand_inst_2",
+        "name": "Jaromír Čižnár",
+        "institution": "gp",
+        "ideology": 7,
+        "competence": 5,
+        "loyalty": 7,
+        "conviction": 4,
+        "bio": "Prokurátor blízky SMER. Neskôr zvolený za GP v 2013."
+      },
+      {
+        "id": "cand_inst_3",
+        "name": "Jozef Cenker",
+        "institution": "gp",
+        "ideology": 5,
+        "competence": 6,
+        "loyalty": 4,
+        "conviction": 6,
+        "bio": "Prokurátor, nezávislý kandidát. Kompromisný."
+      },
+      {
+        "id": "cand_inst_4",
+        "name": "Tibor Gašpar",
+        "institution": "pp",
+        "ideology": 8,
+        "competence": 6,
+        "loyalty": 10,
+        "conviction": 3,
+        "bio": "Policajný dôstojník blízky SMER. Neskôr policajný prezident."
+      },
+      {
+        "id": "cand_inst_5",
+        "name": "Milan Lučanský",
+        "institution": "pp",
+        "ideology": 6,
+        "competence": 6,
+        "loyalty": 6,
+        "conviction": 5,
+        "bio": "Policajný dôstojník, neskôr policajný prezident za Pellegriniho."
+      },
+      {
+        "id": "cand_inst_6",
+        "name": "Peter Kovařík",
+        "institution": "sis",
+        "ideology": 5,
+        "competence": 6,
+        "loyalty": 5,
+        "conviction": 5,
+        "bio": "Dôstojník SIS, pragmatik."
+      },
+      {
+        "id": "cand_inst_7",
+        "name": "Jaroslav Rezník",
+        "institution": "rtvs",
+        "ideology": 5,
+        "competence": 7,
+        "loyalty": 4,
+        "conviction": 6,
+        "bio": "Mediálny manažér, kandidát na riaditeľa. Neskôr zvolený."
+      },
+      {
+        "id": "cand_inst_8",
+        "name": "Karol Mitrík",
+        "institution": "nku",
+        "ideology": 5,
+        "competence": 6,
+        "loyalty": 5,
+        "conviction": 6,
+        "bio": "Odborník na kontrolu, kandidát na predsedu NKÚ. Neskôr zvolený."
+      }
+    ]
+  }
 }

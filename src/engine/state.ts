@@ -63,6 +63,22 @@ export function initGame(): GameState {
     shapleyPower: {},
     brainDrain: 0,
     oligarchicTies: 0,
+    court: {
+      judges: era.court ? JSON.parse(JSON.stringify(era.court.judges)) : [],
+      pendingVacancies: 0,
+      shortlist: [],
+      courtPrestige: era.court ? 60 : 50,
+    },
+    cabinet: {
+      ministers: era.cabinet ? JSON.parse(JSON.stringify(era.cabinet.ministers)) : [],
+      cabinetCohesion: 70,
+      reshuffleCount: 0,
+    },
+    institutions: {
+      heads: era.institutions ? JSON.parse(JSON.stringify(era.institutions.heads)) : [],
+      institutionalIntegrity: 60,
+      capturedCount: 0,
+    },
   };
   // Initialize persona scores based on lean
   era.personas.forEach(p => {

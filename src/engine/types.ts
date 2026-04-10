@@ -197,6 +197,114 @@ export interface EraConfig {
     right: { name: string; entries: HeadlineEntry[]; fallback?: { headline: string; subhead: string } };
   };
   initialState: InitialState;
+  court?: CourtConfig;
+  cabinet?: CabinetConfig;
+  institutions?: InstitutionsConfig;
+}
+
+// ═══════════════════════════════════════════════════════════
+//                    INSTITUTION TYPES
+// ═══════════════════════════════════════════════════════════
+
+export interface CourtJudge {
+  id: string;
+  name: string;
+  ideology: number;    // 1 (liberal/reform) to 10 (nationalist/authoritarian)
+  competence: number;  // 1-10
+  conviction: number;  // 1-10, resistance to political pressure
+  loyalty: number;     // 1-10, willingness to rule in PM's favor
+  termEnd: number;     // month when term expires (-1 = indefinite)
+  isChair: boolean;
+}
+
+export interface CourtCandidate extends Omit<CourtJudge, 'isChair' | 'termEnd'> {
+  bio: string;
+}
+
+export interface CourtConfig {
+  judges: CourtJudge[];
+  candidates: CourtCandidate[];  // pool for vacancies
+}
+
+export interface CourtState {
+  judges: CourtJudge[];
+  pendingVacancies: number;
+  shortlist: CourtCandidate[];
+  courtPrestige: number;     // 0-100
+}
+
+export interface Minister {
+  id: string;
+  name: string;
+  party: string;            // coalition partner id
+  ministry: string;         // ministry id
+  ideology: number;         // 1-10
+  competence: number;       // 1-10
+  loyalty: number;          // 1-10, to PM
+  partyLoyalty: number;     // 1-10, to their own party
+  corruption: number;       // 0-10, scandal risk
+  publicProfile: number;    // 1-10
+}
+
+export interface Ministry {
+  id: string;
+  name: string;              // Slovak name
+  emoji: string;
+  domain: string[];          // policy keywords this ministry affects
+  allocatedTo: string;       // coalition partner id
+}
+
+export interface MinisterCandidate extends Omit<Minister, 'ministry'> {
+  bio: string;
+}
+
+export interface CabinetConfig {
+  ministries: Ministry[];
+  ministers: Minister[];               // starting ministers
+  candidates: MinisterCandidate[];     // replacement pool per party
+}
+
+export interface CabinetState {
+  ministers: Minister[];
+  cabinetCohesion: number;   // 0-100
+  reshuffleCount: number;
+}
+
+export interface InstitutionHead {
+  id: string;
+  name: string;
+  institution: string;      // institution id
+  ideology: number;
+  competence: number;
+  loyalty: number;           // to PM
+  conviction: number;        // resistance to pressure
+  termEnd: number;           // month when term expires (-1 = at-will)
+  appointedBy: string;       // PM name/era
+}
+
+export interface Institution {
+  id: string;
+  name: string;
+  emoji: string;
+  appointedBy: string;       // 'pm_parliament' | 'interior' | 'president' | 'parliament'
+  replaceCost: number;       // political capital cost 5-40
+  description: string;
+}
+
+export interface InstitutionCandidate extends Omit<InstitutionHead, 'termEnd' | 'appointedBy'> {
+  bio: string;
+}
+
+export interface InstitutionsConfig {
+  institutions: Institution[];
+  heads: InstitutionHead[];
+  candidates: InstitutionCandidate[];  // replacement pool
+}
+
+export interface InstitutionsState {
+  heads: InstitutionHead[];
+  institutionalIntegrity: number;  // 0-100
+  capturedCount: number;
 }
 
 // ═══════════════════════════════════════════════════════════
@@ -308,4 +416,7 @@ export interface GameState {
   shapleyPower: Record<string, number>;
   brainDrain: number; // 0-100, cumulative emigration pressure
   oligarchicTies: number; // 0-100, hidden corruption exposure
+  court: CourtState;
+  cabinet: CabinetState;
+  institutions: InstitutionsState;
 }

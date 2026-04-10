@@ -53,6 +53,10 @@
       <h1>Slovak Prime Minister Simulator</h1>
       <p class="subtitle" id="titleSubtitle"></p>
       <p class="desc" id="titleDesc"></p>
+      <div class="mode-selector" id="modeSelector">
+        <button class="mode-btn active" id="modeBtnDesktop" data-mode="desktop">🖥️ Desktop</button>
+        <button class="mode-btn" id="modeBtnMobile" data-mode="mobile">📱 Mobil</button>
+      </div>
       <button class="start-button" id="startButton">Začať hru</button>
     </div>
   </div>
@@ -92,7 +96,7 @@
         <div class="metric-card"><div class="metric-label">Koalícia</div><div class="metric-value" id="coalitionValue">--</div><div class="metric-bar"><div class="metric-fill" id="coalitionFill" style="background:linear-gradient(90deg,#06b6d4,#ec4899);width:0%"></div></div><div class="metric-trend" id="coalitionTrend"></div></div>
         <div class="metric-card"><div class="metric-label">Implementácia</div><div class="metric-value" id="implValue">--</div><div class="metric-bar"><div class="metric-fill" id="implFill" style="background:linear-gradient(90deg,var(--yellow),var(--green));width:0%"></div></div><div class="metric-trend" id="implTrend"></div></div>
       </div>
-      <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:16px;margin-bottom:16px">
+      <div class="dash-map-econ-grid">
         <div id="dashMap"></div>
         <div>
           <div id="dashEconCoalition"></div>
@@ -100,7 +104,8 @@
         </div>
       </div>
       <div id="dashStances" style="margin-bottom:16px"></div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
+      <div id="dashInstitutions" class="dash-institutions-grid"></div>
+      <div class="dash-diplo-history-grid">
         <div id="dashDiplomacy"></div>
         <div id="dashHistory"></div>
       </div>

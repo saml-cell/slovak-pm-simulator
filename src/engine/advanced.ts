@@ -246,15 +246,27 @@ export function policyConsistency(G: GameState, policy: string): { bonus: number
   }
 
   // Flip-flop detection: did this policy push a stance opposite to recent trend?
+  // Uses the stance map from game-flow.ts to determine direction
+  const stancePushDir: Record<string, string[][]> = {
+    eu: [['eu', 'nato', 'brusel', 'európ'], ['sovereign', 'suverenita', 'suverén']],
+    rusko: [['russia', 'rusko', 'moskva', 'mier'], ['prozápadn', 'ukrajin']],
+    ekonomika: [['invest', 'startup', 'biznis', 'podnik'], ['tax', 'dan', 'daň', 'konsolidáci']],
+    social: [['social', 'pension', 'dochodok', 'dôchod'], ['liberaliz', 'škrt', 'úspor']],
+    media: [['transparentn', 'slobod'], ['kontrolova', 'rtvs', 'stvr']],
+    justicia: [['reform', 'právny štát', 'justíci'], ['kontrolova súd', 'ovládnuť']],
+  };
   let flipPenalty = 0;
   detectedThemes.forEach(theme => {
     const stance = G.stances[theme];
     if (stance !== undefined && Math.abs(stance) >= 2) {
-      // Check if current policy opposes the established stance direction
-      const themeKws = THEME_KEYWORDS[theme];
-      const pushesPositive = themeKws.some(k => low.includes(k));
-      if (pushesPositive && stance < -2) flipPenalty += FLIP_FLOP_PENALTY;
-      else if (!pushesPositive && stance > 2) flipPenalty += FLIP_FLOP_PENALTY;
+      const dirs = stancePushDir[theme];
+      if (dirs) {
+        const pushesRight = dirs[0].some(k => low.includes(k));
+        const pushesLeft = dirs[1]?.some(k => low.includes(k)) ?? false;
+        // Flip-flop: pushing right when stance is strongly left, or vice versa
+        if (pushesRight && !pushesLeft && stance < -2) flipPenalty += FLIP_FLOP_PENALTY;
+        else if (pushesLeft && !pushesRight && stance > 2) flipPenalty += FLIP_FLOP_PENALTY;
+      }
     }
   });
 
@@ -482,7 +494,7 @@ export function businessCycleTick(G: GameState): void {
   // Mean reversion — extreme values pull back toward normal
   G.econ.gdpGrowth += (2.0 - G.econ.gdpGrowth) * 0.03; // pull toward 2%
   G.econ.unemp += (6.0 - G.econ.unemp) * 0.02;          // pull toward 6%
-  G.econ.infl += (2.5 - G.econ.infl) * 0.02;             // pull toward 2.5%
+  G.econ.infl += (2.5 - G.econ.infl) * 0.04;             // pull toward 2.5% (ECB target)
 }
 
 // ═══════════════════════════════════════════════════════════
@@ -543,7 +555,7 @@ export function fdiDynamics(G: GameState): void {
   const stabilityFactor = G.stability / 100;
   const euFactor = (G.diplo.eu ?? 50) / 100;
   const taxFactor = Math.max(0, 1 - (G.stances.ekonomika ?? 0) * 0.08);
-  const ruleFactor = (G.social.corrupt ?? 50) < 30 ? 0.7 : 1.0;
+  const ruleFactor = (G.social.corrupt ?? 50) > 60 ? 0.7 : (G.social.corrupt ?? 50) < 30 ? 1.2 : 1.0;
   const wageFactor = G.econ.minW < 700 ? 1.1 : G.econ.minW > 1000 ? 0.8 : 1.0;
 
   const targetFdi = 10 * stabilityFactor * euFactor * taxFactor * ruleFactor * wageFactor;
@@ -580,10 +592,18 @@ export function okunsLaw(G: GameState): void {
   const nairu = 6.0;
   if (G.econ.unemp < nairu) {
     const gapBelowNairu = nairu - G.econ.unemp;
-    G.econ.infl += gapBelowNairu * 0.12;
-  } else if (G.econ.unemp > nairu + 4) {
-    G.econ.infl -= (G.econ.unemp - nairu - 4) * 0.05;
+    G.econ.infl += gapBelowNairu * 0.08; // reduced from 0.12 — less aggressive
+  } else if (G.econ.unemp > nairu + 2) {
+    G.econ.infl -= (G.econ.unemp - nairu - 2) * 0.06; // broader disinflation zone
   }
+
+  // Central bank response: high inflation → higher rates → higher unemployment
+  // (ECB for eurozone eras, NBS for pre-euro)
+  if (G.econ.infl > 4) {
+    const rateResponse = (G.econ.infl - 4) * 0.04;
+    G.econ.unemp += rateResponse; // rate hikes cool the labor market
+  }
+
   G.econ.infl = clamp(G.econ.infl, 0, 25);
 }
 
@@ -685,7 +705,7 @@ export function econCrisisCheck(G: GameState): string | null {
 // ═══════════════════════════════════════════════════════════
 export function incumbencyPenalty(G: GameState): void {
   // Small natural approval decay each month (voters get bored/frustrated)
-  const decay = 0.15 + (G.month * 0.005); // grows over time — longer in office, harder to stay popular
+  const decay = 0.15 + Math.min(G.month * 0.004, 0.15); // caps at 0.30 total (was unbounded)
   G.approval = Math.max(0, G.approval - decay);
 
   // Stability also erodes slightly — governing is hard
@@ -737,7 +757,11 @@ export function brainDrainTick(G: GameState): void {
   // Low wages + high unemployment + low EU relations = emigration
   const wagePressure = G.econ.minW < 700 ? (700 - G.econ.minW) * 0.01 : 0;
   const unempPressure = G.econ.unemp > 10 ? (G.econ.unemp - 10) * 0.1 : 0;
-  const euPull = G.diplo.eu !== undefined ? Math.max(0, (G.diplo.eu - 50) * 0.02) : 0;
+  // Good EU relations: easier to emigrate BUT also better economy retains talent
+  // Net effect: only drives brain drain when wages/unemployment are already bad
+  const euPull = G.diplo.eu !== undefined && G.diplo.eu > 60
+    ? (wagePressure + unempPressure > 0.3 ? (G.diplo.eu - 60) * 0.01 : -(G.diplo.eu - 60) * 0.005)
+    : 0;
 
   G.brainDrain = Math.min(50, Math.max(0, G.brainDrain + wagePressure + unempPressure + euPull - 0.1));
 
@@ -806,5 +830,181 @@ export function mediaEcosystemTick(G: GameState): void {
   if ((G.social.civilSociety || 50) > 60 && (G.social.corrupt || 50) > 50) {
     G.social.corrupt = Math.max(0, G.social.corrupt - 0.3);
     G.approval = Math.max(0, G.approval - 0.5); // protests reduce approval
+  }
+}
+
+// ═══════════════════════════════════════════════════════════
+//  CONSTITUTIONAL COURT TICK
+// ═══════════════════════════════════════════════════════════
+export function courtTick(G: GameState, era: EraConfig): void {
+  if (!G.court.judges.length) return;
+
+  // Check for term expirations
+  G.court.judges = G.court.judges.filter(j => {
+    if (j.termEnd > 0 && G.month >= j.termEnd) {
+      G.court.pendingVacancies++;
+      return false;
+    }
+    return true;
+  });
+
+  // Court prestige — decays if vacancies pile up
+  if (G.court.pendingVacancies > 0) {
+    G.court.courtPrestige = Math.max(10, G.court.courtPrestige - G.court.pendingVacancies * 0.8);
+  }
+  // If below quorum (7 judges), court is paralyzed
+  const quorumMet = G.court.judges.length >= 7;
+  if (!quorumMet) {
+    G.court.courtPrestige = Math.max(5, G.court.courtPrestige - 2);
+    G.stability = Math.max(0, G.stability - 0.5);
+    if (G.diplo.eu !== undefined) G.diplo.eu = Math.max(0, G.diplo.eu - 0.3);
+  }
+
+  // Court prestige natural drift toward average court stats
+  const avgConviction = G.court.judges.reduce((s, j) => s + j.conviction, 0) / Math.max(1, G.court.judges.length);
+  if (avgConviction > 6) {
+    G.court.courtPrestige = Math.min(90, G.court.courtPrestige + 0.1);
+  }
+
+  // Random judge resignation (very rare, ~2% per month for low conviction judges)
+  const resignedIds: string[] = [];
+  for (const j of G.court.judges) {
+    if (j.conviction <= 3 && Math.random() < 0.02) {
+      G.court.pendingVacancies++;
+      resignedIds.push(j.id);
+    }
+  }
+  if (resignedIds.length) {
+    G.court.judges = G.court.judges.filter(j => !resignedIds.includes(j.id));
+  }
+}
+
+// Compute effective court ideology — affects checksAndBalances.court
+export function courtIdeologyScore(G: GameState): number {
+  if (!G.court.judges.length) return 50;
+  const avgIdeology = G.court.judges.reduce((s, j) => s + j.ideology, 0) / G.court.judges.length;
+  const avgLoyalty = G.court.judges.reduce((s, j) => s + j.loyalty, 0) / G.court.judges.length;
+  // Higher loyalty = less pushback, higher ideology alignment = more favorable
+  // Return 0-100 where 100 = court fully aligned with PM (less checks)
+  return clamp((avgLoyalty / 10) * 60 + (1 - G.court.courtPrestige / 100) * 40, 0, 100);
+}
+
+// ═══════════════════════════════════════════════════════════
+//  CABINET TICK — minister scandals, cohesion, competence
+// ═══════════════════════════════════════════════════════════
+export function cabinetTick(G: GameState, era: EraConfig): { scandal: string | null } {
+  if (!G.cabinet.ministers.length) return { scandal: null };
+
+  let scandal: string | null = null;
+
+  // Minister scandal roll — each minister has corruption/100 chance per month
+  for (const m of G.cabinet.ministers) {
+    if (Math.random() < m.corruption / 150) {
+      const damage = m.publicProfile * 1.5;
+      G.approval = Math.max(0, G.approval - damage * 0.5);
+      G.stability = Math.max(0, G.stability - damage * 0.3);
+      G.oligarchicTies = Math.min(100, G.oligarchicTies + damage * 0.5);
+      scandal = `Škandál: ${m.name} (${era.cabinet?.ministries.find(x => x.id === m.ministry)?.name || m.ministry})`;
+      break; // max one scandal per month
+    }
+  }
+
+  // Cabinet cohesion — based on average loyalty and party diversity
+  const avgLoyalty = G.cabinet.ministers.reduce((s, m) => s + m.loyalty, 0) / G.cabinet.ministers.length;
+  const parties = new Set(G.cabinet.ministers.map(m => m.party));
+  const partyPenalty = (parties.size - 1) * 3; // more parties = harder to keep cohesion
+  const targetCohesion = clamp(avgLoyalty * 10 - partyPenalty + 10, 20, 95);
+  G.cabinet.cabinetCohesion += (targetCohesion - G.cabinet.cabinetCohesion) * 0.1;
+
+  // Disloyal ministers slow-walk implementation
+  const disloyal = G.cabinet.ministers.filter(m => m.loyalty <= 3);
+  if (disloyal.length > 0) {
+    G.impl = Math.max(30, G.impl - disloyal.length * 1.5);
+  }
+
+  // Incompetent ministers drag economic performance in their domain
+  const avgCompetence = G.cabinet.ministers.reduce((s, m) => s + m.competence, 0) / G.cabinet.ministers.length;
+  if (avgCompetence < 5) {
+    G.econ.gdpGrowth -= (5 - avgCompetence) * 0.05;
+  }
+
+  return { scandal };
+}
+
+// Compute implementation rate modifier from cabinet competence
+export function cabinetImplementationMod(G: GameState, policyText: string, era: EraConfig): number {
+  if (!G.cabinet.ministers.length || !era.cabinet) return 1.0;
+  const lower = policyText.toLowerCase();
+  let relevantCompetence = 0;
+  let count = 0;
+  for (const minister of G.cabinet.ministers) {
+    const ministry = era.cabinet.ministries.find(m => m.id === minister.ministry);
+    if (!ministry) continue;
+    // Check if policy touches this ministry's domain
+    if (ministry.domain.some(kw => lower.includes(kw))) {
+      relevantCompetence += minister.competence;
+      count++;
+    }
+  }
+  if (count === 0) return 1.0;
+  const avg = relevantCompetence / count;
+  // 5 = neutral, above = bonus, below = penalty
+  return 0.7 + (avg / 10) * 0.6; // range: 0.7 to 1.3
+}
+
+// ═══════════════════════════════════════════════════════════
+//  INSTITUTIONS TICK — integrity, capture tracking
+// ═══════════════════════════════════════════════════════════
+export function institutionsTick(G: GameState, era: EraConfig): void {
+  if (!G.institutions.heads.length) return;
+
+  // Check term expirations — head remains but becomes "holdover" (lower conviction)
+  G.institutions.heads.forEach(h => {
+    if (h.termEnd > 0 && G.month >= h.termEnd) {
+      h.conviction = Math.max(1, h.conviction - 1);
+      h.termEnd = h.termEnd + 12; // stays for up to a year as holdover
+    }
+  });
+
+  // Count captured institutions (loyalty > 7)
+  G.institutions.capturedCount = G.institutions.heads.filter(h => h.loyalty >= 7).length;
+
+  // Institutional integrity — based on avg conviction and capture count
+  const avgConviction = G.institutions.heads.reduce((s, h) => s + h.conviction, 0) / G.institutions.heads.length;
+  const capturedPenalty = G.institutions.capturedCount * 8;
+  G.institutions.institutionalIntegrity = clamp(avgConviction * 10 - capturedPenalty + 20, 5, 100);
+
+  // High capture → EU warnings
+  if (G.institutions.capturedCount >= 4) {
+    if (G.diplo.eu !== undefined) G.diplo.eu = Math.max(0, G.diplo.eu - 0.5);
+    G.stability = Math.max(0, G.stability - 0.3);
+  }
+  if (G.institutions.capturedCount >= 5) {
+    if (G.diplo.eu !== undefined) G.diplo.eu = Math.max(0, G.diplo.eu - 1.0);
+  }
+
+  // Loyal SIS director boosts oligarchic ties (can suppress investigations)
+  const sis = G.institutions.heads.find(h => h.institution === 'sis');
+  if (sis && sis.loyalty >= 8) {
+    G.oligarchicTies = Math.min(100, G.oligarchicTies + 0.3);
+  }
+
+  // Independent GP blocks corruption growth
+  const gp = G.institutions.heads.find(h => h.institution === 'gp');
+  if (gp && gp.loyalty <= 3 && gp.conviction >= 7) {
+    G.oligarchicTies = Math.max(0, G.oligarchicTies - 0.5);
+  }
+
+  // Loyal police president suppresses opposition pressure
+  const pp = G.institutions.heads.find(h => h.institution === 'pp');
+  if (pp && pp.loyalty >= 7) {
+    G.oppositionPressure = Math.max(0, G.oppositionPressure - 0.5);
+  }
+
+  // RTVS/STVR director affects media ecosystem
+  const rtvs = G.institutions.heads.find(h => h.institution === 'rtvs');
+  if (rtvs && rtvs.loyalty >= 7) {
+    G.mediaCycle = Math.max(0, G.mediaCycle - 0.05); // suppress negative coverage
+    if (G.social.press !== undefined) G.social.press = Math.max(0, G.social.press - 0.2);
   }
 }

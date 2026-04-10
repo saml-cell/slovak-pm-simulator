@@ -26,6 +26,9 @@ Given event+policy, return ONLY valid JSON:
 "flags":{},"socialEffects":{"press":d,"corrupt":d}}
 Coalition:${cpDesc}=${totalSeats}/150.${G.pellegrini && era.meta.presidentFriendly ? ` ${era.meta.presidentFriendly} is president (friendly).` : era.meta.presidentName ? ` ${era.meta.presidentName} is president.` : ''}
 Stakeholders: ${era.stakeholders.map(s => s.name).join(', ')}.
+${G.cabinet.ministers.length ? `Cabinet(cohesion:${Math.round(G.cabinet.cabinetCohesion)}%): ${G.cabinet.ministers.map(m => `${m.name}(${m.ministry},comp:${m.competence},loy:${m.loyalty})`).join(',')}. Minister competence affects policy implementation in their domain.` : ''}
+${G.court.judges.length ? `Constitutional Court: ${G.court.judges.length}/13 judges, prestige:${Math.round(G.court.courtPrestige)}, vacancies:${G.court.pendingVacancies}. Court ideology affects checks&balances.court score.` : ''}
+${G.institutions.heads.length ? `Institutions(integrity:${Math.round(G.institutions.institutionalIntegrity)},captured:${G.institutions.capturedCount}): ${G.institutions.heads.map(h => `${h.name}(${h.institution},loy:${h.loyalty})`).join(',')}.` : ''}
 All text Slovak with proper diacritics. Be realistic and harsh.`;
 }
 

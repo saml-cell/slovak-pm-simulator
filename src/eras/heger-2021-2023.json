@@ -3266,5 +3266,104 @@
       "d": "Politická atmosféra je pokojná. Médiá sa zaoberajú bežnými témami. Koaličná rada zasadá rutinne.",
       "c": "Využite priestor na dlhodobé plánovanie a strategické rozhodnutia."
     }
-  ]
+  ],
+  "court": {
+    "judges": [
+      { "id": "fiacan", "name": "Ivan Fiačan", "ideology": 5, "competence": 7, "conviction": 6, "loyalty": 4, "termEnd": 48, "isChair": true },
+      { "id": "barik", "name": "Peter Molnár Satmári", "ideology": 5, "competence": 6, "conviction": 6, "loyalty": 5, "termEnd": -1, "isChair": false },
+      { "id": "fulop", "name": "Libor Duľa", "ideology": 6, "competence": 6, "conviction": 5, "loyalty": 5, "termEnd": -1, "isChair": false },
+      { "id": "lalik", "name": "Rastislav Kaššák", "ideology": 5, "competence": 7, "conviction": 6, "loyalty": 4, "termEnd": -1, "isChair": false },
+      { "id": "straka", "name": "Miloš Maďar", "ideology": 6, "competence": 5, "conviction": 5, "loyalty": 6, "termEnd": -1, "isChair": false },
+      { "id": "moczo", "name": "Peter Molnár", "ideology": 4, "competence": 7, "conviction": 7, "loyalty": 3, "termEnd": -1, "isChair": false },
+      { "id": "tolnai", "name": "Ladislav Duditš", "ideology": 7, "competence": 5, "conviction": 4, "loyalty": 7, "termEnd": -1, "isChair": false },
+      { "id": "hornik", "name": "Róbert Šorl", "ideology": 5, "competence": 6, "conviction": 6, "loyalty": 4, "termEnd": -1, "isChair": false },
+      { "id": "meszaros", "name": "Jana Laššáková", "ideology": 7, "competence": 5, "conviction": 4, "loyalty": 8, "termEnd": -1, "isChair": false },
+      { "id": "husarova", "name": "Petra Husárová", "ideology": 4, "competence": 7, "conviction": 7, "loyalty": 3, "termEnd": -1, "isChair": false },
+      { "id": "korecky", "name": "Martin Vernarský", "ideology": 5, "competence": 6, "conviction": 6, "loyalty": 5, "termEnd": -1, "isChair": false },
+      { "id": "stena", "name": "Ľuboš Šteňa", "ideology": 6, "competence": 6, "conviction": 5, "loyalty": 5, "termEnd": -1, "isChair": false },
+      { "id": "pokryvka", "name": "Ivan Pokrývka", "ideology": 3, "competence": 8, "conviction": 8, "loyalty": 2, "termEnd": -1, "isChair": false }
+    ],
+    "candidates": [
+      { "id": "cand_zigo", "name": "Pavol Žigo", "ideology": 7, "competence": 5, "conviction": 4, "loyalty": 8, "bio": "Právnik blízky SMER, dlhoročný poradca." },
+      { "id": "cand_kresak", "name": "Tomáš Krošlák", "ideology": 3, "competence": 8, "conviction": 8, "loyalty": 2, "bio": "Ústavný právnik, reform-oriented." },
+      { "id": "cand_domin", "name": "Adriana Dominová", "ideology": 5, "competence": 7, "conviction": 6, "loyalty": 5, "bio": "Sudkyňa Najvyššieho súdu SR, centristka." },
+      { "id": "cand_horvath", "name": "Marek Horvát", "ideology": 8, "competence": 4, "conviction": 3, "loyalty": 9, "bio": "Advokát, zastupoval politikov SMER." },
+      { "id": "cand_blahova", "name": "Katarína Blahová", "ideology": 4, "competence": 7, "conviction": 7, "loyalty": 3, "bio": "Odborníčka na ľudské práva." },
+      { "id": "cand_gabris", "name": "Štefan Gabriš", "ideology": 6, "competence": 6, "conviction": 5, "loyalty": 6, "bio": "Prokurátor generálnej prokuratúry." },
+      { "id": "cand_soltis", "name": "Ondrej Šoltís", "ideology": 7, "competence": 5, "conviction": 4, "loyalty": 7, "bio": "Právnik, konzervatívny pohľad na ústavné právo." },
+      { "id": "cand_mikova", "name": "Lucia Míková", "ideology": 3, "competence": 8, "conviction": 9, "loyalty": 1, "bio": "Aktivistická právnička, Via Iuris, kritička vlády." }
+    ]
+  },
+  "cabinet": {
+    "ministries": [
+      { "id": "mv", "name": "Ministerstvo vnútra", "emoji": "🛡️", "domain": ["polícia", "bezpečnosť", "SIS", "migrácia"], "allocatedTo": "olano" },
+      { "id": "mf", "name": "Ministerstvo financií", "emoji": "💰", "domain": ["dane", "rozpočet", "eufondy", "dlh"], "allocatedTo": "olano" },
+      { "id": "ms", "name": "Ministerstvo spravodlivosti", "emoji": "⚖️", "domain": ["justícia", "súdy", "právny štát", "prokuratúra"], "allocatedTo": "zaludi" },
+      { "id": "mzv", "name": "Ministerstvo zahraničných vecí", "emoji": "🌍", "domain": ["diplomacia", "EÚ", "NATO", "Ukrajina"], "allocatedTo": "olano" },
+      { "id": "mo", "name": "Ministerstvo obrany", "emoji": "🎖️", "domain": ["armáda", "NATO", "obrana", "Ukrajina"], "allocatedTo": "olano" },
+      { "id": "mh", "name": "Ministerstvo hospodárstva", "emoji": "🏭", "domain": ["priemysel", "energetika", "investície", "inflácia"], "allocatedTo": "sas" },
+      { "id": "mpsvr", "name": "Ministerstvo práce", "emoji": "👷", "domain": ["sociálna", "dôchodky", "minimálna mzda", "zamestnanosť"], "allocatedTo": "smerodina" },
+      { "id": "mz", "name": "Ministerstvo zdravotníctva", "emoji": "🏥", "domain": ["zdravotníctvo", "nemocnice", "COVID", "očkovanie"], "allocatedTo": "olano" },
+      { "id": "msmt", "name": "Ministerstvo školstva", "emoji": "📚", "domain": ["školstvo", "veda", "univerzity", "učitelia"], "allocatedTo": "sas" },
+      { "id": "mdv", "name": "Ministerstvo dopravy", "emoji": "🚄", "domain": ["doprava", "infraštruktúra", "diaľnice", "železnice"], "allocatedTo": "olano" },
+      { "id": "mzp", "name": "Ministerstvo životného prostredia", "emoji": "🌿", "domain": ["ekológia", "klíma", "odpady", "voda"], "allocatedTo": "olano" },
+      { "id": "mk", "name": "Ministerstvo kultúry", "emoji": "🎭", "domain": ["kultúra", "RTVS", "médiá", "pamiatky"], "allocatedTo": "smerodina" },
+      { "id": "mprv", "name": "Ministerstvo pôdohospodárstva", "emoji": "🌾", "domain": ["poľnohospodárstvo", "potraviny", "dotácie", "vidiek"], "allocatedTo": "olano" }
+    ],
+    "ministers": [
+      { "id": "mikulec", "name": "Roman Mikulec", "party": "olano", "ministry": "mv", "ideology": 4, "competence": 5, "loyalty": 7, "partyLoyalty": 8, "corruption": 2, "publicProfile": 6 },
+      { "id": "matovic_mf", "name": "Igor Matovič", "party": "olano", "ministry": "mf", "ideology": 4, "competence": 4, "loyalty": 10, "partyLoyalty": 10, "corruption": 1, "publicProfile": 10 },
+      { "id": "kolikova", "name": "Mária Kolíková", "party": "zaludi", "ministry": "ms", "ideology": 3, "competence": 8, "loyalty": 5, "partyLoyalty": 7, "corruption": 1, "publicProfile": 7 },
+      { "id": "korcok", "name": "Ivan Korčok", "party": "olano", "ministry": "mzv", "ideology": 3, "competence": 9, "loyalty": 4, "partyLoyalty": 3, "corruption": 1, "publicProfile": 7 },
+      { "id": "nad", "name": "Jaroslav Naď", "party": "olano", "ministry": "mo", "ideology": 3, "competence": 7, "loyalty": 9, "partyLoyalty": 9, "corruption": 1, "publicProfile": 7 },
+      { "id": "sulik", "name": "Richard Sulík", "party": "sas", "ministry": "mh", "ideology": 2, "competence": 7, "loyalty": 2, "partyLoyalty": 10, "corruption": 2, "publicProfile": 9 },
+      { "id": "krajniak", "name": "Milan Krajniak", "party": "smerodina", "ministry": "mpsvr", "ideology": 7, "competence": 5, "loyalty": 4, "partyLoyalty": 8, "corruption": 3, "publicProfile": 6 },
+      { "id": "lengvarsky", "name": "Vladimír Lengvarský", "party": "olano", "ministry": "mz", "ideology": 4, "competence": 7, "loyalty": 5, "partyLoyalty": 4, "corruption": 1, "publicProfile": 5 },
+      { "id": "groehling", "name": "Branislav Gröhling", "party": "sas", "ministry": "msmt", "ideology": 2, "competence": 6, "loyalty": 4, "partyLoyalty": 8, "corruption": 2, "publicProfile": 5 },
+      { "id": "dolezal", "name": "Andrej Doležal", "party": "olano", "ministry": "mdv", "ideology": 4, "competence": 6, "loyalty": 5, "partyLoyalty": 5, "corruption": 2, "publicProfile": 3 },
+      { "id": "budaj", "name": "Ján Budaj", "party": "olano", "ministry": "mzp", "ideology": 3, "competence": 6, "loyalty": 6, "partyLoyalty": 7, "corruption": 1, "publicProfile": 6 },
+      { "id": "milanova", "name": "Natália Milanová", "party": "smerodina", "ministry": "mk", "ideology": 4, "competence": 6, "loyalty": 5, "partyLoyalty": 7, "corruption": 1, "publicProfile": 4 },
+      { "id": "vlcan", "name": "Samuel Vlčan", "party": "olano", "ministry": "mprv", "ideology": 4, "competence": 5, "loyalty": 6, "partyLoyalty": 7, "corruption": 2, "publicProfile": 3 }
+    ],
+    "candidates": [
+      { "id": "cand_minist_1", "name": "Eduard Heger", "party": "olano", "ideology": 4, "competence": 6, "loyalty": 8, "partyLoyalty": 9, "corruption": 1, "publicProfile": 7, "bio": "Premiér, kresťanský demokrat v OĽaNO. Stabilnejší ako Matovič." },
+      { "id": "cand_minist_2", "name": "Veronika Remišová", "party": "zaludi", "ideology": 3, "competence": 6, "loyalty": 4, "partyLoyalty": 7, "corruption": 1, "publicProfile": 6, "bio": "Ministerka investícií za Za ľudí. Reform-oriented." },
+      { "id": "cand_minist_3", "name": "Boris Kollár", "party": "smerodina", "ideology": 6, "competence": 4, "loyalty": 3, "partyLoyalty": 10, "corruption": 5, "publicProfile": 9, "bio": "Predseda parlamentu, líder Sme rodina." },
+      { "id": "cand_minist_4", "name": "Štefan Holý", "party": "smerodina", "ideology": 6, "competence": 5, "loyalty": 4, "partyLoyalty": 8, "corruption": 4, "publicProfile": 5, "bio": "Podpredseda vlády za Sme rodina." },
+      { "id": "cand_minist_5", "name": "Anna Záborská", "party": "olano", "ideology": 7, "competence": 5, "loyalty": 6, "partyLoyalty": 6, "corruption": 1, "publicProfile": 5, "bio": "Konzervatívna politička, prolife agenda." },
+      { "id": "cand_minist_6", "name": "Juraj Šeliga", "party": "zaludi", "ideology": 3, "competence": 6, "loyalty": 5, "partyLoyalty": 7, "corruption": 1, "publicProfile": 6, "bio": "Advokát, podpredseda parlamentu za Za ľudí." },
+      { "id": "cand_minist_7", "name": "Marek Krajčí", "party": "olano", "ideology": 5, "competence": 4, "loyalty": 8, "partyLoyalty": 9, "corruption": 1, "publicProfile": 7, "bio": "Bývalý minister zdravotníctva, odstúpil počas COVID." },
+      { "id": "cand_minist_8", "name": "Jana Bittó Cigániková", "party": "sas", "ideology": 2, "competence": 6, "loyalty": 3, "partyLoyalty": 8, "corruption": 1, "publicProfile": 7, "bio": "Poslankyňa SaS, zdravotníctvo. Liberálna, výrazná." }
+    ]
+  },
+  "institutions": {
+    "institutions": [
+      { "id": "sis", "name": "Riaditeľ SIS", "emoji": "🕵️", "appointedBy": "pm_parliament", "replaceCost": 8, "description": "Slovenská informačná služba. PM navrhuje, parlament volí." },
+      { "id": "gp", "name": "Generálny prokurátor", "emoji": "⚖️", "appointedBy": "parliament", "replaceCost": 35, "description": "Rozhoduje o trestných stíhaniach. 7-ročný mandát." },
+      { "id": "pp", "name": "Policajný prezident", "emoji": "👮", "appointedBy": "interior", "replaceCost": 10, "description": "Velí polícii a NAKA. Menuje minister vnútra." },
+      { "id": "nbs", "name": "Guvernér NBS", "emoji": "🏦", "appointedBy": "president", "replaceCost": 18, "description": "Národná banka Slovenska. Regulátor finančného trhu." },
+      { "id": "rtvs", "name": "Riaditeľ RTVS", "emoji": "📺", "appointedBy": "parliament", "replaceCost": 12, "description": "Rozhlas a televízia Slovenska. Verejnoprávne médiá." },
+      { "id": "nku", "name": "Predseda NKÚ", "emoji": "📋", "appointedBy": "parliament", "replaceCost": 20, "description": "Najvyšší kontrolný úrad. Audituje vládne výdavky." }
+    ],
+    "heads": [
+      { "id": "head_sis", "name": "Michal Aláč", "institution": "sis", "ideology": 5, "competence": 6, "loyalty": 5, "conviction": 5, "termEnd": -1, "appointedBy": "Heger 2021" },
+      { "id": "head_gp", "name": "Maroš Žilinka", "institution": "gp", "ideology": 7, "competence": 6, "loyalty": 5, "conviction": 7, "termEnd": 60, "appointedBy": "Parlament 2020" },
+      { "id": "head_pp", "name": "Štefan Hamran", "institution": "pp", "ideology": 5, "competence": 6, "loyalty": 5, "conviction": 5, "termEnd": -1, "appointedBy": "Mikulec 2021" },
+      { "id": "head_nbs", "name": "Peter Kažimír", "institution": "nbs", "ideology": 6, "competence": 7, "loyalty": 7, "conviction": 5, "termEnd": 36, "appointedBy": "Pellegrini 2019" },
+      { "id": "head_rtvs", "name": "Ľuboš Machaj", "institution": "rtvs", "ideology": 4, "competence": 6, "loyalty": 3, "conviction": 7, "termEnd": 36, "appointedBy": "Čaputová 2022" },
+      { "id": "head_nku", "name": "Ľubomír Andrassy", "institution": "nku", "ideology": 5, "competence": 6, "loyalty": 4, "conviction": 6, "termEnd": 60, "appointedBy": "Parlament 2020" }
+    ],
+    "candidates": [
+      { "id": "cand_inst_1", "name": "Daniel Lipšic", "institution": "gp", "ideology": 3, "competence": 9, "loyalty": 1, "conviction": 9, "bio": "Špeciálny prokurátor. Protikorupčný bojovník, Ficov nepriateľ." },
+      { "id": "cand_inst_2", "name": "Tibor Gašpar", "institution": "pp", "ideology": 8, "competence": 6, "loyalty": 10, "conviction": 3, "bio": "Bývalý policajný prezident, poslanec SMER." },
+      { "id": "cand_inst_3", "name": "Vladimír Pčolinský", "institution": "sis", "ideology": 7, "competence": 5, "loyalty": 6, "conviction": 4, "bio": "Bývalý riaditeľ SIS. Obvinený z korupcie." },
+      { "id": "cand_inst_4", "name": "Branislav Zurian", "institution": "pp", "ideology": 5, "competence": 6, "loyalty": 4, "conviction": 6, "bio": "NAKA vyšetrovateľ, protikorupčne orientovaný." },
+      { "id": "cand_inst_5", "name": "Jozef Kandera", "institution": "gp", "ideology": 7, "competence": 5, "loyalty": 7, "conviction": 4, "bio": "Prokurátor, systémový kandidát." },
+      { "id": "cand_inst_6", "name": "Jaroslav Rezník", "institution": "rtvs", "ideology": 5, "competence": 7, "loyalty": 4, "conviction": 6, "bio": "Bývalý riaditeľ RTVS. Centristický mediálny manažér." },
+      { "id": "cand_inst_7", "name": "Branislav Záhradník", "institution": "nbs", "ideology": 4, "competence": 8, "loyalty": 3, "conviction": 7, "bio": "Ekonóm, bývalý člen Bankovej rady NBS." },
+      { "id": "cand_inst_8", "name": "Katarína Macháčková", "institution": "pp", "ideology": 4, "competence": 7, "loyalty": 3, "conviction": 7, "bio": "Policajná dôstojníčka z NAKA. Protikorupčne orientovaná." },
+      { "id": "cand_inst_9", "name": "Milan Krajniak", "institution": "nku", "ideology": 8, "competence": 4, "loyalty": 6, "conviction": 3, "bio": "Bývalý minister práce za Sme rodina." },
+      { "id": "cand_inst_10", "name": "Pavol Gašpar", "institution": "sis", "ideology": 7, "competence": 5, "loyalty": 8, "conviction": 4, "bio": "Bezpečnostný expert, blízky SMER." }
+    ]
+  }
 }

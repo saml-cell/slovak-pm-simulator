@@ -243,4 +243,72 @@ export function updateDash() {
   document.getElementById('dashStances')!.innerHTML = renderStances() + renderAdvancedMetrics();
   document.getElementById('dashDiplomacy')!.innerHTML = renderDiplomacy();
   document.getElementById('dashHistory')!.innerHTML = renderHistoryPanel();
+
+  // Institution panels
+  const instEl = document.getElementById('dashInstitutions');
+  if (instEl) instEl.innerHTML = renderCourt() + renderCabinet() + renderInstitutions();
+}
+
+function renderCourt(): string {
+  const G = getState();
+  if (!G.court.judges.length) return '';
+  const quorum = G.court.judges.length >= 7;
+  const avgIdeology = G.court.judges.reduce((s, j) => s + j.ideology, 0) / G.court.judges.length;
+  const avgLoyalty = G.court.judges.reduce((s, j) => s + j.loyalty, 0) / G.court.judges.length;
+  const ideCol = avgIdeology > 6 ? 'var(--red)' : avgIdeology > 4 ? 'var(--yellow)' : 'var(--green)';
+  const loyCol = avgLoyalty > 6 ? 'var(--green)' : avgLoyalty > 4 ? 'var(--yellow)' : 'var(--red)';
+  const chair = G.court.judges.find(j => j.isChair);
+  const judgeList = G.court.judges.map(j => {
+    const col = j.loyalty > 6 ? 'rgba(16,185,129,.3)' : j.loyalty < 4 ? 'rgba(239,68,68,.3)' : 'rgba(255,255,255,.05)';
+    return `<div style="display:flex;justify-content:space-between;padding:3px 6px;background:${col};border-radius:3px;font-size:.7rem;margin:1px 0"><span style="color:#fff">${esc(j.name)}${j.isChair ? ' ⭐' : ''}</span><span style="color:var(--text-dim)">I:${j.ideology} K:${j.competence} P:${j.conviction} L:${j.loyalty}</span></div>`;
+  }).join('');
+  return `<div class="dashboard-panel"><div class="panel-title">🏛️ Ústavný súd SR</div>
+    <div class="economy-row"><span class="economy-label">Sudcov</span><span class="economy-value" style="color:${quorum ? 'var(--green)' : 'var(--red)'}">${G.court.judges.length}/13 ${quorum ? '✓' : '✗ pod kvórom!'}</span></div>
+    <div class="economy-row"><span class="economy-label">Predseda</span><span class="economy-value">${chair ? esc(chair.name) : 'neobsadený'}</span></div>
+    <div class="economy-row"><span class="economy-label">Priemerná ideológia</span><span class="economy-value" style="color:${ideCol}">${avgIdeology.toFixed(1)}</span></div>
+    <div class="economy-row"><span class="economy-label">Priemerná lojalita</span><span class="economy-value" style="color:${loyCol}">${avgLoyalty.toFixed(1)}</span></div>
+    <div class="economy-row"><span class="economy-label">Prestíž súdu</span><span class="economy-value" style="color:${G.court.courtPrestige > 60 ? 'var(--green)' : G.court.courtPrestige > 35 ? 'var(--yellow)' : 'var(--red)'}">${Math.round(G.court.courtPrestige)}</span></div>
+    ${G.court.pendingVacancies > 0 ? `<div class="economy-row"><span class="economy-label">Voľné miesta</span><span class="economy-value" style="color:var(--red)">${G.court.pendingVacancies}</span></div>` : ''}
+    <details style="margin-top:6px"><summary style="font-size:.7rem;color:var(--gold);cursor:pointer">Sudcovia (${G.court.judges.length})</summary>${judgeList}</details>
+  </div>`;
+}
+
+function renderCabinet(): string {
+  const G = getState();
+  const era = getEra();
+  if (!G.cabinet.ministers.length || !era.cabinet) return '';
+  const cohCol = G.cabinet.cabinetCohesion > 60 ? 'var(--green)' : G.cabinet.cabinetCohesion > 40 ? 'var(--yellow)' : 'var(--red)';
+  const avgComp = G.cabinet.ministers.reduce((s, m) => s + m.competence, 0) / G.cabinet.ministers.length;
+  const compCol = avgComp > 6 ? 'var(--green)' : avgComp > 4 ? 'var(--yellow)' : 'var(--red)';
+  const ministerList = G.cabinet.ministers.map(m => {
+    const ministry = era.cabinet!.ministries.find(x => x.id === m.ministry);
+    const scandalRisk = m.corruption > 6 ? 'var(--red)' : m.corruption > 3 ? 'var(--yellow)' : 'var(--green)';
+    const loyCol = m.loyalty > 6 ? 'var(--green)' : m.loyalty > 4 ? 'var(--yellow)' : 'var(--red)';
+    return `<div style="display:flex;justify-content:space-between;padding:3px 6px;background:rgba(255,255,255,.03);border-radius:3px;font-size:.7rem;margin:1px 0;border-left:3px solid ${loyCol}"><span style="color:#fff">${ministry ? ministry.emoji + ' ' : ''}${esc(m.name)}</span><span style="color:var(--text-dim)">${era.partyDisplay?.names[m.party] || m.party} | K:${m.competence} L:${m.loyalty} <span style="color:${scandalRisk}">R:${m.corruption}</span></span></div>`;
+  }).join('');
+  return `<div class="dashboard-panel"><div class="panel-title">🏢 Vláda SR — Kabinet</div>
+    <div class="economy-row"><span class="economy-label">Súdržnosť kabinetu</span><span class="economy-value" style="color:${cohCol}">${Math.round(G.cabinet.cabinetCohesion)}%</span></div>
+    <div class="economy-row"><span class="economy-label">Priemerná kompetencia</span><span class="economy-value" style="color:${compCol}">${avgComp.toFixed(1)}</span></div>
+    <div class="economy-row"><span class="economy-label">Premiešania</span><span class="economy-value">${G.cabinet.reshuffleCount}</span></div>
+    <details style="margin-top:6px"><summary style="font-size:.7rem;color:var(--gold);cursor:pointer">Ministri (${G.cabinet.ministers.length})</summary>${ministerList}</details>
+  </div>`;
+}
+
+function renderInstitutions(): string {
+  const G = getState();
+  const era = getEra();
+  if (!G.institutions.heads.length || !era.institutions) return '';
+  const intCol = G.institutions.institutionalIntegrity > 60 ? 'var(--green)' : G.institutions.institutionalIntegrity > 35 ? 'var(--yellow)' : 'var(--red)';
+  const capCol = G.institutions.capturedCount >= 4 ? 'var(--red)' : G.institutions.capturedCount >= 2 ? 'var(--yellow)' : 'var(--green)';
+  const headList = G.institutions.heads.map(h => {
+    const inst = era.institutions!.institutions.find(x => x.id === h.institution);
+    const loyCol = h.loyalty > 6 ? 'var(--green)' : h.loyalty > 4 ? 'var(--yellow)' : 'var(--red)';
+    const convCol = h.conviction > 6 ? 'var(--green)' : h.conviction > 4 ? 'var(--yellow)' : 'var(--red)';
+    return `<div style="display:flex;justify-content:space-between;padding:3px 6px;background:rgba(255,255,255,.03);border-radius:3px;font-size:.7rem;margin:1px 0;border-left:3px solid ${loyCol}"><span style="color:#fff">${inst ? inst.emoji + ' ' : ''}${esc(h.name)}</span><span style="color:var(--text-dim)">${inst ? inst.name : h.institution} | L:${h.loyalty} <span style="color:${convCol}">P:${h.conviction}</span></span></div>`;
+  }).join('');
+  return `<div class="dashboard-panel"><div class="panel-title">🏗️ Nezávislé inštitúcie</div>
+    <div class="economy-row"><span class="economy-label">Integrita inštitúcií</span><span class="economy-value" style="color:${intCol}">${Math.round(G.institutions.institutionalIntegrity)}</span></div>
+    <div class="economy-row"><span class="economy-label">Ovládnuté inštitúcie</span><span class="economy-value" style="color:${capCol}">${G.institutions.capturedCount}/${G.institutions.heads.length}</span></div>
+    <details style="margin-top:6px;"><summary style="font-size:.7rem;color:var(--gold);cursor:pointer">Predstavitelia (${G.institutions.heads.length})</summary>${headList}</details>
+  </div>`;
 }

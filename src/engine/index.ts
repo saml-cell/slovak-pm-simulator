@@ -53,6 +53,27 @@ async function main() {
     document.getElementById('settingsPanel')!.classList.toggle('open');
   });
 
+  // Mode selector (desktop/mobile)
+  const savedMode = localStorage.getItem('spm_display_mode') || (window.innerWidth <= 768 ? 'mobile' : 'desktop');
+  if (savedMode === 'mobile') {
+    document.body.classList.add('mobile-mode');
+    document.getElementById('modeBtnMobile')!.classList.add('active');
+    document.getElementById('modeBtnDesktop')!.classList.remove('active');
+  }
+  document.querySelectorAll('.mode-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const mode = (btn as HTMLElement).dataset.mode!;
+      localStorage.setItem('spm_display_mode', mode);
+      document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      if (mode === 'mobile') {
+        document.body.classList.add('mobile-mode');
+      } else {
+        document.body.classList.remove('mobile-mode');
+      }
+    });
+  });
+
   // AI provider
   const aiSelect = document.getElementById('aiProviderSelect') as HTMLSelectElement;
   aiSelect.addEventListener('change', (e) => {
@@ -106,7 +127,8 @@ async function main() {
             'momentum', 'policyThemes', 'oppositionPressure',
             'businessCycle', 'politicalCapital', 'crisisFatigue', 'euFundsFlow',
             'debtToGdp', 'fdi', 'mediaCycle', 'mediaCycleEvent', 'pollApproval', 'pollError', 'interestRate', 'laborParticipation', 'shapleyPower',
-            'brainDrain', 'oligarchicTies'];
+            'brainDrain', 'oligarchicTies',
+            'court', 'cabinet', 'institutions'];
           for (const key of safeKeys) {
             if (key in sv) (G as unknown as Record<string, unknown>)[key] = sv[key];
           }

@@ -4,7 +4,7 @@ import { showScreen } from './screen';
 import { updateDash } from './render/dashboard';
 import { esc } from './sanitize';
 import { trackAnalytics } from './analytics';
-import { applyMomentum, socialInfluence, econFeedback, policyConsistency, oppositionMove, nashBargaining, simulateElection, businessCycleTick, deficitDynamics, euFundsLink, smartMinWage, econCrisisCheck, incumbencyPenalty, crisisFatigueTick, politicalCapitalTick, diploFeedback, computeShapley, fiscalHealth, fdiDynamics, okunsLaw, mediaCycleTick, updatePolling, laborMarketTick, brainDrainTick, oligarchicTick, mediaEcosystemTick } from './advanced';
+import { applyMomentum, socialInfluence, econFeedback, policyConsistency, oppositionMove, nashBargaining, simulateElection, businessCycleTick, deficitDynamics, euFundsLink, smartMinWage, econCrisisCheck, incumbencyPenalty, crisisFatigueTick, politicalCapitalTick, diploFeedback, computeShapley, fiscalHealth, fdiDynamics, okunsLaw, mediaCycleTick, updatePolling, laborMarketTick, brainDrainTick, oligarchicTick, mediaEcosystemTick, courtTick, courtIdeologyScore, cabinetTick, cabinetImplementationMod, institutionsTick } from './advanced';
 
 function handleDem(id: string, action: string) {
   const G = getState();
@@ -177,6 +177,23 @@ export function proceed(a: AnalysisResult) {
   brainDrainTick(G);
   oligarchicTick(G);
   mediaEcosystemTick(G);
+
+  // ═══ INSTITUTIONS ═══
+  courtTick(G, era);
+  const { scandal: ministerScandal } = cabinetTick(G, era);
+  institutionsTick(G, era);
+
+  // Court ideology affects implementation rate via checksAndBalances
+  const courtInfluence = courtIdeologyScore(G);
+  if (G.court.judges.length > 0) {
+    // Higher courtInfluence = court aligned with PM = less blocking
+    G.impl = Math.max(20, Math.min(100, G.impl + (courtInfluence - 50) * 0.05));
+  }
+
+  // Cabinet competence modifies next policy's implementation
+  const lastPolicyText = G.history.length ? G.history[G.history.length - 1].p : '';
+  const cabinetMod = cabinetImplementationMod(G, lastPolicyText, era);
+  G.impl = Math.max(20, Math.min(100, G.impl * cabinetMod));
   updatePolling(G);
 
   // Bad polls embolden opposition, good polls give breathing room
@@ -242,6 +259,9 @@ export function proceed(a: AnalysisResult) {
     if (wb) {
       if (crisisMsg) { wb.innerHTML = (wb.innerHTML || '') + (wb.innerHTML ? '<br>' : '') + crisisMsg; wb.classList.add('show'); }
       if (pollWarning) { wb.innerHTML = (wb.innerHTML || '') + (wb.innerHTML ? '<br>' : '') + pollWarning; wb.classList.add('show'); }
+      if (ministerScandal) { wb.innerHTML = (wb.innerHTML || '') + (wb.innerHTML ? '<br>' : '') + '🔥 ' + ministerScandal; wb.classList.add('show'); }
+      if (G.court.pendingVacancies > 0) { wb.innerHTML = (wb.innerHTML || '') + (wb.innerHTML ? '<br>' : '') + '🏛️ Ústavný súd: ' + G.court.pendingVacancies + ' voľné miesta'; wb.classList.add('show'); }
+      if (G.institutions.capturedCount >= 4) { wb.innerHTML = (wb.innerHTML || '') + (wb.innerHTML ? '<br>' : '') + '⚠️ EÚ varuje pred úpadkom inštitúcií'; wb.classList.add('show'); }
     }
     showScreen('dashboardScreen');
   }

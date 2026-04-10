@@ -156,7 +156,26 @@ export function kwScore(policy: string): AnalysisResult {
     a.cb.president = G.pellegrini ? 75 + Math.round(Math.random() * 20) : 40 + Math.round(Math.random() * 30);
   }
 
+  // Court ideology modifies court check score
+  if (G.court.judges.length > 0) {
+    const avgCourtLoyalty = G.court.judges.reduce((s, j) => s + j.loyalty, 0) / G.court.judges.length;
+    const courtBonus = (avgCourtLoyalty - 5) * 5;
+    a.cb.court = Math.max(5, Math.min(95, a.cb.court + courtBonus));
+    if (G.court.judges.length < 7) {
+      a.cb.court = 95;
+      a.cb.reasons!.court = 'Ústavný súd nemá kvórum — nemôže rozhodovať!';
+    }
+  }
+
+  // Implementation rate from all three branches (after court modifier)
   a.cb.implementationRate = Math.max(5, Math.min(95, Math.round(a.cb.parliament * 0.4 + a.cb.court * 0.3 + a.cb.president * 0.3)));
+
+  // Cabinet competence modifies implementation rate
+  if (G.cabinet.ministers.length > 0) {
+    const avgComp = G.cabinet.ministers.reduce((s, m) => s + m.competence, 0) / G.cabinet.ministers.length;
+    const compMod = (avgComp - 5) * 3;
+    a.cb.implementationRate = Math.max(5, Math.min(95, a.cb.implementationRate + compMod));
+  }
 
   // Stability: derived from policy coherence and checks & balances
   const stBase = (a.cb.parliament > 60 ? 2 : -2) + (a.cb.court > 50 ? 1 : -1);
