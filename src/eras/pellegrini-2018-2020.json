@@ -107,14 +107,14 @@
       "lean": "smer"
     },
     {
-      "id": "marek",
-      "name": "Marek",
-      "emoji": "💻",
-      "age": 29,
-      "demo": "IT developer v košickom technologickom parku. Pracuje pre americký startup. Zarába 2 400 EUR. Košice berie za budúcnosť Slovenska.",
+      "id": "viera",
+      "name": "Viera",
+      "emoji": "🏘️",
+      "age": 27,
+      "demo": "Rómska žena z Luníka IX v Košiciach. Dvoje detí, žije v segregovanej lokalite bez pravidelnej práce. Sleduje Kocnerov proces len okrajovo — jej každodenná realita sú policajné kontroly, vylúčenie z trhu práce a segregovaná škola pre deti.",
       "location": "Košice",
       "region": "kosicky",
-      "lean": "moderate"
+      "lean": "neutral"
     },
     {
       "id": "jana",
@@ -296,31 +296,31 @@
         "Tridsať rokov som verný SMER. Ale Pellegriniho kurz nepoznám. Toto nie je moja strana."
       ]
     },
-    "marek": {
+    "viera": {
       "vp": [
-        "Skvelé pre IT sektor! Košice sú na mape Európy. Ďalší investor z USA nás kontaktoval.",
-        "Vláda myslí na digitalizáciu — konečne! V kancelárií sme to oslávili pivom.",
-        "Čaputová dáva Slovensku moderný obraz. To pomáha aj nám pri nábore zahraničných talentov."
+        "Počula som že vláda schválila nejaký rómsky akčný plán. Neviem čo to zmení tu na Luníku, ale aspoň niekto hovorí.",
+        "Sociálna pracovníčka prišla a povedala deti môžu ísť do normálnej školy aj odtiaľto. Ak to pravda — je to veľa.",
+        "Čaputová hovorila o ľudskej dôstojnosti. Prvý raz počujem prezidenta čo hovorí aj o nás. Dúfam."
       ],
       "p": [
-        "Dobré signály. Košice tech hub rastie. Startupová komunita je opatrne spokojná.",
-        "Pellegrini nie je vizionár, ale aspoň neprekáža. Pre IT je stabilita dôležitá.",
-        "Na hackathone sme diskutovali — väčšina hovorí, že podmienky sa zlepšujú."
+        "Sľuby sú sľuby. Pred voľbami vždy niečo povedia o Rómoch. Čakám čo príde naozaj.",
+        "Aspoň nás nehonia z Luníka preč. To je trochu lepšie ako pred pár rokmi.",
+        "Škola pre deti funguje. Nie ideálne, ale funguje. Viac teraz nepožadujem."
       ],
       "n": [
-        "Pre nás v IT je to jedno. Zákazníci sú v USA, dane platíme tu, politiku ignorujeme.",
-        "Kočnerov proces? Sledujem ako zaujímavú drámu, nie ako osobnú vec. Treba sa sústrediť.",
-        "Byrokratické odlevy pre startupy stále katastrofálne. Vláda to nerieši. Typické."
+        "Polícia bola tu minulý týždeň. Nie pomôcť — kontrolovať. Vždy to isté.",
+        "Prácu som nenašla. Ani v trafike, ani v upratovačke. Ako len počujú priezvisko, zavesia.",
+        "Kocnerov proces? To je pre iných ľudí. Ja riešim čo bude zajtra dať deťom na obed."
       ],
       "ng": [
-        "Odliv mozgov z Košíc stále pokračuje. Kamaráti odchádzajú do Viedne, Berlína, Prahy.",
-        "Infraštruktúra v Košiciach zaostáva. Rýchlovlak do Bratislavy? Ešte stále nie.",
-        "Vláda hovorí o digitalizácii ale úrady stále faxujú. Komická tragédia."
+        "Deti idú do školy len pre Rómov. EÚ hovorí segregácia je zakázaná. Zákon je tu len na papieri.",
+        "Polícia zastavila brata bez dôvodu. Tretíkrát za rok. Kedy sa to zmení? Nikdy.",
+        "Dávky nestačia na nájom. Obec hovorí — pracujte. Kde? Nikto nás neprijme."
       ],
       "vn": [
-        "Odchádzam. Ponuka z Amsterdamu je príliš dobrá. Slovensko ma sklamalo.",
-        "IT komunita v Košiciach sa vyprázdňuje. Talenty odchádzajú a vláda rieši Kočnera.",
-        "Prečo zostávať? Tu platím rovnaké dane ako v Nemecku, ale dostávam tretinové služby."
+        "Pellegrini odišiel, volby prišli. Pre nás na Luníku sa nič nemení. Ďalší premier, tá istá beda.",
+        "COVID — počuli sme o vírusel ale ochranné prostriedky k nám neprišli. Akoby sme neexistovali.",
+        "Tridsať rokov nezávislosti. A my stále bez vody, bez práce, bez nádeje. Toto je Slovensko pre nás."
       ]
     },
     "jana": {
@@ -858,7 +858,7 @@
       "name": "Košický",
       "pop": 802,
       "personas": [
-        "marek"
+        "viera"
       ]
     }
   ],
@@ -992,7 +992,8 @@
         "frantisek": 8,
         "peter": 6,
         "dusan": 7,
-        "roman": 6
+        "roman": 6,
+        "viera": 9
       },
       "s": {
         "smer": 5,
@@ -1514,7 +1515,8 @@
     "bezpecnost": {
       "p": {
         "karol": 8,
-        "dusan": 4
+        "dusan": 4,
+        "viera": -7
       },
       "s": {
         "sns_c": 4
@@ -1698,7 +1700,9 @@
     "roma": {
       "p": {
         "jana": 4,
-        "lucia": 4
+        "lucia": 4,
+        "viera": 9,
+        "andrea": 5
       },
       "s": {
         "eu_nato": 4,

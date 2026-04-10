@@ -70,8 +70,10 @@ export function nashBargaining(G: GameState, era: EraConfig): void {
     const leverage = shapley > 0 ? shapley * 4 : (surplus > 0 ? Math.min(3, cp.seats / Math.max(1, surplus)) : 0.5);
 
     // Patience drain scales with leverage — powerful partners drain faster when unhappy
+    // Bad polls make partners nervous
+    const pollPenalty = G.pollApproval < 30 ? (30 - G.pollApproval) * 0.05 : 0;
     if (p.sat < 50) {
-      p.pat -= (50 - p.sat) * (0.1 + leverage * 0.08);
+      p.pat -= (50 - p.sat) * (0.1 + leverage * 0.08) + pollPenalty;
     }
 
     // Dynamic demand frequency — leveraged partners demand more often
@@ -252,6 +254,7 @@ export function policyConsistency(G: GameState, policy: string): { bonus: number
       const themeKws = THEME_KEYWORDS[theme];
       const pushesPositive = themeKws.some(k => low.includes(k));
       if (pushesPositive && stance < -2) flipPenalty += FLIP_FLOP_PENALTY;
+      else if (!pushesPositive && stance > 2) flipPenalty += FLIP_FLOP_PENALTY;
     }
   });
 

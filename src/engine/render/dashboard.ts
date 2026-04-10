@@ -101,8 +101,6 @@ function renderStances(): string {
     justicia: ['Právny štát', 'Politická justícia'],
     migracia: ['Otvorené hranice', 'Uzavretie hraníc'],
     identita: ['Kozmopolita', 'Nacionalista'],
-    covid: ['Uvoľnenie', 'Lockdown'],
-    koalicia: ['Kompromis', 'Konfrontácia'],
   };
   let items = '';
   Object.entries(G.stances).forEach(([k, v]) => {

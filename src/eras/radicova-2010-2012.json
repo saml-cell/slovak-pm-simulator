@@ -124,14 +124,14 @@
       "lean": "mosthid"
     },
     {
-      "id": "roman",
-      "name": "Roman",
-      "emoji": "🛒",
-      "age": 41,
-      "demo": "Majiteľ malého obchodu v Prešove. Volil SDKÚ. Trápi ho byrokracia, DPH a rastúce ceny energií. Európska kríza mu sťažuje export. Chce stabilitu.",
-      "location": "Prešov",
+      "id": "elena_r",
+      "name": "Elena R.",
+      "emoji": "🏘️",
+      "age": 31,
+      "demo": "Rómska žena z Jarovníc pri Sabinove. Päť detí, žije v sociálnom byte bez teplej vody. Práca príležitostná, dávky minimálne. Sleduje či nová vláda splní sľuby o rómskej stratégii EÚ — ale skepticizmus je hlboký.",
+      "location": "Jarovnice",
       "region": "presovsky",
-      "lean": "moderate"
+      "lean": "neutral"
     },
     {
       "id": "jana_r",
@@ -347,31 +347,31 @@
         "Radičovej vláda aspoň respektovala nás. Fico? Uvidíme. Opatrne pesimistický."
       ]
     },
-    "roman": {
+    "elena_r": {
       "vp": [
-        "DPH sa nezvýšila! Vláda drží slovo. Môj obchod to pocíti pozitívne.",
-        "Byrokracia sa trochu znížila — online registrácia firmy funguje. Ušetril som čas.",
-        "Export do Česka rastie. Európska kríza nás priamo nepostihla. Dobrá správa."
+        "Počujem že vláda schválila nejakú rómsku stratégiu. Neviem čo to znamená, ale suseda hovorí že peniaze prídu na školy. Dúfam.",
+        "Sociálna pracovníčka prišla a povedala že deti môžu ísť do školy zadarmo aj s obedom. To je veľa pre nás.",
+        "V obci opravili studňu. Prvý raz za päť rokov máme pitnú vodu bližšie. Aj malá vec je veľká keď nemáte nič."
       ],
       "p": [
-        "Obchod funguje. Nie je boom, ale nie je ani krach. Vláda aspoň neštiepila.",
-        "Ceny energií rastú ale zatiaľ zvládnuteľne. Sledujeme situáciu.",
-        "Zákazníci nakupujú opatrnejšie, ale nakupujú. Prežijeme rok."
+        "Nič zvláštne. Sľuby sú sľuby. Bratislava je ďaleko od Jarovníc. Čakáme čo príde.",
+        "Aspoň nás nenávidia nahlas v parlamente. To je trochu lepšie ako pred rokmi.",
+        "Škola funguje, deti chodia. Zatiaľ. Viac od vlády nečakám — naučila som sa."
       ],
       "n": [
-        "Ceny elektrickej energie — ďalší nárast. Marža klesá. Kedy to vláda začne riešiť?",
-        "Byrokracia stále strašná. Sľubovali reformy — kde sú? Každý mesiac nové formuláre.",
-        "Gorila — ak to pravda, SDKÚ je kompromitovaná. A ja som ich volil. Hanba."
+        "Dávky nestačia ani na jedlo. Prácu mi nedajú — hneď ako poviem priezvisko, telefón utíchne.",
+        "Osada je tá istá. Byt bez vody, bez kúrenia v zime. Gorila? Neviem čo to je.",
+        "Polícia príde len keď je problém medzi nami. Keď my máme problém — nikto nepríde."
       ],
       "ng": [
-        "Ceny pohonných hmôt rekordné. Rozvoz tovaru ma stojí dvojnásobok oproti pred dvomi rokmi.",
-        "Vláda sa pohádava o EFSF a moji zákazníci šetria. Politika a realita sú dva rôzne svety.",
-        "Malý podnikateľ platí dane, veľkí ľudia z Gorily neplatia nič. Spravodlivosť kde?"
+        "Školy segregujú deti — moje deti sú v inej triede ako slovenské deti. Hovorí sa že zákon to zakazuje. Zákon je ďaleko.",
+        "Dávky znižujú a hovoria nám pracovať. Kde? Kto nás zoberie? Nikto.",
+        "Obecné zastupiteľstvo chce nás presťahovať ďalej od dediny. Zase. Kam ideme?"
       ],
       "vn": [
-        "Vláda padla. Politická neistota zabije investície. Môj dodávateľ z Česka telefonoval.",
-        "Predčasné voľby. Fico hovorí o vyšších daniach pre firmy. Toto ma straší.",
-        "Dva roky nestability a teraz znova voľby. Podnikateľom treba istotu, nie politické divadlo."
+        "Vláda padla. Pre nás sa nič nemení. Fico, Radičová — my sme vždy na okraji.",
+        "Predčasné voľby. Znova sľuby o Rómoch pred kamerami. Potom ticho na štyri roky.",
+        "Moja dcéra neide na strednu školu — miesto nie je. Alebo nie je pre ňu. Toto je náš život."
       ]
     },
     "jana_r": {
@@ -870,7 +870,7 @@
       "name": "Prešovský",
       "pop": 827,
       "personas": [
-        "roman"
+        "elena_r"
       ]
     },
     {
@@ -1005,7 +1005,7 @@
         "filip_r": -9,
         "ondrej_r": -7,
         "jana_r": -6,
-        "roman": -5,
+        "elena_r": -3,
         "igor_g": -4
       },
       "s": {
@@ -1061,10 +1061,10 @@
     "plochaDan": {
       "p": {
         "tibor": 10,
-        "roman": 6,
         "ondrej_r": 5,
         "peter_g": -3,
-        "zuzana_r": -4
+        "zuzana_r": -4,
+        "elena_r": -5
       },
       "s": {
         "business": 7,
@@ -1132,7 +1132,7 @@
         "lucia": -7,
         "filip_r": -8,
         "jana_r": -6,
-        "roman": -5
+        "elena_r": -3
       },
       "s": {
         "media_ind": -6,
@@ -1160,7 +1160,8 @@
         "lucia": 7,
         "filip_r": 7,
         "igor_g": 5,
-        "ondrej_r": 5
+        "ondrej_r": 5,
+        "elena_r": 4
       },
       "s": {
         "judiciary": 7,
@@ -1210,7 +1211,6 @@
     "ekonomika": {
       "p": {
         "tibor": 6,
-        "roman": 5,
         "peter_g": 4,
         "ondrej_r": 5
       },
@@ -1281,8 +1281,8 @@
     "bezpecnost": {
       "p": {
         "igor_g": 8,
-        "roman": 4,
-        "marta": 3
+        "marta": 3,
+        "elena_r": -5
       },
       "s": {
         "media_ind": 3
@@ -1310,7 +1310,7 @@
         "zuzana_r": -5,
         "eva_r": -5,
         "marta": -4,
-        "roman": -4
+        "elena_r": -9
       },
       "s": {
         "unions": -6,
@@ -1327,7 +1327,7 @@
         "marta": -7,
         "eva_r": -6,
         "peter_g": -5,
-        "roman": -5
+        "elena_r": -7
       },
       "s": {
         "unions": -5,
@@ -1340,9 +1340,9 @@
     "privatizacia": {
       "p": {
         "tibor": 6,
-        "roman": 5,
         "peter_g": -4,
-        "zuzana_r": -5
+        "zuzana_r": -5,
+        "elena_r": -4
       },
       "s": {
         "business": 6,
@@ -1357,7 +1357,6 @@
     "investicie": {
       "p": {
         "tibor": 7,
-        "roman": 6,
         "ondrej_r": 5
       },
       "s": {
@@ -1413,7 +1412,9 @@
     "roma": {
       "p": {
         "lucia": 5,
-        "ondrej_r": 4
+        "ondrej_r": 4,
+        "elena_r": 10,
+        "bela": 3
       },
       "s": {
         "roma_comm": 7,
@@ -1452,7 +1453,7 @@
         "marta": -7,
         "eva_r": -6,
         "peter_g": -5,
-        "roman": -5
+        "elena_r": -6
       },
       "s": {
         "business": -4,
@@ -1466,8 +1467,7 @@
     "deficit": {
       "p": {
         "tibor": -5,
-        "ondrej_r": -4,
-        "roman": -4
+        "ondrej_r": -4
       },
       "s": {
         "imf_ecb": -5,
@@ -1490,6 +1490,420 @@
       "dp": {
         "eu": 3,
         "usa": 1
+      }
+    },
+    "zachrana": {
+      "p": {
+        "tibor": -7,
+        "ondrej_r": 3,
+        "peter_g": -3,
+        "bela": 4
+      },
+      "s": {
+        "eu_nato": 5,
+        "imf_ecb": 5,
+        "smer": -3,
+        "business": 2
+      },
+      "dp": {
+        "eu": 4
+      },
+      "e": {
+        "deficit": -0.2
+      }
+    },
+    "eurofond": {
+      "p": {
+        "bela": 6,
+        "elena_r": 5,
+        "jana_r": 4,
+        "ondrej_r": 4
+      },
+      "s": {
+        "eu_nato": 6,
+        "business": 4,
+        "roma_comm": 4
+      },
+      "dp": {
+        "eu": 3
+      },
+      "e": {
+        "gdpGrowth": 0.1,
+        "deficit": 0.2
+      }
+    },
+    "konsolidacia": {
+      "p": {
+        "tibor": 6,
+        "ondrej_r": 5,
+        "marta": -5,
+        "zuzana_r": -6,
+        "peter_g": -4
+      },
+      "s": {
+        "imf_ecb": 6,
+        "eu_nato": 4,
+        "business": 3,
+        "unions": -7,
+        "smer": 5
+      },
+      "e": {
+        "deficit": -0.5,
+        "gdpGrowth": -0.1,
+        "unemp": 0.2
+      }
+    },
+    "skrty": {
+      "p": {
+        "marta": -7,
+        "zuzana_r": -8,
+        "peter_g": -5,
+        "jana_r": -6,
+        "eva_r": -5,
+        "elena_r": -7
+      },
+      "s": {
+        "unions": -8,
+        "smer": 6,
+        "imf_ecb": 4,
+        "business": 2
+      },
+      "e": {
+        "deficit": -0.4,
+        "gdpGrowth": -0.15,
+        "unemp": 0.3
+      }
+    },
+    "harabin": {
+      "p": {
+        "lucia": -8,
+        "filip_r": -9,
+        "igor_g": -6,
+        "ondrej_r": -6
+      },
+      "s": {
+        "judiciary": -9,
+        "media_ind": -7,
+        "smer": 5,
+        "eu_nato": -5
+      }
+    },
+    "sudca": {
+      "p": {
+        "lucia": 6,
+        "filip_r": 6,
+        "igor_g": 4,
+        "elena_r": 4
+      },
+      "s": {
+        "judiciary": 6,
+        "media_ind": 5,
+        "eu_nato": 4,
+        "smer": -4
+      }
+    },
+    "nemocnica": {
+      "p": {
+        "zuzana_r": 9,
+        "marta": 7,
+        "eva_r": 5,
+        "elena_r": 5
+      },
+      "s": {
+        "unions": 6,
+        "smer": 4
+      },
+      "e": {
+        "deficit": 0.3,
+        "gdpGrowth": 0.02
+      }
+    },
+    "lekar": {
+      "p": {
+        "marta": 8,
+        "zuzana_r": 8,
+        "eva_r": 6,
+        "elena_r": 6
+      },
+      "s": {
+        "unions": 6,
+        "eu_nato": 3
+      },
+      "e": {
+        "deficit": 0.25
+      }
+    },
+    "ucitel": {
+      "p": {
+        "jana_r": 10,
+        "eva_r": 6,
+        "lucia": 5,
+        "elena_r": 5
+      },
+      "s": {
+        "unions": 5,
+        "church": 3
+      },
+      "e": {
+        "deficit": 0.2
+      }
+    },
+    "jazyk": {
+      "p": {
+        "bela": 10,
+        "lucia": 4,
+        "ondrej_r": 3
+      },
+      "s": {
+        "eu_nato": 3,
+        "smer": -4
+      },
+      "dp": {
+        "hungary": 5
+      }
+    },
+    "mensina": {
+      "p": {
+        "bela": 9,
+        "lucia": 4,
+        "elena_r": 5,
+        "ondrej_r": 3
+      },
+      "s": {
+        "eu_nato": 4,
+        "roma_comm": 5,
+        "smer": -4
+      },
+      "dp": {
+        "hungary": 3
+      }
+    },
+    "penzij": {
+      "p": {
+        "marta": 8,
+        "peter_g": 5,
+        "zuzana_r": 4
+      },
+      "s": {
+        "unions": 6,
+        "smer": 5,
+        "imf_ecb": -3
+      },
+      "e": {
+        "deficit": 0.3
+      }
+    },
+    "dochod": {
+      "p": {
+        "marta": 9,
+        "peter_g": 5,
+        "eva_r": 4,
+        "elena_r": 4
+      },
+      "s": {
+        "unions": 6,
+        "smer": 6
+      },
+      "e": {
+        "deficit": 0.3
+      }
+    },
+    "kurzarbeit": {
+      "p": {
+        "peter_g": 6,
+        "zuzana_r": 5,
+        "eva_r": 4,
+        "elena_r": 4
+      },
+      "s": {
+        "unions": 7,
+        "business": 3,
+        "smer": 4
+      },
+      "e": {
+        "unemp": -0.3,
+        "deficit": 0.15
+      }
+    },
+    "euzon": {
+      "p": {
+        "tibor": -4,
+        "ondrej_r": 5,
+        "bela": 4,
+        "peter_g": -3
+      },
+      "s": {
+        "eu_nato": 6,
+        "imf_ecb": 5,
+        "business": 4,
+        "smer": -3
+      },
+      "dp": {
+        "eu": 4
+      },
+      "e": {
+        "gdpGrowth": 0.05
+      }
+    },
+    "dlhova": {
+      "p": {
+        "tibor": -6,
+        "ondrej_r": -5,
+        "marta": -4
+      },
+      "s": {
+        "imf_ecb": -5,
+        "eu_nato": -4,
+        "smer": 3
+      },
+      "e": {
+        "deficit": 0.3
+      }
+    },
+    "obrana": {
+      "p": {
+        "igor_g": 7,
+        "ondrej_r": 4
+      },
+      "s": {
+        "eu_nato": 5
+      },
+      "dp": {
+        "nato_r": 4,
+        "usa": 2
+      },
+      "e": {
+        "deficit": 0.15
+      }
+    },
+    "vojensk": {
+      "p": {
+        "igor_g": 6,
+        "ondrej_r": 3
+      },
+      "s": {
+        "eu_nato": 5
+      },
+      "dp": {
+        "nato_r": 3
+      },
+      "e": {
+        "deficit": 0.12
+      }
+    },
+    "viera": {
+      "p": {
+        "jana_r": 8,
+        "marta": 5,
+        "bela": 4
+      },
+      "s": {
+        "church": 9
+      }
+    },
+    "sloboda": {
+      "p": {
+        "lucia": 8,
+        "filip_r": 7,
+        "tibor": 6,
+        "ondrej_r": 5
+      },
+      "s": {
+        "media_ind": 7,
+        "eu_nato": 5,
+        "smer": -5
+      }
+    },
+    "infrastruktura": {
+      "p": {
+        "peter_g": 5,
+        "eva_r": 4,
+        "bela": 4,
+        "elena_r": 4
+      },
+      "s": {
+        "business": 5,
+        "eu_nato": 3,
+        "v4": 3
+      },
+      "e": {
+        "gdpGrowth": 0.1,
+        "deficit": 0.25
+      }
+    },
+    "podnik": {
+      "p": {
+        "tibor": 7,
+        "peter_g": 4,
+        "ondrej_r": 4
+      },
+      "s": {
+        "business": 8,
+        "smer": -3
+      },
+      "e": {
+        "gdpGrowth": 0.08
+      }
+    },
+    "dan": {
+      "p": {
+        "tibor": -5,
+        "ondrej_r": -3,
+        "marta": -4,
+        "elena_r": -4
+      },
+      "s": {
+        "business": -5,
+        "imf_ecb": 3,
+        "smer": 3
+      },
+      "e": {
+        "deficit": -0.2,
+        "gdpGrowth": -0.05
+      }
+    },
+    "zahranicna": {
+      "p": {
+        "ondrej_r": 6,
+        "bela": 5,
+        "lucia": 4
+      },
+      "s": {
+        "eu_nato": 6,
+        "v4": 4
+      },
+      "dp": {
+        "eu": 2,
+        "usa": 1
+      },
+      "e": {
+        "gdpGrowth": 0.06
+      }
+    },
+    "oligarch": {
+      "p": {
+        "lucia": -9,
+        "filip_r": -10,
+        "ondrej_r": -7,
+        "jana_r": -6
+      },
+      "s": {
+        "media_ind": -8,
+        "judiciary": -7,
+        "smer": 4,
+        "business": -5
+      }
+    },
+    "segregacia": {
+      "p": {
+        "elena_r": -10,
+        "lucia": -5,
+        "ondrej_r": -4
+      },
+      "s": {
+        "roma_comm": -9,
+        "eu_nato": -4,
+        "smer": 3
       }
     }
   },

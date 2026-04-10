@@ -1,5 +1,5 @@
 import type { ActiveEvent } from './types';
-import { getEra, getState, getCalendarDate } from './state';
+import { getEra, getState } from './state';
 import { esc } from './sanitize';
 
 const defaultQuietMonths = [

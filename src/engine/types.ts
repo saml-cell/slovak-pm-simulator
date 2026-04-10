@@ -190,6 +190,7 @@ export interface EraConfig {
   keywords: Record<string, KeywordEffect>;
   forcedEvents: GameEvent[];
   randomEvents: GameEvent[];
+  consequenceChains?: { flag: string; delay: number; prob: number; ev: { h: string; d: string; c: string; t: string; cat: string; s: string[] } }[];
   headlines: {
     left: { name: string; entries: HeadlineEntry[]; fallback?: { headline: string; subhead: string } };
     center: { name: string; entries: HeadlineEntry[]; fallback?: { headline: string; subhead: string } };

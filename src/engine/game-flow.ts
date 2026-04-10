@@ -91,6 +91,22 @@ export function proceed(a: AnalysisResult) {
   if (a.socialFx) Object.entries(a.socialFx).forEach(([k, d]) => { if (G.social[k] !== undefined) G.social[k] = Math.max(0, Math.min(100, G.social[k] + d)); });
   if (a.flags) Object.assign(G.flags, a.flags);
 
+  // Check consequenceChains for newly set flags
+  const chains = era.consequenceChains || [];
+  for (const chain of chains) {
+    if (G.flags[chain.flag] && !G.flags['_cc_' + chain.flag]) {
+      G.flags['_cc_' + chain.flag] = true; // prevent re-triggering
+      const fireMonth = Math.min(G.month + chain.delay, era.totalMonths - 1);
+      G.cq.push({
+        ev: chain.ev,
+        fire: fireMonth,
+        originP: G.history[G.history.length - 1]?.p || '',
+        originM: G.month,
+        prob: chain.prob
+      });
+    }
+  }
+
   // Stance updates — track changes for UI notification
   const lastPol = (G.history.length ? G.history[G.history.length - 1].p : '').toLowerCase();
   const stanceLabels: Record<string, string> = { ekonomika: 'Ekonomika', eu: 'EÚ/NATO', rusko: 'Rusko', social: 'Sociálna', media: 'Média', justicia: 'Justícia', migracia: 'Migrácia', identita: 'Identita' };
@@ -159,6 +175,24 @@ export function proceed(a: AnalysisResult) {
   fiscalHealth(G);
   laborMarketTick(G);
   updatePolling(G);
+
+  // Bad polls embolden opposition, good polls give breathing room
+  if (G.pollApproval < 25) {
+    G.oppositionPressure = Math.min(100, G.oppositionPressure + 3);
+  } else if (G.pollApproval > 50) {
+    G.oppositionPressure = Math.max(0, G.oppositionPressure - 2);
+  }
+
+  // Very bad sustained polls trigger snap election pressure
+  if (G.pollApproval < 20 && G.month > 6) {
+    G.stability = Math.max(0, G.stability - 1.5);
+    const snapEl = document.getElementById('warningBanner');
+    if (snapEl && !snapEl.innerHTML.includes('predčasné')) {
+      snapEl.innerHTML = (snapEl.innerHTML || '') + (snapEl.innerHTML ? '<br>' : '') + '📉 Prieskumy pod 20% — tlak na predčasné voľby rastie!';
+      snapEl.classList.add('show');
+    }
+  }
+
   computeShapley(G, era);
 
   // President transition flags
@@ -378,6 +412,10 @@ export function confirmResign() {
   el('approvalChart').innerHTML = G.approvalH.map((v, i) =>
     `<div class="chart-bar" style="height:${(v / 100) * 160}px"><div class="chart-bar-label">${i % 6 === 0 ? getCalendarDate(i).substring(0, 3) : ''}</div></div>`
   ).join('');
+  const rcEl = document.getElementById('realComparisonSection');
+  if (rcEl) rcEl.innerHTML = '';
+  const erEl = document.getElementById('electionResults');
+  if (erEl) erEl.innerHTML = '';
   localStorage.removeItem(era.meta.saveKey);
   showScreen('gameOverScreen');
 }

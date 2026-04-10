@@ -15,7 +15,6 @@ export function getState(): GameState {
   return _state;
 }
 
-function setState(s: GameState) { _state = s; }
 
 export function initGame(): GameState {
   const era = getEra();

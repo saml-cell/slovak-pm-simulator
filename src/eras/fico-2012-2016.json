@@ -916,7 +916,8 @@
       "name": "Košický",
       "pop": 790,
       "personas": [
-        "zuzana"
+        "zuzana",
+        "marta"
       ]
     }
   ],
@@ -1050,7 +1051,8 @@
         "maria": 8,
         "jozef": 6,
         "robert_p": 7,
-        "helena": 6
+        "helena": 6,
+        "marta": 8
       },
       "s": {
         "smer": 5,
@@ -1707,7 +1709,9 @@
     "roma": {
       "p": {
         "eva": 4,
-        "lucia": 4
+        "lucia": 4,
+        "marta": 10,
+        "radovan": 5
       },
       "s": {
         "eu_nato": 4,

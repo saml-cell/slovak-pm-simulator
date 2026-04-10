@@ -31,8 +31,9 @@
     .settings-panel select,.settings-panel input{padding:8px 12px;border:1px solid var(--card-border);border-radius:4px;background:#1a2332;color:#fff;font-size:.85rem;font-family:var(--mono)}
     .settings-panel select option{background:#1a2332;color:#e2e8f0;padding:8px}
     .settings-panel input::placeholder{color:rgba(255,255,255,.3)}
-    .ai-indicator{position:absolute;top:20px;right:20px;background:rgba(201,168,76,.15);border:1px solid var(--gold);padding:8px 12px;border-radius:20px;font-size:.8rem;color:var(--gold);display:none;font-weight:600}
+    .ai-indicator{background:rgba(201,168,76,.15);border:1px solid var(--gold);padding:4px 10px;border-radius:20px;font-size:.7rem;color:var(--gold);display:none;font-weight:600;white-space:nowrap}
     .ai-indicator.active{display:block}
+    #titleScreen .ai-indicator{position:absolute;top:20px;right:20px;padding:8px 12px;font-size:.8rem}
 
     /* ===== DASHBOARD ===== */
     #dashboardScreen{flex-direction:column;padding:0;background:var(--bg);overflow-y:auto}

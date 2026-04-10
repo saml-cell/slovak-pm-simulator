@@ -65,9 +65,25 @@ export function showAnalysis(a: AnalysisResult) {
     if (hasPos && !hasNeg) { mood = 'pos'; reaction = pol.reactions.pos[Math.floor(Math.random() * pol.reactions.pos.length)]; }
     else if (hasNeg && !hasPos) { mood = 'neg'; reaction = pol.reactions.neg[Math.floor(Math.random() * pol.reactions.neg.length)]; }
     else { mood = 'neu'; reaction = pol.reactions.neu[Math.floor(Math.random() * pol.reactions.neu.length)]; }
-    const moodCol = mood === 'pos' ? 'var(--green)' : mood === 'neg' ? 'var(--red)' : 'var(--text-dim)';
-    const moodIcon = mood === 'pos' ? '👍' : mood === 'neg' ? '👎' : '🤷';
-    return `<div style="display:flex;gap:10px;padding:8px;border-bottom:1px solid rgba(255,255,255,.05);align-items:flex-start"><span style="font-size:1.2rem">${esc(pol.emoji)}</span><div style="flex:1"><div style="font-weight:600;font-size:.85rem;color:#fff">${esc(pol.name)} <span style="font-size:.7rem;color:var(--text-dim)">${esc(pol.party)}</span> ${moodIcon}</div><div style="font-size:.8rem;color:${moodCol};font-style:italic;margin-top:2px">"${esc(reaction)}"</div></div></div>`;
+    const moodCol = mood === 'pos' ? 'var(--green)' : mood === 'neg' ? 'var(--red)' : '#a0a0b0';
+    const moodDot = mood === 'pos' ? '🟢' : mood === 'neg' ? '🔴' : '🟡';
+    const moodLabel = mood === 'pos' ? 'ZA' : mood === 'neg' ? 'PROTI' : 'NEUTRÁL';
+    const borderCol = mood === 'pos' ? 'rgba(74,222,128,.25)' : mood === 'neg' ? 'rgba(248,113,113,.25)' : 'rgba(255,255,255,.07)';
+    const bgCol = mood === 'pos' ? 'rgba(74,222,128,.04)' : mood === 'neg' ? 'rgba(248,113,113,.04)' : 'rgba(255,255,255,.01)';
+    return `<div style="display:flex;gap:12px;padding:12px 10px;border-bottom:1px solid rgba(255,255,255,.06);border-left:3px solid ${borderCol};background:${bgCol};align-items:flex-start;margin-bottom:2px">` +
+      `<span style="font-size:1.5rem;line-height:1;flex-shrink:0;margin-top:2px">${esc(pol.emoji)}</span>` +
+      `<div style="flex:1;min-width:0">` +
+        `<div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:5px">` +
+          `<span style="font-weight:700;font-size:.9rem;color:#fff;letter-spacing:.01em">${esc(pol.name)}</span>` +
+          `<span style="font-size:.68rem;font-weight:600;color:#888;background:rgba(255,255,255,.07);padding:1px 6px;border-radius:3px;text-transform:uppercase;letter-spacing:.04em">${esc(pol.party)}</span>` +
+          `<span style="font-size:.68rem;color:var(--text-dim);font-style:italic">${esc(pol.role)}</span>` +
+          `<span style="margin-left:auto;font-size:.68rem;font-weight:700;color:${moodCol};display:flex;align-items:center;gap:3px;white-space:nowrap">${moodDot} ${moodLabel}</span>` +
+        `</div>` +
+        `<div style="font-size:.82rem;color:${moodCol};line-height:1.5;padding:7px 10px;background:rgba(255,255,255,.03);border-radius:5px;border-left:2px solid ${borderCol}">` +
+          `<span style="color:rgba(255,255,255,.3);font-size:1rem;line-height:0;vertical-align:middle;margin-right:3px">"</span>${esc(reaction)}<span style="color:rgba(255,255,255,.3);font-size:1rem;line-height:0;vertical-align:middle;margin-left:3px">"</span>` +
+        `</div>` +
+      `</div>` +
+    `</div>`;
   }).join('');
   document.getElementById('politicianContent')!.innerHTML = polHtml;
 
