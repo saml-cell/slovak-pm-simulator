@@ -58,7 +58,7 @@ export function initGame(): GameState {
     mediaCycleEvent: '',
     pollApproval: s.approval + (Math.random() * 6 - 3),
     pollError: Math.random() * 4 - 2,
-    interestRate: s.econ.debt > 60 ? 4.0 : 2.5,
+    interestRate: (s.econ.debt / Math.max(1, s.econ.gdp) * 100) > 60 ? 4.0 : 2.5,
     laborParticipation: 65,
     shapleyPower: {},
   };

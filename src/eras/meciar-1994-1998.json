@@ -517,18 +517,25 @@
       ],
       "reactions": {
         "pos": [
-          "Vítam tento krok vlády. Slovensko potrebuje takéto rozhodnutia na ceste do Európy.",
-          "Ako prezident som presvedčený, že toto je správny smer pre demokraciu.",
-          "Toto je to, čo od nás Západ očakáva. Podporujem."
+          "Toto je presne to, čo Slovensko potrebuje — zodpovedná politika, nie autoritárske hry. Vítam to s úľavou.",
+          "Ako prezident tejto republiky môžem potvrdiť: takéto kroky otvárajú dvere do Európy, nie ich zatvárajú.",
+          "Konečne! Vláda ukázala, že vie počúvať nielen Lexu, ale aj zdravý rozum a európske partnerstvo.",
+          "Podpisujem s presvedčením — toto nie je len politika, toto je signál, že Slovensko patrí medzi demokratické národy.",
+          "Keď vidím takéto rozhodnutia, mám nádej že inštitúcie tohto štátu ešte fungujú napriek všetkým tlakom."
         ],
         "neg": [
-          "Ako prezident musím varovať pred dôsledkami tohto rozhodnutia pre demokraciu.",
-          "Zvážim použitie prezidentského veta. Toto ohrozuje právny štát.",
-          "Vyzývam občanov aby bránili demokratické hodnoty tejto krajiny."
+          "Ako hlava štátu som povinný povedať nahlas: toto je útok na základy demokratického právneho štátu a nebudem mlčať!",
+          "Prezidentské veto nie je len môj nástroj — je to povinnosť voči občanom, keď vláda šliape po ústave.",
+          "Pán Mečiar, ja som vás varoval. Teraz varujem celú Európu: sledujte čo sa deje na Slovensku.",
+          "SIS, amnestie, mediálny zákon — a teraz toto? Hranica bola prekročená a história si to zapamätá.",
+          "Vyzývam medzinárodné spoločenstvo aby nepodceňovalo vážnosť situácie — demokracia na Slovensku je v ohrození."
         ],
         "neu": [
-          "Sledujem situáciu. Ústava musí byť rešpektovaná.",
-          "Očakávam od vlády konštruktívny prístup v záujme občanov."
+          "Sledujem situáciu veľmi pozorne. Ústava nie je odporúčanie — je to zákon, a platí pre všetkých bez výnimky.",
+          "Prezident nehovorí unáhlene. Počkám na úplné znenie a potom sa verejne vyjadrím.",
+          "Koaličná väčšina môže schváliť veľa vecí — ale ústavnosť rozhodnutí preverím osobne.",
+          "Moja povinnosť je chrániť záujmy všetkých občanov, nielen tých čo volili HZDS.",
+          "Dialóg je vždy lepší ako konfrontácia — ale dialóg vyžaduje dvoch partnerov v dobrej viere."
         ]
       }
     },
@@ -555,18 +562,25 @@
       ],
       "reactions": {
         "pos": [
-          "Výborne! Toto je politika pre Slovákov! Konečne niekto s guľami!",
-          "Slovensko Slovákom! SNS to podporí na 100 percent!",
-          "Tak a je to! Nech si Brusel hovorí čo chce!"
+          "Výborne! Konečne niekto nepozerá na tých buzerantov z Bruselu a robí politiku pre Slovákov!",
+          "Slovensko Slovákom — a toto to dokazuje! SNS to podporí sto percent, bez výhovoriek!",
+          "Tak a je to! Maďari nech sa naučia po slovensky alebo nech idú do Budapešti!",
+          "Toto je politika skutočného štátnika, nie nejakého euroatlantického sluhu!",
+          "Keď takto konáme, národ to cíti! SNS stojí za každým krokom ktorý chráni slovenský charakter tejto krajiny!"
         ],
         "neg": [
-          "Toto je zrada slovenského národa! Ustupujeme Maďarom a Bruselu!",
-          "Keby som ja bol premiér, Maďari by tu už dávno nemali čo hľadať!",
-          "SNS s týmto nesúhlasí! Navrhujem mimoriadnu koaličnú radu!"
+          "Zrada! Čistá zrada slovenského národa — ustupujeme Maďarom, Bruselu, a zajtra budeme ustupovať aj Martianom!",
+          "Keby som ja bol premiér, garantujem vám, Maďari by tu dávno nemali čo hľadať ani s mapou!",
+          "SNS s týmto nesúhlasí ani za boha! Zvolávam mimoriadnu koaličnú radu — hneď!",
+          "Táto krajina sa predáva cudzincom a nikto nič! Hanba! Slovenský národ sa nenechá znásilniť!",
+          "Kto hlasuje za toto, hlasuje proti vlastnému národu. SNS si to zapamätá pri najbližšom kongrese."
         ],
         "neu": [
-          "SNS to prerokuje. Ale nech je jasné — národ je na prvom mieste.",
-          "Nemám k tomu čo povedať. Ale pozor na Maďarov."
+          "SNS to prerokuje. Ale jedno poviem jasne — slovenský národ je na prvom mieste, a tak to aj zostane.",
+          "Nemám zatiaľ komentár. Ale pozor na Maďarov — tí nikdy nespia.",
+          "Čakáme na detaily. Ak toto ohrozuje suverenitu, SNS povstane.",
+          "Závisí od toho ako to bude formulované. Slovenčina musí byť chránená za každých okolností.",
+          "SNS sleduje každý krok v tejto veci. Maďarská lobby je silná — ale slovenský národ je silnejší."
         ]
       }
     },
@@ -593,18 +607,25 @@
       ],
       "reactions": {
         "pos": [
-          "Konečne niečo pre robotníkov! ZRS toto plne podporuje!",
-          "Pracujúci ľudia si zaslúžia ochranu a toto je správny krok.",
-          "Toto som vždy požadoval. Robotníci sú chrbtica tejto krajiny!"
+          "Konečne niečo pre robotníkov! ZRS toto plne podporuje — toto sú ľudia čo pracujú, nie spekulanti!",
+          "Pracujúci ľudia si zaslúžia ochranu a toto je správny krok. Chrbtica tejto krajiny je z ocele, nie z papiera!",
+          "Výborne! Ja som to vždy hovoril — štát musí stáť za robotníkmi, nie ich nechávať napospas trhu!",
+          "ZRS toto schváli bez diskusie. Konečne politika ktorá hovorí pravdu do očí oligarchom!",
+          "Toto ocení každý kto ráno vstáva o šiestej a ide do práce — a nie do nejakej bratislavskej kancelárie!"
         ],
         "neg": [
-          "Toto je proti záujmom pracujúcich! ZRS bude hlasovať proti!",
-          "Ďalšia privatizácia? Ďalšie tunely? Robotníci z toho nič nemajú!",
-          "ZRS zvažuje odchod z koalície ak sa toto schváli."
+          "Toto je priamo namierené proti záujmom pracujúcich! ZRS bude hlasovať kategoricky PROTI!",
+          "Ďalšia privatizácia? Ďalšie tunely pre vyvolených? Robotníci z toho opäť nič neuvidia!",
+          "ZRS vážne zvažuje odchod z koalície ak sa toto schváli bez sociálnych záruk!",
+          "Toto nie je politika — toto je lúpež! Kto dostane tie fabriky? Nie robotníci, to je isté!",
+          "Zvyšujú platy manažérom a škrtajú robotníkom — to je trhová ekonomika podľa Dzurindu? ZRS hovorí NIE!"
         ],
         "neu": [
-          "Uvidíme ako to dopadne pre robotníkov. ZRS to sleduje.",
-          "Robotníci čakajú na konkrétne výsledky, nie reči."
+          "Uvidíme ako to dopadne pre robotníkov. ZRS to sleduje veľmi pozorne.",
+          "Robotníci čakajú na konkrétne výsledky, nie na ďalšie sľuby a reči.",
+          "ZRS si vyžiada stretnutie s premiérom pred hlasovaním. Chceme záruky.",
+          "Závisí od podmienok. Ak sú tu sociálne záruky, môžeme diskutovať — ak nie, diskusia je skončená.",
+          "Konzultujeme s odborovými zväzmi. Robotníci budú mať slovo."
         ]
       }
     },
@@ -631,18 +652,25 @@
       ],
       "reactions": {
         "pos": [
-          "Vítam tento krok. Slovensko sa musí priblížiť k Európe.",
-          "Konečne zodpovedná politika. Toto je správny smer.",
-          "Opozícia podporí každý krok smerom k demokracii a EÚ."
+          "Vítam tento krok. Slovensko sa musí priblížiť k Európe — a každý centimeter smerom k Bruselu je víťazstvo zdravého rozumu.",
+          "Konečne zodpovedná politika! SDK bude pracovať deň a noc aby sme dostali Slovensko tam kde patrí — medzi demokratické národy.",
+          "Opozícia podporí každý krok smerom k demokracii a EÚ — toto je historická príležitosť a nesmieme ju premeškať.",
+          "Toto je dôkaz že sa dá robiť politika bez vydierania, bez SIS-u v pozadí a bez amnestií pre kamarátov.",
+          "Áno! Toto Slovensko potrebuje. Reformy, transparentnosť, európske hodnoty — nie mečiarizmus zabalený do iného obalu."
         ],
         "neg": [
-          "Mečiar opäť útočí na demokraciu! Budeme sa brániť všetkými prostriedkami!",
-          "Toto je krok späť od európskych štandardov. SDK bude proti!",
-          "Občania musia vidieť čo vláda robí s ich krajinou."
+          "Mečiar opäť útočí na demokraciu! SDK bude bojovať každým parlamentným prostriedkom — interpelácií, mimoriadnych schôdzí, všetkým!",
+          "Toto je priamy krok späť od európskych štandardov — Brusel to zaznamená a Slovensko za to zaplatí politickú cenu!",
+          "Občania musia vidieť čo vláda robí s ich krajinou. SDK zverejní každý detail tohto rozhodnutia!",
+          "Pán Mečiar, toto nie je váš štát — toto je štát občanov! A tí vás o tomto nezmocnili!",
+          "SIS, privatizácia pre kamarátov, teraz toto — kde to skončí? SDK hovorí: tu je naša línia a ďalej nepustíme!"
         ],
         "neu": [
-          "Sledujeme situáciu. Čakáme na detaily a dôsledky.",
-          "Opozícia je pripravená konštruktívne diskutovať."
+          "Sledujeme situáciu. Čakáme na detaily, dôsledky a právne stanoviská opozičných právnikov.",
+          "Opozícia je pripravená konštruktívne diskutovať — ale len za predpokladu transparentnosti a rešpektu k ústave.",
+          "SDK to posúdi na stretnutí poslaneckého klubu. Rozhodnutie oznámime verejne.",
+          "Ešte sme nevideli úplné znenie. Zadržme súd — ale buďte si istí, budeme pozorní.",
+          "Máme otázky. Predložíme ich formálne na parlamentnej pôde."
         ]
       }
     },
@@ -668,17 +696,25 @@
       ],
       "reactions": {
         "pos": [
-          "Vítam kroky smerom k rešpektovaniu práv menšín. Toto je európska cesta.",
-          "SMK oceňuje tento prístup. Spolunažívanie je možné."
+          "Vítam kroky smerom k rešpektovaniu práv menšín — toto je európska cesta a SMK bude prvý kto to potvrdí partnerom v Bruseli.",
+          "SMK oceňuje tento prístup. Spolunažívanie je možné, ale vyžaduje si vôľu — a dnes ju vidíme.",
+          "Pol milióna Maďarov na Slovensku si vydýchlo. Toto je signál že nie sme cudzinci vo vlastnej krajine.",
+          "Keď vláda koná takto, budujeme Most — nie múr. A Most je pevnejší ako si mnohí myslia.",
+          "Toto je presne to, čo Benátska komisia a európski partneri dlho žiadali. SMK to víta s otvoreným srdcom."
         ],
         "neg": [
-          "Toto je diskriminácia maďarskej menšiny! SMK to dôrazne odmieta!",
-          "Jazykový zákon porušuje medzinárodné dohovory. Budeme sa brániť v Štrasburgu.",
-          "Pol milióna Maďarov na Slovensku si zaslúži rovnaké práva!"
+          "Toto je diskriminácia maďarskej menšiny a SMK to dôrazne odmieta! Nezabudnime — sme európski občania, nie občania druhej kategórie!",
+          "Jazykový zákon porušuje medzinárodné dohovory — podáme sťažnosť do Štrasburgu a do Viedne a nenecháme to tak!",
+          "Pol milióna Maďarov na Slovensku si zaslúži rovnaké práva — nie Slotove urážky a vládne šikanovanie!",
+          "Pán Slota hovorí o Maďaroch ako o nepriateľoch. SMK hovorí: sme susedia. A toto rozhodnutie nám nepomáha susedsky.",
+          "Toto nie je národná politika — toto je etnická politika, a tá nemá miesto v krajine ktorá chce do Európskej únie."
         ],
         "neu": [
-          "SMK sleduje situáciu. Očakávame dialóg, nie konfrontáciu.",
-          "Menšinové práva sú súčasťou európskych hodnôt."
+          "SMK sleduje situáciu. Očakávame dialóg, nie konfrontáciu — ale dialóg musí byť rovnocenný.",
+          "Menšinové práva sú súčasťou európskych hodnôt a to nehovoríme len my — to hovorí aj Zmluva o európskej únii.",
+          "Konzultujeme s maďarskou vládou a s európskymi partnermi. Toto nie je len slovenská záležitosť.",
+          "SMK si vyžiada stretnutie s predsedom vlády. Chceme počuť priamo od neho aký je zámer.",
+          "Závisí od detailov. Ak sú práva menšín rešpektované, vieme byť konštruktívni — ak nie, budeme hlasní."
         ]
       }
     },
@@ -704,18 +740,25 @@
       ],
       "reactions": {
         "pos": [
-          "Bezpečnosť štátu je priorita. SIS plní úlohy v záujme Slovenskej republiky.",
-          "Správne rozhodnutie. Tajná služba musí mať prostriedky na ochranu štátu.",
-          "Situácia je pod kontrolou. SIS koná."
+          "Bezpečnosť štátu je priorita. SIS plní úlohy v záujme Slovenskej republiky — a nepotrebuje k tomu komentáre z novín.",
+          "Správne rozhodnutie. Tajná služba musí mať prostriedky — a diskrétnosť. Oboje zabezpečíme.",
+          "Situácia je pod kontrolou. SIS koná. Čo presne? To sa nedozvedia tí ktorí sa pýtajú.",
+          "Toto posilňuje schopnosť štátu chrániť sa. Niektorí to ocenia — iní nie. Záujemci o detaily vedia kde nás nájsť.",
+          "Štátna bezpečnosť nie je téma na parlamentnú debatu. Rozhodnutie je správne a bude implementované."
         ],
         "neg": [
-          "Určité kruhy sa snažia oslabiť bezpečnostné zložky štátu. To je nebezpečné.",
-          "Nebudem komentovať operatívne záležitosti. Ale upozorňujem na riziká.",
-          "Tieto informácie sú utajované. Odporúčam zdržanlivosť."
+          "Určité kruhy — dobre vieme ktoré — sa systematicky snažia oslabiť bezpečnostné zložky štátu. To je veľmi nebezpečné.",
+          "Nebudem komentovať operatívne záležitosti. Ale upozorňujem na riziká pre národnú bezpečnosť — a to myslím vážne.",
+          "Tieto informácie sú utajované z dobrého dôvodu. Odporúčam zdržanlivosť tým čo rozprávajú príliš hlasno.",
+          "SIS si to zapamätá. Záznamy sa vedú systematicky a dlhodobo. To je len informácia, nie hrozba.",
+          "Tí čo oslabujú spravodajskú komunitu slúžia cudzím záujmom. Viem to. Majú to vedieť aj oni."
         ],
         "neu": [
-          "SIS koná v súlade so zákonom. Bez komentára.",
-          "Bezpečnostná situácia je stabilná."
+          "SIS koná v súlade so zákonom. Bez ďalšieho komentára.",
+          "Bezpečnostná situácia je stabilná. Ako dlho zostane stabilná závisí od mnohých faktorov.",
+          "Nič k tomu nemám. Zaznamenané.",
+          "SIS monitoruje situáciu na všetkých úrovniach. Viac povedať nemôžem.",
+          "Úroveň ohrozenia je štandardná. Zatiaľ."
         ]
       }
     },
@@ -738,16 +781,25 @@
       ],
       "reactions": {
         "pos": [
-          "Konečne krok správnym smerom!",
-          "Toto je to, čo Slovensko potrebuje."
+          "Konečne krok správnym smerom! Nemôžem mlčať keď vidím niečo dobré — tak ako nemôžem mlčať keď vidím bezprávie.",
+          "Toto je to, čo Slovensko potrebuje. Mal som pravdu keď som odišiel z HZDS — a toto to potvrdzuje.",
+          "Vítam to! Vzdal som sa poslaneckého mandátu kvôli princípom, nie kvôli kariére — a toto sú tie princípy.",
+          "Demokratické Slovensko nie je prázdna fráza. Každý krok týmto smerom má zmysel a moju podporu.",
+          "Toto si zaslúži potlesk — ale len jeden. Demokracia sa nedá vybudovať jedným hlasovaním."
         ],
         "neg": [
-          "Ďalší útok na demokraciu!",
-          "HZDS systematicky ničí právny štát."
+          "Nemôžem mlčať! Toto je ďalší systematický útok na právny štát — a história bude o tom vedieť!",
+          "HZDS systematicky ničí každú inštitúciu, každý kontrolný mechanizmus, každú poistku demokracie. Kedy to skončí?",
+          "Vzdal som sa kresla a poslaneckého imunity kvôli svedomiu. A znovu hovorím: toto je šliapanie po ústave!",
+          "Pán Mečiar — ja som bol vo vašej strane. Viem čo robíte a prečo. A nebudem to tolerovať mlčky.",
+          "Toto nie je politika — toto je výsmech demokratickým hodnotám. Budem kričať kým ma niekto nepočuje."
         ],
         "neu": [
-          "Uvidíme, či to nie je len hra na demokraciu.",
-          "Budem to sledovať veľmi pozorne."
+          "Uvidíme, či to nie je len ďalšia hra na demokraciu pred voľbami. Mečiar je majster kulís.",
+          "Budem to sledovať veľmi pozorne. Mám skúsenosti z vnútra HZDS — viem na čo si dať pozor.",
+          "Závisí od toho čo nasleduje. Jeden dobrý krok nezmyje celú históriu tejto vlády.",
+          "Nebudem unáhlene súdiť. Ale nebudem ani slepý — videl som príliš veľa.",
+          "Zásadný súd si nechám keď budem mať úplné informácie. Princípy sa nesmú predávať za rýchle odsúdenia."
         ]
       }
     },
@@ -771,16 +823,25 @@
       ],
       "reactions": {
         "pos": [
-          "Toto je krok k civilizovanému Slovensku.",
-          "DÚ podporuje európske smerovanie."
+          "Toto je krok k civilizovanému Slovensku — a ja som rád, že ho vidím za svojho života. DÚ to podporuje.",
+          "DÚ podporuje európske smerovanie bez váhania. Pamätám si čo som zažil ako premiér — viem aká je to drina.",
+          "Keď som viedol vládu, bojoval som za presne takéto kroky. Toto je dôkaz že má zmysel vzdorovať.",
+          "Demokratické hodnoty nie sú luxus pre bohatých krajín — sú to podmienky pre dôstojný život tu a teraz.",
+          "Slovensko ukázalo že vie. Teraz musíme ukázať že to vydrží aj bez toho aby nám Západ dýchal na krk."
         ],
         "neg": [
-          "Opäť sa vzďaľujeme od Európy.",
-          "Toto je návrat do minulosti."
+          "Opäť sa vzďaľujeme od Európy — a mne je to bolestivo dobre známe, lebo presne toto som zažil keď som bol odstavený.",
+          "Toto je návrat do minulosti. Tej minulosti ktorú som osobne zažil a z ktorej som odišiel s pocitom hanby.",
+          "DÚ odmieta kroky ktoré rúcajú inštitúcie. Právny štát sa buduje roky — a dá sa zbúrať za jeden zákon.",
+          "Pán Mečiar si myslí že vládne večne. Aj ja som si myslel že niektoré veci trvajú večne — nemýlil som sa takto.",
+          "Toto poškodzuje šance Slovenska na vstup do EÚ a NATO. Za to jedného dňa zaplatíme spoločensky aj ekonomicky."
         ],
         "neu": [
-          "Opozícia bude pozorne sledovať vývoj.",
-          "Čakáme na konkrétne kroky."
+          "Opozícia bude pozorne sledovať vývoj. DÚ má skúsenosti z vládnutia a vieme posúdiť dôsledky.",
+          "Čakáme na konkrétne kroky. Slová sú lacné — vo vláde som sa naučil posudzovať výsledky.",
+          "DÚ si vyžiada právny posudok pred akýmkoľvek vyjadrením. Zodpovednosť nie je len slovo.",
+          "Prekvapilo ma to. Budem premýšľať ako na to reagovať zodpovedne a nie len emotívne.",
+          "Závisí od kontextu a implementácie. Sme opozícia — ale konštruktívna opozícia, nie rušivá."
         ]
       }
     }

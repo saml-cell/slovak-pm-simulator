@@ -532,16 +532,25 @@
       ],
       "reactions": {
         "pos": [
-          "Toto je správny krok pre demokratické Slovensko.",
-          "Vláda koná v záujme občanov. Reformy sú bolestivé ale nevyhnutné."
+          "Toto je správny krok pre demokratické Slovensko — musíme hľadať zhodu, nie víťazstvo jednej strany.",
+          "Vláda koná v záujme občanov. Reformy sú bolestivé ale nevyhnutné — a ja to hovorím aj občanom priamo do očí.",
+          "Konečne! Toto je výsledok ťažkých koaličných rokovaní a dokazuje že konsenzus je možný aj v ťažkých časoch.",
+          "Ja som vždy verila že demokratická diskusia prinesie riešenie — a dnes to vidíme v praxi.",
+          "Toto posilňuje dôveru verejnosti vo vládu. A dôvera je základ — bez nej nemôžete riadiť štát."
         ],
         "neg": [
-          "Nemôžem to akceptovať bez konzultácie s koaličnými partnermi.",
-          "Táto vec si vyžaduje hlbšiu analýzu a dialóg."
+          "Nemôžem to akceptovať bez konzultácie s koaličnými partnermi — vláda musí hovoriť jedným hlasom alebo nehovorí vôbec.",
+          "Táto vec si vyžaduje hlbšiu analýzu a skutočný dialóg, nie len predstieraný konsenzus.",
+          "Musíme hľadať zhodu — a táto zhoda tu ešte nie je. Vrátime sa k rokovaciemu stolu.",
+          "Predsedníčka vlády nie je diktátor. Prijmem rozhodnutie koaličnej rady — ale nie toto bez diskusie.",
+          "Toto ma znepokojuje. Akademický inštinkt mi hovorí: zastav sa, premysli, konzultuj. A ja ho poslúcham."
         ],
         "neu": [
-          "Koaličná rada posúdi situáciu.",
-          "Vláda bude reagovať zodpovedne."
+          "Koaličná rada posúdi situáciu na najbližšom stretnutí. Vláda bude reagovať zodpovedne a transparentne.",
+          "Vláda bude reagovať zodpovedne — ale najprv musíme pochopiť všetky dôsledky tohto kroku.",
+          "Musíme hľadať zhodu. To trvá čas — ale výsledok je trvanlivejší ako unáhlené rozhodnutie.",
+          "Predsedníčka vlády sleduje situáciu. Naše stanovisko vydáme po konzultácii so všetkými partnermi.",
+          "Koalícia je zložená z rôznych perspektív — a každá z nich má hodnotu. Počkajme na plnú diskusiu."
         ]
       }
     },
@@ -567,16 +576,25 @@
       ],
       "reactions": {
         "pos": [
-          "Konečne rozumné ekonomické rozhodnutie! SaS to podporuje.",
-          "Toto je v súlade s naším programom slobodného trhu."
+          "Konečne rozumné ekonomické rozhodnutie! SaS to podporuje — bez výhrad, bez podmienok, bez kecania.",
+          "Toto je v súlade s naším programom slobodného trhu. Možno sa niektorí prekvapili — ale program je program.",
+          "Výborne. Menej štátu, viac slobody — jednoduchá rovnica ktorú niektorí nedokážu pochopiť za celú kariéru.",
+          "SaS za toto hlasuje. Libertariánska logika je niekedy nudná — ale funguje. Čísla to dokazujú.",
+          "Pozrite — aj vládna koalícia občas urobí niečo správne. Dnes je taký deň. SaS ocení."
         ],
         "neg": [
-          "SaS nemôže podporiť kroky ktoré narúšajú fiškálnu zodpovednosť!",
-          "Záchrana Grécka je morálnym hazardom. Nehlasujeme za!"
+          "SaS nemôže podporiť kroky ktoré narúšajú fiškálnu zodpovednosť! Morálny hazard nie je len fráza — je to skutočná choroba!",
+          "Záchrana Grécka je morálnym hazardom! Nehlasujeme za! A kto hlasuje za, nechápem ekonomiku alebo nechápem morálku.",
+          "Toto je presne dôvod prečo SaS vstúpila do politiky — aby zastavila práve takéto rozhodnutia.",
+          "Spoločná zodpovednosť bez spoločného rozhodovania? To je definícia nespravodlivosti. SaS hovorí nie.",
+          "Kto dnes zaplatí za chyby iných, zajtra zaplatí za chyby tých ktorých zachránil. Naučme sa konečne z histórie."
         ],
         "neu": [
-          "SaS to posúdi na poslaneckom klube.",
-          "Uvidíme čísla a potom rozhodneme."
+          "SaS to posúdi na poslaneckom klube. Čísla musia byť na stole pred akýmkoľvek hlasovaním.",
+          "Uvidíme čísla a potom rozhodneme. Nie emócie, nie solidarita — čísla. Ekonomika je veda.",
+          "SaS nehlasuje naslepo za koaličné rozhodnutia. Každé posúdime podľa toho či stojí za zmienku.",
+          "Zaujímavý návrh. Pošlem ho analytickému tímu SaS. Odpoveď bude postavená na dátach.",
+          "Možno áno, možno nie — závisí od podmienok. SaS nie je reflexná strana. Premýšľame."
         ]
       }
     },
@@ -601,16 +619,25 @@
       ],
       "reactions": {
         "pos": [
-          "Fiškálne zodpovedný krok. Slovensko musí konsolidovať.",
-          "Toto je v súlade s naším plánom ozdravenia verejných financií."
+          "Fiškálne zodpovedný krok. Slovensko musí konsolidovať — a toto ide správnym smerom k zdravým verejným financiám.",
+          "Toto je v súlade s naším plánom ozdravenia verejných financií. Každý ušetrený euro dnes je investícia do zajtra.",
+          "Výborne! Konsolidácia nie je trest — je to podmienka toho aby sme o desať rokov neskrachovali ako Grécko.",
+          "Deficit klesá. Štátny dlh sa stabilizuje. Investori si to všímajú. Toto funguje — matematika nezlyhá.",
+          "Ministerstvo financií víta toto rozhodnutie. Austerita má zlú povesť — ale alternatíva je horšia."
         ],
         "neg": [
-          "Takéto výdavky si krajina nemôže dovoliť. Deficit sa prehĺbi.",
-          "Populistické opatrenie bez krytia."
+          "Takéto výdavky si krajina jednoducho nemôže dovoliť. Deficit sa prehĺbi a dôsledky pocítime všetci.",
+          "Populistické opatrenie bez reálneho krytia. Za každým takýmto sľubom stojí dlh pre budúce generácie.",
+          "Toto nie je politika — toto je finančné dobrodružstvo na cudzie náklady. Ministerstvo financií nesúhlasí.",
+          "Keď hovorím že rozpočet nevydrží, nie je to politická rétorika — je to matematika. A matematika nezklame.",
+          "Odmietam. A vyzývam koaličných partnerov aby si prečítali správu OECD pred hlasovaním."
         ],
         "neu": [
-          "Ministerstvo financií analyzuje dopady na rozpočet.",
-          "Čísla budú k dispozícii v budúcom týždni."
+          "Ministerstvo financií analyzuje dopady na rozpočet. Výsledky budú zverejnené transparentne.",
+          "Čísla budú k dispozícii v budúcom týždni. Dovtedy je každý komentár predčasný.",
+          "Potrebujem vidieť úplný fiškálny plán pred akýmkoľvek stanoviskom. Detaily rozhodujú.",
+          "Konzultujeme s MMF a ECB. Medzinárodná perspektíva je nevyhnutná pre zodpovedné rozhodnutie.",
+          "Plán konsolidácie je živý dokument. Toto opatrenie doň zapadá — ale musíme to overiť."
         ]
       }
     },
@@ -634,16 +661,25 @@
       ],
       "reactions": {
         "pos": [
-          "Most-Híd víta toto rozhodnutie ako krok k väčšej integrácii.",
-          "Dialog medzi komunitami je základom demokratickej spoločnosti."
+          "Most-Híd víta toto rozhodnutie ako krok k väčšej integrácii — Most budujeme oba smery, nie jedným.",
+          "Dialóg medzi komunitami je základom demokratickej spoločnosti. Toto ho posilňuje a my to oceňujeme.",
+          "Keď koalícia koná takto, Most-Híd stojí za ňou pevne. Toto je dôvod prečo sme vstúpili do vlády.",
+          "Slovensko a maďarská komunita môžu koexistovať — ba čo viac, môžu sa navzájom obohacovať. Toto to dokazuje.",
+          "Konečne! Integrovaná spoločnosť nie je utópia — je to projekt a dnes sme spravili ďalší krok."
         ],
         "neg": [
-          "Toto poškodzuje práva menšín. Most-Híd to nemôže akceptovať.",
-          "Intoleranciu voči menšinám odsudzujeme."
+          "Toto poškodzuje práva menšín. Most-Híd to nemôže akceptovať — ani ako koaličný partner, ani ako zástupcovia komunity.",
+          "Intoleranciu voči menšinám odsudzujeme v najsilnejšom možnom jazyku. Toto nie je európsky štandard.",
+          "Most-Híd podá koaličný protest. Sme most — ale most sa nesmie zbúrať vlastnými koaličnými partnermi.",
+          "Maďarská komunita sleduje každý krok tejto vlády. Toto je signál ktorý nás znepokojuje hlboko.",
+          "Odchádzam zo zasadnutia koaličnej rady. Toto si vyžaduje priamy rozhovor s predsedníčkou vlády — a to okamžite."
         ],
         "neu": [
-          "Most-Híd bude konzultovať s koaličnými partnermi.",
-          "Menšinové komunity musia byť vypočuté."
+          "Most-Híd bude konzultovať s koaličnými partnermi. Sme tu na to aby sme budovali, nie búrali.",
+          "Menšinové komunity musia byť vypočuté pred každým takýmto rozhodnutím. Čakáme na konzultáciu.",
+          "Most-Híd posúdi dopady na maďarskú aj rómsku komunitu. Obe sú naše voličstvo aj naša zodpovednosť.",
+          "Závisí od implementácie. Dobrý zákon môže byť zle implementovaný — a to sme zažili.",
+          "Budeme rokovať. Most-Híd preferuje dialóg — vždy a za každých okolností."
         ]
       }
     },
@@ -669,16 +705,25 @@
       ],
       "reactions": {
         "pos": [
-          "SMER to vždy hovoril! Ale vláda nás nepočúvala.",
-          "Toto mala vláda urobiť pred dvomi rokmi keď sme to navrhli."
+          "SMER to vždy hovoril! Ale vláda nás nepočúvala — a teraz to robí a tvári sa ako keby to bol jej nápad!",
+          "Toto mala vláda urobiť pred dvomi rokmi keď sme to navrhli. Ale lepšie neskoro ako nikdy — pre ľudí.",
+          "Áno — toto je krok správnym smerom. SMER toto navrhoval. Vezmem si zaslúžený kredit.",
+          "Ľudia trpeli. Ľudia čakali. A teraz konečne niečo — hoci menej ako SMER žiadal a neskôr ako SMER chcel.",
+          "SMER ocení každé opatrenie ktoré pomáha pracujúcim. Politická farba nám pri tom nezáleží."
         ],
         "neg": [
-          "Ďalší útok na pracujúcich ľudí! SMER podá sťažnosť ústavnému súdu!",
-          "Toto je dôkaz že táto vláda je vládou pre bohatých."
+          "Ďalší útok na pracujúcich ľudí! SMER podá sťažnosť ústavnému súdu — a vrátime ľuďom čo ste im vzali!",
+          "Toto je dôkaz že táto vláda je vládou pre bohatých, nie pre ľudí! Štyri strany — štyri odtiene toho istého!",
+          "Škrtajú nemocnice, škrtajú školy, škrtajú dôchodky — a čo nerežú? Výhody pre podnikateľov!",
+          "SMER toto nedopustí! Vyvedieme ľudí do ulíc ak treba — demokracia sa odohráva aj mimo parlamentu!",
+          "Radičová, Sulík, Mikloš — tri mená, jedna politika: bohatí bohatnú, chudobní platia. História si to zapamätá."
         ],
         "neu": [
-          "SMER bude sledovať vývoj situácie.",
-          "Opozícia bude informovať verejnosť."
+          "SMER bude sledovať vývoj situácie. Opozícia má oči všade — a bude informovať verejnosť.",
+          "Opozícia bude informovať verejnosť každý týždeň o tom čo táto vláda robí v ich mene.",
+          "SMER analyzuje dopady tohto opatrenia na nízkopríjmové rodiny a dôchodcov. Výsledky zverejníme.",
+          "Počkáme na implementáciu. Slová sú lacné — SMER súdi podľa výsledkov.",
+          "SMER sa neponáhľa s výrokom. Ale sledujeme — a keď príde čas, povieme nahlas."
         ]
       }
     },
@@ -702,16 +747,25 @@
       ],
       "reactions": {
         "pos": [
-          "SDKÚ-DS podporuje reformy ktoré posunú Slovensko dopredu.",
-          "Toto je v duchu európskych hodnôt."
+          "SDKÚ-DS podporuje reformy ktoré posunú Slovensko dopredu — a ja ako ich otec viem čo to stojí politicky.",
+          "Toto je v duchu európskych hodnôt a reformného dedičstva Slovenska. Sme na správnej ceste.",
+          "Dvadsať rokov budovať reformný odkaz — a teraz ho vidím ako živý projekt. Verím vládnej koalícii.",
+          "Keď som bol premiér, musel som robiť ťažké rozhodnutia. Táto koalícia to robí tiež — a ja to chápem.",
+          "Toto potvrdzuje že reformná línia SDKÚ-DS je správna. Európa to oceňuje — a to je mierou úspechu."
         ],
         "neg": [
-          "Toto nie je v súlade so záväzkami SDKÚ-DS voči voličom.",
-          "Musíme chrániť reformný odkaz Slovenska."
+          "Toto nie je v súlade so záväzkami SDKÚ-DS voči voličom — a ja ako starší štátnik to musím povedať nahlas.",
+          "Musíme chrániť reformný odkaz Slovenska. Toto ho oslabuje — a oslabuje aj kredibilitu celej pravice.",
+          "SDKÚ-DS má iné štandardy. Budoval som ich roky — a nechcem aby sa zrútili kvôli jednému zlému rozhodnutiu.",
+          "Hovorím to ako kolega nie ako kritik: toto je chyba. Poučme sa z nej skôr ako ju zopakujeme.",
+          "Reformný Slovensko — to je projekt na generácie. Toto mu nepomáha. Stranícka rada to musí prehodnotiť."
         ],
         "neu": [
-          "Stranícka rada to prerokuje.",
-          "SDKÚ-DS zostáva záväzne proeurópska."
+          "Stranícka rada SDKÚ-DS to prerokuje na najbližšom predsedníctve. Moje osobné stanovisko príde neskôr.",
+          "SDKÚ-DS zostáva záväzne proeurópska bez ohľadu na vnútorné diskusie. To je neotrasiteľná pozícia.",
+          "Ako predseda strany čakám na stanovisko poslaneckého klubu. Rozhodovanie zhora nie je náš štýl.",
+          "Závisí od kontextu v rámci koaličnej zmluvy. Právnici strany to preskúmajú.",
+          "Som tu ako starší hlas — ale nie ako diktátor. SDKÚ-DS si rozhoduje demokraticky."
         ]
       }
     },
@@ -735,16 +789,25 @@
       ],
       "reactions": {
         "pos": [
-          "Ministerstvo vnútra plne podporuje tento krok.",
-          "Boj proti korupcii musí byť bez kompromisov."
+          "Ministerstvo vnútra plne podporuje tento krok. Protikorupčný boj nie je slogan — je to záväzok na ktorom nestačí byť len keď je to pohodlné.",
+          "Boj proti korupcii musí byť bez kompromisov — a toto rozhodnutie to potvrdzuje. Polícia dostane jasný signál.",
+          "Konečne! Systémová korupcia si vyžaduje systémové riešenie — a toto je krok správnym smerom.",
+          "Policajný zbor bude implementovať toto okamžite. Beztrestnosť je rakovinou demokratického štátu.",
+          "KDH a ministerstvo vnútra stoja za každým rozhodnutím ktoré posilňuje právny štát. Toto je jedno z nich."
         ],
         "neg": [
-          "Toto oslabuje bezpečnostný systém krajiny. Nesúhlas.",
-          "Organizovaný zločin takéto rozhodnutia privíta."
+          "Toto oslabuje bezpečnostný systém krajiny — a ja ako minister vnútra to nemôžem akceptovať bez výhrad.",
+          "Organizovaný zločin takéto rozhodnutia privíta. Sú na to pripravení — my musíme byť tiež.",
+          "Polícia potrebuje právne nástroje, nie politické kompromisy. Toto jej tie nástroje berie.",
+          "Ministerstvo vnútra vysloví formálny nesúhlas. Bezpečnosť občanov nie je miesto pre politické dohody.",
+          "KDH stojí za silným právnym štátom. Toto ho oslabuje — a naše hlasy to odrazia."
         ],
         "neu": [
-          "Ministerstvo vnútra situáciu monitoruje.",
-          "Polícia koná v rámci zákona."
+          "Ministerstvo vnútra situáciu monitoruje. Bezpečnostný aparát koná v rámci platných zákonov.",
+          "Polícia koná v rámci zákona. Akékoľvek zmeny musia byť legislatívne zakotvené pred implementáciou.",
+          "Konzultujeme s prokuratúrou a súdnictvom. Protikorupčná politika musí byť koordinovaná.",
+          "KDH posúdi právne dopady na bezpečnostné zložky. Toto nie je jednoduchá otázka.",
+          "Ministerstvo vnútra sa vyjadrí po analýze bezpečnostných implikácii. Zodpovednosť si vyžaduje čas."
         ]
       }
     },
@@ -768,16 +831,25 @@
       ],
       "reactions": {
         "pos": [
-          "KDH víta rozhodnutia v súlade s kresťanskými hodnotami.",
-          "Rodina a spoločnosť sú základ. Toto to posilňuje."
+          "KDH víta rozhodnutia v súlade s kresťanskými hodnotami — a toto medzi ne patrí bez pochýb.",
+          "Rodina a spoločnosť sú základ demokratického štátu. Toto to posilňuje a KDH to podporuje celým srdcom.",
+          "Ako eurokomisár som presadzoval tieto hodnoty v Bruseli — a teraz ich vidím aplikované doma. Naplnenie.",
+          "Keď politika zodpovedá etickému kompasu KDH, hlasujeme za bez dlhých debát. Toto je taký prípad.",
+          "Solidarita, subsidiarita, ľudská dôstojnosť — tri piliere kresťanskej demokracie. Toto ich naplňuje."
         ],
         "neg": [
-          "KDH nemôže podporiť opatrenia ktoré sú v rozpore s našimi hodnotami.",
-          "Cirkev a rodina musia byť chránené."
+          "KDH nemôže podporiť opatrenia ktoré sú v rozpore s našimi hodnotami — a toto je priama kolízia.",
+          "Cirkev a rodina musia byť chránené. Toto ich ohrozuje — a KDH bude hovoriť jasne a bez výhovoriek.",
+          "Kresťanská demokracia nie je luxusná nálepka — je to záväzok. A tento záväzok nedovoľuje mlčanie.",
+          "Odmieta to moja viera, odmieta to moje svedomie, odmieta to KDH. Tri z troch — hlasujeme proti.",
+          "V Bruseli sme bojovali za európske hodnoty vrátane ochrany rodiny. Toto im odporuje."
         ],
         "neu": [
-          "KDH poslanecký klub sa poradí.",
-          "Etický rozmer tohto rozhodnutia musí byť zvážený."
+          "KDH poslanecký klub sa poradí. Etický rozmer tohto rozhodnutia musí byť dôkladne zvážený.",
+          "Etický rozmer tohto rozhodnutia musí byť zvážený pred hlasovaním. Svedomie nie je rýchle.",
+          "KDH konzultuje s biskupskou konferenciou a právnikmi. Hodnoty vyžadujú starostlivé rozlíšenie.",
+          "Závisí od toho ako toto súvisí so základnými právami a rodinnými hodnotami. Posúdime to zodpovedne.",
+          "KDH nie je strana reflexných reakcií. Premyslíme to — a potom povieme jasne a nahlas."
         ]
       }
     }

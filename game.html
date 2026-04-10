@@ -60,15 +60,20 @@
   <!-- Dashboard -->
   <div id="dashboardScreen" class="screen">
     <div class="dashboard-header">
-      <div style="display:flex;gap:6px">
+      <div style="display:flex;gap:6px;align-items:center">
         <button id="backToMenuBtn" class="nav-button">← Menu</button>
         <button id="historyBtn" class="nav-button">Kronika</button>
         <button id="bugReportBtn" class="nav-button" style="color:#f59e0b">Bug</button>
+      </div>
+      <div style="display:flex;align-items:center;gap:16px;flex:1;justify-content:center">
+        <h2 id="dashPmName" style="font-size:1.3rem;margin:0;white-space:nowrap"></h2>
+        <div style="font-size:.8rem;opacity:.7;white-space:nowrap">Mesiac <span id="monthNumber">1</span> / <span id="totalMonthsDisplay">48</span></div>
+        <div class="month-counter" id="monthDisplay" style="font-size:.9rem"></div>
+      </div>
+      <div style="display:flex;gap:6px;align-items:center">
+        <div class="ai-indicator" id="aiIndicator2">AI</div>
         <button id="resignBtn" class="resign-button">Rezignovať</button>
       </div>
-      <div class="header-left"><h2 id="dashPmName"></h2><div class="month-counter" id="monthDisplay"></div></div>
-      <div class="header-right"><div>Predseda vlády SR</div><div style="font-size:.8rem;margin-top:4px;opacity:.7">Mesiac <span id="monthNumber">1</span> zo <span id="totalMonthsDisplay">48</span></div></div>
-      <div class="ai-indicator" id="aiIndicator2">AI</div>
     </div>
     <div class="dashboard-content">
       <div class="warning-banner" id="warningBanner"></div>

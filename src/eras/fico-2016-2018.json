@@ -540,18 +540,25 @@
       ],
       "reactions": {
         "pos": [
-          "Výborne! Slovensko na prvom mieste! SNS toto plne podporuje!",
-          "Toto je politika pre SLOVÁKOV, nie pre Brusel!",
-          "Silné Slovensko potrebuje silné rozhodnutia!"
+          "Výborne! Slovensko na prvom mieste! Toto je politika pre SLOVÁKOV, nie pre Brusel!",
+          "Predseda Národnej rady víta toto rozhodnutie! Suverenita nie je prázdne slovo!",
+          "SNS toto plne podporuje! Silné Slovensko, silná koalícia, silné rozhodnutia!",
+          "Nakoniec! Toto som požadoval od prvého dňa. Históriu neprepíšu kvóty!",
+          "Slovenský národ má právo na vlastnú cestu! A SNS túto cestu ukazuje!"
         ],
         "neg": [
-          "Toto je zrada národných záujmov! SNS zvažuje odchod z koalície!",
-          "Odmietame podriadiť sa Bruselu a kvótam!",
-          "Navrhujem mimoriadne zasadnutie koaličnej rady."
+          "Toto je zrada národných záujmov! SNS zvažuje mimoriadne koaličné rokovanie!",
+          "Odmietame diktát Bruselu! Migračné kvóty NIE — a táto koalícia to vie!",
+          "Ako predseda parlamentu vyhlasujem: toto sa prerokuje nanovo. Hneď.",
+          "SNS nebude tichým svedkom podriadenia sa cudzím záujmom. Odídeme z koalície!",
+          "Navrhujem mimoriadne zasadnutie. Táto vláda nesmie kapituloval pred médiami!"
         ],
         "neu": [
-          "SNS to prerokuje na predsedníctve.",
-          "Nemám k tomu komentár. Počkáme na vývoj."
+          "SNS to prerokuje na predsedníctve. Rozhodnutie bude prijaté kolektívne.",
+          "Ako predseda parlamentu zaujmem stanovisko po porade s koaličnými partnermi.",
+          "Nemám k tomu komentár. Počkajme na vývoj situácie.",
+          "Parlament musí byť informovaný ako prvý. Nie médiá.",
+          "Sledujeme. SNS vie kedy hovoriť a kedy čakať."
         ]
       }
     },
@@ -577,18 +584,25 @@
       ],
       "reactions": {
         "pos": [
-          "Správny krok. Most-Híd podporuje konštruktívnu politiku.",
-          "Kompromis je základ koalície. Toto je dobré.",
-          "Menšiny a väčšina musia spolupracovať."
+          "Most-Híd vždy hľadal most — a toto je krok, ktorý obidve komunity môžu akceptovať.",
+          "Kompromis nie je slabosť, je to inteligencia. Toto koalícia zvládla.",
+          "Menšiny a väčšina môžu žiť vedľa seba s rešpektom. Toto to potvrdzuje.",
+          "Víta to nielen Most-Híd, ale aj reálni ľudia na juhu Slovenska. Dôležitý signál.",
+          "Správny krok. Koalícia drží a Most-Híd ostáva konštruktívnym partnerom."
         ],
         "neg": [
-          "Most-Híd má vážne výhrady. Zvažujeme pozíciu v koalícii.",
-          "Toto poškodzuje menšinové komunity. Musíme rokovať.",
-          "Ak SNS neprestane, Most-Híd odíde z koalície."
+          "Most-Híd má vážne výhrady. Toto poškodzuje dôveru menšín v štátne inštitúcie.",
+          "Ak SNS neprestane s touto rétorikou, Most-Híd prehodnotí svoju pozíciu v koalícii.",
+          "Žijeme tu spoločne stáročia. Toto rozhodnutie tento súžitie komplikuje.",
+          "Nemôžem podporiť niečo, čo moji voliči vnímajú ako útok na ich identitu.",
+          "Most-Híd podá formálnu námietku. Koalícia musí počuť všetky hlasy, nielen SNS."
         ],
         "neu": [
-          "Budeme to sledovať a konzultovať v strane.",
-          "Čakáme na podrobnosti pred vyjadrením."
+          "Budeme to sledovať a konzultovať s partnermi na oboch stranách.",
+          "Most-Híd vždy preferoval dialóg. Čakáme na ďalší vývoj.",
+          "Zaznamenávam. Každé rozhodnutie má dôsledky pre rôzne komunity.",
+          "Koalícia je kompromis. Dnes sa pozrieme čo si o tomto kompromise myslíme.",
+          "Čakáme na podrobnosti pred konečným vyjadrením. Detaily rozhodujú."
         ]
       }
     },
@@ -616,18 +630,25 @@
       ],
       "reactions": {
         "pos": [
-          "Konečne rozumná ekonomická politika! Toto podporujem.",
-          "Správny krok pre podnikateľské prostredie.",
-          "Ak to zníži byrokraciu, som za."
+          "Konečne rozumná ekonomická politika! Toto SaS podporuje bez výhrad.",
+          "Štát nemá podnikať — a toto rozhodnutie to rešpektuje. Správne!",
+          "Ak to zníži byrokraciu a otvorí trh, som prvý, kto to ocení.",
+          "Podnikatelia to pocítia pozitívne. Raz za uhor, ale OK.",
+          "Pre raz súhlasím s vládou. Nebude to zvykom, ale dnes — áno."
         ],
         "neg": [
-          "Toto zruinuje štátny rozpočet! Populizmus na dlh!",
-          "Bašternák kradne milióny a vláda sa tvári že nič! SaS žiada vyšetrovanie!",
-          "Kaliňák musí rezignovať! 260 000 od podvodníka!"
+          "Bašternák poberal milióny a Kaliňák bral 260 000 od jeho firmy. Toto nie je náhoda!",
+          "Toto zruinuje rozpočet! A Fico sa tváří, že Bašternák neexistuje? SaS žiada vyšetrovanie!",
+          "Kaliňák musí rezignovať. Okamžite. Každý deň navyše je hanba pre celú vládu.",
+          "Populizmus pred voľbami na úkor budúcich generácií — toto je recept na bankrot.",
+          "SaS podá interpeláciu. Verejnosť má právo vedieť čo sa deje v tejto koalícii."
         ],
         "neu": [
-          "Uvidíme aký bude dopad na rozpočet.",
-          "Sledujeme situáciu."
+          "Uvidíme aký bude skutočný dopad na rozpočet. Nechcem reagovať na tlačovku.",
+          "Sledujeme situáciu. SaS sa vyjadrí po posúdení paragrafového znenia.",
+          "Závisí od detailov. Zatiaľ bez definitívneho stanoviska.",
+          "Ani chvála ani odsúdenie — najprv čísla, potom slová.",
+          "Toto ešte nie je koniec príbehu. Ekonomika ukáže pravdu."
         ]
       }
     },
@@ -646,17 +667,25 @@
       ],
       "reactions": {
         "pos": [
-          "Aj slepé kura niekedy nájde zrno. Ale Fico to myslí inak!",
-          "Ukradol náš nápad! My sme to navrhovali ako prví!"
+          "OĽaNO to navrhlo ako prvé! Ukradli nám nápad a teraz sa tvária ako hrdinovia!",
+          "Dobre, toto je fajn. Ale čakám na ďalší škandál — lebo vždy príde.",
+          "Zaznamenávam. Ale Bašternák stále chodí na slobode, tak aká zmena?",
+          "Fajn krok. Ale Kaliňák stále drží ministerské kreslo. Kde je spravodlivosť?",
+          "Raz za uhor niečo správne. Ale sledujte ma — zajtra to zrušia."
         ],
         "neg": [
-          "ZLOČINEC! Fico býva u podvodníka! Bašternák je jeho kamarát!",
-          "Hanba! Kaliňák vzal 260 000 a stále je minister!",
-          "Na Facebooku to rozbalím! Ľudia MUSIA vedieť čo sa deje!"
+          "BAŠTERNÁK! KALIŇÁK! FICO! Toto trio kradne a celý svet sa tvári že nič!",
+          "260 000 od podvodníka a stále je minister! Slovensko, prebuďte sa!",
+          "Dnes večer živý stream. 4 hodiny. Mená, sumy, dátumy. Všetko.",
+          "Toto je dôkaz systemickej korupcie! Toto nie je jedno zlé jablko — je to celý sad!",
+          "Na Facebooku to roztrhám! Každý Slovák musí vedieť čo sa deje v tejto vláde!"
         ],
         "neu": [
-          "*zdieľa 47 príspevkov na Facebooku o Bašternákovi*",
-          "Urobil som video o korupcii. 2 hodiny. Pozrite si ho celé."
+          "*zdieľa 47 príspevkov za jeden deň o Bašternákovi a čaká na reakciu*",
+          "Urobil som video o korupcii. Dve hodiny a dvadsať minút. Pozrite si ho celé.",
+          "Posielam podnet na prokuratúru. Znova. Tentokrát s novými dôkazmi.",
+          "Zatiaľ len sledujem. Ale mám súbor — a ten súbor rastie každý deň.",
+          "Novinári mi volajú. Hovorím im: pozrite si moje príspevky, je to tam."
         ]
       }
     },
@@ -682,17 +711,25 @@
       ],
       "reactions": {
         "pos": [
-          "Konečne niekto koná! Ale stále málo! ĽSNS by urobila viac!",
-          "Správny smer ale treba ísť ďalej. Migranti von!"
+          "Konečne niečo správne! Ale ĽSNS by šla ďalej — pol opatrenia nestačí národu.",
+          "Krok správnym smerom. Ale tieto bábky v parlamente nikdy nedotiahnu nič do konca.",
+          "Uznávam. Ale kým Rómovia a migranti dostávajú dotácie, Slováci trpia.",
+          "Správne. Ale Fico je stále bábka Bruselu — toto je len divadlo pre voličov.",
+          "Aspoň raz. Ale ĽSNS to sleduje a vie, že toto je len povrch."
         ],
         "neg": [
-          "Vláda zrádza národ! Fico je bábka Bruselu!",
-          "Slováci, zobuďte sa! Systém nás klame!",
-          "ĽSNS je jediná skutočná opozícia!"
+          "Vláda zrádza slovenský národ! Fico klakne pred Bruselom a predáva suverenitu!",
+          "Slováci, zobuďte sa! Systém vás klamal a bude klamať ďalej — ak nedáte ĽSNS!",
+          "ĽSNS je jediná skutočná opozícia! Všetci ostatní sú jedno divadlo!",
+          "Toto je hanba pre každého skutočného Slováka. Predali sme krajinu cudzincom.",
+          "Migrantom áno, slovenským rodinám nie? Toto je zrada — a volič si to zapamätá."
         ],
         "neu": [
-          "Sledujeme. Ale ĽSNS má vlastné riešenia.",
-          "Fico sľubuje a neplní. Ako vždy."
+          "ĽSNS sleduje. Ale naše riešenia sú iné než toto politické divadlo.",
+          "Fico sľubuje a neplní. Ako vždy. Slováci si to zaznačte.",
+          "Zaznamenávam. Ale nič z toho nevyrieši skutočné problémy skutočných Slovákov.",
+          "Systém nikdy nefungoval pre ľud — a toto to opäť dokazuje.",
+          "Bez komentára. ĽSNS koná, kým iní len hovoria."
         ]
       }
     },
@@ -722,18 +759,25 @@
       ],
       "reactions": {
         "pos": [
-          "Dôležitý krok pre budúcnosť Slovenska. Podporujem konštruktívnu politiku.",
-          "Toto je signál, že Slovensko ide správnym smerom.",
-          "Vítam tento prístup. Dôležité je pokračovať."
+          "Toto Slovensko potrebovalo. Konštruktívna politika je lepšia ako konfrontácia.",
+          "Slovensko si zaslúži lepšie — a toto je jeden z krokov k tomu lepšiemu.",
+          "Prezidentský úrad toto víta. Dôvera v inštitúcie musí byť obnovená.",
+          "Signál, ktorý naši partneri v EÚ ocenia. Slovensko je spoľahlivé.",
+          "Vítam tento prístup. Dôležité je pokračovať a neuvoľniť tempo."
         ],
         "neg": [
-          "Mám vážne obavy. Zvážim prezidentské veto.",
-          "Vyzývam vládu na transparentnosť. Bašternák musí byť vyšetrený!",
-          "Demokratické štandardy nesmú byť ohrozené. Vrátim zákon parlamentu."
+          "Bašternák musí byť vyšetrený. Toto prezident monitoruje a bude konať.",
+          "Demokracia nie je len volebná hra — je to aj zodpovednosť. Vrátim zákon.",
+          "Mám vážne obavy. Ak vláda nepočúva, prezident má ústavné nástroje.",
+          "Médiá útočia? Nie, médiá informujú. Novinári sú pilier demokracie.",
+          "Slovensko si zaslúži transparentnosť. Nie výhovorky, nie útočenie na novinárov."
         ],
         "neu": [
-          "Sledujem situáciu. Očakávam dialóg.",
-          "Každé rozhodnutie vlády musí rešpektovať ústavu a právny štát."
+          "Sledujem situáciu pozorne. Prezidentský úrad si vyžiada ďalšie informácie.",
+          "Každé rozhodnutie musí rešpektovať ústavu. Preverím právny rámec.",
+          "Verím v dialóg — ale dialóg musí byť úprimný, nie len PR gesto.",
+          "Prezidentský úrad sa k tomu vyjadrí po konzultácii s odborníkmi.",
+          "Sledujem. Každý krok tejto vlády musí zodpovedať demokratickým štandardom."
         ]
       }
     },
@@ -757,16 +801,25 @@
       ],
       "reactions": {
         "pos": [
-          "Ministerstvo vnútra podporuje tento krok.",
-          "Bezpečnosť občanov je priorita."
+          "Ministerstvo vnútra toto víta. Bezpečnosť občanov je naša absolútna priorita.",
+          "Správne rozhodnutie. Polícia a záchranné zložky môžu pracovať efektívnejšie.",
+          "Toto posilní poriadok na uliciach. Minister vnútra garantuje implementáciu.",
+          "Vláda koná a ministerstvo vnútra je pripravené. Výsledky uvidíte rýchlo.",
+          "Lojálny postoj k rozhodnutiam vlády. Premiér môže na mňa počítať."
         ],
         "neg": [
-          "Toto je politická hra opozície.",
-          "Odmietam tieto nepodložené obvinenia."
+          "Odmietam tieto nepodložené obvinenia. Bašternák je súkromná osoba, nie ministerstvo.",
+          "Opozícia si mýli politiku s vyšetrovaním. Na to sú iné orgány.",
+          "260 000 za prenájom? To je bežná obchodná transakcia. Nič viac.",
+          "Médiá vytvárajú politický tlak — ale ministerstvo vnútra nekoná na povel novinárov.",
+          "Každé obvinenie bude právne preskúmané. Moji právnici sú v kontakte s prokuratúrou."
         ],
         "neu": [
-          "Ministerstvo situáciu vyhodnocuje.",
-          "Budeme postupovať podľa zákona."
+          "Ministerstvo situáciu vyhodnocuje. Budeme postupovať podľa zákona.",
+          "Nemám k tomu komentár. Inštitúcie fungujú.",
+          "Polície a prokuratúra sú nezávislé. Nemienim im radiť.",
+          "Pracujeme. Výsledky hovoria samy za seba.",
+          "Toto nie je téma pre ministerstvo vnútra. Ďalšie otázky?"
         ]
       }
     },
@@ -790,16 +843,25 @@
       ],
       "reactions": {
         "pos": [
-          "Sociálna politika vlády prináša výsledky.",
-          "Toto pomôže pracujúcim ľuďom."
+          "Sociálna politika vlády prináša výsledky pre tých, čo to naozaj potrebujú.",
+          "Minimálna mzda musí rásť. Pracujúci ľudia si zaslúžia dôstojný život.",
+          "Toto je presne to, čo SMER sľúbil voličom. Ministerstvo práce to vítá.",
+          "Dôchodcovia a zamestnanci pocítia zmenu. To je politika pre ľudí.",
+          "Odbory súhlasia a ja súhlasím. Toto je správna sociálna politika."
         ],
         "neg": [
-          "Toto ohrozí sociálny systém.",
-          "Pracujúci na to doplatia."
+          "Toto ohrozí sociálny systém, na ktorom závisí milión ľudí. Nedám súhlas.",
+          "Pracujúci na toto doplatia — a ministerstvo práce to povie nahlas.",
+          "Sociálna sieť nie je luxus. Ak ju pretrheme, zaplatia za to tí najslabší.",
+          "Rezort práce predloží alternatívny návrh. Toto nie je akceptovateľné.",
+          "Odbory protestujú a majú pravdu. Táto vláda nesmie opustiť pracujúcich."
         ],
         "neu": [
-          "Rezort práce pripravuje analýzu dopadov.",
-          "Budeme hľadať sociálne citlivé riešenie."
+          "Rezort práce pripravuje analýzu dopadov. Výsledky budú do dvoch týždňov.",
+          "Budeme hľadať sociálne citlivé riešenie, ktoré vyhovuje všetkým stranám.",
+          "Konzultujem s odborármi. Ich pohľad je pre mňa kľúčový.",
+          "Sociálna politika sa nedá robiť rýchlo. Treba čas a analýzy.",
+          "Zatiaľ bez stanoviska. Ministerstvo práce komentuje až po posúdení faktov."
         ]
       }
     }

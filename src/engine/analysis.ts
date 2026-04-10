@@ -60,6 +60,8 @@ export async function analyze(ev: ActiveEvent | null, policy: string): Promise<A
       if (raw) {
         const result = parseAIResult(raw);
         G.analysis = result;
+        const aiInd = document.getElementById('aiIndicator2');
+        if (aiInd) { aiInd.textContent = 'AI'; aiInd.classList.add('active'); }
         return result;
       }
     } catch (e) {

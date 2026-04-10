@@ -184,14 +184,8 @@ export function proceed(a: AnalysisResult) {
   }
 
   // Very bad sustained polls trigger snap election pressure
-  if (G.pollApproval < 20 && G.month > 6) {
-    G.stability = Math.max(0, G.stability - 1.5);
-    const snapEl = document.getElementById('warningBanner');
-    if (snapEl && !snapEl.innerHTML.includes('predčasné')) {
-      snapEl.innerHTML = (snapEl.innerHTML || '') + (snapEl.innerHTML ? '<br>' : '') + '📉 Prieskumy pod 20% — tlak na predčasné voľby rastie!';
-      snapEl.classList.add('show');
-    }
-  }
+  const pollWarning = (G.pollApproval < 20 && G.month > 6) ? '📉 Prieskumy pod 20% — tlak na predčasné voľby rastie!' : null;
+  if (pollWarning) G.stability = Math.max(0, G.stability - 1.5);
 
   computeShapley(G, era);
 
@@ -241,9 +235,10 @@ export function proceed(a: AnalysisResult) {
     gameOver(false);
   } else {
     updateDash();
-    if (crisisMsg) {
-      const crisisEl = document.getElementById('warningBanner');
-      if (crisisEl) { crisisEl.innerHTML = (crisisEl.innerHTML || '') + (crisisEl.innerHTML ? '<br>' : '') + crisisMsg; crisisEl.classList.add('show'); }
+    const wb = document.getElementById('warningBanner');
+    if (wb) {
+      if (crisisMsg) { wb.innerHTML = (wb.innerHTML || '') + (wb.innerHTML ? '<br>' : '') + crisisMsg; wb.classList.add('show'); }
+      if (pollWarning) { wb.innerHTML = (wb.innerHTML || '') + (wb.innerHTML ? '<br>' : '') + pollWarning; wb.classList.add('show'); }
     }
     showScreen('dashboardScreen');
   }

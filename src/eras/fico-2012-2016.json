@@ -535,18 +535,25 @@
       ],
       "reactions": {
         "pos": [
-          "Vítam tento krok vlády. Slovensko potrebuje takéto rozhodnutia.",
-          "Toto je zodpovedná politika. Podporujem.",
-          "Dôležitý signál pre občanov aj medzinárodné spoločenstvo."
+          "Slovensko si zaslúži práve takéto rozhodnutia. Som rád, že vláda počúva občanov.",
+          "Toto je krok správnym smerom. Prezidentský palác toto víta celým srdcom.",
+          "Konečne politika, ktorá spája namiesto toho, aby rozdeľovala. Takéto Slovensko chceme.",
+          "Verím, že toto otvorí cestu k skutočnej obnove dôvery medzi štátom a ľuďmi.",
+          "Dôležitý signál nielen doma, ale aj pre partnerov v Európskej únii."
         ],
         "neg": [
-          "Mám vážne obavy. Zvážim použitie prezidentského veta.",
-          "Vyzývam vládu na dialóg. Toto nie je v záujme občanov.",
-          "Ako prezident nemôžem súhlasiť s krokom, ktorý poškodzuje Slovensko."
+          "Vráti zákon. Toto nie je v súlade s ústavou ani so zdravým rozumom.",
+          "Vyzývam vládu: dialóg áno, diktat nie. Slovensko si zaslúži lepšie než toto.",
+          "Mám vážne obavy. Ak vláda nepočúva, prezident má nástroje ako konať.",
+          "Jednofarebná vláda neznamená neobmedzená vláda. Existujú hranice, ktoré neprekročím.",
+          "Toto nie je politika pre ľudí — toto je politika pre stranu. Budem konať."
         ],
         "neu": [
-          "Sledujem situáciu. Očakávam konštruktívny prístup.",
-          "Verím v dialóg medzi vládou a opozíciou."
+          "Sledujem vývoj. Prezidentský úrad si vyžiada ďalšie informácie.",
+          "Každé rozhodnutie má dve strany. Nechcem reagovať prv než poznám všetky fakty.",
+          "Verím v konštruktívny dialóg. Uvidíme, či vláda zdieľa tento postoj.",
+          "Slovensko prechádza zmenami. Prezident bude stráž ústavy, nie tlieskajúci divák.",
+          "Zatiaľ počkám. Ale moja trpezlivosť nie je bezhraničná."
         ]
       }
     },
@@ -570,18 +577,25 @@
       ],
       "reactions": {
         "pos": [
-          "Správny krok v boji proti korupcii. Ak to myslia vážne.",
-          "Konečne sa niečo deje. Ale budeme kontrolovať implementáciu.",
-          "Podporujem, ale čakám na skutky, nie len slová."
+          "Správny krok — ale korupcia sa rieši súdmi, nie tlačovkami. Uvidíme výsledky.",
+          "Ak to myslia vážne, tak prvý test bude Gorilla. Tam sú mená, tam sú dôkazy.",
+          "Vítal by som to viac keby sa Fico neoprel o tých istých ľudí, čo sú v kauze.",
+          "Zaznamenávam pozitívny signál. Ale naša kontrolná funkcia tým nekončí.",
+          "Konečne sa niečo pohlo. Ale právny štát sa neobnoví jedným gestom."
         ],
         "neg": [
-          "Gorilla ukázala systém korupcie a vláda to ignoruje!",
-          "Toto je útok na právny štát. Budeme sa brániť v parlamente.",
-          "OĽaNO pripraví alternatívny návrh. Toto je neakceptovateľné."
+          "Gorilla nie je konšpirácia — sú to mená, sumy, dátumy. A vláda mlčí!",
+          "Toto je priamy útok na nezávislosť prokuratúry. Neprepáčim.",
+          "OĽaNO to zverejní, prinútime verejnú debatu. Strach z pravdy ich prezrádza.",
+          "Keď systém kryje sám seba, občania musia kričať. A my budeme kričať za nich.",
+          "Toto neprešlo bez stopy. Parlamentná opozícia má pamäť."
         ],
         "neu": [
-          "Budeme to sledovať. Zatiaľ bez komentára.",
-          "Čakáme na detaily pred vyjadrením."
+          "Počkáme na detaily. Rýchle hodnotenie je hra na efekt.",
+          "Zaznamenávam. Posudzujeme právny rámec pred vyjadrením.",
+          "Budeme to sledovať. Zákon je zákon — bez ohľadu na politickú farbu.",
+          "Nie som pripravený chváliť ani odsudzovať. Potrebujem fakty.",
+          "Prokuratúra dostane podnet. Potom uvidíme."
         ]
       }
     },
@@ -608,18 +622,25 @@
       ],
       "reactions": {
         "pos": [
-          "Konečne rozumná ekonomická politika! Toto podporujem.",
-          "Správny krok pre podnikateľské prostredie.",
-          "Ak to zníži byrokraciu a deficit, som za."
+          "Konečne! Štát nemá podnikať a táto vláda to aspoň raz pochopila.",
+          "Každé euro ušetrené na byrokracii je euro v kapse podnikateľov. Správne.",
+          "SaS toto podporuje — ale pozorne sledujeme implementáciu. Žiadne triky.",
+          "Toto je začiatok. Skutočná reforma daňového systému ešte len príde.",
+          "Pre raz súhlasím s vládou. Nechajte trh pracovať."
         ],
         "neg": [
-          "Toto zruinuje štátny rozpočet! Populizmus na dlh!",
-          "Ekonomický nezmysel. Kto to zaplatí? Daňovníci!",
-          "SaS pripraví alternatívny návrh."
+          "Toto je čistý populizmus na úkor budúcich generácií! Platíme za hlasy vo voľbách!",
+          "Štát nemá podnikať, ale ani rozhadzovať cudzie peniaze! Fico kupuje voličov!",
+          "Deficit porastie a ekonomika to pocíti. SaS podá pozmeňovací návrh.",
+          "Kto to zaplatí? Podnikatelia, ktorí tu zostanú. Ostatní odídu.",
+          "Toto nie je sociálna politika — toto je finančná časovaná bomba."
         ],
         "neu": [
-          "Uvidíme aký bude dopad na rozpočet.",
-          "Nemám k tomu silný názor."
+          "Čísla ukážu pravdu. Kým ich nemám, nebudem hystériu pridávať.",
+          "Závisí od detailov implementácie. Dajte mi paragrafové znenie.",
+          "Zaznamenávam. SaS sa k tomu vyjadrí po dôkladnej analýze.",
+          "Ani chvála ani kritika — najprv dáta, potom slová.",
+          "Uvidíme dopad na deficit v ďalšom kvartáli. Potom budem hovoriť."
         ]
       }
     },
@@ -644,18 +665,25 @@
       ],
       "reactions": {
         "pos": [
-          "Správna vec pre slovenské rodiny a tradičné hodnoty.",
-          "KDH víta tento krok. Európske hodnoty a tradícia idú ruka v ruke.",
-          "Podporujeme zodpovedný prístup k správe vecí verejných."
+          "KDH víta tento krok. Rodina, tradícia a európske hodnoty musia ísť ruka v ruke.",
+          "Toto je zodpovedná politika. Kresťanská demokracia takéto rozhodnutia podporuje.",
+          "Konečne politika, ktorá myslí na budúcnosť slovenských rodín, nie len na volebné čísla.",
+          "Ako ex-eurokomisár hovorím: toto zodpovedá európskym štandardom. Som za.",
+          "KDH to podporuje. Hodnoty nie sú relikvia — sú základom fungujúcej spoločnosti."
         ],
         "neg": [
-          "KDH to nemôže podporiť. Je to v rozpore s našimi hodnotami.",
-          "Vyzývame vládu na prehodnotenie. Slovensko si zaslúži lepšie.",
-          "Toto nie je v záujme slovenských rodín a občanov."
+          "KDH to nemôže podporiť. Toto je v priamom rozpore s hodnotami, ktoré zastupujeme.",
+          "Slovenská rodina si toto nezaslúži. Vyzývam vládu na okamžité prehodnotenie.",
+          "Toto poškodzuje inštitúcie, ktoré sú pilierom demokratického štátu. Neprejde.",
+          "Ako niekto, kto roky pracoval pre európske inštitúcie, hovorím: toto je krok späť.",
+          "KDH podá pozmeňovací návrh. Rodiny majú právo na lepšiu politiku."
         ],
         "neu": [
-          "KDH to prerokuje na predsedníctve.",
-          "Čakáme na detaily pred konečným stanoviskom."
+          "KDH to prerokuje na predsedníctve. Rozhodnutie prijmeme zodpovedne.",
+          "Pred vyjadrením potrebujeme dôkladnú analýzu dopadov na rodiny.",
+          "Tradičné hodnoty nie sú v konflikte s modernou politikou — ale toto treba overiť.",
+          "Čakáme na stanovisko Konferencie biskupov Slovenska.",
+          "Závisí od konkrétneho obsahu. KDH nebude reagovať bez faktov."
         ]
       }
     },
@@ -673,17 +701,25 @@
       ],
       "reactions": {
         "pos": [
-          "Aj slepé kura niekedy nájde zrno. Ale Fico to myslí inak!",
-          "Ukradol náš nápad! My sme to navrhovali ako prví!"
+          "Aj slepé kura nájde zrno! Ale Fico to ukradol od OĽaNO — my sme to navrhovali prvý!",
+          "Dobre, toto je fajn. Ale o chvíľu to zmenia, sledujte ma na Facebooku!",
+          "Súhlasím. Ale kde boli pred tromi rokmi?! My sme to kričali a nikto nepočúval!",
+          "Zaujímavé. Pošlem to kamarátovi-novinárovi. Niečo za tým musí byť.",
+          "Raz za uhor, ale OK! Dám to na nálepku a budem jazdiť po Bratislave."
         ],
         "neg": [
-          "ZLODEJ! Gorilla to dokázala! Fico kryje korupciu!",
-          "Hanba! Toto je mafiansky štát! Ľudia, zobuďte sa!",
-          "Na Facebooku to rozbalím! Ľudia MUSIA vedieť!"
+          "GORILLA! GORILLA! GORILLA! Fico kryje zlodejov a vy tlieskate?! Hanba!",
+          "Toto je mafiansky štát! Kto má oči, nech číta moje príspevky — VŠETKO je tam!",
+          "Zverejním mená! Zverejním sumy! Slovensko sa musí zobudiť pred ďalšími voľbami!",
+          "Na Facebooku to roztrhám na atómy! 3 hodiny živého vysielania dnes večer!",
+          "Toto je dôkaz! Toto je dôkaz! Tlačová konferencia zajtra o 9:00!"
         ],
         "neu": [
-          "*zdieľa 47 príspevkov na Facebooku o tejto téme*",
-          "Urobil som video. 2 hodiny. Pozrite si ho celé."
+          "*zdieľa 47 príspevkov za posledných 6 hodín a začína ďalší live stream*",
+          "Urobil som video. Dve hodiny. Prosím, pozrite si ho celé, je to dôležité.",
+          "Posielam to právnikovi. Ak je to legálne, tak prečo sa tak boja transparentnosti?",
+          "Zatiaľ bez komentára — ale len preto, že nakrúcam dokument o tom.",
+          "Sledujte ma. Zajtra ráno zverejním, čo vláda nechce aby ste vedeli."
         ]
       }
     },
@@ -707,18 +743,25 @@
       ],
       "reactions": {
         "pos": [
-          "Výborne! Vláda koná v záujme bezpečnosti občanov!",
-          "SMER plní sľuby. Toto je zodpovedná politika.",
-          "Podporujem premiéra. Správne rozhodnutie."
+          "Výborne! Jednofarebná vláda koná rozhodne — žiadne dohadovanie s koaličnými partnermi.",
+          "SMER plní programové vyhlásenie. Toto je presne to, pre čo nás ľudia zvolili.",
+          "Bezpečnosť občanov je základ. Minister vnútra to garantuje.",
+          "83 kresiel dáva mandát konať. A konáme.",
+          "Stabilná vláda prináša výsledky. Opozícia to môže len sledovať."
         ],
         "neg": [
-          "Opozícia opäť útočí na stabilnú vládu. Nenecháme sa.",
-          "SMER má mandát od voličov. 83 kresiel hovorí za všetko.",
-          "Nebudeme sa podriaďovať tlaku médií a NGO-čiek."
+          "Opozícia opäť útočí na inštitúcie. Toto nie je kritika — toto je sabotáž.",
+          "83 kresiel hovorí za všetko. Ľudia rozhodli. Diskusia je zbytočná.",
+          "Médiá a NGO-čky platené zo zahraničia nebudú diktovať politiku tejto vlády.",
+          "Viem o každom pokuse destabilizovať túto vládu. A viem kto za tým stojí.",
+          "Ministerstvo vnútra zverejní odpoveď. Právne prostriedky budú použité."
         ],
         "neu": [
-          "Vláda pokračuje v práci pre občanov.",
-          "SMER je tu pre ľudí, nie pre elity."
+          "Vláda pracuje. Výsledky hovoria samy za seba.",
+          "SMER je tu pre ľudí, nie pre novinárske elity.",
+          "Situáciu monitorujeme. Bezpečnostné zložky sú v pohotovosti.",
+          "Ministerstvo vnútra nemá k tomu komentár. Pracujeme.",
+          "Sledujeme. Ak bude treba konať, konáme rýchlo a rozhodne."
         ]
       }
     },
@@ -743,18 +786,25 @@
       ],
       "reactions": {
         "pos": [
-          "Fiškálna konsolidácia prináša výsledky. Slovensko plní maastrichtské kritériá.",
-          "Rozpočet je zodpovedný. Investori nám dôverujú.",
-          "Eurozóna oceňuje náš disciplinovaný prístup."
+          "Rozpočet je zákon — a tento zákon dodržíme. Fiškálna disciplína je naša DNA.",
+          "Ministerstvo financií víta toto rozhodnutie. Maastrichtské kritériá zostávajú splnené.",
+          "Investori sledujú každý náš krok. Toto im dáva správny signál.",
+          "Slovensko v eurozóne musí byť príkladom. Toto je krok správnym smerom.",
+          "Čísla sú jednoznačné — rast, nízky deficit, dôvera trhov. Pokračujeme."
         ],
         "neg": [
-          "Toto ohrozí rozpočtovú disciplínu! Musíme byť zodpovední!",
-          "Deficit rastie a nikto to nerieši. Ministerstvo financií varuje.",
-          "Nezodpovedná politika. Zaplatia to naše deti."
+          "Toto ohrozuje rozpočtovú konsolidáciu, na ktorej sme roky pracovali. Varujem!",
+          "Deficit nie je abstrakcia — zaplatia ho budúce generácie. Ministerstvo protestuje.",
+          "Brusel nám nepíše len tak. Toto porušenie záväzkov bude mať následky.",
+          "Zodpovedná fiškálna politika má hranice. Toto ich prekračuje.",
+          "Populizmus má vždy cenovku. A túto faktúru zaplatia daňoví poplatníci."
         ],
         "neu": [
-          "Ministerstvo financií analyzuje dopady na rozpočet.",
-          "Počkajme na čísla pred konečným hodnotením."
+          "Ministerstvo financií vypracúva dopadovú štúdiu. Čísla prídu do piatku.",
+          "Rozpočtový výbor sa stretne budúci týždeň. Predtým sa nevyjadrujem.",
+          "Moje hodnotenie závisí od finálneho znenia. Detaily rozhodujú.",
+          "Eurozóna sleduje. Naše vyjadrenie bude koordinované s Brusselom.",
+          "Počkajme na makroekonomické projekcie. Emócie do rozpočtu nepatria."
         ]
       }
     },
@@ -777,18 +827,25 @@
       ],
       "reactions": {
         "pos": [
-          "SMER plní sľuby. Jednofarebná vláda dokazuje, že to ide aj bez hádok.",
-          "Sociálna politika je naša priorita. Pomáhame ľuďom.",
-          "Stabilita prináša výsledky."
+          "SMER plní to, čo sľúbil. Jednofarebná vláda je stabilná vláda — a výsledky to dokazujú.",
+          "Ľudia to ocenia. Sociálna politika nie je luxus, je to základ dôstojného života.",
+          "Premiér má moju plnú podporu. Toto je politika pre tých, čo to naozaj potrebujú.",
+          "Stabilita nie je nuda — stabilita je zodpovednosť. A SMER to rozumie.",
+          "Vítam toto rozhodnutie. Ako podpredseda vlády môžem potvrdiť, že to bolo pripravené zodpovedne."
         ],
         "neg": [
-          "Musíme nájsť riešenie, ktoré bude akceptovateľné pre všetkých.",
-          "Vyzývam na dialóg. SMER je strana dialógu.",
-          "Nie som si istý, že toto je správna cesta."
+          "Musíme nájsť riešenie, ktoré bude akceptovateľné — aj pre koalíciu, aj pre verejnosť.",
+          "Toto nie je jednoduchá situácia. Vyzývam na pokojnú debatu bez emócií.",
+          "SMER je strana dialógu. Nájdeme cestu — vždy sme ju našli.",
+          "Nie som si istý, že toto je správny čas na takýto krok. Treba premyslieť.",
+          "Riešenie existuje — len ho treba hľadať s chladnou hlavou, nie s tlačovkami."
         ],
         "neu": [
-          "Vláda pokračuje v práci. Výsledky prídu.",
-          "Situáciu sledujeme a vyhodnocujeme."
+          "Vláda pokračuje v práci. Výsledky prídu — to garantujem.",
+          "Situáciu sledujeme. Ďalší postup prerokujeme v koalícii.",
+          "SMER má víziu a mandát. Necháme sa hodnotiť výsledkami.",
+          "Zatiaľ bez definitívneho stanoviska. Treba počkať na vývoj.",
+          "Inštitúcie fungujú. Systém drží. To je to, čo sa počíta."
         ]
       }
     }

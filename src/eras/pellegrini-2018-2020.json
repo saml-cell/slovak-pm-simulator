@@ -535,18 +535,25 @@
       ],
       "reactions": {
         "pos": [
-          "Správne rozhodnutie. SMER stojí za Pellegrinim.",
-          "Pokračujeme v politike pre ľudí. Tak to má byť.",
-          "Moja vláda to začala, Pellegrini pokračuje."
+          "Správne rozhodnutie. Pellegrini pokračuje v tom, čo sme začali — politika pre ľudí.",
+          "Moja vláda to položila základy a Pellegrini to stavia ďalej. Kontinuita.",
+          "SMER stojí za vládou. Koalícia drží a Slovensko je stabilné.",
+          "Toto je presne to, čo som od Pellegriniho očakával. Má moju plnú podporu.",
+          "Dobrá politika nezmizne s premiérom — a toto to dokazuje."
         ],
         "neg": [
-          "Pellegrini by mal byť opatrnejší. Nesmie podľahnúť tlaku ulice.",
-          "Protestujúci sú platení z Ameriky. Nenechajme sa manipulovať!",
-          "Toto nie je smer ktorý som navrhol. SMER to prerokuje."
+          "Pellegrini nesmie podľahnúť tlaku ulice platených protestujúcich. Upozorňujem.",
+          "Médiá útočia na Slovensko — a nie na vládu. Treba to pomenovať jasne.",
+          "Toto nie je smer, ktorý SMER navrhol. Zavolám Pellegrinimu osobne.",
+          "Protestujúci sú organizovaní zo zahraničia. Nenechajme sa manipulovať!",
+          "Ak SMER ustúpi pod tlakom ulice, stratíme mandát voličov. To nepripustím."
         ],
         "neu": [
-          "SMER podporuje vládu. Ale sledujeme situáciu.",
-          "Pellegrini má moju dôveru. Zatiaľ."
+          "SMER sleduje situáciu. Pellegrini má moju dôveru — zatiaľ.",
+          "Predsedníctvo SMER sa stretne na mimoriadnom rokovaní.",
+          "Komentovať budem po internom rokovaní. Nie cez médiá.",
+          "Politika sa robí v parlamente, nie na námestiach. Pamätajme na to.",
+          "Sledujeme. SMER vie kedy hovoriť a kedy konať."
         ]
       }
     },
@@ -575,18 +582,25 @@
       ],
       "reactions": {
         "pos": [
-          "Dôležitý krok pre budúcnosť Slovenska. Spravodlivosť pre Kuciaka je priorita.",
-          "Toto je signál, že Slovensko sa mení k lepšiemu.",
-          "Vítam snahu o obnovu dôvery. Musíme pokračovať."
+          "Toto je krok, ktorý Slovensko potrebovalo. Spravodlivosť pre Kuciaka je prioritou.",
+          "Demokracia nie je samozrejmosť — a toto jej obnovu posilňuje. Som rada.",
+          "Vítam snahu o obnovu dôvery. Občania si to zaslúžia a konečne to cítia.",
+          "Toto je signál, že Slovensko môže byť iné. Lepšie. A my to presadíme.",
+          "Prezidentský úrad stojí za každým krokom k transparentnosti a spravodlivosti."
         ],
         "neg": [
-          "Veľmi ma to znepokojuje. Občania si zaslúžia viac transparentnosti.",
-          "Vyzývam vládu na skutočnú zmenu, nie len výmenu tvárí.",
-          "Slovensko potrebuje systémovú zmenu, nie kozmetiku."
+          "Výmena premiéra nestačí. Systém, ktorý zabil Kuciaka, stále existuje.",
+          "Slovensko potrebuje systémovú zmenu — nie kozmetiku a nie PR gesto.",
+          "Veľmi ma to znepokojuje. Občania si zaslúžia oveľa viac než toto.",
+          "Ak vláda myslí na zmenu vážne, musí začať od súdnictva a prokuratúry.",
+          "Demokracia sa nedá obnoviť tlačovkou. Budem sledovať každý konkrétny čin."
         ],
         "neu": [
-          "Sledujem situáciu. Dôležité je dokázať zmenu činmi.",
-          "Občania rozhodnú vo voľbách. Dôverujem ich úsudku."
+          "Sledujem situáciu. Zmena sa meria činmi, nie slovami.",
+          "Občania rozhodnú vo voľbách. Dôverujem ich úsudku a rozumu.",
+          "Prezidentský úrad si vyžiada ďalšie informácie pred zaujatím stanoviska.",
+          "Verím v zmenu — ale zmena vyžaduje čas, odvahu a konkrétne kroky.",
+          "Každé rozhodnutie hodnotím z hľadiska ústavy a záujmov občanov."
         ]
       }
     },
@@ -612,18 +626,25 @@
       ],
       "reactions": {
         "pos": [
-          "Vítam tento krok. Slovensko potrebuje takéto rozhodnutia po Kuciakovej vražde.",
-          "Konečne zodpovedná politika. Ale musíme ísť ďalej.",
-          "PS podporuje kroky k spravodlivosti a transparentnosti."
+          "Vítam tento krok. Po Kuciakovej vražde Slovensko potrebuje práve takéto signály.",
+          "Konečne zodpovedná politika. Ale PS bude sledovať implementáciu krok za krokom.",
+          "PS to podporuje — ale toto je len začiatok, nie koniec príbehu.",
+          "Toto otvára dvere k Európe, ktoré Fico zatváral. Musíme pokračovať.",
+          "Správne rozhodnutie. Slovensko patrí medzi demokratické štáty, nie medzi ich karikatúry."
         ],
         "neg": [
-          "Toto je len fasáda. Rovnaká koalícia, rovnaký systém.",
-          "Vymenili Fica za Pellegriniho ale mafie ostali.",
-          "PS požaduje skutočnú zmenu, nie výmenu premiéra."
+          "Vymenili Fica za Pellegriniho, ale mafie ostali. Toto je fasáda.",
+          "Rovnaká koalícia, rovnaké väzby, rovnaký systém. Nestačí výmena tváre.",
+          "PS požaduje skutočnú zmenu — prokuratúra, súdnictvo, médiá. Nie PR.",
+          "Kuciak bol zabitý za to, čo odhalil. A tí istí ľudia sú stále pri moci.",
+          "Toto je politická kozmetika. Občania na námestiach žiadali systémovú zmenu."
         ],
         "neu": [
-          "Budeme to sledovať. Čakáme na konkrétne výsledky.",
-          "Zatiaľ len slová. Čakáme na činy."
+          "Budeme to sledovať. Čakáme na konkrétne výsledky, nie na slová.",
+          "Zatiaľ bez záverečného hodnotenia. PS reaguje na fakty, nie na gesta.",
+          "PS je nová sila — a práve preto vidíme veci inak. Sledujeme.",
+          "Závisí od toho, čo príde ďalej. Jeden krok nestačí.",
+          "Slovensko si zaslúži viac. A voľby ukážu, či to voliči cítia rovnako."
         ]
       }
     },
@@ -649,18 +670,25 @@
       ],
       "reactions": {
         "pos": [
-          "Konečne rozumná ekonomická politika! Toto podporujem.",
-          "Správny krok pre podnikateľské prostredie.",
-          "Ak to zníži byrokraciu, som za."
+          "Konečne! Štát nemá podnikať a táto vláda to aspoň raz pochopila.",
+          "Správna ekonomická politika. SaS toto podporuje bez výhrad.",
+          "Znižovanie byrokracie? Som prvý, kto to tlieskne — aj keď mi to z úst bolí.",
+          "Ak trh dostane priestor, ekonomika porastie. Toto je správny krok.",
+          "Pre raz súhlasím s Pellegrinim. Nestane sa to znova."
         ],
         "neg": [
-          "Toto zruinuje štátny rozpočet! Populizmus na dlh!",
-          "Ekonomický nezmysel. SMER len rozdáva pred voľbami.",
-          "SaS pripraví alternatívny návrh."
+          "Toto je čistý populizmus pred voľbami! Deficit zaplatia budúce generácie!",
+          "Pellegrini rozdáva pred voľbami a ekonómovia musia upratovať po voľbách.",
+          "SaS podá pozmeňovací návrh. Toto nemá ekonomickú logiku.",
+          "Kto to zaplatí? Podnikatelia, ktorí ostanú. Ostatní odídu do zahraničia.",
+          "Korupcia a deficity — to je dedičstvo SMERu, ktoré Pellegrini ďalej rozvíja."
         ],
         "neu": [
-          "Uvidíme aký bude dopad na rozpočet.",
-          "Pellegrini zatiaľ nepreukázal ekonomickú víziu."
+          "Závisí od detailov. Kým nemám čísla, nebudem hystériu pridávať.",
+          "Pellegrini zatiaľ nepreukázal ekonomickú víziu. Sledujeme.",
+          "Uvidíme dopad na rozpočet. SaS sa vyjadrí po analýze.",
+          "Ani chvála ani kritika — najprv paragrafové znenie, potom postoj.",
+          "Čísla ukážu pravdu rýchlejšie než akákoľvek tlačovka."
         ]
       }
     },
@@ -686,18 +714,25 @@
       ],
       "reactions": {
         "pos": [
-          "Výborne! Slovensko na prvom mieste! Suverenita!",
-          "Toto je politika pre SLOVÁKOV, nie pre Brusel!",
-          "SNS toto plne podporuje! Koalícia drží!"
+          "Výborne! Slovensko na prvom mieste! SNS toto plne podporuje — suverenita nie je vyjednávacia!",
+          "Toto je politika pre SLOVÁKOV, nie pre Brusel a jeho kvóty!",
+          "Koalícia drží! Pellegrini môže na SNS spoľahnúť v každej ťažkej chvíli.",
+          "Predseda parlamentu vyhlasuje: toto je správne rozhodnutie pre národ.",
+          "SNS stála za Ficom a stojí za Pellegrinim. Kontinuita a lojalita."
         ],
         "neg": [
-          "Toto je zrada národných záujmov! SNS bude proti!",
-          "Odmietame podriadiť sa tlaku ulice a médií!",
-          "Navrhujem mimoriadne zasadnutie koaličnej rady."
+          "Toto je zrada národných záujmov! SNS bude hlasovať proti!",
+          "Odmietame podriadiť sa tlaku ulice! Protestujúci nerobia politiku — parlament robí!",
+          "Navrhujem mimoriadne zasadnutie koaličnej rady. Hneď. Dnes večer.",
+          "Ak koalícia ustúpi pod tlakom médií, SNS prehodnotí svoju účasť vo vláde.",
+          "Toto nie je pre slovenský národ — toto je pre cudzích. A my to nedovolíme."
         ],
         "neu": [
-          "SNS to prerokuje na predsedníctve.",
-          "Koalícia musí držať spolu v tejto ťažkej dobe."
+          "SNS to prerokuje na predsedníctve. Stanovisko bude prijaté kolektívne.",
+          "Koalícia musí držať spolu — teraz viac ako kedykoľvek.",
+          "Predseda parlamentu sa vyjadrí po porade s Pellegrinim.",
+          "Sledujeme. SNS pozná svoje miesto v koalícii a drží ho.",
+          "Bez komentára — ale SNS má oči otvorené a pamäť dlhú."
         ]
       }
     },
@@ -717,16 +752,25 @@
       ],
       "reactions": {
         "pos": [
-          "*bez komentára — cez advokáta odmieta všetky obvinenia*"
+          "*mlčí — cez advokáta odmieta akékoľvek obvinenia ako politicky motivované*",
+          "Moji právnici sú spokojní s týmto vývojom. To je všetko, čo poviem.",
+          "Spravodlivosť existuje — a ja som si tým istý. Advokáti pracujú.",
+          "Systém funguje tak, ako má. Moji právnici to vedeli od začiatku.",
+          "Bez komentára — moja právna stratégia sa nekomunikuje cez médiá."
         ],
         "neg": [
-          "Moji advokáti podajú námietku. Som nevinný!",
-          "Toto je politický proces! Nemám s vraždou nič spoločné!",
-          "Médiá ma lynčujú bez dôkazov!"
+          "Som nevinný! Toto je politický hon na čarodejnice, nie vyšetrovanie!",
+          "Médiá ma lynčujú bez dôkazov! Kocner žaluje — každého a všetkých!",
+          "Táto krajina sa zbláznia. Nikto nebude bezpečný, ak toto bude normálne.",
+          "Moji advokáti podajú námietku na všetky orgány. Každú. Bez výnimky.",
+          "Novinárov som neobjednával. Kto to tvrdí, bude čeliť žalobe."
         ],
         "neu": [
-          "*bez vyjadrenia*",
-          "Moji právnici komunikujú s médiami."
+          "*bez vyjadrenia — advokáti komunikujú s médiami namiesto neho*",
+          "Moji právnici sledujú situáciu. Nie je čo komentovať.",
+          "Právny tím pracuje. Ja nepracujem pre médiá.",
+          "Odmietam komentovať akékoľvek špekulácie pred súdnym rozhodnutím.",
+          "Moji právnici komunikujú s médiami. Obráťte sa na nich."
         ]
       }
     }

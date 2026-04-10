@@ -533,16 +533,66 @@
       ],
       "reactions": {
         "pos": [
-          "Toto je správna cesta pre Slovensko. Pokračujeme v reformách.",
-          "Vláda plní svoje záväzky voči občanom aj partnerom."
+          "Toto je správna cesta pre Slovensko. Pokračujeme v reformách a plníme záväzky, ktoré sme dali občanom.",
+          "Musíme pomôcť Ukrajine — a toto je konkrétny krok, ktorý hovorí viac ako slová.",
+          "Vláda plní svoje záväzky voči občanom aj partnerom. Som vďačný za podporu v koalícii.",
+          "Správne rozhodnutie v správnom čase. Toto je západ, k tomu patríme a to chránime.",
+          "Spoločne to zvládneme. Verím v túto krajinu a verím v ľudí, ktorí v nej žijú."
         ],
         "neg": [
-          "Musíme nájsť lepšie riešenie. Počúvam názory koaličných partnerov.",
-          "Situácia je vážna, ale verím že koalícia nájde zhodu."
+          "Musíme nájsť lepšie riešenie. Počúvam názory všetkých koaličných partnerov — aj tých, čo to komplikujú.",
+          "Situácia je vážna. Verím, že koalícia nájde zhodu, aj keď cesta k nej je... nevšedná.",
+          "Toto nie je výsledok, ktorý som chcel. Ale nevzdávam sa a budem hľadať cestu dopredu.",
+          "Chápem frustráciu ľudí. Aj ja som frustrovaný. Ale som tu a pracujem na riešení.",
+          "Koalícia prechádza náročným obdobím. Slovensko si však zaslúži stabilnú vládu a ja to zabezpečím."
         ],
         "neu": [
-          "Analyzujeme situáciu a pripravíme zodpovedné riešenie.",
-          "Vláda sa tým bude zaoberať na najbližšom zasadnutí."
+          "Analyzujeme situáciu a pripravíme zodpovedné riešenie. Dám vám vedieť.",
+          "Vláda sa tým bude zaoberať na najbližšom zasadnutí. Predtým potrebujem počuť všetky hlasy.",
+          "Situácia je komplexná. Dám vám podrobnejšie vyjadrenie po konzultáciách.",
+          "Pracujeme na tom. Každý deň. Aj keď to nie je vždy vidieť.",
+          "Nechcem predbiehať udalosti. Zodpovedné rozhodnutia si vyžadujú čas."
+        ]
+      }
+    },
+    {
+      "id": "matovic",
+      "name": "Igor Matovič",
+      "party": "OĽaNO",
+      "role": "Minister financií",
+      "emoji": "🟠",
+      "kw_pos": [
+        "rodina",
+        "family",
+        "social"
+      ],
+      "kw_neg": [
+        "korupcia",
+        "corruption",
+        "sulik",
+        "sas"
+      ],
+      "reactions": {
+        "pos": [
+          "Rodinný balíček je SVÄTÝ!!! Toto som navrhol JA a nikto iný a kto tvrdí opak, KLAME!!!",
+          "KONEČNE!!! Vízia Igora Matoviča sa plní!!! Tisíce eur priamo ľuďom, nie gaunerom!!!",
+          "Ja som vedel, ja som to hovoril, ja som to presadil!!! Sulík sa tomu bránil ale PREHRAL!!!",
+          "Toto je pre každú rodinu na Slovensku!!! Pre každú mamičku, každého otecka, každé dieťa!!!",
+          "Facebook EXPLODUJE správami od rodičov!!! Ďakujú MI!!! Nie Sulíkovi, nie Hegerovi — MNE!!!"
+        ],
+        "neg": [
+          "Sulík to SABOTUJE!!! Celá SaS je jedna veľká sabotážna skupina proti rodinám Slovenska!!!",
+          "NA FACEBOOK TO ROZBALÍM!!! Ľudia MUSIA vedieť čo sa tu deje za ich chrbtom!!!",
+          "ZRADCOVIA!!! Keby nebolo Sulíka a jeho liberálnych prisluhovačov, všetko by fungovalo!!!",
+          "Podám trestné oznámenie!!! Na Sulíka!!! Možno aj na Hegera!!! Rozmýšľam!!!",
+          "Odídem z vlády!!! Alebo neodídem!!! Ale ak odídem tak to bude ich chyba nie moja!!!"
+        ],
+        "neu": [
+          "*zdieľa 47 príspevkov na Facebooku o tejto téme medzi 23:00 a 3:00*",
+          "Urobil som video. Dve hodiny. Pozrite si ho celé, inak nechápete kontext.",
+          "Rozmýšľam. Ale rodinný balíček zostáva. To je červená čiara. Absolútna.",
+          "Správa na Facebooku. Dlhá. Veľmi dlhá. S prílohami.",
+          "Zajtra urobím tlačovku. Pozajtra ďalšiu. A potom ešte jednu. Kým nepochopia."
         ]
       }
     },
@@ -568,83 +618,25 @@
       ],
       "reactions": {
         "pos": [
-          "Konečne rozumná ekonomická politika! Toto podporujem.",
-          "Správny krok pre podnikateľské prostredie.",
-          "Ak to zníži byrokraciu, som za."
+          "Konečne rozumná ekonomická politika. Zaznačme si dátum — stane sa historickým.",
+          "Toto podporujem. A nie preto, že som nemal na výber, ale preto, že to naozaj dáva zmysel.",
+          "Správny krok pre podnikateľské prostredie. SaS presadzovala toto roky, takže ďakujem za adopciu nápadu.",
+          "Ak to skutočne zníži byrokraciu, som plne za. Malá, ale konkrétna podmienka.",
+          "Dobré. Aj keď by to bolo lepšie, keby sme to dohodli bez troch mesiacov Facebookových videí."
         ],
         "neg": [
-          "Toto zruinuje štátny rozpočet! Populizmus na dlh!",
-          "Ekonomický nezmysel. Kto to zaplatí? Daňovníci!",
-          "SaS pripraví alternatívny návrh."
+          "Nebudeme hlasovať za Matovičov nezmysel. Toto zruinuje štátny rozpočet a daňovníci zaplatia účet.",
+          "Ekonomický populizmus na dlh. Kto to zaplatí? Ich deti. A naše deti. A ich deti.",
+          "SaS pripraví alternatívny návrh — taký, ktorý nepotrebuje tri tlačovky na vysvetlenie.",
+          "Toto je presne ten typ politiky, pred ktorým SaS varuje roky. Teraz to vidíme naživo.",
+          "Odmietam. Vecne, chladne, definitívne. Bez osobných útokov — na rozdiel od niektorých."
         ],
         "neu": [
-          "Uvidíme aký bude dopad na rozpočet.",
-          "Treba to prepočítať. Čísla musia sedieť."
-        ]
-      }
-    },
-    {
-      "id": "kollar",
-      "name": "Boris Kollár",
-      "party": "Sme rodina",
-      "role": "Predseda NR SR",
-      "emoji": "🟤",
-      "kw_pos": [
-        "family",
-        "rodina",
-        "social",
-        "pension",
-        "bezpecnost"
-      ],
-      "kw_neg": [
-        "migration",
-        "ngo"
-      ],
-      "reactions": {
-        "pos": [
-          "Správna vec pre slovenské rodiny!",
-          "Podporujem. Rodina je základ štátu."
-        ],
-        "neg": [
-          "Nemám s tým problém, ale treba to premyslieť.",
-          "Sme rodina bude mať vlastný návrh."
-        ],
-        "neu": [
-          "Uvidíme ako to dopadne.",
-          "Parlament to prerokuje."
-        ]
-      }
-    },
-    {
-      "id": "matovic",
-      "name": "Igor Matovič",
-      "party": "OĽaNO",
-      "role": "Minister financií",
-      "emoji": "🟠",
-      "kw_pos": [
-        "rodina",
-        "family",
-        "social"
-      ],
-      "kw_neg": [
-        "korupcia",
-        "corruption",
-        "sulik",
-        "sas"
-      ],
-      "reactions": {
-        "pos": [
-          "Toto som navrhol JA! Ja som to vymyslel!",
-          "Konečne sa plní moja vízia! Rodinný balíček funguje!"
-        ],
-        "neg": [
-          "Sulík to sabotuje! On je problém tejto koalície!",
-          "Na Facebooku to rozbalím! Ľudia MUSIA vedieť!",
-          "ZRADCOVIA! Keby nebolo Sulíka, všetko by fungovalo!"
-        ],
-        "neu": [
-          "*zdieľa 47 príspevkov na Facebooku o tejto téme*",
-          "Urobil som video. 2 hodiny. Pozrite si ho celé."
+          "Uvidíme aký bude dopad na rozpočet. Čísla neklamú, aj keď niektorí politici áno.",
+          "Treba to prepočítať. Čísla musia sedieť — to nie je filozofická otázka, je to matematika.",
+          "SaS to prerokuje na predsedníctve. Civilizovaným spôsobom, okolo stola, nie na Facebooku.",
+          "Sledujeme vývoj. Ak prídu dobré správy, poviem to. Ak zlé, tiež to poviem.",
+          "Bez komentára kým neuvidím celý materiál. Komentovanie titulkov je koníček niekoho iného."
         ]
       }
     },
@@ -667,48 +659,192 @@
       ],
       "reactions": {
         "pos": [
-          "Slovensko plní svoje záväzky voči NATO. Sme spoľahlivý spojenec.",
-          "Bezpečnosť občanov je priorita. Toto rozhodnutie nás posilňuje."
+          "S-300 bolo správne rozhodnutie. Slovensko si splnilo spojenecký záväzok a dejiny nám dajú za pravdu.",
+          "NATO je náš domov a my si ho bránime. Toto rozhodnutie Slovensko posilňuje.",
+          "Sme spoľahlivý spojenec. Naši partneri to vedia a Rusi tiež.",
+          "Bezpečnosť Slovenska závisí od silnej NATO solidarity. Toto ju potvrdzuje.",
+          "Správne. Ukrajinskí vojaci bránia aj nás — to si treba pamätať pri každom hlasovaní."
         ],
         "neg": [
-          "Toto oslabuje našu bezpečnostnú pozíciu. Musíme to prehodnotiť.",
-          "NATO partneri budú znepokojení. Slovensko musí zostať spoľahlivé."
+          "Toto oslabuje našu bezpečnostnú pozíciu a ja to poviem nahlas aj keď sa to niekomu nepáči.",
+          "NATO partneri budú znepokojení. Slovensko nemôže byť slabým článkom Aliancie.",
+          "Bezpečnosť nie je politická téma na predvolebné mítingy. Je to existenciálna otázka.",
+          "Nesúhlasím. A keď vojak nesúhlasí, povie to — nie zákulisne, ale priamo.",
+          "Toto posiela zlý signál Moskve. A zlé signály Moskve majú reálne dôsledky."
         ],
         "neu": [
-          "Konzultujem to s NATO partnermi.",
-          "Bezpečnostná rada sa tým bude zaoberať."
+          "Konzultujem to s NATO partnermi. Pred akýmkoľvek vyhlásením.",
+          "Bezpečnostná rada sa tým bude zaoberať. To je správny postup.",
+          "Situáciu monitorujeme nepretržite. Ministerstvo obrany je v pohotovosti.",
+          "Správy z frontu sú vážne. Analyzujeme dôsledky pre Slovensko.",
+          "Zatiaľ bez komentára. Bezpečnostné informácie sa neprezentujú na tlačovkách."
         ]
       }
     },
     {
-      "id": "remisova",
-      "name": "Veronika Remišová",
-      "party": "Za ľudí",
-      "role": "Podpredsedníčka vlády",
-      "emoji": "🟣",
+      "id": "fico",
+      "name": "Robert Fico",
+      "party": "SMER-SD",
+      "role": "Predseda opozície",
+      "emoji": "🔴",
       "kw_pos": [
-        "reforma",
-        "transparency",
-        "eu",
-        "fond",
-        "invest"
+        "socialne",
+        "mzdy",
+        "dochodky",
+        "mier",
+        "suverenita"
       ],
       "kw_neg": [
-        "korupcia",
-        "skandal"
+        "nato",
+        "ukraine",
+        "zbrane",
+        "sancie"
       ],
       "reactions": {
         "pos": [
-          "Reformy fungujú. Za ľudí bude pokračovať v presadzovaní zmien.",
-          "Toto je presne to, čo sme sľúbili voličom."
+          "Vidíte? SMER to navrhoval roky a teraz to kopírujú. Aspoň majú vkus kopírovať správne veci.",
+          "Konečne niečo rozumné. Aj slepá sliepka niekedy nájde zrno.",
+          "Toto je správne pre slovenských ľudí. Uznávam — aj keď mi je ľúto, že to nepresadil SMER.",
+          "Ľudia to ocenia. My sme to vedeli prvý — ale dobre, že sa to stalo.",
+          "Za toto by SMER hlasoval. Bez váhania. Toto je politika pre ľudí, nie pre Brusel."
         ],
         "neg": [
-          "Toto nie je v súlade s programovým vyhlásením vlády.",
-          "Za ľudí nemôže podporiť kroky, ktoré ohrozujú reformy."
+          "Zastavte vojnu! Slovensko nesmie byť súčasťou tejto vojny ktorú živí NATO!",
+          "Vidíte čo ste zvolili?! Vláda posiela zbrane namiesto peňazí dôchodcom! Hanba!",
+          "Fico to hovoril od začiatku — sankcie škodia nám, nie Rusom! Fakty sú makáče!",
+          "Toto je katastrofa pre Slovensko. Podáme interpeláciu. Podáme trestné oznámenie. Neprestaneme.",
+          "Slovensko potrebuje mier, nie americké zbrane na našom území. SMER zastaví toto šialenstvo."
         ],
         "neu": [
-          "Počkáme na analýzu dopadov.",
-          "Diskutujeme o tom v koalícii."
+          "SMER situáciu sleduje. Máme otázky a budeme ich klásť na každej tlačovke.",
+          "Čakáme na ďalší vývoj. Táto vláda sa zvyčajne sama usvedčí.",
+          "Bez komentára kým neuvidíme celý obraz. Aj keď obraz je celkom jasný.",
+          "Konzultujeme s odborníkmi na medzinárodné právo. Aj s tými zahraničnými.",
+          "Zaujímavé. Veľmi zaujímavé. Budeme sledovať ďalší vývoj."
+        ]
+      }
+    },
+    {
+      "id": "caputova",
+      "name": "Zuzana Čaputová",
+      "party": "—",
+      "role": "Prezidentka SR",
+      "emoji": "🔵",
+      "kw_pos": [
+        "dialog",
+        "reforma",
+        "eu",
+        "ukraine",
+        "pravny_stat"
+      ],
+      "kw_neg": [
+        "korupcia",
+        "extremizmus",
+        "chaos"
+      ],
+      "reactions": {
+        "pos": [
+          "Slovensko stojí na správnej strane histórie. Podpora Ukrajiny je morálnou aj právnou povinnosťou.",
+          "Vítam toto rozhodnutie. Je to dôkaz, že vláda koná v súlade s hodnotami, na ktorých stojí slobodná Európa.",
+          "Toto posilňuje dôveryhodnosť Slovenska v EÚ a NATO. Som hrdá na to, čo krajina urobila.",
+          "Správne. Sloboda nie je zadarmo a Slovensko si plní svoj diel zodpovednosti.",
+          "Keď koalícia koná jednotne v záujme krajiny, Slovensko je silnejšie. Takto to má vyzerať."
+        ],
+        "neg": [
+          "Vyzývam vládu na jednotu a zodpovednosť. Koaličné hádky sa nesmú stať normou.",
+          "S hlbokým znepokojením sledujem dianie. Prezidentský úrad bude situáciu pozorne sledovať.",
+          "Toto nie je v záujme slovenských občanov. Vyzývam na okamžitý dialóg a riešenie.",
+          "Som sklamaná. Od vládnych predstaviteľov očakávam zodpovednosť, nie politické divadlo.",
+          "Právny štát nie je vyjednávacia pozícia. Vyzývam na rešpektovanie ústavného poriadku."
+        ],
+        "neu": [
+          "Sledujem situáciu. Prezidentský úrad je pripravený zohrávavy konštruktívnu úlohu.",
+          "Vyzývam všetky strany na vecný dialóg. Slovensko potrebuje stabilitu.",
+          "Konzultujem s ústavnými odborníkmi. Konať budem zodpovedne.",
+          "Moje dvere sú otvorené. Riešenie musí prísť cez dialóg, nie konfrontáciu.",
+          "Počkajme na ďalší vývoj. Prezident koná rozvážne, nie impulzívne."
+        ]
+      }
+    },
+    {
+      "id": "pellegrini",
+      "name": "Peter Pellegrini",
+      "party": "Hlas-SD",
+      "role": "Predseda opozičnej strany",
+      "emoji": "🟣",
+      "kw_pos": [
+        "socialne",
+        "stabilita",
+        "dialog",
+        "kompromis"
+      ],
+      "kw_neg": [
+        "chaos",
+        "koalicia",
+        "extremizmus"
+      ],
+      "reactions": {
+        "pos": [
+          "Toto je krok správnym smerom. Hlas-SD bude konštruktívnou opozíciou a oceňuje rozumné rozhodnutia.",
+          "Správne. Aj my by sme tak rozhodli. Slovensko potrebuje stabilitu a toto k nej prispieva.",
+          "Čakáme na svoju chvíľu — ale medzitým oceňujeme keď vláda koná v záujme ľudí.",
+          "Takéto rozhodnutia stavajú mosty. Hlas-SD je pripravená byť súčasťou riešenia.",
+          "Dobrá správa pre Slovensko. Sledujeme, učíme sa a pripravujeme sa."
+        ],
+        "neg": [
+          "Táto koalícia si s tým nevie poradiť. Čakáme na svoju chvíľu a ona príde.",
+          "Hlas-SD by to riešil inak. Lepšie. A bez tohto cirkusu.",
+          "Slovensko si zaslúži viac. Vláda zlyhala a my sme tu ako alternatíva.",
+          "Toto je presne dôvod, prečo Hlas-SD existuje — byť hlasom rozumu.",
+          "Podáme pozmeňujúci návrh. Ak ho odmietnu, ľudia to uvidia pred voľbami."
+        ],
+        "neu": [
+          "Hlas-SD situáciu sleduje. Komentár dáme po dôkladnej analýze.",
+          "Čakáme na svoju chvíľu. Zatiaľ zbierame fakty a počúvame ľudí.",
+          "Opozícia pracuje. Aj keď to nie je vždy vidieť v televízii.",
+          "Konzultujeme s odborníkmi. Rozhodnutia Hlas-SD musia byť podložené.",
+          "Sledujeme. Analyzujeme. Pripravujeme sa. Naša chvíľa príde."
+        ]
+      }
+    },
+    {
+      "id": "kollar",
+      "name": "Boris Kollár",
+      "party": "Sme rodina",
+      "role": "Predseda NR SR",
+      "emoji": "🟤",
+      "kw_pos": [
+        "family",
+        "rodina",
+        "social",
+        "pension",
+        "bezpecnost"
+      ],
+      "kw_neg": [
+        "migration",
+        "ngo"
+      ],
+      "reactions": {
+        "pos": [
+          "Správna vec pre slovenské rodiny. A ja viem čo rodiny potrebujú.",
+          "Podporujem. Rodina je základ štátu — to hovorím vždy a myslím to vážne.",
+          "Toto pomôže ľuďom doma. Parlamentom to prevedieme.",
+          "Za každé opatrenie pre rodiny zdvihnem ruku. Bez váhania.",
+          "Koalícia sa dohodla a to je dobrá správa. Rodiny to pocítia."
+        ],
+        "neg": [
+          "Tu mám problém. Toto rodiny nepomôže — skôr naopak.",
+          "Sme rodina bude mať výhrady. Zavolám kolegom a dohodneme spoločný postup.",
+          "Takto nie. Parlament to musí opraviť kým je čas.",
+          "Koalícia sa musí dohodnúť inak — toto nie je riešenie, ktoré som čakal.",
+          "Vrátime to na rokovanie. Rodiny si zaslúžia lepšie."
+        ],
+        "neu": [
+          "Uvidíme ako to dopadne. Parlament to prerokuje.",
+          "Nechám to prejsť výborom. Potom zaujmem stanovisko.",
+          "Sledujem dianie. Keby bolo treba, budem sprostredkovateľom.",
+          "Koalícia sa musí nájsť. Viem pomôcť nájsť kompromis.",
+          "Počkám na výsledok rokovaní. Sme rodina koná zodpovedne."
         ]
       }
     },
@@ -732,47 +868,25 @@
       ],
       "reactions": {
         "pos": [
-          "Slovensko posilňuje svoju pozíciu v EÚ a NATO. Správna cesta.",
-          "Naši partneri oceňujú konštruktívny prístup Slovenska."
+          "Slovensko posilňuje svoju pozíciu v EÚ a NATO. Správna cesta a správny čas.",
+          "Naši partneri oceňujú konštruktívny prístup Slovenska. Táto dôvera sa buduje roky.",
+          "Diplomacia funguje keď je podložená jasnou hodnotovou orientáciou. Dnes sme to ukázali.",
+          "Toto posilní naše vzťahy s kľúčovými partnermi. Som spokojný.",
+          "Podporujem Ukrajinu diplomaticky, politicky aj morálne. Sloboda má cenu."
         ],
         "neg": [
-          "Toto môže poškodiť naše medzinárodné vzťahy.",
-          "Vyzývam na zodpovedný prístup v zahraničnej politike."
+          "Toto môže poškodiť naše medzinárodné vzťahy. Upozorňujem na to s plnou vážnosťou.",
+          "Vyzývam na zodpovedný prístup v zahraničnej politike. Reputácia sa buduje desaťročia.",
+          "Partneri v EÚ a NATO sledujú každé naše rozhodnutie. Toto pošle zlý signál.",
+          "Diplomatické dôsledky sú vážne. Budem tlmočiť obavy partnerov koalícii.",
+          "Nesúhlasím. A ako minister zahraničných vecí mám povinnosť to povedať nahlas."
         ],
         "neu": [
-          "Diplomacia vyžaduje trpezlivosť a dialóg.",
-          "Konzultujeme s partnermi v EÚ."
-        ]
-      }
-    },
-    {
-      "id": "mikulec",
-      "name": "Roman Mikulec",
-      "party": "OĽaNO",
-      "role": "Minister vnútra",
-      "emoji": "🟡",
-      "kw_pos": [
-        "bezpecnost",
-        "security",
-        "policia",
-        "reforma"
-      ],
-      "kw_neg": [
-        "korupcia",
-        "skandal"
-      ],
-      "reactions": {
-        "pos": [
-          "Polícia a bezpečnostné zložky fungujú. Občania sú v bezpečí.",
-          "Reforma polície pokračuje podľa plánu."
-        ],
-        "neg": [
-          "Opozícia sa snaží destabilizovať bezpečnostné zložky.",
-          "Odolávam politickým tlakom. Bezpečnosť je nad politikou."
-        ],
-        "neu": [
-          "Bezpečnostná situácia je stabilná.",
-          "Vyšetrovanie prebieha podľa zákona."
+          "Diplomacia vyžaduje trpezlivosť a dialóg. Konzultujeme.",
+          "Konzultujeme s partnermi v EÚ. Pred akýmkoľvek záverom.",
+          "Sledujeme situáciu na medzinárodnej scéne. Dôsledky analyzujeme.",
+          "Bez záverečného komentára kým neprebehne konzultácia s Bruselom.",
+          "Situácia sa vyvíja. Diplomacia pracuje aj keď to nie je v správach."
         ]
       }
     }
