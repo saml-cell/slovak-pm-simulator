@@ -1,6 +1,6 @@
 import '../styles/main.css';
 import { loadEra } from './loader';
-import { setEra, initGame, initCalendar, getState } from './state';
+import { setEra, initGame, initCalendar, getState, getEra } from './state';
 import { showScreen } from './screen';
 import { displayEvent, updateCC } from './events';
 import { analyze } from './analysis';
@@ -14,6 +14,29 @@ import type { GameState } from './types';
 async function main() {
   const params = new URLSearchParams(window.location.search);
   const eraId = params.get('era') || 'fico-2023-present';
+
+  // Check for shared result
+  const resultParam = params.get('result');
+  if (resultParam) {
+    try {
+      const r = JSON.parse(atob(resultParam));
+      document.body.innerHTML = `
+        <div style="max-width:500px;margin:60px auto;padding:40px;background:#1a2332;border-radius:16px;border:1px solid rgba(224,184,74,.3);color:#e2e8f0;font-family:system-ui;text-align:center">
+          <h1 style="color:#e0b84a;font-size:1.8rem;margin-bottom:8px">Slovenský Politický Simulátor</h1>
+          <p style="opacity:.7;margin-bottom:24px">Výsledok hráča</p>
+          <h2 style="font-size:1.4rem;margin-bottom:16px">${r.p} (${r.e})</h2>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px">
+            <div style="padding:12px;background:rgba(255,255,255,.05);border-radius:8px"><div style="font-size:1.5rem;font-weight:700">${r.a}%</div><div style="font-size:.75rem;opacity:.6">Podpora</div></div>
+            <div style="padding:12px;background:rgba(255,255,255,.05);border-radius:8px"><div style="font-size:1.5rem;font-weight:700">${r.s}%</div><div style="font-size:.75rem;opacity:.6">Stabilita</div></div>
+            <div style="padding:12px;background:rgba(255,255,255,.05);border-radius:8px"><div style="font-size:1.5rem;font-weight:700">${r.c}%</div><div style="font-size:.75rem;opacity:.6">Koalícia</div></div>
+          </div>
+          <p style="margin-bottom:4px">${r.w ? '✅ Dovládol' : '❌ Kolaps'} po ${r.m} mesiacoch</p>
+          <p style="font-size:.85rem;opacity:.6;margin-bottom:24px">HDP rast: ${r.g}%</p>
+          <a href="./" style="display:inline-block;padding:12px 32px;background:#0ea5e9;color:#fff;border-radius:8px;text-decoration:none;font-weight:600">Skúsiť sám →</a>
+        </div>`;
+      return; // Don't load the game
+    } catch { /* invalid result, continue normal load */ }
+  }
 
   // Load era config
   const era = await loadEra(eraId);
@@ -82,7 +105,8 @@ async function main() {
             'pellegrini', 'stances',
             'momentum', 'policyThemes', 'oppositionPressure',
             'businessCycle', 'politicalCapital', 'crisisFatigue', 'euFundsFlow',
-            'debtToGdp', 'fdi', 'mediaCycle', 'mediaCycleEvent', 'pollApproval', 'pollError', 'interestRate', 'laborParticipation', 'shapleyPower'];
+            'debtToGdp', 'fdi', 'mediaCycle', 'mediaCycleEvent', 'pollApproval', 'pollError', 'interestRate', 'laborParticipation', 'shapleyPower',
+            'brainDrain', 'oligarchicTies'];
           for (const key of safeKeys) {
             if (key in sv) (G as unknown as Record<string, unknown>)[key] = sv[key];
           }
@@ -115,7 +139,21 @@ async function main() {
     displayEvent();
     showScreen('eventScreen');
   });
-  document.getElementById('policyInput')!.addEventListener('input', updateCC);
+  document.getElementById('policyInput')!.addEventListener('input', () => {
+    updateCC();
+    // Keyword hints
+    const val = (document.getElementById('policyInput') as HTMLTextAreaElement).value.toLowerCase();
+    const era = getEra();
+    const hints = document.getElementById('keywordHints');
+    if (hints && val.length >= 3) {
+      const matched = Object.keys(era.keywords).filter(kw => val.includes(kw)).slice(0, 5);
+      hints.innerHTML = matched.map(kw =>
+        `<span style="background:rgba(224,184,74,.15);border:1px solid rgba(224,184,74,.3);padding:2px 8px;border-radius:12px;font-size:.7rem;color:var(--gold)">${kw}</span>`
+      ).join('');
+    } else if (hints) {
+      hints.innerHTML = '';
+    }
+  });
   let analyzing = false;
   document.getElementById('submitPolicyButton')!.addEventListener('click', async () => {
     if (analyzing) return;
@@ -163,9 +201,50 @@ async function main() {
   });
   document.getElementById('backFromEventButton')!.addEventListener('click', () => showScreen('dashboardScreen'));
 
+  // Proactive actions
+  document.getElementById('pressConfBtn')!.addEventListener('click', () => {
+    const G = getState();
+    if (G.politicalCapital < 15) { showProactiveResult('Nedostatok politického kapitálu!'); return; }
+    G.politicalCapital -= 15;
+    G.approval = Math.min(100, G.approval + 4);
+    G.momentum += 0.1;
+    showProactiveResult('📢 Tlačová konferencia: +4 podpora, -15 politický kapitál');
+    updateDash();
+  });
+  document.getElementById('coalMeetBtn')!.addEventListener('click', () => {
+    const G = getState();
+    if (G.politicalCapital < 20) { showProactiveResult('Nedostatok politického kapitálu!'); return; }
+    G.politicalCapital -= 20;
+    Object.values(G.cp).forEach(p => { if (p.on) { p.sat = Math.min(100, p.sat + 8); p.pat = Math.min(100, p.pat + 5); } });
+    G.coalition = Math.min(100, G.coalition + 5);
+    showProactiveResult('🤝 Koaličná rada: +8 spokojnosť partnerov, -20 politický kapitál');
+    updateDash();
+  });
+  document.getElementById('legislatureBtn')!.addEventListener('click', () => {
+    const G = getState();
+    if (G.politicalCapital < 25) { showProactiveResult('Nedostatok politického kapitálu!'); return; }
+    G.politicalCapital -= 25;
+    G.impl = Math.min(100, G.impl + 8);
+    G.stability = Math.min(100, G.stability + 3);
+    showProactiveResult('📜 Legislatívna iniciatíva: +8 implementácia, -25 politický kapitál');
+    updateDash();
+  });
+
   // Game over
   document.getElementById('playAgainButton')!.addEventListener('click', () => location.reload());
   document.getElementById('wikiButton')!.addEventListener('click', () => generateWiki());
+  document.getElementById('shareButton')!.addEventListener('click', () => {
+    const url = (window as any).__shareUrl;
+    if (url) {
+      navigator.clipboard.writeText(url).then(() => {
+        const btn = document.getElementById('shareButton')!;
+        btn.textContent = 'Skopírované!';
+        setTimeout(() => { btn.textContent = 'Zdieľať výsledok'; }, 2000);
+      }).catch(() => {
+        prompt('Skopírujte odkaz:', url);
+      });
+    }
+  });
 
   // History modal close
   document.getElementById('closeHistoryBtn')!.addEventListener('click', () => {
@@ -214,6 +293,11 @@ async function main() {
 
   // Analytics tracking
   trackAnalytics('game_start', { era: eraId });
+}
+
+function showProactiveResult(msg: string) {
+  const el = document.getElementById('proactiveResult');
+  if (el) { el.textContent = msg; el.style.display = 'block'; setTimeout(() => { el.style.display = 'none'; }, 3000); }
 }
 
 main().catch(err => {

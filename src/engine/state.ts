@@ -61,6 +61,8 @@ export function initGame(): GameState {
     interestRate: (s.econ.debt / Math.max(1, s.econ.gdp) * 100) > 60 ? 4.0 : 2.5,
     laborParticipation: 65,
     shapleyPower: {},
+    brainDrain: 0,
+    oligarchicTies: 0,
   };
   // Initialize persona scores based on lean
   era.personas.forEach(p => {

@@ -25,6 +25,7 @@ function renderEconomy(): string {
     <div class="economy-row"><span class="economy-label">Rast HDP</span><span class="economy-value" style="color:${e.gdpGrowth >= 0 ? 'var(--green)' : 'var(--red)'}">${e.gdpGrowth.toFixed(1)}%</span></div>
     <div class="economy-row"><span class="economy-label">Nezamestnanosť</span><span class="economy-value">${e.unemp.toFixed(1)}%</span></div>
     <div class="economy-row"><span class="economy-label">Inflácia</span><span class="economy-value">${e.infl.toFixed(1)}%</span></div>
+    <div style="font-size:.6rem;color:var(--gold);text-transform:uppercase;letter-spacing:1px;padding:8px 0 4px;border-bottom:1px solid rgba(224,184,74,.15);margin-top:4px">Fiškálne ukazovatele</div>
     <div class="economy-row"><span class="economy-label">Deficit</span><span class="economy-value" style="color:${e.deficit <= 0 ? 'var(--green)' : 'var(--red)'}">${e.deficit.toFixed(1)} ${big}</span></div>
     <div class="economy-row"><span class="economy-label">Dlh</span><span class="economy-value">${e.debt.toFixed(1)} ${big}</span></div>
     <div class="economy-row"><span class="economy-label">Min. mzda</span><span class="economy-value">${Math.round(e.minW)} ${cur}</span></div>
@@ -75,7 +76,7 @@ function renderParliament(): string {
     .map(([id, seats]) => `<span class="parliament-legend-item"><span class="parliament-legend-dot" style="background:${colors[id] || '#4a5568'}"></span>${names[id] || id} ${seats}</span>`)
     .join('');
   const cs = coalitionSeats();
-  return `<div class="parliament-bar"><div class="panel-title">🏛️ Parlament (${cs}/150)</div><div class="parliament-visual">${segments}</div><div class="parliament-legend">${legend}</div></div>`;
+  return `<div class="parliament-bar"><div class="panel-title">🏛️ Parlament (${cs}/150)</div><div class="parliament-visual" style="position:relative">${segments}<div style="position:absolute;left:50.67%;top:0;bottom:0;width:2px;background:rgba(255,255,255,.35);z-index:2"></div><div style="position:absolute;left:50.67%;top:-14px;font-size:.55rem;color:rgba(255,255,255,.5);transform:translateX(-50%)">76</div></div><div class="parliament-legend">${legend}</div></div>`;
 }
 
 function renderDiplomacy(): string {
@@ -177,6 +178,10 @@ function renderAdvancedMetrics(): string {
     <div class="economy-row"><span class="economy-label">Momentum</span><span class="economy-value" style="color:${momCol}">${momLabel}</span></div>
     <div class="economy-row"><span class="economy-label">Mediálny cyklus</span><span class="economy-value" style="color:${G.mediaCycle > 0.6 ? 'var(--red)' : G.mediaCycle > 0.3 ? 'var(--yellow)' : 'var(--green)'}">${G.mediaCycle > 0.5 ? '🔥 Horúce' : G.mediaCycle > 0.2 ? '📰 Aktívne' : '😴 Pokojné'}</span></div>
     <div class="economy-row"><span class="economy-label">Prieskumy</span><span class="economy-value" style="color:${G.pollApproval > 50 ? 'var(--green)' : G.pollApproval > 35 ? 'var(--yellow)' : 'var(--red)'}">~${Math.round(G.pollApproval)}%</span></div>
+    <div style="font-size:.6rem;color:var(--gold);text-transform:uppercase;letter-spacing:1px;padding:8px 0 4px;border-bottom:1px solid rgba(224,184,74,.15);margin-top:4px">Mediálny ekosystém</div>
+    <div class="economy-row"><span class="economy-label">Dezinformácie</span><span class="economy-value" style="color:${(G.social.dezinfo || 0) > 50 ? 'var(--red)' : (G.social.dezinfo || 0) > 30 ? 'var(--yellow)' : 'var(--green)'}">${Math.round(G.social.dezinfo || 0)}</span></div>
+    <div class="economy-row"><span class="economy-label">Dôvera v médiá</span><span class="economy-value" style="color:${(G.social.mediaTrust || 50) < 30 ? 'var(--red)' : (G.social.mediaTrust || 50) < 50 ? 'var(--yellow)' : 'var(--green)'}">${Math.round(G.social.mediaTrust || 0)}</span></div>
+    <div class="economy-row"><span class="economy-label">Občianska spoločnosť</span><span class="economy-value" style="color:${(G.social.civilSociety || 50) > 60 ? 'var(--green)' : (G.social.civilSociety || 50) > 40 ? 'var(--yellow)' : 'var(--red)'}">${Math.round(G.social.civilSociety || 0)}</span></div>
   </div>`;
 }
 

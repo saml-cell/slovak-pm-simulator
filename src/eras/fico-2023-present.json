@@ -3527,9 +3527,12 @@
       "china": 20
     },
     "social": {
-      "press": 65,
-      "corrupt": 45,
-      "emigr": 60
+      "press": 40,
+      "corrupt": 50,
+      "emigr": 60,
+      "dezinfo": 45,
+      "mediaTrust": 35,
+      "civilSociety": 50
     },
     "cp": {
       "smer": {

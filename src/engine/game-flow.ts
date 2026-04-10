@@ -4,7 +4,7 @@ import { showScreen } from './screen';
 import { updateDash } from './render/dashboard';
 import { esc } from './sanitize';
 import { trackAnalytics } from './analytics';
-import { applyMomentum, socialInfluence, econFeedback, policyConsistency, oppositionMove, nashBargaining, simulateElection, businessCycleTick, deficitDynamics, euFundsLink, smartMinWage, econCrisisCheck, incumbencyPenalty, crisisFatigueTick, politicalCapitalTick, diploFeedback, computeShapley, fiscalHealth, fdiDynamics, okunsLaw, mediaCycleTick, updatePolling, laborMarketTick } from './advanced';
+import { applyMomentum, socialInfluence, econFeedback, policyConsistency, oppositionMove, nashBargaining, simulateElection, businessCycleTick, deficitDynamics, euFundsLink, smartMinWage, econCrisisCheck, incumbencyPenalty, crisisFatigueTick, politicalCapitalTick, diploFeedback, computeShapley, fiscalHealth, fdiDynamics, okunsLaw, mediaCycleTick, updatePolling, laborMarketTick, brainDrainTick, oligarchicTick, mediaEcosystemTick } from './advanced';
 
 function handleDem(id: string, action: string) {
   const G = getState();
@@ -174,6 +174,9 @@ export function proceed(a: AnalysisResult) {
   fdiDynamics(G);
   fiscalHealth(G);
   laborMarketTick(G);
+  brainDrainTick(G);
+  oligarchicTick(G);
+  mediaEcosystemTick(G);
   updatePolling(G);
 
   // Bad polls embolden opposition, good polls give breathing room
@@ -389,6 +392,30 @@ function gameOver(collapsed: boolean) {
 
   trackAnalytics(collapsed ? 'game_over' : 'game_complete', { era: era.meta.id, month: G.month, approval: G.approval, stability: G.stability, coalition: G.coalition });
   localStorage.removeItem(era.meta.saveKey);
+
+  // Shareable results
+  const shareData = btoa(JSON.stringify({
+    e: era.meta.id,
+    p: era.meta.pmName,
+    m: G.month,
+    a: Math.round(G.approval),
+    s: Math.round(G.stability),
+    c: Math.round(G.coalition),
+    g: G.econ.gdpGrowth.toFixed(1),
+    w: collapsed ? 0 : 1
+  }));
+  const shareUrl = window.location.origin + window.location.pathname + '?result=' + shareData;
+  (window as any).__shareUrl = shareUrl;
+
+  // Local leaderboard
+  try {
+    const lb = JSON.parse(localStorage.getItem('spm_leaderboard') || '[]');
+    lb.push({ era: era.meta.id, pm: era.meta.pmName, approval: Math.round(G.approval), stability: Math.round(G.stability), months: G.month, won: !collapsed, date: new Date().toISOString().substring(0,10) });
+    lb.sort((a: any, b: any) => b.approval - a.approval);
+    if (lb.length > 50) lb.length = 50;
+    localStorage.setItem('spm_leaderboard', JSON.stringify(lb));
+  } catch {}
+
   showScreen('gameOverScreen');
 }
 

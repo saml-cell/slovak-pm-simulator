@@ -79,6 +79,12 @@
       <div class="warning-banner" id="warningBanner"></div>
       <div id="stanceNotification" style="display:none;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.3);border-radius:8px;padding:8px 12px;margin-bottom:8px;font-size:.8rem;color:var(--gold);text-align:center"></div>
       <div id="oppositionAction" style="display:none;background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.3);border-radius:8px;padding:8px 12px;margin-bottom:12px;font-size:.8rem;color:#ef4444;text-align:center"></div>
+      <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap" id="proactiveActions">
+        <button class="nav-button" id="pressConfBtn" style="flex:1;padding:10px;font-size:.8rem">📢 Tlačová konferencia</button>
+        <button class="nav-button" id="coalMeetBtn" style="flex:1;padding:10px;font-size:.8rem">🤝 Koaličná rada</button>
+        <button class="nav-button" id="legislatureBtn" style="flex:1;padding:10px;font-size:.8rem">📜 Predložiť zákon</button>
+      </div>
+      <div id="proactiveResult" style="display:none;background:rgba(224,184,74,.08);border:1px solid rgba(224,184,74,.2);border-radius:8px;padding:8px 12px;margin-bottom:12px;font-size:.8rem;color:var(--gold);text-align:center"></div>
       <button class="play-button" id="playButton" style="margin-bottom:20px">▶ Hrať mesiac: <span id="playMonthName"></span></button>
       <div class="metrics-row">
         <div class="metric-card"><div class="metric-label">Podpora</div><div class="metric-value" id="approvalValue">--</div><div class="metric-bar"><div class="metric-fill" id="approvalFill" style="background:linear-gradient(90deg,var(--green),var(--yellow));width:0%"></div></div><div class="metric-trend" id="approvalTrend"></div></div>
@@ -123,6 +129,7 @@
           <div class="policy-label">Vaša odpoveď — napíšte vlastnú politiku!</div>
           <p style="font-size:.75rem;color:var(--text-dim);margin-bottom:8px">Píšte čokoľvek: oznámenie, tajnú dohodu, provokatívny ťah, alebo kompletný plán. Čím detailnejšie, tým presnejšia analýza. Môžete použiť návrhy vyššie alebo písať úplne vlastné.</p>
           <textarea class="policy-textarea" id="policyInput" placeholder="Napr: Oznamujem núdzové opatrenia... / Tajne vyjednám dohodu s... / Zvolávam mimoriadnu tlačovú konferenciu kde obviňujem... / Predložím zákon ktorý..." maxlength="2000"></textarea>
+          <div id="keywordHints" style="display:flex;gap:4px;flex-wrap:wrap;margin-top:4px;min-height:20px"></div>
           <div class="char-count" id="charCount">0 / 2000</div>
           <div style="margin-top:12px">
             <div style="cursor:pointer;font-size:.8rem;color:var(--text-dim)" id="spinToggle">🎯 Pridať verejnú komunikáciu (voliteľné)</div>
@@ -187,6 +194,7 @@
       <div style="text-align:center;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
         <button class="play-again-button" id="playAgainButton">Hrať znova</button>
         <button class="play-again-button" id="wikiButton" style="background:linear-gradient(135deg,#854d0e,#a16207)">Generovať Wikipédiu</button>
+        <button class="play-again-button" id="shareButton" style="background:linear-gradient(135deg,#0ea5e9,#3b82f6)">Zdieľať výsledok</button>
       </div>
     </div>
   </div>

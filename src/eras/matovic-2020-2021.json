@@ -2949,9 +2949,12 @@
       "nato_r": 75
     },
     "social": {
-      "press": 72,
-      "corrupt": 40,
-      "emigr": 55
+      "press": 60,
+      "corrupt": 35,
+      "emigr": 55,
+      "dezinfo": 35,
+      "mediaTrust": 40,
+      "civilSociety": 50
     },
     "cp": {
       "olano": {

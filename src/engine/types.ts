@@ -306,4 +306,6 @@ export interface GameState {
   interestRate: number;
   laborParticipation: number;
   shapleyPower: Record<string, number>;
+  brainDrain: number; // 0-100, cumulative emigration pressure
+  oligarchicTies: number; // 0-100, hidden corruption exposure
 }

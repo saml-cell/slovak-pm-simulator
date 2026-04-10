@@ -2973,9 +2973,12 @@
       "russia": 50
     },
     "social": {
-      "press": 55,
-      "corrupt": 40,
-      "emigr": 50
+      "press": 25,
+      "corrupt": 70,
+      "emigr": 50,
+      "dezinfo": 10,
+      "mediaTrust": 40,
+      "civilSociety": 35
     },
     "cp": {
       "hzds": {

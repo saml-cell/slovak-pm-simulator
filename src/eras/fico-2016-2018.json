@@ -3050,9 +3050,12 @@
       "germany": 70
     },
     "social": {
-      "press": 65,
-      "corrupt": 45,
-      "emigr": 55
+      "press": 45,
+      "corrupt": 55,
+      "emigr": 55,
+      "dezinfo": 20,
+      "mediaTrust": 45,
+      "civilSociety": 55
     },
     "cp": {
       "smer": {

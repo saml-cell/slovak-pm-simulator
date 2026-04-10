@@ -2995,9 +2995,12 @@
       "germany": 70
     },
     "social": {
-      "press": 65,
+      "press": 55,
       "corrupt": 45,
-      "emigr": 60
+      "emigr": 60,
+      "dezinfo": 25,
+      "mediaTrust": 50,
+      "civilSociety": 65
     },
     "cp": {
       "smer": {

@@ -3227,9 +3227,12 @@
       "russia": 35
     },
     "social": {
-      "press": 55,
+      "press": 65,
       "corrupt": 40,
-      "emigr": 50
+      "emigr": 50,
+      "dezinfo": 5,
+      "mediaTrust": 60,
+      "civilSociety": 55
     },
     "cp": {
       "sdk": {

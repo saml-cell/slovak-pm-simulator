@@ -774,6 +774,12 @@ function loadAnalytics() {
     `<div style="padding:8px 12px;background:#f9fafb;border-radius:6px;margin-bottom:6px;border-left:3px solid ${b.type==='crash'?'#dc2626':b.type==='event'?'#f59e0b':'#3b82f6'}"><div style="font-size:.75rem;color:var(--muted)">${b.timestamp?.substring(0,16)} | ${b.era} | Mesiac ${b.month} | ${b.type}</div><div style="font-size:.85rem;margin-top:2px">${b.description.substring(0,120)}</div></div>`
   ).join('') || '<p style="color:var(--muted);font-size:.85rem">Žiadne nahlásené chyby</p>';
 
+  // Leaderboard
+  const lb = JSON.parse(localStorage.getItem('spm_leaderboard') || '[]');
+  const lbRows = lb.slice(0, 10).map((s, i) =>
+    `<tr><td style="padding:4px 8px">${i+1}.</td><td style="padding:4px 8px">${ERA_NAMES[s.era] || s.era}</td><td style="padding:4px 8px;text-align:center;font-weight:600">${s.approval}%</td><td style="padding:4px 8px;text-align:center">${s.won ? '✅' : '❌'}</td><td style="padding:4px 8px;text-align:center">${s.months}m</td><td style="padding:4px 8px;font-size:.75rem;color:var(--muted)">${s.date}</td></tr>`
+  ).join('') || '<tr><td colspan="6" style="padding:8px;color:var(--muted);text-align:center">Žiadne výsledky</td></tr>';
+
   document.getElementById('analyticsContent').innerHTML = `
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-bottom:24px">
       <div style="background:#eef2ff;padding:16px;border-radius:10px;text-align:center"><div style="font-size:2rem;font-weight:800;color:var(--blue)">${totalSessions}</div><div style="font-size:.8rem;color:var(--muted)">Celkom hier</div></div>
@@ -794,6 +800,12 @@ function loadAnalytics() {
 
     <h3 style="font-family:var(--serif);margin-bottom:8px;color:var(--navy)">Posledné bug reporty</h3>
     ${bugList}
+
+    <h3 style="font-family:var(--serif);margin-bottom:8px;margin-top:24px;color:var(--navy)">Rebríček najlepších hier</h3>
+    <table style="width:100%;border-collapse:collapse;font-size:.85rem">
+      <thead><tr style="border-bottom:2px solid #e5e7eb"><th style="padding:4px 8px;text-align:left">#</th><th style="padding:4px 8px;text-align:left">Éra</th><th style="padding:4px 8px;text-align:center">Podpora</th><th style="padding:4px 8px;text-align:center">Výsledok</th><th style="padding:4px 8px;text-align:center">Mesiace</th><th style="padding:4px 8px;text-align:left">Dátum</th></tr></thead>
+      <tbody>${lbRows}</tbody>
+    </table>
 
     <p style="font-size:.75rem;color:var(--muted);margin-top:16px">Posledná hra: ${lastPlayed ? new Date(lastPlayed).toLocaleString('sk-SK') : 'Žiadna'} | Celkom eventov: ${events.length}</p>
   `;

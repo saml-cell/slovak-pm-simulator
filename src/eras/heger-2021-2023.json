@@ -3177,9 +3177,12 @@
       "china": 20
     },
     "social": {
-      "press": 70,
-      "corrupt": 40,
-      "emigr": 55
+      "press": 55,
+      "corrupt": 35,
+      "emigr": 55,
+      "dezinfo": 40,
+      "mediaTrust": 38,
+      "civilSociety": 45
     },
     "cp": {
       "olano": {

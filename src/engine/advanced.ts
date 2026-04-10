@@ -731,6 +731,44 @@ export function politicalCapitalTick(G: GameState, policyLength: number): number
 }
 
 // ═══════════════════════════════════════════════════════════
+//  BRAIN DRAIN — emigration pressure from poor conditions
+// ═══════════════════════════════════════════════════════════
+export function brainDrainTick(G: GameState): void {
+  // Low wages + high unemployment + low EU relations = emigration
+  const wagePressure = G.econ.minW < 700 ? (700 - G.econ.minW) * 0.01 : 0;
+  const unempPressure = G.econ.unemp > 10 ? (G.econ.unemp - 10) * 0.1 : 0;
+  const euPull = G.diplo.eu !== undefined ? Math.max(0, (G.diplo.eu - 50) * 0.02) : 0;
+
+  G.brainDrain = Math.min(50, Math.max(0, G.brainDrain + wagePressure + unempPressure + euPull - 0.1));
+
+  // Brain drain reduces GDP growth potential
+  if (G.brainDrain > 15) {
+    G.econ.gdpGrowth -= (G.brainDrain - 15) * 0.02;
+  }
+  // Very high brain drain hits labor participation
+  if (G.brainDrain > 30) {
+    G.laborParticipation = Math.max(55, G.laborParticipation - 0.1);
+  }
+}
+
+// ═══════════════════════════════════════════════════════════
+//  OLIGARCHIC NETWORK — hidden corruption exposure
+// ═══════════════════════════════════════════════════════════
+export function oligarchicTick(G: GameState): void {
+  // Privatization, deregulation, and pro-business policies increase ties
+  // Transparency and anti-corruption decrease them
+  // High ties = periodic scandal risk
+  if (G.oligarchicTies > 30 && Math.random() < G.oligarchicTies * 0.003) {
+    // Scandal hits
+    G.approval = Math.max(0, G.approval - 3);
+    G.stability = Math.max(0, G.stability - 2);
+    if (G.social.corrupt !== undefined) G.social.corrupt = Math.min(100, G.social.corrupt + 5);
+  }
+  // Natural decay
+  G.oligarchicTies = Math.max(0, G.oligarchicTies - 0.2);
+}
+
+// ═══════════════════════════════════════════════════════════
 //  16. DIPLOMATIC FEEDBACK — low EU means real consequences
 // ═══════════════════════════════════════════════════════════
 export function diploFeedback(G: GameState): void {
@@ -746,4 +784,27 @@ export function diploFeedback(G: GameState): void {
   // Good Czech relations boost trade
   const czech = G.diplo.czech ?? 50;
   if (czech > 70) G.econ.gdpGrowth += 0.01;
+}
+
+// ═══════════════════════════════════════════════════════════
+//  MEDIA ECOSYSTEM TICK
+// ═══════════════════════════════════════════════════════════
+export function mediaEcosystemTick(G: GameState): void {
+  // Dezinfo grows when press freedom is low and trust is low
+  if (G.social.press !== undefined && G.social.press < 40) {
+    G.social.dezinfo = Math.min(80, (G.social.dezinfo || 20) + 0.3);
+  }
+  // High dezinfo erodes trust
+  if ((G.social.dezinfo || 0) > 40) {
+    G.social.mediaTrust = Math.max(10, (G.social.mediaTrust || 50) - 0.2);
+  }
+  // Low media trust makes approval more volatile
+  if ((G.social.mediaTrust || 50) < 30) {
+    G.crisisFatigue = Math.min(1, G.crisisFatigue + 0.01);
+  }
+  // Strong civil society pushes back against corruption
+  if ((G.social.civilSociety || 50) > 60 && (G.social.corrupt || 50) > 50) {
+    G.social.corrupt = Math.max(0, G.social.corrupt - 0.3);
+    G.approval = Math.max(0, G.approval - 0.5); // protests reduce approval
+  }
 }

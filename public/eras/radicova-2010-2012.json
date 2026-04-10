@@ -2867,8 +2867,11 @@
       "russia": 30
     },
     "social": {
-      "press": 60,
-      "corrupt": 35
+      "press": 70,
+      "corrupt": 45,
+      "dezinfo": 15,
+      "mediaTrust": 55,
+      "civilSociety": 60
     },
     "cp": {
       "sdku": {
