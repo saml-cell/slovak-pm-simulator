@@ -1,0 +1,2897 @@
+{
+  "meta": {
+    "id": "matovic-2020-2021",
+    "pmName": "Igor Matovič",
+    "headerTitle": "Igor Matovič",
+    "saveKey": "spm_matovic_save",
+    "pellegriniMonth": -1,
+    "presidentName": "Zuzana Čaputová"
+  },
+  "calendar": {
+    "startMonthOffset": 2,
+    "startYear": 2020
+  },
+  "totalMonths": 12,
+  "gameOverThreshold": 12,
+  "titleScreen": {
+    "pmName": "Igor Matovič",
+    "subtitle": "Marec 2020 - Marec 2021",
+    "description": "Veďte Slovensko ako Igor Matovič cez pandémiu COVID-19, plošné testovanie a koaličné konflikty. Udržte nestabilnú štvorkoalíciu pohromade.",
+    "startButtonText": "Začať hru"
+  },
+  "partyDisplay": {
+    "colors": {
+      "olano": "#f59e0b",
+      "sas": "#0ea5e9",
+      "smerodina": "#854d0e",
+      "zaludi": "#10b981",
+      "smer": "#dc2626",
+      "lsns": "#1f2937",
+      "sns": "#065f46",
+      "kdh": "#f97316"
+    },
+    "names": {
+      "olano": "OĽaNO",
+      "sas": "SaS",
+      "smerodina": "Sme rodina",
+      "zaludi": "Za ľudí",
+      "smer": "SMER-SD",
+      "lsns": "ĽSNS",
+      "sns": "SNS",
+      "kdh": "KDH"
+    }
+  },
+  "personas": [
+    {
+      "id": "maria",
+      "name": "Mária",
+      "emoji": "👵",
+      "age": 67,
+      "demo": "Dôchodkyňa z Prešova. Celý život pracovala v textilke, teraz berie 480 EUR dôchodok. Volí SMER od roku 2006.",
+      "location": "Prešov",
+      "region": "presovsky",
+      "lean": "smer"
+    },
+    {
+      "id": "peter",
+      "name": "Peter",
+      "emoji": "👷",
+      "age": 45,
+      "demo": "Robotník v automobilke KIA Žilina. Živí dve deti, manželka učiteľka. Bojí sa o prácu kvôli elektromobilom.",
+      "location": "Žilina",
+      "region": "zilinsky",
+      "lean": "smer"
+    },
+    {
+      "id": "katarina",
+      "name": "Katarína",
+      "emoji": "💻",
+      "age": 30,
+      "demo": "IT špecialistka v Bratislave. Pracuje pre nemeckú firmu na remote. Zarába 3500 EUR. Zvažuje odchod do Viedne.",
+      "location": "Bratislava",
+      "region": "bratislavsky",
+      "lean": "progressive"
+    },
+    {
+      "id": "jozef",
+      "name": "Jozef",
+      "emoji": "🌾",
+      "age": 55,
+      "demo": "Poľnohospodár z Nitrianskeho kraja. 200 hektárov. Bojí sa EÚ regulácií a vyschnutia potoka. Volí konzervatívne.",
+      "location": "Nitra",
+      "region": "nitriansky",
+      "lean": "conservative"
+    },
+    {
+      "id": "eva",
+      "name": "Eva",
+      "emoji": "📚",
+      "age": 40,
+      "demo": "Učiteľka základnej školy v B. Bystrici. Plat 1100 EUR. Sama vychováva syna. Chce reformy ale nechce extrémy.",
+      "location": "B. Bystrica",
+      "region": "banskobystricky",
+      "lean": "moderate"
+    },
+    {
+      "id": "martin",
+      "name": "Martin",
+      "emoji": "🎓",
+      "age": 22,
+      "demo": "Študent politológie na UK Bratislava. Aktivista. Chodí na protesty. Zvažuje odísť z krajiny ak sa situácia nezlepší.",
+      "location": "Bratislava",
+      "region": "bratislavsky",
+      "lean": "progressive"
+    },
+    {
+      "id": "tomas",
+      "name": "Tomáš",
+      "emoji": "💼",
+      "age": 38,
+      "demo": "Majiteľ malej IT firmy v Trnave, 15 zamestnancov. Borí sa s byrokraciou a vysokými odvodmi. Chce stabilitu.",
+      "location": "Trnava",
+      "region": "trnavsky",
+      "lean": "moderate"
+    },
+    {
+      "id": "zuzana",
+      "name": "Zuzana",
+      "emoji": "⚕️",
+      "age": 48,
+      "demo": "Chirurgička v nemocnici Košice. Zarába 2800 EUR ale pracuje 60h/týždeň. Pol oddelenia odišlo do Čiech.",
+      "location": "Košice",
+      "region": "kosicky",
+      "lean": "moderate"
+    },
+    {
+      "id": "robert",
+      "name": "Róbert",
+      "emoji": "⛏️",
+      "age": 58,
+      "demo": "Býv. baník z Handlovej. Nezamestnaný 3 roky. Žije z dávok a práce na čierno. Nostalgik za starými časmi.",
+      "location": "B. Bystrica",
+      "region": "banskobystricky",
+      "lean": "smer"
+    },
+    {
+      "id": "lucia",
+      "name": "Lucia",
+      "emoji": "📰",
+      "age": 28,
+      "demo": "Investigatívna novinárka Denníka N. Odkryla viacero káuz. Dostáva výhrazy. Bojí sa o slobodu tlače.",
+      "location": "Bratislava",
+      "region": "bratislavsky",
+      "lean": "progressive"
+    },
+    {
+      "id": "stefan",
+      "name": "Štefan",
+      "emoji": "👮",
+      "age": 45,
+      "demo": "Policajný nadporučík v Trenčíne. 20 rokov v službe. Chce poriadok a silný štát. Neverí politikom ale rieši bezpečnosť.",
+      "location": "Trenčín",
+      "region": "trenciansky",
+      "lean": "conservative"
+    },
+    {
+      "id": "helena",
+      "name": "Helena",
+      "emoji": "👩‍👧",
+      "age": 36,
+      "demo": "Slobodná matka dvoch detí z Prešova. Pracuje ako predavačka za 850 EUR. Závisí od sociálnych dávok. Volí toho kto dá viac.",
+      "location": "Prešov",
+      "region": "presovsky",
+      "lean": "smer"
+    }
+  ],
+  "personaQuotes": {
+    "maria": {
+      "vp": [
+        "Fico sa o nás dôchodcov konečne stará! Susedka Margita mi ukazovala, že aj jej už prišlo viac. Daj Bože mu zdravie.",
+        "Výborne! Konečne niekto myslí na starých ľudí. Vnučka mi volala že aj v televízii chválili. Tak to má byť.",
+        "Ďakujem Bohu za takého premiéra! Po rokoch konečne cítiš, že niekomu na tebe záleží. Aj farár v kostole hovoril že je to správne."
+      ],
+      "p": [
+        "To je v poriadku, niečo sa robí. Na naše pomery slušné. Aspoň vidím snahu, aj keď by mohlo byť lepšie.",
+        "Aspoň vidím snahu. Lepšie ako za predošlého. Susedka hovorí to isté.",
+        "Lepšie ako nič. Aspoň sa niekto snaží. Ja len chcem mať na lieky a na jedlo pre vnučkov."
+      ],
+      "n": [
+        "Neviem čo si o tom myslieť. Niektorí hovoria dobre, niektorí zle. Ja len chcem v kľude dožiť a mať na lieky.",
+        "Politika ma unavuje ale treba voliť. V obchode som počula rôzne názory. Neviem komu veriť.",
+        "Čo ja viem. Na dedine to nikto nerieši. Ideme ďalej ako doteraz a dúfame v lepšie."
+      ],
+      "ng": [
+        "Toto na nás dôchodcov zas zabudli. Sľuby pred voľbami a potom nič. 480 euro mesačne a všetko drahšie.",
+        "Nikto sa nepýta starých ľudí. Celý život som robila a teraz nemám ani na poriadne jedlo. Hanba.",
+        "Susedka Margita plakala v obchode. Nemala na mlieko. A vláda? Riešia vlastné problémy."
+      ],
+      "vn": [
+        "Katastrofa! Dcéra mi už posiela peniaze z Anglicka aby som mala na lieky. Hanba tejto vláde!",
+        "Celý život som robila pre túto krajinu a toto je odmena? Vnúčatá ma ľutujú. Tohto sa nedožijeme.",
+        "Plačem keď vidím účet za elektrinu. Musím si vybrať medzi liekmi a jedlom. To je Slovensko roku 2024?"
+      ]
+    },
+    "peter": {
+      "vp": [
+        "Super! Toto pomáha robotníkom. V fabrike sme sa bavili a všetci sme spokojní. Konečne niekto myslí aj na nás.",
+        "Na zmene sme si podávali ruky. Toto je presne čo sme potrebovali. Fico rozumie fabrikom.",
+        "Manželka sa usmievala keď som prišiel domov. Konečne dobré správy z politiky. Aj hypotéku zvládneme."
+      ],
+      "p": [
+        "Dobrý smer. V robote sa hovorí že bude lepšie. Aspoň nemusíme mať strach že zavrú linku.",
+        "Fico pozná problémy obyčajných ľudí, to mu nemôžeš vziať. V kantíne chlapci súhlasia.",
+        "Nie je to dokonalé ale ideme správnym smerom. Na zmene je lepšia nálada ako minulý rok."
+      ],
+      "n": [
+        "Nemám názor. V práci sa nič nezmenilo. Mzda rovnaká, ceny vyššie. Štandard.",
+        "Politiku moc neriešim, idem do roboty, domov, spať, a znova. Aspoň je kľudno.",
+        "V kantíne sa o tom bavili ale ja radšej riešim svoju prácu. Čo zmôžem ja, robotník."
+      ],
+      "ng": [
+        "V automobilke už začali prepúšťať. Elektromobily, to je koniec našich liniek. A vláda? Nič.",
+        "Kto zaplatí moju hypotéku keď zavrú linku? Len reči o suverenite a vojnách.",
+        "Kolega dostal výpoveď minulý týždeň. Tri deti a hypotéka. A vláda rieši Rusko."
+      ],
+      "vn": [
+        "Hotové! Kolega už dostal výpoveď. Fabrika znižuje stavy. Manželka plače, neviem čo bude.",
+        "Stará sa o Rusko a Ukrajinu namiesto o nás! V fabrike je panika. Ľudia sa boja.",
+        "Tri zmeny zrušili. 200 ľudí ide na ulicu. A premiér je v Moskve. To je tá jeho starostlivosť o robotníkov?"
+      ]
+    },
+    "katarina": {
+      "vp": [
+        "Wow, konečne niečo pokrokové! Zdieľam to na LinkedIn, nech vedia v zahraničí že nie sme úplne stratená krajina.",
+        "Slovensko sa konečne posunulo do 21. storočia. Kolegovia z Berlína píšu gratulujeme. Konečne!",
+        "V IT komunite je eufória. Takto by to malo vyzerať vždy. Možno neodídem do Viedne."
+      ],
+      "p": [
+        "OK, dobré kroky, aj keď pomale. Aspoň ide vidieť snaha. Kolegovia v Nemecku sa pýtali a teraz im môžem povedať niečo pozitívne.",
+        "Baby steps ale správnym smerom. Na Slack-u v práci sme diskutovali a väčšina súhlasí.",
+        "Nie je to revolúcia ale aspoň nie krok späť. V IT firme to berieme ako pozitívny signál."
+      ],
+      "n": [
+        "Typicky slovenský kompromis — nikomu to nevadí, nikomu to nepomôže. V IT komunite sa tomu smejeme.",
+        "Slovensko by potrebovalo razantnejšie zmeny, nie toto opatrné šľapanie. Ale OK, nečakala som viac.",
+        "Meh. Na daily standup-e sa o tom nikto ani nezmienil. Mimo IT bubliny to nikoho nezaujíma."
+      ],
+      "ng": [
+        "Toto je krok späť. Kolegyňa Simona sa balila do Viedne a teraz ju chápem.",
+        "Ak vláda takto pokračuje, aj ja odcestujem. Nie je dôvod zostávať v krajine ktorá ide dozadu.",
+        "Na LinkedIn-e kolegovia z Česka píšu: poďte k nám. A ja vážne zvažujem."
+      ],
+      "vn": [
+        "Demokracia umiera a svetu je to jedno! Už som si kúpila jednosmerný lístok do Viedne.",
+        "Žiadna sloboda tlače, súdy pod kontrolou. Odchádzam. Slovensko si nezaslúži IT talenty.",
+        "Firma presúva tím do Brna. Ja idem s nimi. Toto už nie je krajina pre vzdelaných ľudí."
+      ]
+    },
+    "jozef": {
+      "vp": [
+        "Dobre! Konečne ochrana tradičných hodnôt a nášho vidieckeho života. Keď vláda chráni dedinky, je to správna vláda.",
+        "Pole sa samo neorobí. Konečne niekto rozumie poľnohospodárom. V krčme v dedine sme pripíjali.",
+        "Na družstve sme konečne spokojní. Vláda podporuje slovenské potraviny a farmárov. Tak to má byť."
+      ],
+      "p": [
+        "Prijateľné. Aspoň nie sú to tie zelené šialenstvá z Bruselu čo chcú zavrieť farmy.",
+        "Na dedine potrebujeme kľudnú politiku, nie revolúcie. Toto je v poriadku.",
+        "Nie je to ideálne ale na dedine sme zvyknutí na málo. Aspoň nie je horšie ako vlani."
+      ],
+      "n": [
+        "Ani ryba ani rak. V podstate sa nič nemení pre nás na vidieku. Dotácie chodia, ale neskoro.",
+        "Brusel stále diktuje. My oráme pole a oni píšu nariadenia. Aspoň nie je horšie.",
+        "V dedine sa o politike moc nehovorí. Robíme čo treba a dúfame v dobrú úrodu."
+      ],
+      "ng": [
+        "Na dedinke to nikto necíti. Vláda robí veci pre Bratislavu a pre seba. Kde sú dotácie pre malých farmárov?",
+        "Kde je ochrana pred dovozom z Ukrajiny? Samé prázdne slová. Pole mi zarástlo burinou a štát nepomôže.",
+        "Mladí odchádzajú z dedín. Školy zatvoria, obchod zatvorili. A vláda rieši Bratislavu."
+      ],
+      "vn": [
+        "Katastrofa pre vidiek! Bruselské nariadenia nám žerú živobytie a vláda s tým nič nerobí!",
+        "Susedov syn predal kravy a išiel do fabriky. O 10 rokov tu nebude nikto čo by oral pole.",
+        "Dedina umiera. Posledný obchod zatvorili. Autobus chodí raz denne. A politici? Ani nevedia kde sme na mape."
+      ]
+    },
+    "eva": {
+      "vp": [
+        "Vyvážený a premyslený prístup! Presne toto učím študentov — analyzovať a rozhodnúť sa rozumne.",
+        "Ak by vláda takto pristupovala ku všetkému, boli by sme ďaleko. V zborovni sme sa tešili.",
+        "Konečne politika založená na dátach a analýze! Ukazujem to žiakom ako príklad. Takto sa to robí."
+      ],
+      "p": [
+        "Rozumné kroky. Nie perfektné, ale v správnom smere. Zmena trvá dlho, dôležité je pokračovať.",
+        "Ako učiteľka viem že treba trpezlivosť. Vidím snahu a to sa počíta.",
+        "V zborovni sme diskutovali a väčšina súhlasí že je to pozitívne. Nie dokonalé, ale dobré."
+      ],
+      "n": [
+        "Priemerný výkon. Ako domáca úloha čo opravujem — spĺňa minimum, ale chýba snaha.",
+        "Ani nie je na čo nadávať, ani nie je na čo byť hrdým. Typické Slovensko.",
+        "V škole sa o tom nikto nebavil. Učíme ďalej a dúfame že si na nás niekto spomenie."
+      ],
+      "ng": [
+        "Sklamanie. Školstvo sa opäť nevloží ani cent. Mám 32 žiakov a plat 1100 euro.",
+        "A vláda rieši RTVS a Rusko? Keď investujete do škôl, investujete do budúcnosti!",
+        "Kolegyne zvažujú odchod do Čiech. Rozbité stoličky, staré učebnice. A politikom je to jedno."
+      ],
+      "vn": [
+        "Nezmysel! Toto učím deti ako príklad zlej politiky. Žiadna analýza, len populizmus.",
+        "Kolegyne plakali v zborovni. Pol školy zvažuje odchod do Čiech kde učiteľ zarába dvojnásobok.",
+        "Hanba! Deti si zaslúžia lepšie. Ja si zaslúžim lepšie. Celé školstvo si zaslúži lepšie. Ale vládu to nezaujíma."
+      ]
+    },
+    "martin": {
+      "vp": [
+        "LET'S GOOO! Toto sme na protestoch požadovali! Zdieľam na všetky siete!",
+        "Konečne politika pre mladú generáciu! Na univerzite je eufória. Takto sa robí zmena.",
+        "Wow! Kamaráti z Prahy závidia. Možno sa nemusím vysťahovať. Slovensko ma prekvapilo."
+      ],
+      "p": [
+        "Fajn, dobré kroky aj keď pomale. Na univerzite väčšina súhlasí že to je pozitívne.",
+        "Baby steps, ale správnym smerom. Aspoň sa niečo deje. Zdieľam na Insta s opatrným optimizmom.",
+        "Na politológii sme to analyzovali a konsenzus je: lepšie ako čakanie. Ale treba viac."
+      ],
+      "n": [
+        "Meh. Štandardný politický kompromis. Na politológii analyzujeme horšie veci.",
+        "Slovensko sa posúva tempom slimáka. Nie je to tragédia ale ani revolúcia.",
+        "Na prednáške sme to rozobrali za 5 minút a prešli k zaujímavejším témam. Nuda."
+      ],
+      "ng": [
+        "Toto je z učebnice ako zničiť dôveru mladých v politiku. Prečo by som tu mal ostávať?",
+        "Kamaráti sú v Prahe, Berlíne, Londýne. Tu nie je budúcnosť pre mladých.",
+        "Na proteste bolo 10 000 ľudí. Vláda to ignoruje. Čo ešte musíme urobiť?"
+      ],
+      "vn": [
+        "SHAME! Idem na protest! Toto je demontáž demokracie!",
+        "Na univerzite sa rozhodujeme či evakuovať akademickú slobodu. Budem emigrant, nie absolvent.",
+        "Nechcem žiť v autoritárskom štáte. Erasmus v Holandsku vyzerá čoraz lepšie ako trvalý pobyt."
+      ]
+    },
+    "tomas": {
+      "vp": [
+        "Výborne pre biznis! Konečne stabilné prostredie. Už vidím objednávky a rast.",
+        "Keď je kľud a predvídateľnosť, firmy investujú. Toto je presne čo podnikatelia potrebujú.",
+        "Volal mi klient z Nemecka — expanduje na Slovensko. Vďaka tejto politike. Super!"
+      ],
+      "p": [
+        "Dobre, aspoň nie sú to horšie správy. Firma beží, zamestnanci majú prácu.",
+        "Keď vláda nebude hádzať klady pod nohy, dá sa podnikať aj na Slovensku.",
+        "Nie je to ideálne ale biznis ide. Objednávky sú stabilné. Nechcem viac."
+      ],
+      "n": [
+        "Bez efektu na moju firmu. Ani pomoc, ani prekážka. Idem ďalej robiť čo robím.",
+        "Jednoducho ďalšia politika ktorá neovplyvní denný biznis. Dúfam v lepšie.",
+        "V podnikateľskom klube sme pokrčili ramenami. Nič nové. Robíme ďalej."
+      ],
+      "ng": [
+        "Pre podnikateľov nič. Zase vyššie odvody a viac byrokracie. Zvažujem presun firmy do Česka.",
+        "Tam je to jednoduchšie, lacnejšie a štát vám neprekáža. Tu je to boj.",
+        "Tri klienti zrušili zmluvy. Obchodní partneri sa pýtajú na politickú stabilitu. Čo im mám povedať?"
+      ],
+      "vn": [
+        "Likvidujem firmu a idem preč! Dvaja klienti už odišli do Čiech.",
+        "Slovensko nie je krajina pre podnikateľov. Konkurencia z Brna nám berie ľudí.",
+        "Posledná kvapka. Balím kanceláriu. Založím firmu v Prahe kde podnikateľa rešpektujú."
+      ]
+    },
+    "zuzana": {
+      "vp": [
+        "Konečne investícia do zdravotníctva! Možno prestanú odchádzať sestry do Rakúska.",
+        "V nemocnici sme mali mini oslavu. Toto je krok správnym smerom. Konečne!",
+        "Kolegovia necveria ale ja som optimistka. Ak to splnia, zachránia životy. Doslova."
+      ],
+      "p": [
+        "Lepšie ako nič. Aspoň vidíme snahu. Na oddelení máme stále problémy ale je signál.",
+        "Uvidíme či splnia sľuby. Zatiaľ aspoň vieme že si vláda uvedomuje problém.",
+        "V nemocnici sme opatrne optimistickí. Ale sľuby sme počuli aj predtým."
+      ],
+      "n": [
+        "Zdravotníctvo sa opäť nerieši. Čakám 15 rokov na skutočnú reformu.",
+        "Pacienti čakajú v chodbách a politici sa bavia o suverenite. Typické.",
+        "Na oddelení nikto ani nezdvihol hlavu od práce. Politika nás nezaujíma — nemáme čas."
+      ],
+      "ng": [
+        "Kolegovia utekajú! Pol chirurgie odišlo do Brna. Platy sú smiešne pre to čo robíme.",
+        "A vláda? Rieši RTVS! Prosím vás, ľudia umierajú v čakárňach!",
+        "Sestra mi povedala že podala výpoveď. Štvrtá tento mesiac. Čo budem robiť sama?"
+      ],
+      "vn": [
+        "Zdravotnícky systém kolabuje! Pacient čakal 14 hodín na pohotovosti. Ja zvažujem Viedeň.",
+        "Sestra plakala lebo nezvláda 16-hodinové služby. Za hranicou platia trojnásobok.",
+        "Dnes mi zomrel pacient v čakárni. Na chodbách. V 21. storočí. V EÚ. Hanba tejto krajine!"
+      ]
+    },
+    "robert": {
+      "vp": [
+        "SMER sa o nás stará! V krčme sme sedeli a vraveli že toto je ono. Fico je náš človek.",
+        "Konečne niekto kto pozná problémy obyčajných ľudí. V Handlovej sa konečne niečo deje!",
+        "Sused Vlado hovorí že aj jemu pomohli. Fico, drž sa, my ťa podporujeme!"
+      ],
+      "p": [
+        "Dobre, niečo sa robí. Lepšie ako za tých z PS čo by nás predali Bruselu.",
+        "Aspoň Fico rozumie čo značí byť robotník a nemať prácu. Ale treba viac.",
+        "V hospode chlapci hovorili že je to fajn. Nie super, ale fajn. Ideme ďalej."
+      ],
+      "n": [
+        "Neviem. Fico rozpráva, ale v Handlovej sa nič nezmenilo. Baňa je zavretá, prácu niet.",
+        "Chodia sem sľubovať pred voľbami a potom zabudnú kde Handlová je.",
+        "Čo sa tu zmenilo? Nič. Krčma stojí, fabrika nie. Ale aspoň je kľudno, čo ja viem."
+      ],
+      "ng": [
+        "Opäť nič pre nás! Banujem že som volil SMER. V meste je 20% nezamestnanosť.",
+        "Potrebujeme prácu, nie reči. Kde sú tie sľúbené investície do Handlovej?",
+        "Syn odišiel do Prahy. Dcéra zvažuje Anglicko. A ja tu čakám na čo? Na ďalšie sľuby?"
+      ],
+      "vn": [
+        "Zradili nás! Všetci sú rovnakí — sľubujú a kradnú! V Handlovej umierajú ľudia na alkohol.",
+        "A čo vláda? Rieši vojnu na Ukrajine! Kto sa postará o nás v zabudnutom meste?",
+        "Susedovi vypli elektrinu. Mne sa to blíži. SMER, PS, SNS — všetci sú rovnakí podvodníci."
+      ]
+    },
+    "lucia": {
+      "vp": [
+        "Fantastický krok pre transparentnosť! Toto je presne o čom píšem — demokracia žije.",
+        "Píšem editoriál a zdieľam medzinárodne. Konečne dobré správy zo Slovenska!",
+        "V redakcii sme otvárali šampanské. Toto je nádej pre nezávislú žurnalistiku."
+      ],
+      "p": [
+        "Pozitívne signály, aj keď treba byť opatrný. V redakcii väčšina súhlasí.",
+        "Budeme sledovať implementáciu — tam sa ukazuje pravda. Zatiaľ OK.",
+        "Na porade v redakcii sme sa zhodli: lepšie ako čakanie. Ale oči otvorené."
+      ],
+      "n": [
+        "Klasický kompromis ktorý nezmení nič. Ani krok vpred, ani vzad.",
+        "V novinách tomu venujeme stĺpec a zajtra to zabudnú. Slovensko potrebuje odvahu.",
+        "Na redakčnej porade sme sa pozreli, pokrčili ramenami a riešili vlastné kauzy."
+      ],
+      "ng": [
+        "Ohrozenie slobody tlače! Kolegovia dostali výhrazy. RSF nás opäť zníži v rebríčku.",
+        "Sledujeme zužovanie priestoru pre nezávislú žurnalistiku. Píšem o tom medzinárodne.",
+        "Kolega dostal anonymné vyhrážky. Šéfredaktor zvažuje ochranku. Toto nie je normálne."
+      ],
+      "vn": [
+        "SLOBODA TLAČE UMIERA! Kolega dostal telefón z policajnej inšpekcie. Redakcii hrozia.",
+        "Medzinárodné organizácie varujú ale nikto nepočúva! Píšem cez VPN lebo sa bojím.",
+        "Dvaja kolegovia emigrovali. Ja zvažujem. Investigatívna žurnalistika na Slovensku umiera."
+      ]
+    },
+    "stefan": {
+      "vp": [
+        "Poriadok a bezpečnosť! To je základ! Silný štát, silná polícia, občania v bezpečí.",
+        "Presne pre toto robím túto prácu 20 rokov. Vláda koná a ľudia sú v bezpečí.",
+        "Na stanici sme konečne spokojní. Nová technika, viac ľudí. Takto sa to robí."
+      ],
+      "p": [
+        "Dobre pre bezpečnosť. Na stanici sme spokojní. Autorita štátu je posilnená.",
+        "Keď je autorita štátu posilnená, kriminalita klesá. Ľudia to nechápu ale je to tak.",
+        "Nie je to ideálne ale ideme správnym smerom. Policajti potrebujú podporu, nie kritiku."
+      ],
+      "n": [
+        "Štandardné. V práci sa nič nezmenilo. Stále málo ľudí, stále veľa papierovej práce.",
+        "Politici rozprávajú ale policajti stále zarábajú málo a riskujú každý deň.",
+        "Na porade veliteľ len pokrčil ramenami. Nič nové. Riešime čo máme a improvizujeme."
+      ],
+      "ng": [
+        "Kriminalita rastie a vláda robí čo? Nič! Na stanici máme nedostatok ľudí.",
+        "Technika je z roku 2005 a politici sa riešia medzi sebou. Kto chráni občanov?",
+        "Kolega dostal po službe bitku a nemáme ani kamery. Ale ministerstvo má nové autá."
+      ],
+      "vn": [
+        "Bezpečnosť krajiny je ohrozená! Kolegovia odchádzajú, morálka na nule.",
+        "Gangy na východe rastú a my nemáme ľudí ani techniku. Ochráňte najprv vlastných občanov!",
+        "Po 20 rokoch služby zvažujem odchod. Za toto som riskoval život? Za 1200 euro a ignoráciu?"
+      ]
+    },
+    "helena": {
+      "vp": [
+        "Konečne pomoc pre matky samoživiteľky! S dvoma deťmi je každé euro dôležité.",
+        "Deti budú mať na olovrant a ja nebudem musieť prosiť rodičov o pomoc. Ďakujem!",
+        "Plakala som od šťastia. Konečne niekto vidí aj nás. Dcéra pôjde na školský výlet!"
+      ],
+      "p": [
+        "Aspoň niečo. Každá pomoc sa počíta keď vychovávaš deti sama.",
+        "Syn potrebuje nové topánky a dcéra plavky na telocvik. Aspoň vidím že na nás nezabudli.",
+        "Nie je to veľa ale je to niečo. Keď máte 850 euro a dvoje detí, každý cent sa počíta."
+      ],
+      "n": [
+        "Pre nás matky nič konkrétne. Ja by som chcela jasle v Prešove a dotácie na školské potreby.",
+        "Politika sa tu nikdy o nás nezaujímala. Zvykla som si. Idem ďalej bojovať sama.",
+        "V Prešove sa nič nezmenilo. Ale čo už, riešim si to sama ako vždy."
+      ],
+      "ng": [
+        "Zase nič pre rodiny! Susedka už dala deti k mame a išla robiť do Brna.",
+        "850 euro, dvoje deti, a ceny rastú každý mesiac. Kto nám pomôže?",
+        "Dcéra sa pýtala prečo nemôže mať nové topánky. Čo jej mám povedať?"
+      ],
+      "vn": [
+        "Zúfalo! Nemám na školské potreby pre deti! Matky samoživiteľky sú neviditeľné!",
+        "Dcéra sa pýtala prečo nemôže ísť na školský výlet. Vláda nemá peniaze ale na ministerské autá má!",
+        "Plačem každý večer. Elektrina zdražela, jedlo zdraželo. Neviem ako prežijem ďalší mesiac s dvoma deťmi."
+      ]
+    }
+  },
+  "politicians": [
+    {
+      "id": "matovic",
+      "name": "Igor Matovič",
+      "party": "OĽaNO",
+      "role": "Predseda vlády",
+      "emoji": "🟠",
+      "kw_pos": [
+        "testovanie",
+        "korupcia",
+        "reforma",
+        "transparency"
+      ],
+      "kw_neg": [
+        "lockdown",
+        "rusko",
+        "sputnik"
+      ],
+      "reactions": {
+        "pos": [
+          "Vidíte?! Ja som to hovoril! Matovič má vždy pravdu!",
+          "Toto je presne to čo Slovensko potrebuje! Urobím video!",
+          "Na Facebooku to rozbalím! 3 hodiny vysvetľovania!"
+        ],
+        "neg": [
+          "ZRADCOVIA! Sulík ma sabotuje! Ľudia MUSIA vedieť pravdu!",
+          "Toto je sprisahanie koaličných partnerov proti mne!",
+          "Urobím tlačovku! 4 hodiny! Každý detail vysvetlím!"
+        ],
+        "neu": [
+          "*zdieľa 30 príspevkov na Facebooku*",
+          "Musím to premyslieť. Ale mám pravdu, to je isté."
+        ]
+      }
+    },
+    {
+      "id": "sulik",
+      "name": "Richard Sulík",
+      "party": "SaS",
+      "role": "Minister hospodárstva",
+      "emoji": "🟡",
+      "kw_pos": [
+        "ekonomika",
+        "business",
+        "reform",
+        "sloboda",
+        "invest"
+      ],
+      "kw_neg": [
+        "lockdown",
+        "testovanie",
+        "sputnik",
+        "deficit"
+      ],
+      "reactions": {
+        "pos": [
+          "Rozumná ekonomická politika. Toto podporujem.",
+          "Konečne niečo čo dáva zmysel pre podnikateľov.",
+          "SaS presadila tento prístup. Funguje to."
+        ],
+        "neg": [
+          "Toto je ekonomický nezmysel! Kto to zaplatí?",
+          "Matovič opäť koná bez konzultácie! SaS s tým nesúhlasí!",
+          "Žiadam koaličnú radu. Takto to ďalej nejde."
+        ],
+        "neu": [
+          "Uvidíme aký bude dopad na rozpočet.",
+          "SaS to prerokuje na predsedníctve."
+        ]
+      }
+    },
+    {
+      "id": "kollar",
+      "name": "Boris Kollár",
+      "party": "Sme rodina",
+      "role": "Predseda NR SR",
+      "emoji": "🟤",
+      "kw_pos": [
+        "family",
+        "rodina",
+        "social",
+        "pension"
+      ],
+      "kw_neg": [
+        "lockdown"
+      ],
+      "reactions": {
+        "pos": [
+          "Správna vec pre slovenské rodiny!",
+          "Podporujem. Rodina je základ štátu."
+        ],
+        "neg": [
+          "Nemám s tým problém, ale treba to premyslieť.",
+          "Sme rodina to prerokuje."
+        ],
+        "neu": [
+          "Uvidíme ako to dopadne.",
+          "Parlament to prerokuje."
+        ]
+      }
+    },
+    {
+      "id": "remisova",
+      "name": "Veronika Remišová",
+      "party": "Za ľudí",
+      "role": "Podpredsedníčka vlády",
+      "emoji": "🟢",
+      "kw_pos": [
+        "reforma",
+        "transparency",
+        "investicie",
+        "eu",
+        "digitalizacia"
+      ],
+      "kw_neg": [
+        "korupcia",
+        "skandal"
+      ],
+      "reactions": {
+        "pos": [
+          "Toto je krok správnym smerom pre reformu Slovenska.",
+          "Za ľudí podporuje transparentné riešenia."
+        ],
+        "neg": [
+          "Máme výhrady. Žiadame dôkladnú analýzu dopadov.",
+          "Za ľudí nemôže podporiť kroky, ktoré ohrozujú reformný proces."
+        ],
+        "neu": [
+          "Budeme diskutovať na koaličnej rade.",
+          "Za ľudí zvažuje všetky aspekty."
+        ]
+      }
+    },
+    {
+      "id": "heger",
+      "name": "Eduard Heger",
+      "party": "OĽaNO",
+      "role": "Minister financií",
+      "emoji": "🟠",
+      "kw_pos": [
+        "rozpocet",
+        "ekonomika",
+        "eu",
+        "fond"
+      ],
+      "kw_neg": [
+        "deficit",
+        "dlh"
+      ],
+      "reactions": {
+        "pos": [
+          "Rozpočtovo zodpovedný krok. Podporujem.",
+          "Musíme myslieť na budúce generácie."
+        ],
+        "neg": [
+          "Rozpočet to neunesie. Musíme hľadať alternatívy.",
+          "Fiškálna disciplína je dôležitá aj v kríze."
+        ],
+        "neu": [
+          "Ministerstvo financií analyzuje dopady.",
+          "Čísla ukážu pravdu."
+        ]
+      }
+    },
+    {
+      "id": "nad",
+      "name": "Jaroslav Naď",
+      "party": "OĽaNO",
+      "role": "Minister obrany",
+      "emoji": "🟠",
+      "kw_pos": [
+        "nato",
+        "bezpecnost",
+        "obrana",
+        "eu"
+      ],
+      "kw_neg": [
+        "rusko",
+        "sputnik"
+      ],
+      "reactions": {
+        "pos": [
+          "Posilňujeme obranu Slovenska. NATO je náš pilier.",
+          "Bezpečnosť občanov je priorita."
+        ],
+        "neg": [
+          "Toto ohrozuje naše spojenecké záväzky!",
+          "NATO partneri budú znepokojení."
+        ],
+        "neu": [
+          "Ministerstvo obrany situáciu monitoruje.",
+          "Konzultujeme s NATO spojencami."
+        ]
+      }
+    },
+    {
+      "id": "krajci",
+      "name": "Marek Krajčí",
+      "party": "OĽaNO",
+      "role": "Minister zdravotníctva",
+      "emoji": "🟠",
+      "kw_pos": [
+        "zdravotnictvo",
+        "testovanie",
+        "covid",
+        "vakcina"
+      ],
+      "kw_neg": [
+        "nemocnica",
+        "lockdown"
+      ],
+      "reactions": {
+        "pos": [
+          "Plošné testovanie zachráni životy! Dáta hovoria jasne.",
+          "Ako minister zdravotníctva garantujem, že robíme maximum."
+        ],
+        "neg": [
+          "Situácia je kritická. Nemocnice sú na hrane.",
+          "Prosím občanov o trpezlivosť. Pandémia je nepriateľ."
+        ],
+        "neu": [
+          "Sledujeme dáta a rozhodujeme na základe faktov.",
+          "Konzílium odborníkov zasadá."
+        ]
+      }
+    },
+    {
+      "id": "krajniak",
+      "name": "Milan Krajniak",
+      "party": "Sme rodina",
+      "role": "Minister práce",
+      "emoji": "🟤",
+      "kw_pos": [
+        "praca",
+        "social",
+        "rodina",
+        "kompenzacie"
+      ],
+      "kw_neg": [
+        "nezamestnanost"
+      ],
+      "reactions": {
+        "pos": [
+          "Pomáhame rodinám a zamestnancom. To je naša priorita.",
+          "Kompenzačné balíčky fungujú."
+        ],
+        "neg": [
+          "Sociálny systém je pod tlakom. Potrebujeme viac zdrojov.",
+          "Ľudia strácajú prácu a my musíme konať rýchlejšie."
+        ],
+        "neu": [
+          "Ministerstvo práce pripravuje ďalšie opatrenia.",
+          "Sledujeme situáciu na trhu práce."
+        ]
+      }
+    }
+  ],
+  "coalitionPartners": [
+    {
+      "id": "olano",
+      "name": "OĽaNO",
+      "seats": 53,
+      "freq": 8
+    },
+    {
+      "id": "sas",
+      "name": "SaS",
+      "seats": 13,
+      "freq": 5
+    },
+    {
+      "id": "smerodina",
+      "name": "Sme rodina",
+      "seats": 17,
+      "freq": 4
+    },
+    {
+      "id": "zaludi",
+      "name": "Za ľudí",
+      "seats": 12,
+      "freq": 3
+    }
+  ],
+  "demands": [
+    {
+      "partner": "sas",
+      "text": "SaS požaduje uvoľnenie protipandemických opatrení pre podnikateľov."
+    },
+    {
+      "partner": "sas",
+      "text": "SaS požaduje zníženie byrokracie a dane pre malé firmy."
+    },
+    {
+      "partner": "sas",
+      "text": "SaS požaduje transparentný nákup vakcín bez politických hier."
+    },
+    {
+      "partner": "smerodina",
+      "text": "Sme rodina požaduje zvýšenie rodinných prídavkov."
+    },
+    {
+      "partner": "smerodina",
+      "text": "Sme rodina požaduje podporu pre matky samoživiteľky."
+    },
+    {
+      "partner": "smerodina",
+      "text": "Sme rodina požaduje odmietnutie povinného očkovania."
+    },
+    {
+      "partner": "zaludi",
+      "text": "Za ľudí požaduje reformu justície a protikorupčné opatrenia."
+    },
+    {
+      "partner": "zaludi",
+      "text": "Za ľudí požaduje transparentné riadenie pandémie."
+    },
+    {
+      "partner": "zaludi",
+      "text": "Za ľudí požaduje digitalizáciu štátnej správy."
+    },
+    {
+      "partner": "olano",
+      "text": "OĽaNO požaduje plošné testovanie ako prioritu boja s COVID-19."
+    },
+    {
+      "partner": "olano",
+      "text": "OĽaNO požaduje rýchlejšie vyšetrovanie korupčných káuz."
+    }
+  ],
+  "regions": [
+    {
+      "id": "bratislavsky",
+      "name": "Bratislavský",
+      "pop": 670,
+      "personas": [
+        "katarina",
+        "martin",
+        "lucia"
+      ]
+    },
+    {
+      "id": "trnavsky",
+      "name": "Trnavský",
+      "pop": 565,
+      "personas": [
+        "tomas"
+      ]
+    },
+    {
+      "id": "trenciansky",
+      "name": "Trenčiansky",
+      "pop": 584,
+      "personas": [
+        "stefan"
+      ]
+    },
+    {
+      "id": "nitriansky",
+      "name": "Nitriansky",
+      "pop": 674,
+      "personas": [
+        "jozef"
+      ]
+    },
+    {
+      "id": "zilinsky",
+      "name": "Žilinský",
+      "pop": 691,
+      "personas": [
+        "peter"
+      ]
+    },
+    {
+      "id": "banskobystricky",
+      "name": "Banskobystrický",
+      "pop": 645,
+      "personas": [
+        "eva",
+        "robert"
+      ]
+    },
+    {
+      "id": "presovsky",
+      "name": "Prešovský",
+      "pop": 827,
+      "personas": [
+        "maria",
+        "helena"
+      ]
+    },
+    {
+      "id": "kosicky",
+      "name": "Košický",
+      "pop": 802,
+      "personas": [
+        "zuzana"
+      ]
+    }
+  ],
+  "stakeholders": [
+    {
+      "id": "olano",
+      "name": "OĽaNO",
+      "desc": "Koalícia",
+      "fp": 5,
+      "type": "coalition",
+      "seats": 53,
+      "color": "#f59e0b"
+    },
+    {
+      "id": "sas",
+      "name": "SaS",
+      "desc": "Koalícia",
+      "fp": 4,
+      "type": "coalition",
+      "seats": 13,
+      "color": "#0ea5e9"
+    },
+    {
+      "id": "smerodina",
+      "name": "Sme rodina",
+      "desc": "Koalícia",
+      "fp": 3,
+      "type": "coalition",
+      "seats": 17,
+      "color": "#854d0e"
+    },
+    {
+      "id": "zaludi",
+      "name": "Za ľudí",
+      "desc": "Koalícia",
+      "fp": 3,
+      "type": "coalition",
+      "seats": 12,
+      "color": "#10b981"
+    },
+    {
+      "id": "smer",
+      "name": "SMER-SD",
+      "desc": "Opozícia",
+      "fp": 4,
+      "type": "opposition",
+      "seats": 38,
+      "color": "#dc2626"
+    },
+    {
+      "id": "lsns",
+      "name": "ĽSNS",
+      "desc": "Opozícia",
+      "fp": 2,
+      "type": "opposition",
+      "seats": 17,
+      "color": "#1f2937"
+    },
+    {
+      "id": "media_ind",
+      "name": "Nezávislé médiá",
+      "desc": "Médiá",
+      "fp": 3,
+      "type": "media"
+    },
+    {
+      "id": "business",
+      "name": "Podnikateľský sektor",
+      "desc": "Ekonomika",
+      "fp": 4,
+      "type": "economy"
+    },
+    {
+      "id": "unions",
+      "name": "Odbory a zamestnanci",
+      "desc": "Ekonomika",
+      "fp": 3,
+      "type": "economy"
+    },
+    {
+      "id": "healthcare",
+      "name": "Zdravotníci a nemocnice",
+      "desc": "Zdravotníctvo",
+      "fp": 5,
+      "type": "institution"
+    },
+    {
+      "id": "eu_nato",
+      "name": "Európska únia a NATO",
+      "desc": "Medzinárodné",
+      "fp": 5,
+      "type": "international"
+    }
+  ],
+  "diplomacy": [
+    {
+      "key": "eu",
+      "name": "Európska únia",
+      "emoji": "<img src=\"https://flagcdn.com/w20/eu.png\" style=\"width:18px;height:12px;vertical-align:middle;margin-right:4px\">"
+    },
+    {
+      "key": "usa",
+      "name": "USA",
+      "emoji": "<img src=\"https://flagcdn.com/w20/us.png\" style=\"width:18px;height:12px;vertical-align:middle;margin-right:4px\">"
+    },
+    {
+      "key": "russia",
+      "name": "Rusko",
+      "emoji": "<img src=\"https://flagcdn.com/w20/ru.png\" style=\"width:18px;height:12px;vertical-align:middle;margin-right:4px\">"
+    },
+    {
+      "key": "ukraine",
+      "name": "Ukrajina",
+      "emoji": "<img src=\"https://flagcdn.com/w20/ua.png\" style=\"width:18px;height:12px;vertical-align:middle;margin-right:4px\">"
+    },
+    {
+      "key": "czech",
+      "name": "Česko",
+      "emoji": "<img src=\"https://flagcdn.com/w20/cz.png\" style=\"width:18px;height:12px;vertical-align:middle;margin-right:4px\">"
+    },
+    {
+      "key": "hungary",
+      "name": "Maďarsko",
+      "emoji": "<img src=\"https://flagcdn.com/w20/hu.png\" style=\"width:18px;height:12px;vertical-align:middle;margin-right:4px\">"
+    },
+    {
+      "key": "poland",
+      "name": "Poľsko",
+      "emoji": "<img src=\"https://flagcdn.com/w20/pl.png\" style=\"width:18px;height:12px;vertical-align:middle;margin-right:4px\">"
+    },
+    {
+      "key": "nato_r",
+      "name": "NATO",
+      "emoji": "🛡️"
+    }
+  ],
+  "keywords": {
+    "covid": {
+      "p": {
+        "zuzana": 8,
+        "maria": 5,
+        "helena": 5,
+        "eva": 4
+      },
+      "s": {
+        "healthcare": 8,
+        "olano": 3,
+        "eu_nato": 2
+      },
+      "e": {
+        "deficit": 0.5,
+        "gdpGrowth": -0.1
+      }
+    },
+    "lockdown": {
+      "p": {
+        "zuzana": 5,
+        "maria": -3,
+        "peter": -6,
+        "tomas": -8,
+        "helena": -4
+      },
+      "s": {
+        "healthcare": 6,
+        "business": -8,
+        "sas": -6,
+        "unions": -4
+      },
+      "e": {
+        "deficit": 0.3,
+        "gdpGrowth": -0.3
+      }
+    },
+    "testovanie": {
+      "p": {
+        "stefan": 5,
+        "eva": 3,
+        "maria": 4,
+        "robert": -3,
+        "martin": -4
+      },
+      "s": {
+        "olano": 8,
+        "sas": -6,
+        "smerodina": -3,
+        "eu_nato": -2
+      },
+      "e": {
+        "deficit": 0.4
+      }
+    },
+    "vakcina": {
+      "p": {
+        "zuzana": 8,
+        "katarina": 6,
+        "lucia": 5,
+        "maria": 4
+      },
+      "s": {
+        "healthcare": 8,
+        "eu_nato": 4,
+        "olano": 3
+      },
+      "e": {
+        "deficit": 0.3,
+        "gdpGrowth": 0.05
+      }
+    },
+    "sputnik": {
+      "p": {
+        "katarina": -8,
+        "lucia": -7,
+        "martin": -6,
+        "robert": 3
+      },
+      "s": {
+        "sas": -10,
+        "zaludi": -8,
+        "eu_nato": -6,
+        "olano": -3
+      },
+      "dp": {
+        "russia": 3,
+        "eu": -5,
+        "usa": -3
+      },
+      "e": {
+        "deficit": 0.1
+      }
+    },
+    "ruska": {
+      "p": {
+        "katarina": -5,
+        "lucia": -5,
+        "martin": -4,
+        "robert": 3
+      },
+      "s": {
+        "sas": -6,
+        "eu_nato": -5
+      },
+      "dp": {
+        "russia": 3,
+        "eu": -3
+      }
+    },
+    "nemocnica": {
+      "p": {
+        "zuzana": 8,
+        "maria": 6,
+        "helena": 5
+      },
+      "s": {
+        "healthcare": 8,
+        "unions": 3
+      },
+      "e": {
+        "deficit": 0.5
+      }
+    },
+    "karantena": {
+      "p": {
+        "peter": -5,
+        "tomas": -6,
+        "helena": -3,
+        "stefan": 3
+      },
+      "s": {
+        "business": -5,
+        "sas": -4,
+        "healthcare": 4
+      },
+      "e": {
+        "gdpGrowth": -0.1
+      }
+    },
+    "kompenzacie": {
+      "p": {
+        "peter": 6,
+        "tomas": 7,
+        "helena": 5,
+        "robert": 4
+      },
+      "s": {
+        "business": 6,
+        "sas": 4,
+        "unions": 5
+      },
+      "e": {
+        "deficit": 0.5,
+        "gdpGrowth": 0.05
+      }
+    },
+    "podpora": {
+      "p": {
+        "peter": 5,
+        "helena": 6,
+        "robert": 5,
+        "maria": 4
+      },
+      "s": {
+        "unions": 5,
+        "smerodina": 3
+      },
+      "e": {
+        "deficit": 0.3
+      }
+    },
+    "koalicia": {
+      "p": {
+        "eva": 4,
+        "katarina": 3,
+        "lucia": 3
+      },
+      "s": {
+        "olano": 3,
+        "sas": 3,
+        "smerodina": 2,
+        "zaludi": 2
+      }
+    },
+    "demisia": {
+      "p": {
+        "katarina": 4,
+        "martin": 5,
+        "lucia": 5,
+        "peter": -3
+      },
+      "s": {
+        "sas": 6,
+        "zaludi": 5,
+        "smer": 8,
+        "olano": -8
+      }
+    },
+    "reforma": {
+      "p": {
+        "katarina": 6,
+        "martin": 5,
+        "lucia": 5,
+        "tomas": 4
+      },
+      "s": {
+        "zaludi": 5,
+        "sas": 4,
+        "eu_nato": 4
+      },
+      "dp": {
+        "eu": 1
+      },
+      "e": {
+        "deficit": -0.1,
+        "gdpGrowth": 0.1
+      }
+    },
+    "transparency": {
+      "p": {
+        "lucia": 10,
+        "katarina": 7,
+        "martin": 7
+      },
+      "s": {
+        "zaludi": 8,
+        "media_ind": 8,
+        "eu_nato": 6,
+        "smer": -5
+      }
+    },
+    "korupcia": {
+      "p": {
+        "lucia": 6,
+        "katarina": 5,
+        "martin": 5
+      },
+      "s": {
+        "olano": 5,
+        "media_ind": 5,
+        "smer": -6
+      }
+    },
+    "zdravotnictvo": {
+      "p": {
+        "zuzana": 10,
+        "maria": 7,
+        "helena": 6
+      },
+      "s": {
+        "healthcare": 8,
+        "unions": 3
+      },
+      "e": {
+        "deficit": 0.4,
+        "gdpGrowth": 0.05
+      }
+    },
+    "ekonomika": {
+      "p": {
+        "tomas": 5,
+        "katarina": 4,
+        "peter": 4
+      },
+      "s": {
+        "business": 5,
+        "sas": 4
+      },
+      "e": {
+        "gdpGrowth": 0.05
+      }
+    },
+    "eu": {
+      "p": {
+        "katarina": 8,
+        "lucia": 7,
+        "martin": 6,
+        "tomas": 5
+      },
+      "s": {
+        "eu_nato": 8,
+        "zaludi": 6,
+        "sas": 4
+      },
+      "dp": {
+        "eu": 3
+      },
+      "e": {
+        "gdpGrowth": 0.05
+      }
+    },
+    "nato": {
+      "p": {
+        "stefan": 7,
+        "katarina": 5
+      },
+      "s": {
+        "eu_nato": 6
+      },
+      "dp": {
+        "nato_r": 3
+      }
+    },
+    "social": {
+      "p": {
+        "maria": 8,
+        "peter": 6,
+        "robert": 7,
+        "helena": 6
+      },
+      "s": {
+        "smerodina": 5,
+        "unions": 6,
+        "business": -4
+      },
+      "e": {
+        "deficit": 0.25,
+        "gdpGrowth": 0.03
+      }
+    },
+    "rodina": {
+      "p": {
+        "helena": 7,
+        "maria": 5,
+        "jozef": 5
+      },
+      "s": {
+        "smerodina": 6
+      }
+    },
+    "skola": {
+      "p": {
+        "eva": 10,
+        "martin": 8
+      },
+      "s": {
+        "unions": 3
+      },
+      "e": {
+        "deficit": 0.18
+      }
+    },
+    "invest": {
+      "p": {
+        "tomas": 8,
+        "katarina": 6
+      },
+      "s": {
+        "business": 8,
+        "eu_nato": 4
+      },
+      "e": {
+        "deficit": 0.2,
+        "gdpGrowth": 0.15
+      }
+    },
+    "bezpecnost": {
+      "p": {
+        "stefan": 8,
+        "robert": 4
+      },
+      "s": {
+        "olano": 3
+      },
+      "e": {
+        "deficit": 0.12
+      }
+    },
+    "media": {
+      "p": {
+        "lucia": 8,
+        "katarina": 5,
+        "martin": 4
+      },
+      "s": {
+        "media_ind": 5,
+        "zaludi": 4,
+        "smer": -3
+      }
+    },
+    "roma": {
+      "p": {
+        "eva": 4,
+        "lucia": 4
+      },
+      "s": {
+        "eu_nato": 4,
+        "lsns": -8
+      }
+    },
+    "nezamestnanost": {
+      "p": {
+        "peter": -6,
+        "helena": -5,
+        "robert": -7,
+        "tomas": -5
+      },
+      "s": {
+        "business": -4,
+        "unions": -5
+      },
+      "e": {
+        "unemp": 0.5,
+        "gdpGrowth": -0.1
+      }
+    },
+    "pandemia": {
+      "p": {
+        "zuzana": 6,
+        "maria": 4,
+        "helena": 4,
+        "eva": 3
+      },
+      "s": {
+        "healthcare": 7,
+        "olano": 2,
+        "eu_nato": 2
+      },
+      "e": {
+        "deficit": 0.4,
+        "gdpGrowth": -0.08
+      }
+    },
+    "virus": {
+      "p": {
+        "zuzana": 5,
+        "maria": 3,
+        "helena": 4
+      },
+      "s": {
+        "healthcare": 6
+      },
+      "e": {
+        "gdpGrowth": -0.05
+      }
+    },
+    "rusko": {
+      "p": {
+        "katarina": -4,
+        "lucia": -4,
+        "martin": -3,
+        "robert": 2
+      },
+      "s": {
+        "sas": -5,
+        "eu_nato": -4
+      },
+      "dp": {
+        "russia": 2,
+        "eu": -2
+      }
+    },
+    "dezinfekcia": {
+      "p": {
+        "zuzana": 3,
+        "maria": 2,
+        "helena": 3
+      },
+      "s": {
+        "healthcare": 4
+      },
+      "e": {
+        "deficit": 0.1
+      }
+    },
+    "respirator": {
+      "p": {
+        "zuzana": 4,
+        "maria": 2,
+        "peter": -2
+      },
+      "s": {
+        "healthcare": 5,
+        "business": -2
+      },
+      "e": {
+        "deficit": 0.15
+      }
+    },
+    "pcr": {
+      "p": {
+        "zuzana": 5,
+        "katarina": 3,
+        "lucia": 3
+      },
+      "s": {
+        "healthcare": 5,
+        "eu_nato": 2
+      },
+      "e": {
+        "deficit": 0.2
+      }
+    },
+    "antigen": {
+      "p": {
+        "stefan": 4,
+        "eva": 3,
+        "maria": 3
+      },
+      "s": {
+        "olano": 5,
+        "healthcare": 4
+      },
+      "e": {
+        "deficit": 0.15
+      }
+    },
+    "hospitalizacia": {
+      "p": {
+        "zuzana": 7,
+        "maria": 5,
+        "helena": 5
+      },
+      "s": {
+        "healthcare": 8,
+        "unions": 3
+      },
+      "e": {
+        "deficit": 0.5
+      }
+    },
+    "jis": {
+      "p": {
+        "zuzana": 8,
+        "maria": 4,
+        "helena": 6
+      },
+      "s": {
+        "healthcare": 9
+      },
+      "e": {
+        "deficit": 0.6
+      }
+    },
+    "ventilator": {
+      "p": {
+        "zuzana": 7,
+        "maria": 3,
+        "helena": 5
+      },
+      "s": {
+        "healthcare": 8
+      },
+      "e": {
+        "deficit": 0.4
+      }
+    },
+    "ockovanie": {
+      "p": {
+        "zuzana": 8,
+        "katarina": 6,
+        "lucia": 5,
+        "maria": 4
+      },
+      "s": {
+        "healthcare": 8,
+        "eu_nato": 4,
+        "olano": 3
+      },
+      "e": {
+        "deficit": 0.3,
+        "gdpGrowth": 0.05
+      }
+    },
+    "moderna": {
+      "p": {
+        "katarina": 6,
+        "lucia": 5,
+        "zuzana": 5
+      },
+      "s": {
+        "healthcare": 6,
+        "eu_nato": 4
+      },
+      "e": {
+        "deficit": 0.2
+      }
+    },
+    "pfizer": {
+      "p": {
+        "katarina": 6,
+        "lucia": 5,
+        "zuzana": 6
+      },
+      "s": {
+        "healthcare": 7,
+        "eu_nato": 5
+      },
+      "e": {
+        "deficit": 0.25
+      }
+    },
+    "astrazeneca": {
+      "p": {
+        "katarina": 4,
+        "zuzana": 4,
+        "lucia": 3
+      },
+      "s": {
+        "healthcare": 5,
+        "eu_nato": 3
+      },
+      "e": {
+        "deficit": 0.2
+      }
+    },
+    "hromadne": {
+      "p": {
+        "stefan": 5,
+        "eva": 3,
+        "maria": 3,
+        "martin": -4
+      },
+      "s": {
+        "olano": 6,
+        "sas": -5,
+        "smerodina": -3
+      },
+      "e": {
+        "deficit": 0.4
+      }
+    },
+    "plosne": {
+      "p": {
+        "stefan": 6,
+        "maria": 4,
+        "martin": -5,
+        "katarina": -4
+      },
+      "s": {
+        "olano": 7,
+        "sas": -7,
+        "zaludi": -5
+      },
+      "e": {
+        "deficit": 0.5
+      }
+    },
+    "zakaz": {
+      "p": {
+        "peter": -6,
+        "tomas": -7,
+        "helena": -4,
+        "stefan": 3
+      },
+      "s": {
+        "business": -7,
+        "sas": -5,
+        "healthcare": 4
+      },
+      "e": {
+        "gdpGrowth": -0.15
+      }
+    },
+    "zatvorenie": {
+      "p": {
+        "peter": -5,
+        "tomas": -6,
+        "helena": -3
+      },
+      "s": {
+        "business": -6,
+        "sas": -5,
+        "healthcare": 5
+      },
+      "e": {
+        "gdpGrowth": -0.2
+      }
+    },
+    "otvorenie": {
+      "p": {
+        "peter": 5,
+        "tomas": 6,
+        "helena": 3,
+        "zuzana": -3
+      },
+      "s": {
+        "business": 6,
+        "sas": 5,
+        "healthcare": -4
+      },
+      "e": {
+        "gdpGrowth": 0.1
+      }
+    },
+    "skoly": {
+      "p": {
+        "eva": 8,
+        "martin": 6,
+        "helena": 5
+      },
+      "s": {
+        "unions": 4,
+        "zaludi": 3
+      },
+      "e": {
+        "deficit": 0.15
+      }
+    },
+    "restauracie": {
+      "p": {
+        "peter": 5,
+        "tomas": 6,
+        "helena": 3
+      },
+      "s": {
+        "business": 6,
+        "sas": 4
+      },
+      "e": {
+        "gdpGrowth": 0.05
+      }
+    },
+    "fitness": {
+      "p": {
+        "martin": 3,
+        "katarina": 3,
+        "tomas": 4
+      },
+      "s": {
+        "business": 4,
+        "sas": 3
+      }
+    },
+    "opatrenia": {
+      "p": {
+        "zuzana": 5,
+        "maria": 3,
+        "peter": -4,
+        "tomas": -5
+      },
+      "s": {
+        "healthcare": 5,
+        "business": -5,
+        "sas": -3
+      },
+      "e": {
+        "gdpGrowth": -0.05
+      }
+    },
+    "uvolnenie": {
+      "p": {
+        "peter": 5,
+        "tomas": 6,
+        "martin": 3,
+        "zuzana": -2
+      },
+      "s": {
+        "business": 5,
+        "sas": 5,
+        "healthcare": -3
+      },
+      "e": {
+        "gdpGrowth": 0.08
+      }
+    },
+    "vlna": {
+      "p": {
+        "zuzana": 4,
+        "maria": 3,
+        "helena": 3
+      },
+      "s": {
+        "healthcare": 5
+      },
+      "e": {
+        "gdpGrowth": -0.05
+      }
+    },
+    "mutacia": {
+      "p": {
+        "zuzana": 5,
+        "maria": 2,
+        "helena": 4
+      },
+      "s": {
+        "healthcare": 6,
+        "eu_nato": 2
+      },
+      "e": {
+        "gdpGrowth": -0.08
+      }
+    },
+    "delta": {
+      "p": {
+        "zuzana": 5,
+        "maria": 2,
+        "helena": 4
+      },
+      "s": {
+        "healthcare": 6
+      },
+      "e": {
+        "gdpGrowth": -0.06
+      }
+    },
+    "prvá_pomoc": {
+      "p": {
+        "peter": 6,
+        "tomas": 7,
+        "helena": 5,
+        "robert": 4
+      },
+      "s": {
+        "business": 6,
+        "sas": 4,
+        "unions": 4
+      },
+      "e": {
+        "deficit": 0.5,
+        "gdpGrowth": 0.05
+      }
+    },
+    "kurzarbeit": {
+      "p": {
+        "peter": 5,
+        "tomas": 6,
+        "katarina": 4
+      },
+      "s": {
+        "business": 5,
+        "sas": 5,
+        "unions": 4,
+        "eu_nato": 3
+      },
+      "e": {
+        "deficit": 0.3,
+        "gdpGrowth": 0.03
+      }
+    },
+    "bankrot": {
+      "p": {
+        "tomas": -7,
+        "peter": -5,
+        "helena": -4
+      },
+      "s": {
+        "business": -7,
+        "unions": -4
+      },
+      "e": {
+        "gdpGrowth": -0.1
+      }
+    },
+    "nezamestnani": {
+      "p": {
+        "peter": -6,
+        "helena": -5,
+        "robert": -6,
+        "tomas": -5
+      },
+      "s": {
+        "business": -4,
+        "unions": -5
+      },
+      "e": {
+        "unemp": 0.5,
+        "gdpGrowth": -0.08
+      }
+    },
+    "dlh": {
+      "p": {
+        "katarina": -3,
+        "tomas": -4,
+        "lucia": -3
+      },
+      "s": {
+        "sas": -5,
+        "eu_nato": -3
+      },
+      "e": {
+        "deficit": 0.3
+      }
+    },
+    "deficit": {
+      "p": {
+        "katarina": -3,
+        "tomas": -4
+      },
+      "s": {
+        "sas": -6,
+        "business": -3
+      },
+      "e": {
+        "deficit": 0.4
+      }
+    },
+    "kriza": {
+      "p": {
+        "maria": -3,
+        "peter": -4,
+        "helena": -3
+      },
+      "s": {
+        "olano": -5,
+        "smer": 4
+      },
+      "e": {
+        "gdpGrowth": -0.05
+      }
+    },
+    "opozicia": {
+      "p": {
+        "robert": 3,
+        "maria": -2
+      },
+      "s": {
+        "smer": 5,
+        "olano": -3
+      }
+    },
+    "protest": {
+      "p": {
+        "martin": 5,
+        "katarina": 4,
+        "lucia": 4
+      },
+      "s": {
+        "media_ind": 4,
+        "smer": 3,
+        "olano": -4
+      }
+    }
+  },
+  "forcedEvents": [
+    {
+      "id": "formation",
+      "m": 0,
+      "h": "Formovanie vlády",
+      "d": "Po historickom víťazstve OĽaNO s 53 mandátmi zostavujete koalíciu so SaS (13), Sme rodina (17) a Za ľudí (12) — spolu 95/150 kresiel. Prezidentka Čaputová vás vymenovala.",
+      "c": "Štvorkoalícia je nestabilná. COVID-19 sa šíri Európou.",
+      "t": "situation",
+      "cat": "Sociálna politika",
+      "s": [
+        "Vyvážené rozdelenie ministerstiev",
+        "Dominancia OĽaNO vo vláde",
+        "Ústupky menším partnerom"
+      ]
+    },
+    {
+      "id": "covid_first_wave",
+      "m": 1,
+      "h": "COVID-19: Prvá vlna",
+      "d": "Prvé prípady COVID-19 na Slovensku. Vyhlásili ste núdzový stav. Hranice sa zatvárajú, školy a obchody zatvorené.",
+      "c": "Slovensko má jedny z najprísnejších opatrení v Európe. Verejnosť je zatiaľ disciplinovaná.",
+      "t": "crisis",
+      "cat": "Zdravotníctvo",
+      "s": [
+        "Prísny lockdown podľa čínskeho modelu",
+        "Cielené opatrenia podľa regiónov",
+        "Miernejší prístup so zameraním na hygienu"
+      ]
+    },
+    {
+      "id": "economy_shutdown",
+      "m": 2,
+      "h": "Ekonomický šok",
+      "d": "Lockdown paralyzuje ekonomiku. Automobilky stoja, reštaurácie zatvorené, nezamestnanosť rastie. Podnikatelia žiadajú kompenzácie.",
+      "c": "HDP padá. SaS tlačí na rýchle otvorenie, zdravotníci varujú.",
+      "t": "crisis",
+      "cat": "Ekonomika",
+      "s": [
+        "Masívny kompenzačný balík za cenu deficitu",
+        "Cielená pomoc najohrozenejším sektorom",
+        "Rýchle otvorenie ekonomiky"
+      ]
+    },
+    {
+      "id": "summer_easing",
+      "m": 3,
+      "h": "Letné uvoľnenie",
+      "d": "Čísla klesajú, Slovensko uvoľňuje opatrenia. Turistická sezóna je šancou pre ekonomiku. Odborníci varujú pred druhou vlnou.",
+      "c": "Verejnosť je unavená z reštrikcií. Tlak na návrat k normálu.",
+      "t": "situation",
+      "cat": "Ekonomika",
+      "s": [
+        "Plné otvorenie a podpora turizmu",
+        "Opatrné uvoľňovanie s limitmi",
+        "Zachovať kľúčové opatrenia"
+      ]
+    },
+    {
+      "id": "second_wave",
+      "m": 4,
+      "h": "Druhá vlna COVID-19",
+      "d": "Po lete sa čísla prudko zhoršujú. Nemocnice sa plnia. Slovensko má jednu z najvyšších mier nákazy v Európe.",
+      "c": "Zdravotníci sú vyčerpaní. Verejnosť je rozdelená ohľadom opatrení.",
+      "t": "crisis",
+      "cat": "Zdravotníctvo",
+      "s": [
+        "Celoplošný lockdown",
+        "Regionálny COVID automat",
+        "Plošné testovanie antigénovými testami"
+      ]
+    },
+    {
+      "id": "mass_testing",
+      "m": 5,
+      "h": "Operácia Spoločná zodpovednosť",
+      "d": "Váš vlajkový projekt — celoplošné testovanie 3,6 milióna ľudí za víkend. Armáda, dobrovoľníci, zdravotníci. Sulík to nazýva \"nezmysel\". Svet sleduje.",
+      "c": "Logistická nočná mora alebo geniálny ťah? Koalícia sa štiepí.",
+      "t": "crisis",
+      "cat": "Zdravotníctvo",
+      "s": [
+        "Povinné testovanie s obmedzením pohybu",
+        "Dobrovoľné testovanie s motiváciou",
+        "Zrušiť a sústrediť sa na očkovanie"
+      ]
+    },
+    {
+      "id": "christmas_lockdown",
+      "m": 6,
+      "h": "Vianočný lockdown",
+      "d": "Čísla opäť rastú. Vláda zavádza zákaz vychádzania a prísne obmedzenia pred Vianocami. Ľudia sú frustrovaní.",
+      "c": "Vianoce v karanténe. Ekonomika znovu trpí.",
+      "t": "crisis",
+      "cat": "Sociálna politika",
+      "s": [
+        "Prísny lockdown cez sviatky",
+        "Výnimky pre rodiny do 6 osôb",
+        "Uvoľniť opatrenia pre sviatky"
+      ]
+    },
+    {
+      "id": "third_wave",
+      "m": 7,
+      "h": "Tretia vlna a nové varianty",
+      "d": "Britský variant sa šíri. Nemocnice sú na 100% kapacite. Lekári kolabujú. Denne zomierajú desiatky ľudí.",
+      "c": "Slovensko je na prvom mieste v úmrtí na COVID v prepočte na obyvateľa.",
+      "t": "crisis",
+      "cat": "Zdravotníctvo",
+      "s": [
+        "Najprísnejší lockdown v histórii",
+        "Urýchliť očkovanie za každú cenu",
+        "Požiadať EÚ o núdzovú pomoc"
+      ]
+    },
+    {
+      "id": "sputnik_scandal",
+      "m": 8,
+      "h": "Škandál Sputnik V",
+      "d": "Tajne ste objednali 2 milióny dávok ruskej vakcíny Sputnik V bez konzultácie s koalíciou. Sulík a Remišová sú zúriví. EÚ neschválila vakcínu.",
+      "c": "Koaličná kríza. SaS a Za ľudí hrozia odchodom. Prezidentka Čaputová kritizuje.",
+      "t": "crisis",
+      "cat": "Zahraničná politika",
+      "s": [
+        "Obhájiť nákup — ľudské životy sú priorita",
+        "Ospravedlniť sa a vrátiť vakcíny",
+        "Ponúknuť Sputnik ako doplnok, nie náhradu"
+      ]
+    },
+    {
+      "id": "coalition_crisis",
+      "m": 9,
+      "h": "Koaličná kríza — Sulík žiada demisiu",
+      "d": "Richard Sulík verejne žiada vašu demisiu. SaS ministri hrozia odchodom z vlády. Za ľudí sa rozpadá na frakcie.",
+      "c": "Prezidentka Čaputová vyzýva na riešenie. Opozícia chce predčasné voľby.",
+      "t": "crisis",
+      "cat": "Sociálna politika",
+      "s": [
+        "Odmietnuť demisiu — mám mandát voličov",
+        "Ponúknuť ústupky koaličným partnerom",
+        "Podať demisiu a odísť s hrdosťou"
+      ]
+    },
+    {
+      "id": "matovic_resigns",
+      "m": 10,
+      "h": "Matovič podáva demisiu",
+      "d": "Po týždňoch tlaku podávate demisiu z funkcie premiéra. Eduard Heger vás nahradí. Stávate sa ministrom financií — čo mnohí považujú za výmenu stoličiek.",
+      "c": "Koalícia prežila, ale je oslabená. Verejnosť je skeptická.",
+      "t": "crisis",
+      "cat": "Sociálna politika",
+      "s": [
+        "Odísť úplne z vlády",
+        "Prijať ministerstvo financií",
+        "Požadovať silnejšie ministerstvo"
+      ]
+    },
+    {
+      "id": "transition",
+      "m": 11,
+      "h": "Prechodné obdobie",
+      "d": "Heger preberá vládu. Vy ste minister financií. Koalícia je krehká ale drží. Očkovanie pokračuje. Ekonomika sa pomaly zotavuje.",
+      "c": "Vaše dedičstvo sa formuje. Ako budete hodnotení?",
+      "t": "open",
+      "cat": "Ekonomika",
+      "s": [
+        "Aktívna úloha na ministerstve financií",
+        "Stiahnuť sa do úzadia",
+        "Pokračovať v boji na Facebooku"
+      ]
+    }
+  ],
+  "randomEvents": [
+    {
+      "id": "r_hospital_capacity",
+      "h": "Nemocnice na hrane kolapsu",
+      "d": "JIS oddelenia sú plné. Lekári musia vyberať, koho liečiť. Záchranky nemajú kam voziť pacientov.",
+      "c": "Triáž ako v vojnových podmienkach.",
+      "t": "crisis",
+      "cat": "Zdravotníctvo",
+      "s": [
+        "Poľné nemocnice",
+        "Prevoz pacientov do zahraničia",
+        "Núdzová mobilizácia zdravotníkov"
+      ]
+    },
+    {
+      "id": "r_vaccine_rollout",
+      "h": "Chaotické očkovanie",
+      "d": "Registračný systém kolabuje. Ľudia čakajú hodiny v radoch. Starostovia organizujú vlastné očkovanie.",
+      "c": "Vakcín je dosť, ale logistika zlyháva.",
+      "t": "crisis",
+      "cat": "Zdravotníctvo",
+      "s": [
+        "Centrálne riadenie očkovania",
+        "Decentralizácia na mestá",
+        "Mobilné očkovacie tímy"
+      ]
+    },
+    {
+      "id": "r_mask_mandate",
+      "h": "Debata o respirátoroch",
+      "d": "Vláda zavádza povinnosť nosenia respirátorov FFP2. Časť verejnosti protestuje, lekárnici hlásia nedostatok.",
+      "c": "Cena respirátorov je pre mnohých nedostupná.",
+      "t": "situation",
+      "cat": "Zdravotníctvo",
+      "s": [
+        "Povinné respirátory s dotáciou",
+        "Povinné bez dotácie",
+        "Odporúčanie namiesto povinnosti"
+      ]
+    },
+    {
+      "id": "r_school_closure",
+      "h": "Školy zatvorené — deti doma",
+      "d": "Dištančné vzdelávanie nefunguje. Rodičia nemôžu pracovať. Roma komunity nemajú internet.",
+      "c": "Vzdelávacia priepasť sa prehlbuje.",
+      "t": "situation",
+      "cat": "Školstvo",
+      "s": [
+        "Prioritné otvorenie škôl",
+        "Investície do online vzdelávania",
+        "Hybridný model"
+      ]
+    },
+    {
+      "id": "r_antilockdown_protest",
+      "h": "Protesty proti lockdownu",
+      "d": "Tisíce ľudí protestujú v Bratislave proti obmedzeniam. Extrémisti sa pridávajú. Polícia zasahuje.",
+      "c": "Rastúci antiestablishment sentiment.",
+      "t": "crisis",
+      "cat": "Bezpečnosť",
+      "s": [
+        "Dialóg s organizátormi",
+        "Policajný zásah",
+        "Ignorovať protesty"
+      ]
+    },
+    {
+      "id": "r_unemployment_spike",
+      "h": "Nezamestnanosť prekročila 8%",
+      "d": "Lockdowny zničili tisíce pracovných miest. Gastro, turizmus, služby — celé sektory kolabujú.",
+      "c": "Sociálny systém pod bezprecedentným tlakom.",
+      "t": "crisis",
+      "cat": "Ekonomika",
+      "s": [
+        "Kurzarbeit — štát platí časť mzdy",
+        "Rekvalifikačné programy",
+        "Daňové úľavy pre zamestnávateľov"
+      ]
+    },
+    {
+      "id": "r_business_bankruptcy",
+      "h": "Vlna bankrotov malých firiem",
+      "d": "Reštaurácie, hotely, fitnes centrá zatvárajú natrvalo. Podnikatelia protestujú pred parlamentom.",
+      "c": "Strednú triedu podnikateľov pandémia zničila.",
+      "t": "crisis",
+      "cat": "Ekonomika",
+      "s": [
+        "Priame granty pre postihnuté firmy",
+        "Bankové záruky",
+        "Odklad daní a odvodov"
+      ]
+    },
+    {
+      "id": "r_eu_recovery_fund",
+      "h": "EÚ fond obnovy — 6 miliárd pre Slovensko",
+      "d": "Európska komisia schválila plán obnovy. Slovensko môže čerpať miliardy na reformy a investície.",
+      "c": "Podmienky: reformy justície, školstva, zdravotníctva.",
+      "t": "open",
+      "cat": "Ekonomika",
+      "s": [
+        "Plne využiť na reformy",
+        "Infraštruktúrne projekty",
+        "Priame platby občanom"
+      ]
+    },
+    {
+      "id": "r_roma_testing",
+      "h": "Kontroverzné testovanie v rómskych osadách",
+      "d": "Armáda testuje v rómskych komunitách. Medzinárodné organizácie kritizujú segregovaný prístup. Aktivisti hovoria o diskriminácii.",
+      "c": "Vysoká miera nákazy v osadách, ale aj porušovanie práv.",
+      "t": "situation",
+      "cat": "Sociálna politika",
+      "s": [
+        "Komunitný prístup s mediátormi",
+        "Pokračovať v plošnom testovaní",
+        "Dobrovoľné testovanie s motiváciou"
+      ]
+    },
+    {
+      "id": "r_healthcare_exodus",
+      "h": "Zdravotníci odchádzajú",
+      "d": "Vyčerpaní lekári a sestry podávajú výpovede. Niektorí odchádzajú do Česka a Rakúska kde zarábajú viac.",
+      "c": "Bez zdravotníkov nemocnice skolabujú.",
+      "t": "crisis",
+      "cat": "Zdravotníctvo",
+      "s": [
+        "Núdzové zvýšenie platov",
+        "COVID príplatky",
+        "Nábor zo zahraničia"
+      ]
+    },
+    {
+      "id": "r_kollar_plagiarism",
+      "h": "Kollárova diplomovka — plagiát",
+      "d": "Médiá odhalili, že Boris Kollár má plagiátorskú diplomovú prácu. Opozícia žiada jeho odstúpenie z funkcie predsedu parlamentu.",
+      "c": "Matovič sľuboval boj proti plagiátom. Teraz chráni koaličného partnera.",
+      "t": "situation",
+      "cat": "Sociálna politika",
+      "s": [
+        "Žiadať Kollárovo odstúpenie",
+        "Chrániť koaličného partnera",
+        "Navrhnúť legislatívu proti plagiátom"
+      ]
+    },
+    {
+      "id": "r_borders_chaos",
+      "h": "Chaos na hraniciach",
+      "d": "Nové cestovné obmedzenia spôsobujú kilometrové kolóny na hraniciach. Pendleri do Rakúska a Česka nemôžu chodiť do práce.",
+      "c": "Tisíce Slovákov pracujú za hranicami.",
+      "t": "situation",
+      "cat": "Ekonomika",
+      "s": [
+        "Výnimky pre pendlerov",
+        "Rýchlotesty na hraniciach",
+        "Jednotný systém s V4"
+      ]
+    },
+    {
+      "id": "r_conspiracy_theories",
+      "h": "Šírenie konšpirácií",
+      "d": "Dezinformácie o COVID-19 zaplavujú sociálne siete. Antivaxxeri organizujú protesty. Dôvera v štát klesá.",
+      "c": "Kotleba a ĽSNS živia nedôveru.",
+      "t": "situation",
+      "cat": "Bezpečnosť",
+      "s": [
+        "Kampaň za vedeckú gramotnosť",
+        "Regulácia sociálnych sietí",
+        "Ignorovať — sloboda slova"
+      ]
+    },
+    {
+      "id": "r_cyber_attack",
+      "h": "Kybernetický útok na nemocnice",
+      "d": "Hackeri napadli nemocničný informačný systém. Operácie odložené, dáta pacientov ohrozené.",
+      "c": "Podfinancovaná IT infraštruktúra v zdravotníctve.",
+      "t": "crisis",
+      "cat": "Bezpečnosť",
+      "s": [
+        "Investície do kybernetickej bezpečnosti",
+        "Požiadať NATO o pomoc",
+        "Záložný papierový systém"
+      ]
+    },
+    {
+      "id": "r_flood",
+      "h": "Záplavy na východnom Slovensku",
+      "d": "Silné dažde spôsobili záplavy. Tisíce ľudí evakuovaných. Infraštruktúra poškodená.",
+      "c": "Humanitárna kríza uprostred pandémie.",
+      "t": "crisis",
+      "cat": "Bezpečnosť",
+      "s": [
+        "Stav núdze a armáda",
+        "Finančná pomoc obciam",
+        "EÚ fondy na obnovu"
+      ]
+    },
+    {
+      "id": "r_mental_health",
+      "h": "Kríza duševného zdravia",
+      "d": "Izolácia, strata práce a strach spôsobujú nárast depresií a samovrážd. Psychológovia bijú na poplach.",
+      "c": "Slovensko má katastrofálny nedostatok psychiatrov.",
+      "t": "situation",
+      "cat": "Zdravotníctvo",
+      "s": [
+        "Linka dôvery a krízové centrá",
+        "Reforma psychiatrickej starostlivosti",
+        "Online terapeutické programy"
+      ]
+    },
+    {
+      "id": "r_matovic_facebook",
+      "h": "Matovič opäť provokuje na Facebooku",
+      "d": "Premiér zverejnil sériu emotívnych príspevkov útočiacich na koaličných partnerov. Sulík reaguje v televízii.",
+      "c": "Komunikácia premiéra cez sociálne siete je kontroverzná.",
+      "t": "situation",
+      "cat": "Sociálna politika",
+      "s": [
+        "Ospravedlniť sa a komunikovať cez tlačový odbor",
+        "Zdvojnásobiť úsilie na sociálnych sieťach",
+        "Nechať to vyšumieť"
+      ]
+    },
+    {
+      "id": "r_curfew_enforcement",
+      "h": "Problémy s dodržiavaním zákazu vychádzania",
+      "d": "Polícia nestíha kontrolovať dodržiavanie opatrení. V niektorých mestách ľudia ignorujú zákazy.",
+      "c": "Dôvera v opatrenia klesá.",
+      "t": "situation",
+      "cat": "Bezpečnosť",
+      "s": [
+        "Sprísnenie pokút",
+        "Komunitný prístup",
+        "Uvoľniť niektoré opatrenia"
+      ]
+    },
+    {
+      "id": "r_v4_covid",
+      "h": "V4 koordinácia proti COVID",
+      "d": "Česko, Poľsko a Maďarsko navrhujú spoločný prístup k pandemickým opatreniam a nákupu vakcín.",
+      "c": "Regionálna spolupráca môže posilniť pozíciu voči EÚ.",
+      "t": "open",
+      "cat": "Zahraničná politika",
+      "s": [
+        "Spoločný nákup vakcín",
+        "Koordinácia hraníc",
+        "Zachovať národný prístup"
+      ]
+    },
+    {
+      "id": "r_economic_recovery",
+      "h": "Prvé znaky ekonomického oživenia",
+      "d": "Automobilky obnovujú výrobu, exporty rastú. Ekonómovia hovoria o tvare V obnovy.",
+      "c": "Oživenie je krehké a závisí od pandemickej situácie.",
+      "t": "open",
+      "cat": "Ekonomika",
+      "s": [
+        "Investície do digitalizácie",
+        "Podpora exportu",
+        "Zelená transformácia"
+      ]
+    },
+    {
+      "id": "r_church_restrictions",
+      "h": "Cirkev protestuje proti obmedzeniam bohoslužieb",
+      "d": "Biskupi žiadajú výnimky pre bohoslužby. Konzervatívna verejnosť podporuje cirkev.",
+      "c": "Sloboda vyznania vs. epidemiologická bezpečnosť.",
+      "t": "situation",
+      "cat": "Sociálna politika",
+      "s": [
+        "Výnimky s limitom osôb",
+        "Žiadne výnimky — rovnaké pravidlá pre všetkých",
+        "Online bohoslužby s podporou"
+      ]
+    },
+    {
+      "id": "r_remisova_split",
+      "h": "Za ľudí sa rozpadá",
+      "d": "Časť poslancov Za ľudí odchádza a zakladá vlastný klub. Strana Remišovej stráca parlamentnú silu.",
+      "c": "Koaličná väčšina sa zmenšuje.",
+      "t": "situation",
+      "cat": "Sociálna politika",
+      "s": [
+        "Rokovať s odídencami",
+        "Hľadať podporu inde",
+        "Pokračovať s menšou väčšinou"
+      ]
+    }
+  ],
+  "headlines": {
+    "left": {
+      "name": "DENNÍK N / SME",
+      "fallback": {
+        "headline": "Matovičova vláda opäť prekvapuje — ale nie v dobrom",
+        "subhead": "Analytici hodnotia najnovšie kroky vlády kriticky. Chaotická komunikácia a vnútrokoaličné konflikty oslabujú dôveru verejnosti v pandemické opatrenia."
+      },
+      "entries": [
+        {
+          "kw": [
+            "lockdown",
+            "karantena"
+          ],
+          "h": "Lockdown bez plánu: Matovič improvizuje",
+          "sub": "Vláda zavádza opatrenia bez analýzy dopadov. Podnikatelia sú zúfalí, občania zmätení. SaS kritizuje nekoordináciu."
+        },
+        {
+          "kw": [
+            "testovanie"
+          ],
+          "h": "Plošné testovanie: Matovičovo ego vs. realita",
+          "sub": "Odborníci spochybňujú efektivitu. Logistická nočná mora za stovky miliónov. Koalícia sa štiepí."
+        },
+        {
+          "kw": [
+            "sputnik",
+            "ruska"
+          ],
+          "h": "Sputnik: Tajný nákup, verejný škandál",
+          "sub": "Premiér obišiel koalíciu, EÚ aj vlastných odborníkov. Milióny za vakcínu ktorú nikto nechce."
+        },
+        {
+          "kw": [
+            "covid",
+            "vakcina",
+            "nemocnica"
+          ],
+          "h": "COVID kríza: Slovensko na prvom mieste — v počte mŕtvych",
+          "sub": "Nemocnice kolabujú, zdravotníci utekajú. Vládna chaotická komunikácia zhoršuje situáciu."
+        },
+        {
+          "kw": [
+            "koalicia",
+            "demisia"
+          ],
+          "h": "Koalícia na pokraji rozpadu: Kto padne prvý?",
+          "sub": "Sulík vs. Matovič — osobné spory nahrádzajú politiku. Občania platia cenu za ego lídrov."
+        },
+        {
+          "kw": [
+            "ekonomika",
+            "kompenzacie",
+            "nezamestnanost"
+          ],
+          "h": "Ekonomika v troskách: Kompenzácie nestačia",
+          "sub": "Tisíce firiem bankrotujú. Nezamestnanosť rastie. Matovič sľubuje ale nedodáva."
+        },
+        {
+          "kw": [
+            "zdravotnictvo"
+          ],
+          "h": "Zdravotníci na hrane: Exodus pokračuje",
+          "sub": "Vyčerpaní lekári a sestry odchádzajú. Minister Krajčí pod paľbou kritiky. Kto sa postará o pacientov?"
+        },
+        {
+          "kw": [
+            "reforma",
+            "transparency",
+            "korupcia"
+          ],
+          "h": "Sľúbené reformy? Matovič má iné priority",
+          "sub": "Protikorupčné sľuby zostávajú na papieri. Vláda riešila COVID a vnútorné konflikty, nie reformy."
+        }
+      ]
+    },
+    "center": {
+      "name": "AKTUALITY.SK / TV MARKÍZA",
+      "fallback": {
+        "headline": "Vláda prijala nové opatrenia",
+        "subhead": "Reakcie sú zmiešané. Odborníci upozorňujú na potrebu koordinácie a konzistentnej komunikácie."
+      },
+      "entries": [
+        {
+          "kw": [
+            "lockdown",
+            "karantena"
+          ],
+          "h": "Nové obmedzenia: Čo platí a čo nie",
+          "sub": "Prehľad aktuálnych opatrení. Vláda mení pravidlá, podnikatelia žiadajú predvídateľnosť."
+        },
+        {
+          "kw": [
+            "testovanie"
+          ],
+          "h": "Plošné testovanie: Výsledky a otázky",
+          "sub": "3,6 milióna otestovaných. Odborníci diskutujú o efektivite a nákladoch."
+        },
+        {
+          "kw": [
+            "sputnik",
+            "ruska"
+          ],
+          "h": "Sputnik V: Fakty a politika",
+          "sub": "Čo vieme o ruskej vakcíne. Koaličná kríza a diplomatické dopady."
+        },
+        {
+          "kw": [
+            "covid",
+            "vakcina"
+          ],
+          "h": "Očkovanie na Slovensku: Kde sme a kam smerujeme",
+          "sub": "Prehľad registrácie, kapacít a dodávok. Slovensko zaostáva za priemerom EÚ."
+        },
+        {
+          "kw": [
+            "koalicia",
+            "demisia"
+          ],
+          "h": "Koaličná kríza: Prehľad pozícií",
+          "sub": "Kto čo žiada a aké sú scenáre. Prezidentka vyzýva na zodpovednosť."
+        },
+        {
+          "kw": [
+            "ekonomika",
+            "kompenzacie"
+          ],
+          "h": "Kompenzácie: Komu pomáhajú a komu nie",
+          "sub": "Analýza dopadu vládnych opatrení na podnikateľov a zamestnancov."
+        },
+        {
+          "kw": [
+            "zdravotnictvo",
+            "nemocnica"
+          ],
+          "h": "Nemocnice: Aktuálna situácia",
+          "sub": "Obsadenosť JIS, dostupnosť kyslíka, personálna situácia v regiónoch."
+        },
+        {
+          "kw": [
+            "bezpecnost"
+          ],
+          "h": "Dodržiavanie opatrení: Polícia kontroluje",
+          "sub": "Pokuty za porušenie karantény. Debata o proporcionalite."
+        }
+      ]
+    },
+    "right": {
+      "name": "HLAVNÉ SPRÁVY",
+      "fallback": {
+        "headline": "Matovič bojuje za Slovensko napriek prekážkam",
+        "subhead": "Premiér sa snaží chrániť životy občanov, kým opozícia a médiá len kritizujú bez vlastných riešení."
+      },
+      "entries": [
+        {
+          "kw": [
+            "lockdown",
+            "karantena"
+          ],
+          "h": "Matovič chráni životy — opozícia len kritizuje",
+          "sub": "Premiér prijíma ťažké rozhodnutia. Kým SMER a ĽSNS len šíria chaos, vláda koná."
+        },
+        {
+          "kw": [
+            "testovanie"
+          ],
+          "h": "Geniálny plán! Plošné testovanie zachránilo tisíce životov",
+          "sub": "Slovensko ukázalo svetu cestu. Matovičov nápad funguje, aj keď kritici reptajú."
+        },
+        {
+          "kw": [
+            "sputnik"
+          ],
+          "h": "Sputnik: Matovič chcel zachrániť životy za každú cenu",
+          "sub": "Premiér nehľadel na politiku ale na ľudské životy. Sulík sabotoval záchranu občanov."
+        },
+        {
+          "kw": [
+            "covid",
+            "vakcina"
+          ],
+          "h": "Boj s pandémiou: Vláda robí čo môže",
+          "sub": "V bezprecedentnej kríze sa premiér nevzdáva. Opozícia by neurobila ani polovicu."
+        },
+        {
+          "kw": [
+            "koalicia"
+          ],
+          "h": "Sulík rozbíja koalíciu — občania trpia",
+          "sub": "SaS sabotuje vládne opatrenia kvôli osobným ambíciám. Matovič je obeťou intríg."
+        },
+        {
+          "kw": [
+            "ekonomika",
+            "kompenzacie"
+          ],
+          "h": "Historické kompenzácie zachraňujú pracovné miesta",
+          "sub": "Vláda investovala miliardy do pomoci zamestnancom a firmám. Bezprecedentná pomoc."
+        },
+        {
+          "kw": [
+            "zdravotnictvo"
+          ],
+          "h": "Vláda investuje do zdravotníctva ako nikdy predtým",
+          "sub": "Nové prístroje, vyššie platy, bojové podmienky. Zdravotníci sú hrdinovia pandémie."
+        },
+        {
+          "kw": [
+            "reforma",
+            "korupcia"
+          ],
+          "h": "Matovič plní sľuby: Boj proti korupcii pokračuje",
+          "sub": "NAKA zatýka, vyšetrovatelia pracujú. Mafiansky štát SMERu sa rúca."
+        }
+      ]
+    }
+  },
+  "consequenceChains": [
+    {
+      "flag": "harsh_lockdown",
+      "delay": 2,
+      "prob": 0.7,
+      "ev": {
+        "h": "Ekonomika kolabuje — bankroty a nezamestnanosť",
+        "d": "Prísne opatrenia zničili tisíce firiem. Nezamestnanosť prekročila 8%. Podnikatelia protestujú.",
+        "c": "Sociálna kríza sa prehlbuje.",
+        "t": "consequence",
+        "cat": "Ekonomika",
+        "s": [
+          "Masívne kompenzácie",
+          "Rýchle otvorenie",
+          "Štrukturálne reformy"
+        ]
+      }
+    },
+    {
+      "flag": "mass_testing_forced",
+      "delay": 2,
+      "prob": 0.6,
+      "ev": {
+        "h": "Koaličná kríza kvôli testovaniu",
+        "d": "SaS a Za ľudí odmietajú podporiť ďalšie kolo plošného testovania. Koalícia je na pokraji rozpadu.",
+        "c": "Sulík: 'Toto je Matovičovo ego, nie politika.'",
+        "t": "consequence",
+        "cat": "Sociálna politika",
+        "s": [
+          "Kompromis — dobrovoľné testovanie",
+          "Pretlačiť cez OĽaNO a Sme rodina",
+          "Ustúpiť"
+        ]
+      }
+    },
+    {
+      "flag": "sputnik_purchase",
+      "delay": 2,
+      "prob": 0.8,
+      "ev": {
+        "h": "Diplomatická kríza — EÚ a NATO reagujú",
+        "d": "Nákup Sputniku bez konzultácie poškodil vzťahy s EÚ a NATO. Vakcíny ležia v skladoch, nikto ich nechce.",
+        "c": "Milióny eur vyhodené. Dôvera v EÚ vakcíny klesla.",
+        "t": "consequence",
+        "cat": "Zahraničná politika",
+        "s": [
+          "Vrátiť vakcíny",
+          "Ponúknuť tretím krajinám",
+          "Použiť napriek tomu"
+        ]
+      }
+    },
+    {
+      "flag": "economy_open_early",
+      "delay": 3,
+      "prob": 0.6,
+      "ev": {
+        "h": "Tretia vlna prišla skôr",
+        "d": "Predčasné otvorenie ekonomiky urýchlilo šírenie vírusu. Nemocnice opäť plné.",
+        "c": "Lockdown sa vráti ešte prísnejší.",
+        "t": "consequence",
+        "cat": "Zdravotníctvo",
+        "s": [
+          "Okamžitý lockdown",
+          "Regionálne opatrenia",
+          "Posilniť nemocnice"
+        ]
+      }
+    },
+    {
+      "flag": "healthcare_emergency",
+      "delay": 3,
+      "prob": 0.7,
+      "ev": {
+        "h": "Núdzové zvýšenie platov — deficit rastie",
+        "d": "Zvýšenie platov zdravotníkov zaťažilo rozpočet. Rating Slovenska pod tlakom.",
+        "c": "Fiškálna zodpovednosť vs. ľudské životy.",
+        "t": "consequence",
+        "cat": "Ekonomika",
+        "s": [
+          "Úsporné opatrenia inde",
+          "EÚ fondy",
+          "Vyššie dane"
+        ]
+      }
+    },
+    {
+      "flag": "coalition_confrontation",
+      "delay": 2,
+      "prob": 0.7,
+      "ev": {
+        "h": "SaS pripravuje odchod z koalície",
+        "d": "Sulík dal Matovičovi ultimátum. Buď odíde premiér, alebo SaS odíde z vlády.",
+        "c": "13 kresiel na vážkach.",
+        "t": "consequence",
+        "cat": "Sociálna politika",
+        "s": [
+          "Vyjednávať so Sulíkom",
+          "Nechať SaS odísť",
+          "Ponúknuť výmenu ministerstiev"
+        ]
+      }
+    },
+    {
+      "flag": "antilockdown_escalation",
+      "delay": 2,
+      "prob": 0.5,
+      "ev": {
+        "h": "Protesty sa radikalizujú",
+        "d": "Protestujúci napadli policajtov. Kotleba využíva situáciu. Extrémizmus rastie.",
+        "c": "Sociálny zmier je ohrozený.",
+        "t": "consequence",
+        "cat": "Bezpečnosť",
+        "s": [
+          "Tvrdý zákrok polície",
+          "Dialóg a deeskalácia",
+          "Zaviesť zákaz zhromažďovania"
+        ]
+      }
+    },
+    {
+      "flag": "school_closure_long",
+      "delay": 4,
+      "prob": 0.6,
+      "ev": {
+        "h": "Vzdelávacia priepasť — PISA výsledky sa zhoršili",
+        "d": "Dlhodobé zatvorenie škôl spôsobilo dramatický pokles vzdelávacích výsledkov. Rómske deti najviac postihnuté.",
+        "c": "Generácia COVID bude čeliť dlhodobým následkom.",
+        "t": "consequence",
+        "cat": "Školstvo",
+        "s": [
+          "Intenzívne doučovanie",
+          "Reforma kurikula",
+          "Digitálne vybavenie škôl"
+        ]
+      }
+    },
+    {
+      "flag": "roma_discrimination",
+      "delay": 3,
+      "prob": 0.5,
+      "ev": {
+        "h": "Medzinárodná kritika zaobchádzania s Rómami",
+        "d": "Rada Európy kritizuje Slovensko za diskrimináciu pri testovaní. Hrozí konanie pred ESĽP.",
+        "c": "Medzinárodná reputácia utrpela.",
+        "t": "consequence",
+        "cat": "Sociálna politika",
+        "s": [
+          "Ospravedlnenie a náprava",
+          "Odmietnuť kritiku",
+          "Reforma integračnej politiky"
+        ]
+      }
+    }
+  ],
+  "initialState": {
+    "approval": 55,
+    "stability": 55,
+    "coalition": 65,
+    "impl": 80,
+    "econ": {
+      "gdp": 94.2,
+      "gdpGrowth": -4.8,
+      "unemp": 6.7,
+      "infl": 1.9,
+      "deficit": -5.5,
+      "debt": 60.6,
+      "minW": 580
+    },
+    "diplo": {
+      "eu": 72,
+      "usa": 70,
+      "russia": 30,
+      "ukraine": 55,
+      "czech": 80,
+      "hungary": 55,
+      "poland": 65,
+      "nato_r": 75
+    },
+    "social": {
+      "press": 72,
+      "corrupt": 40,
+      "emigr": 55
+    },
+    "cp": {
+      "olano": {
+        "on": 1,
+        "sat": 75,
+        "pat": 100,
+        "dem": null,
+        "lastD": -5
+      },
+      "sas": {
+        "on": 1,
+        "sat": 65,
+        "pat": 75,
+        "dem": null,
+        "lastD": -3
+      },
+      "smerodina": {
+        "on": 1,
+        "sat": 70,
+        "pat": 80,
+        "dem": null,
+        "lastD": -3
+      },
+      "zaludi": {
+        "on": 1,
+        "sat": 68,
+        "pat": 70,
+        "dem": null,
+        "lastD": -2
+      }
+    },
+    "parl": {
+      "olano": 53,
+      "smer": 38,
+      "smerodina": 17,
+      "lsns": 17,
+      "sas": 13,
+      "zaludi": 12
+    },
+    "stances": {
+      "ekonomika": 0,
+      "eu": 0,
+      "rusko": 0,
+      "social": 0,
+      "media": 0,
+      "justicia": 0,
+      "covid": 0,
+      "koalicia": 0
+    },
+    "personaBaseScores": {
+      "smer": 30,
+      "progressive": 55,
+      "conservative": 45,
+      "far_right": 15,
+      "apolitical": 40,
+      "moderate": 50
+    },
+    "stakeholderBaseScores": {
+      "coalition": 65,
+      "opposition": 25,
+      "eu_nato": 60,
+      "default": 50
+    }
+  },
+  "quietMonths": [
+    {
+      "h": "Relatívne pokojný mesiac",
+      "d": "Pandémia pokračuje, ale bez dramatických zmien. Vláda funguje v bežnom režime. Máte priestor na vlastné iniciatívy.",
+      "c": "Využite čas na posilnenie koalície alebo ekonomické opatrenia."
+    },
+    {
+      "h": "Stabilný mesiac",
+      "d": "Čísla COVID sú pod kontrolou. Koalícia drží. Máte priestor na reformy.",
+      "c": "Dobrý čas na presadenie menších, ale dôležitých zmien."
+    },
+    {
+      "h": "Mesiac bez väčších kríz",
+      "d": "Pandémia je v pozadí. Ekonomika sa pomaly zotavuje. Koaličné napätie je nízke.",
+      "c": "Využite priestor na dlhodobé plánovanie."
+    },
+    {
+      "h": "Rutinný mesiac",
+      "d": "Politická scéna je tento mesiac pokojná. Parlament rieši bežnú legislatívu.",
+      "c": "Ideálny čas na budovanie vzťahov v koalícii."
+    },
+    {
+      "h": "Čas na stratégiu",
+      "d": "Politická atmosféra je pokojná. Médiá riešia bežné témy. Koaličná rada zasadá rutinne.",
+      "c": "Využite priestor na strategické rozhodnutia a komunikáciu s verejnosťou."
+    }
+  ]
+}

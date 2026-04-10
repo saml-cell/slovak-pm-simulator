@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slovenský Politický Simulátor</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'">
+<link rel="stylesheet" href="./fonts/fonts.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#0b1930;--blue:#0b4ea2;--red:#ee1c25;--gold:#c9a84c;
+  --bg:#f5f5f0;--card:#fff;--text:#1a1a1a;--muted:#64748b;
+  --serif:'Crimson Pro','Georgia',serif;
+  --sans:'Source Sans 3','Inter',-apple-system,sans-serif;
+  --mono:'JetBrains Mono',monospace;
+}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:700;letter-spacing:-.01em}
+
+/* HEADER */
+.site-header{background:var(--navy);color:#fff;padding:20px 0;border-bottom:3px solid var(--red)}
+.site-header .inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+.site-logo{font-family:var(--serif);font-size:1.5rem;font-weight:800;letter-spacing:-.02em}
+.site-logo span{color:var(--gold)}
+.site-nav{display:flex;gap:24px;font-size:.85rem;font-weight:500}
+.site-nav a{color:rgba(255,255,255,.7);text-decoration:none;transition:color .2s}
+.site-nav a:hover{color:#fff}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,var(--navy) 0%,#0b2e5f 40%,var(--blue) 100%);color:#fff;padding:80px 0 60px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="white" opacity=".03" width="1" height="100" x="20"/><rect fill="white" opacity=".03" width="1" height="100" x="40"/><rect fill="white" opacity=".03" width="1" height="100" x="60"/><rect fill="white" opacity=".03" width="1" height="100" x="80"/></svg>') repeat;pointer-events:none}
+.hero .inner{max-width:800px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+.hero h1{font-size:3.2rem;font-weight:800;margin-bottom:16px;line-height:1.1}
+.hero h1 .accent{color:var(--gold)}
+.hero .subtitle{font-size:1.2rem;font-weight:300;opacity:.85;margin-bottom:8px}
+.hero .desc{font-size:1rem;opacity:.7;max-width:600px;margin:0 auto 32px}
+.hero-badges{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.hero-badge{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);padding:6px 14px;border-radius:20px;font-size:.8rem;font-weight:500}
+
+/* ERA SECTIONS */
+.eras-container{max-width:1200px;margin:0 auto;padding:40px 24px}
+.era-group{margin-bottom:48px}
+.era-group-title{font-size:1.5rem;font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:10px}
+.era-group-title .era-dot{width:12px;height:12px;border-radius:50%;display:inline-block}
+.era-group-sub{font-size:.9rem;color:var(--muted);margin-bottom:20px;font-weight:400}
+.era-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:20px}
+
+/* ERA CARD */
+.era-card{background:var(--card);border-radius:10px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.08);transition:all .3s;cursor:pointer;position:relative;border:1px solid #e5e7eb}
+.era-card:hover{box-shadow:0 8px 30px rgba(0,0,0,.15);transform:translateY(-4px)}
+.era-card.coming-soon{opacity:.6;cursor:not-allowed}
+.era-card.coming-soon:hover{transform:none;box-shadow:0 2px 12px rgba(0,0,0,.08)}
+.era-card-header{padding:20px 20px 0;display:flex;justify-content:space-between;align-items:flex-start}
+.era-card-period{font-family:var(--mono);font-size:.75rem;font-weight:600;color:var(--blue);background:#eef2ff;padding:4px 10px;border-radius:4px}
+.era-card-difficulty{font-size:.7rem;font-weight:700;padding:4px 8px;border-radius:4px;text-transform:uppercase}
+.diff-easy{background:#dcfce7;color:#166534}
+.diff-medium{background:#fef08a;color:#854d0e}
+.diff-hard{background:#fee2e2;color:#991b1b}
+.diff-extreme{background:#1f2937;color:#fbbf24}
+.era-card-body{padding:16px 20px}
+.era-card-title{font-family:var(--serif);font-size:1.3rem;font-weight:700;margin-bottom:4px;line-height:1.2}
+.era-card-pm{font-size:.85rem;color:var(--muted);margin-bottom:10px;font-weight:500}
+.era-card-desc{font-size:.85rem;color:#444;line-height:1.5;margin-bottom:14px}
+.era-card-coalition{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.coalition-tag{font-size:.7rem;font-weight:600;padding:3px 8px;border-radius:3px;border:1px solid #e5e7eb}
+.era-card-footer{padding:12px 20px;background:#f9fafb;border-top:1px solid #e5e7eb;display:flex;justify-content:space-between;align-items:center}
+.era-card-seats{font-family:var(--mono);font-size:.8rem;font-weight:600;color:var(--navy)}
+.era-play-btn{background:var(--blue);color:#fff;border:none;padding:8px 20px;border-radius:6px;font-weight:600;font-size:.8rem;cursor:pointer;transition:all .2s;font-family:var(--sans)}
+.era-play-btn:hover{background:#08397f;transform:translateY(-1px)}
+.coming-soon-badge{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-15deg);background:var(--navy);color:var(--gold);padding:12px 28px;border-radius:6px;font-family:var(--serif);font-size:1.1rem;font-weight:700;z-index:2;border:2px solid var(--gold);text-transform:uppercase;letter-spacing:1px}
+.era-card.premium{position:relative}
+.era-card.premium::after{content:'🔒 VO VÝVOJI';position:absolute;top:12px;right:12px;background:linear-gradient(135deg,#4a5568,#2d3748);color:#a0aec0;padding:4px 10px;border-radius:4px;font-size:.7rem;font-weight:700;letter-spacing:.5px;z-index:2}
+.era-card.premium .era-play-btn{background:#4a5568;cursor:default}
+.era-card.premium .era-play-btn:hover{transform:none;background:#4a5568}
+
+/* EXPAND SECTION */
+.era-expand{display:none;padding:20px;background:#f9fafb;border-top:1px solid #e5e7eb}
+.era-expand.open{display:block}
+.era-politicians{display:flex;flex-direction:column;gap:12px}
+.politician-option{display:flex;align-items:center;gap:16px;padding:14px;background:#fff;border-radius:8px;border:2px solid #e5e7eb;cursor:pointer;transition:all .2s}
+.politician-option:hover{border-color:var(--blue);background:#f0f4ff}
+.politician-option.selected{border-color:var(--blue);background:#eef2ff}
+.politician-avatar{width:48px;height:48px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0}
+.politician-info{flex:1}
+.politician-name{font-family:var(--serif);font-weight:700;font-size:1rem}
+.politician-role{font-size:.8rem;color:var(--muted)}
+.politician-traits{display:flex;gap:6px;margin-top:4px}
+.trait-tag{font-size:.65rem;font-weight:600;padding:2px 6px;border-radius:3px;background:#e5e7eb;color:#374151}
+.play-era-btn{width:100%;margin-top:16px;padding:14px;background:linear-gradient(135deg,var(--blue),#08397f);color:#fff;border:none;border-radius:8px;font-size:1rem;font-weight:700;font-family:var(--serif);cursor:pointer;transition:all .2s}
+.play-era-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(11,78,162,.3)}
+
+/* FOOTER */
+.site-footer{background:var(--navy);color:rgba(255,255,255,.6);padding:32px 0;text-align:center;font-size:.85rem;border-top:3px solid var(--red)}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .hero h1{font-size:2rem}
+  .era-cards{grid-template-columns:1fr}
+  .site-header .inner{flex-direction:column;gap:12px}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <div class="site-logo">Politický <span>Simulátor</span> SR</div>
+    <nav class="site-nav">
+      <a href="#" onclick="event.preventDefault()">Domov</a>
+      <a href="#" onclick="event.preventDefault();document.getElementById('howToPlayModal').style.display='flex'">Ako hrať</a>
+      <a href="#" onclick="event.preventDefault();document.getElementById('aboutModal').style.display='flex'">O projekte</a>
+      <a href="#" onclick="event.preventDefault();document.getElementById('analyticsModal').style.display='flex'" style="color:var(--gold)">Analytika</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="inner">
+    <h1>Slovenský Politický <span class="accent">Simulátor</span></h1>
+    <p class="subtitle">1994 &mdash; 2027 &bull; 8 politických ér &bull; 30+ rokov histórie</p>
+    <p class="desc">Prevezmi rolu slovenského premiéra. Buduj koalície, reaguj na krízy, formuj budúcnosť krajiny. Každé rozhodnutie má dôsledky.</p>
+    <div class="hero-badges">
+      <span class="hero-badge">150 poslanecká snemovňa</span>
+      <span class="hero-badge">76 na väčšinu</span>
+      <span class="hero-badge">90 na zmenu ústavy</span>
+      <span class="hero-badge">AI analyzuje politiky</span>
+    </div>
+    <div style="margin-top:32px;max-width:540px;margin-left:auto;margin-right:auto;opacity:.25">
+      <svg viewBox="0 0 500 210" xmlns="http://www.w3.org/2000/svg">
+        <path d="M176.3,18.0 L181.1,24.4 L216.0,10.1 L258.9,47.4 L309.2,24.8 L349.4,35.7 L410.6,20.8 L491.4,61.2 L467.8,88.6 L451.2,131.1 L433.1,141.8 L342.0,109.9 L314.1,116.3 L294.2,141.0 L254.2,154.2 L245.0,147.5 L203.6,163.8 L169.8,166.9 L162.9,188.1 L91.5,201.0 L60.2,189.5 L16.9,162.5 L8.4,126.1 L15.2,112.7 L27.3,89.5 L65.0,91.3 L94.0,80.4 L96.3,70.6 L112.6,65.6 L118.2,41.7 L137.7,37.1 L150.9,18.2 Z" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.35)" stroke-width="1.5" stroke-linejoin="round"/>
+        <text x="250" y="120" text-anchor="middle" fill="rgba(255,255,255,.2)" font-size="12" font-family="var(--sans)">8 krajov · 150 poslancov · 76 na väčšinu</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<main class="eras-container">
+
+  <!-- ERA: Meciar -->
+  <div class="era-group">
+    <h2 class="era-group-title"><span class="era-dot" style="background:#6b21a8"></span> Obdobie transformácie (1994&ndash;2006)</h2>
+    <p class="era-group-sub">Od mečiarizmu cez demokratickú obnovu až po vstup do EÚ a NATO</p>
+    <div class="era-cards">
+
+      <div class="era-card" onclick="toggleEra(this)">
+        <div class="era-card-header">
+          <span class="era-card-period">1994 &ndash; 1998</span>
+          <span class="era-card-difficulty diff-hard">Ťažké</span>
+        </div>
+        <div class="era-card-body">
+          <div class="era-card-title">Mečiarova éra</div>
+          <div class="era-card-pm">Vladimír Mečiar &bull; HZDS</div>
+          <div class="era-card-desc">Autoritársky polodemokratický režim. Únosy, politické vraždy, manipulácia médií a medzinárodná izolácia. Slovensko vylúčené z NATO a ohrozený vstup do EÚ.</div>
+          <div class="era-card-coalition">
+            <span class="coalition-tag" style="background:#fef3c7;color:#92400e">HZDS (61)</span>
+            <span class="coalition-tag" style="background:#dcfce7;color:#166534">SNS (14)</span>
+            <span class="coalition-tag" style="background:#fee2e2;color:#991b1b">ZRS (13)</span>
+          </div>
+          <div style="display:flex;gap:12px;font-size:.75rem;color:var(--muted);margin-top:8px">
+            <span>📊 Podpora: ~35%</span>
+            <span>📉 Min: 25%</span>
+            <span>⏱ Mesiacov: 48</span>
+          </div>
+        </div>
+        <div class="era-card-footer">
+          <span class="era-card-seats">88 / 150 kresiel</span>
+          <button class="era-play-btn">Vybrať &rarr;</button>
+        </div>
+        <div class="era-expand">
+          <div class="era-politicians">
+            <div class="politician-option selected" data-era="meciar-1994-1998" data-pm="meciar">
+              <div class="politician-avatar">🏛️</div>
+              <div class="politician-info">
+                <div class="politician-name">Vladimír Mečiar</div>
+                <div class="politician-role">Predseda vlády &bull; HZDS &bull; 3. vládne obdobie</div>
+                <div class="politician-traits">
+                  <span class="trait-tag">Autoritársky</span>
+                  <span class="trait-tag">Nacionalista</span>
+                  <span class="trait-tag">Populista</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="play-era-btn" onclick="event.stopPropagation();startEra('meciar-1994-1998')">Hrať ako Mečiar (1994&ndash;1998) &rarr;</button>
+        </div>
+      </div>
+
+      <div class="era-card" onclick="toggleEra(this)">
+        <div class="era-card-header">
+          <span class="era-card-period">1998 &ndash; 2006</span>
+          <span class="era-card-difficulty diff-medium">Stredné</span>
+        </div>
+        <div class="era-card-body">
+          <div class="era-card-title">Dzurindova éra</div>
+          <div class="era-card-pm">Mikuláš Dzurinda &bull; SDK / SDKÚ</div>
+          <div class="era-card-desc">Reformná vláda ktorá zvratila Mečiarov autoritársky odkaz. Konsolidácia demokracie, vstup do NATO (2004) a EÚ (2004). Rapidná ekonomická liberalizácia.</div>
+          <div class="era-card-coalition">
+            <span class="coalition-tag" style="background:#dbeafe;color:#1e40af">SDK (42)</span>
+            <span class="coalition-tag" style="background:#e9d5ff;color:#6d28d9">SDL</span>
+            <span class="coalition-tag" style="background:#fef3c7;color:#92400e">SMK (15)</span>
+            <span class="coalition-tag" style="background:#dcfce7;color:#166534">SOP (9)</span>
+          </div>
+          <div style="display:flex;gap:12px;font-size:.75rem;color:var(--muted);margin-top:8px">
+            <span>📊 Podpora: ~30%</span>
+            <span>📉 Min: 18%</span>
+            <span>⏱ Mesiacov: 48</span>
+          </div>
+        </div>
+        <div class="era-card-footer">
+          <span class="era-card-seats">93 / 150 kresiel</span>
+          <button class="era-play-btn">Vybrať &rarr;</button>
+        </div>
+        <div class="era-expand">
+          <div class="era-politicians">
+            <div class="politician-option selected" data-era="dzurinda-1998-2006" data-pm="dzurinda">
+              <div class="politician-avatar">🇪🇺</div>
+              <div class="politician-info">
+                <div class="politician-name">Mikuláš Dzurinda</div>
+                <div class="politician-role">Predseda vlády &bull; SDKÚ &bull; Euroatlantický reformátor</div>
+                <div class="politician-traits">
+                  <span class="trait-tag">Reformátor</span>
+                  <span class="trait-tag">Pro-EÚ</span>
+                  <span class="trait-tag">Liberálny</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="play-era-btn" onclick="event.stopPropagation();startEra('dzurinda-1998-2006')">Hrať ako Dzurinda (1998&ndash;2006) &rarr;</button>
+        </div>
+      </div>
+
+      <div class="era-card" onclick="toggleEra(this)">
+        <div class="era-card-header">
+          <span class="era-card-period">2010 &ndash; 2012</span>
+          <span class="era-card-difficulty diff-hard">Ťažké</span>
+        </div>
+        <div class="era-card-body">
+          <div class="era-card-title">Radičová &mdash; Prvá premiérka</div>
+          <div class="era-card-pm">Iveta Radičová &bull; SDKÚ-DS</div>
+          <div class="era-card-desc">Prvá žena na čele vlády SR. Gorila škandál, grécka dlhová kríza, EFSF hlasovanie. Sulík rebeluje — vláda padá po 20 mesiacoch.</div>
+          <div class="era-card-coalition">
+            <span class="coalition-tag" style="background:#dbeafe;color:#1e40af">SDKÚ (28)</span>
+            <span class="coalition-tag" style="background:#e0f2fe;color:#0369a1">SaS (22)</span>
+            <span class="coalition-tag" style="background:#fef3c7;color:#92400e">KDH (15)</span>
+            <span class="coalition-tag" style="background:#dcfce7;color:#166534">Most-Híd (14)</span>
+          </div>
+          <div style="display:flex;gap:12px;font-size:.75rem;color:var(--muted);margin-top:8px">
+            <span>📊 Podpora: ~22%</span>
+            <span>📉 Min: 15%</span>
+            <span>⏱ Mesiacov: 20</span>
+          </div>
+        </div>
+        <div class="era-card-footer">
+          <span class="era-card-seats">79 / 150 kresiel</span>
+          <button class="era-play-btn">Vybrať &rarr;</button>
+        </div>
+        <div class="era-expand">
+          <div class="era-politicians">
+            <div class="politician-option selected" data-era="radicova-2010-2012" data-pm="radicova">
+              <div class="politician-avatar">👩‍💼</div>
+              <div class="politician-info">
+                <div class="politician-name">Iveta Radičová</div>
+                <div class="politician-role">Predsedníčka vlády &bull; SDKÚ-DS &bull; Prvá žena-premiérka</div>
+                <div class="politician-traits">
+                  <span class="trait-tag">Reformistka</span>
+                  <span class="trait-tag">Pro-EÚ</span>
+                  <span class="trait-tag">Akademička</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="play-era-btn" onclick="event.stopPropagation();startEra('radicova-2010-2012')">Hrať ako Radičová (2010&ndash;2012) &rarr;</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ERA: Fico I & II -->
+  <div class="era-group">
+    <h2 class="era-group-title"><span class="era-dot" style="background:#dc2626"></span> Éra SMER-u (2012&ndash;2020)</h2>
+    <p class="era-group-sub">Od jednofarebnej vlády cez vraždu novinára až po protest &bdquo;Za slušné Slovensko&ldquo;</p>
+    <div class="era-cards">
+
+      <div class="era-card" onclick="toggleEra(this)">
+        <div class="era-card-header">
+          <span class="era-card-period">2012 &ndash; 2016</span>
+          <span class="era-card-difficulty diff-medium">Stredné</span>
+        </div>
+        <div class="era-card-body">
+          <div class="era-card-title">Fico II &mdash; Jednofarebná vláda</div>
+          <div class="era-card-pm">Robert Fico &bull; SMER-SD</div>
+          <div class="era-card-desc">Prvá jednofarebná väčšina v dejinách SR. 83 kresiel pre SMER. Ekonomický rast, automobilový priemysel, ale aj korupčné škandály a odmietanie migračných kvót EÚ.</div>
+          <div class="era-card-coalition">
+            <span class="coalition-tag" style="background:#fee2e2;color:#991b1b">SMER-SD (83)</span>
+          </div>
+          <div style="display:flex;gap:12px;font-size:.75rem;color:var(--muted);margin-top:8px">
+            <span>📊 Podpora: ~42%</span>
+            <span>📉 Min: 30%</span>
+            <span>⏱ Mesiacov: 48</span>
+          </div>
+        </div>
+        <div class="era-card-footer">
+          <span class="era-card-seats">83 / 150 kresiel</span>
+          <button class="era-play-btn">Vybrať &rarr;</button>
+        </div>
+        <div class="era-expand">
+          <div class="era-politicians">
+            <div class="politician-option selected" data-era="fico-2012-2016" data-pm="fico">
+              <div class="politician-avatar">🔴</div>
+              <div class="politician-info">
+                <div class="politician-name">Robert Fico</div>
+                <div class="politician-role">Predseda vlády &bull; SMER-SD &bull; Absolútna väčšina</div>
+                <div class="politician-traits">
+                  <span class="trait-tag">Sociálny demokrat</span>
+                  <span class="trait-tag">Populista</span>
+                  <span class="trait-tag">Pragmatik</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="play-era-btn" onclick="event.stopPropagation();startEra('fico-2012-2016')">Hrať ako Fico (2012&ndash;2016) &rarr;</button>
+        </div>
+      </div>
+
+      <div class="era-card" onclick="toggleEra(this)">
+        <div class="era-card-header">
+          <span class="era-card-period">2016 &ndash; 2018</span>
+          <span class="era-card-difficulty diff-hard">Ťažké</span>
+        </div>
+        <div class="era-card-body">
+          <div class="era-card-title">Fico III &mdash; Koalícia protikladov</div>
+          <div class="era-card-pm">Robert Fico &bull; SMER-SD</div>
+          <div class="era-card-desc">Predsedníctvo v Rade EÚ. Koalícia s nacionalistami (SNS) a maďarskou stranou (Most-Híd). Korupčné škandály, Kučiakova vražda, masové protesty. Fico rezignuje.</div>
+          <div class="era-card-coalition">
+            <span class="coalition-tag" style="background:#fee2e2;color:#991b1b">SMER (49)</span>
+            <span class="coalition-tag" style="background:#dcfce7;color:#166534">SNS (15)</span>
+            <span class="coalition-tag" style="background:#fef3c7;color:#92400e">Most-Hid (13)</span>
+          </div>
+          <div style="display:flex;gap:12px;font-size:.75rem;color:var(--muted);margin-top:8px">
+            <span>📊 Podpora: ~35%</span>
+            <span>📉 Min: 20%</span>
+            <span>⏱ Mesiacov: 24</span>
+          </div>
+        </div>
+        <div class="era-card-footer">
+          <span class="era-card-seats">87 / 150 kresiel</span>
+          <button class="era-play-btn">Vybrať &rarr;</button>
+        </div>
+        <div class="era-expand">
+          <div class="era-politicians">
+            <div class="politician-option selected" data-era="fico-2016-2018" data-pm="fico">
+              <div class="politician-avatar">🔴</div>
+              <div class="politician-info">
+                <div class="politician-name">Robert Fico</div>
+                <div class="politician-role">Predseda vlády &bull; SMER-SD &bull; EÚ predsedníctvo</div>
+                <div class="politician-traits">
+                  <span class="trait-tag">Pragmatik</span>
+                  <span class="trait-tag">Pod tlakom</span>
+                  <span class="trait-tag">Škandály</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="play-era-btn" onclick="event.stopPropagation();startEra('fico-2016-2018')">Hrať ako Fico (2016&ndash;2018) &rarr;</button>
+        </div>
+      </div>
+
+      <div class="era-card" onclick="toggleEra(this)">
+        <div class="era-card-header">
+          <span class="era-card-period">2018 &ndash; 2020</span>
+          <span class="era-card-difficulty diff-medium">Stredné</span>
+        </div>
+        <div class="era-card-body">
+          <div class="era-card-title">Pellegrini &mdash; Obnova dôvery</div>
+          <div class="era-card-pm">Peter Pellegrini &bull; SMER-SD</div>
+          <div class="era-card-desc">Vláda vznikla po protestoch &bdquo;Za slušné Slovensko&ldquo;. Vyšetrovanie vraždy Kuciaka. Voľba Čaputovej za prezidentku. Začiatok pandémie COVID-19.</div>
+          <div class="era-card-coalition">
+            <span class="coalition-tag" style="background:#fee2e2;color:#991b1b">SMER (49)</span>
+            <span class="coalition-tag" style="background:#dcfce7;color:#166534">SNS (15)</span>
+            <span class="coalition-tag" style="background:#fef3c7;color:#92400e">Most-Hid (13)</span>
+          </div>
+          <div style="display:flex;gap:12px;font-size:.75rem;color:var(--muted);margin-top:8px">
+            <span>📊 Podpora: ~38%</span>
+            <span>📉 Min: 28%</span>
+            <span>⏱ Mesiacov: 24</span>
+          </div>
+        </div>
+        <div class="era-card-footer">
+          <span class="era-card-seats">77 / 150 kresiel</span>
+          <button class="era-play-btn">Vybrať &rarr;</button>
+        </div>
+        <div class="era-expand">
+          <div class="era-politicians">
+            <div class="politician-option selected" data-era="pellegrini-2018-2020" data-pm="pellegrini">
+              <div class="politician-avatar">🔵</div>
+              <div class="politician-info">
+                <div class="politician-name">Peter Pellegrini</div>
+                <div class="politician-role">Predseda vlády &bull; SMER-SD &bull; Po protestoch</div>
+                <div class="politician-traits">
+                  <span class="trait-tag">Umiernený</span>
+                  <span class="trait-tag">Technokrat</span>
+                  <span class="trait-tag">Diplomat</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="play-era-btn" onclick="event.stopPropagation();startEra('pellegrini-2018-2020')">Hrať ako Pellegrini (2018&ndash;2020) &rarr;</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ERA: Experiment OLaNO -->
+  <div class="era-group">
+    <h2 class="era-group-title"><span class="era-dot" style="background:#f59e0b"></span> Experiment OLaNO (2020&ndash;2023)</h2>
+    <p class="era-group-sub">Protikorupčná vláda, COVID-19, vojna na Ukrajine, kolaps koalície</p>
+    <div class="era-cards">
+
+      <div class="era-card" onclick="toggleEra(this)">
+        <div class="era-card-header">
+          <span class="era-card-period">2020 &ndash; 2021</span>
+          <span class="era-card-difficulty diff-hard">Ťažké</span>
+        </div>
+        <div class="era-card-body">
+          <div class="era-card-title">Matovič &mdash; COVID kríza</div>
+          <div class="era-card-pm">Igor Matovič &bull; OLaNO</div>
+          <div class="era-card-desc">Protiestablishmentová vláda s 95 kreslami. Pandémia COVID-19, celonárodné testovanie, škandál so Sputnikom V. Kolaps po 13 mesiacoch.</div>
+          <div class="era-card-coalition">
+            <span class="coalition-tag" style="background:#fef3c7;color:#92400e">OLaNO (53)</span>
+            <span class="coalition-tag" style="background:#dbeafe;color:#1e40af">SaS (13)</span>
+            <span class="coalition-tag" style="background:#e9d5ff;color:#6d28d9">Sme Rodina (17)</span>
+            <span class="coalition-tag" style="background:#dcfce7;color:#166534">Za Ludi (12)</span>
+          </div>
+          <div style="display:flex;gap:12px;font-size:.75rem;color:var(--muted);margin-top:8px">
+            <span>📊 Podpora: ~25%</span>
+            <span>📉 Min: 11%</span>
+            <span>⏱ Mesiacov: 13</span>
+          </div>
+        </div>
+        <div class="era-card-footer">
+          <span class="era-card-seats">95 / 150 kresiel</span>
+          <button class="era-play-btn">Vybrať &rarr;</button>
+        </div>
+        <div class="era-expand">
+          <div class="era-politicians">
+            <div class="politician-option selected" data-era="matovic-2020-2021" data-pm="matovic">
+              <div class="politician-avatar">🟡</div>
+              <div class="politician-info">
+                <div class="politician-name">Igor Matovič</div>
+                <div class="politician-role">Predseda vlády &bull; OLaNO &bull; Anti-establishment</div>
+                <div class="politician-traits">
+                  <span class="trait-tag">Nepredvídateľný</span>
+                  <span class="trait-tag">Anti-korupcia</span>
+                  <span class="trait-tag">Impulzívny</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="play-era-btn" onclick="event.stopPropagation();startEra('matovic-2020-2021')">Hrať ako Matovič (2020&ndash;2021) &rarr;</button>
+        </div>
+      </div>
+
+      <div class="era-card" onclick="toggleEra(this)">
+        <div class="era-card-header">
+          <span class="era-card-period">2021 &ndash; 2023</span>
+          <span class="era-card-difficulty diff-hard">Ťažké</span>
+        </div>
+        <div class="era-card-body">
+          <div class="era-card-title">Heger &mdash; Vojna a kríza</div>
+          <div class="era-card-pm">Eduard Heger &bull; OLaNO</div>
+          <div class="era-card-desc">Pokračovanie koalície po Matovičovi. Vojna na Ukrajine, darovanie MiG-29 a S-300. Energetická kríza, 12.8% inflácia. SaS odchod, pád vlády.</div>
+          <div class="era-card-coalition">
+            <span class="coalition-tag" style="background:#fef3c7;color:#92400e">OLaNO (53)</span>
+            <span class="coalition-tag" style="background:#dbeafe;color:#1e40af">SaS (13)*</span>
+            <span class="coalition-tag" style="background:#e9d5ff;color:#6d28d9">Sme Rod. (17)</span>
+            <span class="coalition-tag" style="background:#dcfce7;color:#166534">Za Ludi (12)*</span>
+          </div>
+          <div style="display:flex;gap:12px;font-size:.75rem;color:var(--muted);margin-top:8px">
+            <span>📊 Podpora: ~18%</span>
+            <span>📉 Min: 8%</span>
+            <span>⏱ Mesiacov: 24</span>
+          </div>
+        </div>
+        <div class="era-card-footer">
+          <span class="era-card-seats">95&rarr;70 / 150</span>
+          <button class="era-play-btn">Vybrať &rarr;</button>
+        </div>
+        <div class="era-expand">
+          <div class="era-politicians">
+            <div class="politician-option selected" data-era="heger-2021-2023" data-pm="heger">
+              <div class="politician-avatar">🟠</div>
+              <div class="politician-info">
+                <div class="politician-name">Eduard Heger</div>
+                <div class="politician-role">Predseda vlády &bull; OLaNO &bull; Pragmatik</div>
+                <div class="politician-traits">
+                  <span class="trait-tag">Pro-Ukrajina</span>
+                  <span class="trait-tag">Umiernený</span>
+                  <span class="trait-tag">Pod tlakom</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="play-era-btn" onclick="event.stopPropagation();startEra('heger-2021-2023')">Hrať ako Heger (2021&ndash;2023) &rarr;</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ERA: Fico IV - Current -->
+  <div class="era-group">
+    <h2 class="era-group-title"><span class="era-dot" style="background:#dc2626"></span> Fico IV &mdash; Súčasnosť (2023&ndash;2027)</h2>
+    <p class="era-group-sub">Návrat k moci, atentát, proruská orientácia, boj o demokratické inštitúcie</p>
+    <div class="era-cards">
+
+      <div class="era-card" onclick="toggleEra(this)" style="border-color:var(--gold);border-width:2px">
+        <div class="era-card-header">
+          <span class="era-card-period">2023 &ndash; 2027</span>
+          <span class="era-card-difficulty diff-extreme">Extrémne</span>
+        </div>
+        <div class="era-card-body">
+          <div class="era-card-title">Fico IV &mdash; Návrat</div>
+          <div class="era-card-pm">Robert Fico &bull; SMER-SD &bull; ⭐ Hlavná hra</div>
+          <div class="era-card-desc">Návrat k moci po 5 rokoch. Koalícia SMER-Hlas-SNS s tesnou väčšinou 79/150. Novela trestného zákona, reforma RTVS, atentát v Handlovej, voľba Pellegriniho za prezidenta.</div>
+          <div class="era-card-coalition">
+            <span class="coalition-tag" style="background:#fee2e2;color:#991b1b">SMER (42)</span>
+            <span class="coalition-tag" style="background:#dbeafe;color:#1e40af">Hlas (27)</span>
+            <span class="coalition-tag" style="background:#dcfce7;color:#166534">SNS (10)</span>
+          </div>
+          <div style="display:flex;gap:12px;font-size:.75rem;color:var(--muted);margin-top:8px">
+            <span>📊 Podpora: ~38%</span>
+            <span>📉 Min: 22%</span>
+            <span>⏱ Mesiacov: 48</span>
+          </div>
+        </div>
+        <div class="era-card-footer">
+          <span class="era-card-seats">79 / 150 kresiel</span>
+          <button class="era-play-btn" style="background:var(--red)">Hrať &rarr;</button>
+        </div>
+        <div class="era-expand">
+          <div class="era-politicians">
+            <div class="politician-option selected" data-era="fico-2023-present" data-pm="fico">
+              <div class="politician-avatar">🔴</div>
+              <div class="politician-info">
+                <div class="politician-name">Robert Fico</div>
+                <div class="politician-role">Predseda vlády &bull; SMER-SD &bull; 4. vládne obdobie</div>
+                <div class="politician-traits">
+                  <span class="trait-tag">Pro-ruský</span>
+                  <span class="trait-tag">Populista</span>
+                  <span class="trait-tag">Prežil atentát</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="play-era-btn" onclick="event.stopPropagation();startEra('fico-2023-present')" style="background:linear-gradient(135deg,var(--red),#b91c1c)">Hrať ako Fico (2023&ndash;2027) &rarr;</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ERA: Alternate Realities -->
+  <div class="era-group">
+    <h2 class="era-group-title"><span class="era-dot" style="background:#8b5cf6"></span> Alternatívne reality</h2>
+    <p class="era-group-sub">Čo ak? Historické scenáre s iným výsledkom</p>
+    <div class="era-cards">
+
+      <div class="era-card coming-soon">
+        <div class="coming-soon-badge">Pripravujeme</div>
+        <div class="era-card-header">
+          <span class="era-card-period">Alternatívna história</span>
+          <span class="era-card-difficulty diff-extreme">???</span>
+        </div>
+        <div class="era-card-body">
+          <div class="era-card-title">Čo ak Mečiar vyhral referendum?</div>
+          <div class="era-card-pm">Alternatívna realita</div>
+          <div class="era-card-desc">Čo ak by Slovensko nevstúpilo do EÚ? Čo ak by Kuciak prežil? Čo ak by Matovič nevykúpil Sputnik? Alternatívne scenáre menia dejiny.</div>
+        </div>
+        <div class="era-card-footer">
+          <span class="era-card-seats">Čoskoro</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</main>
+
+<!-- Ako hrať Modal -->
+<div id="howToPlayModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:1000;align-items:center;justify-content:center;padding:20px" onclick="if(event.target===this)this.style.display='none'">
+  <div style="background:#fff;border-radius:16px;max-width:700px;width:100%;max-height:85vh;overflow-y:auto;padding:40px;position:relative">
+    <button onclick="this.parentElement.parentElement.style.display='none'" style="position:absolute;top:16px;right:16px;background:none;border:none;font-size:24px;cursor:pointer;color:#666">✕</button>
+    <h2 style="font-family:var(--serif);font-size:2rem;margin-bottom:16px;color:var(--navy)">Ako hrať</h2>
+    <div style="font-size:.95rem;line-height:1.7;color:#333">
+      <h3 style="margin:20px 0 8px;color:var(--blue)">1. Vyberte si éru</h3>
+      <p>Na hlavnej stránke si vyberte politickú éru, v ktorej chcete hrať. Každá éra má iné výzvy, koalíciu a historický kontext. Aktuálne sú dostupné éry Fico IV (2023-2027) a Mečiar (1994-1998).</p>
+
+      <h3 style="margin:20px 0 8px;color:var(--blue)">2. Dashboard — váš prehľad</h3>
+      <p>Po spustení hry uvidíte dashboard s kľúčovými metrikami: podpora verejnosti, stabilita vlády, stabilita koalície a miera implementácie. Pod nimi je mapa Slovenska, ekonomické ukazovatele, koaličné vzťahy a diplomacia.</p>
+
+      <h3 style="margin:20px 0 8px;color:var(--blue)">3. Hranie mesiacov</h3>
+      <p>Každý mesiac sa vám zobrazí udalosť — kríza, situácia alebo pokojný mesiac. Môžete:</p>
+      <ul style="margin:8px 0 8px 20px;list-style:disc">
+        <li>Použiť jeden z navrhovaných prístupov</li>
+        <li>Napísať úplne vlastnú politiku — čokoľvek chcete!</li>
+        <li>Čím detailnejšie napíšete, tým presnejšia bude analýza</li>
+      </ul>
+
+      <h3 style="margin:20px 0 8px;color:var(--blue)">4. Analýza a reakcie</h3>
+      <p>Po odoslaní politiky uvidíte:</p>
+      <ul style="margin:8px 0 8px 20px;list-style:disc">
+        <li><strong>Kontroly a rovnováhy</strong> — parlament, ústavný súd a prezident hodnotia vašu politiku</li>
+        <li><strong>Rozpočtový dopad</strong> — ako vaše rozhodnutie ovplyvní ekonomiku</li>
+        <li><strong>Mediálne pokrytie</strong> — 3 médiá reagujú z rôznych perspektív</li>
+        <li><strong>Reakcie politikov</strong> — 8 reálnych politikov komentuje vaše rozhodnutie</li>
+        <li><strong>Fokusová skupina</strong> — 12 občanov hodnotí vašu politiku</li>
+      </ul>
+
+      <h3 style="margin:20px 0 8px;color:var(--blue)">5. Koalícia a parlament</h3>
+      <p>Spravujte koalíciu — partneri majú požiadavky, trpezlivosť a spokojnosť. Ak ich ignorujete, môžu odísť! Na schválenie zákonov potrebujete 76 zo 150 hlasov, na zmenu ústavy 90.</p>
+
+      <h3 style="margin:20px 0 8px;color:var(--blue)">6. Koniec hry</h3>
+      <p>Hra sa skončí ak niektorá z metrík klesne pod 12% (kolaps), alebo ak úspešne dovládnete celé obdobie. Vaše rozhodnutia formujú budúcnosť Slovenska!</p>
+
+      <h3 style="margin:20px 0 8px;color:var(--blue)">7. AI mód (voliteľný)</h3>
+      <p>V nastaveniach môžete zapnúť AI analýzu cez Puter.js (zadarmo) alebo Groq. AI generuje podrobnejšie a variabilnejšie reakcie. Predvolený je offline keyword systém, ktorý funguje okamžite.</p>
+    </div>
+  </div>
+</div>
+
+<!-- O projekte Modal -->
+<div id="aboutModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:1000;align-items:center;justify-content:center;padding:20px" onclick="if(event.target===this)this.style.display='none'">
+  <div style="background:#fff;border-radius:16px;max-width:600px;width:100%;max-height:85vh;overflow-y:auto;padding:40px;position:relative">
+    <button onclick="this.parentElement.parentElement.style.display='none'" style="position:absolute;top:16px;right:16px;background:none;border:none;font-size:24px;cursor:pointer;color:#666">✕</button>
+    <h2 style="font-family:var(--serif);font-size:2rem;margin-bottom:16px;color:var(--navy)">O projekte</h2>
+    <div style="font-size:.95rem;line-height:1.7;color:#333">
+      <p><strong>Slovenský Politický Simulátor</strong> je vzdelávacia hra, v ktorej sa stanete predsedom vlády Slovenskej republiky a prežijete kľúčové momenty novodobej slovenskej histórie.</p>
+
+      <h3 style="margin:20px 0 8px;color:var(--blue)">Čo je to?</h3>
+      <p>Prevezmiete rolu slovenského premiéra a navigujete krajinu cez reálne politické krízy, koaličné spory a medzinárodné vzťahy. Každé vaše rozhodnutie ovplyvní ekonomiku, diplomaciu, koalíciu a verejnú mienku. Dokážete dovládnuť celé obdobie?</p>
+
+      <h3 style="margin:20px 0 8px;color:var(--blue)">8 historických ér</h3>
+      <p>Hra pokrýva 30+ rokov slovenskej politiky — od Mečiarovho autoritárskeho režimu (1994), cez Dzurindove reformy a vstup do EÚ/NATO, Ficove éry s vraždou Kuciaka, Matovičov COVID chaos, Hegerovu vojnovú krízu, až po súčasnosť s atentátom na Fica.</p>
+
+      <h3 style="margin:20px 0 8px;color:var(--blue)">Čo robí hru unikátnou</h3>
+      <ul style="margin:8px 0 8px 20px;list-style:disc">
+        <li><strong>Reálne historické udalosti</strong> — každý mesiac prináša skutočné krízy z daného obdobia</li>
+        <li><strong>12 občanov</strong> reaguje na vaše rozhodnutia — od dôchodkyne z Prešova po IT špecialistku z Bratislavy</li>
+        <li><strong>Koaličná mechanika</strong> — partneri majú požiadavky, trpezlivosť a môžu odísť</li>
+        <li><strong>Ekonomický simulátor</strong> — HDP, inflácia, nezamestnanosť, deficit, eufondy</li>
+        <li><strong>Mapa Slovenska</strong> — 8 krajov s regionálnou podporou</li>
+        <li><strong>AI analýza</strong> — voliteľná AI hodnotí vaše politiky realisticky</li>
+      </ul>
+
+      <h3 style="margin:20px 0 8px;color:var(--blue)">Technológia</h3>
+      <p>Hra je postavená na TypeScripte a Vite, beží kompletne v prehliadači — žiadne sťahovanie, žiadna registrácia, žiadne runtime závislosti. Voliteľne môžete pripojiť AI (Puter.js zadarmo, Groq zadarmo, alebo Anthropic) pre hlbšiu analýzu politík.</p>
+
+      <h3 style="margin:20px 0 8px;color:var(--blue)">Zdroje</h3>
+      <p>Historické dáta vychádzajú z výskumu z Wikipedie, Štatistického úradu SR, archívov TASR a verejne dostupných zdrojov. Herná mechanika je inšpirovaná teóriou hier (Nashovo vyjednávanie, Shapleyho index) a makroekonomickými modelmi (Okunov zákon, Phillipsova krivka).</p>
+
+      <h3 style="margin:20px 0 8px;color:var(--blue)">Upozornenie</h3>
+      <p style="font-style:italic;color:#666">Všetok obsah v tejto hre je fiktívny a vzdelávací. Reakcie postáv a politikov sú generované a neodrážajú ich skutočné názory. Hra nie je afiliovaná so žiadnou politickou stranou ani štátnou inštitúciou.</p>
+
+      <div style="margin-top:24px;padding:16px;background:#f5f5f0;border-radius:10px;text-align:center">
+        <p style="font-size:.85rem;color:#666">Verzia 1.0 · 2025</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Analytics Modal -->
+<div id="analyticsModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:1000;align-items:center;justify-content:center;padding:20px" onclick="if(event.target===this)this.style.display='none'">
+  <div style="background:#fff;border-radius:16px;max-width:800px;width:100%;max-height:85vh;overflow-y:auto;padding:40px;position:relative">
+    <button onclick="this.parentElement.parentElement.style.display='none'" style="position:absolute;top:16px;right:16px;background:none;border:none;font-size:24px;cursor:pointer;color:#666">&#10005;</button>
+    <h2 style="font-family:var(--serif);font-size:2rem;margin-bottom:8px;color:var(--navy)">Analytika hry</h2>
+    <p style="font-size:.85rem;color:var(--muted);margin-bottom:24px">Prehľad aktivity hráčov (uložené lokálne v prehliadači)</p>
+    <div id="analyticsContent" style="font-size:.9rem;color:#333"></div>
+    <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap">
+      <button onclick="exportAnalytics()" style="padding:10px 20px;background:var(--blue);color:#fff;border:none;border-radius:6px;font-weight:600;cursor:pointer;font-family:var(--sans)">Exportovať JSON</button>
+      <button onclick="exportBugReports()" style="padding:10px 20px;background:#854d0e;color:#fff;border:none;border-radius:6px;font-weight:600;cursor:pointer;font-family:var(--sans)">Exportovať bugy</button>
+      <button onclick="if(confirm('Vymazať analytické dáta?')){localStorage.removeItem('spm_analytics');loadAnalytics()}" style="padding:10px 20px;background:#dc2626;color:#fff;border:none;border-radius:6px;font-weight:600;cursor:pointer;font-family:var(--sans)">Vymazať dáta</button>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <p>&copy; 2025 Slovenský Politický Simulátor &bull; Vytvorené s AI &bull; Vzdelávací projekt</p>
+</footer>
+
+<script>
+function toggleEra(card) {
+  if (card.classList.contains('coming-soon')) return;
+  const expand = card.querySelector('.era-expand');
+  const wasOpen = expand.classList.contains('open');
+  // Close all
+  document.querySelectorAll('.era-expand').forEach(e => e.classList.remove('open'));
+  if (!wasOpen) expand.classList.add('open');
+}
+
+const AVAILABLE_ERAS = ['meciar-1994-1998', 'dzurinda-1998-2006', 'radicova-2010-2012', 'fico-2012-2016', 'fico-2016-2018', 'pellegrini-2018-2020', 'matovic-2020-2021', 'heger-2021-2023', 'fico-2023-present'];
+
+function startEra(eraId) {
+  if (!AVAILABLE_ERAS.includes(eraId)) {
+    alert('🔒 Táto éra je vo vývoji. Dostupné éry: Fico IV (2023), Mečiar (1994), Fico II (2012), Dzurinda (1998), Fico III (2016), Pellegrini (2018).');
+    return;
+  }
+  window.location.href = 'game.html?era=' + eraId;
+}
+
+// Analytics dashboard
+const ERA_NAMES = {
+  'fico-2023-present': 'Fico IV (2023-2027)',
+  'meciar-1994-1998': 'Mečiar (1994-1998)',
+  'fico-2012-2016': 'Fico II (2012-2016)',
+  'dzurinda-1998-2006': 'Dzurinda (1998-2006)',
+  'fico-2016-2018': 'Fico III (2016-2018)',
+  'pellegrini-2018-2020': 'Pellegrini (2018-2020)',
+  'matovic-2020-2021': 'Matovič (2020-2021)',
+  'heger-2021-2023': 'Heger (2021-2023)'
+};
+
+function loadAnalytics() {
+  const events = JSON.parse(localStorage.getItem('spm_analytics') || '[]');
+  const bugs = JSON.parse(localStorage.getItem('spm_bug_reports') || '[]');
+
+  const eraCounts = {};
+  let completions = 0, gameOvers = 0, totalMonths = 0, monthEntries = 0;
+  let lastPlayed = null;
+  const dailySessions = {};
+  const eraCompletions = {};
+
+  for (const e of events) {
+    if (e.event === 'game_start' && e.era) {
+      eraCounts[e.era] = (eraCounts[e.era] || 0) + 1;
+      const day = e.timestamp?.substring(0, 10);
+      if (day) dailySessions[day] = (dailySessions[day] || 0) + 1;
+    }
+    if (e.event === 'game_complete') {
+      completions++;
+      if (e.era) eraCompletions[e.era] = (eraCompletions[e.era] || 0) + 1;
+    }
+    if (e.event === 'game_over') gameOvers++;
+    if (e.event === 'month_played' && typeof e.month === 'number') {
+      totalMonths += e.month;
+      monthEntries++;
+    }
+    if (e.timestamp) lastPlayed = e.timestamp;
+  }
+
+  const totalSessions = Object.values(eraCounts).reduce((a, b) => a + b, 0);
+  const avgMonths = monthEntries > 0 ? Math.round(totalMonths / monthEntries) : 0;
+
+  // Build era table
+  const eraRows = Object.entries(ERA_NAMES).map(([id, name]) => {
+    const plays = eraCounts[id] || 0;
+    const comps = eraCompletions[id] || 0;
+    const pct = plays > 0 ? Math.round((comps / plays) * 100) : 0;
+    return `<tr><td style="padding:6px 12px">${name}</td><td style="padding:6px 12px;text-align:center;font-weight:600">${plays}</td><td style="padding:6px 12px;text-align:center">${comps}</td><td style="padding:6px 12px;text-align:center">${pct}%</td></tr>`;
+  }).join('');
+
+  // Build daily chart (last 14 days)
+  const days = Object.keys(dailySessions).sort().slice(-14);
+  const maxDaily = Math.max(1, ...days.map(d => dailySessions[d]));
+  const dayBars = days.map(d => {
+    const h = Math.max(4, (dailySessions[d] / maxDaily) * 80);
+    return `<div style="display:flex;flex-direction:column;align-items:center;gap:4px"><div style="width:24px;background:var(--blue);border-radius:3px;height:${h}px" title="${dailySessions[d]} hier"></div><div style="font-size:.6rem;color:var(--muted);transform:rotate(-45deg);white-space:nowrap">${d.substring(5)}</div></div>`;
+  }).join('');
+
+  // Bug report list
+  const bugList = bugs.slice(-5).reverse().map(b =>
+    `<div style="padding:8px 12px;background:#f9fafb;border-radius:6px;margin-bottom:6px;border-left:3px solid ${b.type==='crash'?'#dc2626':b.type==='event'?'#f59e0b':'#3b82f6'}"><div style="font-size:.75rem;color:var(--muted)">${b.timestamp?.substring(0,16)} | ${b.era} | Mesiac ${b.month} | ${b.type}</div><div style="font-size:.85rem;margin-top:2px">${b.description.substring(0,120)}</div></div>`
+  ).join('') || '<p style="color:var(--muted);font-size:.85rem">Žiadne nahlásené chyby</p>';
+
+  // Leaderboard
+  const lb = JSON.parse(localStorage.getItem('spm_leaderboard') || '[]');
+  const lbRows = lb.slice(0, 10).map((s, i) =>
+    `<tr><td style="padding:4px 8px">${i+1}.</td><td style="padding:4px 8px">${ERA_NAMES[s.era] || s.era}</td><td style="padding:4px 8px;text-align:center;font-weight:600">${s.approval}%</td><td style="padding:4px 8px;text-align:center">${s.won ? '✅' : '❌'}</td><td style="padding:4px 8px;text-align:center">${s.months}m</td><td style="padding:4px 8px;font-size:.75rem;color:var(--muted)">${s.date}</td></tr>`
+  ).join('') || '<tr><td colspan="6" style="padding:8px;color:var(--muted);text-align:center">Žiadne výsledky</td></tr>';
+
+  document.getElementById('analyticsContent').innerHTML = `
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-bottom:24px">
+      <div style="background:#eef2ff;padding:16px;border-radius:10px;text-align:center"><div style="font-size:2rem;font-weight:800;color:var(--blue)">${totalSessions}</div><div style="font-size:.8rem;color:var(--muted)">Celkom hier</div></div>
+      <div style="background:#dcfce7;padding:16px;border-radius:10px;text-align:center"><div style="font-size:2rem;font-weight:800;color:#166534">${completions}</div><div style="font-size:.8rem;color:var(--muted)">Dokončených</div></div>
+      <div style="background:#fee2e2;padding:16px;border-radius:10px;text-align:center"><div style="font-size:2rem;font-weight:800;color:#991b1b">${gameOvers}</div><div style="font-size:.8rem;color:var(--muted)">Game Over</div></div>
+      <div style="background:#fef3c7;padding:16px;border-radius:10px;text-align:center"><div style="font-size:2rem;font-weight:800;color:#92400e">${avgMonths}</div><div style="font-size:.8rem;color:var(--muted)">Priem. mesiacov</div></div>
+      <div style="background:#f3e8ff;padding:16px;border-radius:10px;text-align:center"><div style="font-size:2rem;font-weight:800;color:#6d28d9">${bugs.length}</div><div style="font-size:.8rem;color:var(--muted)">Bug reportov</div></div>
+    </div>
+
+    <h3 style="font-family:var(--serif);margin-bottom:8px;color:var(--navy)">Hrateľnosť podľa éry</h3>
+    <table style="width:100%;border-collapse:collapse;margin-bottom:24px;font-size:.85rem">
+      <thead><tr style="border-bottom:2px solid #e5e7eb"><th style="padding:6px 12px;text-align:left">Éra</th><th style="padding:6px 12px;text-align:center">Spustení</th><th style="padding:6px 12px;text-align:center">Dokončení</th><th style="padding:6px 12px;text-align:center">Úspešnosť</th></tr></thead>
+      <tbody>${eraRows}</tbody>
+    </table>
+
+    ${days.length > 0 ? `<h3 style="font-family:var(--serif);margin-bottom:8px;color:var(--navy)">Denná aktivita (posledných 14 dní)</h3>
+    <div style="display:flex;align-items:flex-end;gap:6px;padding:12px;background:#f9fafb;border-radius:10px;margin-bottom:24px;min-height:120px">${dayBars}</div>` : ''}
+
+    <h3 style="font-family:var(--serif);margin-bottom:8px;color:var(--navy)">Posledné bug reporty</h3>
+    ${bugList}
+
+    <h3 style="font-family:var(--serif);margin-bottom:8px;margin-top:24px;color:var(--navy)">Rebríček najlepších hier</h3>
+    <table style="width:100%;border-collapse:collapse;font-size:.85rem">
+      <thead><tr style="border-bottom:2px solid #e5e7eb"><th style="padding:4px 8px;text-align:left">#</th><th style="padding:4px 8px;text-align:left">Éra</th><th style="padding:4px 8px;text-align:center">Podpora</th><th style="padding:4px 8px;text-align:center">Výsledok</th><th style="padding:4px 8px;text-align:center">Mesiace</th><th style="padding:4px 8px;text-align:left">Dátum</th></tr></thead>
+      <tbody>${lbRows}</tbody>
+    </table>
+
+    <p style="font-size:.75rem;color:var(--muted);margin-top:16px">Posledná hra: ${lastPlayed ? new Date(lastPlayed).toLocaleString('sk-SK') : 'Žiadna'} | Celkom eventov: ${events.length}</p>
+  `;
+}
+
+function exportAnalytics() {
+  const data = { analytics: JSON.parse(localStorage.getItem('spm_analytics') || '[]'), bugs: JSON.parse(localStorage.getItem('spm_bug_reports') || '[]'), exported: new Date().toISOString() };
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'spm_analytics_' + new Date().toISOString().substring(0,10) + '.json';
+  a.click();
+}
+
+function exportBugReports() {
+  const bugs = JSON.parse(localStorage.getItem('spm_bug_reports') || '[]');
+  const blob = new Blob([JSON.stringify(bugs, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'spm_bugs_' + new Date().toISOString().substring(0,10) + '.json';
+  a.click();
+}
+
+// Load analytics when modal opens
+document.addEventListener('DOMContentLoaded', function() {
+  const modal = document.getElementById('analyticsModal');
+  const observer = new MutationObserver(function() {
+    if (modal.style.display === 'flex') loadAnalytics();
+  });
+  observer.observe(modal, { attributes: true, attributeFilter: ['style'] });
+});
+
+// Mark unavailable eras as premium/locked
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.play-era-btn').forEach(function(btn) {
+    const onclick = btn.getAttribute('onclick') || '';
+    const match = onclick.match(/startEra\('([^']+)'\)/);
+    if (match && !AVAILABLE_ERAS.includes(match[1])) {
+      const card = btn.closest('.era-card');
+      if (card) card.classList.add('premium');
+    }
+  });
+});
+</script>
+</body>
+</html>
