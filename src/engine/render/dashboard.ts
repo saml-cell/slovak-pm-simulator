@@ -66,17 +66,29 @@ function renderParliament(): string {
   const colors = era.partyDisplay.colors;
   const names = era.partyDisplay.names;
   const total = 150;
-  const segments = Object.entries(G.parl)
+  const coalitionIds = new Set(era.coalitionPartners.filter(cp => G.cp[cp.id]?.on).map(cp => cp.id));
+  const parties = Object.entries(G.parl)
     .filter(([_, seats]) => seats > 0)
-    .sort(([, a], [, b]) => b - a)
-    .map(([id, seats]) => `<div class="parliament-segment" style="width:${(seats / total) * 100}%;background:${colors[id] || '#4a5568'}"></div>`)
-    .join('');
-  const legend = Object.entries(G.parl)
-    .filter(([_, seats]) => seats > 0)
-    .map(([id, seats]) => `<span class="parliament-legend-item"><span class="parliament-legend-dot" style="background:${colors[id] || '#4a5568'}"></span>${names[id] || id} ${seats}</span>`)
-    .join('');
+    .sort(([a], [b]) => {
+      const aCoal = coalitionIds.has(a) ? 0 : 1;
+      const bCoal = coalitionIds.has(b) ? 0 : 1;
+      return aCoal - bCoal;
+    });
+  const segments = parties
+    .map(([id, seats]) => {
+      const isCoal = coalitionIds.has(id);
+      const name = names[id] || id;
+      const opacity = isCoal ? '1' : '0.4';
+      return `<div class="parliament-segment" style="width:${(seats / total) * 100}%;background:${colors[id] || '#4a5568'};opacity:${opacity};cursor:pointer;position:relative;transition:opacity .2s" title="${name}: ${seats} kresiel${isCoal ? ' (koalícia)' : ' (opozícia)'}" onmouseenter="this.style.opacity='1';this.style.filter='brightness(1.3)'" onmouseleave="this.style.opacity='${opacity}';this.style.filter='none'"></div>`;
+    }).join('');
+  const legend = parties
+    .map(([id, seats]) => {
+      const isCoal = coalitionIds.has(id);
+      return `<span class="parliament-legend-item" style="${isCoal ? '' : 'opacity:.5'}"><span class="parliament-legend-dot" style="background:${colors[id] || '#4a5568'}"></span>${names[id] || id} ${seats}${isCoal ? '' : ''}</span>`;
+    }).join('');
   const cs = coalitionSeats();
-  return `<div class="parliament-bar"><div class="panel-title">🏛️ Parlament (${cs}/150)</div><div class="parliament-visual" style="position:relative">${segments}<div style="position:absolute;left:50.67%;top:0;bottom:0;width:2px;background:rgba(255,255,255,.35);z-index:2"></div><div style="position:absolute;left:50.67%;top:-14px;font-size:.55rem;color:rgba(255,255,255,.5);transform:translateX(-50%)">76</div></div><div class="parliament-legend">${legend}</div></div>`;
+  const majColor = cs >= 76 ? 'rgba(16,185,129,.6)' : 'rgba(239,68,68,.6)';
+  return `<div class="parliament-bar"><div class="panel-title">🏛️ Parlament — koalícia ${cs}/150 ${cs >= 76 ? '✓' : '✗'}</div><div class="parliament-visual" style="position:relative">${segments}<div style="position:absolute;left:50.67%;top:0;bottom:0;width:2px;background:${majColor};z-index:2"></div><div style="position:absolute;left:50.67%;top:-14px;font-size:.55rem;color:${majColor};transform:translateX(-50%)">76</div></div><div class="parliament-legend">${legend}</div></div>`;
 }
 
 function renderDiplomacy(): string {
