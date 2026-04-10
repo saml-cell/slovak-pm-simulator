@@ -79,7 +79,8 @@ function renderParliament(): string {
       const isCoal = coalitionIds.has(id);
       const name = names[id] || id;
       const opacity = isCoal ? '1' : '0.4';
-      return `<div class="parliament-segment" style="width:${(seats / total) * 100}%;background:${colors[id] || '#4a5568'};opacity:${opacity};cursor:pointer;position:relative;transition:opacity .2s" title="${name}: ${seats} kresiel${isCoal ? ' (koalícia)' : ' (opozícia)'}" onmouseenter="this.style.opacity='1';this.style.filter='brightness(1.3)'" onmouseleave="this.style.opacity='${opacity}';this.style.filter='none'"></div>`;
+      const label = `${name}: ${seats}${isCoal ? ' ✓' : ''}`;
+      return `<div class="parliament-segment" style="width:${(seats / total) * 100}%;background:${colors[id] || '#4a5568'};opacity:${opacity};cursor:pointer;position:relative;transition:all .2s" onmouseenter="this.style.opacity='1';this.style.filter='brightness(1.3)';this.querySelector('.pt').style.display='block'" onmouseleave="this.style.opacity='${opacity}';this.style.filter='none';this.querySelector('.pt').style.display='none'" onclick="this.querySelector('.pt').style.display=this.querySelector('.pt').style.display==='block'?'none':'block'"><div class="pt" style="display:none;position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:rgba(10,14,20,.95);border:1px solid rgba(224,184,74,.4);padding:4px 10px;border-radius:6px;font-size:.7rem;color:#fff;white-space:nowrap;z-index:10;pointer-events:none">${esc(label)}</div></div>`;
     }).join('');
   const legend = parties
     .map(([id, seats]) => {

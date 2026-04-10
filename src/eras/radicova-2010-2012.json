@@ -49,8 +49,7 @@
       "kdh": "#f97316",
       "mosthid": "#10b981",
       "smer": "#dc2626",
-      "sns": "#065f46",
-      "lsns": "#1f2937"
+      "sns": "#065f46"
     },
     "names": {
       "sdku": "SDKÚ-DS",
@@ -58,8 +57,7 @@
       "kdh": "KDH",
       "mosthid": "Most-Híd",
       "smer": "SMER-SD",
-      "sns": "SNS",
-      "lsns": "ĽSNS"
+      "sns": "SNS"
     }
   },
   "personas": [

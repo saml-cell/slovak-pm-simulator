@@ -52,8 +52,7 @@
       "smk": "#059669",
       "sop": "#8b5cf6",
       "hzds": "#1e40af",
-      "sns": "#065f46",
-      "other": "#9ca3af"
+      "sns": "#065f46"
     },
     "names": {
       "sdk": "SDK",
@@ -61,8 +60,7 @@
       "smk": "SMK",
       "sop": "SOP",
       "hzds": "HZDS",
-      "sns": "SNS",
-      "other": "Ostatní"
+      "sns": "SNS"
     }
   },
   "personas": [
@@ -3266,12 +3264,11 @@
     },
     "parl": {
       "sdk": 42,
-      "sdl": 18,
+      "sdl": 23,
       "smk": 15,
-      "sop": 9,
+      "sop": 13,
       "hzds": 43,
-      "sns": 14,
-      "other": 9
+      "sns": 14
     },
     "stances": {
       "ekonomika": 0,

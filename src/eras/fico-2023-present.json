@@ -3564,8 +3564,7 @@
       "ps": 32,
       "sas": 11,
       "kdh": 12,
-      "smerodina": 11,
-      "republika": 5
+      "olano": 16
     },
     "stances": {
       "ekonomika": 0,
@@ -3600,8 +3599,7 @@
       "ps": "#7c3aed",
       "sas": "#0ea5e9",
       "kdh": "#f97316",
-      "smerodina": "#854d0e",
-      "republika": "#1f2937"
+      "olano": "#f59e0b"
     },
     "names": {
       "smer": "SMER-SD",
@@ -3610,8 +3608,7 @@
       "ps": "Progresívne Slovensko",
       "sas": "SaS",
       "kdh": "KDH",
-      "smerodina": "Sme rodina",
-      "republika": "Republika"
+      "olano": "Slovensko (OĽaNO)"
     }
   },
   "quietMonths": [

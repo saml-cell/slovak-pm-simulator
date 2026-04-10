@@ -52,7 +52,7 @@
       "olano": "#7c3aed",
       "sme_rodina": "#854d0e",
       "lsns": "#1f2937",
-      "other": "#9ca3af"
+      "nezavisli": "#9ca3af"
     },
     "names": {
       "smer": "SMER-SD",
@@ -62,7 +62,7 @@
       "olano": "OĽaNO",
       "sme_rodina": "Sme rodina",
       "lsns": "ĽSNS",
-      "other": "Ostatní"
+      "nezavisli": "Nezávislí"
     }
   },
   "personas": [
@@ -3028,12 +3028,12 @@
     "parl": {
       "smer": 49,
       "sns_c": 15,
-      "most": 13,
+      "most": 11,
       "sas": 21,
       "olano": 19,
       "sme_rodina": 11,
       "lsns": 14,
-      "other": 8
+      "nezavisli": 10
     },
     "stances": {
       "ekonomika": 0,

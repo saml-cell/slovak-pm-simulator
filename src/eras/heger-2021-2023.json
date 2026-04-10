@@ -49,9 +49,7 @@
       "smerodina": "#854d0e",
       "zaludi": "#10b981",
       "smer": "#dc2626",
-      "hlas": "#3b82f6",
-      "republika": "#1f2937",
-      "ps": "#7c3aed"
+      "lsns": "#1f2937"
     },
     "names": {
       "olano": "OĽaNO",
@@ -59,9 +57,7 @@
       "smerodina": "Sme rodina",
       "zaludi": "Za ľudí",
       "smer": "SMER-SD",
-      "hlas": "Hlas-SD",
-      "republika": "Republika",
-      "ps": "PS/SPOLU"
+      "lsns": "ĽSNS"
     }
   },
   "personas": [
@@ -3219,12 +3215,8 @@
       "sas": 13,
       "smerodina": 17,
       "zaludi": 12,
-      "smer": 34,
-      "hlas": 0,
-      "republika": 8,
-      "ps": 0,
-      "kdh": 0,
-      "lsns": 13
+      "smer": 38,
+      "lsns": 17
     },
     "stances": {
       "ekonomika": 0,

@@ -3005,13 +3005,12 @@
     },
     "parl": {
       "hzds": 61,
-      "sns_c": 14,
       "zrs": 13,
-      "kdh_o": 17,
+      "sns_c": 9,
       "sdl": 18,
-      "smk": 17,
-      "dss": 5,
-      "other": 5
+      "kdh_o": 17,
+      "du": 15,
+      "smk": 17
     },
     "stances": {
       "ekonomika": 0,
@@ -3044,23 +3043,21 @@
   "partyDisplay": {
     "colors": {
       "hzds": "#1e40af",
-      "sns_c": "#065f46",
       "zrs": "#dc2626",
-      "kdh_o": "#f97316",
+      "sns_c": "#065f46",
       "sdl": "#7c3aed",
-      "smk": "#059669",
-      "dss": "#0ea5e9",
-      "other": "#9ca3af"
+      "kdh_o": "#f97316",
+      "du": "#0ea5e9",
+      "smk": "#059669"
     },
     "names": {
       "hzds": "HZDS",
-      "sns_c": "SNS",
       "zrs": "ZRS",
-      "kdh_o": "KDH",
+      "sns_c": "SNS",
       "sdl": "SDĽ",
-      "smk": "SMK",
-      "dss": "DSS",
-      "other": "Ostatní"
+      "kdh_o": "KDH",
+      "du": "DÚ",
+      "smk": "SMK"
     }
   }
 }
