@@ -2258,6 +2258,20 @@
       ]
     },
     {
+      "id": "siet_collapse",
+      "m": 3,
+      "h": "Rozpad strany Sieť",
+      "d": "Strana Sieť Radoslava Procházku sa rozpadá. Poslanci odchádzajú — niektorí k Most-Híd, iní k SMER-u, ďalší sa stávajú nezávislými. Sieť prestáva existovať ako parlamentná frakcia. Koalícia stráca 10 kresiel ale získava niektorých prebehníkov.",
+      "c": "Sieť bola nestabilná od začiatku. Procházkova autorita sa zrútila po neúspechu vo voľbách predsedníčky parlamentu. Koalícia musí fungovať bez Siete.",
+      "t": "crisis",
+      "cat": "Politika",
+      "s": [
+        "Získať prebehníkov zo Siete do koalície",
+        "Nahradiť ministrov Siete vlastnými ľuďmi",
+        "Ignorovať situáciu — koalícia má stále väčšinu aj bez Siete"
+      ]
+    },
+    {
       "id": "eu_presidency_start",
       "m": 4,
       "h": "Predsedníctvo EÚ začína!",
