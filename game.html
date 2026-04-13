@@ -6,8 +6,8 @@
   <title>Slovak Prime Minister Simulator</title>
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://js.puter.com; style-src 'self' 'unsafe-inline'; connect-src 'self' https://api.groq.com https://api.anthropic.com; font-src 'self'">
   <link rel="stylesheet" href="./fonts/fonts.css">
-  <script type="module" crossorigin src="./assets/game-k_oLNSwF.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/game-BcUW8q20.css">
+  <script type="module" crossorigin src="./assets/game-Cg1uo3du.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/game-CSzRO-0_.css">
 </head>
 <body>
   <!-- Title Screen -->
@@ -54,13 +54,17 @@
       <h1>Slovak Prime Minister Simulator</h1>
       <p class="subtitle" id="titleSubtitle"></p>
       <p class="desc" id="titleDesc"></p>
+      <div class="mode-selector" id="modeSelector">
+        <button class="mode-btn active" id="modeBtnDesktop" data-mode="desktop">🖥️ Desktop</button>
+        <button class="mode-btn" id="modeBtnMobile" data-mode="mobile">📱 Mobil</button>
+      </div>
       <button class="start-button" id="startButton">Začať hru</button>
     </div>
   </div>
 
   <!-- Dashboard -->
-  <div id="dashboardScreen" class="screen">
-    <div class="dashboard-header">
+  <div id="dashboardScreen" class="screen" role="main" aria-label="Hlavný prehľad vlády">
+    <div class="dashboard-header" role="banner">
       <div style="display:flex;gap:6px;align-items:center">
         <button id="backToMenuBtn" class="nav-button">← Menu</button>
         <button id="historyBtn" class="nav-button">Kronika</button>
@@ -77,9 +81,9 @@
       </div>
     </div>
     <div class="dashboard-content">
-      <div class="warning-banner" id="warningBanner"></div>
-      <div id="stanceNotification" style="display:none;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.3);border-radius:8px;padding:8px 12px;margin-bottom:8px;font-size:.8rem;color:var(--gold);text-align:center"></div>
-      <div id="oppositionAction" style="display:none;background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.3);border-radius:8px;padding:8px 12px;margin-bottom:12px;font-size:.8rem;color:#ef4444;text-align:center"></div>
+      <div class="warning-banner" id="warningBanner" role="alert" aria-live="assertive" aria-atomic="true"></div>
+      <div id="stanceNotification" role="status" aria-live="polite" aria-atomic="true" style="display:none;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.3);border-radius:8px;padding:8px 12px;margin-bottom:8px;font-size:.8rem;color:var(--gold);text-align:center"></div>
+      <div id="oppositionAction" role="status" aria-live="polite" aria-atomic="true" style="display:none;background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.3);border-radius:8px;padding:8px 12px;margin-bottom:12px;font-size:.8rem;color:#ef4444;text-align:center"></div>
       <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap" id="proactiveActions">
         <button class="nav-button" id="pressConfBtn" style="flex:1;padding:10px;font-size:.8rem">📢 Tlačová konferencia</button>
         <button class="nav-button" id="coalMeetBtn" style="flex:1;padding:10px;font-size:.8rem">🤝 Koaličná rada</button>
@@ -93,7 +97,7 @@
         <div class="metric-card"><div class="metric-label">Koalícia</div><div class="metric-value" id="coalitionValue">--</div><div class="metric-bar"><div class="metric-fill" id="coalitionFill" style="background:linear-gradient(90deg,#06b6d4,#ec4899);width:0%"></div></div><div class="metric-trend" id="coalitionTrend"></div></div>
         <div class="metric-card"><div class="metric-label">Implementácia</div><div class="metric-value" id="implValue">--</div><div class="metric-bar"><div class="metric-fill" id="implFill" style="background:linear-gradient(90deg,var(--yellow),var(--green));width:0%"></div></div><div class="metric-trend" id="implTrend"></div></div>
       </div>
-      <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:16px;margin-bottom:16px">
+      <div class="dash-map-econ-grid">
         <div id="dashMap"></div>
         <div>
           <div id="dashEconCoalition"></div>
@@ -101,7 +105,8 @@
         </div>
       </div>
       <div id="dashStances" style="margin-bottom:16px"></div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
+      <div id="dashInstitutions" class="dash-institutions-grid"></div>
+      <div class="dash-diplo-history-grid">
         <div id="dashDiplomacy"></div>
         <div id="dashHistory"></div>
       </div>
@@ -109,14 +114,14 @@
   </div>
 
   <!-- Event Screen -->
-  <div id="eventScreen" class="screen">
+  <div id="eventScreen" class="screen" role="main" aria-labelledby="eventHeadline">
     <div class="event-header">
       <h2>Mesiac <span id="eventMonthNumber">1</span> zo <span id="eventTotalMonths">48</span></h2>
       <div class="event-nav"><button class="nav-button" id="backFromEventButton">Späť</button></div>
     </div>
     <div class="event-content">
       <div style="display:flex;flex-direction:column;gap:20px">
-        <div class="event-card situation" id="eventCard">
+        <div class="event-card situation" id="eventCard" role="region" aria-live="polite" aria-atomic="false">
           <div class="event-tier situation" id="eventTierLabel">SITUÁCIA</div>
           <h3 class="event-headline" id="eventHeadline"></h3>
           <p class="event-description" id="eventDescription"></p>
@@ -127,9 +132,9 @@
       <div style="display:flex;flex-direction:column;gap:20px">
         <div class="suggestions-box"><div class="suggestions-title">Návrhy politík</div><div class="suggestion-chips" id="suggestionsContainer"></div></div>
         <div class="policy-input-box">
-          <div class="policy-label">Vaša odpoveď — napíšte vlastnú politiku!</div>
-          <p style="font-size:.75rem;color:var(--text-dim);margin-bottom:8px">Píšte čokoľvek: oznámenie, tajnú dohodu, provokatívny ťah, alebo kompletný plán. Čím detailnejšie, tým presnejšia analýza. Môžete použiť návrhy vyššie alebo písať úplne vlastné.</p>
-          <textarea class="policy-textarea" id="policyInput" placeholder="Napr: Oznamujem núdzové opatrenia... / Tajne vyjednám dohodu s... / Zvolávam mimoriadnu tlačovú konferenciu kde obviňujem... / Predložím zákon ktorý..." maxlength="2000"></textarea>
+          <label for="policyInput" class="policy-label" id="policyLabel">Vaša odpoveď — napíšte vlastnú politiku!</label>
+          <p id="policyHelp" style="font-size:.75rem;color:var(--text-dim);margin-bottom:8px">Píšte čokoľvek: oznámenie, tajnú dohodu, provokatívny ťah, alebo kompletný plán. Čím detailnejšie, tým presnejšia analýza. Môžete použiť návrhy vyššie alebo písať úplne vlastné.</p>
+          <textarea class="policy-textarea" id="policyInput" aria-describedby="policyHelp charCount" placeholder="Napr: Oznamujem núdzové opatrenia... / Tajne vyjednám dohodu s... / Zvolávam mimoriadnu tlačovú konferenciu kde obviňujem... / Predložím zákon ktorý..." maxlength="2000"></textarea>
           <div id="keywordHints" style="display:flex;gap:4px;flex-wrap:wrap;margin-top:4px;min-height:20px"></div>
           <div class="char-count" id="charCount">0 / 2000</div>
           <div style="margin-top:12px">
@@ -201,23 +206,23 @@
   </div>
 
   <!-- Coalition Modal -->
-  <div class="modal-overlay" id="coalitionModal"><div class="modal"><h3 id="modalTitle"></h3><p id="modalText"></p><div id="modalActions"></div></div></div>
+  <div class="modal-overlay" id="coalitionModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal"><h3 id="modalTitle"></h3><p id="modalText"></p><div id="modalActions"></div></div></div>
 
   <!-- History Modal -->
-  <div class="modal-overlay" id="historyModal">
+  <div class="modal-overlay" id="historyModal" role="dialog" aria-modal="true" aria-labelledby="historyModalTitle">
     <div class="modal" style="max-width:650px;max-height:80vh;overflow-y:auto">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
-        <h3 style="color:#fff">Kronika vládnutia</h3>
-        <button id="closeHistoryBtn" style="background:none;border:none;color:var(--text-dim);font-size:20px;cursor:pointer">&#10005;</button>
+        <h3 id="historyModalTitle" style="color:#fff">Kronika vládnutia</h3>
+        <button type="button" aria-label="Zavrieť kroniku" id="closeHistoryBtn" style="background:none;border:none;color:var(--text-dim);font-size:20px;cursor:pointer">&#10005;</button>
       </div>
       <div id="historyList"></div>
     </div>
   </div>
 
   <!-- Resign Modal -->
-  <div class="modal-overlay" id="resignModal">
+  <div class="modal-overlay" id="resignModal" role="dialog" aria-modal="true" aria-labelledby="resignModalTitle">
     <div class="modal">
-      <h3 style="color:var(--red)">Rezignácia</h3>
+      <h3 id="resignModalTitle" style="color:var(--red)">Rezignácia</h3>
       <p>Naozaj chcete rezignovať z funkcie predsedu vlády Slovenskej republiky? Tento krok je nezvratný.</p>
       <div style="display:flex;gap:8px;margin-top:12px">
         <button class="partner-btn refuse" id="confirmResignBtn" style="padding:10px 20px">Áno, rezignujem</button>
@@ -227,14 +232,14 @@
   </div>
 
   <!-- Bug Report Modal -->
-  <div class="modal-overlay" id="bugReportModal">
+  <div class="modal-overlay" id="bugReportModal" role="dialog" aria-modal="true" aria-labelledby="bugModalTitle">
     <div class="modal" style="max-width:550px">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
-        <h3 style="color:#fff">Nahlasiť chybu</h3>
-        <button id="closeBugReportBtn" style="background:none;border:none;color:var(--text-dim);font-size:20px;cursor:pointer">&#10005;</button>
+        <h3 id="bugModalTitle" style="color:#fff">Nahlasiť chybu</h3>
+        <button type="button" aria-label="Zavrieť formulár" id="closeBugReportBtn" style="background:none;border:none;color:var(--text-dim);font-size:20px;cursor:pointer">&#10005;</button>
       </div>
       <div style="margin-bottom:12px">
-        <label style="font-size:.8rem;color:var(--text-dim);display:block;margin-bottom:4px">Typ chyby</label>
+        <label for="bugType" style="font-size:.8rem;color:var(--text-dim);display:block;margin-bottom:4px">Typ chyby</label>
         <select id="bugType" style="width:100%;padding:8px 12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:#fff;font-size:.85rem">
           <option value="gameplay">Gameplay / logika hry</option>
           <option value="ui">Grafika / rozhranie</option>
@@ -244,7 +249,7 @@
         </select>
       </div>
       <div style="margin-bottom:12px">
-        <label style="font-size:.8rem;color:var(--text-dim);display:block;margin-bottom:4px">Popis chyby</label>
+        <label for="bugDescription" style="font-size:.8rem;color:var(--text-dim);display:block;margin-bottom:4px">Popis chyby</label>
         <textarea id="bugDescription" rows="4" placeholder="Popíšte čo sa stalo, čo ste očakávali a kde v hre sa chyba vyskytla..." style="width:100%;padding:10px 12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:#fff;font-size:.85rem;resize:vertical;font-family:var(--sans)"></textarea>
       </div>
       <div style="display:flex;gap:8px">
@@ -256,7 +261,17 @@
   </div>
 
   <!-- Loading -->
-  <div class="loading-overlay" id="loadingOverlay"><div class="loading-spinner"></div><div style="color:var(--gold);font-size:.9rem;margin-top:12px">Analyzujem...</div></div>
+  <div class="loading-overlay" id="loadingOverlay" role="status" aria-live="polite" aria-busy="true"><div class="loading-spinner" aria-hidden="true"></div><div style="color:var(--gold);font-size:.9rem;margin-top:12px">Analyzujem...</div></div>
 
+  <script>
+    // A11Y: global Escape key closes any open .modal-overlay.active
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.modal-overlay.active').forEach(function(m) {
+          m.classList.remove('active');
+        });
+      }
+    });
+  </script>
 </body>
 </html>
