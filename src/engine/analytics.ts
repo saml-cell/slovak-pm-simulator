@@ -1,5 +1,3 @@
-// Simple localStorage-based analytics for tracking player activity
-
 interface AnalyticsEvent {
   event: string;
   era?: string;
@@ -20,7 +18,7 @@ export function trackAnalytics(event: string, data?: Record<string, unknown>): v
       data,
       timestamp: new Date().toISOString()
     });
-    // Keep max 500 events to prevent localStorage bloat
+    // Cap at 500 events so a long-lived session can't blow out localStorage.
     if (events.length > 500) events.splice(0, events.length - 500);
     localStorage.setItem(ANALYTICS_KEY, JSON.stringify(events));
   } catch { /* localStorage full or unavailable */ }

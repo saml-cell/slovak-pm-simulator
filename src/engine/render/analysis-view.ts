@@ -13,7 +13,6 @@ export function showAnalysis(a: AnalysisResult) {
     return `<div class="score-card"><div class="score-label">${s.l}</div><div class="score-number">${Math.round(nv)}</div><div class="score-bar"><div class="metric-fill" style="background:linear-gradient(90deg,var(--green),var(--yellow));width:${nv}%"></div></div><div class="score-delta ${dc}">${s.d > 0 ? '+' : ''}${s.d} bodov</div></div>`;
   }).join('');
 
-  // Checks & Balances
   const cb = a.cb;
   if (cb) {
     document.getElementById('checksSection')!.style.display = 'block';
@@ -26,11 +25,9 @@ export function showAnalysis(a: AnalysisResult) {
     ].map(c => `<div class="check-card"><div class="check-label">${esc(c.l)}</div><div class="check-value ${(c.v || 0) >= 50 ? 'check-passed' : 'check-failed'}">${c.v || '?'}</div>${c.r ? '<div style="font-size:.7rem;color:var(--text-dim);margin-top:4px;line-height:1.4;text-align:left">' + esc(c.r) + '</div>' : ''}</div>`).join('');
   }
 
-  // Civil service
   const cs = a.cs || {};
   document.getElementById('civilServiceContent')!.innerHTML = `<p>${esc(cs.summary || 'Analyzované.')}</p><div class="risk-pills"><span class="risk-pill ${esc((cs.risk || 'medium').toLowerCase())}">Riziko: ${esc(cs.risk || 'Medium')}</span><span class="risk-pill ${esc((cs.treasuryCost || 'medium').toLowerCase())}">Náklady: ${esc(cs.treasuryCost || 'Medium')}</span><span class="risk-pill ${esc((cs.growthPotential || 'medium').toLowerCase())}">Rast: ${esc(cs.growthPotential || 'Medium')}</span></div><div class="fiscal-note">${esc(cs.recommendation || '')}</div>`;
 
-  // Budget
   const ef = a.econFx || {};
   const hasEconChange = Object.values(ef).some(v => Math.abs(v || 0) > 0.001);
   if (!hasEconChange) {
@@ -47,7 +44,6 @@ export function showAnalysis(a: AnalysisResult) {
     </div></div>`;
   }
 
-  // Press
   const pr = a.press || { left: { headline: '—', subhead: '' }, center: { headline: '—', subhead: '' }, right: { headline: '—', subhead: '' } };
   const hl = era.headlines;
   document.getElementById('pressContent')!.innerHTML = `<div class="press-section">
@@ -56,7 +52,6 @@ export function showAnalysis(a: AnalysisResult) {
     <div class="press-column right"><div class="press-outlet">${esc(hl.right.name)}</div><div class="press-headline">${esc(pr.right.headline)}</div><div class="press-subhead" style="margin-top:6px;line-height:1.5">${esc(pr.right.subhead)}</div></div>
   </div>`;
 
-  // Politicians
   const policy = G.history.length ? G.history[G.history.length - 1].p.toLowerCase() : '';
   const polHtml = era.politicians.map(pol => {
     const hasPos = pol.kw_pos.some(k => policy.includes(k));
@@ -87,7 +82,6 @@ export function showAnalysis(a: AnalysisResult) {
   }).join('');
   document.getElementById('politicianContent')!.innerHTML = polHtml;
 
-  // Consequence
   if (a.consequence) { document.getElementById('consequenceSection')!.style.display = 'block'; document.getElementById('consequenceContent')!.innerHTML = `<p style="color:#fde68a">⚠️ Vaše rozhodnutie môže mať dôsledky v budúcnosti.</p>`; }
   else document.getElementById('consequenceSection')!.style.display = 'none';
 }

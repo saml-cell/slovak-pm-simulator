@@ -50,21 +50,18 @@ export function proceed(a: AnalysisResult) {
 
   trackAnalytics('month_played', { era: era.meta.id, month: G.month });
 
-  // Policy consistency scoring (before applying deltas)
+  // Policy consistency scoring runs on the previous month's policy so the
+  // bonus/penalty modifies this month's delta before any further math.
   const lastPolicy = G.history.length ? G.history[G.history.length - 1].p : '';
   const { bonus, flipPenalty } = policyConsistency(G, lastPolicy);
   a.aD += bonus + flipPenalty;
 
-  // Political capital — ambitious policies cost capital, low capital reduces effectiveness
   const capMult = politicalCapitalTick(G, lastPolicy.length);
-
-  // Crisis fatigue — constant crises numb the public
   const eventTier = G.event?.tier || 'situation';
   const fatigueMult = crisisFatigueTick(G, eventTier);
 
   G.prevA = G.approval; G.prevS = G.stability; G.prevC = G.coalition; G.prevImpl = G.impl;
   const ir = ((a.cb?.implementationRate || 80) / 100) * capMult;
-  // Apply approval with momentum, volatility, and fatigue dampening
   const mediaAmp = mediaCycleTick(G, eventTier, G.event?.headline || '');
   G.approval = Math.max(0, Math.min(100, G.approval + applyMomentum(G, a.aD * ir * fatigueMult * mediaAmp)));
   G.stability = Math.max(0, Math.min(100, G.stability + a.stD * ir));
@@ -74,7 +71,6 @@ export function proceed(a: AnalysisResult) {
   Object.entries(a.pScores || {}).forEach(([id, nv]) => { const pv = G.pScores[id] || 50; const bl = nv > pv ? .4 : .5; G.pScores[id] = Math.max(5, Math.min(95, pv * (1 - bl) + nv * bl)); });
   Object.entries(a.sScores || {}).forEach(([id, nv]) => { const pv = G.sScores[id] || 50; const bl = nv > pv ? .4 : .5; G.sScores[id] = Math.max(5, Math.min(95, pv * (1 - bl) + nv * bl)); });
 
-  // Social network influence — personas affect each other
   socialInfluence(G, era);
 
   if (a.econFx) Object.entries(a.econFx).forEach(([k, d]) => { if ((G.econ as unknown as Record<string, number>)[k] !== undefined) (G.econ as unknown as Record<string, number>)[k] += d * ir; });
@@ -91,11 +87,12 @@ export function proceed(a: AnalysisResult) {
   if (a.socialFx) Object.entries(a.socialFx).forEach(([k, d]) => { if (G.social[k] !== undefined) G.social[k] = Math.max(0, Math.min(100, G.social[k] + d)); });
   if (a.flags) Object.assign(G.flags, a.flags);
 
-  // Check consequenceChains for newly set flags
+  // Any consequence chain keyed off a flag we just set gets scheduled once,
+  // gated by a _cc_<flag> marker so re-setting the flag can't re-trigger.
   const chains = era.consequenceChains || [];
   for (const chain of chains) {
     if (G.flags[chain.flag] && !G.flags['_cc_' + chain.flag]) {
-      G.flags['_cc_' + chain.flag] = true; // prevent re-triggering
+      G.flags['_cc_' + chain.flag] = true;
       const fireMonth = Math.min(G.month + chain.delay, era.totalMonths - 1);
       G.cq.push({
         ev: chain.ev,
@@ -107,7 +104,6 @@ export function proceed(a: AnalysisResult) {
     }
   }
 
-  // Stance updates — track changes for UI notification
   const lastPol = (G.history.length ? G.history[G.history.length - 1].p : '').toLowerCase();
   const stanceLabels: Record<string, string> = { ekonomika: 'Ekonomika', eu: 'EÚ/NATO', rusko: 'Rusko', social: 'Sociálna', media: 'Média', justicia: 'Justícia', migracia: 'Migrácia', identita: 'Identita' };
   const stanceChanges: string[] = [];
@@ -129,7 +125,6 @@ export function proceed(a: AnalysisResult) {
       if (d !== 0) stanceChanges.push(`${stanceLabels[k] || k} ${d > 0 ? '→ doprava' : '→ doľava'}`);
     });
   }
-  // Show stance notification
   const stanceEl = document.getElementById('stanceNotification');
   if (stanceEl) {
     if (stanceChanges.length) { stanceEl.textContent = '🧭 ' + stanceChanges.join(' | '); stanceEl.style.display = 'block'; }
@@ -143,33 +138,22 @@ export function proceed(a: AnalysisResult) {
 
   Object.entries(G.cp).forEach(([id, p]) => { if (p.on) p.sat = G.sScores[id] || 50; });
 
-  // ═══ ECONOMICS ENGINE ═══
-  // Business cycle (sine wave + random shocks + mean reversion)
   businessCycleTick(G);
-  // GDP from growth rate
+  // GDP grown from the monthly growth rate: (1 + annual%/100)/12 ≈ /1200.
   G.econ.gdp = Math.max(1, G.econ.gdp * (1 + G.econ.gdpGrowth / 1200));
-  // Deficit dynamics (social spending, tax revenue from growth)
   deficitDynamics(G);
-  // Debt from deficit
   G.econ.debt = Math.max(0, G.econ.debt + G.econ.deficit / 12);
-  // EU funds flow based on diplomatic relations
   euFundsLink(G);
-  // Smart minimum wage (annual, inflation-linked)
   smartMinWage(G);
-  // Clamp economy values
   G.econ.gdpGrowth = Math.max(-5, Math.min(15, G.econ.gdpGrowth));
   G.econ.unemp = Math.max(2, Math.min(30, G.econ.unemp));
   G.econ.infl = Math.max(0, Math.min(25, G.econ.infl));
-  // Economic feedback loops (unemployment/inflation drag approval)
   econFeedback(G);
-  // Diplomatic feedback (NATO→stability, Russia→energy, Czech→trade)
   diploFeedback(G);
-  // Incumbency penalty (natural approval/stability erosion)
   incumbencyPenalty(G);
-  // Economic crisis triggers (displayed after updateDash to avoid being overwritten)
+  // Crisis message is held until after updateDash so it isn't overwritten.
   const crisisMsg = econCrisisCheck(G);
 
-  // ═══ NEW MECHANICS ═══
   okunsLaw(G);
   fdiDynamics(G);
   fiscalHealth(G);
@@ -178,45 +162,39 @@ export function proceed(a: AnalysisResult) {
   oligarchicTick(G);
   mediaEcosystemTick(G);
 
-  // ═══ INSTITUTIONS ═══
   courtTick(G, era);
   const { scandal: ministerScandal } = cabinetTick(G, era);
   institutionsTick(G, era);
 
-  // Court ideology affects implementation rate via checksAndBalances
   const courtInfluence = courtIdeologyScore(G);
   if (G.court.judges.length > 0) {
-    // Higher courtInfluence = court aligned with PM = less blocking
     G.impl = Math.max(20, Math.min(100, G.impl + (courtInfluence - 50) * 0.05));
   }
 
-  // Cabinet competence modifies next policy's implementation
   const lastPolicyText = G.history.length ? G.history[G.history.length - 1].p : '';
   const cabinetMod = cabinetImplementationMod(G, lastPolicyText, era);
   G.impl = Math.max(20, Math.min(100, G.impl * cabinetMod));
   updatePolling(G);
 
-  // Bad polls embolden opposition, good polls give breathing room
   if (G.pollApproval < 25) {
     G.oppositionPressure = Math.min(100, G.oppositionPressure + 3);
   } else if (G.pollApproval > 50) {
     G.oppositionPressure = Math.max(0, G.oppositionPressure - 2);
   }
 
-  // Very bad sustained polls trigger snap election pressure
+  // Sustained sub-20% polls after the honeymoon period (6 months) start
+  // drawing down stability as snap-election pressure mounts.
   const pollWarning = (G.pollApproval < 20 && G.month > 6) ? '📉 Prieskumy pod 20% — tlak na predčasné voľby rastie!' : null;
   if (pollWarning) G.stability = Math.max(0, G.stability - 1.5);
 
   computeShapley(G, era);
 
-  // President transition flags
   if (era.meta.pellegriniMonth >= 0 && G.month === era.meta.pellegriniMonth) G.pellegrini = true;
   if ((era.meta as unknown as Record<string, unknown>).presidentUnfriendlyMonth !== undefined) {
     const ufm = (era.meta as unknown as Record<string, unknown>).presidentUnfriendlyMonth as number;
     if (ufm >= 0 && G.month === ufm) G.pellegrini = false;
   }
 
-  // Opposition strategy AI
   const oppAction = oppositionMove(G, era);
   if (oppAction.action) {
     G.approval = Math.max(0, Math.min(100, G.approval + oppAction.effect.approval));
@@ -229,7 +207,6 @@ export function proceed(a: AnalysisResult) {
     else oppEl.style.display = 'none';
   }
 
-  // Final clamp after all post-processing
   G.approval = Math.max(0, Math.min(100, G.approval));
   G.stability = Math.max(0, Math.min(100, G.stability));
   G.coalition = Math.max(0, Math.min(100, G.coalition));
@@ -239,10 +216,8 @@ export function proceed(a: AnalysisResult) {
 
   G.approvalH.push(G.approval);
   G.month++;
-  // Coalition dynamics with Nash bargaining
   nashBargaining(G, era);
 
-  // Save
   try {
     const sv = JSON.parse(JSON.stringify(G)) as Record<string, unknown>;
     sv.used = Array.from(G.used);
@@ -310,7 +285,6 @@ function gameOver(collapsed: boolean) {
     { l: 'Inflácia', v: G.econ.infl.toFixed(1) + '%' }, { l: 'Dlh', v: G.econ.debt.toFixed(1) + ' ' + (era.meta.currencyBig || 'mld €') },
   ].map(s => `<div class="game-over-stat"><div class="game-over-stat-label">${s.l}</div><div class="game-over-stat-value">${s.v}</div></div>`).join('');
 
-  // Reality comparison section
   const rcEl = document.getElementById('realComparisonSection');
   if (rcEl) {
     const rc = era.meta.realComparison;
@@ -386,7 +360,6 @@ function gameOver(collapsed: boolean) {
     `<div class="chart-bar" style="height:${(v / 100) * 160}px"><div class="chart-bar-label">${i % 6 === 0 ? getCalendarDate(i).substring(0, 3) : ''}</div></div>`
   ).join('');
 
-  // Election simulation (Monte Carlo + D'Hondt)
   if (!collapsed) {
     const election = simulateElection(G, era);
     const electionEl = document.getElementById('electionResults');
@@ -419,7 +392,6 @@ function gameOver(collapsed: boolean) {
   trackAnalytics(collapsed ? 'game_over' : 'game_complete', { era: era.meta.id, month: G.month, approval: G.approval, stability: G.stability, coalition: G.coalition });
   localStorage.removeItem(era.meta.saveKey);
 
-  // Shareable results
   const shareData = btoa(JSON.stringify({
     e: era.meta.id,
     p: era.meta.pmName,
@@ -433,7 +405,6 @@ function gameOver(collapsed: boolean) {
   const shareUrl = window.location.origin + window.location.pathname + '?result=' + shareData;
   (window as any).__shareUrl = shareUrl;
 
-  // Local leaderboard
   try {
     const lb = JSON.parse(localStorage.getItem('spm_leaderboard') || '[]');
     lb.push({ era: era.meta.id, pm: era.meta.pmName, approval: Math.round(G.approval), stability: Math.round(G.stability), months: G.month, won: !collapsed, date: new Date().toISOString().substring(0,10) });
@@ -468,7 +439,7 @@ export function confirmResign() {
   showScreen('gameOverScreen');
 }
 
-// Expose for inline onclick handlers
+// Exposed on window so inline onclick handlers in generated HTML can call them.
 (window as unknown as Record<string, unknown>).__doKick = doKick;
 (window as unknown as Record<string, unknown>).__closeModal = closeModal;
 (window as unknown as Record<string, unknown>).__handleDem = handleDem;

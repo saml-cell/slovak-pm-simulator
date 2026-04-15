@@ -15,7 +15,6 @@ async function main() {
   const params = new URLSearchParams(window.location.search);
   const eraId = params.get('era') || 'fico-2023-present';
 
-  // Check for shared result
   const resultParam = params.get('result');
   if (resultParam) {
     try {
@@ -34,26 +33,22 @@ async function main() {
           <p style="font-size:.85rem;opacity:.6;margin-bottom:24px">HDP rast: ${r.g}%</p>
           <a href="./" style="display:inline-block;padding:12px 32px;background:#0ea5e9;color:#fff;border-radius:8px;text-decoration:none;font-weight:600">Skúsiť sám →</a>
         </div>`;
-      return; // Don't load the game
+      return;
     } catch { /* invalid result, continue normal load */ }
   }
 
-  // Load era config
   const era = await loadEra(eraId);
   setEra(era);
   initCalendar(era.calendar);
 
-  // Populate title screen
   document.getElementById('titleSubtitle')!.textContent = era.titleScreen.subtitle;
   document.getElementById('titleDesc')!.textContent = era.titleScreen.description;
   document.getElementById('startButton')!.textContent = era.titleScreen.startButtonText;
 
-  // Settings toggle
   document.getElementById('settingsToggle')!.addEventListener('click', () => {
     document.getElementById('settingsPanel')!.classList.toggle('open');
   });
 
-  // Mode selector (desktop/mobile)
   const savedMode = localStorage.getItem('spm_display_mode') || (window.innerWidth <= 768 ? 'mobile' : 'desktop');
   if (savedMode === 'mobile') {
     document.body.classList.add('mobile-mode');
@@ -74,7 +69,6 @@ async function main() {
     });
   });
 
-  // AI provider
   const aiSelect = document.getElementById('aiProviderSelect') as HTMLSelectElement;
   aiSelect.addEventListener('change', (e) => {
     const v = (e.target as HTMLSelectElement).value;
@@ -94,7 +88,6 @@ async function main() {
     else sessionStorage.removeItem('ai_api_key');
   });
 
-  // Init provider from session
   const savedProvider = sessionStorage.getItem('ai_provider') || 'none';
   aiSelect.value = savedProvider;
   document.getElementById('apiKeyGroup')!.style.display = (savedProvider === 'groq' || savedProvider === 'anthropic') ? 'block' : 'none';
@@ -105,21 +98,19 @@ async function main() {
     document.getElementById('aiIndicator')!.textContent = savedProvider === 'puter' ? 'AI: Puter.js (zadarmo)' : savedProvider === 'groq' ? 'AI: Groq' : 'AI: Anthropic';
   }
 
-  // Start button
   document.getElementById('startButton')!.addEventListener('click', () => {
     initGame();
-    // Try to restore save
+    // Restore save, but validate shape and restore only an allow-list of keys
+    // so a malformed or malicious localStorage entry can't corrupt state.
     const raw = localStorage.getItem(era.meta.saveKey);
     if (raw) {
       try {
         const sv = JSON.parse(raw);
-        // Validate save data structure before restoring
         if (sv && typeof sv === 'object' && sv.econ && typeof sv.econ.gdp === 'number'
             && typeof sv.month === 'number' && typeof sv.approval === 'number'
             && typeof sv.stability === 'number' && typeof sv.coalition === 'number') {
           sv.used = new Set(Array.isArray(sv.used) ? sv.used.filter((x: unknown) => typeof x === 'string') : []);
           const G = getState();
-          // Only restore known safe keys
           const safeKeys: (keyof GameState)[] = ['month', 'approval', 'stability', 'coalition', 'impl',
             'prevA', 'prevS', 'prevC', 'prevImpl', 'history', 'approvalH', 'pScores', 'sScores',
             'econ', 'diplo', 'social', 'cp', 'parl', 'flags', 'cq', 'used',
@@ -143,7 +134,6 @@ async function main() {
     showScreen('dashboardScreen');
   });
 
-  // Navigation
   document.getElementById('backToMenuBtn')!.addEventListener('click', () => {
     window.location.href = './';
   });
@@ -156,14 +146,12 @@ async function main() {
     document.getElementById('resignModal')!.classList.remove('active');
   });
 
-  // Game flow
   document.getElementById('playButton')!.addEventListener('click', () => {
     displayEvent();
     showScreen('eventScreen');
   });
   document.getElementById('policyInput')!.addEventListener('input', () => {
     updateCC();
-    // Keyword hints
     const val = (document.getElementById('policyInput') as HTMLTextAreaElement).value.toLowerCase();
     const era = getEra();
     const hints = document.getElementById('keywordHints');
@@ -187,7 +175,8 @@ async function main() {
     const spin = ((document.getElementById('spinInput') as HTMLTextAreaElement)?.value || '').trim();
     G.history.push({ m: G.month, p, spin, ev: G.event ? G.event.headline || '' : '' });
     const a = await analyze(G.event, p);
-    // Spin bonus (subtle — good framing helps but can't save bad policy)
+    // Positive spin gives a small approval/persona bonus — good framing helps
+    // but can't save a bad policy (bonus is capped at +2).
     if (spin.length > 5) {
       const spinLow = spin.toLowerCase();
       const spinPositive = ['ochrana', 'moderniz', 'investic', 'rozvoj', 'budúcnosť', 'rast', 'stabilit', 'bezpečn', 'rodina', 'práca', 'zamestnan', 'prosperit', 'reform', 'zlepš', 'podpora', 'pomoc', 'inováci', 'pokrok', 'spravodliv'];
@@ -206,13 +195,11 @@ async function main() {
     showScreen('analysisScreen');
   });
 
-  // Spin toggle
   document.getElementById('spinToggle')!.addEventListener('click', () => {
     const sec = document.getElementById('spinSection')!;
     sec.style.display = sec.style.display === 'none' ? 'block' : 'none';
   });
 
-  // Analysis navigation
   document.getElementById('continueButton')!.addEventListener('click', () => showScreen('focusGroupScreen'));
   document.getElementById('backToAnalysisButton')!.addEventListener('click', () => showScreen('analysisScreen'));
   document.getElementById('continueFromFGButton')!.addEventListener('click', () => showScreen('stakeholderScreen'));
@@ -223,7 +210,6 @@ async function main() {
   });
   document.getElementById('backFromEventButton')!.addEventListener('click', () => showScreen('dashboardScreen'));
 
-  // Proactive actions
   document.getElementById('pressConfBtn')!.addEventListener('click', () => {
     const G = getState();
     if (G.politicalCapital < 15) { showProactiveResult('Nedostatok politického kapitálu!'); return; }
@@ -252,7 +238,6 @@ async function main() {
     updateDash();
   });
 
-  // Game over
   document.getElementById('playAgainButton')!.addEventListener('click', () => location.reload());
   document.getElementById('wikiButton')!.addEventListener('click', () => generateWiki());
   document.getElementById('shareButton')!.addEventListener('click', () => {
@@ -268,12 +253,10 @@ async function main() {
     }
   });
 
-  // History modal close
   document.getElementById('closeHistoryBtn')!.addEventListener('click', () => {
     document.getElementById('historyModal')!.classList.remove('active');
   });
 
-  // Bug report
   document.getElementById('bugReportBtn')!.addEventListener('click', () => {
     document.getElementById('bugReportModal')!.classList.add('active');
   });
@@ -313,7 +296,6 @@ async function main() {
     }, 2000);
   });
 
-  // Analytics tracking
   trackAnalytics('game_start', { era: eraId });
 }
 

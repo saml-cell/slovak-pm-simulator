@@ -129,7 +129,6 @@ function renderStances(): string {
 function renderMap(): string {
   const G = getState();
   const era = getEra();
-  // Compute average persona score per region
   const regionScores: Record<string, { sum: number; count: number }> = {};
   era.regions.forEach(r => {
     let sum = 0, count = 0;
@@ -152,8 +151,8 @@ function renderMap(): string {
     const r = regionScores[id];
     return r && r.count ? Math.round(r.sum / r.count) : '--';
   };
-  // Slovakia region paths — projected from real GeoJSON (Natural Earth / world.geo.json)
-  // 34 actual border points converted from lon/lat to SVG coords
+  // Paths projected from Natural Earth / world.geo.json border points
+  // (lon/lat → SVG coords).
   const regions: { id: string; name: string; path: string; tx: number; ty: number }[] = [
     { id: 'bratislavsky', name: 'BA', path: 'M16.9,162.5 L8.4,126.1 L15.2,112.7 L48,140 L90,155 L162.9,188.1 L91.5,201.0 L60.2,189.5 Z', tx: 70, ty: 165 },
     { id: 'trnavsky', name: 'TT', path: 'M15.2,112.7 L27.3,89.5 L65.0,91.3 L110,118 L169.8,166.9 L162.9,188.1 L90,155 L48,140 Z', tx: 90, ty: 135 },
@@ -225,7 +224,6 @@ export function updateDash() {
   document.getElementById('dashPmName')!.textContent = era.meta.headerTitle;
   document.getElementById('totalMonthsDisplay')!.textContent = String(era.totalMonths);
 
-  // Warnings
   const wb = document.getElementById('warningBanner')!;
   const warnings: string[] = [];
   if (G.approval < 25) warnings.push('⚠️ Podpora klesla pod 25%!');
@@ -234,7 +232,6 @@ export function updateDash() {
   if (coalitionSeats() < 76) warnings.push('⚠️ Menšinová vláda! ' + coalitionSeats() + '/150 kresiel.');
   if (warnings.length) { wb.innerHTML = warnings.join('<br>'); wb.classList.add('show'); } else wb.classList.remove('show');
 
-  // Panels
   const mapEl = document.getElementById('dashMap');
   if (mapEl) mapEl.innerHTML = renderMap();
   const econCoalEl = document.getElementById('dashEconCoalition')!;
@@ -244,7 +241,6 @@ export function updateDash() {
   document.getElementById('dashDiplomacy')!.innerHTML = renderDiplomacy();
   document.getElementById('dashHistory')!.innerHTML = renderHistoryPanel();
 
-  // Institution panels
   const instEl = document.getElementById('dashInstitutions');
   if (instEl) instEl.innerHTML = renderCourt() + renderCabinet() + renderInstitutions();
 }

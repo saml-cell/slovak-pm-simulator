@@ -19,7 +19,7 @@ function getEvent(m: number): ActiveEvent {
   const G = getState();
   const era = getEra();
 
-  // Check consequence queue — try all consequences scheduled for this month
+  // Scheduled consequences fire (or fizzle and get dropped) in order.
   const cqs = G.cq.filter(c => c.fire === m);
   for (const cq of cqs) {
     if (Math.random() < cq.prob) {
@@ -36,18 +36,16 @@ function getEvent(m: number): ActiveEvent {
         originMonth: cq.originM,
       };
     }
-    // Probability check failed — remove this consequence
     G.cq = G.cq.filter(c => c !== cq);
   }
 
-  // Check forced events
   const fe = era.forcedEvents.find(e => e.m === m && !G.used.has(e.id));
   if (fe) {
     G.used.add(fe.id);
     return { id: fe.id, headline: fe.h, description: fe.d, context: fe.c, tier: fe.t, category: fe.cat, suggestions: fe.s };
   }
 
-  // Quiet month chance decreases as game progresses (30% early → 10% late)
+  // Quiet months get rarer as the era progresses (30% early, 10% late).
   const progress = era.totalMonths > 0 ? m / era.totalMonths : 0;
   const quietChance = Math.max(0.1, 0.3 - progress * 0.25);
   if (Math.random() < quietChance) {
@@ -56,7 +54,6 @@ function getEvent(m: number): ActiveEvent {
     return { id: 'quiet_' + m, headline: q.h, description: q.d, context: q.c, tier: 'open', category: 'Sociálna politika', suggestions: ['Investovať do ekonomiky', 'Posilniť koalíciu', 'Zahraničná iniciatíva', 'Sociálne opatrenia'] };
   }
 
-  // Random events
   const av = era.randomEvents.filter(e => !G.used.has(e.id));
   if (av.length) {
     const e = av[Math.floor(Math.random() * av.length)];
@@ -64,7 +61,6 @@ function getEvent(m: number): ActiveEvent {
     return { id: e.id, headline: e.h, description: e.d, context: e.c, tier: e.t, category: e.cat, suggestions: e.s };
   }
 
-  // Fallback quiet
   const qms = getQuietMonths();
   const q = qms[Math.floor(Math.random() * qms.length)];
   return { id: 'quiet_' + m, headline: q.h, description: q.d, context: q.c, tier: 'open', category: 'Ekonomika', suggestions: ['Ekonomické reformy', 'Sociálne opatrenia', 'Zahraničná politika', 'Investície do infraštruktúry'] };
@@ -118,5 +114,5 @@ export function updateCC() {
   cc.className = 'char-count' + (n < 10 ? ' error' : '');
 }
 
-// Expose for inline onclick handlers
+// Exposed on window for inline onclick handlers in generated HTML.
 (window as unknown as Record<string, unknown>).__updateCC = updateCC;

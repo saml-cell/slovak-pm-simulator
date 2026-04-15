@@ -74,7 +74,6 @@ export async function analyze(ev: ActiveEvent | null, policy: string): Promise<A
     }
   }
 
-  // Show offline mode indicator
   const aiInd = document.getElementById('aiIndicator2');
   if (aiInd) { aiInd.textContent = '⚡ Lokálna analýza'; aiInd.classList.add('active'); }
 

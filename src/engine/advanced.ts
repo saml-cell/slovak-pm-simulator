@@ -1,11 +1,5 @@
-/**
- * Advanced Game Mechanics — Game Theory, Statistics, ML-inspired systems
- */
 import type { EraConfig, GameState } from './types';
 
-// ═══════════════════════════════════════════════════════════
-//  TUNING CONSTANTS (adjust for balance)
-// ═══════════════════════════════════════════════════════════
 const MOMENTUM_DECAY = 0.8;
 const MOMENTUM_GAIN = 0.2;
 const MOMENTUM_AMP = 0.5;
@@ -25,23 +19,19 @@ function gaussRand(): number {
   return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
 }
 
-// ═══════════════════════════════════════════════════════════
-//  1. APPROVAL MOMENTUM & VOLATILITY
-// ═══════════════════════════════════════════════════════════
 export function applyMomentum(G: GameState, rawDelta: number): number {
-  // Update momentum — same direction compounds, opposite decays
   if (rawDelta !== 0) {
     G.momentum = clamp(G.momentum * MOMENTUM_DECAY + Math.sign(rawDelta) * MOMENTUM_GAIN, -1, 1);
   } else {
     G.momentum *= MOMENTUM_DECAY;
   }
 
-  // Amplify delta by momentum (same direction = boost)
+  // Same-direction delta is amplified, opposite-direction is partially dampened.
   const amp = (Math.sign(rawDelta) === Math.sign(G.momentum))
     ? 1 + Math.abs(G.momentum) * MOMENTUM_AMP
     : 1 - Math.abs(G.momentum) * 0.2;
 
-  // Volatility from polarization (stddev of persona scores)
+  // Volatility amplifier kicks in when persona scores are polarized (high stddev).
   const scores = Object.values(G.pScores);
   if (scores.length > 1) {
     const mean = scores.reduce((a, b) => a + b, 0) / scores.length;
@@ -53,9 +43,6 @@ export function applyMomentum(G: GameState, rawDelta: number): number {
   return rawDelta * amp;
 }
 
-// ═══════════════════════════════════════════════════════════
-//  2. COALITION GAME THEORY (Nash Bargaining)
-// ═══════════════════════════════════════════════════════════
 export function nashBargaining(G: GameState, era: EraConfig): void {
   const totalSeats = era.coalitionPartners.reduce((s, cp) => s + (G.cp[cp.id]?.on ? cp.seats : 0), 0);
   const surplus = totalSeats - 76; // seats above majority threshold
@@ -64,19 +51,17 @@ export function nashBargaining(G: GameState, era: EraConfig): void {
     const p = G.cp[cp.id];
     if (!p || !p.on) return;
 
-    // Leverage: how critical is this partner? Higher = more power
-    // Use Shapley power if computed, fallback to simple leverage
+    // Leverage uses Shapley power if available, else seat-share over surplus.
     const shapley = G.shapleyPower[cp.id] ?? 0;
     const leverage = shapley > 0 ? shapley * 4 : (surplus > 0 ? Math.min(3, cp.seats / Math.max(1, surplus)) : 0.5);
 
-    // Patience drain scales with leverage — powerful partners drain faster when unhappy
-    // Bad polls make partners nervous
+    // Powerful partners bleed patience faster when unhappy; bad polls compound the effect.
     const pollPenalty = G.pollApproval < 30 ? (30 - G.pollApproval) * 0.05 : 0;
     if (p.sat < 50) {
       p.pat -= (50 - p.sat) * (0.1 + leverage * 0.08) + pollPenalty;
     }
 
-    // Dynamic demand frequency — leveraged partners demand more often
+    // Higher leverage also lets a partner demand more often.
     const effectiveFreq = Math.max(2, cp.freq - Math.floor(leverage));
     if (!p.dem && (G.month - p.lastD) >= effectiveFreq) {
       const ds = era.demands.filter(d => d.partner === cp.id);
@@ -86,10 +71,8 @@ export function nashBargaining(G: GameState, era: EraConfig): void {
       }
     }
 
-    // Threat behavior — partners with low patience and high leverage are dangerous
     const threatThreshold = 10 + leverage * 12;
     if (p.pat <= threatThreshold && cp.id !== era.coalitionPartners[0]?.id) {
-      // Small chance of actually leaving based on leverage
       if (p.pat <= 0) {
         p.on = 0; p.sat = 10;
         G.sScores[cp.id] = 10;
@@ -101,19 +84,17 @@ export function nashBargaining(G: GameState, era: EraConfig): void {
   });
 }
 
-// ═══════════════════════════════════════════════════════════
-//  SHAPLEY POWER INDEX — cooperative game theory
-// ═══════════════════════════════════════════════════════════
+// Shapley–Shubik power index. Enumerates n! permutations, fine because
+// coalitions in this game have at most ~6 partners.
 export function computeShapley(G: GameState, era: EraConfig): void {
   const active = era.coalitionPartners.filter(cp => G.cp[cp.id]?.on);
   const n = active.length;
   if (n === 0) return;
 
-  const quota = 76; // majority threshold
+  const quota = 76; // parliamentary majority
   const power: Record<string, number> = {};
   active.forEach(cp => { power[cp.id] = 0; });
 
-  // Enumerate all permutations (n! — feasible for n<=6 coalition partners)
   const factorial = (x: number): number => x <= 1 ? 1 : x * factorial(x - 1);
   const totalPerms = factorial(n);
 
@@ -140,9 +121,8 @@ export function computeShapley(G: GameState, era: EraConfig): void {
   G.shapleyPower = power;
 }
 
-// ═══════════════════════════════════════════════════════════
-//  3. PERSONA SOCIAL NETWORK INFLUENCE
-// ═══════════════════════════════════════════════════════════
+// Personas pull each other toward a shared mean, where "neighbors" share a
+// region or political lean. Strongly negative neighbors exert extra drag.
 export function socialInfluence(G: GameState, era: EraConfig): void {
   const newScores: Record<string, number> = {};
 
@@ -150,14 +130,12 @@ export function socialInfluence(G: GameState, era: EraConfig): void {
     const current = G.pScores[p.id] || 50;
     let neighborSum = 0, neighborCount = 0;
 
-    // Find neighbors: same region or same lean
     era.personas.forEach(other => {
       if (other.id === p.id) return;
       if (other.region === p.region || other.lean === p.lean) {
         const s = G.pScores[other.id] || 50;
         neighborSum += s;
         neighborCount++;
-        // Drag effect — strongly negative neighbor pulls down
         if (s < 25) neighborSum -= SOCIAL_DRAG;
       }
     });
@@ -170,22 +148,16 @@ export function socialInfluence(G: GameState, era: EraConfig): void {
     }
   });
 
-  // Apply
   Object.entries(newScores).forEach(([id, v]) => {
     G.pScores[id] = clamp(v, 5, 95);
   });
 }
 
-// ═══════════════════════════════════════════════════════════
-//  4. ECONOMIC FEEDBACK LOOPS
-// ═══════════════════════════════════════════════════════════
 export function econFeedback(G: GameState): void {
-  // Unemployment drags approval
   if (G.econ.unemp > UNEMP_DRAG_THRESHOLD) {
     G.approval -= (G.econ.unemp - UNEMP_DRAG_THRESHOLD) * 0.3;
   }
 
-  // Inflation penalty on persona scores
   if (G.econ.infl > INFL_DRAG_THRESHOLD) {
     const penalty = (G.econ.infl - INFL_DRAG_THRESHOLD) * 0.3;
     Object.keys(G.pScores).forEach(id => {
@@ -193,26 +165,20 @@ export function econFeedback(G: GameState): void {
     });
   }
 
-  // GDP growth → approval feedback (Okun's law handles unemployment/inflation now)
   if (G.econ.gdpGrowth > 2) {
     G.approval += (G.econ.gdpGrowth - 2) * 0.4;
   }
 
-  // Debt-to-GDP anxiety (replaces simple threshold)
   if (G.debtToGdp > 60) {
     const severity = (G.debtToGdp - 60) * 0.06;
     G.stability -= severity;
     if (G.debtToGdp > 90) G.approval -= 0.5;
   }
 
-  // Clamp results
   G.approval = clamp(G.approval);
   G.stability = clamp(G.stability);
 }
 
-// ═══════════════════════════════════════════════════════════
-//  5. POLICY MEMORY & CONSISTENCY SCORING
-// ═══════════════════════════════════════════════════════════
 const THEME_KEYWORDS: Record<string, string[]> = {
   eu: ['eu', 'nato', 'brusel', 'európ', 'ukraine', 'ukrajin'],
   rusko: ['russia', 'rusko', 'moskva', 'mier', 'peace'],
@@ -232,11 +198,11 @@ export function policyConsistency(G: GameState, policy: string): { bonus: number
     if (kws.some(k => low.includes(k))) detectedThemes.push(theme);
   });
 
-  // Store themes (keep last 20)
+  // Track a rolling window of the last 20 themes.
   G.policyThemes.push(...detectedThemes);
   if (G.policyThemes.length > 20) G.policyThemes = G.policyThemes.slice(-20);
 
-  // Consistency bonus: most frequent theme appears 5+ times
+  // Award the consistency bonus once a theme has shown up at least 5 times.
   let bonus = 0;
   if (G.policyThemes.length >= 5) {
     const freq: Record<string, number> = {};
@@ -245,8 +211,8 @@ export function policyConsistency(G: GameState, policy: string): { bonus: number
     if (maxFreq >= 5) bonus = CONSISTENCY_BONUS;
   }
 
-  // Flip-flop detection: did this policy push a stance opposite to recent trend?
-  // Uses the stance map from game-flow.ts to determine direction
+  // Flip-flop detection: each theme has a [right-pushing, left-pushing] keyword
+  // list. Pushing against an already-strong stance triggers the penalty.
   const stancePushDir: Record<string, string[][]> = {
     eu: [['eu', 'nato', 'brusel', 'európ'], ['sovereign', 'suverenita', 'suverén']],
     rusko: [['russia', 'rusko', 'moskva', 'mier'], ['prozápadn', 'ukrajin']],
@@ -263,19 +229,15 @@ export function policyConsistency(G: GameState, policy: string): { bonus: number
       if (dirs) {
         const pushesRight = dirs[0].some(k => low.includes(k));
         const pushesLeft = dirs[1]?.some(k => low.includes(k)) ?? false;
-        // Flip-flop: pushing right when stance is strongly left, or vice versa
         if (pushesRight && !pushesLeft && stance < -2) flipPenalty += FLIP_FLOP_PENALTY;
         else if (pushesLeft && !pushesRight && stance > 2) flipPenalty += FLIP_FLOP_PENALTY;
       }
     }
   });
 
-  return { bonus, flipPenalty: Math.max(flipPenalty, -8) }; // cap total penalty
+  return { bonus, flipPenalty: Math.max(flipPenalty, -8) };
 }
 
-// ═══════════════════════════════════════════════════════════
-//  6. ELECTION SIMULATION (Monte Carlo + D'Hondt)
-// ═══════════════════════════════════════════════════════════
 interface ElectionResult {
   seats: Record<string, { mean: number; low: number; high: number }>;
   winProbability: number;
@@ -298,7 +260,7 @@ function dhondt(votes: Record<string, number>, totalSeats: number): Record<strin
 }
 
 export function simulateElection(G: GameState, era: EraConfig): ElectionResult {
-  // Base vote shares from game state
+  // Coalition parties scale with approval, opposition scales inversely.
   const baseShares: Record<string, number> = {};
   const coalitionIds = new Set(era.coalitionPartners.map(cp => cp.id));
   const partyApproval = G.approval / 100;
@@ -306,7 +268,6 @@ export function simulateElection(G: GameState, era: EraConfig): ElectionResult {
   Object.entries(G.parl).forEach(([party, origSeats]) => {
     if (origSeats <= 0) return;
     const isCoalition = coalitionIds.has(party);
-    // Coalition parties scale with approval, opposition inversely
     const base = (origSeats / 150) * 100;
     if (isCoalition) {
       baseShares[party] = base * (0.6 + partyApproval * 0.8);
@@ -315,18 +276,19 @@ export function simulateElection(G: GameState, era: EraConfig): ElectionResult {
     }
   });
 
-  // Run Monte Carlo
   const allRuns: Record<string, number[]> = {};
   Object.keys(baseShares).forEach(p => { allRuns[p] = []; });
   let coalitionWins = 0;
 
+  // Uncertainty scales inversely with stability — chaotic governments have
+  // wider election ranges.
   const uncertainty = 3 + (100 - G.stability) * 0.04;
 
   for (let run = 0; run < ELECTION_RUNS; run++) {
     const votes: Record<string, number> = {};
     Object.entries(baseShares).forEach(([party, base]) => {
       const noisy = Math.max(0, base + gaussRand() * uncertainty);
-      if (noisy >= 5) votes[party] = noisy; // 5% threshold
+      if (noisy >= 5) votes[party] = noisy; // 5% parliamentary threshold
     });
 
     const seats = dhondt(votes, 150);
@@ -334,13 +296,11 @@ export function simulateElection(G: GameState, era: EraConfig): ElectionResult {
       allRuns[party].push(s);
     });
 
-    // Check if coalition wins
     let coalSeats = 0;
     coalitionIds.forEach(id => { coalSeats += seats[id] || 0; });
     if (coalSeats >= 76) coalitionWins++;
   }
 
-  // Compute stats
   const result: ElectionResult['seats'] = {};
   Object.entries(allRuns).forEach(([party, runs]) => {
     if (!runs.length) return;
@@ -362,9 +322,10 @@ export function simulateElection(G: GameState, era: EraConfig): ElectionResult {
   return { seats: result, winProbability: winProb, narrative };
 }
 
-// ═══════════════════════════════════════════════════════════
-//  MEDIA CYCLE — news salience and decay
-// ═══════════════════════════════════════════════════════════
+// Tracks which story is dominating the news. A sufficiently intense event
+// displaces whatever was running; otherwise the current story decays. The
+// returned multiplier amplifies approval swings when the cycle is hot and
+// dampens them when the public is distracted. Range: 0.6 to 1.2.
 export function mediaCycleTick(G: GameState, eventTier: string, eventHeadline: string): number {
   const tierIntensity: Record<string, number> = {
     crisis: 0.9,
@@ -375,42 +336,33 @@ export function mediaCycleTick(G: GameState, eventTier: string, eventHeadline: s
   };
   const newIntensity = tierIntensity[eventTier] ?? 0.3;
 
-  // New story displaces old one if more intense
   if (newIntensity > G.mediaCycle * 0.6) {
     G.mediaCycle = Math.min(1, G.mediaCycle * 0.3 + newIntensity);
     G.mediaCycleEvent = eventHeadline;
   } else {
-    G.mediaCycle *= 0.7; // existing story decays
+    G.mediaCycle *= 0.7;
   }
 
-  // Return media amplification multiplier
-  // High cycle = bigger public reaction, low = public distracted
-  return 0.6 + G.mediaCycle * 0.6; // 0.6 to 1.2
+  return 0.6 + G.mediaCycle * 0.6;
 }
 
-// ═══════════════════════════════════════════════════════════
-//  NOISY POLLING — what the player sees vs. reality
-// ═══════════════════════════════════════════════════════════
+// pollApproval = actual approval + slow-drifting methodological bias
+// (pollError) + per-tick sampling noise. Stable countries gradually correct
+// their polling bias toward zero.
 export function updatePolling(G: GameState): void {
-  // Polling error drifts slowly (methodological bias)
   G.pollError += gaussRand() * 0.3;
   G.pollError = clamp(G.pollError, -5, 5);
 
-  // Poll result = actual approval + systematic bias + random noise
-  const noise = gaussRand() * 2; // ±2% random sampling error
+  const noise = gaussRand() * 2;
   G.pollApproval = clamp(G.approval + G.pollError + noise);
 
-  // Polls are more accurate when sample is large (stability proxy)
   if (G.stability > 70) {
-    G.pollError *= 0.9; // stable country → better polling infrastructure
+    G.pollError *= 0.9;
   }
 }
 
-// ═══════════════════════════════════════════════════════════
-//  7. OPPOSITION STRATEGY AI
-// ═══════════════════════════════════════════════════════════
 export function oppositionMove(G: GameState, era: EraConfig): { action: string; effect: { approval: number; stability: number; coalition: number } } {
-  // Update opposition pressure — grows when player is weak, decays when strong
+  // Pressure accumulates when the government is weak and decays otherwise.
   const avg = (G.approval + G.stability + G.coalition) / 3;
   if (avg < 40) G.oppositionPressure = Math.min(100, G.oppositionPressure + OPPOSITION_GROWTH);
   else G.oppositionPressure *= OPPOSITION_DECAY;
@@ -422,10 +374,9 @@ export function oppositionMove(G: GameState, era: EraConfig): { action: string; 
     { key: 'coalition', val: G.coalition },
   ];
 
-  // Only act if pressure is meaningful
   if (intensity < 0.3) return { action: '', effect: { approval: 0, stability: 0, coalition: 0 } };
 
-  // Find weakest metric
+  // Opposition targets whichever government metric is lowest.
   const weakest = metrics.reduce((a, b) => a.val < b.val ? a : b);
 
   if (weakest.key === 'approval' && weakest.val < 40) {
@@ -441,7 +392,6 @@ export function oppositionMove(G: GameState, era: EraConfig): { action: string; 
     };
   }
   if (weakest.key === 'coalition' && weakest.val < 40) {
-    // Target weakest coalition partner
     let weakPartner = '';
     let lowestSat = 100;
     era.coalitionPartners.forEach(cp => {
@@ -469,21 +419,16 @@ export function oppositionMove(G: GameState, era: EraConfig): { action: string; 
   return { action: '', effect: { approval: 0, stability: 0, coalition: 0 } };
 }
 
-// ═══════════════════════════════════════════════════════════
-//  8. BUSINESS CYCLE (sine wave + random shocks)
-// ═══════════════════════════════════════════════════════════
+// Sine-wave business cycle (~36 month period) plus occasional shocks and
+// mean reversion toward long-run Slovak averages / ECB inflation target.
 export function businessCycleTick(G: GameState): void {
-  // Advance cycle position (period ~36 months)
   G.businessCycle += (2 * Math.PI) / 36 + gaussRand() * 0.05;
   if (G.businessCycle > 2 * Math.PI) G.businessCycle -= 2 * Math.PI;
 
   const wave = Math.sin(G.businessCycle);
-
-  // Business cycle affects GDP growth and unemployment
   G.econ.gdpGrowth += wave * 0.15;
   G.econ.unemp += wave * -0.08;
 
-  // Random economic shocks (2% chance per month of significant shock)
   if (Math.random() < 0.02) {
     const shock = gaussRand() * 1.5;
     G.econ.gdpGrowth += shock;
@@ -491,66 +436,52 @@ export function businessCycleTick(G: GameState): void {
     G.stability -= Math.abs(shock) * 2;
   }
 
-  // Mean reversion — extreme values pull back toward normal
-  G.econ.gdpGrowth += (2.0 - G.econ.gdpGrowth) * 0.03; // pull toward 2%
-  G.econ.unemp += (6.0 - G.econ.unemp) * 0.02;          // pull toward 6%
-  G.econ.infl += (2.5 - G.econ.infl) * 0.04;             // pull toward 2.5% (ECB target)
+  G.econ.gdpGrowth += (2.0 - G.econ.gdpGrowth) * 0.03;
+  G.econ.unemp += (6.0 - G.econ.unemp) * 0.02;
+  G.econ.infl += (2.5 - G.econ.infl) * 0.04;
 }
 
-// ═══════════════════════════════════════════════════════════
-//  9. DEFICIT DYNAMICS — fiscal policy has real consequences
-// ═══════════════════════════════════════════════════════════
 export function deficitDynamics(G: GameState): void {
-  // Social spending (pensions, healthcare) automatically increases deficit
+  // Social-spending stance pushes the deficit up; growth pulls it down and
+  // recessions blow it out. Slow reversion toward a baseline -3% deficit.
   const socialPressure = Math.max(0, G.stances.social || 0) * 0.2;
   G.econ.deficit += socialPressure * 0.1;
 
-  // Tax policy affects deficit — economic growth generates revenue
   if (G.econ.gdpGrowth > 2) {
-    G.econ.deficit -= (G.econ.gdpGrowth - 2) * 0.15; // growth reduces deficit
+    G.econ.deficit -= (G.econ.gdpGrowth - 2) * 0.15;
   } else if (G.econ.gdpGrowth < 0) {
-    G.econ.deficit += Math.abs(G.econ.gdpGrowth) * 0.3; // recession worsens deficit
+    G.econ.deficit += Math.abs(G.econ.gdpGrowth) * 0.3;
   }
 
-  // Deficit mean reversion (fiscal gravity)
   G.econ.deficit += ((-3.0) - G.econ.deficit) * 0.02;
-
-  // Clamp deficit
   G.econ.deficit = Math.max(-15, Math.min(5, G.econ.deficit));
 }
 
-// ═══════════════════════════════════════════════════════════
-//  DEBT-TO-GDP RATIO & INTEREST RATE DYNAMICS
-// ═══════════════════════════════════════════════════════════
 export function fiscalHealth(G: GameState): void {
-  // Update debt-to-GDP ratio
   if (G.econ.gdp > 0) {
     G.debtToGdp = (G.econ.debt / G.econ.gdp) * 100;
   }
 
-  // Endogenous interest rate — markets price risk
+  // Markets price risk: base rate depends on EU access, with premia added
+  // for high debt/GDP and sustained large deficits.
   const euAccess = (G.diplo.eu ?? 50) / 100;
-  const baseRate = 2.0 - euAccess * 1.0; // 1.0% (good EU) to 2.0% (bad EU)
+  const baseRate = 2.0 - euAccess * 1.0;
   const riskPremium = G.debtToGdp > 60 ? (G.debtToGdp - 60) * 0.08 : 0;
   const deficitPremium = G.econ.deficit > 3 ? (G.econ.deficit - 3) * 0.15 : 0;
 
   const targetRate = Math.max(0.5, Math.min(12, baseRate + riskPremium + deficitPremium));
   G.interestRate += (targetRate - G.interestRate) * 0.15;
 
-  // Interest payments eat into deficit
   const interestCost = G.econ.debt * (G.interestRate / 100) / 12;
   G.econ.deficit += interestCost * 0.1;
 
-  // Debt spiral: interest > growth + 2pp AND high debt = unsustainable
+  // Classic debt spiral: rates exceed growth by 2pp while debt is already high.
   if (G.interestRate > G.econ.gdpGrowth + 2 && G.debtToGdp > 80) {
     G.stability -= 0.5;
     G.approval -= 0.3;
   }
 }
 
-// ═══════════════════════════════════════════════════════════
-//  FOREIGN DIRECT INVESTMENT — capital flows
-// ═══════════════════════════════════════════════════════════
 export function fdiDynamics(G: GameState): void {
   const stabilityFactor = G.stability / 100;
   const euFactor = (G.diplo.eu ?? 50) / 100;
@@ -562,54 +493,45 @@ export function fdiDynamics(G: GameState): void {
   G.fdi += (targetFdi - G.fdi) * 0.08;
   G.fdi = clamp(G.fdi, 0, 10);
 
-  // FDI effects on economy
   G.econ.gdpGrowth += G.fdi * 0.03;
   G.econ.unemp -= G.fdi * 0.015;
   G.econ.unemp = Math.max(2, G.econ.unemp);
 
-  // FDI shock — sudden withdrawal if conditions deteriorate
+  // Capital-flight shock when FDI collapses in an already-unstable country.
   if (G.fdi < 2 && stabilityFactor < 0.3) {
     G.econ.unemp += 0.3;
     G.econ.gdpGrowth -= 0.2;
   }
 }
 
-// ═══════════════════════════════════════════════════════════
-//  OKUN'S LAW — GDP-unemployment relationship
-// ═══════════════════════════════════════════════════════════
+// Okun's law plus Phillips-curve wage pressure around a ~6% NAIRU, with a
+// reactive central bank: high inflation raises rates which raises
+// unemployment. The central bank is the ECB for eurozone eras, NBS otherwise.
 export function okunsLaw(G: GameState): void {
   const potentialGrowth = 2.5;
   const gap = G.econ.gdpGrowth - potentialGrowth;
 
   if (gap < 0) {
-    G.econ.unemp -= gap * 0.3; // negative gap → positive unemployment change
+    G.econ.unemp -= gap * 0.3;
   } else {
     G.econ.unemp -= gap * 0.2;
   }
   G.econ.unemp = clamp(G.econ.unemp, 2, 30);
 
-  // NAIRU ~6% for Slovakia
   const nairu = 6.0;
   if (G.econ.unemp < nairu) {
-    const gapBelowNairu = nairu - G.econ.unemp;
-    G.econ.infl += gapBelowNairu * 0.08; // reduced from 0.12 — less aggressive
+    G.econ.infl += (nairu - G.econ.unemp) * 0.08;
   } else if (G.econ.unemp > nairu + 2) {
-    G.econ.infl -= (G.econ.unemp - nairu - 2) * 0.06; // broader disinflation zone
+    G.econ.infl -= (G.econ.unemp - nairu - 2) * 0.06;
   }
 
-  // Central bank response: high inflation → higher rates → higher unemployment
-  // (ECB for eurozone eras, NBS for pre-euro)
   if (G.econ.infl > 4) {
-    const rateResponse = (G.econ.infl - 4) * 0.04;
-    G.econ.unemp += rateResponse; // rate hikes cool the labor market
+    G.econ.unemp += (G.econ.infl - 4) * 0.04;
   }
 
   G.econ.infl = clamp(G.econ.infl, 0, 25);
 }
 
-// ═══════════════════════════════════════════════════════════
-//  LABOR MARKET — participation and brain drain
-// ═══════════════════════════════════════════════════════════
 export function laborMarketTick(G: GameState): void {
   const wagePull = G.econ.minW < 600 ? -0.1 : G.econ.minW > 900 ? 0.05 : 0;
   const discouragement = G.econ.unemp > 10 ? -(G.econ.unemp - 10) * 0.02 : 0;
@@ -629,54 +551,41 @@ export function laborMarketTick(G: GameState): void {
   }
 }
 
-// ═══════════════════════════════════════════════════════════
-//  10. EU FUNDS LINK — diplomacy affects real money
-// ═══════════════════════════════════════════════════════════
+// EU fund flow scales with diplo.eu (0-100 → 0-10 bn), adjusts gradually,
+// and feeds back into deficit and growth. Hostile relations trigger a
+// budget shortfall from cancelled programs.
 export function euFundsLink(G: GameState): void {
   const euRelation = G.diplo.eu ?? 50;
 
-  // EU funds scale with relations (0-100 → 0-10 billion flow)
   const targetFlow = (euRelation / 100) * 10;
-  G.euFundsFlow += (targetFlow - G.euFundsFlow) * 0.1; // gradual adjustment
+  G.euFundsFlow += (targetFlow - G.euFundsFlow) * 0.1;
 
-  // EU funds reduce deficit and boost GDP
   G.econ.deficit -= G.euFundsFlow * 0.05;
   G.econ.gdpGrowth += G.euFundsFlow * 0.02;
 
-  // Low EU funds notification threshold
   if (G.euFundsFlow < 2 && euRelation < 30) {
-    G.econ.deficit += 0.3; // loss of EU funds hurts budget
+    G.econ.deficit += 0.3;
   }
 }
 
-// ═══════════════════════════════════════════════════════════
-//  11. SMART MINIMUM WAGE — linked to inflation and policy
-// ═══════════════════════════════════════════════════════════
+// Annual minimum wage review: inflation is the floor, a social stance
+// and real GDP growth add to it, minimum 10 EUR/yr.
 export function smartMinWage(G: GameState): void {
-  // Annual review (every 12 months)
   if (G.month > 0 && G.month % 12 === 0) {
-    // Base increase tracks inflation
     const inflAdjust = G.econ.minW * (G.econ.infl / 100);
-    // Social stance pushes higher increases
     const socialBonus = Math.max(0, G.stances.social || 0) * G.econ.minW * 0.005;
-    // GDP growth enables higher increases
     const growthBonus = Math.max(0, G.econ.gdpGrowth) * G.econ.minW * 0.003;
 
     const increase = Math.round(inflAdjust + socialBonus + growthBonus);
-    G.econ.minW += Math.max(10, increase); // at least 10 per year
+    G.econ.minW += Math.max(10, increase);
 
-    // Higher min wage increases persona scores for workers but hurts business
     Object.keys(G.pScores).forEach(id => {
       G.pScores[id] = clamp(G.pScores[id] + (increase > 30 ? 1 : -0.5), 5, 95);
     });
   }
 }
 
-// ═══════════════════════════════════════════════════════════
-//  12. ECONOMIC CRISIS TRIGGERS
-// ═══════════════════════════════════════════════════════════
 export function econCrisisCheck(G: GameState): string | null {
-  // Check for crisis conditions — return warning message or null
   if (G.debtToGdp > 80 && G.econ.deficit > 4) {
     G.econ.gdpGrowth -= 1;
     G.stability = Math.max(0, G.stability - 5);
@@ -700,23 +609,17 @@ export function econCrisisCheck(G: GameState): string | null {
   return null;
 }
 
-// ═══════════════════════════════════════════════════════════
-//  13. INCUMBENCY PENALTY — popularity naturally erodes
-// ═══════════════════════════════════════════════════════════
+// Small monthly approval decay that grows with tenure but is capped at 0.30
+// per month; stability erodes a bit too.
 export function incumbencyPenalty(G: GameState): void {
-  // Small natural approval decay each month (voters get bored/frustrated)
-  const decay = 0.15 + Math.min(G.month * 0.004, 0.15); // caps at 0.30 total (was unbounded)
+  const decay = 0.15 + Math.min(G.month * 0.004, 0.15);
   G.approval = Math.max(0, G.approval - decay);
-
-  // Stability also erodes slightly — governing is hard
   G.stability = Math.max(0, G.stability - 0.08);
 }
 
-// ═══════════════════════════════════════════════════════════
-//  14. CRISIS FATIGUE — constant crises numb the public
-// ═══════════════════════════════════════════════════════════
+// Constant crises desensitize the public. Returned multiplier dampens
+// approval swings in both directions as fatigue rises. Range: 1.0 to 0.6.
 export function crisisFatigueTick(G: GameState, eventTier: string): number {
-  // Crises increase fatigue, quiet months decrease it
   if (eventTier === 'crisis') {
     G.crisisFatigue = Math.min(1, G.crisisFatigue + 0.12);
   } else if (eventTier === 'open') {
@@ -725,121 +628,90 @@ export function crisisFatigueTick(G: GameState, eventTier: string): number {
     G.crisisFatigue = Math.max(0, G.crisisFatigue - 0.03);
   }
 
-  // Return effectiveness multiplier — high fatigue = smaller approval swings
-  // (public is numb, both good and bad news has less impact)
-  return 1 - G.crisisFatigue * 0.4; // 1.0 to 0.6
+  return 1 - G.crisisFatigue * 0.4;
 }
 
-// ═══════════════════════════════════════════════════════════
-//  15. POLITICAL CAPITAL — limited resource for big moves
-// ═══════════════════════════════════════════════════════════
+// Policy length proxies ambition and costs capital; high approval speeds
+// recharge. Returned multiplier weakens low-capital policy impact.
 export function politicalCapitalTick(G: GameState, policyLength: number): number {
-  // Longer/more ambitious policies cost more capital
   const cost = Math.min(20, policyLength / 50);
   G.politicalCapital = Math.max(0, G.politicalCapital - cost);
-
-  // Recharge slowly each month
   G.politicalCapital = Math.min(100, G.politicalCapital + 3);
-
-  // High approval recharges faster
   if (G.approval > 60) G.politicalCapital = Math.min(100, G.politicalCapital + 2);
 
-  // Return implementation multiplier — low capital = policies less effective
   if (G.politicalCapital < 20) return 0.6;
   if (G.politicalCapital < 40) return 0.8;
   return 1.0;
 }
 
-// ═══════════════════════════════════════════════════════════
-//  BRAIN DRAIN — emigration pressure from poor conditions
-// ═══════════════════════════════════════════════════════════
 export function brainDrainTick(G: GameState): void {
-  // Low wages + high unemployment + low EU relations = emigration
   const wagePressure = G.econ.minW < 700 ? (700 - G.econ.minW) * 0.01 : 0;
   const unempPressure = G.econ.unemp > 10 ? (G.econ.unemp - 10) * 0.1 : 0;
-  // Good EU relations: easier to emigrate BUT also better economy retains talent
-  // Net effect: only drives brain drain when wages/unemployment are already bad
+  // Good EU relations cut both ways: free movement makes leaving easier, but
+  // also signal a healthier economy that retains talent. Only a net
+  // brain-drain driver when wages/jobs are already bad.
   const euPull = G.diplo.eu !== undefined && G.diplo.eu > 60
     ? (wagePressure + unempPressure > 0.3 ? (G.diplo.eu - 60) * 0.01 : -(G.diplo.eu - 60) * 0.005)
     : 0;
 
   G.brainDrain = Math.min(50, Math.max(0, G.brainDrain + wagePressure + unempPressure + euPull - 0.1));
 
-  // Brain drain reduces GDP growth potential
   if (G.brainDrain > 15) {
     G.econ.gdpGrowth -= (G.brainDrain - 15) * 0.02;
   }
-  // Very high brain drain hits labor participation
   if (G.brainDrain > 30) {
     G.laborParticipation = Math.max(55, G.laborParticipation - 0.1);
   }
 }
 
-// ═══════════════════════════════════════════════════════════
-//  OLIGARCHIC NETWORK — hidden corruption exposure
-// ═══════════════════════════════════════════════════════════
+// oligarchicTies is built up elsewhere by pro-business/privatization policy
+// and decayed by transparency moves. Above 30 there is a rolling chance of
+// a scandal firing.
 export function oligarchicTick(G: GameState): void {
-  // Privatization, deregulation, and pro-business policies increase ties
-  // Transparency and anti-corruption decrease them
-  // High ties = periodic scandal risk
   if (G.oligarchicTies > 30 && Math.random() < G.oligarchicTies * 0.003) {
-    // Scandal hits
     G.approval = Math.max(0, G.approval - 3);
     G.stability = Math.max(0, G.stability - 2);
     if (G.social.corrupt !== undefined) G.social.corrupt = Math.min(100, G.social.corrupt + 5);
   }
-  // Natural decay
   G.oligarchicTies = Math.max(0, G.oligarchicTies - 0.2);
 }
 
-// ═══════════════════════════════════════════════════════════
-//  16. DIPLOMATIC FEEDBACK — low EU means real consequences
-// ═══════════════════════════════════════════════════════════
 export function diploFeedback(G: GameState): void {
-  // NATO relations affect stability (security guarantee)
+  // NATO weakness drags stability, broken Russia ties pinch energy prices
+  // (the EU penalty from *good* Russia ties is handled at the policy level),
+  // strong Czech ties help trade.
   const nato = G.diplo.nato_r ?? 50;
   if (nato < 30) G.stability -= 0.3;
 
-  // Russia relations: high = cheap energy but EU penalty already handled
-  // Low Russia: slight energy cost
   const russia = G.diplo.russia ?? 50;
-  if (russia < 20) G.econ.infl += 0.05; // energy price pressure
+  if (russia < 20) G.econ.infl += 0.05;
 
-  // Good Czech relations boost trade
   const czech = G.diplo.czech ?? 50;
   if (czech > 70) G.econ.gdpGrowth += 0.01;
 }
 
-// ═══════════════════════════════════════════════════════════
-//  MEDIA ECOSYSTEM TICK
-// ═══════════════════════════════════════════════════════════
+// Feedback chain: restricted press → rising disinformation → declining media
+// trust → higher crisis fatigue. A strong civil society pushes back on
+// corruption but the protests themselves cost the government approval.
 export function mediaEcosystemTick(G: GameState): void {
-  // Dezinfo grows when press freedom is low and trust is low
   if (G.social.press !== undefined && G.social.press < 40) {
     G.social.dezinfo = Math.min(80, (G.social.dezinfo || 20) + 0.3);
   }
-  // High dezinfo erodes trust
   if ((G.social.dezinfo || 0) > 40) {
     G.social.mediaTrust = Math.max(10, (G.social.mediaTrust || 50) - 0.2);
   }
-  // Low media trust makes approval more volatile
   if ((G.social.mediaTrust || 50) < 30) {
     G.crisisFatigue = Math.min(1, G.crisisFatigue + 0.01);
   }
-  // Strong civil society pushes back against corruption
   if ((G.social.civilSociety || 50) > 60 && (G.social.corrupt || 50) > 50) {
     G.social.corrupt = Math.max(0, G.social.corrupt - 0.3);
-    G.approval = Math.max(0, G.approval - 0.5); // protests reduce approval
+    G.approval = Math.max(0, G.approval - 0.5);
   }
 }
 
-// ═══════════════════════════════════════════════════════════
-//  CONSTITUTIONAL COURT TICK
-// ═══════════════════════════════════════════════════════════
 export function courtTick(G: GameState, era: EraConfig): void {
   if (!G.court.judges.length) return;
 
-  // Check for term expirations
   G.court.judges = G.court.judges.filter(j => {
     if (j.termEnd > 0 && G.month >= j.termEnd) {
       G.court.pendingVacancies++;
@@ -848,11 +720,11 @@ export function courtTick(G: GameState, era: EraConfig): void {
     return true;
   });
 
-  // Court prestige — decays if vacancies pile up
   if (G.court.pendingVacancies > 0) {
     G.court.courtPrestige = Math.max(10, G.court.courtPrestige - G.court.pendingVacancies * 0.8);
   }
-  // If below quorum (7 judges), court is paralyzed
+  // Below 7 judges the court lacks quorum and cannot rule — this also
+  // damages EU relations (rule-of-law concern).
   const quorumMet = G.court.judges.length >= 7;
   if (!quorumMet) {
     G.court.courtPrestige = Math.max(5, G.court.courtPrestige - 2);
@@ -860,13 +732,12 @@ export function courtTick(G: GameState, era: EraConfig): void {
     if (G.diplo.eu !== undefined) G.diplo.eu = Math.max(0, G.diplo.eu - 0.3);
   }
 
-  // Court prestige natural drift toward average court stats
   const avgConviction = G.court.judges.reduce((s, j) => s + j.conviction, 0) / Math.max(1, G.court.judges.length);
   if (avgConviction > 6) {
     G.court.courtPrestige = Math.min(90, G.court.courtPrestige + 0.1);
   }
 
-  // Random judge resignation (very rare, ~2% per month for low conviction judges)
+  // Low-conviction judges have a ~2%/month chance of resigning under pressure.
   const resignedIds: string[] = [];
   for (const j of G.court.judges) {
     if (j.conviction <= 3 && Math.random() < 0.02) {
@@ -879,25 +750,20 @@ export function courtTick(G: GameState, era: EraConfig): void {
   }
 }
 
-// Compute effective court ideology — affects checksAndBalances.court
+// Higher return value = court more aligned with the PM (weaker check).
 export function courtIdeologyScore(G: GameState): number {
   if (!G.court.judges.length) return 50;
   const avgIdeology = G.court.judges.reduce((s, j) => s + j.ideology, 0) / G.court.judges.length;
   const avgLoyalty = G.court.judges.reduce((s, j) => s + j.loyalty, 0) / G.court.judges.length;
-  // Higher loyalty = less pushback, higher ideology alignment = more favorable
-  // Return 0-100 where 100 = court fully aligned with PM (less checks)
   return clamp((avgLoyalty / 10) * 60 + (1 - G.court.courtPrestige / 100) * 40, 0, 100);
 }
 
-// ═══════════════════════════════════════════════════════════
-//  CABINET TICK — minister scandals, cohesion, competence
-// ═══════════════════════════════════════════════════════════
 export function cabinetTick(G: GameState, era: EraConfig): { scandal: string | null } {
   if (!G.cabinet.ministers.length) return { scandal: null };
 
   let scandal: string | null = null;
 
-  // Minister scandal roll — each minister has corruption/100 chance per month
+  // At most one scandal per month. Higher-profile ministers do more damage.
   for (const m of G.cabinet.ministers) {
     if (Math.random() < m.corruption / 150) {
       const damage = m.publicProfile * 1.5;
@@ -905,24 +771,22 @@ export function cabinetTick(G: GameState, era: EraConfig): { scandal: string | n
       G.stability = Math.max(0, G.stability - damage * 0.3);
       G.oligarchicTies = Math.min(100, G.oligarchicTies + damage * 0.5);
       scandal = `Škandál: ${m.name} (${era.cabinet?.ministries.find(x => x.id === m.ministry)?.name || m.ministry})`;
-      break; // max one scandal per month
+      break;
     }
   }
 
-  // Cabinet cohesion — based on average loyalty and party diversity
+  // Cohesion blends average loyalty with a penalty for multi-party diversity.
   const avgLoyalty = G.cabinet.ministers.reduce((s, m) => s + m.loyalty, 0) / G.cabinet.ministers.length;
   const parties = new Set(G.cabinet.ministers.map(m => m.party));
-  const partyPenalty = (parties.size - 1) * 3; // more parties = harder to keep cohesion
+  const partyPenalty = (parties.size - 1) * 3;
   const targetCohesion = clamp(avgLoyalty * 10 - partyPenalty + 10, 20, 95);
   G.cabinet.cabinetCohesion += (targetCohesion - G.cabinet.cabinetCohesion) * 0.1;
 
-  // Disloyal ministers slow-walk implementation
   const disloyal = G.cabinet.ministers.filter(m => m.loyalty <= 3);
   if (disloyal.length > 0) {
     G.impl = Math.max(30, G.impl - disloyal.length * 1.5);
   }
 
-  // Incompetent ministers drag economic performance in their domain
   const avgCompetence = G.cabinet.ministers.reduce((s, m) => s + m.competence, 0) / G.cabinet.ministers.length;
   if (avgCompetence < 5) {
     G.econ.gdpGrowth -= (5 - avgCompetence) * 0.05;
@@ -931,7 +795,8 @@ export function cabinetTick(G: GameState, era: EraConfig): { scandal: string | n
   return { scandal };
 }
 
-// Compute implementation rate modifier from cabinet competence
+// Returns an implementation multiplier in [0.7, 1.3] based on the average
+// competence of ministers whose ministry keywords appear in the policy.
 export function cabinetImplementationMod(G: GameState, policyText: string, era: EraConfig): number {
   if (!G.cabinet.ministers.length || !era.cabinet) return 1.0;
   const lower = policyText.toLowerCase();
@@ -940,7 +805,6 @@ export function cabinetImplementationMod(G: GameState, policyText: string, era: 
   for (const minister of G.cabinet.ministers) {
     const ministry = era.cabinet.ministries.find(m => m.id === minister.ministry);
     if (!ministry) continue;
-    // Check if policy touches this ministry's domain
     if (ministry.domain.some(kw => lower.includes(kw))) {
       relevantCompetence += minister.competence;
       count++;
@@ -948,33 +812,27 @@ export function cabinetImplementationMod(G: GameState, policyText: string, era: 
   }
   if (count === 0) return 1.0;
   const avg = relevantCompetence / count;
-  // 5 = neutral, above = bonus, below = penalty
-  return 0.7 + (avg / 10) * 0.6; // range: 0.7 to 1.3
+  return 0.7 + (avg / 10) * 0.6;
 }
 
-// ═══════════════════════════════════════════════════════════
-//  INSTITUTIONS TICK — integrity, capture tracking
-// ═══════════════════════════════════════════════════════════
 export function institutionsTick(G: GameState, era: EraConfig): void {
   if (!G.institutions.heads.length) return;
 
-  // Check term expirations — head remains but becomes "holdover" (lower conviction)
+  // Expired heads don't vacate automatically — they linger as "holdovers"
+  // with weakened conviction for another year.
   G.institutions.heads.forEach(h => {
     if (h.termEnd > 0 && G.month >= h.termEnd) {
       h.conviction = Math.max(1, h.conviction - 1);
-      h.termEnd = h.termEnd + 12; // stays for up to a year as holdover
+      h.termEnd = h.termEnd + 12;
     }
   });
 
-  // Count captured institutions (loyalty > 7)
   G.institutions.capturedCount = G.institutions.heads.filter(h => h.loyalty >= 7).length;
 
-  // Institutional integrity — based on avg conviction and capture count
   const avgConviction = G.institutions.heads.reduce((s, h) => s + h.conviction, 0) / G.institutions.heads.length;
   const capturedPenalty = G.institutions.capturedCount * 8;
   G.institutions.institutionalIntegrity = clamp(avgConviction * 10 - capturedPenalty + 20, 5, 100);
 
-  // High capture → EU warnings
   if (G.institutions.capturedCount >= 4) {
     if (G.diplo.eu !== undefined) G.diplo.eu = Math.max(0, G.diplo.eu - 0.5);
     G.stability = Math.max(0, G.stability - 0.3);
@@ -983,28 +841,28 @@ export function institutionsTick(G: GameState, era: EraConfig): void {
     if (G.diplo.eu !== undefined) G.diplo.eu = Math.max(0, G.diplo.eu - 1.0);
   }
 
-  // Loyal SIS director boosts oligarchic ties (can suppress investigations)
+  // Institution-specific effects: a loyal SIS director can suppress
+  // investigations; a high-conviction independent GP fights corruption;
+  // a loyal police president dampens opposition pressure; a captured RTVS
+  // steers the media cycle.
   const sis = G.institutions.heads.find(h => h.institution === 'sis');
   if (sis && sis.loyalty >= 8) {
     G.oligarchicTies = Math.min(100, G.oligarchicTies + 0.3);
   }
 
-  // Independent GP blocks corruption growth
   const gp = G.institutions.heads.find(h => h.institution === 'gp');
   if (gp && gp.loyalty <= 3 && gp.conviction >= 7) {
     G.oligarchicTies = Math.max(0, G.oligarchicTies - 0.5);
   }
 
-  // Loyal police president suppresses opposition pressure
   const pp = G.institutions.heads.find(h => h.institution === 'pp');
   if (pp && pp.loyalty >= 7) {
     G.oppositionPressure = Math.max(0, G.oppositionPressure - 0.5);
   }
 
-  // RTVS/STVR director affects media ecosystem
   const rtvs = G.institutions.heads.find(h => h.institution === 'rtvs');
   if (rtvs && rtvs.loyalty >= 7) {
-    G.mediaCycle = Math.max(0, G.mediaCycle - 0.05); // suppress negative coverage
+    G.mediaCycle = Math.max(0, G.mediaCycle - 0.05);
     if (G.social.press !== undefined) G.social.press = Math.max(0, G.social.press - 0.2);
   }
 }

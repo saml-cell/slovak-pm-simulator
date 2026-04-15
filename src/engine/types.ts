@@ -1,7 +1,3 @@
-// ═══════════════════════════════════════════════════════════
-//                    ERA CONFIG TYPES
-// ═══════════════════════════════════════════════════════════
-
 export interface Persona {
   id: string;
   name: string;
@@ -201,10 +197,6 @@ export interface EraConfig {
   institutions?: InstitutionsConfig;
 }
 
-// ═══════════════════════════════════════════════════════════
-//                    INSTITUTION TYPES
-// ═══════════════════════════════════════════════════════════
-
 export interface CourtJudge {
   id: string;
   name: string;
@@ -305,10 +297,6 @@ export interface InstitutionsState {
   institutionalIntegrity: number;  // 0-100
   capturedCount: number;
 }
-
-// ═══════════════════════════════════════════════════════════
-//                    GAME STATE TYPES
-// ═══════════════════════════════════════════════════════════
 
 export interface ConsequenceQueueItem {
   ev: { h?: string; headline?: string; d?: string; description?: string; c?: string; context?: string; cat?: string; s?: string[]; suggestions?: string[] };

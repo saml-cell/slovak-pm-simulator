@@ -80,7 +80,6 @@ export function initGame(): GameState {
       capturedCount: 0,
     },
   };
-  // Initialize persona scores based on lean
   era.personas.forEach(p => {
     const leanScores: Record<string, number> = {
       smer: 70, hzds: 70, zrs: 65,
@@ -91,7 +90,6 @@ export function initGame(): GameState {
     };
     G.pScores[p.id] = leanScores[p.lean] ?? 50;
   });
-  // Initialize stakeholder scores
   era.stakeholders.forEach(st => {
     const typeScores: Record<string, number> = {
       coalition: 65, opposition: 25, media: 35,

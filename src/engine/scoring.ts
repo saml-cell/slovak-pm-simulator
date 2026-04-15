@@ -9,7 +9,6 @@ function generateHeadlines(policy: string, ev: ActiveEvent | null): AnalysisResu
   const tier = ev?.tier || 'situation';
 
   function pickHeadline(entries: EraConfig['headlines']['left']['entries'], fallbacks: { headline: string; subhead: string }[]) {
-    // Collect ALL matching headlines, not just first
     const matches = entries.filter(item => item.kw.some(k => low.includes(k)));
     if (matches.length > 0) {
       const pick = matches[Math.floor(Math.random() * matches.length)];
@@ -18,13 +17,12 @@ function generateHeadlines(policy: string, ev: ActiveEvent | null): AnalysisResu
         subhead: pick.sub.replace('{topic}', topic),
       };
     }
-    // Rotate through multiple fallbacks
     return fallbacks[Math.floor(Math.random() * fallbacks.length)];
   }
 
   const hl = era.headlines;
 
-  // Dynamic fallbacks based on event tier
+  // Fallbacks diverge by tier: crises get harsher copy than routine months.
   const leftFallbacks = tier === 'crisis'
     ? [
         { headline: 'Vláda zlyhala v kríze — občania platia cenu', subhead: 'Analytici varujú pred dlhodobými dôsledkami.' },
@@ -98,7 +96,8 @@ export function kwScore(policy: string): AnalysisResult {
   era.stakeholders.forEach(s => { a.sScores[s.id] = G.sScores[s.id] || 50; });
   era.diplomacy.forEach(d => { a.diploFx[d.key] = 0; });
 
-  // Apply keyword effects (short keywords use word-boundary matching to avoid false positives)
+  // Short keywords (<=3 chars) use word-boundary matching so e.g. "eu"
+  // doesn't fire on "európa" or "reu" fragments.
   Object.entries(era.keywords).forEach(([kw, fx]) => {
     const matched = kw.length <= 3
       ? new RegExp(`(?:^|[\\s,;.!?()"])${kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?:$|[\\s,;.!?()"])`, 'i').test(low)
@@ -111,7 +110,6 @@ export function kwScore(policy: string): AnalysisResult {
     }
   });
 
-  // FDI-sensitive keywords
   const fdiPositive = ['investícia', 'invest', 'priemysel', 'fabrika', 'automobilka', 'startup', 'inovácia', 'výskum'];
   const fdiNegative = ['znárodniť', 'znárodnenie', 'regulácia', 'zákaz', 'protekcionizmus'];
   if (fdiPositive.some(k => low.includes(k))) {
@@ -121,14 +119,12 @@ export function kwScore(policy: string): AnalysisResult {
     a.econFx.gdpGrowth = (a.econFx.gdpGrowth || 0) - 0.3;
   }
 
-  // Clamp persona/stakeholder scores
   Object.keys(a.pScores).forEach(id => { a.pScores[id] = Math.max(5, Math.min(95, a.pScores[id])); });
   Object.keys(a.sScores).forEach(id => { a.sScores[id] = Math.max(5, Math.min(95, a.sScores[id])); });
 
-  // Calculate deltas
   const avg = era.personas.length ? Object.values(a.pScores).reduce((x, y) => x + y, 0) / era.personas.length : 50;
   a.aD = Math.round((avg - 50) * 0.3);
-  // Checks & Balances
+
   const cs = coalitionSeats();
   const isConstitutional = low.includes('ústav') || low.includes('constitution') || low.includes('zmena zákon');
   const requiredSeats = isConstitutional ? 90 : 76;
@@ -156,37 +152,32 @@ export function kwScore(policy: string): AnalysisResult {
     a.cb.president = G.pellegrini ? 75 + Math.round(Math.random() * 20) : 40 + Math.round(Math.random() * 30);
   }
 
-  // Court ideology modifies court check score
   if (G.court.judges.length > 0) {
     const avgCourtLoyalty = G.court.judges.reduce((s, j) => s + j.loyalty, 0) / G.court.judges.length;
     const courtBonus = (avgCourtLoyalty - 5) * 5;
     a.cb.court = Math.max(5, Math.min(95, a.cb.court + courtBonus));
+    // Sub-quorum court rubber-stamps everything — shown as 95/100 with a reason.
     if (G.court.judges.length < 7) {
       a.cb.court = 95;
       a.cb.reasons!.court = 'Ústavný súd nemá kvórum — nemôže rozhodovať!';
     }
   }
 
-  // Implementation rate from all three branches (after court modifier)
   a.cb.implementationRate = Math.max(5, Math.min(95, Math.round(a.cb.parliament * 0.4 + a.cb.court * 0.3 + a.cb.president * 0.3)));
 
-  // Cabinet competence modifies implementation rate
   if (G.cabinet.ministers.length > 0) {
     const avgComp = G.cabinet.ministers.reduce((s, m) => s + m.competence, 0) / G.cabinet.ministers.length;
     const compMod = (avgComp - 5) * 3;
     a.cb.implementationRate = Math.max(5, Math.min(95, a.cb.implementationRate + compMod));
   }
 
-  // Stability: derived from policy coherence and checks & balances
   const stBase = (a.cb.parliament > 60 ? 2 : -2) + (a.cb.court > 50 ? 1 : -1);
   a.stD = Math.round(stBase + (Math.random() * 4 - 2));
 
-  // Coalition: derived from stakeholder alignment with coalition partners
   const cpIds = era.coalitionPartners.map(cp => cp.id);
   const cpAvg = cpIds.reduce((sum, id) => sum + (a.sScores[id] || 50), 0) / Math.max(1, cpIds.length);
   a.cD = Math.round((cpAvg - 50) * 0.2 + (Math.random() * 2 - 1));
 
-  // C&B reasons
   if (!a.cb.reasons) a.cb.reasons = {};
   const snsKw = low.includes('suverenita') || low.includes('sovereign') || low.includes('národn');
   if (cs >= 76 && !isConstitutional) a.cb.reasons.parliament = 'Koaličná väčšina (' + cs + '/150) zabezpečuje schválenie.';
@@ -210,7 +201,6 @@ export function kwScore(policy: string): AnalysisResult {
     a.cD = Math.min(a.cD, -2);
   }
 
-  // Flag detection
   const ev = G.event;
   if (ev) {
     if (ev.id === 'criminal_code' && (low.includes('pretlačiť') || low.includes('rýchlo') || low.includes('push'))) a.flags.criminal_aggressive = true;
@@ -218,7 +208,6 @@ export function kwScore(policy: string): AnalysisResult {
     if (ev.id === 'rtvs' && (low.includes('pretlačiť') || low.includes('push'))) a.flags.rtvs_aggressive = true;
     if (ev.id === 'healthcare' && (low.includes('núdzov') || low.includes('500'))) a.flags.healthcare_emergency = true;
     if (ev.id === 'assassination' && (low.includes('jednot') || low.includes('zmieren') || low.includes('unity'))) a.flags.national_unity = true;
-    // Positive outcome flags
     if (ev.id === 'healthcare' && (low.includes('invest') || low.includes('plat') || low.includes('reforma'))) a.flags.healthcare_reform = true;
     if (ev.id === 'eu_funds' && (low.includes('transparentn') || low.includes('reform') || low.includes('kontrola'))) a.flags.eu_funds_success = true;
     if (ev.id === 'consolidation' && (low.includes('úspor') || low.includes('efektív') || low.includes('škrt'))) a.flags.fiscal_discipline = true;
