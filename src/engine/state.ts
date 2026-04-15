@@ -66,7 +66,6 @@ export function initGame(): GameState {
     court: {
       judges: era.court ? JSON.parse(JSON.stringify(era.court.judges)) : [],
       pendingVacancies: 0,
-      shortlist: [],
       courtPrestige: era.court ? 60 : 50,
     },
     cabinet: {

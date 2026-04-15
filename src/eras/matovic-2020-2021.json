@@ -3059,16 +3059,6 @@
       { "id": "korecky", "name": "Martin Vernarský", "ideology": 5, "competence": 6, "conviction": 6, "loyalty": 5, "termEnd": -1, "isChair": false },
       { "id": "stena", "name": "Ľuboš Šteňa", "ideology": 6, "competence": 6, "conviction": 5, "loyalty": 5, "termEnd": -1, "isChair": false },
       { "id": "pokryvka", "name": "Ivan Pokrývka", "ideology": 3, "competence": 8, "conviction": 8, "loyalty": 2, "termEnd": -1, "isChair": false }
-    ],
-    "candidates": [
-      { "id": "cand_zigo", "name": "Pavol Žigo", "ideology": 7, "competence": 5, "conviction": 4, "loyalty": 8, "bio": "Právnik blízky SMER, dlhoročný poradca na ministerstve spravodlivosti." },
-      { "id": "cand_kresak", "name": "Tomáš Krošlák", "ideology": 3, "competence": 8, "conviction": 8, "loyalty": 2, "bio": "Ústavný právnik, reform-oriented. Podporovaný koalíciou zmeny." },
-      { "id": "cand_domin", "name": "Adriana Kráľovičová", "ideology": 5, "competence": 7, "conviction": 6, "loyalty": 5, "bio": "Sudkyňa Najvyššieho súdu SR, centristka." },
-      { "id": "cand_horvath", "name": "Marek Horvát", "ideology": 8, "competence": 4, "conviction": 3, "loyalty": 9, "bio": "Advokát, zastupoval politikov SMER v trestných kauzách." },
-      { "id": "cand_blahova", "name": "Katarína Javorčíková", "ideology": 4, "competence": 7, "conviction": 7, "loyalty": 3, "bio": "Odborníčka na ľudské práva, nezávislá kandidátka." },
-      { "id": "cand_gabris", "name": "Štefan Gabriš", "ideology": 6, "competence": 6, "conviction": 5, "loyalty": 6, "bio": "Prokurátor generálnej prokuratúry, pragmatik." },
-      { "id": "cand_soltis", "name": "Ján Šikuta", "ideology": 4, "competence": 7, "conviction": 7, "loyalty": 3, "bio": "Medzinárodný sudca, pôsobil na ESĽP v Štrasburgu." },
-      { "id": "cand_mikova", "name": "Lucia Žitňanská", "ideology": 3, "competence": 8, "conviction": 9, "loyalty": 1, "bio": "Bývalá ministerka spravodlivosti. Reform-oriented, nezávislá." }
     ]
   },
   "cabinet": {
@@ -3101,16 +3091,6 @@
       { "id": "budaj", "name": "Ján Budaj", "party": "olano", "ministry": "mzp", "ideology": 3, "competence": 6, "loyalty": 6, "partyLoyalty": 7, "corruption": 1, "publicProfile": 6 },
       { "id": "milanovic", "name": "Natália Milanová", "party": "smerodina", "ministry": "mk", "ideology": 4, "competence": 6, "loyalty": 5, "partyLoyalty": 7, "corruption": 1, "publicProfile": 4 },
       { "id": "vlcan", "name": "Ján Mičovský", "party": "olano", "ministry": "mprv", "ideology": 4, "competence": 5, "loyalty": 7, "partyLoyalty": 8, "corruption": 1, "publicProfile": 4 }
-    ],
-    "candidates": [
-      { "id": "cand_minist_1", "name": "Igor Matovič", "party": "olano", "ideology": 4, "competence": 5, "loyalty": 10, "partyLoyalty": 10, "corruption": 1, "publicProfile": 10, "bio": "Premiér, líder OĽaNO. Chaotický štýl, ale silná protikorupčná rétorika. Sputnik V kríza." },
-      { "id": "cand_minist_2", "name": "Veronika Remišová", "party": "zaludi", "ideology": 3, "competence": 6, "loyalty": 4, "partyLoyalty": 7, "corruption": 1, "publicProfile": 6, "bio": "Líderka Za ľudí, ministerka investícií. Reform-oriented." },
-      { "id": "cand_minist_3", "name": "Boris Kollár", "party": "smerodina", "ideology": 6, "competence": 4, "loyalty": 3, "partyLoyalty": 10, "corruption": 5, "publicProfile": 9, "bio": "Predseda parlamentu, líder Sme rodina. Pragmatik s kontroverznou minulosťou." },
-      { "id": "cand_minist_4", "name": "Štefan Holý", "party": "smerodina", "ideology": 6, "competence": 5, "loyalty": 4, "partyLoyalty": 8, "corruption": 4, "publicProfile": 5, "bio": "Podpredseda vlády za Sme rodina. Legislatíva a stavebný zákon." },
-      { "id": "cand_minist_5", "name": "Ján Budaj", "party": "olano", "ideology": 3, "competence": 6, "loyalty": 6, "partyLoyalty": 7, "corruption": 1, "publicProfile": 6, "bio": "Veterán Nežnej revolúcie, minister životného prostredia. Idealistický." },
-      { "id": "cand_minist_6", "name": "Marek Krajčí", "party": "olano", "ideology": 5, "competence": 4, "loyalty": 8, "partyLoyalty": 9, "corruption": 1, "publicProfile": 7, "bio": "Minister zdravotníctva počas prvej vlny COVID. Odstúpil pod tlakom." },
-      { "id": "cand_minist_7", "name": "Anna Záborská", "party": "olano", "ideology": 7, "competence": 5, "loyalty": 6, "partyLoyalty": 6, "corruption": 1, "publicProfile": 5, "bio": "Konzervatívna politička, europoslankyňa. Prolife agenda." },
-      { "id": "cand_minist_8", "name": "Juraj Šeliga", "party": "zaludi", "ideology": 3, "competence": 6, "loyalty": 5, "partyLoyalty": 7, "corruption": 1, "publicProfile": 6, "bio": "Advokát, podpredseda parlamentu za Za ľudí. Protikorupčný." }
     ]
   },
   "institutions": {
@@ -3129,18 +3109,6 @@
       { "id": "head_nbs", "name": "Peter Kažimír", "institution": "nbs", "ideology": 6, "competence": 7, "loyalty": 7, "conviction": 5, "termEnd": 48, "appointedBy": "Pellegrini 2019" },
       { "id": "head_rtvs", "name": "Jaroslav Rezník", "institution": "rtvs", "ideology": 5, "competence": 6, "loyalty": 5, "conviction": 5, "termEnd": 18, "appointedBy": "Parlament 2017" },
       { "id": "head_nku", "name": "Karol Mitrík", "institution": "nku", "ideology": 5, "competence": 6, "loyalty": 5, "conviction": 6, "termEnd": 24, "appointedBy": "Parlament 2015" }
-    ],
-    "candidates": [
-      { "id": "cand_inst_1", "name": "Daniel Lipšic", "institution": "gp", "ideology": 3, "competence": 9, "loyalty": 1, "conviction": 9, "bio": "Špeciálny prokurátor (2020). Legendárny protikorupčný bojovník." },
-      { "id": "cand_inst_2", "name": "Tomáš Honz", "institution": "gp", "ideology": 7, "competence": 5, "loyalty": 7, "conviction": 4, "bio": "Prokurátor, systémový kandidát na GP. Blízky SMER." },
-      { "id": "cand_inst_3", "name": "Štefan Hamran", "institution": "pp", "ideology": 5, "competence": 6, "loyalty": 5, "conviction": 5, "bio": "Policajný vyšetrovateľ NAKA. Kandidát na policajného prezidenta." },
-      { "id": "cand_inst_4", "name": "Branislav Zurian", "institution": "pp", "ideology": 5, "competence": 6, "loyalty": 4, "conviction": 6, "bio": "Pôsobil v NAKA, protikorupčne orientovaný policajt." },
-      { "id": "cand_inst_5", "name": "Michal Aláč", "institution": "sis", "ideology": 6, "competence": 6, "loyalty": 7, "conviction": 5, "bio": "Bezpečnostný analytik, pragmatický prístup k tajným službám." },
-      { "id": "cand_inst_6", "name": "Ľubomír Andrassy", "institution": "nku", "ideology": 5, "competence": 6, "loyalty": 4, "conviction": 6, "bio": "Ekonóm, kandidát na predsedu NKÚ." },
-      { "id": "cand_inst_7", "name": "Václav Mika", "institution": "rtvs", "ideology": 4, "competence": 7, "loyalty": 3, "conviction": 7, "bio": "Mediálny manažér, nezávislý kandidát na riaditeľa RTVS." },
-      { "id": "cand_inst_8", "name": "Tibor Gašpar", "institution": "pp", "ideology": 8, "competence": 6, "loyalty": 10, "conviction": 3, "bio": "Bývalý policajný prezident, poslanec SMER. Ficov muž." },
-      { "id": "cand_inst_9", "name": "Milan Lučanský", "institution": "pp", "ideology": 6, "competence": 6, "loyalty": 7, "conviction": 4, "bio": "Bývalý policajný prezident. Zomrel vo väzbe v decembri 2020." },
-      { "id": "cand_inst_10", "name": "Branislav Záhradník", "institution": "nbs", "ideology": 4, "competence": 8, "loyalty": 3, "conviction": 7, "bio": "Ekonóm, bývalý člen Bankovej rady NBS." }
     ]
   }
 }

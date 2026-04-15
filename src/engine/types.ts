@@ -208,19 +208,13 @@ export interface CourtJudge {
   isChair: boolean;
 }
 
-export interface CourtCandidate extends Omit<CourtJudge, 'isChair' | 'termEnd'> {
-  bio: string;
-}
-
 export interface CourtConfig {
   judges: CourtJudge[];
-  candidates: CourtCandidate[];  // pool for vacancies
 }
 
 export interface CourtState {
   judges: CourtJudge[];
   pendingVacancies: number;
-  shortlist: CourtCandidate[];
   courtPrestige: number;     // 0-100
 }
 
@@ -245,14 +239,9 @@ export interface Ministry {
   allocatedTo: string;       // coalition partner id
 }
 
-export interface MinisterCandidate extends Omit<Minister, 'ministry'> {
-  bio: string;
-}
-
 export interface CabinetConfig {
   ministries: Ministry[];
   ministers: Minister[];               // starting ministers
-  candidates: MinisterCandidate[];     // replacement pool per party
 }
 
 export interface CabinetState {
@@ -282,14 +271,9 @@ export interface Institution {
   description: string;
 }
 
-export interface InstitutionCandidate extends Omit<InstitutionHead, 'termEnd' | 'appointedBy'> {
-  bio: string;
-}
-
 export interface InstitutionsConfig {
   institutions: Institution[];
   heads: InstitutionHead[];
-  candidates: InstitutionCandidate[];  // replacement pool
 }
 
 export interface InstitutionsState {

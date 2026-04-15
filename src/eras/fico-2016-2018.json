@@ -3155,16 +3155,6 @@
       { "id": "barik_16", "name": "Peter Barík", "ideology": 4, "competence": 7, "conviction": 7, "loyalty": 3, "termEnd": -1, "isChair": false },
       { "id": "szigeti_16", "name": "Ľuboš Szigeti", "ideology": 5, "competence": 6, "conviction": 5, "loyalty": 5, "termEnd": 30, "isChair": false },
       { "id": "circ_16", "name": "Rudolf Čirč", "ideology": 6, "competence": 6, "conviction": 5, "loyalty": 6, "termEnd": -1, "isChair": false }
-    ],
-    "candidates": [
-      { "id": "cand_fiacan_c", "name": "Ivan Fiačan", "ideology": 5, "competence": 7, "conviction": 6, "loyalty": 4, "bio": "Sudca, budúci predseda ÚS SR. Centristický, bez výraznej politickej väzby." },
-      { "id": "cand_prochazka", "name": "Radoslav Procházka", "ideology": 3, "competence": 8, "conviction": 7, "loyalty": 3, "bio": "Ústavný právnik, bývalý prezidentský kandidát. Nezávislý, ale politicky aktívny." },
-      { "id": "cand_zigo_16", "name": "Pavol Žigo", "ideology": 7, "competence": 5, "conviction": 4, "loyalty": 8, "bio": "Právnik blízky SMER-SD. Lojálny k vládnucej strane." },
-      { "id": "cand_duditš_16", "name": "Ladislav Duditš", "ideology": 7, "competence": 5, "conviction": 4, "loyalty": 7, "bio": "Právnik z prostredia blízkeho SMER. Národne konzervatívny." },
-      { "id": "cand_zitnanska_16", "name": "Lucia Žitňanská", "ideology": 3, "competence": 8, "conviction": 8, "loyalty": 2, "bio": "Ministerka spravodlivosti za Most-Híd. Reformná, protikorupčná." },
-      { "id": "cand_kolesarova_16", "name": "Katarína Javorčíková", "ideology": 4, "competence": 7, "conviction": 7, "loyalty": 3, "bio": "Právnička z akademického prostredia. Odborníčka na ľudské práva." },
-      { "id": "cand_gabris_16", "name": "Štefan Harabin", "ideology": 8, "competence": 5, "conviction": 3, "loyalty": 7, "bio": "Bývalý predseda Najvyššieho súdu. Kontroverzný, autoritársky, politicky aktívny." },
-      { "id": "cand_mikova_16", "name": "Mária Pirošíková", "ideology": 4, "competence": 7, "conviction": 7, "loyalty": 3, "bio": "Zástupkyňa SR pred ESĽP. Odborníčka na medzinárodné právo." }
     ]
   },
   "cabinet": {
@@ -3197,16 +3187,6 @@
       { "id": "solymos", "name": "László Sólymos", "party": "most", "ministry": "mzp", "ideology": 4, "competence": 6, "loyalty": 4, "partyLoyalty": 7, "corruption": 2, "publicProfile": 4 },
       { "id": "madaric_16", "name": "Marek Maďarič", "party": "smer", "ministry": "mk", "ideology": 6, "competence": 6, "loyalty": 7, "partyLoyalty": 8, "corruption": 3, "publicProfile": 5 },
       { "id": "matecna", "name": "Gabriela Matečná", "party": "sns_c", "ministry": "mprv", "ideology": 7, "competence": 4, "loyalty": 5, "partyLoyalty": 8, "corruption": 5, "publicProfile": 5 }
-    ],
-    "candidates": [
-      { "id": "cand_minist_16_1", "name": "Peter Pellegrini", "party": "smer", "ideology": 5, "competence": 7, "loyalty": 8, "partyLoyalty": 9, "corruption": 3, "publicProfile": 9, "bio": "Podpredseda vlády, budúci premiér po Ficovom odchode. Pragmatik, centristický." },
-      { "id": "cand_minist_16_2", "name": "Denisa Saková", "party": "smer", "ideology": 6, "competence": 6, "loyalty": 7, "partyLoyalty": 8, "corruption": 3, "publicProfile": 5, "bio": "Štátna tajomníčka MV. Nastúpi po Kaliňákovej rezignácii." },
-      { "id": "cand_minist_16_3", "name": "Andrej Danko", "party": "sns_c", "ideology": 8, "competence": 4, "loyalty": 4, "partyLoyalty": 10, "corruption": 5, "publicProfile": 9, "bio": "Predseda SNS a NR SR. Nacionalista, kontroverzný, plagiátorská kauza." },
-      { "id": "cand_minist_16_4", "name": "Béla Bugár", "party": "most", "ideology": 5, "competence": 6, "loyalty": 4, "partyLoyalty": 9, "corruption": 3, "publicProfile": 7, "bio": "Predseda Most-Híd. Veteran maďarskej politiky, pragmatický koaličný partner." },
-      { "id": "cand_minist_16_5", "name": "Andrea Kalavská", "party": "smer", "ideology": 5, "competence": 7, "loyalty": 5, "partyLoyalty": 6, "corruption": 1, "publicProfile": 5, "bio": "Lekárka, budúca ministerka zdravotníctva. Odborníčka, apolitická." },
-      { "id": "cand_minist_16_6", "name": "Robert Fico", "party": "smer", "ideology": 7, "competence": 8, "loyalty": 10, "partyLoyalty": 10, "corruption": 6, "publicProfile": 10, "bio": "Premiér, odíde po vražde Kuciaka. Predseda SMER, dominantná postava." },
-      { "id": "cand_minist_16_7", "name": "Ľuboš Blaha", "party": "smer", "ideology": 9, "competence": 4, "loyalty": 8, "partyLoyalty": 9, "corruption": 2, "publicProfile": 8, "bio": "Poslanec SMER, ideológ. Proruský, výrazne ľavicový, polarizujúci." },
-      { "id": "cand_minist_16_8", "name": "Tibor Gašpar", "party": "smer", "ideology": 7, "competence": 6, "loyalty": 9, "partyLoyalty": 9, "corruption": 6, "publicProfile": 7, "bio": "Policajný prezident. Pod tlakom po vražde Kuciaka, väzby na kontroverzné postavy." }
     ]
   },
   "institutions": {
@@ -3225,18 +3205,6 @@
       { "id": "head_nbs_16", "name": "Jozef Makúch", "institution": "nbs", "ideology": 5, "competence": 7, "loyalty": 5, "conviction": 6, "termEnd": 18, "appointedBy": "Gašparovič 2010" },
       { "id": "head_rtvs_16", "name": "Jaroslav Rezník", "institution": "rtvs", "ideology": 5, "competence": 6, "loyalty": 5, "conviction": 6, "termEnd": 24, "appointedBy": "Parlament 2017" },
       { "id": "head_nku_16", "name": "Karol Mitrík", "institution": "nku", "ideology": 4, "competence": 7, "loyalty": 4, "conviction": 7, "termEnd": 42, "appointedBy": "Parlament 2015" }
-    ],
-    "candidates": [
-      { "id": "cand_inst_16_1", "name": "Daniel Lipšic", "institution": "gp", "ideology": 2, "competence": 9, "loyalty": 1, "conviction": 9, "bio": "Protikorupčný právnik. Ficov arcinepriateľ, symbol boja proti korupcii." },
-      { "id": "cand_inst_16_2", "name": "Maroš Žilinka", "institution": "gp", "ideology": 6, "competence": 6, "loyalty": 5, "conviction": 6, "bio": "Prokurátor, budúci generálny prokurátor. Konzervatívny, ale profesionálny." },
-      { "id": "cand_inst_16_3", "name": "Vladimír Pčolinský", "institution": "sis", "ideology": 7, "competence": 5, "loyalty": 6, "conviction": 4, "bio": "Funkcionár SNS, budúci riaditeľ SIS. Obvinený z korupcie." },
-      { "id": "cand_inst_16_4", "name": "Milan Lučanský", "institution": "pp", "ideology": 6, "competence": 6, "loyalty": 6, "conviction": 5, "bio": "Policajný dôstojník z NAKA. Budúci policajný prezident, tragický koniec." },
-      { "id": "cand_inst_16_5", "name": "Štefan Hamran", "institution": "pp", "ideology": 5, "competence": 6, "loyalty": 4, "conviction": 6, "bio": "Policajný vyšetrovateľ. Profesionálny, relatívne nezávislý." },
-      { "id": "cand_inst_16_6", "name": "Peter Kažimír", "institution": "nbs", "ideology": 6, "competence": 7, "loyalty": 7, "conviction": 5, "bio": "Minister financií, budúci guvernér NBS. Skúsený ekonóm zo SMER." },
-      { "id": "cand_inst_16_7", "name": "Václav Mika", "institution": "rtvs", "ideology": 5, "competence": 6, "loyalty": 5, "conviction": 6, "bio": "Bývalý riaditeľ RTVS. Skúsený mediálny manažér." },
-      { "id": "cand_inst_16_8", "name": "Peter Tóth", "institution": "sis", "ideology": 7, "competence": 6, "loyalty": 7, "conviction": 3, "bio": "Bývalý agent SIS a novinár. Kontroverzné väzby, informátor v kauze Kuciak." },
-      { "id": "cand_inst_16_9", "name": "Katarína Macháčková", "institution": "pp", "ideology": 4, "competence": 7, "loyalty": 3, "conviction": 7, "bio": "Policajná dôstojníčka. Protikorupčne orientovaná, nezávislá." },
-      { "id": "cand_inst_16_10", "name": "Juraj Sopoliga", "institution": "gp", "ideology": 5, "competence": 7, "loyalty": 4, "conviction": 6, "bio": "Prokurátor s dlhoročnou praxou. Centristický, profesionálny." }
     ]
   }
 }
