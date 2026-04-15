@@ -257,11 +257,17 @@ export function proceed(a: AnalysisResult) {
     updateDash();
     const wb = document.getElementById('warningBanner');
     if (wb) {
-      if (crisisMsg) { wb.innerHTML = (wb.innerHTML || '') + (wb.innerHTML ? '<br>' : '') + crisisMsg; wb.classList.add('show'); }
-      if (pollWarning) { wb.innerHTML = (wb.innerHTML || '') + (wb.innerHTML ? '<br>' : '') + pollWarning; wb.classList.add('show'); }
-      if (ministerScandal) { wb.innerHTML = (wb.innerHTML || '') + (wb.innerHTML ? '<br>' : '') + '🔥 ' + ministerScandal; wb.classList.add('show'); }
-      if (G.court.pendingVacancies > 0) { wb.innerHTML = (wb.innerHTML || '') + (wb.innerHTML ? '<br>' : '') + '🏛️ Ústavný súd: ' + G.court.pendingVacancies + ' voľné miesta'; wb.classList.add('show'); }
-      if (G.institutions.capturedCount >= 4) { wb.innerHTML = (wb.innerHTML || '') + (wb.innerHTML ? '<br>' : '') + '⚠️ EÚ varuje pred úpadkom inštitúcií'; wb.classList.add('show'); }
+      const extras: string[] = [];
+      if (crisisMsg) extras.push(crisisMsg);
+      if (pollWarning) extras.push(pollWarning);
+      if (ministerScandal) extras.push('🔥 ' + ministerScandal);
+      if (G.court.pendingVacancies > 0) extras.push('🏛️ Ústavný súd: ' + G.court.pendingVacancies + ' voľné miesta');
+      if (G.institutions.capturedCount >= 4) extras.push('⚠️ EÚ varuje pred úpadkom inštitúcií');
+      if (extras.length) {
+        const existing = wb.innerHTML;
+        wb.innerHTML = (existing ? existing + '<br>' : '') + extras.join('<br>');
+        wb.classList.add('show');
+      }
     }
     showScreen('dashboardScreen');
   }

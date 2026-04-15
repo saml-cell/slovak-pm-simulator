@@ -181,7 +181,11 @@ Please open an issue before starting large changes.
 
 ## License
 
-MIT — see [LICENSE](LICENSE) for details.
+**All Rights Reserved** — see [LICENSE](LICENSE) for details.
+
+You may view and study the code for personal, non-commercial, educational purposes only. Commercial use, redistribution, and derivative works require written permission.
+
+For educational/institutional licensing inquiries, contact via [GitHub](https://github.com/saml-cell).
 
 ---
 

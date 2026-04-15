@@ -2352,13 +2352,13 @@
     {
       "id": "rtvs",
       "m": 6,
-      "h": "Reforma RTVS na STVR",
-      "d": "Zákon umožňuje ministerstvu vymenovať vedenie. Novinári to nazývajú prevzatím médií.",
-      "c": "EBU odsúdila krok. Opozícia podala na Ústavný súd.",
+      "h": "Návrh zákona o STVR",
+      "d": "Ministerka Šimkovičová predkladá návrh zákona o zrušení RTVS a vzniku STVR. Novinári to nazývajú prevzatím médií. Ústavný súd a EBU sa pripravujú na odpor.",
+      "c": "Zákon pôjde do parlamentu v lete. Reforma vstúpi do platnosti až 1. júla 2024. EBU varuje pred dôsledkami.",
       "t": "situation",
       "cat": "Médiá",
       "s": [
-        "Pretlačiť reformu",
+        "Pretlačiť reformu rýchlo",
         "Pridať nezávislý dozor",
         "Garantovať redakčnú nezávislosť"
       ]
@@ -2380,9 +2380,9 @@
     {
       "id": "eu_elections",
       "m": 8,
-      "h": "Voľby do EP",
-      "d": "Pravicové sily získali mandáty po celej Európe. Nové aliancie v Bruseli. Zotavujete sa z atentátu — podpora vzrástla na vlne sympatií.",
-      "c": "SMER sedí v S&D. Orbán tlačí nový blok. Koaliční partneri sa predbiehajú o vplyv.",
+      "h": "Voľby do EP a inaugurácia Pellegriniho",
+      "d": "Jún 2024: najprv 8. júna Slováci volia Európsky parlament (PS získalo najviac hlasov pred SMERom), potom 15. júna Peter Pellegrini skladá prezidentský sľub. Zotavujete sa z atentátu — podpora vzrástla na vlne sympatií.",
+      "c": "SMER sedí v S&D. Orbán tlačí nový blok. Pellegrini v paláci znamená spojeneckého prezidenta. Koaliční partneri sa predbiehajú o vplyv.",
       "t": "open",
       "cat": "Zahraničná politika",
       "s": [
@@ -2422,9 +2422,9 @@
     {
       "id": "pellegrini",
       "m": 11,
-      "h": "Inaugurácia Pellegriniho",
-      "d": "Pellegrini sa ujíma úradu. Koalícia kontroluje parlament aj prezidentský palác.",
-      "c": "Nižšie riziko veta. Ale obavy o demokratické brzdy.",
+      "h": "Prvých 100 dní prezidenta Pellegriniho",
+      "d": "Pellegrini je od júna v úrade. Po prvých mesiacoch koalícia kontroluje parlament aj prezidentský palác. Opozícia varuje pred rozbitím demokratických bŕzd.",
+      "c": "Nižšie riziko veta. Ale obavy o demokratické brzdy a koncentráciu moci.",
       "t": "situation",
       "cat": "Sociálna politika",
       "s": [
@@ -3667,17 +3667,17 @@
   },
   "cabinet": {
     "ministries": [
-      { "id": "mv", "name": "Ministerstvo vnútra", "emoji": "🛡️", "domain": ["polícia", "bezpečnosť", "SIS", "migrácia"], "allocatedTo": "smer" },
+      { "id": "mv", "name": "Ministerstvo vnútra", "emoji": "🛡️", "domain": ["polícia", "bezpečnosť", "SIS", "migrácia"], "allocatedTo": "hlas" },
       { "id": "mf", "name": "Ministerstvo financií", "emoji": "💰", "domain": ["dane", "rozpočet", "konsolidácia", "eufondy"], "allocatedTo": "smer" },
       { "id": "ms", "name": "Ministerstvo spravodlivosti", "emoji": "⚖️", "domain": ["justícia", "trestný zákon", "súdy", "právny štát"], "allocatedTo": "smer" },
       { "id": "mzv", "name": "Ministerstvo zahraničných vecí", "emoji": "🌍", "domain": ["diplomacia", "EÚ", "NATO", "Rusko", "Ukrajina"], "allocatedTo": "smer" },
       { "id": "mo", "name": "Ministerstvo obrany", "emoji": "🎖️", "domain": ["armáda", "NATO", "obrana", "zbrojenie"], "allocatedTo": "smer" },
-      { "id": "mh", "name": "Ministerstvo hospodárstva", "emoji": "🏭", "domain": ["priemysel", "energetika", "investície", "podnikanie"], "allocatedTo": "sns" },
+      { "id": "mh", "name": "Ministerstvo hospodárstva", "emoji": "🏭", "domain": ["priemysel", "energetika", "investície", "podnikanie"], "allocatedTo": "hlas" },
       { "id": "mpsvr", "name": "Ministerstvo práce", "emoji": "👷", "domain": ["sociálna", "dôchodky", "minimálna mzda", "zamestnanosť"], "allocatedTo": "hlas" },
       { "id": "mz", "name": "Ministerstvo zdravotníctva", "emoji": "🏥", "domain": ["zdravotníctvo", "nemocnice", "lekári", "reformy"], "allocatedTo": "hlas" },
       { "id": "msmt", "name": "Ministerstvo školstva", "emoji": "📚", "domain": ["školstvo", "veda", "univerzity", "učitelia"], "allocatedTo": "hlas" },
       { "id": "mdv", "name": "Ministerstvo dopravy", "emoji": "🚄", "domain": ["doprava", "infraštruktúra", "diaľnice", "železnice"], "allocatedTo": "sns" },
-      { "id": "mzp", "name": "Ministerstvo životného prostredia", "emoji": "🌿", "domain": ["ekológia", "klíma", "odpady", "voda"], "allocatedTo": "hlas" },
+      { "id": "mzp", "name": "Ministerstvo životného prostredia", "emoji": "🌿", "domain": ["ekológia", "klíma", "odpady", "voda"], "allocatedTo": "sns" },
       { "id": "mk", "name": "Ministerstvo kultúry", "emoji": "🎭", "domain": ["kultúra", "RTVS", "médiá", "pamiatky"], "allocatedTo": "sns" },
       { "id": "mprv", "name": "Ministerstvo pôdohospodárstva", "emoji": "🌾", "domain": ["poľnohospodárstvo", "potraviny", "dotácie", "vidiek"], "allocatedTo": "smer" }
     ],

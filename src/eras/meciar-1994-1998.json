@@ -40,7 +40,7 @@
   "gameOverThreshold": 12,
   "titleScreen": {
     "pmName": "Vladimír Mečiar",
-    "subtitle": "December 1994 - November 1998",
+    "subtitle": "December 1994 - Október 1998",
     "description": "Prevezmite moc ako Vladimír Mečiar. Budujte koalíciu HZDS-SNS-ZRS, ovládajte bezpečnostný aparát a čeľte tlaku Západu. Každé rozhodnutie formuje osud mladej Slovenskej republiky.",
     "startButtonText": "Začať vládnutie"
   },
@@ -2074,10 +2074,10 @@
     },
     {
       "id": "kovac_end",
-      "m": 38,
+      "m": 39,
       "h": "Koniec mandátu prezidenta Kováča",
-      "d": "Mandát prezidenta Kováča končí a parlament nedokáže zvoliť nástupcu. Mečiar preberá právomoci prezidenta! Okamžite udeľuje amnestie v kauze únosu.",
-      "c": "Mečiar ako úradujúci prezident amnestuje všetkých obvinených v kauze únosu Kováča ml.",
+      "d": "2. marca 1998 končí mandát prezidenta Kováča. Parlament nedokáže zvoliť nástupcu a právomoci prezidenta prechádzajú podľa čl. 105 na vládu a predsedu NR SR. Už 3. marca udeľujete ako vláda amnestie v kauze únosu.",
+      "c": "Amnestie pokrývajú všetkých obvinených v kauze únosu Kováča ml. — de facto zatvárate vyšetrovanie.",
       "t": "crisis",
       "cat": "Justícia",
       "s": [

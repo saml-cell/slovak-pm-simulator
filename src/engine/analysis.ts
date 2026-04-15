@@ -33,21 +33,20 @@ All text Slovak with proper diacritics. Be realistic and harsh.`;
 }
 
 function parseAIResult(raw: Record<string, unknown>): AnalysisResult {
-  const r = raw as Record<string, unknown>;
   return {
-    aD: (r.approvalDelta as number) || 0,
-    stD: (r.stabilityDelta as number) || 0,
-    cD: (r.coalitionDelta as number) || 0,
-    pScores: (r.personaScores as Record<string, number>) || {},
-    sScores: (r.stakeholderScores as Record<string, number>) || {},
-    econFx: (r.economyEffects as Record<string, number>) || {},
-    diploFx: (r.diplomacyChanges as Record<string, number>) || {},
-    cs: (r.civilService as AnalysisResult['cs']) || { summary: '', risk: 'Medium', treasuryCost: 'Medium', growthPotential: 'Medium', complexity: 'Medium', publicSensitivity: 'Medium', recommendation: '' },
-    press: (r.press as AnalysisResult['press']) || { left: { headline: '-', subhead: '' }, center: { headline: '-', subhead: '' }, right: { headline: '-', subhead: '' } },
-    cb: (r.checksAndBalances as AnalysisResult['cb']) || { parliament: 70, court: 80, president: 50, implementationRate: 80 },
-    consequence: (r.consequence as AnalysisResult['consequence']) || null,
-    flags: (r.flags as Record<string, boolean>) || {},
-    socialFx: (r.socialEffects as Record<string, number>) || { press: 0, corrupt: 0 },
+    aD: (raw.approvalDelta as number) || 0,
+    stD: (raw.stabilityDelta as number) || 0,
+    cD: (raw.coalitionDelta as number) || 0,
+    pScores: (raw.personaScores as Record<string, number>) || {},
+    sScores: (raw.stakeholderScores as Record<string, number>) || {},
+    econFx: (raw.economyEffects as Record<string, number>) || {},
+    diploFx: (raw.diplomacyChanges as Record<string, number>) || {},
+    cs: (raw.civilService as AnalysisResult['cs']) || { summary: '', risk: 'Medium', treasuryCost: 'Medium', growthPotential: 'Medium', complexity: 'Medium', publicSensitivity: 'Medium', recommendation: '' },
+    press: (raw.press as AnalysisResult['press']) || { left: { headline: '-', subhead: '' }, center: { headline: '-', subhead: '' }, right: { headline: '-', subhead: '' } },
+    cb: (raw.checksAndBalances as AnalysisResult['cb']) || { parliament: 70, court: 80, president: 50, implementationRate: 80 },
+    consequence: (raw.consequence as AnalysisResult['consequence']) || null,
+    flags: (raw.flags as Record<string, boolean>) || {},
+    socialFx: (raw.socialEffects as Record<string, number>) || { press: 0, corrupt: 0 },
   };
 }
 

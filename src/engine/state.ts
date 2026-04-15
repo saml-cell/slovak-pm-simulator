@@ -43,7 +43,7 @@ export function initGame(): GameState {
     used: new Set(),
     analysis: null,
     event: null,
-    pellegrini: (era.meta as unknown as Record<string, unknown>).presidentUnfriendlyMonth !== undefined,
+    pellegrini: (era.meta as unknown as Record<string, unknown>).presidentUnfriendlyMonth !== undefined || era.meta.pellegriniMonth === 0,
     stances: { ...s.stances },
     momentum: 0,
     policyThemes: [],

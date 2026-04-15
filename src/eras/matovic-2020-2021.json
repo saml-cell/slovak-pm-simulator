@@ -3082,7 +3082,7 @@
       { "id": "mpsvr", "name": "Ministerstvo práce", "emoji": "👷", "domain": ["sociálna", "dôchodky", "minimálna mzda", "zamestnanosť"], "allocatedTo": "smerodina" },
       { "id": "mz", "name": "Ministerstvo zdravotníctva", "emoji": "🏥", "domain": ["zdravotníctvo", "nemocnice", "COVID", "očkovanie"], "allocatedTo": "olano" },
       { "id": "msmt", "name": "Ministerstvo školstva", "emoji": "📚", "domain": ["školstvo", "veda", "univerzity", "dištančné vzdelávanie"], "allocatedTo": "sas" },
-      { "id": "mdv", "name": "Ministerstvo dopravy", "emoji": "🚄", "domain": ["doprava", "infraštruktúra", "diaľnice", "železnice"], "allocatedTo": "olano" },
+      { "id": "mdv", "name": "Ministerstvo dopravy", "emoji": "🚄", "domain": ["doprava", "infraštruktúra", "diaľnice", "železnice"], "allocatedTo": "smerodina" },
       { "id": "mzp", "name": "Ministerstvo životného prostredia", "emoji": "🌿", "domain": ["ekológia", "klíma", "odpady", "voda"], "allocatedTo": "olano" },
       { "id": "mk", "name": "Ministerstvo kultúry", "emoji": "🎭", "domain": ["kultúra", "RTVS", "médiá", "pamiatky"], "allocatedTo": "smerodina" },
       { "id": "mprv", "name": "Ministerstvo pôdohospodárstva", "emoji": "🌾", "domain": ["poľnohospodárstvo", "potraviny", "dotácie", "vidiek"], "allocatedTo": "olano" }
@@ -3097,7 +3097,7 @@
       { "id": "krajniak", "name": "Milan Krajniak", "party": "smerodina", "ministry": "mpsvr", "ideology": 7, "competence": 5, "loyalty": 5, "partyLoyalty": 8, "corruption": 3, "publicProfile": 6 },
       { "id": "lengvarsky", "name": "Vladimír Lengvarský", "party": "olano", "ministry": "mz", "ideology": 4, "competence": 7, "loyalty": 5, "partyLoyalty": 4, "corruption": 1, "publicProfile": 5 },
       { "id": "groehling", "name": "Branislav Gröhling", "party": "sas", "ministry": "msmt", "ideology": 2, "competence": 6, "loyalty": 4, "partyLoyalty": 8, "corruption": 2, "publicProfile": 5 },
-      { "id": "doležal", "name": "Andrej Doležal", "party": "olano", "ministry": "mdv", "ideology": 4, "competence": 6, "loyalty": 5, "partyLoyalty": 5, "corruption": 2, "publicProfile": 3 },
+      { "id": "doležal", "name": "Andrej Doležal", "party": "smerodina", "ministry": "mdv", "ideology": 4, "competence": 6, "loyalty": 5, "partyLoyalty": 5, "corruption": 2, "publicProfile": 3 },
       { "id": "budaj", "name": "Ján Budaj", "party": "olano", "ministry": "mzp", "ideology": 3, "competence": 6, "loyalty": 6, "partyLoyalty": 7, "corruption": 1, "publicProfile": 6 },
       { "id": "milanovic", "name": "Natália Milanová", "party": "smerodina", "ministry": "mk", "ideology": 4, "competence": 6, "loyalty": 5, "partyLoyalty": 7, "corruption": 1, "publicProfile": 4 },
       { "id": "vlcan", "name": "Ján Mičovský", "party": "olano", "ministry": "mprv", "ideology": 4, "competence": 5, "loyalty": 7, "partyLoyalty": 8, "corruption": 1, "publicProfile": 4 }

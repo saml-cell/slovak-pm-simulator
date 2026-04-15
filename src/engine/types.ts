@@ -61,7 +61,6 @@ export interface Stakeholder {
   id: string;
   name: string;
   desc: string;
-  fp?: number;
   type?: string;
   seats?: number;
   color?: string;
