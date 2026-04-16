@@ -1,20 +1,22 @@
+import type { AnalyticsData } from './types';
+
 interface AnalyticsEvent {
   event: string;
   era?: string;
   month?: number;
-  data?: Record<string, unknown>;
+  data?: AnalyticsData;
   timestamp: string;
 }
 
 const ANALYTICS_KEY = 'spm_analytics';
 
-export function trackAnalytics(event: string, data?: Record<string, unknown>): void {
+export function trackAnalytics(event: string, data?: AnalyticsData): void {
   try {
     const events: AnalyticsEvent[] = JSON.parse(localStorage.getItem(ANALYTICS_KEY) || '[]');
     events.push({
       event,
-      era: data?.era as string | undefined,
-      month: data?.month as number | undefined,
+      era: data?.era,
+      month: data?.month,
       data,
       timestamp: new Date().toISOString()
     });

@@ -1,4 +1,4 @@
-import { getEra, getState, getCalendarDate, getFullDate, coalitionSeats } from '../state';
+import { getEra, getState, getFullDate, coalitionSeats } from '../state';
 import { esc } from '../sanitize';
 
 function upMetric(valId: string, fillId: string, trendId: string, val: number, prev: number) {

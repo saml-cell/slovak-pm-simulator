@@ -12,7 +12,7 @@ const defaultQuietMonths = [
 
 function getQuietMonths(): { h: string; d: string; c: string }[] {
   const era = getEra();
-  return (era as unknown as Record<string, unknown>).quietMonths as typeof defaultQuietMonths || defaultQuietMonths;
+  return era.quietMonths || defaultQuietMonths;
 }
 
 function getEvent(m: number): ActiveEvent {
@@ -26,12 +26,12 @@ function getEvent(m: number): ActiveEvent {
       G.cq = G.cq.filter(c => c !== cq);
       return {
         id: 'csq_' + m,
-        headline: cq.ev.h || cq.ev.headline || '',
-        description: cq.ev.d || cq.ev.description || '',
-        context: cq.ev.c || cq.ev.context || '',
+        headline: cq.ev.h || '',
+        description: cq.ev.d || '',
+        context: cq.ev.c || '',
         tier: 'consequence',
         category: cq.ev.cat || 'Ekonomika',
-        suggestions: cq.ev.s || cq.ev.suggestions || ['Riešiť', 'Ignorovať', 'Kompromis'],
+        suggestions: cq.ev.s || ['Riešiť', 'Ignorovať', 'Kompromis'],
         originPolicy: cq.originP,
         originMonth: cq.originM,
       };
@@ -93,7 +93,7 @@ export function displayEvent() {
     oe.style.display = 'none';
   }
 
-  el('suggestionsContainer').innerHTML = (ev.suggestions || []).map(s =>
+  el('suggestionsContainer').innerHTML = ev.suggestions.map(s =>
     `<div class="suggestion-chip" onclick="document.getElementById('policyInput').value=this.textContent;window.__updateCC()">${esc(s)}</div>`
   ).join('');
 
@@ -115,4 +115,4 @@ export function updateCC() {
 }
 
 // Exposed on window for inline onclick handlers in generated HTML.
-(window as unknown as Record<string, unknown>).__updateCC = updateCC;
+window.__updateCC = updateCC;

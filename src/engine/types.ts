@@ -62,7 +62,7 @@ export interface Stakeholder {
   color?: string;
 }
 
-interface DiploEntity {
+export interface DiploEntity {
   key: string;
   name: string;
   emoji?: string;
@@ -90,6 +90,17 @@ export interface HeadlineEntry {
   kw: string[];
   h: string;
   sub: string;
+}
+
+export interface PressHeadline {
+  headline: string;
+  subhead: string;
+}
+
+export interface HeadlineOutlet {
+  name: string;
+  entries: HeadlineEntry[];
+  fallback?: PressHeadline;
 }
 
 export interface CalendarConfig {
@@ -124,6 +135,7 @@ export interface EraMeta {
   headerTitle: string;
   saveKey: string;
   pellegriniMonth: number;
+  presidentUnfriendlyMonth?: number;
   presidentName?: string;
   presidentFriendly?: string;
   currency?: string;
@@ -185,11 +197,12 @@ export interface EraConfig {
   keywords: Record<string, KeywordEffect>;
   forcedEvents: GameEvent[];
   randomEvents: GameEvent[];
+  quietMonths?: { h: string; d: string; c: string }[];
   consequenceChains?: { flag: string; delay: number; prob: number; ev: { h: string; d: string; c: string; t: string; cat: string; s: string[] } }[];
   headlines: {
-    left: { name: string; entries: HeadlineEntry[]; fallback?: { headline: string; subhead: string } };
-    center: { name: string; entries: HeadlineEntry[]; fallback?: { headline: string; subhead: string } };
-    right: { name: string; entries: HeadlineEntry[]; fallback?: { headline: string; subhead: string } };
+    left: HeadlineOutlet;
+    center: HeadlineOutlet;
+    right: HeadlineOutlet;
   };
   initialState: InitialState;
   court?: CourtConfig;
@@ -283,7 +296,7 @@ export interface InstitutionsState {
 }
 
 export interface ConsequenceQueueItem {
-  ev: { h?: string; headline?: string; d?: string; description?: string; c?: string; context?: string; cat?: string; s?: string[]; suggestions?: string[] };
+  ev: { h?: string; d?: string; c?: string; cat?: string; s?: string[] };
   fire: number;
   originP: string;
   originM: number;
@@ -327,9 +340,9 @@ export interface AnalysisResult {
     recommendation: string;
   };
   press: {
-    left: { headline: string; subhead: string };
-    center: { headline: string; subhead: string };
-    right: { headline: string; subhead: string };
+    left: PressHeadline;
+    center: PressHeadline;
+    right: PressHeadline;
   };
   cb: {
     parliament: number;
@@ -390,4 +403,60 @@ export interface GameState {
   court: CourtState;
   cabinet: CabinetState;
   institutions: InstitutionsState;
+}
+
+/** Shape expected from AI JSON responses (before normalization). */
+export interface RawAIResult {
+  approvalDelta?: number;
+  stabilityDelta?: number;
+  coalitionDelta?: number;
+  personaScores?: Record<string, number>;
+  stakeholderScores?: Record<string, number>;
+  economyEffects?: Record<string, number>;
+  diplomacyChanges?: Record<string, number>;
+  civilService?: AnalysisResult['cs'];
+  press?: AnalysisResult['press'];
+  checksAndBalances?: AnalysisResult['cb'];
+  consequence?: AnalysisResult['consequence'];
+  flags?: Record<string, boolean>;
+  socialEffects?: Record<string, number>;
+}
+
+export interface AnalyticsData {
+  era?: string;
+  month?: number;
+  approval?: number;
+  stability?: number;
+  coalition?: number;
+}
+
+export interface LeaderboardEntry {
+  era: string;
+  pm: string;
+  approval: number;
+  stability: number;
+  months: number;
+  won: boolean;
+  date: string;
+}
+
+export interface PuterChatMessage {
+  role: string;
+  content: string;
+}
+
+export interface PuterChatResponse {
+  message?: { content?: Array<{ text: string }> | string };
+  text?: string;
+}
+
+declare global {
+  interface Window {
+    __shareUrl?: string;
+    __updateCC: () => void;
+    __doKick: (id: string) => void;
+    __closeModal: () => void;
+    __handleDem: (id: string, action: string) => void;
+    __kickP: (id: string) => void;
+  }
 }

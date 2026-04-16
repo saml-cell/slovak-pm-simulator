@@ -1,5 +1,6 @@
 import type { ActiveEvent, AnalysisResult, EraConfig } from './types';
 import { getEra, getState, coalitionSeats } from './state';
+import { clamp } from './advanced';
 
 function generateHeadlines(policy: string, ev: ActiveEvent | null): AnalysisResult['press'] {
   const era = getEra();
@@ -119,8 +120,8 @@ export function kwScore(policy: string): AnalysisResult {
     a.econFx.gdpGrowth = (a.econFx.gdpGrowth || 0) - 0.3;
   }
 
-  Object.keys(a.pScores).forEach(id => { a.pScores[id] = Math.max(5, Math.min(95, a.pScores[id])); });
-  Object.keys(a.sScores).forEach(id => { a.sScores[id] = Math.max(5, Math.min(95, a.sScores[id])); });
+  Object.keys(a.pScores).forEach(id => { a.pScores[id] = clamp(a.pScores[id], 5, 95); });
+  Object.keys(a.sScores).forEach(id => { a.sScores[id] = clamp(a.sScores[id], 5, 95); });
 
   const avg = era.personas.length ? Object.values(a.pScores).reduce((x, y) => x + y, 0) / era.personas.length : 50;
   a.aD = Math.round((avg - 50) * 0.3);
@@ -155,7 +156,7 @@ export function kwScore(policy: string): AnalysisResult {
   if (G.court.judges.length > 0) {
     const avgCourtLoyalty = G.court.judges.reduce((s, j) => s + j.loyalty, 0) / G.court.judges.length;
     const courtBonus = (avgCourtLoyalty - 5) * 5;
-    a.cb.court = Math.max(5, Math.min(95, a.cb.court + courtBonus));
+    a.cb.court = clamp(a.cb.court + courtBonus, 5, 95);
     // Sub-quorum court rubber-stamps everything — shown as 95/100 with a reason.
     if (G.court.judges.length < 7) {
       a.cb.court = 95;
@@ -163,12 +164,12 @@ export function kwScore(policy: string): AnalysisResult {
     }
   }
 
-  a.cb.implementationRate = Math.max(5, Math.min(95, Math.round(a.cb.parliament * 0.4 + a.cb.court * 0.3 + a.cb.president * 0.3)));
+  a.cb.implementationRate = clamp(Math.round(a.cb.parliament * 0.4 + a.cb.court * 0.3 + a.cb.president * 0.3), 5, 95);
 
   if (G.cabinet.ministers.length > 0) {
     const avgComp = G.cabinet.ministers.reduce((s, m) => s + m.competence, 0) / G.cabinet.ministers.length;
     const compMod = (avgComp - 5) * 3;
-    a.cb.implementationRate = Math.max(5, Math.min(95, a.cb.implementationRate + compMod));
+    a.cb.implementationRate = clamp(a.cb.implementationRate + compMod, 5, 95);
   }
 
   const stBase = (a.cb.parliament > 60 ? 2 : -2) + (a.cb.court > 50 ? 1 : -1);

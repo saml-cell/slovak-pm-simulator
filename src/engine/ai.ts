@@ -1,6 +1,17 @@
+import type { PuterChatMessage, PuterChatResponse, RawAIResult } from './types';
+
+function parseJSONFromAI(text: string): RawAIResult {
+  const m = text.match(/```json\s*([\s\S]*?)\s*```/) || text.match(/```\s*([\s\S]*?)\s*```/);
+  return JSON.parse((m ? m[1] : text).trim()) as RawAIResult;
+}
+
 let puterLoaded = false;
 
-declare const puter: { ai: { chat: (messages: unknown[], opts?: unknown) => Promise<unknown> } };
+declare const puter: {
+  ai: {
+    chat: (messages: PuterChatMessage[], opts?: { model: string }) => Promise<PuterChatResponse | string>;
+  };
+};
 
 export function getAIProvider(): string {
   return sessionStorage.getItem('ai_provider') || 'none';
@@ -17,7 +28,7 @@ async function loadPuter(): Promise<void> {
   });
 }
 
-export async function callAI(sys: string, msg: string): Promise<Record<string, unknown> | null> {
+export async function callAI(sys: string, msg: string): Promise<RawAIResult | null> {
   const provider = getAIProvider();
   const k = sessionStorage.getItem('ai_api_key');
 
@@ -26,13 +37,19 @@ export async function callAI(sys: string, msg: string): Promise<Record<string, u
       if (!puterLoaded) await loadPuter();
       const timeoutP = new Promise<never>((_, rej) => setTimeout(() => rej(new Error('timeout')), 30000));
       const aiP = puter.ai.chat([{ role: 'system', content: sys }, { role: 'user', content: msg }], { model: 'gpt-4o-mini' });
-      const resp = await Promise.race([aiP, timeoutP]) as unknown;
-      const r = resp as Record<string, unknown>;
-      const respMsg = r?.message as Record<string, unknown> | undefined;
-      const contentArr = respMsg?.content as Array<Record<string, string>> | undefined;
-      const t = typeof resp === 'string' ? resp : (contentArr?.[0]?.text || respMsg?.content || r?.text || JSON.stringify(resp)) as string;
-      const m = (t as string).match(/```json\s*([\s\S]*?)\s*```/) || (t as string).match(/```\s*([\s\S]*?)\s*```/) || { 1: t };
-      return JSON.parse(((m as RegExpMatchArray)[1] || (t as string)).trim());
+      const resp = await Promise.race([aiP, timeoutP]);
+      if (typeof resp === 'string') return parseJSONFromAI(resp);
+      const respMsg = resp.message;
+      const content = respMsg?.content;
+      let t: string;
+      if (Array.isArray(content)) {
+        t = content[0]?.text || JSON.stringify(resp);
+      } else if (typeof content === 'string') {
+        t = content;
+      } else {
+        t = resp.text || JSON.stringify(resp);
+      }
+      return parseJSONFromAI(t);
     } catch (e) { console.error('Puter AI:', e); return null; }
   }
 
@@ -44,10 +61,9 @@ export async function callAI(sys: string, msg: string): Promise<Record<string, u
         body: JSON.stringify({ model: 'llama-3.3-70b-versatile', max_tokens: 4000, messages: [{ role: 'system', content: sys }, { role: 'user', content: msg }] }),
       });
       if (!r.ok) return null;
-      const d = await r.json();
+      const d: { choices: Array<{ message: { content: string } }> } = await r.json();
       const t = d.choices[0].message.content;
-      const m = t.match(/```json\s*([\s\S]*?)\s*```/) || t.match(/```\s*([\s\S]*?)\s*```/) || { 1: t };
-      return JSON.parse((m[1] || t).trim());
+      return parseJSONFromAI(t);
     } catch (e) { console.error('Groq:', e); return null; }
   }
 
@@ -59,10 +75,9 @@ export async function callAI(sys: string, msg: string): Promise<Record<string, u
         body: JSON.stringify({ model: 'claude-haiku-4-5', max_tokens: 4000, system: sys, messages: [{ role: 'user', content: msg }] }),
       });
       if (!r.ok) return null;
-      const d = await r.json();
+      const d: { content: Array<{ text: string }> } = await r.json();
       const t = d.content[0].text;
-      const m = t.match(/```json\s*([\s\S]*?)\s*```/) || t.match(/```\s*([\s\S]*?)\s*```/) || { 1: t };
-      return JSON.parse((m[1] || t).trim());
+      return parseJSONFromAI(t);
     } catch (e) { console.error('Anthropic:', e); return null; }
   }
 

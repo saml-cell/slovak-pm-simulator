@@ -9,6 +9,7 @@ import { updateDash } from './render/dashboard';
 import { proceed, confirmResign } from './game-flow';
 import { openHistory, generateWiki } from './wiki';
 import { trackAnalytics } from './analytics';
+import { esc } from './sanitize';
 import type { GameState } from './types';
 
 async function main() {
@@ -23,14 +24,14 @@ async function main() {
         <div style="max-width:500px;margin:60px auto;padding:40px;background:#1a2332;border-radius:16px;border:1px solid rgba(224,184,74,.3);color:#e2e8f0;font-family:system-ui;text-align:center">
           <h1 style="color:#e0b84a;font-size:1.8rem;margin-bottom:8px">Slovenský Politický Simulátor</h1>
           <p style="opacity:.7;margin-bottom:24px">Výsledok hráča</p>
-          <h2 style="font-size:1.4rem;margin-bottom:16px">${r.p} (${r.e})</h2>
+          <h2 style="font-size:1.4rem;margin-bottom:16px">${esc(String(r.p))} (${esc(String(r.e))})</h2>
           <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px">
-            <div style="padding:12px;background:rgba(255,255,255,.05);border-radius:8px"><div style="font-size:1.5rem;font-weight:700">${r.a}%</div><div style="font-size:.75rem;opacity:.6">Podpora</div></div>
-            <div style="padding:12px;background:rgba(255,255,255,.05);border-radius:8px"><div style="font-size:1.5rem;font-weight:700">${r.s}%</div><div style="font-size:.75rem;opacity:.6">Stabilita</div></div>
-            <div style="padding:12px;background:rgba(255,255,255,.05);border-radius:8px"><div style="font-size:1.5rem;font-weight:700">${r.c}%</div><div style="font-size:.75rem;opacity:.6">Koalícia</div></div>
+            <div style="padding:12px;background:rgba(255,255,255,.05);border-radius:8px"><div style="font-size:1.5rem;font-weight:700">${esc(String(r.a))}%</div><div style="font-size:.75rem;opacity:.6">Podpora</div></div>
+            <div style="padding:12px;background:rgba(255,255,255,.05);border-radius:8px"><div style="font-size:1.5rem;font-weight:700">${esc(String(r.s))}%</div><div style="font-size:.75rem;opacity:.6">Stabilita</div></div>
+            <div style="padding:12px;background:rgba(255,255,255,.05);border-radius:8px"><div style="font-size:1.5rem;font-weight:700">${esc(String(r.c))}%</div><div style="font-size:.75rem;opacity:.6">Koalícia</div></div>
           </div>
-          <p style="margin-bottom:4px">${r.w ? '✅ Dovládol' : '❌ Kolaps'} po ${r.m} mesiacoch</p>
-          <p style="font-size:.85rem;opacity:.6;margin-bottom:24px">HDP rast: ${r.g}%</p>
+          <p style="margin-bottom:4px">${r.w ? '&#10003; Dovládol' : '&#10007; Kolaps'} po ${esc(String(r.m))} mesiacoch</p>
+          <p style="font-size:.85rem;opacity:.6;margin-bottom:24px">HDP rast: ${esc(String(r.g))}%</p>
           <a href="./" style="display:inline-block;padding:12px 32px;background:#0ea5e9;color:#fff;border-radius:8px;text-decoration:none;font-weight:600">Skúsiť sám →</a>
         </div>`;
       return;
@@ -109,7 +110,7 @@ async function main() {
         if (sv && typeof sv === 'object' && sv.econ && typeof sv.econ.gdp === 'number'
             && typeof sv.month === 'number' && typeof sv.approval === 'number'
             && typeof sv.stability === 'number' && typeof sv.coalition === 'number') {
-          sv.used = new Set(Array.isArray(sv.used) ? sv.used.filter((x: unknown) => typeof x === 'string') : []);
+          sv.used = new Set(Array.isArray(sv.used) ? (sv.used as string[]).filter((x: string) => typeof x === 'string') : []);
           const G = getState();
           const safeKeys: (keyof GameState)[] = ['month', 'approval', 'stability', 'coalition', 'impl',
             'prevA', 'prevS', 'prevC', 'prevImpl', 'history', 'approvalH', 'pScores', 'sScores',
@@ -120,8 +121,12 @@ async function main() {
             'debtToGdp', 'fdi', 'mediaCycle', 'mediaCycleEvent', 'pollApproval', 'pollError', 'interestRate', 'laborParticipation', 'shapleyPower',
             'brainDrain', 'oligarchicTies',
             'court', 'cabinet', 'institutions'];
+          const validated = sv as Partial<GameState>;
           for (const key of safeKeys) {
-            if (key in sv) (G as unknown as Record<string, unknown>)[key] = sv[key];
+            if (key in sv) {
+              // Safe: both sides are keyed by the same GameState key
+              (G as Record<keyof GameState, GameState[keyof GameState]>)[key] = validated[key] as GameState[typeof key];
+            }
           }
         } else {
           localStorage.removeItem(era.meta.saveKey);
@@ -241,7 +246,7 @@ async function main() {
   document.getElementById('playAgainButton')!.addEventListener('click', () => location.reload());
   document.getElementById('wikiButton')!.addEventListener('click', () => generateWiki());
   document.getElementById('shareButton')!.addEventListener('click', () => {
-    const url = (window as any).__shareUrl;
+    const url = window.__shareUrl;
     if (url) {
       navigator.clipboard.writeText(url).then(() => {
         const btn = document.getElementById('shareButton')!;

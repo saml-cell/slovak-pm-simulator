@@ -14,21 +14,19 @@ export function showAnalysis(a: AnalysisResult) {
   }).join('');
 
   const cb = a.cb;
-  if (cb) {
-    document.getElementById('checksSection')!.style.display = 'block';
-    const cbR = cb.reasons || {};
-    document.getElementById('checksContent')!.innerHTML = [
-      { l: 'Parlament', v: cb.parliament, r: cbR.parliament },
-      { l: 'Ústavný súd', v: cb.court, r: cbR.court },
-      { l: 'Prezident', v: cb.president, r: cbR.president },
-      { l: 'Implementácia', v: cb.implementationRate },
-    ].map(c => `<div class="check-card"><div class="check-label">${esc(c.l)}</div><div class="check-value ${(c.v || 0) >= 50 ? 'check-passed' : 'check-failed'}">${c.v || '?'}</div>${c.r ? '<div style="font-size:.7rem;color:var(--text-dim);margin-top:4px;line-height:1.4;text-align:left">' + esc(c.r) + '</div>' : ''}</div>`).join('');
-  }
+  document.getElementById('checksSection')!.style.display = 'block';
+  const cbR = cb.reasons || {};
+  document.getElementById('checksContent')!.innerHTML = [
+    { l: 'Parlament', v: cb.parliament, r: cbR.parliament },
+    { l: 'Ústavný súd', v: cb.court, r: cbR.court },
+    { l: 'Prezident', v: cb.president, r: cbR.president },
+    { l: 'Implementácia', v: cb.implementationRate },
+  ].map(c => `<div class="check-card"><div class="check-label">${esc(c.l)}</div><div class="check-value ${(c.v || 0) >= 50 ? 'check-passed' : 'check-failed'}">${c.v || '?'}</div>${c.r ? '<div style="font-size:.7rem;color:var(--text-dim);margin-top:4px;line-height:1.4;text-align:left">' + esc(c.r) + '</div>' : ''}</div>`).join('');
 
-  const cs = a.cs || {};
+  const cs = a.cs;
   document.getElementById('civilServiceContent')!.innerHTML = `<p>${esc(cs.summary || 'Analyzované.')}</p><div class="risk-pills"><span class="risk-pill ${esc((cs.risk || 'medium').toLowerCase())}">Riziko: ${esc(cs.risk || 'Medium')}</span><span class="risk-pill ${esc((cs.treasuryCost || 'medium').toLowerCase())}">Náklady: ${esc(cs.treasuryCost || 'Medium')}</span><span class="risk-pill ${esc((cs.growthPotential || 'medium').toLowerCase())}">Rast: ${esc(cs.growthPotential || 'Medium')}</span></div><div class="fiscal-note">${esc(cs.recommendation || '')}</div>`;
 
-  const ef = a.econFx || {};
+  const ef = a.econFx;
   const hasEconChange = Object.values(ef).some(v => Math.abs(v || 0) > 0.001);
   if (!hasEconChange) {
     document.getElementById('budgetSection')!.innerHTML = '';
@@ -44,7 +42,7 @@ export function showAnalysis(a: AnalysisResult) {
     </div></div>`;
   }
 
-  const pr = a.press || { left: { headline: '—', subhead: '' }, center: { headline: '—', subhead: '' }, right: { headline: '—', subhead: '' } };
+  const pr = a.press;
   const hl = era.headlines;
   document.getElementById('pressContent')!.innerHTML = `<div class="press-section">
     <div class="press-column left"><div class="press-outlet">${esc(hl.left.name)}</div><div class="press-headline">${esc(pr.left.headline)}</div><div class="press-subhead" style="margin-top:6px;line-height:1.5">${esc(pr.left.subhead)}</div></div>
@@ -88,13 +86,13 @@ export function showAnalysis(a: AnalysisResult) {
 
 export function showFG(a: AnalysisResult) {
   const era = getEra();
-  const sc = a.pScores || {};
-  const sorted = Object.keys(sc).sort((x, y) => (sc[y] || 50) - (sc[x] || 50));
+  const sc = a.pScores;
+  const sorted = Object.keys(sc).sort((x, y) => sc[y] - sc[x]);
   let sum = 0, html = '';
   sorted.forEach(id => {
     const p = era.personas.find(x => x.id === id);
     if (!p) return;
-    const s = sc[id] || 50; sum += s;
+    const s = sc[id]; sum += s;
     const q = era.personaQuotes[id] || {};
     let tierKey: keyof typeof q = 'n';
     if (s >= 75) tierKey = 'vp'; else if (s >= 60) tierKey = 'p'; else if (s >= 40) tierKey = 'n'; else if (s >= 25) tierKey = 'ng'; else tierKey = 'vn';
@@ -111,13 +109,13 @@ export function showFG(a: AnalysisResult) {
 export function showSH(a: AnalysisResult) {
   const era = getEra();
   const G = getState();
-  const sc = a.sScores || {};
-  const sorted = Object.keys(sc).sort((x, y) => (sc[y] || 50) - (sc[x] || 50));
+  const sc = a.sScores;
+  const sorted = Object.keys(sc).sort((x, y) => sc[y] - sc[x]);
   let sum = 0, html = '';
   sorted.forEach(id => {
     const s = era.stakeholders.find(x => x.id === id);
     if (!s) return;
-    const v = sc[id] || 50; const base = G.sScores[id] || 50; const d = v - base; sum += v;
+    const v = sc[id]; const base = G.sScores[id] || 50; const d = v - base; sum += v;
     const col = v > 60 ? 'var(--green)' : v > 40 ? 'var(--yellow)' : 'var(--red)';
     const dc = d > 0 ? 'delta-positive' : d < 0 ? 'delta-negative' : 'delta-neutral';
     html += `<div class="stakeholder-card"><div class="stakeholder-header"><div class="stakeholder-header-left"><div class="stakeholder-name-card">${esc(s.name)}</div><div class="stakeholder-desc">${esc(s.desc)}</div></div><div class="stakeholder-score-card" style="color:${col}">${Math.round(v)}</div></div><div class="stakeholder-bar-card"><div class="metric-fill" style="background:${col};width:${v}%"></div></div><div class="stakeholder-delta ${dc}">${d > 0 ? '↑' : '↓'} ${Math.abs(d).toFixed(0)}</div></div>`;

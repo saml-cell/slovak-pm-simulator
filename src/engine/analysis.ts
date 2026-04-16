@@ -1,4 +1,4 @@
-import type { ActiveEvent, AnalysisResult } from './types';
+import type { ActiveEvent, AnalysisResult, RawAIResult } from './types';
 import { getEra, getState } from './state';
 import { callAI, getAIProvider } from './ai';
 import { kwScore } from './scoring';
@@ -32,21 +32,21 @@ ${G.institutions.heads.length ? `Institutions(integrity:${Math.round(G.instituti
 All text Slovak with proper diacritics. Be realistic and harsh.`;
 }
 
-function parseAIResult(raw: Record<string, unknown>): AnalysisResult {
+function parseAIResult(raw: RawAIResult): AnalysisResult {
   return {
-    aD: (raw.approvalDelta as number) || 0,
-    stD: (raw.stabilityDelta as number) || 0,
-    cD: (raw.coalitionDelta as number) || 0,
-    pScores: (raw.personaScores as Record<string, number>) || {},
-    sScores: (raw.stakeholderScores as Record<string, number>) || {},
-    econFx: (raw.economyEffects as Record<string, number>) || {},
-    diploFx: (raw.diplomacyChanges as Record<string, number>) || {},
-    cs: (raw.civilService as AnalysisResult['cs']) || { summary: '', risk: 'Medium', treasuryCost: 'Medium', growthPotential: 'Medium', complexity: 'Medium', publicSensitivity: 'Medium', recommendation: '' },
-    press: (raw.press as AnalysisResult['press']) || { left: { headline: '-', subhead: '' }, center: { headline: '-', subhead: '' }, right: { headline: '-', subhead: '' } },
-    cb: (raw.checksAndBalances as AnalysisResult['cb']) || { parliament: 70, court: 80, president: 50, implementationRate: 80 },
-    consequence: (raw.consequence as AnalysisResult['consequence']) || null,
-    flags: (raw.flags as Record<string, boolean>) || {},
-    socialFx: (raw.socialEffects as Record<string, number>) || { press: 0, corrupt: 0 },
+    aD: raw.approvalDelta || 0,
+    stD: raw.stabilityDelta || 0,
+    cD: raw.coalitionDelta || 0,
+    pScores: raw.personaScores || {},
+    sScores: raw.stakeholderScores || {},
+    econFx: raw.economyEffects || {},
+    diploFx: raw.diplomacyChanges || {},
+    cs: raw.civilService || { summary: '', risk: 'Medium', treasuryCost: 'Medium', growthPotential: 'Medium', complexity: 'Medium', publicSensitivity: 'Medium', recommendation: '' },
+    press: raw.press || { left: { headline: '-', subhead: '' }, center: { headline: '-', subhead: '' }, right: { headline: '-', subhead: '' } },
+    cb: raw.checksAndBalances || { parliament: 70, court: 80, president: 50, implementationRate: 80 },
+    consequence: raw.consequence || null,
+    flags: raw.flags || {},
+    socialFx: raw.socialEffects || { press: 0, corrupt: 0 },
   };
 }
 

@@ -11,7 +11,56 @@ import { kwScore } from '../scoring';
 import type { EraConfig, GameState, CoalitionPartner } from '../types';
 import eraJson from '../../eras/fico-2012-2016.json';
 
-const realEra = eraJson as unknown as EraConfig;
+/** Build a partial GameState with sensible defaults for the fields tests don't care about. */
+function makeState(overrides: Partial<GameState>): GameState {
+  const defaults: GameState = {
+    month: 0, approval: 50, stability: 50, coalition: 50, impl: 80,
+    prevA: 50, prevS: 50, prevC: 50, prevImpl: 80,
+    history: [], approvalH: [50],
+    pScores: {}, sScores: {},
+    econ: { gdp: 100, gdpGrowth: 2, unemp: 6, infl: 3, deficit: -3, debt: 50, minW: 700 },
+    diplo: {}, social: {},
+    cp: {}, parl: {}, flags: {}, cq: [],
+    used: new Set(), analysis: null, event: null,
+    pellegrini: false, stances: {},
+    momentum: 0, policyThemes: [], oppositionPressure: 20,
+    businessCycle: 0, politicalCapital: 80, crisisFatigue: 0, euFundsFlow: 5,
+    debtToGdp: 50, fdi: 5, mediaCycle: 0, mediaCycleEvent: '',
+    pollApproval: 50, pollError: 0, interestRate: 2.5, laborParticipation: 65,
+    shapleyPower: {}, brainDrain: 0, oligarchicTies: 0,
+    court: { judges: [], pendingVacancies: 0, courtPrestige: 50 },
+    cabinet: { ministers: [], cabinetCohesion: 70, reshuffleCount: 0 },
+    institutions: { heads: [], institutionalIntegrity: 60, capturedCount: 0 },
+  };
+  return { ...defaults, ...overrides };
+}
+
+/** Build a partial EraConfig with sensible defaults. */
+function makeEra(overrides: Partial<EraConfig>): EraConfig {
+  const defaults: EraConfig = {
+    meta: { id: 'test', pmName: 'Test PM', headerTitle: 'Test', saveKey: 'test_save', pellegriniMonth: -1 },
+    calendar: { startMonthOffset: 0, startYear: 2020 },
+    totalMonths: 48, gameOverThreshold: 10,
+    titleScreen: { pmName: 'Test PM', subtitle: '', description: '', startButtonText: 'Start' },
+    partyDisplay: { colors: {}, names: {} },
+    personas: [], personaQuotes: {}, politicians: [],
+    coalitionPartners: [], demands: [], regions: [], stakeholders: [],
+    diplomacy: [], keywords: {}, forcedEvents: [], randomEvents: [],
+    headlines: {
+      left: { name: 'Left', entries: [] },
+      center: { name: 'Center', entries: [] },
+      right: { name: 'Right', entries: [] },
+    },
+    initialState: {
+      approval: 50, stability: 50, coalition: 50, impl: 80,
+      econ: { gdp: 100, gdpGrowth: 2, unemp: 6, infl: 3, deficit: -3, debt: 50, minW: 700 },
+      diplo: {}, social: {}, cp: {}, parl: {}, stances: {},
+    },
+  };
+  return { ...defaults, ...overrides };
+}
+
+const realEra = eraJson as EraConfig;
 
 function loadRealEra(): GameState {
   setEra(realEra);
@@ -80,10 +129,10 @@ describe('initGame + coalitionSeats — era bootstrap', () => {
 
 describe('applyMomentum — direction compounding', () => {
   function baseState(): GameState {
-    return {
+    return makeState({
       momentum: 0,
       pScores: { a: 50, b: 50, c: 50 },
-    } as unknown as GameState;
+    });
   }
 
   it('zero raw delta decays momentum toward zero', () => {
@@ -111,22 +160,22 @@ describe('applyMomentum — direction compounding', () => {
 
 describe('computeShapley — power index sums to 1', () => {
   it('three-partner coalition distributes power summing to 1', () => {
-    const era = {
+    const era = makeEra({
       coalitionPartners: [
         { id: 'a', name: 'A', seats: 60, freq: 6 },
         { id: 'b', name: 'B', seats: 20, freq: 6 },
         { id: 'c', name: 'C', seats: 10, freq: 6 },
       ],
-    } as unknown as EraConfig;
+    });
 
-    const G = {
+    const G = makeState({
       cp: {
         a: { on: 1, sat: 50, pat: 50, dem: null, lastD: 0 },
         b: { on: 1, sat: 50, pat: 50, dem: null, lastD: 0 },
         c: { on: 1, sat: 50, pat: 50, dem: null, lastD: 0 },
       },
       shapleyPower: {},
-    } as unknown as GameState;
+    });
 
     computeShapley(G, era);
     const total = Object.values(G.shapleyPower).reduce((s, v) => s + v, 0);
@@ -136,15 +185,15 @@ describe('computeShapley — power index sums to 1', () => {
   });
 
   it('dictator gets full power when alone above quota', () => {
-    const era = {
+    const era = makeEra({
       coalitionPartners: [
         { id: 'a', name: 'A', seats: 83, freq: 6 },
       ],
-    } as unknown as EraConfig;
-    const G = {
+    });
+    const G = makeState({
       cp: { a: { on: 1, sat: 50, pat: 50, dem: null, lastD: 0 } },
       shapleyPower: {},
-    } as unknown as GameState;
+    });
     computeShapley(G, era);
     expect(G.shapleyPower.a).toBeCloseTo(1, 5);
   });
@@ -152,10 +201,10 @@ describe('computeShapley — power index sums to 1', () => {
 
 describe('policyConsistency — theme tracking', () => {
   function emptyState(): GameState {
-    return {
+    return makeState({
       policyThemes: [],
       stances: {},
-    } as unknown as GameState;
+    });
   }
 
   it('returns zero bonus for first policy with no matched theme', () => {

@@ -1,10 +1,30 @@
-import type { AnalysisResult } from './types';
+import type { AnalysisResult, EconomyState, GameState, LeaderboardEntry } from './types';
 import { getEra, getState, getCalendarDate } from './state';
 import { showScreen } from './screen';
 import { updateDash } from './render/dashboard';
 import { esc } from './sanitize';
 import { trackAnalytics } from './analytics';
-import { applyMomentum, socialInfluence, econFeedback, policyConsistency, oppositionMove, nashBargaining, simulateElection, businessCycleTick, deficitDynamics, euFundsLink, smartMinWage, econCrisisCheck, incumbencyPenalty, crisisFatigueTick, politicalCapitalTick, diploFeedback, computeShapley, fiscalHealth, fdiDynamics, okunsLaw, mediaCycleTick, updatePolling, laborMarketTick, brainDrainTick, oligarchicTick, mediaEcosystemTick, courtTick, courtIdeologyScore, cabinetTick, cabinetImplementationMod, institutionsTick } from './advanced';
+import { clamp, applyMomentum, socialInfluence, econFeedback, policyConsistency, oppositionMove, nashBargaining, simulateElection, businessCycleTick, deficitDynamics, euFundsLink, smartMinWage, econCrisisCheck, incumbencyPenalty, crisisFatigueTick, politicalCapitalTick, diploFeedback, computeShapley, fiscalHealth, fdiDynamics, okunsLaw, mediaCycleTick, updatePolling, laborMarketTick, brainDrainTick, oligarchicTick, mediaEcosystemTick, courtTick, courtIdeologyScore, cabinetTick, cabinetImplementationMod, institutionsTick } from './advanced';
+
+function clampEcon(G: GameState): void {
+  G.econ.gdpGrowth = clamp(G.econ.gdpGrowth, -5, 15);
+  G.econ.unemp = clamp(G.econ.unemp, 2, 30);
+  G.econ.infl = clamp(G.econ.infl, 0, 25);
+}
+
+function blendScores(target: Record<string, number>, source: Record<string, number>): void {
+  Object.entries(source).forEach(([id, nv]) => {
+    const pv = target[id] || 50;
+    const bl = nv > pv ? .4 : .5;
+    target[id] = clamp(pv * (1 - bl) + nv * bl, 5, 95);
+  });
+}
+
+function renderApprovalChart(G: GameState): string {
+  return G.approvalH.map((v, i) =>
+    `<div class="chart-bar" style="height:${(v / 100) * 160}px"><div class="chart-bar-label">${i % 6 === 0 ? getCalendarDate(i).substring(0, 3) : ''}</div></div>`
+  ).join('');
+}
 
 function handleDem(id: string, action: string) {
   const G = getState();
@@ -21,7 +41,7 @@ function kickP(id: string) {
   const era = getEra();
   const cp = era.coalitionPartners.find(x => x.id === id);
   if (!cp) return;
-  if (id === era.coalitionPartners[0]?.id) return; // Can't kick your own party
+  if (id === era.coalitionPartners[0]?.id) return;
   const el = (eid: string) => document.getElementById(eid)!;
   el('modalTitle').textContent = 'Vyhodiť ' + cp.name + '?';
   el('modalText').textContent = 'Stratíte ' + cp.seats + ' kresiel. Stabilita výrazne klesne.';
@@ -61,31 +81,29 @@ export function proceed(a: AnalysisResult) {
   const fatigueMult = crisisFatigueTick(G, eventTier);
 
   G.prevA = G.approval; G.prevS = G.stability; G.prevC = G.coalition; G.prevImpl = G.impl;
-  const ir = ((a.cb?.implementationRate || 80) / 100) * capMult;
+  const ir = ((a.cb.implementationRate || 80) / 100) * capMult;
   const mediaAmp = mediaCycleTick(G, eventTier, G.event?.headline || '');
-  G.approval = Math.max(0, Math.min(100, G.approval + applyMomentum(G, a.aD * ir * fatigueMult * mediaAmp)));
-  G.stability = Math.max(0, Math.min(100, G.stability + a.stD * ir));
-  G.coalition = Math.max(0, Math.min(100, G.coalition + a.cD * ir));
-  G.impl = a.cb?.implementationRate || G.impl;
+  G.approval = clamp(G.approval + applyMomentum(G, a.aD * ir * fatigueMult * mediaAmp));
+  G.stability = clamp(G.stability + a.stD * ir);
+  G.coalition = clamp(G.coalition + a.cD * ir);
+  G.impl = a.cb.implementationRate || G.impl;
 
-  Object.entries(a.pScores || {}).forEach(([id, nv]) => { const pv = G.pScores[id] || 50; const bl = nv > pv ? .4 : .5; G.pScores[id] = Math.max(5, Math.min(95, pv * (1 - bl) + nv * bl)); });
-  Object.entries(a.sScores || {}).forEach(([id, nv]) => { const pv = G.sScores[id] || 50; const bl = nv > pv ? .4 : .5; G.sScores[id] = Math.max(5, Math.min(95, pv * (1 - bl) + nv * bl)); });
+  blendScores(G.pScores, a.pScores);
+  blendScores(G.sScores, a.sScores);
 
   socialInfluence(G, era);
 
-  if (a.econFx) Object.entries(a.econFx).forEach(([k, d]) => { if ((G.econ as unknown as Record<string, number>)[k] !== undefined) (G.econ as unknown as Record<string, number>)[k] += d * ir; });
-  if (a.diploFx) {
-    Object.entries(a.diploFx).forEach(([k, d]) => { if (G.diplo[k] !== undefined) G.diplo[k] = Math.max(0, Math.min(100, G.diplo[k] + d * ir)); });
-    if (a.diploFx.russia > 0) {
-      if (G.diplo.eu !== undefined) G.diplo.eu -= a.diploFx.russia * .25;
-      if (G.diplo.usa !== undefined) G.diplo.usa -= a.diploFx.russia * .2;
-      if (G.diplo.ukraine !== undefined) G.diplo.ukraine -= a.diploFx.russia * .3;
-      if (G.diplo.nato_r !== undefined) G.diplo.nato_r -= a.diploFx.russia * .2;
-    }
-    Object.keys(G.diplo).forEach(k => { G.diplo[k] = Math.max(0, Math.min(100, G.diplo[k])); });
+  Object.entries(a.econFx).forEach(([k, d]) => { const ek = k as keyof EconomyState; if (ek in G.econ) G.econ[ek] += d * ir; });
+  Object.entries(a.diploFx).forEach(([k, d]) => { if (G.diplo[k] !== undefined) G.diplo[k] = clamp(G.diplo[k] + d * ir); });
+  if (a.diploFx.russia > 0) {
+    if (G.diplo.eu !== undefined) G.diplo.eu -= a.diploFx.russia * .25;
+    if (G.diplo.usa !== undefined) G.diplo.usa -= a.diploFx.russia * .2;
+    if (G.diplo.ukraine !== undefined) G.diplo.ukraine -= a.diploFx.russia * .3;
+    if (G.diplo.nato_r !== undefined) G.diplo.nato_r -= a.diploFx.russia * .2;
   }
-  if (a.socialFx) Object.entries(a.socialFx).forEach(([k, d]) => { if (G.social[k] !== undefined) G.social[k] = Math.max(0, Math.min(100, G.social[k] + d)); });
-  if (a.flags) Object.assign(G.flags, a.flags);
+  Object.keys(G.diplo).forEach(k => { G.diplo[k] = clamp(G.diplo[k]); });
+  Object.entries(a.socialFx).forEach(([k, d]) => { if (G.social[k] !== undefined) G.social[k] = clamp(G.social[k] + d); });
+  Object.assign(G.flags, a.flags);
 
   // Any consequence chain keyed off a flag we just set gets scheduled once,
   // gated by a _cc_<flag> marker so re-setting the flag can't re-trigger.
@@ -133,7 +151,10 @@ export function proceed(a: AnalysisResult) {
 
   if (a.consequence) {
     const fireMonth = Math.min(G.month + (a.consequence.delay || 3), era.totalMonths - 1);
-    G.cq.push({ ev: a.consequence, fire: fireMonth, originP: G.history[G.history.length - 1]?.p || '', originM: G.month, prob: a.consequence.probability || .5 });
+    G.cq.push({
+      ev: { h: a.consequence.headline, d: a.consequence.description, cat: 'Ekonomika', s: ['Riešiť', 'Ignorovať', 'Kompromis'] },
+      fire: fireMonth, originP: G.history[G.history.length - 1]?.p || '', originM: G.month, prob: a.consequence.probability || .5
+    });
   }
 
   Object.entries(G.cp).forEach(([id, p]) => { if (p.on) p.sat = G.sScores[id] || 50; });
@@ -145,9 +166,7 @@ export function proceed(a: AnalysisResult) {
   G.econ.debt = Math.max(0, G.econ.debt + G.econ.deficit / 12);
   euFundsLink(G);
   smartMinWage(G);
-  G.econ.gdpGrowth = Math.max(-5, Math.min(15, G.econ.gdpGrowth));
-  G.econ.unemp = Math.max(2, Math.min(30, G.econ.unemp));
-  G.econ.infl = Math.max(0, Math.min(25, G.econ.infl));
+  clampEcon(G);
   econFeedback(G);
   diploFeedback(G);
   incumbencyPenalty(G);
@@ -168,12 +187,12 @@ export function proceed(a: AnalysisResult) {
 
   const courtInfluence = courtIdeologyScore(G);
   if (G.court.judges.length > 0) {
-    G.impl = Math.max(20, Math.min(100, G.impl + (courtInfluence - 50) * 0.05));
+    G.impl = clamp(G.impl + (courtInfluence - 50) * 0.05, 20, 100);
   }
 
   const lastPolicyText = G.history.length ? G.history[G.history.length - 1].p : '';
   const cabinetMod = cabinetImplementationMod(G, lastPolicyText, era);
-  G.impl = Math.max(20, Math.min(100, G.impl * cabinetMod));
+  G.impl = clamp(G.impl * cabinetMod, 20, 100);
   updatePolling(G);
 
   if (G.pollApproval < 25) {
@@ -190,16 +209,15 @@ export function proceed(a: AnalysisResult) {
   computeShapley(G, era);
 
   if (era.meta.pellegriniMonth >= 0 && G.month === era.meta.pellegriniMonth) G.pellegrini = true;
-  if ((era.meta as unknown as Record<string, unknown>).presidentUnfriendlyMonth !== undefined) {
-    const ufm = (era.meta as unknown as Record<string, unknown>).presidentUnfriendlyMonth as number;
-    if (ufm >= 0 && G.month === ufm) G.pellegrini = false;
+  if (era.meta.presidentUnfriendlyMonth !== undefined && era.meta.presidentUnfriendlyMonth >= 0 && G.month === era.meta.presidentUnfriendlyMonth) {
+    G.pellegrini = false;
   }
 
   const oppAction = oppositionMove(G, era);
   if (oppAction.action) {
-    G.approval = Math.max(0, Math.min(100, G.approval + oppAction.effect.approval));
-    G.stability = Math.max(0, Math.min(100, G.stability + oppAction.effect.stability));
-    G.coalition = Math.max(0, Math.min(100, G.coalition + oppAction.effect.coalition));
+    G.approval = clamp(G.approval + oppAction.effect.approval);
+    G.stability = clamp(G.stability + oppAction.effect.stability);
+    G.coalition = clamp(G.coalition + oppAction.effect.coalition);
   }
   const oppEl = document.getElementById('oppositionAction');
   if (oppEl) {
@@ -207,19 +225,17 @@ export function proceed(a: AnalysisResult) {
     else oppEl.style.display = 'none';
   }
 
-  G.approval = Math.max(0, Math.min(100, G.approval));
-  G.stability = Math.max(0, Math.min(100, G.stability));
-  G.coalition = Math.max(0, Math.min(100, G.coalition));
-  G.econ.gdpGrowth = Math.max(-5, Math.min(15, G.econ.gdpGrowth));
-  G.econ.unemp = Math.max(2, Math.min(30, G.econ.unemp));
-  G.econ.infl = Math.max(0, Math.min(25, G.econ.infl));
+  G.approval = clamp(G.approval);
+  G.stability = clamp(G.stability);
+  G.coalition = clamp(G.coalition);
+  clampEcon(G);
 
   G.approvalH.push(G.approval);
   G.month++;
   nashBargaining(G, era);
 
   try {
-    const sv = JSON.parse(JSON.stringify(G)) as Record<string, unknown>;
+    const sv = JSON.parse(JSON.stringify(G)) as Omit<GameState, 'used'> & { used: string[] };
     sv.used = Array.from(G.used);
     localStorage.setItem(era.meta.saveKey, JSON.stringify(sv));
   } catch (_e) { /* ignore */ }
@@ -356,9 +372,7 @@ function gameOver(collapsed: boolean) {
     }
   }
 
-  el('approvalChart').innerHTML = G.approvalH.map((v, i) =>
-    `<div class="chart-bar" style="height:${(v / 100) * 160}px"><div class="chart-bar-label">${i % 6 === 0 ? getCalendarDate(i).substring(0, 3) : ''}</div></div>`
-  ).join('');
+  el('approvalChart').innerHTML = renderApprovalChart(G);
 
   if (!collapsed) {
     const election = simulateElection(G, era);
@@ -403,12 +417,12 @@ function gameOver(collapsed: boolean) {
     w: collapsed ? 0 : 1
   }));
   const shareUrl = window.location.origin + window.location.pathname + '?result=' + shareData;
-  (window as any).__shareUrl = shareUrl;
+  window.__shareUrl = shareUrl;
 
   try {
-    const lb = JSON.parse(localStorage.getItem('spm_leaderboard') || '[]');
+    const lb: LeaderboardEntry[] = JSON.parse(localStorage.getItem('spm_leaderboard') || '[]');
     lb.push({ era: era.meta.id, pm: era.meta.pmName, approval: Math.round(G.approval), stability: Math.round(G.stability), months: G.month, won: !collapsed, date: new Date().toISOString().substring(0,10) });
-    lb.sort((a: any, b: any) => b.approval - a.approval);
+    lb.sort((a, b) => b.approval - a.approval);
     if (lb.length > 50) lb.length = 50;
     localStorage.setItem('spm_leaderboard', JSON.stringify(lb));
   } catch {}
@@ -428,9 +442,7 @@ export function confirmResign() {
     { l: 'Koalícia', v: Math.round(G.coalition) + '%' }, { l: 'Mesiace', v: String(G.month) },
     { l: 'Dôvod', v: 'Rezignácia' },
   ].map(s => `<div class="game-over-stat"><div class="game-over-stat-label">${s.l}</div><div class="game-over-stat-value">${s.v}</div></div>`).join('');
-  el('approvalChart').innerHTML = G.approvalH.map((v, i) =>
-    `<div class="chart-bar" style="height:${(v / 100) * 160}px"><div class="chart-bar-label">${i % 6 === 0 ? getCalendarDate(i).substring(0, 3) : ''}</div></div>`
-  ).join('');
+  el('approvalChart').innerHTML = renderApprovalChart(G);
   const rcEl = document.getElementById('realComparisonSection');
   if (rcEl) rcEl.innerHTML = '';
   const erEl = document.getElementById('electionResults');
@@ -440,7 +452,7 @@ export function confirmResign() {
 }
 
 // Exposed on window so inline onclick handlers in generated HTML can call them.
-(window as unknown as Record<string, unknown>).__doKick = doKick;
-(window as unknown as Record<string, unknown>).__closeModal = closeModal;
-(window as unknown as Record<string, unknown>).__handleDem = handleDem;
-(window as unknown as Record<string, unknown>).__kickP = kickP;
+window.__doKick = doKick;
+window.__closeModal = closeModal;
+window.__handleDem = handleDem;
+window.__kickP = kickP;

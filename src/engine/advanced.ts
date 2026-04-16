@@ -13,7 +13,7 @@ const OPPOSITION_DECAY = 0.9;
 const OPPOSITION_GROWTH = 5;
 const ELECTION_RUNS = 500;
 
-function clamp(v: number, lo = 0, hi = 100) { return Math.max(lo, Math.min(hi, v)); }
+export function clamp(v: number, lo = 0, hi = 100) { return Math.max(lo, Math.min(hi, v)); }
 function gaussRand(): number {
   const u = 1 - Math.random(), v = Math.random();
   return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
@@ -26,7 +26,6 @@ export function applyMomentum(G: GameState, rawDelta: number): number {
     G.momentum *= MOMENTUM_DECAY;
   }
 
-  // Same-direction delta is amplified, opposite-direction is partially dampened.
   const amp = (Math.sign(rawDelta) === Math.sign(G.momentum))
     ? 1 + Math.abs(G.momentum) * MOMENTUM_AMP
     : 1 - Math.abs(G.momentum) * 0.2;
@@ -45,13 +44,12 @@ export function applyMomentum(G: GameState, rawDelta: number): number {
 
 export function nashBargaining(G: GameState, era: EraConfig): void {
   const totalSeats = era.coalitionPartners.reduce((s, cp) => s + (G.cp[cp.id]?.on ? cp.seats : 0), 0);
-  const surplus = totalSeats - 76; // seats above majority threshold
+  const surplus = totalSeats - 76;
 
   era.coalitionPartners.forEach(cp => {
     const p = G.cp[cp.id];
     if (!p || !p.on) return;
 
-    // Leverage uses Shapley power if available, else seat-share over surplus.
     const shapley = G.shapleyPower[cp.id] ?? 0;
     const leverage = shapley > 0 ? shapley * 4 : (surplus > 0 ? Math.min(3, cp.seats / Math.max(1, surplus)) : 0.5);
 
@@ -91,7 +89,7 @@ export function computeShapley(G: GameState, era: EraConfig): void {
   const n = active.length;
   if (n === 0) return;
 
-  const quota = 76; // parliamentary majority
+  const quota = 76;
   const power: Record<string, number> = {};
   active.forEach(cp => { power[cp.id] = 0; });
 
@@ -709,7 +707,7 @@ export function mediaEcosystemTick(G: GameState): void {
   }
 }
 
-export function courtTick(G: GameState, era: EraConfig): void {
+export function courtTick(G: GameState, _era: EraConfig): void {
   if (!G.court.judges.length) return;
 
   G.court.judges = G.court.judges.filter(j => {
@@ -753,7 +751,6 @@ export function courtTick(G: GameState, era: EraConfig): void {
 // Higher return value = court more aligned with the PM (weaker check).
 export function courtIdeologyScore(G: GameState): number {
   if (!G.court.judges.length) return 50;
-  const avgIdeology = G.court.judges.reduce((s, j) => s + j.ideology, 0) / G.court.judges.length;
   const avgLoyalty = G.court.judges.reduce((s, j) => s + j.loyalty, 0) / G.court.judges.length;
   return clamp((avgLoyalty / 10) * 60 + (1 - G.court.courtPrestige / 100) * 40, 0, 100);
 }
@@ -815,7 +812,7 @@ export function cabinetImplementationMod(G: GameState, policyText: string, era: 
   return 0.7 + (avg / 10) * 0.6;
 }
 
-export function institutionsTick(G: GameState, era: EraConfig): void {
+export function institutionsTick(G: GameState, _era: EraConfig): void {
   if (!G.institutions.heads.length) return;
 
   // Expired heads don't vacate automatically — they linger as "holdovers"
