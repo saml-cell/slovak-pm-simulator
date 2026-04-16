@@ -821,8 +821,13 @@ function loadAnalytics() {
   }).join('');
 
   // Bug report list
+  function escHtml(str) {
+    var d = document.createElement('div');
+    d.textContent = String(str != null ? str : '');
+    return d.innerHTML;
+  }
   const bugList = bugs.slice(-5).reverse().map(b =>
-    `<div style="padding:8px 12px;background:rgba(0,0,0,.35);border:1px solid var(--card-border);border-radius:6px;margin-bottom:6px;border-left:3px solid ${b.type==='crash'?'#dc2626':b.type==='event'?'#f59e0b':'#3b82f6'}"><div style="font-size:.75rem;color:var(--muted)">${b.timestamp?.substring(0,16)} | ${b.era} | Mesiac ${b.month} | ${b.type}</div><div style="font-size:.85rem;margin-top:2px;color:var(--text)">${b.description.substring(0,120)}</div></div>`
+    `<div style="padding:8px 12px;background:rgba(0,0,0,.35);border:1px solid var(--card-border);border-radius:6px;margin-bottom:6px;border-left:3px solid ${b.type==='crash'?'#dc2626':b.type==='event'?'#f59e0b':'#3b82f6'}"><div style="font-size:.75rem;color:var(--muted)">${escHtml((b.timestamp || '').substring(0,16))} | ${escHtml(b.era)} | Mesiac ${escHtml(b.month)} | ${escHtml(b.type)}</div><div style="font-size:.85rem;margin-top:2px;color:var(--text)">${escHtml((b.description || '').substring(0,120))}</div></div>`
   ).join('') || '<p style="color:var(--muted);font-size:.85rem">Žiadne nahlásené chyby</p>';
 
   // Leaderboard
