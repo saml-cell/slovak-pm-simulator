@@ -1,6 +1,6 @@
 # Slovenský Politický Simulátor 🇸🇰
 
-**Slovak Political Simulator** — a browser-based political strategy game where you step into the shoes of the Slovak Prime Minister across 8 historical eras spanning 1994 to 2027.
+**West Wing meets Democracy 4 — set in Bratislava.** A browser-based political strategy game where you step into the shoes of the Slovak Prime Minister across 9 historical eras spanning 1994 to 2027. Every event actually happened.
 
 > Built with TypeScript + Vite. Zero runtime dependencies. ~73 KB JS bundle.
 
