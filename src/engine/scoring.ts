@@ -1,7 +1,67 @@
-import type { ActiveEvent, AnalysisResult, EraConfig } from './types';
+import type { ActiveEvent, AnalysisResult, EraConfig, KeywordTopic } from './types';
 import { getEra, getState, coalitionSeats } from './state';
 import { clamp } from './advanced';
 import { normalizeText } from './sanitize';
+
+// Event category → topic. Categories come from era JSON forcedEvents/
+// randomEvents and are in Slovak; topics are the taxonomy used by the
+// `topic` field on era.keywords entries. Unknown/untagged categories
+// return undefined, which makes all keywords apply broadly (current
+// behaviour) — tagging is additive, not required.
+const CATEGORY_TO_TOPIC: Record<string, KeywordTopic> = {
+  'Ekonomika': 'economy',
+  'Sociálna politika': 'social',
+  'Sociálna integrácia': 'social',
+  'Zahraničná politika': 'foreign',
+  'Európska politika': 'foreign',
+  'Justícia': 'justice',
+  'Korupcia': 'justice',
+  'Protikorupcia': 'justice',
+  'Ústavná politika': 'justice',
+  'Bezpečnosť': 'security',
+  'Zdravotníctvo': 'healthcare',
+  'Školstvo': 'education',
+  'Energetika': 'energy',
+  'Médiá': 'media',
+  'Sloboda tlače': 'media',
+  'Životné prostredie': 'environment',
+  'Politika': 'governance',
+  'Vláda': 'governance',
+  'Koaličná politika': 'governance',
+  'Voľby': 'governance',
+  'Parlamentná politika': 'governance',
+};
+
+// Slovak verbs that flip the polarity of a nearby keyword. If one appears
+// within ~6 words BEFORE a matched keyword, the keyword's effects are
+// multiplied by -1. Diacritic-stripped because it's matched against the
+// normalised `low` string.
+const NEGATION_VERBS = [
+  'zrusim', 'zrusit', 'zrusime',
+  'odmietnem', 'odmietnut', 'odmietneme', 'odmietam',
+  'zastavim', 'zastavit', 'zastavime',
+  'znizim', 'znizit', 'znizime',
+  'obmedzim', 'obmedzit', 'obmedzime',
+  'zakazem', 'zakazat', 'zakazeme',
+  'skoncim', 'skoncit', 'skoncime',
+  'vetujem', 'vetovat',
+  'nepodporim', 'nepodporit', 'neschvalim', 'neschvalit',
+  'nezavediem', 'nebudem',
+];
+
+// Scan the normalised policy `low` for a negation verb in the ~6 words
+// directly before `kwStart`. Returns -1 if polarity should flip, +1 otherwise.
+function polarityAt(low: string, kwStart: number): -1 | 1 {
+  if (kwStart <= 0) return 1;
+  // Grab the preceding fragment. Capping the lookback by char count
+  // (~60 chars ≈ 6–10 words in Slovak) is cheaper than tokenizing and
+  // produces the same answer in practice.
+  const window = low.slice(Math.max(0, kwStart - 60), kwStart);
+  for (const verb of NEGATION_VERBS) {
+    if (window.includes(verb)) return -1;
+  }
+  return 1;
+}
 
 function generateHeadlines(policy: string, ev: ActiveEvent | null): AnalysisResult['press'] {
   const era = getEra();
@@ -106,16 +166,29 @@ export function kwScore(policy: string): AnalysisResult {
   // doesn't fire on "európa" or "reu" fragments. Normalize the keyword
   // the same way the policy was normalized above so legacy entries like
   // "plochaDan" / "efsf_nie" / "prvá_pomoc" match natural input.
+  // Each match is weighted by:
+  //   scale = 1.0 if keyword has no topic tag, OR its topic == event topic
+  //   scale = 0.3 if keyword has a topic tag that differs from event topic
+  //   × polarity (−1 if a negation verb precedes the match within ~60 chars)
+  const eventTopic = G.event?.category ? CATEGORY_TO_TOPIC[G.event.category] : undefined;
   Object.entries(era.keywords).forEach(([rawKw, fx]) => {
     const kw = normalizeText(rawKw);
-    const matched = kw.length <= 3
-      ? new RegExp(`(?:^|[\\s,;.!?()"])${kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?:$|[\\s,;.!?()"])`, 'i').test(low)
-      : low.includes(kw);
-    if (matched) {
-      if (fx.p) Object.entries(fx.p).forEach(([pid, d]) => { a.pScores[pid] = (a.pScores[pid] || 50) + d; });
-      if (fx.s) Object.entries(fx.s).forEach(([sid, d]) => { a.sScores[sid] = (a.sScores[sid] || 50) + d; });
-      if (fx.dp) Object.entries(fx.dp).forEach(([k, d]) => { a.diploFx[k] = (a.diploFx[k] || 0) + d; });
-      if (fx.e) Object.entries(fx.e).forEach(([k, d]) => { if (a.econFx[k] !== undefined) a.econFx[k] += d; });
+    let matchIndex = -1;
+    if (kw.length <= 3) {
+      const m = new RegExp(`(?:^|[\\s,;.!?()"])${kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?:$|[\\s,;.!?()"])`, 'i').exec(low);
+      if (m) matchIndex = m.index + (m[0].startsWith(kw) ? 0 : 1);
+    } else {
+      matchIndex = low.indexOf(kw);
+    }
+    if (matchIndex >= 0) {
+      const topic = (fx as { topic?: KeywordTopic }).topic;
+      const topicScale = !topic || topic === eventTopic ? 1.0 : 0.3;
+      const polarity = polarityAt(low, matchIndex);
+      const scale = topicScale * polarity;
+      if (fx.p) Object.entries(fx.p).forEach(([pid, d]) => { a.pScores[pid] = (a.pScores[pid] || 50) + d * scale; });
+      if (fx.s) Object.entries(fx.s).forEach(([sid, d]) => { a.sScores[sid] = (a.sScores[sid] || 50) + d * scale; });
+      if (fx.dp) Object.entries(fx.dp).forEach(([k, d]) => { a.diploFx[k] = (a.diploFx[k] || 0) + d * scale; });
+      if (fx.e) Object.entries(fx.e).forEach(([k, d]) => { if (a.econFx[k] !== undefined) a.econFx[k] += d * scale; });
     }
   });
 

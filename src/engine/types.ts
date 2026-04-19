@@ -73,7 +73,18 @@ export interface KeywordEffect {
   s?: Record<string, number>;
   dp?: Record<string, number>;
   e?: Record<string, number>;
+  // Optional topic tag. When set, this keyword's effects apply at full
+  // weight only when the active event's category maps to the same topic;
+  // otherwise effects are reduced to 30%. Untagged keywords apply broadly
+  // as before. Prevents e.g. "investicie" in a Zdravotníctvo event from
+  // moving `business` and `eu_nato` as if it were an Ekonomika policy.
+  topic?: KeywordTopic;
 }
+
+export type KeywordTopic =
+  | 'economy' | 'social' | 'foreign' | 'justice' | 'security'
+  | 'healthcare' | 'education' | 'energy' | 'media' | 'environment'
+  | 'governance';
 
 export interface GameEvent {
   id: string;

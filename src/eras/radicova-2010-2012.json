@@ -1111,7 +1111,8 @@
         "smer": 6,
         "business": -4
       },
-      "e": {}
+      "e": {},
+      "topic": "justice"
     },
     "efsf": {
       "p": {
@@ -1133,7 +1134,8 @@
       "e": {
         "gdpGrowth": 0.1,
         "deficit": -0.2
-      }
+      },
+      "topic": "economy"
     },
     "austerita": {
       "p": {
@@ -1154,7 +1156,8 @@
         "deficit": -0.5,
         "gdpGrowth": -0.1,
         "unemp": 0.3
-      }
+      },
+      "topic": "economy"
     },
     "reforma": {
       "p": {
@@ -1198,7 +1201,8 @@
         "judiciary": -7,
         "smer": 5,
         "eu_nato": -3
-      }
+      },
+      "topic": "justice"
     },
     "mensiny": {
       "p": {
@@ -1212,7 +1216,8 @@
       },
       "dp": {
         "hungary": 3
-      }
+      },
+      "topic": "social"
     },
     "justicia": {
       "p": {
@@ -1227,7 +1232,8 @@
         "media_ind": 5,
         "eu_nato": 4,
         "smer": -5
-      }
+      },
+      "topic": "justice"
     },
     "grecia": {
       "p": {
@@ -1247,7 +1253,8 @@
       "e": {
         "gdpGrowth": -0.2,
         "deficit": 0.2
-      }
+      },
+      "topic": "economy"
     },
     "eu": {
       "p": {
@@ -1265,7 +1272,8 @@
       },
       "e": {
         "gdpGrowth": 0.05
-      }
+      },
+      "topic": "foreign"
     },
     "ekonomika": {
       "p": {
@@ -1279,7 +1287,8 @@
       },
       "e": {
         "gdpGrowth": 0.05
-      }
+      },
+      "topic": "economy"
     },
     "social": {
       "p": {
@@ -1296,7 +1305,8 @@
       "e": {
         "deficit": 0.3,
         "gdpGrowth": 0.03
-      }
+      },
+      "topic": "social"
     },
     "skolstvo": {
       "p": {
@@ -1310,7 +1320,8 @@
       },
       "e": {
         "deficit": 0.2
-      }
+      },
+      "topic": "education"
     },
     "cirkev": {
       "p": {
@@ -1321,7 +1332,8 @@
       "s": {
         "church": 8
       },
-      "dp": {}
+      "dp": {},
+      "topic": "social"
     },
     "zdravotnictvo": {
       "p": {
@@ -1335,7 +1347,8 @@
       "e": {
         "deficit": 0.3,
         "gdpGrowth": 0.03
-      }
+      },
+      "topic": "healthcare"
     },
     "bezpecnost": {
       "p": {
@@ -1348,7 +1361,8 @@
       },
       "e": {
         "deficit": 0.1
-      }
+      },
+      "topic": "security"
     },
     "protest": {
       "p": {
@@ -1379,7 +1393,8 @@
       "e": {
         "unemp": 0.5,
         "gdpGrowth": -0.1
-      }
+      },
+      "topic": "economy"
     },
     "inflacia": {
       "p": {
@@ -1394,7 +1409,8 @@
       },
       "e": {
         "infl": 0.3
-      }
+      },
+      "topic": "economy"
     },
     "privatizacia": {
       "p": {
@@ -1411,7 +1427,8 @@
       "e": {
         "deficit": -0.3,
         "gdpGrowth": 0.05
-      }
+      },
+      "topic": "economy"
     },
     "investicie": {
       "p": {
@@ -1425,7 +1442,8 @@
       "e": {
         "gdpGrowth": 0.15,
         "deficit": 0.2
-      }
+      },
+      "topic": "economy"
     },
     "dlh": {
       "p": {
@@ -1440,7 +1458,8 @@
       },
       "e": {
         "deficit": 0.3
-      }
+      },
+      "topic": "economy"
     },
     "koalicia": {
       "p": {
@@ -1466,7 +1485,8 @@
         "czech": 2,
         "poland": 2,
         "hungary": 1
-      }
+      },
+      "topic": "foreign"
     },
     "roma": {
       "p": {
@@ -1481,7 +1501,8 @@
       },
       "e": {
         "deficit": 0.15
-      }
+      },
+      "topic": "social"
     },
     "nato": {
       "p": {
@@ -1494,7 +1515,8 @@
       "dp": {
         "nato_r": 3,
         "usa": 2
-      }
+      },
+      "topic": "foreign"
     },
     "media": {
       "p": {
@@ -1505,7 +1527,8 @@
       "s": {
         "media_ind": 7,
         "smer": -3
-      }
+      },
+      "topic": "media"
     },
     "energie": {
       "p": {
@@ -1521,7 +1544,8 @@
       "e": {
         "infl": 0.2,
         "gdpGrowth": -0.05
-      }
+      },
+      "topic": "energy"
     },
     "deficit": {
       "p": {
@@ -1535,7 +1559,8 @@
       },
       "e": {
         "deficit": 0.4
-      }
+      },
+      "topic": "economy"
     },
     "summit": {
       "p": {
@@ -1549,7 +1574,8 @@
       "dp": {
         "eu": 3,
         "usa": 1
-      }
+      },
+      "topic": "foreign"
     },
     "zachrana": {
       "p": {
@@ -1569,7 +1595,8 @@
       },
       "e": {
         "deficit": -0.2
-      }
+      },
+      "topic": "economy"
     },
     "eurofond": {
       "p": {
@@ -1589,7 +1616,8 @@
       "e": {
         "gdpGrowth": 0.1,
         "deficit": 0.2
-      }
+      },
+      "topic": "economy"
     },
     "konsolidacia": {
       "p": {
@@ -1610,7 +1638,8 @@
         "deficit": -0.5,
         "gdpGrowth": -0.1,
         "unemp": 0.2
-      }
+      },
+      "topic": "economy"
     },
     "skrty": {
       "p": {
@@ -1631,7 +1660,8 @@
         "deficit": -0.4,
         "gdpGrowth": -0.15,
         "unemp": 0.3
-      }
+      },
+      "topic": "economy"
     },
     "harabin": {
       "p": {
@@ -1645,7 +1675,8 @@
         "media_ind": -7,
         "smer": 5,
         "eu_nato": -5
-      }
+      },
+      "topic": "justice"
     },
     "sudca": {
       "p": {
@@ -1659,7 +1690,8 @@
         "media_ind": 5,
         "eu_nato": 4,
         "smer": -4
-      }
+      },
+      "topic": "justice"
     },
     "nemocnica": {
       "p": {
@@ -1675,7 +1707,8 @@
       "e": {
         "deficit": 0.3,
         "gdpGrowth": 0.02
-      }
+      },
+      "topic": "healthcare"
     },
     "lekar": {
       "p": {
@@ -1690,7 +1723,8 @@
       },
       "e": {
         "deficit": 0.25
-      }
+      },
+      "topic": "healthcare"
     },
     "ucitel": {
       "p": {
@@ -1705,7 +1739,8 @@
       },
       "e": {
         "deficit": 0.2
-      }
+      },
+      "topic": "education"
     },
     "jazyk": {
       "p": {
@@ -1719,7 +1754,8 @@
       },
       "dp": {
         "hungary": 5
-      }
+      },
+      "topic": "social"
     },
     "mensina": {
       "p": {
@@ -1735,7 +1771,8 @@
       },
       "dp": {
         "hungary": 3
-      }
+      },
+      "topic": "social"
     },
     "penzij": {
       "p": {
@@ -1750,7 +1787,8 @@
       },
       "e": {
         "deficit": 0.3
-      }
+      },
+      "topic": "social"
     },
     "dochod": {
       "p": {
@@ -1765,7 +1803,8 @@
       },
       "e": {
         "deficit": 0.3
-      }
+      },
+      "topic": "social"
     },
     "kurzarbeit": {
       "p": {
@@ -1782,7 +1821,8 @@
       "e": {
         "unemp": -0.3,
         "deficit": 0.15
-      }
+      },
+      "topic": "economy"
     },
     "euzon": {
       "p": {
@@ -1802,7 +1842,8 @@
       },
       "e": {
         "gdpGrowth": 0.05
-      }
+      },
+      "topic": "economy"
     },
     "dlhova": {
       "p": {
@@ -1817,7 +1858,8 @@
       },
       "e": {
         "deficit": 0.3
-      }
+      },
+      "topic": "economy"
     },
     "obrana": {
       "p": {
@@ -1833,7 +1875,8 @@
       },
       "e": {
         "deficit": 0.15
-      }
+      },
+      "topic": "security"
     },
     "vojensk": {
       "p": {
@@ -1848,7 +1891,8 @@
       },
       "e": {
         "deficit": 0.12
-      }
+      },
+      "topic": "security"
     },
     "viera": {
       "p": {
@@ -1858,7 +1902,8 @@
       },
       "s": {
         "church": 9
-      }
+      },
+      "topic": "social"
     },
     "sloboda": {
       "p": {
@@ -1888,7 +1933,8 @@
       "e": {
         "gdpGrowth": 0.1,
         "deficit": 0.25
-      }
+      },
+      "topic": "economy"
     },
     "podnik": {
       "p": {
@@ -1902,7 +1948,8 @@
       },
       "e": {
         "gdpGrowth": 0.08
-      }
+      },
+      "topic": "economy"
     },
     "dan": {
       "p": {
@@ -1919,7 +1966,8 @@
       "e": {
         "deficit": -0.2,
         "gdpGrowth": -0.05
-      }
+      },
+      "topic": "economy"
     },
     "zahranicna": {
       "p": {
@@ -1937,7 +1985,8 @@
       },
       "e": {
         "gdpGrowth": 0.06
-      }
+      },
+      "topic": "foreign"
     },
     "oligarch": {
       "p": {
@@ -1951,7 +2000,8 @@
         "judiciary": -7,
         "smer": 4,
         "business": -5
-      }
+      },
+      "topic": "justice"
     },
     "segregacia": {
       "p": {
@@ -1963,7 +2013,8 @@
         "roma_comm": -9,
         "eu_nato": -4,
         "smer": 3
-      }
+      },
+      "topic": "social"
     },
     "efsf protivnici": {
       "p": {
@@ -1983,7 +2034,8 @@
       },
       "e": {
         "gdpGrowth": -0.1
-      }
+      },
+      "topic": "economy"
     },
     "rovna dan": {
       "p": {
@@ -2001,7 +2053,8 @@
       "e": {
         "gdpGrowth": 0.1,
         "deficit": -0.1
-      }
+      },
+      "topic": "economy"
     },
     "rovnu dan": {
       "p": {
@@ -2019,7 +2072,8 @@
       "e": {
         "gdpGrowth": 0.1,
         "deficit": -0.1
-      }
+      },
+      "topic": "economy"
     },
     "plocha dan": {
       "p": {
@@ -2037,7 +2091,8 @@
       "e": {
         "gdpGrowth": 0.1,
         "deficit": -0.1
-      }
+      },
+      "topic": "economy"
     },
     "plochu dan": {
       "p": {
@@ -2055,7 +2110,8 @@
       "e": {
         "gdpGrowth": 0.1,
         "deficit": -0.1
-      }
+      },
+      "topic": "economy"
     }
   },
   "consequenceChains": [

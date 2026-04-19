@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach } from 'vitest';
-import { esc } from '../sanitize';
+import { esc, normalizeText } from '../sanitize';
 import {
   setEra, initGame, coalitionSeats, getState,
   initCalendar, getCalendarDate, getFullDate,
@@ -250,5 +250,59 @@ describe('kwScore — returns valid analysis shape', () => {
     expect(result.press.right.headline).toBeTypeOf('string');
     // Deltas should be within reasonable bounds (-50 to +50)
     expect(Math.abs(result.aD)).toBeLessThan(50);
+  });
+});
+
+describe('normalizeText — keyword normalisation', () => {
+  it('strips Slovak diacritics', () => {
+    expect(normalizeText('plochá daň')).toBe('plocha dan');
+    expect(normalizeText('právny štát')).toBe('pravny stat');
+    expect(normalizeText('kresťanské hodnoty')).toBe('krestanske hodnoty');
+  });
+
+  it('splits camelCase at word boundaries', () => {
+    expect(normalizeText('plochaDan')).toBe('plocha dan');
+    expect(normalizeText('zahranicnaPolitika')).toBe('zahranicna politika');
+  });
+
+  it('converts underscores to spaces', () => {
+    expect(normalizeText('flat_tax')).toBe('flat tax');
+    expect(normalizeText('prvá_pomoc')).toBe('prva pomoc');
+  });
+
+  it('lowercases', () => {
+    expect(normalizeText('EFSF')).toBe('efsf');
+  });
+
+  it('matches natural Slovak input against legacy tokens', () => {
+    const policy = normalizeText('Zavediem plochú daň pre všetkých');
+    expect(policy.includes(normalizeText('plochaDan'))).toBe(false); // case-inflection still needs stem variants
+    expect(policy.includes(normalizeText('plochu dan'))).toBe(true);  // accusative stem matches
+  });
+});
+
+describe('kwScore — semantic polarity flips keyword effects', () => {
+  it('positive verb + keyword → produces a stakeholder movement', () => {
+    loadRealEra();
+    const a = kwScore('Zvýšime minimálnu mzdu a podporíme pracujúcich');
+    const anyMoved = Object.values(a.sScores).some(v => v !== 50);
+    expect(anyMoved).toBe(true);
+  });
+
+  it('negation verb ("zruším") flips a kw_pos-aligned keyword to negative', () => {
+    loadRealEra();
+    const pos = kwScore('Zavediem rovnú daň pre všetkých');
+    const neg = kwScore('Zruším rovnú daň a zdvihnem progresívnu');
+    // Whichever stakeholder moves on 'dan', its sign should be inverted
+    // between the positive-verb and negation-verb policies.
+    const movers = Object.keys(pos.sScores).filter(id =>
+      Math.abs(pos.sScores[id] - 50) > 2 || Math.abs(neg.sScores[id] - 50) > 2);
+    expect(movers.length).toBeGreaterThan(0);
+    // At least one stakeholder should have flipped sign relative to baseline 50.
+    const flipped = movers.some(id =>
+      Math.sign(pos.sScores[id] - 50) === -Math.sign(neg.sScores[id] - 50) &&
+      Math.abs(pos.sScores[id] - 50) > 0 &&
+      Math.abs(neg.sScores[id] - 50) > 0);
+    expect(flipped).toBe(true);
   });
 });

@@ -53,10 +53,37 @@ export function showAnalysis(a: AnalysisResult) {
   // Normalize BOTH sides: strips diacritics (á→a), lowercases, splits
   // camelCase and underscores so legacy tokens like "plochaDan" or
   // "efsf_nie" match natural input like "plochá daň" or "efsf nie".
+  // Polarity check: if a negation verb ("zrušim", "odmietnem", "nepodporím"…)
+  // appears within ~60 chars BEFORE a matched kw_pos/kw_neg, the match is
+  // treated as the OTHER side. Example: "zruším plochú daň" matches Sulík's
+  // kw_pos but is flipped to kw_neg — Sulík reacts negatively.
+  const NEG_VERBS = /(zrusim|zrusime|zrusit|odmietnem|odmietnut|odmietam|zastavim|zastavime|znizim|znizime|obmedzim|zakazem|zakazeme|skoncim|vetujem|nepodporim|neschvalim|nezavediem|nebudem)/;
   const policy = G.history.length ? normalizeText(G.history[G.history.length - 1].p) : '';
+  const hitWithPolarity = (kws: string[]): boolean => {
+    for (const rawK of kws) {
+      const k = normalizeText(rawK);
+      const idx = policy.indexOf(k);
+      if (idx < 0) continue;
+      const pre = policy.slice(Math.max(0, idx - 60), idx);
+      if (!NEG_VERBS.test(pre)) return true;
+    }
+    return false;
+  };
+  const hitFlipped = (kws: string[]): boolean => {
+    for (const rawK of kws) {
+      const k = normalizeText(rawK);
+      const idx = policy.indexOf(k);
+      if (idx < 0) continue;
+      const pre = policy.slice(Math.max(0, idx - 60), idx);
+      if (NEG_VERBS.test(pre)) return true;
+    }
+    return false;
+  };
   const polHtml = era.politicians.map(pol => {
-    const hasPos = pol.kw_pos.some(k => policy.includes(normalizeText(k)));
-    const hasNeg = pol.kw_neg.some(k => policy.includes(normalizeText(k)));
+    // "has" = matched AND not negated. "flipped" = matched AND negated
+    // (belongs to the opposite side for this turn).
+    const hasPos = hitWithPolarity(pol.kw_pos) || hitFlipped(pol.kw_neg);
+    const hasNeg = hitWithPolarity(pol.kw_neg) || hitFlipped(pol.kw_pos);
     let reaction: string, mood: string;
     if (hasPos && !hasNeg) { mood = 'pos'; reaction = pol.reactions.pos[Math.floor(Math.random() * pol.reactions.pos.length)]; }
     else if (hasNeg && !hasPos) { mood = 'neg'; reaction = pol.reactions.neg[Math.floor(Math.random() * pol.reactions.neg.length)]; }
