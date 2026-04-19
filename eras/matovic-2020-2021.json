@@ -3654,5 +3654,56 @@
         "appointedBy": "Parlament 2015"
       }
     ]
-  }
+  },
+  "signatureLaws": [
+    {
+      "id": "covid_response_law",
+      "name": "Krízový režim pre COVID-19",
+      "description": "Núdzový stav, masové testovanie, lockdowny. Životy zachránené, ekonomika vážne poškodená.",
+      "approvalMod": -0.2,
+      "stabilityMod": -0.3,
+      "coalitionMod": -0.2,
+      "implMod": -1,
+      "flags": {
+        "law_covid_emergency_passed": true
+      },
+      "econOnce": {
+        "gdpGrowth": -2.0,
+        "deficit": 4.0
+      },
+      "realHistoricalRef": "2020-21 — Matovičova vláda; chaotická kríza riadenia."
+    },
+    {
+      "id": "first_aid_package",
+      "name": "Prvá pomoc (kompenzácie)",
+      "description": "Štátne kompenzácie firmám a živnostníkom. Životne dôležité, fiškálne katastrofálne.",
+      "approvalMod": 0.3,
+      "stabilityMod": 0.0,
+      "coalitionMod": 0.0,
+      "implMod": 0,
+      "flags": {
+        "law_first_aid_passed": true
+      },
+      "econOnce": {
+        "deficit": 3.0
+      },
+      "realHistoricalRef": "2020-21 — Prvá pomoc ++, Prvá pomoc Plus, atď."
+    },
+    {
+      "id": "sputnik_purchase",
+      "name": "Nákup vakcín Sputnik V",
+      "description": "Tajná dohoda s Ruskom. Politicky toxické, koalícia sa rozpadá.",
+      "approvalMod": -0.5,
+      "stabilityMod": -0.5,
+      "coalitionMod": -1.0,
+      "implMod": 0,
+      "flags": {
+        "law_sputnik_passed": true
+      },
+      "econOnce": {
+        "deficit": 0.1
+      },
+      "realHistoricalRef": "Marec 2021 — Matovič nakúpil bez konzultácie; viedlo k jeho demisi."
+    }
+  ]
 }

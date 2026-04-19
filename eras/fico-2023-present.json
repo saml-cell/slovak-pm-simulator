@@ -4265,5 +4265,56 @@
         "appointedBy": "Matovič 2020"
       }
     ]
-  }
+  },
+  "signatureLaws": [
+    {
+      "id": "criminal_code_revamp",
+      "name": "Novela Trestného zákona",
+      "description": "Skrátenie premlčacích lehôt, mäkšie tresty pre korupciu, zrušenie ÚŠP. Posilňuje vašich, vyvolá protesty a EÚ procedúru.",
+      "approvalMod": -0.4,
+      "stabilityMod": 0.5,
+      "coalitionMod": 0.3,
+      "implMod": 0,
+      "flags": {
+        "law_tz_revamp_passed": true
+      },
+      "econOnce": {
+        "deficit": 0.0
+      },
+      "realHistoricalRef": "2024 — schválené hoci v skrátenom legislatívnom konaní; protesty masové."
+    },
+    {
+      "id": "rtvs_law_2024",
+      "name": "Reforma RTVS (zrušenie a založenie)",
+      "description": "Nahrádza RTVS novou STVR pod väčšou kontrolou. Posilní vašu mediálnu stopu, EÚ rozčúli.",
+      "approvalMod": -0.3,
+      "stabilityMod": 0.2,
+      "coalitionMod": 0.0,
+      "implMod": 0,
+      "flags": {
+        "law_stvr_passed": true
+      },
+      "econOnce": {
+        "deficit": 0.1
+      },
+      "realHistoricalRef": "2024 — STVR od 1. júla; štrajky v RTVS pred zánikom."
+    },
+    {
+      "id": "consolidation_2025",
+      "name": "Konsolidačný balík 2025",
+      "description": "Zvýšenie DPH, daň z bankových odvodov, transakcie. Šok pre rozpočet, dlhodobé úspory.",
+      "approvalMod": -0.4,
+      "stabilityMod": 0.0,
+      "coalitionMod": 0.0,
+      "implMod": 1,
+      "flags": {
+        "law_konsolidacia_25_passed": true
+      },
+      "econOnce": {
+        "deficit": -2.0,
+        "infl": 1.0
+      },
+      "realHistoricalRef": "2024 — najväčší konsolidačný balík od Mikloša."
+    }
+  ]
 }

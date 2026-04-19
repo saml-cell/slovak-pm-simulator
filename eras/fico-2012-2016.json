@@ -3693,5 +3693,56 @@
         "appointedBy": "Fico 2012"
       }
     ]
-  }
+  },
+  "signatureLaws": [
+    {
+      "id": "social_package_fico1",
+      "name": "Sociálny balíček I.",
+      "description": "Zvýšenie minimálnej mzdy, vianočné dôchodky, daň pre vysokopríjmových. Konsolidácia ľavicovej voličskej bázy.",
+      "approvalMod": 0.4,
+      "stabilityMod": 0.0,
+      "coalitionMod": 0.0,
+      "implMod": 0,
+      "flags": {
+        "law_social_pack_1_passed": true
+      },
+      "econOnce": {
+        "deficit": 0.8
+      },
+      "realHistoricalRef": "2013-14 — séria sociálnych opatrení Smer-SD."
+    },
+    {
+      "id": "single_health_insurer",
+      "name": "Jediná zdravotná poisťovňa",
+      "description": "Štátna unitárna poisťovňa namiesto trhu. Dlhodobý plán Smeru, vysoký fiškálny náklad.",
+      "approvalMod": -0.1,
+      "stabilityMod": -0.2,
+      "coalitionMod": 0.0,
+      "implMod": -1,
+      "flags": {
+        "law_single_insurer_passed": true
+      },
+      "econOnce": {
+        "deficit": 1.5
+      },
+      "realHistoricalRef": "Pripravené 2013-15, neimplementované pre EÚ-rozhodnutie 2016."
+    },
+    {
+      "id": "minimum_wage_link",
+      "name": "Automatický rast minimálnej mzdy",
+      "description": "Min. mzda viazaná na 60% priemernej. Trvalo zlepšuje životnú úroveň, tlačí na firmy.",
+      "approvalMod": 0.3,
+      "stabilityMod": 0.0,
+      "coalitionMod": -0.1,
+      "implMod": 0,
+      "flags": {
+        "law_minw_link_passed": true
+      },
+      "econOnce": {
+        "unemp": 0.3,
+        "gdpGrowth": -0.1
+      },
+      "realHistoricalRef": "2014 — automatizmus do zákona o min. mzde."
+    }
+  ]
 }
