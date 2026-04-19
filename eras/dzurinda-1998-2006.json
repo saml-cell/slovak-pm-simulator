@@ -4,11 +4,34 @@
     "pmName": "Mikuláš Dzurinda",
     "headerTitle": "Mikuláš Dzurinda",
     "saveKey": "spm_dzurinda_save",
-    "pellegriniMonth": 8,
-    "presidentName": "Michal Kováč",
+    "pellegriniMonth": 0,
+    "presidentName": "Úrad prezidenta vakantný",
     "presidentFriendly": "Rudolf Schuster",
     "currency": "Sk",
-    "currencyBig": "mld Sk"
+    "currencyBig": "mld Sk",
+    "realComparison": {
+      "approval": {
+        "value": 25,
+        "label": "Reálna podpora na konci"
+      },
+      "gdpGrowth": {
+        "value": 5.4,
+        "label": "Reálny rast HDP"
+      },
+      "unemployment": {
+        "value": 18.5,
+        "label": "Reálna nezamestnanosť"
+      },
+      "inflation": {
+        "value": 3.3,
+        "label": "Reálna inflácia"
+      },
+      "lasted": {
+        "value": 96,
+        "label": "Reálne mesiacov vo funkcii"
+      },
+      "verdict": "Dzurinda doviedol Slovensko do EÚ a NATO (2004). Reformy boleli ale priniesli \"Tatranského tigra\"."
+    }
   },
   "calendar": {
     "startMonthOffset": 9,
@@ -29,8 +52,7 @@
       "smk": "#059669",
       "sop": "#8b5cf6",
       "hzds": "#1e40af",
-      "sns": "#065f46",
-      "other": "#9ca3af"
+      "sns": "#065f46"
     },
     "names": {
       "sdk": "SDK",
@@ -38,8 +60,7 @@
       "smk": "SMK",
       "sop": "SOP",
       "hzds": "HZDS",
-      "sns": "SNS",
-      "other": "Ostatní"
+      "sns": "SNS"
     }
   },
   "personas": [
@@ -500,17 +521,25 @@
       ],
       "reactions": {
         "pos": [
-          "Vítam návrat k rozumu. Slovensko potrebuje silnú ruku, nie tieto experimenty.",
-          "Konečne niečo správne. HZDS to hovorilo od začiatku."
+          "Aha — takže konečne aj Dzurinda pochopil čo ja som hovoril roky. Ale ľudia nezabudnú komu to patria vďaka.",
+          "Vítam návrat k rozumu! Slovensko potrebuje silnú ruku, nie tieto bruselské experimenty. HZDS to vedelo od začiatku.",
+          "Toto mohla urobiť HZDS pred rokmi — a urobila by to lepšie, bez toho circus-u okolo privatizácie kamarátom.",
+          "Ja som tento štát budoval! Ja som ho budoval keď títo ešte sedeli v opozičných laviciach a kňučali!",
+          "Konečne niečo správne — aj slepá sliepka nájde zrno. Ale HZDS bude trvať na tom že podmienky sú slovenské, nie bruselské."
         ],
         "neg": [
-          "Ďalšia zrada národných záujmov! Dzurinda predáva Slovensko Bruselu!",
-          "Katastrofálna politika! HZDS toto nikdy nedopustí! Ľudia sa prebudia!",
-          "Títo amatéri ničia všetko čo sme vybudovali. Slovensko si zaslúži lepšie."
+          "Ďalšia zrada národných záujmov! Dzurinda predáva Slovensko Bruselu a Maďarom kus po kuse — a spieva pri tom hymnu!",
+          "Katastrofálna politika! HZDS toto nikdy nedopustí — ľudia sa prebudia a my im pomôžeme sa prebudiť!",
+          "Títo amatéri ničia všetko čo sme vybudovali! Privatizácia pre cudzincov, reformy pre chudobných, bohatstvo pre vyvolených!",
+          "Toto nie je reforma — toto je kapitulícia! Slovenský národ si toto nezaslúžil a zaplatí za to rokmi biedy!",
+          "Ja viem čo toto znamená. Ja som bol vo vláde. Ja som riadil tento štát. A toto je cesta do katastrofy."
         ],
         "neu": [
-          "HZDS sleduje situáciu. Ľudia si urobia vlastný názor.",
-          "Uvidíme. Zatiaľ sa nevyjadrujeme."
+          "HZDS sleduje situáciu. Ľudia si urobia vlastný názor — a my im pomôžeme ho sformulovať.",
+          "Uvidíme. Zatiaľ sa nevyjadrujeme — ale HZDS mlčí len dočasne.",
+          "Počkáme na výsledky. Slová sú lacné — ja som platil konkrétnymi rozhodnutiami.",
+          "HZDS analyzuje dôsledky pre obyčajných ľudí. Nie pre bankárov, nie pre Brusel — pre ľudí.",
+          "Ešte nie je jasné kam to smeruje. Ale HZDS bude prvý kto povie pravdu nahlas."
         ]
       }
     },
@@ -534,17 +563,25 @@
       ],
       "reactions": {
         "pos": [
-          "SMER podporuje sociálne opatrenia pre ľudí. Toto je správny smer.",
-          "Konečne niekto myslí na obyčajných ľudí, nie len na oligarchov."
+          "SMER podporuje sociálne opatrenia pre ľudí — ale nestačí jedno opatrenie. Systém musí chroniť slabých, nie banky.",
+          "Konečne niekto myslí na obyčajných ľudí, nie len na oligarchov a zahraničné fondy! SMER to oceňuje.",
+          "Áno — toto je krok správnym smerom. Ale ľudia čakajú na viac, nie na polovičaté riešenia.",
+          "SMER toto schváli. Ľudia trpia — a každé opatrenie ktoré im pomáha má naše hlasy.",
+          "Toto sme my navrhli ešte minulý rok. Teraz to vláda robí a tvári sa ako keby to bol jej nápad?"
         ],
         "neg": [
-          "Dzurindove reformy ničia sociálne istoty! SMER ponúka alternatívu!",
-          "Privatizácia do rúk cudzincov — to je Dzurindovo dedičstvo!",
-          "Ľudia trpia a vláda sa pozerá. SMER toto zmení."
+          "Dzurindove reformy ničia sociálne istoty! Rovná daň — pre koho rovná? Pre milionárov rovnaká ako pre upratovačku?",
+          "Privatizácia do rúk cudzincov — to je Dzurindovo dedičstvo! Slovensko predané v akcii za babku!",
+          "Ľudia trpia a vláda sa pozerá! SMER toto zmení — a keď budeme vo vláde, vrátime ľuďom čo im vzali!",
+          "Toto je asociálna politika zabalená do európskeho papiera. Za tým číslom sú konkrétni ľudia bez práce!",
+          "Zdravotníctvo? Devastované. Školstvo? Podfinancované. A vláda triumfuje nad rovnou daňou. Hanba!"
         ],
         "neu": [
-          "SMER rastie. Ľudia hľadajú alternatívu.",
-          "Sledujeme situáciu a pripravujeme program."
+          "SMER rastie. Ľudia hľadajú alternatívu a my im ju ponúkame — sociálnu demokraciu, nie džungľový kapitalizmus.",
+          "Sledujeme situáciu a pripravujeme komplexný sociálny program. Nie slogany — konkrétne čísla a záruky.",
+          "SMER sa vyjadrí po podrobnej analýze dopadov na stredné vrstvy a nízkopríjmové rodiny.",
+          "Počkáme na reakciu odborov. SMER neprijíma rozhodnutia bez konzultácie s pracujúcimi ľuďmi.",
+          "Zaujímavý krok. Uvidíme či za tým nie sú ďalšie škrty na iných miestach — zvyčajne sú."
         ]
       }
     },
@@ -568,16 +605,25 @@
       ],
       "reactions": {
         "pos": [
-          "SMK víta tento krok. Menšinové práva sú súčasťou európskych hodnôt.",
-          "Správny smer pre spolužitie národov na Slovensku."
+          "SMK víta tento krok. Menšinové práva sú súčasťou európskych hodnôt — a toto je dôkaz že koalícia to chápe.",
+          "Správny smer pre spolužitie národov na Slovensku. Sme koaličný partner a takéto rozhodnutia nám dávajú dôvod zostať.",
+          "Pol milióna Maďarov na Slovensku to ocení. Toto je politika dôstojnosti, nie politika šovinizmu.",
+          "Keď vláda koná takto, SMK stojí za ňou. Integrovaná spoločnosť je silnejšia ako rozdelená.",
+          "Toto je európska cesta — a SMK bude prvý kto to povie v Bruseli s hrdosťou."
         ],
         "neg": [
-          "SMK má obavy. Toto ohrozuje práva maďarskej menšiny.",
-          "Vyžadujeme konzultácie v koaličnej rade. Toto nie je akceptovateľné."
+          "SMK má vážne obavy. Toto ohrozuje práva maďarskej menšiny a my to nedovolíme mlčky!",
+          "Vyžadujeme okamžité konzultácie v koaličnej rade! Toto nie je akceptovateľné pre koaličného partnera!",
+          "Sme v koalícii práve preto aby sme chránili práva menšín — a ak to táto vláda nevníma, musíme hovoriť hlasnejšie.",
+          "Maďarská komunita tu žije storočia. Toto rozhodnutie ignoruje ich legitímne záujmy — a to je politická chyba.",
+          "SMK podá formálnu koaličnú námietku. Toto nie je detajl — toto je zásada."
         ],
         "neu": [
-          "SMK to prerokuje na predsedníctve.",
-          "Čakáme na detaily pred vyjadrením."
+          "SMK to prerokuje na predsedníctve. Naši poslanci musia byť informovaní pred akýmkoľvek verejným stanoviskom.",
+          "Čakáme na detaily pred vyjadrením. Ako koaličný partner máme právo na konzultáciu vopred.",
+          "SMK sleduje situáciu z pozície konštruktívneho partnera. Ale konštruktívnosť má hranice.",
+          "Závisí od implementácie. Zákon môže byť dobrý alebo zlý podľa toho ako sa uplatňuje.",
+          "Budeme rokovať v koaličnej rade. SMK preferuje dialóg pred konfliktom — ale nie za každú cenu."
         ]
       }
     },
@@ -597,21 +643,30 @@
       "kw_neg": [
         "privatizacia",
         "dan",
-        "flat_tax",
+        "flat tax",
         "reforma"
       ],
       "reactions": {
         "pos": [
-          "SDĽ podporuje sociálne opatrenia. Toto je zodpovedná politika.",
-          "Správne. Reformy musia mať sociálny rozmer."
+          "SDĽ podporuje sociálne opatrenia. Toto je zodpovedná politika — reformy bez sociálneho rozmeru nie sú reformy.",
+          "Správne. Keď reformy chránia pracujúcich a dôchodcov, SDĽ za nimi stojí pevne.",
+          "Konečne! SDĽ dlho tlačila na sociálne záruky v koalícii — a teraz to vidíme v praxi.",
+          "Toto je dôkaz že ľavica v koalícii má zmysel. Bez nás by Mikloš urobil čistý thatcherizmus.",
+          "SDĽ toto schváli. Pracujúci ľudia si zaslúžia istoty — a my im to pomôžeme dosiahnuť."
         ],
         "neg": [
-          "SDĽ odmieta asociálne reformy! Ľudia nie sú štatistiky!",
-          "Privatizácia bez sociálnych záruk je neprijateľná. SDĽ bude proti."
+          "SDĽ odmieta asociálne reformy! Ľudia nie sú štatistiky v Miklošovej tabuľke!",
+          "Privatizácia bez sociálnych záruk je neprijateľná. SDĽ bude proti — a ak treba, budeme hlasovať s opozíciou!",
+          "Toto je útok na sociálny štát. SDĽ vstúpila do koalície aby chránila ľudí, nie aby pomáhala ich obierať.",
+          "Kedy Dzurinda pochopí že ekonómia nie je fyzika — za každým číslom sú konkrétne rodiny?",
+          "SDĽ to môže zablokovať v koaličnej rade. A ak sa nás nepočúvajú, existujú aj iné možnosti."
         ],
         "neu": [
-          "SDĽ zvažuje postoj. Očakávame sociálny dopad.",
-          "Konzultujeme s odbormi."
+          "SDĽ zvažuje postoj. Očakávame podrobnú analýzu sociálneho dopadu pred hlasovaním.",
+          "Konzultujeme s odbormi — KOZ SR musí mať slovo pred tým ako SDĽ zaujme stanovisko.",
+          "SDĽ sa vyjadrí po rokovaní predsedníctva. Toto je citlivá vec pre naše voličstvo.",
+          "Závisí od sociálnych dopadov. Reformy áno — ale nie za každú cenu a nie na chrbte chudobných.",
+          "SDĽ sleduje vývoj. Sme koaličný partner ale máme vlastné červené línie."
         ]
       }
     },
@@ -635,16 +690,25 @@
       ],
       "reactions": {
         "pos": [
-          "Ako prezident vítam tento krok. Slovensko sa vracia do Európy.",
-          "Zodpovedná politika. Podpisujem s presvedčením."
+          "Ako prezident tejto krajiny vítam tento krok s radosťou. Slovensko sa vracia do Európy — a ja som pri tom.",
+          "Zodpovedná politika. Podpisujem s presvedčením a bez váhania. Toto je čo ľudia v roku 1998 chceli.",
+          "Keď som bojoval za slobodné voľby, dúfal som v takéto rozhodnutia. Dnes som naplnený nádejou.",
+          "Slovensko dokazuje európskym partnerom že zmena v roku 1998 bola skutočná. Toto je historický moment.",
+          "Prezident podpisuje s radosťou. Mečiarova éra je za nami — a toto to potvrdzuje každým novým zákonom."
         ],
         "neg": [
-          "Mám obavy. Zvážim použitie prezidentského práva.",
-          "Vyzývam vládu na dialóg pred konečným rozhodnutím."
+          "Mám vážne obavy o ústavnosť. Zvážim použitie prezidentského práva — a budem transparentný o dôvodoch.",
+          "Vyzývam vládu na dialóg pred konečným rozhodnutím. Prezident nie je len pečiatka.",
+          "Niečo v tomto rozhodnutí ma znepokojuje. Konzultujem s Ústavným súdom pred podpisom.",
+          "Toto by mohlo ohroziť naše európske integračné šance. Vráti mi to k preskúmaniu.",
+          "Vládny koalícii hovorím: som prezidentom všetkých občanov — aj tých čo nesúhlasia. Majte to na pamäti."
         ],
         "neu": [
-          "Sledujem situáciu. Verím v demokratický proces.",
-          "Prezident je nad stranami. Čakám na finálnu verziu."
+          "Sledujem situáciu. Verím v demokratický proces — a v to že vláda koná v dobrej viere.",
+          "Prezident je nad stranami. Čakám na finálnu verziu pred akýmkoľvek vyjadrením.",
+          "Konzultujem s právnymi poradcami. Rozhodnutie bude informované a zverejnené včas.",
+          "Prezident nekomentuje každé rozhodnutie vlády. Ale toto sledujem veľmi osobne.",
+          "Počkáme. Demokratický proces má svoje tempo — a unáhlené reakcie mu neslúžia."
         ]
       }
     },
@@ -669,17 +733,25 @@
       ],
       "reactions": {
         "pos": [
-          "Konečne ochrana slovenského národa! SNS toto podporuje!",
-          "Správne! Slovensko na prvom mieste!"
+          "Konečne ochrana slovenského národa! SNS toto podporuje — aj z opozície vieme oceniť správnu vec!",
+          "Správne! Slovensko na prvom mieste — a aj keď to hovorí Dzurinda, SNS povie áno!",
+          "Toto je politika pre Slovákov, nie pre bruselských byrokrátov. Výborne!",
+          "Aj slepý vidí že toto je správne! SNS bude hlasovať za bez rozmýšľania!",
+          "Keď vláda chráni slovenské záujmy, SNS to ocení — v opozícii nie sme za každú cenu proti všetkému."
         ],
         "neg": [
-          "Zrada! Predávajú Slovensko Maďarom a Bruselu!",
-          "SNS bude bojovať proti rozpredaju národného majetku!",
-          "Dzurinda je bábka Západu. Slovensko si zaslúži lepšie."
+          "Zrada! Predávajú Slovensko Maďarom a Bruselu kus po kuse — a Dzurinda ešte tlieskajú!",
+          "SNS bude bojovať proti rozpredaju národného majetku! Toto nie je privatizácia — toto je lúpež!",
+          "Dzurinda je bábka Západu — on nepresadzuje slovenské záujmy, on odovzdáva rozkazy z Bruselu!",
+          "Maďari dostanú zákon čo chcú, cudzinci dostanú fabriky čo chcú — a čo dostanú Slováci? Nič!",
+          "SNS podá protest! Toto je bezprecedentný útok na suverenitu Slovenskej republiky!"
         ],
         "neu": [
-          "SNS sleduje situáciu.",
-          "Nemám komentár."
+          "SNS sleduje situáciu. Závisí od toho čo presne to znamená pre slovenský národ.",
+          "Nemám komentár — zatiaľ. SNS sa vyjadrí po kongrese.",
+          "Čakáme na detaily. Nie každé európske rozhodnutie je automaticky zlé — len väčšina.",
+          "SNS zváži na poslaneckom klube. Záujmy národa sú mierou všetkého.",
+          "Uvidíme. Ak toto poškodí slovenský jazyk alebo identitu, povstaneme."
         ]
       }
     },
@@ -692,7 +764,7 @@
       "kw_pos": [
         "reforma",
         "dan",
-        "flat_tax",
+        "flat tax",
         "invest",
         "privatizacia",
         "business"
@@ -705,17 +777,25 @@
       ],
       "reactions": {
         "pos": [
-          "Reformy fungujú! Slovensko je na správnej ceste k prosperite.",
-          "Rovná daň pritiahne investície. Čísla hovoria jasne."
+          "Reformy fungujú! Slovensko je na správnej ceste k prosperite — čísla sú jasné a neodporujú sa.",
+          "Rovná daň pritiahne investície. Devätnásť percent — jednoduché, predvídateľné, konkurenčné. Genialita v jednoduchosti.",
+          "Toto je presne to čo sme potrebovali. Fiškálna disciplína nie je sadizmus — je to podmienka rastu.",
+          "Každý krok smerom k ozdraveniu verejných financií je krok ktorý budem brániť aj za cenu politického konfliktu.",
+          "Konečne! Slovensko prestáva byť ekonomickým enfant terrible V4 a stáva sa príkladom. Čísla to dokazujú."
         ],
         "neg": [
-          "Populizmus nás vráti do éry Mečiara! Reformy sú nevyhnutné!",
-          "Bez bolestivých reforiem nemáme šancu dobehnúť Západ.",
-          "Kto sľubuje všetkým všetko, klame. Ekonomika má pravidlá."
+          "Populizmus nás vráti priamo do éry Mečiara! Reformy sú nevyhnutné — a kto s nimi bojuje, bojuje s budúcnosťou!",
+          "Bez bolestivých reforiem nemáme šancu dobehnúť Západ. Bolesť dnes — prosperita zajtra. Matematika.",
+          "Kto sľubuje všetkým všetko, klame. Ekonomika má pravidlá — a pravidlá sa nedajú zrušiť sloganmi.",
+          "Toto zvýši deficit. Zvýšený deficit zvýši dlh. Zvýšený dlh zvýši úroky. Toto nie je politika — toto je hazard.",
+          "Ministerstvo financií bude argumentovať faktami, nie emóciami. A fakty sú nemilosrdné."
         ],
         "neu": [
-          "Počkajme na dáta. Reformy potrebujú čas na prejavenie.",
-          "Ministerstvo analyzuje dopady."
+          "Počkajme na dáta. Reformy potrebujú čas na prejavenie — predčasné závery sú neprofesionálne.",
+          "Ministerstvo analyzuje dopady na verejné financie. Výsledky zverejníme v plnom rozsahu.",
+          "Čísla ešte nie sú kompletné. Výrok urobíme keď budeme mať plný obraz.",
+          "Každé opatrenie má fiškálny dopad. Vypočítame ho a oznámime transparentne.",
+          "Bez modelu neviem povedať viac. Ekonomika nie je intuícia — je to veda."
         ]
       }
     },
@@ -741,17 +821,25 @@
       ],
       "reactions": {
         "pos": [
-          "Slovensko sa vracia do Európy. Toto je historický moment.",
-          "Naši partneri v NATO a EÚ oceňujú slovenské reformy."
+          "Slovensko sa vracia do Európy. Toto je historický moment — a ja som pri tom ako minister zahraničia s hrdosťou.",
+          "Naši partneri v NATO a EÚ oceňujú slovenské reformy — Brusel to zaznamenal pozitívne a Washington tiež.",
+          "Toto posilňuje postavenie Slovenska na medzinárodnej scéne. Kredibilita sa buduje postupne — a dnes sme ju zvýšili.",
+          "Po rokoch mečiarizmu nás Západ sledoval s nedôverou. Každé takéto rozhodnutie túto nedôveru rozptyľuje.",
+          "Euroatlantická integrácia nie je len strategický cieľ — je to hodnotová voľba. A toto rozhodnutie ju potvrdzuje."
         ],
         "neg": [
-          "Toto ohrozuje našu integráciu do EÚ a NATO!",
-          "Zahraničie sleduje. Nemôžeme si dovoliť krok späť.",
-          "Musíme dodržiavať medzinárodné záväzky."
+          "Toto ohrozuje našu integráciu do EÚ a NATO! Brusel to registruje a správa bude negatívna — garantujem to.",
+          "Zahraničie sleduje každý náš krok. Nemôžeme si dovoliť krok späť — stálo nás roky budovať túto dôveru.",
+          "Musíme dodržiavať medzinárodné záväzky. Toto ich porušuje — a právne dôsledky budú viditeľné.",
+          "Som minister zahraničia — a hovorím priamo: toto poškodí slovenský imidž v zahraničí viac ako si ktokoľvek myslí.",
+          "Naši partneri v NATO sú znepokojení. Dostal som telefonáty dnes ráno — a obsah nebol pozitívny."
         ],
         "neu": [
-          "Konzultujeme s partnermi v EÚ.",
-          "MZV sleduje situáciu a informuje spojencov."
+          "Konzultujeme s partnermi v EÚ. MZV chce mať úplný obraz pred akýmkoľvek vyjadrením.",
+          "MZV sleduje situáciu a priebežne informuje spojencov. Transparentnosť je základ dôvery.",
+          "Diplomatický komentár vydáme po konzultácii s premiérom. Zahranično-politické vyjadrenia si vyžadujú koordináciu.",
+          "V Bruseli a Washingtone sa to zaregistrovalo. Aká bude reakcia — to závisí od ďalšieho vývoja.",
+          "MZV si vyžiada právne stanovisko k medzinárodným dopadom. Konáme zodpovedne."
         ]
       }
     }
@@ -1611,6 +1699,265 @@
         "deficit": 0.12,
         "gdpGrowth": 0.05
       }
+    },
+    "automobilka": {
+      "p": {
+        "peter_r": 8,
+        "tibor": 7,
+        "helena_d": 5
+      },
+      "s": {
+        "business_dz": 8,
+        "sdk": 5,
+        "unions_dz": 4
+      },
+      "e": {
+        "gdpGrowth": 0.2,
+        "unemp": -0.5
+      }
+    },
+    "rovn": {
+      "p": {
+        "tibor": 8,
+        "jana": 5,
+        "peter_r": -5,
+        "maria_d": -6,
+        "robert_b": -8
+      },
+      "s": {
+        "business_dz": 8,
+        "sdk": 6,
+        "sdl": -8,
+        "hzds": -5,
+        "unions_dz": -6
+      },
+      "e": {
+        "gdpGrowth": 0.15,
+        "deficit": -0.2
+      }
+    },
+    "dochodk": {
+      "p": {
+        "maria_d": -6,
+        "peter_r": -4,
+        "tibor": 5,
+        "jana": 3
+      },
+      "s": {
+        "sdk": 4,
+        "sdl": -6,
+        "hzds": -5
+      },
+      "e": {
+        "deficit": 0.3
+      }
+    },
+    "pracovn": {
+      "p": {
+        "peter_r": -5,
+        "robert_b": -7,
+        "tibor": 6,
+        "helena_d": 4
+      },
+      "s": {
+        "unions_dz": -8,
+        "business_dz": 7,
+        "sdk": 4
+      },
+      "e": {
+        "unemp": -0.3,
+        "gdpGrowth": 0.08
+      }
+    },
+    "kosovo": {
+      "p": {
+        "jana": 5,
+        "tibor": 4,
+        "maria_d": -5,
+        "robert_b": -4
+      },
+      "s": {
+        "eu_nato": 6,
+        "hzds": -6,
+        "sns": -8
+      },
+      "dp": {
+        "nato_r": 4,
+        "usa": 3
+      }
+    },
+    "schengen": {
+      "p": {
+        "jana": 6,
+        "helena_d": 5,
+        "tibor": 5,
+        "laszlo": 4
+      },
+      "s": {
+        "eu_nato": 5,
+        "smk": 4,
+        "sdk": 3
+      },
+      "dp": {
+        "eu": 3
+      }
+    },
+    "euro": {
+      "p": {
+        "jana": 6,
+        "tibor": 6,
+        "helena_d": 5
+      },
+      "s": {
+        "eu_nato": 6,
+        "business_dz": 5,
+        "sdk": 4
+      },
+      "dp": {
+        "eu": 3
+      },
+      "e": {
+        "infl": -0.3,
+        "deficit": -0.2
+      }
+    },
+    "korupci": {
+      "p": {
+        "jana": 7,
+        "helena_d": 6,
+        "milan_d": 5
+      },
+      "s": {
+        "sdk": 5,
+        "eu_nato": 4,
+        "hzds": -8
+      }
+    },
+    "visegrad": {
+      "p": {
+        "jana": 4,
+        "helena_d": 4,
+        "tibor": 3
+      },
+      "s": {
+        "eu_nato": 4,
+        "sdk": 3
+      },
+      "dp": {
+        "czech": 3,
+        "poland": 3,
+        "hungary": 2
+      }
+    },
+    "iraq": {
+      "p": {
+        "jana": -4,
+        "maria_d": -5,
+        "robert_b": -6,
+        "tibor": 3
+      },
+      "s": {
+        "eu_nato": 3,
+        "hzds": -4,
+        "sdl": -6
+      },
+      "dp": {
+        "usa": 5,
+        "nato_r": 3,
+        "russia": -3
+      }
+    },
+    "zahranicn": {
+      "p": {
+        "tibor": 5,
+        "jana": 4,
+        "helena_d": 4
+      },
+      "s": {
+        "business_dz": 6,
+        "sdk": 4
+      },
+      "e": {
+        "gdpGrowth": 0.1
+      }
+    },
+    "slobod": {
+      "p": {
+        "jana": 7,
+        "helena_d": 5,
+        "milan_d": 5
+      },
+      "s": {
+        "sdk": 5,
+        "eu_nato": 4,
+        "hzds": -4
+      },
+      "dp": {
+        "eu": 2
+      }
+    },
+    "kia": {
+      "p": {
+        "peter_r": 8,
+        "tibor": 7,
+        "robert_b": 5
+      },
+      "s": {
+        "business_dz": 8,
+        "unions_dz": 5,
+        "sdk": 5
+      },
+      "e": {
+        "gdpGrowth": 0.2,
+        "unemp": -0.8
+      }
+    },
+    "peugeot": {
+      "p": {
+        "peter_r": 7,
+        "tibor": 7,
+        "robert_b": 4
+      },
+      "s": {
+        "business_dz": 7,
+        "unions_dz": 4,
+        "sdk": 4
+      },
+      "e": {
+        "gdpGrowth": 0.15,
+        "unemp": -0.5
+      }
+    },
+    "referendum": {
+      "p": {
+        "jana": 6,
+        "helena_d": 5,
+        "tibor": 5,
+        "laszlo": 5
+      },
+      "s": {
+        "eu_nato": 6,
+        "sdk": 5,
+        "smk": 4
+      },
+      "dp": {
+        "eu": 3
+      }
+    },
+    "september": {
+      "p": {
+        "jana": -3,
+        "tibor": 3,
+        "maria_d": -4
+      },
+      "s": {
+        "eu_nato": 3,
+        "hzds": -3
+      },
+      "dp": {
+        "usa": 3,
+        "nato_r": 2
+      }
     }
   },
   "consequenceChains": [
@@ -1756,7 +2103,7 @@
       "id": "formation",
       "m": 0,
       "h": "Formovanie koalície",
-      "d": "Po páde Mečiara musíte zostaviť širokú koalíciu. SDK (42), SDĽ (18), SMK (15) a SOP (9) — spolu 84/150 kresiel. Štyri strany s rôznymi ideológiami.",
+      "d": "Po páde Mečiara musíte zostaviť širokú koalíciu. SDK (42), SDĽ (29), SMK (15) a SOP (9) — spolu 93/150 kresiel. Štyri strany s rôznymi ideológiami.",
       "c": "HZDS (43) a SNS (14) sú v opozícii. Koalícia je rôznorodá — od pravice po ľavicu.",
       "t": "situation",
       "cat": "Justícia",
@@ -1851,6 +2198,90 @@
       ]
     },
     {
+      "id": "rozpocet_skrty",
+      "m": 3,
+      "h": "Rozpočtové škrty — fiškálna stabilizácia",
+      "d": "Ministerka financií Schmögnerová presadzuje bolestivé škrty. Deficit treba znížiť zo 7.6% na 5.5% HDP. Dôchodky, zdravotníctvo a školstvo sú ohrozené.",
+      "c": "SDĽ sa bojí straty voličov. MMF a EÚ požadujú disciplínu. Opozícia útočí na 'Dzurindove škrty'.",
+      "t": "crisis",
+      "cat": "Ekonomika",
+      "s": [
+        "Plné škrty podľa plánu — disciplína",
+        "Postupné znižovanie s ochranou dôchodkov",
+        "Kompromis — škrty aj nové dane"
+      ]
+    },
+    {
+      "id": "kosovo_kriza",
+      "m": 7,
+      "h": "Kríza v Kosove — NATO bombarduje Srbsko",
+      "d": "NATO začalo letecké útoky na Srbsko kvôli Kosovu. Slovensko ako kandidát na členstvo musí zaujať jasný postoj. Povolíte prelet cez slovenský vzdušný priestor?",
+      "c": "Opozícia tvrdí, že NATO vťahuje Slovensko do cudzích vojen. Podpora NATO je test pre členstvo.",
+      "t": "crisis",
+      "cat": "Zahraničná politika",
+      "s": [
+        "Plná podpora NATO — povoliť prelety",
+        "Diplomatická podpora bez vojenskej účasti",
+        "Neutralita — odmietnutie účasti"
+      ]
+    },
+    {
+      "id": "decentralizacia",
+      "m": 9,
+      "h": "Decentralizácia — vytvorenie samosprávnych krajov",
+      "d": "Vláda navrhuje vznik 8 samosprávnych krajov. Presun právomocí z Bratislavy do regiónov. Ministerstvá strácajú kontrolu, regióny získavajú moc.",
+      "c": "Centralizácia za Mečiara vytvorila frustráciu v regiónoch. EÚ decentralizáciu požaduje.",
+      "t": "situation",
+      "cat": "Sociálna politika",
+      "s": [
+        "Ambiciózna decentralizácia — veľký presun právomocí",
+        "Opatrný presun s postupným rozširovaním",
+        "Zachovať centrálnu kontrolu s regionálnymi konzultáciami"
+      ]
+    },
+    {
+      "id": "amnesty_court",
+      "m": 10,
+      "h": "Ústavný súd — amnestie sú platné",
+      "d": "Ústavný súd potvrdil platnosť Mečiarových amnestií vrátane únosu Kováčovho syna. Spravodlivosť zlyháva. Medzinárodná kritika.",
+      "c": "Vláda chce zrušiť amnestie ale nemá ústavnú väčšinu. HZDS blokuje.",
+      "t": "crisis",
+      "cat": "Justícia",
+      "s": [
+        "Tlačiť na ústavnú zmenu na zrušenie amnestií",
+        "Akceptovať rozhodnutie a zamerať sa na budúcnosť",
+        "Alternatívne cesty k spravodlivosti — medzinárodný tlak"
+      ]
+    },
+    {
+      "id": "us_steel",
+      "m": 11,
+      "h": "U.S. Steel kupuje VSŽ Košice",
+      "d": "Americká oceliareň U.S. Steel kupuje Východoslovenské železiarne v Košiciach. Najväčšia zahraničná investícia v histórii SR. 15 000 pracovných miest zachránených.",
+      "c": "Privatizácia za Mečiara bola netransparentná. Teraz prichádzajú seriózni zahraniční investori.",
+      "t": "situation",
+      "cat": "Ekonomika",
+      "s": [
+        "Transparentná privatizácia — plná podpora investora",
+        "Podmienky na udržanie zamestnanosti",
+        "Ponechať čiastočný štátny podiel"
+      ]
+    },
+    {
+      "id": "roma_kriz",
+      "m": 12,
+      "h": "Rómska otázka — tlak z EÚ",
+      "d": "Európska komisia kritizuje Slovensko za zaobchádzanie s Rómami. Podmienka pre vstup do EÚ. Segregácia v školách, chudoba v osadách.",
+      "c": "Rómska menšina tvorí 8-10% populácie. Sociálne vylúčenie je hlboké.",
+      "t": "situation",
+      "cat": "Sociálna politika",
+      "s": [
+        "Komplexný program inklúzie — vzdelávanie, bývanie, práca",
+        "Cielené programy v najchudobnejších regiónoch",
+        "Minimálne opatrenia — zamerať sa na iné priority"
+      ]
+    },
+    {
       "id": "sdk_kriza",
       "m": 14,
       "h": "SDK kríza — rozpad strany",
@@ -1907,6 +2338,20 @@
       ]
     },
     {
+      "id": "volby_samosprava",
+      "m": 22,
+      "h": "Prvé regionálne voľby v histórii SR",
+      "d": "Slovensko volí predsedov a zastupiteľstvá 8 samosprávnych krajov. Nízka účasť (26%) ale historický míľnik decentralizácie. HZDS vyhráva viacero krajov.",
+      "c": "Regionálna samospráva je nová. Ľudia jej ešte nerozumejú. Výsledky naznačujú, že opozícia je silná v regiónoch.",
+      "t": "situation",
+      "cat": "Sociálna politika",
+      "s": [
+        "Kampaň za koaličných kandidátov v krajoch",
+        "Nechať regióny rozhodnúť samostatne",
+        "Zvýšiť propagáciu decentralizácie"
+      ]
+    },
+    {
       "id": "zakon_informacie",
       "m": 24,
       "h": "Zákon o slobodnom prístupe k informáciám",
@@ -1918,6 +2363,34 @@
         "Silný zákon bez výnimiek",
         "Zákon s výnimkami pre bezpečnosť",
         "Odložiť — nie je priorita"
+      ]
+    },
+    {
+      "id": "volby_2002",
+      "m": 25,
+      "h": "Parlamentné voľby 2002 — reformy na skúške",
+      "d": "Voľby 2002 rozhodnú o budúcnosti reforiem. Dzurindova SDKÚ vs Mečiarov HZDS vs Ficov SMER. Kampaň je intenzívna. Ide o vstup do EÚ a NATO.",
+      "c": "Ak reformisti zvíťazia, Slovensko vstúpi do EÚ a NATO. Ak Mečiar vyhrá, integrácia je ohrozená.",
+      "t": "crisis",
+      "cat": "Sociálna politika",
+      "s": [
+        "Agresívna kampaň — zdôrazniť úspechy reforiem",
+        "Pozitívna kampaň — EÚ a NATO budúcnosť",
+        "Útočná kampaň — varovať pred návratom Mečiara"
+      ]
+    },
+    {
+      "id": "nova_koalicia",
+      "m": 26,
+      "h": "Formovanie druhej vlády Dzurindu",
+      "d": "SDKÚ skončila druhá s ~15% (28 kresiel) za HZDS. Nová koalícia: SDKÚ + SMK + KDH + ANO = 78 kresiel (tesná väčšina 76+). Reformy pokračujú v oslabenej zostave.",
+      "c": "Mečiar skončil druhý ale nikto s ním nechce vládnuť. Fico tretí — rastúca sila.",
+      "t": "situation",
+      "cat": "Sociálna politika",
+      "s": [
+        "Vyvážená koalícia — každý dostane kľúčové ministerstvá",
+        "SDKÚ dominancia — tvrdé reformy",
+        "Kompromisná dohoda s KDH — konzervatívne hodnoty"
       ]
     },
     {
@@ -1935,6 +2408,34 @@
       ]
     },
     {
+      "id": "flat_tax",
+      "m": 29,
+      "h": "Rovná daň 19% — revolúcia v Európe",
+      "d": "Minister financií navrhuje rovnú daň 19% — jednotnú sadzbu pre príjmy, firmy aj DPH. Radikálna reforma. Ekonómovia chvália, odbory protestujú. The Economist nazýva Slovensko 'Tatranskym tigrom'.",
+      "c": "Nikde v Európe niečo také neskúšali. Prilákať investorov alebo zničiť sociálny štát?",
+      "t": "crisis",
+      "cat": "Ekonomika",
+      "s": [
+        "Schváliť rovnú daň 19% — revolúcia",
+        "Kompromis — nižšia sadzba pre nízke príjmy",
+        "Odmietnuť — zachovať progresívne zdanenie"
+      ]
+    },
+    {
+      "id": "pension_reform",
+      "m": 30,
+      "h": "Dôchodková reforma — tri piliere",
+      "d": "Zavedenie trojpilierového dôchodkového systému. II. pilier — povinné súkromné sporenie. Mladí budú sporiť na svoj dôchodok. Starší ostanú v štátnom systéme.",
+      "c": "Reforma je nevyhnutná — populácia starne. Ale prechodné náklady sú obrovské.",
+      "t": "crisis",
+      "cat": "Ekonomika",
+      "s": [
+        "Povinný II. pilier pre všetkých pod 35",
+        "Dobrovoľný II. pilier s motiváciou",
+        "Odložiť reformu — nie je čas"
+      ]
+    },
+    {
       "id": "referendum_eu",
       "m": 32,
       "h": "Príprava na referendum o EÚ",
@@ -1949,6 +2450,34 @@
       ]
     },
     {
+      "id": "eu_referendum_day",
+      "m": 33,
+      "h": "Referendum o vstupe do EÚ — historický deň",
+      "d": "16.-17. mája 2003. Slováci hlasujú o vstupe do EÚ. Účasť 52.15%, za vstup 92.46%. Slovensko vstúpi do EÚ 1. mája 2004!",
+      "c": "Nízka účasť takmer ohrozila platnosť referenda. Ale výsledok je jednoznačný — áno EÚ.",
+      "t": "situation",
+      "cat": "Zahraničná politika",
+      "s": [
+        "Veľkolepé oslavy — historický moment",
+        "Zdržanlivé oslavy — práca pokračuje",
+        "Využiť eufóriu na ťažké reformy"
+      ]
+    },
+    {
+      "id": "labor_reform",
+      "m": 34,
+      "h": "Reforma zákonníka práce",
+      "d": "Liberalizácia pracovného trhu. Flexibilnejšie prepúšťanie, kratšie výpovedné lehoty, agentúrna práca. Odbory organizujú masívne protesty pred parlamentom.",
+      "c": "Investori požadujú flexibilitu. Pracovníci sa boja. Nezamestnanosť je stále 17%.",
+      "t": "crisis",
+      "cat": "Ekonomika",
+      "s": [
+        "Plná liberalizácia — prilákať investorov",
+        "Kompromis — flexibilita s ochranou pracovníkov",
+        "Zachovať súčasný zákonník — sociálna ochrana"
+      ]
+    },
+    {
       "id": "usa_pressure",
       "m": 36,
       "h": "USA žiadajú vojenskú spoluprácu",
@@ -1960,6 +2489,48 @@
         "Podporiť USA — vyslať jednotku",
         "Diplomatická podpora bez vojakov",
         "Odmietnuť účasť — riskovať vzťahy s USA"
+      ]
+    },
+    {
+      "id": "iraq_deployment",
+      "m": 37,
+      "h": "Slovensko vysiela vojakov do Iraku",
+      "d": "Pod tlakom USA vysiela Slovensko ženijnú jednotku do Iraku. Kontroverzné rozhodnutie. Verejnosť je rozdelená — je to cena za NATO?",
+      "c": "NATO členstvo bolo garantované. Teraz prichádzajú záväzky.",
+      "t": "crisis",
+      "cat": "Zahraničná politika",
+      "s": [
+        "Vyslať vojakov — spojenecký záväzok",
+        "Len humanitárnu misiu — nie bojovú",
+        "Odmietnuť — nezávislosť zahraničnej politiky"
+      ]
+    },
+    {
+      "id": "eu_accession_day",
+      "m": 38,
+      "h": "1. MÁJ 2004 — Slovensko v EÚ!",
+      "d": "Historický deň. Slovensko sa stáva členom Európskej únie. Oslavy po celej krajine. Od medzinárodnej izolácie k plnoprávnemu členstvu za 6 rokov.",
+      "c": "Dzurindova najväčšia zahraničnopolitická výhra. Ale výzvy pokračujú — Schengen, eurozóna.",
+      "t": "situation",
+      "cat": "Zahraničná politika",
+      "s": [
+        "Veľkolepé oslavy — Dzurindov triumf",
+        "Zdržanlivé oslavy — poďakovať všetkým",
+        "Okamžite oznámiť plán pre euro a Schengen"
+      ]
+    },
+    {
+      "id": "kia_investment",
+      "m": 40,
+      "h": "KIA Motors prichádza do Žiliny",
+      "d": "Kórejská automobilka KIA oznamuje investíciu 1 miliardy EUR — nový závod v Žiline. 3 500 priamych a 6 000+ nepriamych pracovných miest. Slovensko sa stáva automobilovou veľmocou.",
+      "c": "Rovná daň a flexibilný trh práce pritiahli investora. Ale vláda musela ponúknuť daňové úľavy.",
+      "t": "situation",
+      "cat": "Ekonomika",
+      "s": [
+        "Plná podpora — štedrý investičný balík",
+        "Podmienky na lokálnych dodávateľov",
+        "Tvrdé vyjednávanie — menej úľav"
       ]
     },
     {
@@ -2654,9 +3225,12 @@
       "russia": 35
     },
     "social": {
-      "press": 55,
+      "press": 65,
       "corrupt": 40,
-      "emigr": 50
+      "emigr": 50,
+      "dezinfo": 5,
+      "mediaTrust": 60,
+      "civilSociety": 55
     },
     "cp": {
       "sdk": {
@@ -2690,21 +3264,18 @@
     },
     "parl": {
       "sdk": 42,
-      "sdl": 18,
+      "sdl": 23,
       "smk": 15,
-      "sop": 9,
+      "sop": 13,
       "hzds": 43,
-      "sns": 14,
-      "other": 9
+      "sns": 14
     },
     "stances": {
       "ekonomika": 0,
       "eu": 0,
       "rusko": 0,
       "social": 0,
-      "media": 0,
       "justicia": 0,
-      "migracia": 0,
       "identita": 0
     }
   },
@@ -2734,5 +3305,572 @@
       "d": "Politická atmosféra je pokojná. Médiá sa zaoberajú bežnými témami. Koaličná rada zasadá rutinne.",
       "c": "Využite priestor na dlhodobé plánovanie a strategické rozhodnutia."
     }
-  ]
+  ],
+  "court": {
+    "judges": [
+      {
+        "id": "mazak",
+        "name": "Ján Mazák",
+        "ideology": 3,
+        "competence": 9,
+        "conviction": 8,
+        "loyalty": 2,
+        "termEnd": 48,
+        "isChair": true
+      },
+      {
+        "id": "brostl",
+        "name": "Ján Bróstl",
+        "ideology": 3,
+        "competence": 8,
+        "conviction": 8,
+        "loyalty": 2,
+        "termEnd": 36,
+        "isChair": false
+      },
+      {
+        "id": "drgonec_j",
+        "name": "Ján Drgonec",
+        "ideology": 3,
+        "competence": 9,
+        "conviction": 8,
+        "loyalty": 2,
+        "termEnd": 30,
+        "isChair": false
+      },
+      {
+        "id": "baranová_d",
+        "name": "Viera Mrázová",
+        "ideology": 4,
+        "competence": 7,
+        "conviction": 7,
+        "loyalty": 3,
+        "termEnd": -1,
+        "isChair": false
+      },
+      {
+        "id": "cepl",
+        "name": "Eduard Bárány",
+        "ideology": 3,
+        "competence": 8,
+        "conviction": 7,
+        "loyalty": 3,
+        "termEnd": 42,
+        "isChair": false
+      },
+      {
+        "id": "lalik_d",
+        "name": "Alexander Brostl",
+        "ideology": 4,
+        "competence": 7,
+        "conviction": 7,
+        "loyalty": 3,
+        "termEnd": -1,
+        "isChair": false
+      },
+      {
+        "id": "moczo_d",
+        "name": "Ľudmila Gajdošíková",
+        "ideology": 4,
+        "competence": 7,
+        "conviction": 6,
+        "loyalty": 4,
+        "termEnd": -1,
+        "isChair": false
+      },
+      {
+        "id": "orosz_d",
+        "name": "Ladislav Orosz",
+        "ideology": 5,
+        "competence": 7,
+        "conviction": 6,
+        "loyalty": 4,
+        "termEnd": 24,
+        "isChair": false
+      },
+      {
+        "id": "svecova_d",
+        "name": "Marianna Mochnáčová",
+        "ideology": 5,
+        "competence": 6,
+        "conviction": 5,
+        "loyalty": 5,
+        "termEnd": -1,
+        "isChair": false
+      },
+      {
+        "id": "macejkova_d",
+        "name": "Ivetta Macejková",
+        "ideology": 6,
+        "competence": 5,
+        "conviction": 5,
+        "loyalty": 6,
+        "termEnd": -1,
+        "isChair": false
+      },
+      {
+        "id": "kresak_d",
+        "name": "Peter Kresák",
+        "ideology": 3,
+        "competence": 8,
+        "conviction": 7,
+        "loyalty": 3,
+        "termEnd": -1,
+        "isChair": false
+      },
+      {
+        "id": "auxt",
+        "name": "Juraj Horváth",
+        "ideology": 4,
+        "competence": 7,
+        "conviction": 6,
+        "loyalty": 4,
+        "termEnd": -1,
+        "isChair": false
+      },
+      {
+        "id": "drevak",
+        "name": "Rudolf Tkáčik",
+        "ideology": 5,
+        "competence": 6,
+        "conviction": 6,
+        "loyalty": 4,
+        "termEnd": -1,
+        "isChair": false
+      }
+    ]
+  },
+  "cabinet": {
+    "ministries": [
+      {
+        "id": "mv",
+        "name": "Ministerstvo vnútra",
+        "emoji": "🛡️",
+        "domain": [
+          "polícia",
+          "bezpečnosť",
+          "SIS",
+          "migrácia"
+        ],
+        "allocatedTo": "sdk"
+      },
+      {
+        "id": "mf",
+        "name": "Ministerstvo financií",
+        "emoji": "💰",
+        "domain": [
+          "dane",
+          "rozpočet",
+          "reforma",
+          "eufondy"
+        ],
+        "allocatedTo": "sdk"
+      },
+      {
+        "id": "ms",
+        "name": "Ministerstvo spravodlivosti",
+        "emoji": "⚖️",
+        "domain": [
+          "justícia",
+          "reforma súdov",
+          "právny štát"
+        ],
+        "allocatedTo": "sdk"
+      },
+      {
+        "id": "mzv",
+        "name": "Ministerstvo zahraničných vecí",
+        "emoji": "🌍",
+        "domain": [
+          "diplomacia",
+          "EÚ",
+          "NATO",
+          "integrácia"
+        ],
+        "allocatedTo": "sdk"
+      },
+      {
+        "id": "mo",
+        "name": "Ministerstvo obrany",
+        "emoji": "🎖️",
+        "domain": [
+          "armáda",
+          "NATO",
+          "obrana",
+          "reforma armády"
+        ],
+        "allocatedTo": "sdk"
+      },
+      {
+        "id": "mh",
+        "name": "Ministerstvo hospodárstva",
+        "emoji": "🏭",
+        "domain": [
+          "priemysel",
+          "privatizácia",
+          "investície",
+          "podnikanie"
+        ],
+        "allocatedTo": "sdk"
+      },
+      {
+        "id": "mpsvr",
+        "name": "Ministerstvo práce",
+        "emoji": "👷",
+        "domain": [
+          "sociálna",
+          "dôchodková reforma",
+          "zamestnanosť"
+        ],
+        "allocatedTo": "sdl"
+      },
+      {
+        "id": "mz",
+        "name": "Ministerstvo zdravotníctva",
+        "emoji": "🏥",
+        "domain": [
+          "zdravotníctvo",
+          "nemocnice",
+          "reforma"
+        ],
+        "allocatedTo": "sdl"
+      },
+      {
+        "id": "msmt",
+        "name": "Ministerstvo školstva",
+        "emoji": "📚",
+        "domain": [
+          "školstvo",
+          "veda",
+          "univerzity"
+        ],
+        "allocatedTo": "smk"
+      },
+      {
+        "id": "mdv",
+        "name": "Ministerstvo dopravy",
+        "emoji": "🚄",
+        "domain": [
+          "doprava",
+          "infraštruktúra",
+          "diaľnice",
+          "telekomunikácie"
+        ],
+        "allocatedTo": "sop"
+      },
+      {
+        "id": "mzp",
+        "name": "Ministerstvo životného prostredia",
+        "emoji": "🌿",
+        "domain": [
+          "ekológia",
+          "voda",
+          "lesy"
+        ],
+        "allocatedTo": "smk"
+      },
+      {
+        "id": "mk",
+        "name": "Ministerstvo kultúry",
+        "emoji": "🎭",
+        "domain": [
+          "kultúra",
+          "STV",
+          "médiá",
+          "pamiatky"
+        ],
+        "allocatedTo": "smk"
+      },
+      {
+        "id": "mprv",
+        "name": "Ministerstvo pôdohospodárstva",
+        "emoji": "🌾",
+        "domain": [
+          "poľnohospodárstvo",
+          "potraviny",
+          "vidiek",
+          "EÚ dotácie"
+        ],
+        "allocatedTo": "sdk"
+      }
+    ],
+    "ministers": [
+      {
+        "id": "pittner",
+        "name": "Ladislav Pittner",
+        "party": "sdk",
+        "ministry": "mv",
+        "ideology": 4,
+        "competence": 7,
+        "loyalty": 7,
+        "partyLoyalty": 8,
+        "corruption": 2,
+        "publicProfile": 6
+      },
+      {
+        "id": "miklos",
+        "name": "Ivan Mikloš",
+        "party": "sdk",
+        "ministry": "mf",
+        "ideology": 2,
+        "competence": 9,
+        "loyalty": 8,
+        "partyLoyalty": 9,
+        "corruption": 2,
+        "publicProfile": 8
+      },
+      {
+        "id": "cernakms",
+        "name": "Ján Čarnogurský",
+        "party": "sdk",
+        "ministry": "ms",
+        "ideology": 4,
+        "competence": 7,
+        "loyalty": 6,
+        "partyLoyalty": 7,
+        "corruption": 1,
+        "publicProfile": 7
+      },
+      {
+        "id": "kukan",
+        "name": "Eduard Kukan",
+        "party": "sdk",
+        "ministry": "mzv",
+        "ideology": 3,
+        "competence": 8,
+        "loyalty": 7,
+        "partyLoyalty": 8,
+        "corruption": 1,
+        "publicProfile": 8
+      },
+      {
+        "id": "kanis",
+        "name": "Pavol Kanis",
+        "party": "sdl",
+        "ministry": "mo",
+        "ideology": 4,
+        "competence": 6,
+        "loyalty": 5,
+        "partyLoyalty": 7,
+        "corruption": 2,
+        "publicProfile": 5
+      },
+      {
+        "id": "cernak_lj",
+        "name": "Ľudovít Černák",
+        "party": "sdk",
+        "ministry": "mh",
+        "ideology": 3,
+        "competence": 7,
+        "loyalty": 7,
+        "partyLoyalty": 8,
+        "corruption": 3,
+        "publicProfile": 6
+      },
+      {
+        "id": "magvasi",
+        "name": "Peter Magvaši",
+        "party": "sdl",
+        "ministry": "mpsvr",
+        "ideology": 5,
+        "competence": 6,
+        "loyalty": 5,
+        "partyLoyalty": 7,
+        "corruption": 2,
+        "publicProfile": 4
+      },
+      {
+        "id": "knotkova",
+        "name": "Tibor Šagát",
+        "party": "sdk",
+        "ministry": "mz",
+        "ideology": 3,
+        "competence": 7,
+        "loyalty": 6,
+        "partyLoyalty": 7,
+        "corruption": 2,
+        "publicProfile": 5
+      },
+      {
+        "id": "ftacnik",
+        "name": "Milan Ftáčnik",
+        "party": "sdl",
+        "ministry": "msmt",
+        "ideology": 4,
+        "competence": 7,
+        "loyalty": 5,
+        "partyLoyalty": 7,
+        "corruption": 1,
+        "publicProfile": 5
+      },
+      {
+        "id": "macejko",
+        "name": "Gabriel Palacka",
+        "party": "sdk",
+        "ministry": "mdv",
+        "ideology": 3,
+        "competence": 6,
+        "loyalty": 7,
+        "partyLoyalty": 8,
+        "corruption": 4,
+        "publicProfile": 5
+      },
+      {
+        "id": "hrnko",
+        "name": "László Miklós",
+        "party": "smk",
+        "ministry": "mzp",
+        "ideology": 3,
+        "competence": 7,
+        "loyalty": 5,
+        "partyLoyalty": 7,
+        "corruption": 1,
+        "publicProfile": 4
+      },
+      {
+        "id": "knotkova_k",
+        "name": "Milan Kňažko",
+        "party": "sop",
+        "ministry": "mk",
+        "ideology": 3,
+        "competence": 6,
+        "loyalty": 4,
+        "partyLoyalty": 6,
+        "corruption": 2,
+        "publicProfile": 8
+      },
+      {
+        "id": "koncos",
+        "name": "Pavel Koncoš",
+        "party": "sdl",
+        "ministry": "mprv",
+        "ideology": 5,
+        "competence": 6,
+        "loyalty": 5,
+        "partyLoyalty": 7,
+        "corruption": 3,
+        "publicProfile": 3
+      }
+    ]
+  },
+  "institutions": {
+    "institutions": [
+      {
+        "id": "sis",
+        "name": "Riaditeľ SIS",
+        "emoji": "🕵️",
+        "appointedBy": "pm_parliament",
+        "replaceCost": 8,
+        "description": "Slovenská informačná služba — tajná služba. PM navrhuje, parlament volí."
+      },
+      {
+        "id": "gp",
+        "name": "Generálny prokurátor",
+        "emoji": "⚖️",
+        "appointedBy": "parliament",
+        "replaceCost": 35,
+        "description": "Rozhoduje o trestných stíhaniach. 7-ročný mandát. Takmer nemožné odvolať."
+      },
+      {
+        "id": "pp",
+        "name": "Policajný prezident",
+        "emoji": "👮",
+        "appointedBy": "interior",
+        "replaceCost": 10,
+        "description": "Velí polícii. Menuje minister vnútra."
+      },
+      {
+        "id": "nbs",
+        "name": "Guvernér NBS",
+        "emoji": "🏦",
+        "appointedBy": "president",
+        "replaceCost": 18,
+        "description": "Národná banka Slovenska. Riadi menovú politiku, pripravuje vstup do eurozóny."
+      },
+      {
+        "id": "stv",
+        "name": "Riaditeľ STV",
+        "emoji": "📺",
+        "appointedBy": "parliament",
+        "replaceCost": 12,
+        "description": "Slovenská televízia. Verejnoprávne médiá, dôležité pre demokratizáciu."
+      },
+      {
+        "id": "nku",
+        "name": "Predseda NKÚ",
+        "emoji": "📋",
+        "appointedBy": "parliament",
+        "replaceCost": 20,
+        "description": "Najvyšší kontrolný úrad. Audituje vládne výdavky."
+      }
+    ],
+    "heads": [
+      {
+        "id": "head_sis",
+        "name": "Vladimír Mitro",
+        "institution": "sis",
+        "ideology": 4,
+        "competence": 7,
+        "loyalty": 5,
+        "conviction": 7,
+        "termEnd": -1,
+        "appointedBy": "Dzurinda 1999"
+      },
+      {
+        "id": "head_gp",
+        "name": "Milan Hanzel",
+        "institution": "gp",
+        "ideology": 4,
+        "competence": 7,
+        "loyalty": 4,
+        "conviction": 7,
+        "termEnd": 36,
+        "appointedBy": "Dzurinda 1999"
+      },
+      {
+        "id": "head_pp",
+        "name": "Jaroslav Ivor",
+        "institution": "pp",
+        "ideology": 4,
+        "competence": 7,
+        "loyalty": 5,
+        "conviction": 6,
+        "termEnd": -1,
+        "appointedBy": "Pittner 1999"
+      },
+      {
+        "id": "head_nbs",
+        "name": "Marián Jusko",
+        "institution": "nbs",
+        "ideology": 4,
+        "competence": 7,
+        "loyalty": 4,
+        "conviction": 7,
+        "termEnd": 24,
+        "appointedBy": "Schuster 2000"
+      },
+      {
+        "id": "head_stv",
+        "name": "Richard Rybníček",
+        "institution": "stv",
+        "ideology": 3,
+        "competence": 7,
+        "loyalty": 4,
+        "conviction": 7,
+        "termEnd": 18,
+        "appointedBy": "Parlament 1999"
+      },
+      {
+        "id": "head_nku",
+        "name": "Štefan Balejík",
+        "institution": "nku",
+        "ideology": 5,
+        "competence": 6,
+        "loyalty": 4,
+        "conviction": 6,
+        "termEnd": 30,
+        "appointedBy": "Mečiar 1994"
+      }
+    ]
+  }
 }

@@ -6,7 +6,30 @@
     "saveKey": "spm_save",
     "pellegriniMonth": 8,
     "presidentName": "Zuzana Čaputová",
-    "presidentFriendly": "Peter Pellegrini"
+    "presidentFriendly": "Peter Pellegrini",
+    "realComparison": {
+      "approval": {
+        "value": 38,
+        "label": "Reálna podpora na konci"
+      },
+      "gdpGrowth": {
+        "value": 2.2,
+        "label": "Reálny rast HDP"
+      },
+      "unemployment": {
+        "value": 5.6,
+        "label": "Reálna nezamestnanosť"
+      },
+      "inflation": {
+        "value": 3.2,
+        "label": "Reálna inflácia"
+      },
+      "lasted": {
+        "value": 0,
+        "label": "Reálne mesiacov vo funkcii"
+      },
+      "verdict": "Fico prežil atentát. Konsolidačný balíček a novela trestného zákona polarizujú spoločnosť."
+    }
   },
   "calendar": {
     "startMonthOffset": 9,
@@ -22,449 +45,449 @@
   },
   "personas": [
     {
-      "id": "maria",
-      "name": "Mária",
-      "emoji": "👵",
-      "age": 67,
-      "demo": "Dôchodkyňa z Prešova. Celý život pracovala v textilke, teraz berie 480 EUR dôchodok. Volí SMER od roku 2006.",
-      "location": "Prešov",
-      "region": "presovsky",
+      "id": "milan",
+      "name": "Milan",
+      "emoji": "🔨",
+      "age": 48,
+      "demo": "Murár zo Spišskej Novej Vsi. Volí SMER od počiatku. Anti-liberál, tvrdí že Brusel a Šimečka chcú zničiť Slovensko.",
+      "location": "Spišská Nová Ves",
+      "region": "kosicky",
       "lean": "smer"
     },
     {
-      "id": "peter",
-      "name": "Peter",
-      "emoji": "👷",
-      "age": 45,
-      "demo": "Robotník v automobilke KIA Žilina. Živí dve deti, manželka učiteľka. Bojí sa o prácu kvôli elektromobilom.",
-      "location": "Žilina",
-      "region": "zilinsky",
-      "lean": "smer"
-    },
-    {
-      "id": "katarina",
-      "name": "Katarína",
-      "emoji": "💻",
-      "age": 30,
-      "demo": "IT špecialistka v Bratislave. Pracuje pre nemeckú firmu na remote. Zarába 3500 EUR. Zvažuje odchod do Viedne.",
+      "id": "zora",
+      "name": "Zora",
+      "emoji": "✊",
+      "age": 26,
+      "demo": "Mladá žena, sociologička v Bratislave. Volí PS, chodí na každý protest. Cituje Šimečku a bojuje za právny štát.",
       "location": "Bratislava",
       "region": "bratislavsky",
       "lean": "progressive"
     },
     {
-      "id": "jozef",
-      "name": "Jozef",
-      "emoji": "🌾",
-      "age": 55,
-      "demo": "Poľnohospodár z Nitrianskeho kraja. 200 hektárov. Bojí sa EÚ regulácií a vyschnutia potoka. Volí konzervatívne.",
-      "location": "Nitra",
-      "region": "nitriansky",
-      "lean": "conservative"
+      "id": "dusan",
+      "name": "Dušan",
+      "emoji": "⚖️",
+      "age": 52,
+      "demo": "Stredoškolský riaditeľ z Trenčína. Volil Pellegriniho za prezidenta, lebo chcel pokojného pragmatika. Centristický pohľad.",
+      "location": "Trenčín",
+      "region": "trenciansky",
+      "lean": "hlas"
     },
     {
-      "id": "eva",
-      "name": "Eva",
-      "emoji": "📚",
-      "age": 40,
-      "demo": "Učiteľka základnej školy v B. Bystrici. Plat 1100 EUR. Sama vychováva syna. Chce reformy ale nechce extrémy.",
-      "location": "B. Bystrica",
+      "id": "igor",
+      "name": "Igor",
+      "emoji": "🦅",
+      "age": 56,
+      "demo": "SNS hardliner z Liptova. Oddaný Dankovi. Suverenista, nacionalista, vojna na Ukrajine je pre neho americký projekt.",
+      "location": "Liptovský Mikuláš",
+      "region": "zilinsky",
+      "lean": "sns"
+    },
+    {
+      "id": "veronika",
+      "name": "Veronika",
+      "emoji": "🩺",
+      "age": 44,
+      "demo": "Internistka v Banskej Bystrici. Prežila kolaps oddelenia keď odišlo 6 kolegov. Vyčerpaná, pracuje 70h týždenne.",
+      "location": "Banská Bystrica",
       "region": "banskobystricky",
       "lean": "moderate"
     },
     {
-      "id": "martin",
-      "name": "Martin",
-      "emoji": "🎓",
-      "age": 22,
-      "demo": "Študent politológie na UK Bratislava. Aktivista. Chodí na protesty. Zvažuje odísť z krajiny ak sa situácia nezlepší.",
-      "location": "Bratislava",
-      "region": "bratislavsky",
-      "lean": "progressive"
+      "id": "frantisek",
+      "name": "František",
+      "emoji": "👴",
+      "age": 71,
+      "demo": "Dôchodca z Martina. Dostáva 13. dôchodok od Fica. Vďačný, má Fica rád ako vlastného syna. Číta Nový Čas.",
+      "location": "Martin",
+      "region": "zilinsky",
+      "lean": "smer"
     },
     {
-      "id": "tomas",
-      "name": "Tomáš",
-      "emoji": "💼",
-      "age": 38,
-      "demo": "Majiteľ malej IT firmy v Trnave, 15 zamestnancov. Borí sa s byrokraciou a vysokými odvodmi. Chce stabilitu.",
-      "location": "Trnava",
-      "region": "trnavsky",
-      "lean": "moderate"
-    },
-    {
-      "id": "zuzana",
-      "name": "Zuzana",
-      "emoji": "⚕️",
-      "age": 48,
-      "demo": "Chirurgička v nemocnici Košice. Zarába 2800 EUR ale pracuje 60h/týždeň. Pol oddelenia odišlo do Čiech.",
+      "id": "radovan",
+      "name": "Radovan",
+      "emoji": "📊",
+      "age": 41,
+      "demo": "Majiteľ kaviarne a e-shopu v Košiciach. Konsolidačný balík mu zdvihol odvody a DPH. Hľadá, kde škrtá.",
       "location": "Košice",
       "region": "kosicky",
       "lean": "moderate"
     },
     {
-      "id": "robert",
-      "name": "Róbert",
-      "emoji": "⛏️",
-      "age": 58,
-      "demo": "Býv. baník z Handlovej. Nezamestnaný 3 roky. Žije z dávok a práce na čierno. Nostalgik za starými časmi.",
-      "location": "B. Bystrica",
-      "region": "banskobystricky",
-      "lean": "smer"
-    },
-    {
-      "id": "lucia",
-      "name": "Lucia",
-      "emoji": "📰",
-      "age": 28,
-      "demo": "Investigatívna novinárka Denníka N. Odkryla viacero káuz. Dostáva výhrazy. Bojí sa o slobodu tlače.",
+      "id": "olena",
+      "name": "Oľena",
+      "emoji": "🇺🇦",
+      "age": 34,
+      "demo": "Ukrajinka z Ľvova, od marca 2022 v Bratislave. Pracuje v IT firme. Integrovaná, hovorí po slovensky. Sleduje vojnu.",
       "location": "Bratislava",
       "region": "bratislavsky",
       "lean": "progressive"
     },
     {
-      "id": "stefan",
-      "name": "Štefan",
-      "emoji": "👮",
-      "age": 45,
-      "demo": "Policajný nadporučík v Trenčíne. 20 rokov v službe. Chce poriadok a silný štát. Neverí politikom ale rieši bezpečnosť.",
-      "location": "Trenčín",
+      "id": "lubomir",
+      "name": "Ľubomír",
+      "emoji": "📡",
+      "age": 49,
+      "demo": "Čitateľ Hlavných správ a Armádneho magazínu. Verí, že Fico bol obeťou globalistického sprisahania, COVID bol plán.",
+      "location": "Prievidza",
       "region": "trenciansky",
+      "lean": "dezinfo"
+    },
+    {
+      "id": "marek",
+      "name": "Marek",
+      "emoji": "👮",
+      "age": 38,
+      "demo": "Policajt z Nitry, 12 rokov v službe. Rozpolený: chce silný štát, ale Ficove justičné reformy ho znepokojujú.",
+      "location": "Nitra",
+      "region": "nitriansky",
       "lean": "conservative"
     },
     {
-      "id": "helena",
-      "name": "Helena",
-      "emoji": "👩‍👧",
-      "age": 36,
-      "demo": "Slobodná matka dvoch detí z Prešova. Pracuje ako predavačka za 850 EUR. Závisí od sociálnych dávok. Volí toho kto dá viac.",
-      "location": "Prešov",
-      "region": "presovsky",
-      "lean": "smer"
+      "id": "stanislav",
+      "name": "Stanislav",
+      "emoji": "🌾",
+      "age": 59,
+      "demo": "Farmár z Podunajska, 350 ha. Zúri pre ukrajinskú lacnú pšenicu a Green Deal. Volí konzervatívne, nechce EÚ diktát.",
+      "location": "Dunajská Streda",
+      "region": "trnavsky",
+      "lean": "conservative"
+    },
+    {
+      "id": "nina",
+      "name": "Nina",
+      "emoji": "📱",
+      "age": 21,
+      "demo": "Študentka žurnalistiky na UK. Filmuje protesty pre Instagram. Organizuje #ZaRTVS kampane, bojí sa cenzúry.",
+      "location": "Bratislava",
+      "region": "bratislavsky",
+      "lean": "progressive"
     }
   ],
   "personaQuotes": {
-    "maria": {
+    "milan": {
       "vp": [
-        "Fico sa o nás dôchodcov konečne stará! Susedka Margita mi ukazovala, že aj jej už prišlo viac. Daj Bože mu zdravie.",
-        "Výborne! Konečne niekto myslí na starých ľudí. Vnučka mi volala že aj v televízii chválili. Tak to má byť.",
-        "Ďakujem Bohu za takého premiéra! Po rokoch konečne cítiš, že niekomu na tebe záleží. Aj farár v kostole hovoril že je to správne."
+        "Fico je náš chlapík! V Spišskej sme sa bavili v krčme — konečne niekto kto nás počúva a nie tí bratislavskí liberáli čo nás poučujú.",
+        "Trestujem zákon zmenili? No konečne! Sudcovia čo pustili zločincov po Ficovej prvej vláde si zaslúžili dávno iný verdikt.",
+        "Sused Ferko mi povedal že aj Hlavné správy chválili. Keď Fico koná, viem že je to pre ľudí, nie pre Brusel."
       ],
       "p": [
-        "To je v poriadku, niečo sa robí. Na naše pomery slušné. Aspoň vidím snahu, aj keď by mohlo byť lepšie.",
-        "Aspoň vidím snahu. Lepšie ako za predošlého. Susedka hovorí to isté.",
-        "Lepšie ako nič. Aspoň sa niekto snaží. Ja len chcem mať na lieky a na jedlo pre vnučkov."
+        "Dobre, aspoň sa niečo deje. Za tých z PS by sme posielali zbrane na Ukrajinu a plakali by sme v angličtine.",
+        "Fico nie je svätý ale je náš. Robotník zo Spiša pozná čo to znamená, ja mu verím viac ako Šimečkovi.",
+        "V robote chlapci súhlasia. Nie je to dokonalé ale krok správnym smerom. Brusel nech sa stará o seba."
       ],
       "n": [
-        "Neviem čo si o tom myslieť. Niektorí hovoria dobre, niektorí zle. Ja len chcem v kľude dožiť a mať na lieky.",
-        "Politika ma unavuje ale treba voliť. V obchode som počula rôzne názory. Neviem komu veriť.",
-        "Čo ja viem. Na dedine to nikto nerieši. Ideme ďalej ako doteraz a dúfame v lepšie."
+        "Neviem. Počul som rôzne. V krčme sa hádajú, jeden hovorí dobre, druhý hovorí zle. Uvidíme.",
+        "Politika je politika. Niekedy pomôžu, niekedy nie. Ja idem ráno do roboty a večer domov.",
+        "Čo by sa zmenilo v Spišskej? Reči sú reči. Počkám kým uvidím niečo konkrétne."
       ],
       "ng": [
-        "Toto na nás dôchodcov zas zabudli. Sľuby pred voľbami a potom nič. 480 euro mesačne a všetko drahšie.",
-        "Nikto sa nepýta starých ľudí. Celý život som robila a teraz nemám ani na poriadne jedlo. Hanba.",
-        "Susedka Margita plakala v obchode. Nemala na mlieko. A vláda? Riešia vlastné problémy."
+        "Fico sľuboval viac pre robotníkov ale konsolidačný balík nám zdvihol dane. Čo to má byť?",
+        "V práci nám hovorili že budú škrtať v odmenách. A Fico reční o suverenite. Kde je moja suverenita nad platom?",
+        "Sused prišiel o prácu. V Spišskej je zle. Sľubujú a sľubujú, ale kde sú tie investície?"
       ],
       "vn": [
-        "Katastrofa! Dcéra mi už posiela peniaze z Anglicka aby som mala na lieky. Hanba tejto vláde!",
-        "Celý život som robila pre túto krajinu a toto je odmena? Vnúčatá ma ľutujú. Tohto sa nedožijeme.",
-        "Plačem keď vidím účet za elektrinu. Musím si vybrať medzi liekmi a jedlom. To je Slovensko roku 2024?"
+        "Zradení sme! Konsolidačný balík je rana pre ľudí ako ja. Za toto som volil SMER?",
+        "Dvihli DPH, dvihli odvody. V obchode je všetko drahšie. To nie je suverenita, to je beda.",
+        "Syn hovorí že odíde do Nemecka. Ja mu hovorím počkaj — ale čo mu mám povedať? Sám neviem prečo by zostal."
       ]
     },
-    "peter": {
+    "zora": {
       "vp": [
-        "Super! Toto pomáha robotníkom. V fabrike sme sa bavili a všetci sme spokojní. Konečne niekto myslí aj na nás.",
-        "Na zmene sme si podávali ruky. Toto je presne čo sme potrebovali. Fico rozumie fabrikom.",
-        "Manželka sa usmievala keď som prišiel domov. Konečne dobré správy z politiky. Aj hypotéku zvládneme."
+        "Konečne! Šimečka mal pravdu — tlak funguje! Budeme na námestí, kým táto vláda nepochopí že Slovensko je právny štát!",
+        "Protestovali sme, kričali sme a vidím výsledok. Demokracia žije keď ľudia vstanú. Fotím to pre Instagram.",
+        "Kamarátky z PS skupiny v Telegrame píšu že je to víťazstvo. Malé ale naše. Ideme ďalej!"
       ],
       "p": [
-        "Dobrý smer. V robote sa hovorí že bude lepšie. Aspoň nemusíme mať strach že zavrú linku.",
-        "Fico pozná problémy obyčajných ľudí, to mu nemôžeš vziať. V kantíne chlapci súhlasia.",
-        "Nie je to dokonalé ale ideme správnym smerom. Na zmene je lepšia nálada ako minulý rok."
+        "Opatrný optimizmus. Šimečka hovorí sledujme implementáciu — má pravdu, slová sú lacné.",
+        "Pozitívny signál, aj keď vláda stále musí vysvetliť čo ide s STVR a trestným zákonom.",
+        "Na diskusii v PS kruhu sme sa zhodli: krok vpred, ale oči otvorené. Protest nezastavujeme."
       ],
       "n": [
-        "Nemám názor. V práci sa nič nezmenilo. Mzda rovnaká, ceny vyššie. Štandard.",
-        "Politiku moc neriešim, idem do roboty, domov, spať, a znova. Aspoň je kľudno.",
-        "V kantíne sa o tom bavili ale ja radšej riešim svoju prácu. Čo zmôžem ja, robotník."
+        "Kompromis pre kompromis. Fico vie kalkulovať, to mu neberiem. Ale nám to nestačí.",
+        "Nič sa zásadne nezmenilo. RTVS je STVR, trestný zákon bol zmenený, Rusko je stále kamarát.",
+        "Na seminári sme analyzovali — štatisticky bezvýznamný posun. Slovensko potrebuje systémovú zmenu."
       ],
       "ng": [
-        "V automobilke už začali prepúšťať. Elektromobily, to je koniec našich liniek. A vláda? Nič.",
-        "Kto zaplatí moju hypotéku keď zavrú linku? Len reči o suverenite a vojnách.",
-        "Kolega dostal výpoveď minulý týždeň. Tri deti a hypotéka. A vláda rieši Rusko."
+        "STVR je hanba! Riaditeľa menovanie politicky? To nie je reforma verejnoprávnosti, to je ovládnutie!",
+        "Šimečka má pravdu: toto je útok na slobodné médiá. Budem na každom proteste kým to nezrušia.",
+        "Kamarátka z Česka sa pýta čo sa deje na Slovensku. Neviem jej povedať nič pozitívne."
       ],
       "vn": [
-        "Hotové! Kolega už dostal výpoveď. Fabrika znižuje stavy. Manželka plače, neviem čo bude.",
-        "Stará sa o Rusko a Ukrajinu namiesto o nás! V fabrike je panika. Ľudia sa boja.",
-        "Tri zmeny zrušili. 200 ľudí ide na ulicu. A premiér je v Moskve. To je tá jeho starostlivosť o robotníkov?"
+        "Dosť! Toto je demontáž demokracie! Ficov pokus o autokraciu musíme zastaviť na ulici!",
+        "Šimečka hovorí že podáme na Ústavný súd. Ja idem na protest každý víkend. Toto nie je Slovensko v akom chcem žiť.",
+        "Atentát na Fica bol šok ale nevytvára mu právo robiť z nás maďarský model. Demokracia sa bráni!"
       ]
     },
-    "katarina": {
+    "dusan": {
       "vp": [
-        "Wow, konečne niečo pokrokové! Zdieľam to na LinkedIn, nech vedia v zahraničí že nie sme úplne stratená krajina.",
-        "Slovensko sa konečne posunulo do 21. storočia. Kolegovia z Berlína píšu gratulujeme. Konečne!",
-        "V IT komunite je eufória. Takto by to malo vyzerať vždy. Možno neodídem do Viedne."
+        "Pellegrini by s tým súhlasil. Rozumný krok, bez extrémov. Presne preto som ho volil za prezidenta.",
+        "Konečne pragmatické rozhodnutie. Nie Ficov pátos, nie opozičná hystéria — len rozum. Takto vládnuť.",
+        "V škole som o tom hovoril s kolegami. Väčšina súhlasí — keby takto postupovala celá vláda, bolo by lepšie."
       ],
       "p": [
-        "OK, dobré kroky, aj keď pomale. Aspoň ide vidieť snaha. Kolegovia v Nemecku sa pýtali a teraz im môžem povedať niečo pozitívne.",
-        "Baby steps ale správnym smerom. Na Slack-u v práci sme diskutovali a väčšina súhlasí.",
-        "Nie je to revolúcia ale aspoň nie krok späť. V IT firme to berieme ako pozitívny signál."
+        "V poriadku. Nie ideálne, ale Pellegrini udrží rovnováhu. Prezident je záchranná brzda tejto koalície.",
+        "Hlas-SD má na to vplyv — Pellegrini to postrážil. Centristická politika má zmysel aj ked sa nikomu nepáči.",
+        "Uvidíme. Som riaditeľ, viem že medzi rozhodnutím a výsledkom je veľká priepasť. Sledujeme."
       ],
       "n": [
-        "Typicky slovenský kompromis — nikomu to nevadí, nikomu to nepomôže. V IT komunite sa tomu smejeme.",
-        "Slovensko by potrebovalo razantnejšie zmeny, nie toto opatrné šľapanie. Ale OK, nečakala som viac.",
-        "Meh. Na daily standup-e sa o tom nikto ani nezmienil. Mimo IT bubliny to nikoho nezaujíma."
+        "Ani ryba ani rak. Koalícia sa kompromisuje na všetko a nakoniec nezmení nič zásadné.",
+        "Pellegrini nemá ľahkú úlohu. Brzdí Fica, brzdí Danka, a opozícia mu tiež neverí. Ťažká pozícia.",
+        "V škole nás to priamo nezasiahlo. Čakám na konkrétne výsledky, nie na tlačové konferencie."
       ],
       "ng": [
-        "Toto je krok späť. Kolegyňa Simona sa balila do Viedne a teraz ju chápem.",
-        "Ak vláda takto pokračuje, aj ja odcestujem. Nie je dôvod zostávať v krajine ktorá ide dozadu.",
-        "Na LinkedIn-e kolegovia z Česka píšu: poďte k nám. A ja vážne zvažujem."
+        "Znepokojuje ma to. Pellegrini by mal vetovať, nie mlčať. Prezident musí byť hlas rozumu.",
+        "Konsolidačný balík zasiahol aj školy. Čakal som že Hlas to zastaví. Sklamanie.",
+        "Ficova rétorika o Rusku a Ukrajine škodí Slovensku v Európe. Pellegrini by mal hovoriť jasnejšie."
       ],
       "vn": [
-        "Demokracia umiera a svetu je to jedno! Už som si kúpila jednosmerný lístok do Viedne.",
-        "Žiadna sloboda tlače, súdy pod kontrolou. Odchádzam. Slovensko si nezaslúži IT talenty.",
-        "Firma presúva tím do Brna. Ja idem s nimi. Toto už nie je krajina pre vzdelaných ľudí."
+        "Toto je vážne. Pellegrini musí konať — použiť veto, zvolať konzultácie, čokoľvek. Inak je iba figurína.",
+        "Keď som volil Pellegriniho, myslel som si že bude balanciér. Teraz vidím len mlčanie. Zklamanie.",
+        "Slovensko v EÚ stráca kredit. Za Čaputovej sme boli rešpektovaní. Teraz? Hanba na medzinárodnom fóre."
       ]
     },
-    "jozef": {
+    "igor": {
       "vp": [
-        "Dobre! Konečne ochrana tradičných hodnôt a nášho vidieckeho života. Keď vláda chráni dedinky, je to správna vláda.",
-        "Pole sa samo neorobí. Konečne niekto rozumie poľnohospodárom. V krčme v dedine sme pripíjali.",
-        "Na družstve sme konečne spokojní. Vláda podporuje slovenské potraviny a farmárov. Tak to má byť."
+        "Slovensko si konečne stojí za svojou suverenitou! Danko to hovorí roky — a teraz to vidíme v praxi!",
+        "Trestný zákon bol pomstychtivý nástroj proti vlastencom. Zrušte ho! SNS to presadila a je to správne!",
+        "Amerika a Brusel nás chcú ovládnuť cez Šimečku a tých NGO aktivistov. Fico a Danko sú posledná línia obrany!"
       ],
       "p": [
-        "Prijateľné. Aspoň nie sú to tie zelené šialenstvá z Bruselu čo chcú zavrieť farmy.",
-        "Na dedine potrebujeme kľudnú politiku, nie revolúcie. Toto je v poriadku.",
-        "Nie je to ideálne ale na dedine sme zvyknutí na málo. Aspoň nie je horšie ako vlani."
+        "Dobrý smer. SNS tlačí na suverenitu a vidím výsledky. Danko je neúnavný bojovník za slovenský národ.",
+        "Aspoň sa niekto postaví Bruselu! My v SNS vždy hovorili že Slovensko musí byť pánom vo vlastnom dome.",
+        "Nie je to ešte dosť ale je to začiatok. Neutralita vo vojne — to je múdrosť, nie zbabelosť."
       ],
       "n": [
-        "Ani ryba ani rak. V podstate sa nič nemení pre nás na vidieku. Dotácie chodia, ale neskoro.",
-        "Brusel stále diktuje. My oráme pole a oni píšu nariadenia. Aspoň nie je horšie.",
-        "V dedine sa o politike moc nehovorí. Robíme čo treba a dúfame v dobrú úrodu."
+        "Mohol to byť silnejší postoj. Danko by išiel ďalej. Ale koalícia je koalícia, kompromisy sú nutné.",
+        "Sledujeme z SNS pozorne. Suverenita nie je slogan, je to politická línia. Uvidíme ako to dopadne.",
+        "V Liptovskom Mikuláši ľudia nechcú vojnu ani zbrane pre Kyjev. To je zdravý rozum, nie propaganda."
       ],
       "ng": [
-        "Na dedinke to nikto necíti. Vláda robí veci pre Bratislavu a pre seba. Kde sú dotácie pre malých farmárov?",
-        "Kde je ochrana pred dovozom z Ukrajiny? Samé prázdne slová. Pole mi zarástlo burinou a štát nepomôže.",
-        "Mladí odchádzajú z dedín. Školy zatvoria, obchod zatvorili. A vláda rieši Bratislavu."
+        "Slabé! Mäkký postoj voči Bruselu. Danko by to riešil ostrejšie. Sme príliš poddajní!",
+        "Ako môžeme posielať peniaze do NATO keď naši dôchodcovia živoria? Slovensko musí mať iné priority!",
+        "Médiá — tá bratislavská liberálna bublina — útočia na Danka každý deň. A vláda sa nebráni dosť razantne."
       ],
       "vn": [
-        "Katastrofa pre vidiek! Bruselské nariadenia nám žerú živobytie a vláda s tým nič nerobí!",
-        "Susedov syn predal kravy a išiel do fabriky. O 10 rokov tu nebude nikto čo by oral pole.",
-        "Dedina umiera. Posledný obchod zatvorili. Autobus chodí raz denne. A politici? Ani nevedia kde sme na mape."
+        "Zrada! Bruselskí ľavicoví liberáli nás diktujú a vláda mlčí! Danko má pravdu — treba ísť do konfliktu s Bruselom!",
+        "Atentát na Fica bol čin globalistov! Kto má z toho prospech? Pozrite sa kto financuje opozíciu!",
+        "Ak STVR bude platformou pre proamertickú propagandu, SNS to neznesie. Slovenský národ si zaslúži pravdu!"
       ]
     },
-    "eva": {
+    "veronika": {
       "vp": [
-        "Vyvážený a premyslený prístup! Presne toto učím študentov — analyzovať a rozhodnúť sa rozumne.",
-        "Ak by vláda takto pristupovala ku všetkému, boli by sme ďaleko. V zborovni sme sa tešili.",
-        "Konečne politika založená na dátach a analýze! Ukazujem to žiakom ako príklad. Takto sa to robí."
+        "Konečne nejaký signál pre zdravotníctvo! Neviem či to splnia ale aspoň viem že vláda vie že problém existuje.",
+        "Na oddelení sme sa trochu usmiali. Ak prídu peniaze na platy, možno zastavíme odliv sestier do Rakúska.",
+        "Kolegyňa Petra hovorí počkajme. Ja som opatrná optimistka. Ale po rokoch sľubov mám nízke očakávania."
       ],
       "p": [
-        "Rozumné kroky. Nie perfektné, ale v správnom smere. Zmena trvá dlho, dôležité je pokračovať.",
-        "Ako učiteľka viem že treba trpezlivosť. Vidím snahu a to sa počíta.",
-        "V zborovni sme diskutovali a väčšina súhlasí že je to pozitívne. Nie dokonalé, ale dobré."
+        "Niečo sa pohlo. Nie dosť ale pohlo. Na internistike stále robíme 70 hodín ale aspoň vidíme snahu.",
+        "Zdravotníctvo potrebuje systémovú reformu, nie záplaty. Toto sú záplaty. Ale OK, záplata je lepšia ako krvácanie.",
+        "Ministerstvo si uvedomuje že sme v kríze — to je prvý krok. Implementácia ukáže pravdu."
       ],
       "n": [
-        "Priemerný výkon. Ako domáca úloha čo opravujem — spĺňa minimum, ale chýba snaha.",
-        "Ani nie je na čo nadávať, ani nie je na čo byť hrdým. Typické Slovensko.",
-        "V škole sa o tom nikto nebavil. Učíme ďalej a dúfame že si na nás niekto spomenie."
+        "Nič nové. Politici hovoria, sestry odchádzajú. Mám dnes 12-hodinovú službu, nemám čas sledovať tlačovky.",
+        "Zdravotníctvo sa nereformuje rečami. Štyri kolegyne odišli tento rok do Česka. Štatistika neklame.",
+        "Na oddelení sa o politike nehovorí. Riešime pacientov. Politici nech riešia politiku."
       ],
       "ng": [
-        "Sklamanie. Školstvo sa opäť nevloží ani cent. Mám 32 žiakov a plat 1100 euro.",
-        "A vláda rieši RTVS a Rusko? Keď investujete do škôl, investujete do budúcnosti!",
-        "Kolegyne zvažujú odchod do Čiech. Rozbité stoličky, staré učebnice. A politikom je to jedno."
+        "Hanba! Vláda rieši STVR a trestný zákon kým ja mám na oddelení jednu sestru na desať pacientov!",
+        "Kolegyne plačú z vyčerpania. Ja som prežila krízu keď odišlo šesť lekárov naraz. Nikto nám nepoďakoval.",
+        "Konsolidačný balík zasiahol aj nemocnice. Menej peňazí, viac administratívy. Politici to nežijú."
       ],
       "vn": [
-        "Nezmysel! Toto učím deti ako príklad zlej politiky. Žiadna analýza, len populizmus.",
-        "Kolegyne plakali v zborovni. Pol školy zvažuje odchod do Čiech kde učiteľ zarába dvojnásobok.",
-        "Hanba! Deti si zaslúžia lepšie. Ja si zaslúžim lepšie. Celé školstvo si zaslúži lepšie. Ale vládu to nezaujíma."
+        "Systém kolabuje! Pacient zomrel čakajúc na pohotovosti. V Banskej Bystrici! V roku 2024! Je mi zle.",
+        "Zvažujem Viedeň. Platia trojnásobok, pracujem polovicu hodín. Prečo tu zostávam? Lebo mi záleží na Slovensku. Ale dokedy?",
+        "Toto nie je zdravotníctvo, toto je prežívanie. Vláda si zahrávala s trestným zákonom a zabudla na nemocnice."
       ]
     },
-    "martin": {
+    "frantisek": {
       "vp": [
-        "LET'S GOOO! Toto sme na protestoch požadovali! Zdieľam na všetky siete!",
-        "Konečne politika pre mladú generáciu! Na univerzite je eufória. Takto sa robí zmena.",
-        "Wow! Kamaráti z Prahy závidia. Možno sa nemusím vysťahovať. Slovensko ma prekvapilo."
+        "Trinásty dôchodok prišiel! Fico pamätá na starých ľudí. Kúpil som vnúčaťom sladkosti. Daj Bože Ficovi zdravie!",
+        "V Martine v parku sme sa s kamarátmi rozprávali — všetci dostali. Toto je sociálna politika ako má byť!",
+        "Celý život som robil v závode a teraz konečne cítim úctu od štátu. Fico je správny premiér pre obyčajných ľudí."
       ],
       "p": [
-        "Fajn, dobré kroky aj keď pomale. Na univerzite väčšina súhlasí že to je pozitívne.",
-        "Baby steps, ale správnym smerom. Aspoň sa niečo deje. Zdieľam na Insta s opatrným optimizmom.",
-        "Na politológii sme to analyzovali a konsenzus je: lepšie ako čakanie. Ale treba viac."
+        "Dobré. Aspoň niečo naviac. Lieky zdraželi ale trinásty dôchodok pomôže. Vďaka SMER-u.",
+        "Nie je to veľa ale je to gesto. Cítiť že vláda na nás myslí. Za predchádzajúcich sme nič nedostali.",
+        "Sused Karol hovorí že je to málo. Ja hovorím: málo je viac ako nič. Fico aspoň skúša."
       ],
       "n": [
-        "Meh. Štandardný politický kompromis. Na politológii analyzujeme horšie veci.",
-        "Slovensko sa posúva tempom slimáka. Nie je to tragédia ale ani revolúcia.",
-        "Na prednáške sme to rozobrali za 5 minút a prešli k zaujímavejším témam. Nuda."
+        "Neviem. Trinásty dôchodok je fajn ale električka zdražela, lieky zdraželi. Čo z toho?",
+        "Politika je komplikovaná. Ja len chcem v pokoji dožiť a mať na lieky. Uvidíme.",
+        "V parku ľudia hovoria rôzne. Niektorí chvália, niektorí nadávajú. Ja sledujem Nový Čas a idem spať."
       ],
       "ng": [
-        "Toto je z učebnice ako zničiť dôveru mladých v politiku. Prečo by som tu mal ostávať?",
-        "Kamaráti sú v Prahe, Berlíne, Londýne. Tu nie je budúcnosť pre mladých.",
-        "Na proteste bolo 10 000 ľudí. Vláda to ignoruje. Čo ešte musíme urobiť?"
+        "Konsolidačný balík zdvihol ceny. Trinásty dôchodok zjedol inflácia. Čo to pomohlo?",
+        "Lekárni som dlhoval. Myslel som trinásty pokryje lieky — nepokryl. Ceny sú iné ako v novinách.",
+        "Fico hovorí o nás starstlivosť ale reálne — energia, potraviny, lieky. Čo z toho zlepšil?"
       ],
       "vn": [
-        "SHAME! Idem na protest! Toto je demontáž demokracie!",
-        "Na univerzite sa rozhodujeme či evakuovať akademickú slobodu. Budem emigrant, nie absolvent.",
-        "Nechcem žiť v autoritárskom štáte. Erasmus v Holandsku vyzerá čoraz lepšie ako trvalý pobyt."
+        "Zle sa mi žije! Syn mi posiela peniaze z Brna lebo ja tu nevyžijem. To je Ficova starostlivosť o dôchodcov?",
+        "Trinásty dôchodok bol symbol. Ale symboly neplatia účty. Elektriku minulý mesiac som nestihol zaplatiť.",
+        "Kamarát Jozef zomrel čakajúc na operáciu. Zdravotníctvo nefunguje. Fico hovorí, ale čo robí?"
       ]
     },
-    "tomas": {
+    "radovan": {
       "vp": [
-        "Výborne pre biznis! Konečne stabilné prostredie. Už vidím objednávky a rast.",
-        "Keď je kľud a predvídateľnosť, firmy investujú. Toto je presne čo podnikatelia potrebujú.",
-        "Volal mi klient z Nemecka — expanduje na Slovensko. Vďaka tejto politike. Super!"
+        "Konečne niečo pre podnikateľov! Stabilita je základ. Keď je politický pokoj, kaviarni idú objednávky.",
+        "Nový zákon pomôže malým firmám. Ani e-shop ani kaviareň nefunguje v chaose — toto je správny smer.",
+        "Volal mi dodávateľ z Prešova — on tiež spokojný. Keď je trh pokojný, všetci zarábame."
       ],
       "p": [
-        "Dobre, aspoň nie sú to horšie správy. Firma beží, zamestnanci majú prácu.",
-        "Keď vláda nebude hádzať klady pod nohy, dá sa podnikať aj na Slovensku.",
-        "Nie je to ideálne ale biznis ide. Objednávky sú stabilné. Nechcem viac."
+        "OK, aspoň nie sú horšie správy. Konsolidačný balík bol rana, ale uvidíme či sa to stabilizuje.",
+        "Podnikatelia v Košiciach sme sa stretli. Konsenzus: zlé mohlo byť horšie. Ideme ďalej.",
+        "DPH zdvihli, ale trhom sa zatiaľ darí. Sledujeme. Predaj cez e-shop drží."
       ],
       "n": [
-        "Bez efektu na moju firmu. Ani pomoc, ani prekážka. Idem ďalej robiť čo robím.",
-        "Jednoducho ďalšia politika ktorá neovplyvní denný biznis. Dúfam v lepšie.",
-        "V podnikateľskom klube sme pokrčili ramenami. Nič nové. Robíme ďalej."
+        "Nič sa nezmenilo. Odvody rovnaké, byrokracia rovnaká. Politika je vzdialená od reálneho podnikania.",
+        "Parlament reční a ja počítam marže. Nemám čas na politiku — mám zamestnancov.",
+        "Kaviareň beží. E-shop beží. Politika ma priamo nezasiahla. Zatiaľ."
       ],
       "ng": [
-        "Pre podnikateľov nič. Zase vyššie odvody a viac byrokracie. Zvažujem presun firmy do Česka.",
-        "Tam je to jednoduchšie, lacnejšie a štát vám neprekáža. Tu je to boj.",
-        "Tri klienti zrušili zmluvy. Obchodní partneri sa pýtajú na politickú stabilitu. Čo im mám povedať?"
+        "Konsolidačný balík je katastrofa pre malé firmy! DPH hore, odvody hore — kto to zaplatí? Zákazník? On odíde!",
+        "Zdvihli mi náklady o 15% a nikto sa neopýtal malých podnikateľov. Len veľké korporácie majú lobby.",
+        "Dvaja zamestnanci hovorili o výpovedi. Nemôžem im zdvihnúť plat keď odvody rastú. Fico tomu nerozumie."
       ],
       "vn": [
-        "Likvidujem firmu a idem preč! Dvaja klienti už odišli do Čiech.",
-        "Slovensko nie je krajina pre podnikateľov. Konkurencia z Brna nám berie ľudí.",
-        "Posledná kvapka. Balím kanceláriu. Založím firmu v Prahe kde podnikateľa rešpektujú."
+        "Zatvárám e-shop! Marže nulové po novom DPH. Konsolidačný balík zabil malé podnikanie na Slovensku!",
+        "Kaviareň ešte drží ale len lebo ja tam stojím 14 hodín denne. Zamestnancov si nemôžem dovoliť.",
+        "Registrujem sa v Česku. Tam podnikateľa rešpektujú. Tu sme len zdroj daní bez hlasu."
       ]
     },
-    "zuzana": {
+    "olena": {
       "vp": [
-        "Konečne investícia do zdravotníctva! Možno prestanú odchádzať sestry do Rakúska.",
-        "V nemocnici sme mali mini oslavu. Toto je krok správnym smerom. Konečne!",
-        "Kolegovia necveria ale ja som optimistka. Ak to splnia, zachránia životy. Doslova."
+        "Slovensko je moj domov teraz. Keď vláda robí dobrú politiku, aj my utečenci to cítime — stabilita nás drží tu.",
+        "V IT firme sme spokojní. Práca ide, kolegovia Slováci sú milí. Konečne pozitívna správa.",
+        "Poslala som správu mame do Ľvova — hovorí Slovensko znie dobre. Dúfam že tu zostaneme dlho."
       ],
       "p": [
-        "Lepšie ako nič. Aspoň vidíme snahu. Na oddelení máme stále problémy ale je signál.",
-        "Uvidíme či splnia sľuby. Zatiaľ aspoň vieme že si vláda uvedomuje problém.",
-        "V nemocnici sme opatrne optimistickí. Ale sľuby sme počuli aj predtým."
+        "V poriadku. Pracujem, platím dane, učím sa slovensky. Politika ma priamo nezasiahla.",
+        "Slovensko mi dalo šancu. Aj keď politika je komplikovaná, ľudia tu sú dobrí.",
+        "Kolega Jaro mi vysvetľoval o STVR. Nerozumiem politiku dobre ale počúvam a učím sa."
       ],
       "n": [
-        "Zdravotníctvo sa opäť nerieši. Čakám 15 rokov na skutočnú reformu.",
-        "Pacienti čakajú v chodbách a politici sa bavia o suverenite. Typické.",
-        "Na oddelení nikto ani nezdvihol hlavu od práce. Politika nás nezaujíma — nemáme čas."
+        "Neviem čo si myslieť. V Ukrajinskej komunite v Bratislave sú rôzne názory na Ficovu politiku.",
+        "Pracujem, starám sa o dieťa, sledujem správy z domu. Slovenská politika je druhá vec.",
+        "Fico hovorí o neutralite. Mne je to ťažké. Moja rodina je stále na Ukrajinskej strane."
       ],
       "ng": [
-        "Kolegovia utekajú! Pol chirurgie odišlo do Brna. Platy sú smiešne pre to čo robíme.",
-        "A vláda? Rieši RTVS! Prosím vás, ľudia umierajú v čakárňach!",
-        "Sestra mi povedala že podala výpoveď. Štvrtá tento mesiac. Čo budem robiť sama?"
+        "Ficova rétorika o Ukrajinskej vojne mi bolí. Hovorí veci čo nie sú pravda o agresii.",
+        "V komunite sme nahnevaní. Slovensko nám pomohlo ale premiér hovorí veci ktoré urážajú Ukrajincov.",
+        "Kolegovia v práci sú nepríjemní keď sa hovorí o vojne. Neviem čo si myslia o mne."
       ],
       "vn": [
-        "Zdravotnícky systém kolabuje! Pacient čakal 14 hodín na pohotovosti. Ja zvažujem Viedeň.",
-        "Sestra plakala lebo nezvláda 16-hodinové služby. Za hranicou platia trojnásobok.",
-        "Dnes mi zomrel pacient v čakárni. Na chodbách. V 21. storočí. V EÚ. Hanba tejto krajine!"
+        "Fico navštívil Moskvu! Môj brat je na fronte a Slovenský premiér podáva ruku Putinovi! Je mi zle!",
+        "Komunita diskutuje o odchode do Nemecka alebo Česka. Tam nás rešpektujú. Tu sa bojíme o nasledujúce roky.",
+        "Správa z domu — raketa zasiahla Ľvov. A Fico hovorí o neutralite. Neutralita s krvácajúcou krajinou."
       ]
     },
-    "robert": {
+    "lubomir": {
       "vp": [
-        "SMER sa o nás stará! V krčme sme sedeli a vraveli že toto je ono. Fico je náš človek.",
-        "Konečne niekto kto pozná problémy obyčajných ľudí. V Handlovej sa konečne niečo deje!",
-        "Sused Vlado hovorí že aj jemu pomohli. Fico, drž sa, my ťa podporujeme!"
+        "Fico koná! Globálne elity ho chcú zničiť — to nám dokazuje atentát. Ale národ je silnejší! Hlavné správy to píšu jasne.",
+        "Trestný zákon zmenili! Konečne! Politickí väzni za Hegerovej vlády budú oslobodení. Spravodlivosť zvíťazila!",
+        "STVR namiesto RTVS — správne! Verejnoprávna televízia bola infiltrovaná sorosovými aktivistami. Teraz bude inak!"
       ],
       "p": [
-        "Dobre, niečo sa robí. Lepšie ako za tých z PS čo by nás predali Bruselu.",
-        "Aspoň Fico rozumie čo značí byť robotník a nemať prácu. Ale treba viac.",
-        "V hospode chlapci hovorili že je to fajn. Nie super, ale fajn. Ideme ďalej."
+        "Dobrý krok ale nestačí. Deep state stále ovláda súdy, prokuratúru, médiá. Treba ísť hlbšie.",
+        "Aspoň vidíme smer. Fico vie čo sa deje za oponou. Preto ho chceli zabiť — vedel príliš veľa.",
+        "Hlavné správy hovoria opatrný optimizmus. Ja súhlasím. Ale boj nekončí — globalizmus má dlhé ruky."
       ],
       "n": [
-        "Neviem. Fico rozpráva, ale v Handlovej sa nič nezmenilo. Baňa je zavretá, prácu niet.",
-        "Chodia sem sľubovať pred voľbami a potom zabudnú kde Handlová je.",
-        "Čo sa tu zmenilo? Nič. Krčma stojí, fabrika nie. Ale aspoň je kľudno, čo ja viem."
+        "Kompromis. Systém je hlboko infikovaný. Jedna zmena nič nevyrieši. Treba vyčistiť celý štát.",
+        "V Prievidzi ľudia vedia čo sa naozaj deje. Brusel, WHO, WEF — tí sú za tým. Fico iba brzdí.",
+        "Sledoval som živý prenos. Niečo nezverejnili v hlavnom vysielaní. Prečo? Čo skrývajú?"
       ],
       "ng": [
-        "Opäť nič pre nás! Banujem že som volil SMER. V meste je 20% nezamestnanosť.",
-        "Potrebujeme prácu, nie reči. Kde sú tie sľúbené investície do Handlovej?",
-        "Syn odišiel do Prahy. Dcéra zvažuje Anglicko. A ja tu čakám na čo? Na ďalšie sľuby?"
+        "Podozrievam že nás opäť klamú! Konsolidačný balík je IMF diktát — to nie je Ficova vôľa, to sú bankári!",
+        "Prečo Fico zrazu súhlasí s Bruselom v tejto veci? Niekto naňho tlačí. Pozrite sa kto sa s ním stretol minulý týždeň.",
+        "V Telegram kanáli Vlastenci SK píšu že je to ústupok deep state. Súhlasím. Fico bol varovaný."
       ],
       "vn": [
-        "Zradili nás! Všetci sú rovnakí — sľubujú a kradnú! V Handlovej umierajú ľudia na alkohol.",
-        "A čo vláda? Rieši vojnu na Ukrajine! Kto sa postará o nás v zabudnutom meste?",
-        "Susedovi vypli elektriku. Mne sa to blíži. SMER, PS, SNS — všetci sú rovnakí podvodníci."
+        "ZRADA! Fico bol infiltrovaný! Atentát bol varovanie a teraz vidím že si zmenil kurz! Kto naňho tlačí?!",
+        "COVID bol plán, vojna je scéna, a STVR bude nový nástroj kontroly mysle! Prebúdzajte sa, Slováci!",
+        "Šimečka je len bábka Sorosovcov. PS financujú tí istí ľudia čo financovali Majdan. Otvorte oči!"
       ]
     },
-    "lucia": {
+    "marek": {
       "vp": [
-        "Fantastický krok pre transparentnosť! Toto je presne o čom píšem — demokracia žije.",
-        "Píšem editoriál a zdieľam medzinárodne. Konečne dobré správy zo Slovenska!",
-        "V redakcii sme otvárali šampanské. Toto je nádej pre nezávislú žurnalistiku."
+        "Silný štát, poriadok, bezpečnosť. Toto je základ. Keď vláda koná rozhodne, polícia má ľahšiu prácu.",
+        "Na stanici sme spokojní. Nové vybavenie, jasné nariadenia. Takto by to malo byť vždy.",
+        "Fico hovorí o posilnení bezpečnostných zložiek. Policajti to vítajú. Aspoň niekto na nás myslí."
       ],
       "p": [
-        "Pozitívne signály, aj keď treba byť opatrný. V redakcii väčšina súhlasí.",
-        "Budeme sledovať implementáciu — tam sa ukazuje pravda. Zatiaľ OK.",
-        "Na porade v redakcii sme sa zhodli: lepšie ako čakanie. Ale oči otvorené."
+        "Dobre, aspoň nie sú horšie správy. Bezpečnostná situácia sa nezhoršila. Na stanici je relatívny pokoj.",
+        "Keď je politická stabilita, aj policajtom sa lepšie pracuje. Nechcem chaos, chcem systém.",
+        "Nie je to ideálne ale ideme správnym smerom. Plat ešte nie je dostatočný ale aspoň rastie."
       ],
       "n": [
-        "Klasický kompromis ktorý nezmení nič. Ani krok vpred, ani vzad.",
-        "V novinách tomu venujeme stĺpec a zajtra to zabudnú. Slovensko potrebuje odvahu.",
-        "Na redakčnej porade sme sa pozreli, pokrčili ramenami a riešili vlastné kauzy."
+        "Neviem ako sa to dotkne polície. Zatiaľ nič konkrétne. Robíme čo robíme a čakáme.",
+        "Politici rozprávajú ale nám na stanici nikto neprišiel povedať čo to pre nás znamená.",
+        "12 rokov v službe a politika sa stále mení. Naučil som sa: počkaj kým to pocítiš v praxi."
       ],
       "ng": [
-        "Ohrozenie slobody tlače! Kolegovia dostali výhrazy. RSF nás opäť zníži v rebríčku.",
-        "Sledujeme zužovanie priestoru pre nezávislú žurnalistiku. Píšem o tom medzinárodne.",
-        "Kolega dostal anonymné vyhrážky. Šéfredaktor zvažuje ochranku. Toto nie je normálne."
+        "Ficove justičné reformy ma znepokojujú. Policajt musí vedieť že zákon je zákon, nie politické rozhodnutie.",
+        "Keď prokuratúra dostane politické tlaky, celý systém trpí. Aj my dole. Bál som sa toho.",
+        "Kolegovia hovoria rôzne. Niektorí súhlasia s reformou, niektorí nie. Sám neviem čo si myslieť."
       ],
       "vn": [
-        "SLOBODA TLAČE UMIERA! Kolega dostal telefón z policajnej inšpekcie. Redakcii hrozia.",
-        "Medzinárodné organizácie varujú ale nikto nepočúva! Píšem cez VPN lebo sa bojím.",
-        "Dvaja kolegovia emigrovali. Ja zvažujem. Investigatívna žurnalistika na Slovensku umiera."
+        "Toto je zlé pre právny štát! Keď súdy nie sú nezávislé, ani polícia nemôže riadne fungovať!",
+        "Atentát na Fica bol šok. Ale využiť ho na politické útočenie na súdy? To nie je poriadok, to je zneužitie.",
+        "Zvažujem odchod zo služby. 12 rokov som slúžil štátu. Ale štát musí byť štát, nie nástroj strany."
       ]
     },
-    "stefan": {
+    "stanislav": {
       "vp": [
-        "Poriadok a bezpečnosť! To je základ! Silný štát, silná polícia, občania v bezpečí.",
-        "Presne pre toto robím túto prácu 20 rokov. Vláda koná a ľudia sú v bezpečí.",
-        "Na stanici sme konečne spokojní. Nová technika, viac ľudí. Takto sa to robí."
+        "Konečne ochrana slovenských farmárov! Ukrajinskú pšenicu treba zastaviť na hranici — môj zisk sa prepadol o tretinu!",
+        "Green Deal spomaľujú, to vidím. Danko a Fico hovorili za farmárov v Bruseli. To sa počíta.",
+        "V agrodružstve sme si plácli. Keď vláda bráni náš trh, my môžeme pracovať. Takto to má byť."
       ],
       "p": [
-        "Dobre pre bezpečnosť. Na stanici sme spokojní. Autorita štátu je posilnená.",
-        "Keď je autorita štátu posilnená, kriminalita klesá. Ľudia to nechápu ale je to tak.",
-        "Nie je to ideálne ale ideme správnym smerom. Policajti potrebujú podporu, nie kritiku."
+        "Niečo sa pohlo. Dotácie chodia, Green Deal nariadenia sa odkladajú. Nie ideálne ale dýchame.",
+        "Aspoň vláda vie že farmári existujú. Za predchádzajúcich sme boli neviditeľní.",
+        "Trh je ešte nestabilný ale Ficova vláda aspoň počúva. Šimečka by nás predal Bruselu."
       ],
       "n": [
-        "Štandardné. V práci sa nič nezmenilo. Stále málo ľudí, stále veľa papierovej práce.",
-        "Politici rozprávajú ale policajti stále zarábajú málo a riskujú každý deň.",
-        "Na porade veliteľ len pokrčil ramenami. Nič nové. Riešime čo máme a improvizujeme."
+        "Ukrajinské obilie stále prichádza inými cestami. Regulácie EÚ stále ťažia. Nič zásadné sa nezmenilo.",
+        "Počkám na úrodu. Politika je vzdialená od poľa. Na poli rozhoduje počasie, nie Fico.",
+        "V poľnohospodárskej komore sme sa stretli — konsenzus: čakaj a sleduj."
       ],
       "ng": [
-        "Kriminalita rastie a vláda robí čo? Nič! Na stanici máme nedostatok ľudí.",
-        "Technika je z roku 2005 a politici sa riešia medzi sebou. Kto chráni občanov?",
-        "Kolega dostal po službe bitku a nemáme ani kamery. Ale ministerstvo má nové autá."
+        "Green Deal zničí slovenské poľnohospodárstvo! Brusel chce zavrieť farmy a nakupovať od korporátov!",
+        "Ukrajinskú lacnú pšenicu zastavili? Nie! Stále príde! Cez iné krajiny, cez iné papiere. Vláda klame.",
+        "Konsolidačný balík zasiahol aj nás — nafta drahšia, energie drahšie. Kto to zaplatí? Pôda nezarába sama."
       ],
       "vn": [
-        "Bezpečnosť krajiny je ohrozená! Kolegovia odchádzajú, morálka na nule.",
-        "Gangy na východe rastú a my nemáme ľudí ani techniku. Ochráňte najprv vlastných občanov!",
-        "Po 20 rokoch služby zvažujem odchod. Za toto som riskoval život? Za 1200 euro a ignoráciu?"
+        "Ruinujú slovenské poľnohospodárstvo! Brusel diktuje, Kyjev dumping a vláda mlčí! Traktor na Bratislavu!",
+        "350 hektárov a červené čísla. Za toto som robil 30 rokov? Syn hovorí predaj. Možno má pravdu.",
+        "Ak Green Deal prejde v plnom rozsahu, zavriem farmu. Brusel to tak chce — malí farmári preč, korporácie zostanú."
       ]
     },
-    "helena": {
+    "nina": {
       "vp": [
-        "Konečne pomoc pre matky samoživiteľky! S dvoma deťmi je každé euro dôležité.",
-        "Deti budú mať na olovrant a ja nebudem musieť prosiť rodičov o pomoc. Ďakujem!",
-        "Plakala som od šťastia. Konečne niekto vidí aj nás. Dcéra pôjde na školský výlet!"
+        "Vyhrali sme! Protest mal výsledok! Fotím to live na Insta — 50k sledovateľov musí vedieť!",
+        "Šimečka bol dnes na námestí. Hovoril jasne — právny štát, slobodné médiá. To je naša generácia!",
+        "V žurnalistike sme sa naučili: dokumentuj všetko. Dnes dokumentujem víťazstvo. História si to zapamätá."
       ],
       "p": [
-        "Aspoň niečo. Každá pomoc sa počíta keď vychovávaš deti sama.",
-        "Syn potrebuje nové topánky a dcéra plavky na telocvik. Aspoň vidím že na nás nezabudli.",
-        "Nie je to veľa ale je to niečo. Keď máte 850 euro a dvoje detí, každý cent sa počíta."
+        "Opatrný optimizmus. STVR reform ešte nie je vyriešená ale aspoň vidíme že tlak funguje.",
+        "Naša generácia musí zostať aktívna. Protest nie je udalosť, je to proces. Ideme ďalej.",
+        "Na UK hovoríme o ďalšom kroku. Médiá sa nesmú vzdať, my sa nesmieme vzdať."
       ],
       "n": [
-        "Pre nás matky nič konkrétne. Ja by som chcela jasle v Prešove a dotácie na školské potreby.",
-        "Politika sa tu nikdy o nás nezaujímala. Zvykla som si. Idem ďalej bojovať sama.",
-        "V Prešove sa nič nezmenilo. Ale čo už, riešim si to sama ako vždy."
+        "Nic sa zásadne nezmenilo. STVR namiesto RTVS — iný názov, tá istá politická kontrola.",
+        "Filmovala som protest — bolo 3000 ľudí. Médiá to ignorovali. To hovorí všetko.",
+        "Na prednáške o žurnalistike sme analyzovali STVR zákon. Záver: je to horšie ako bolo."
       ],
       "ng": [
-        "Zase nič pre rodiny! Susedka už dala deti k mame a išla robiť do Brna.",
-        "850 euro, dvoje deti, a ceny rastú každý mesiac. Kto nám pomôže?",
-        "Dcéra sa pýtala prečo nemôže mať nové topánky. Čo jej mám povedať?"
+        "STVR zákon je cenzúra! Riaditeľa menuje parlament! To nie je nezávislosť, to je štátna televízia!",
+        "Filmovala som keď zastavili živé vysielanie. To je môj diploma projekt — dokumentácia útoku na slobodu tlače.",
+        "RSF zníži Slovensko v rebríčku slobody tlače. Moji kolegovia v zahraničí sa pýtajú čo sa tu deje."
       ],
       "vn": [
-        "Zúfalo! Nemám na školské potreby pre deti! Matky samoživiteľky sú neviditeľné!",
-        "Dcéra sa pýtala prečo nemôže ísť na školský výlet. Vláda nemá peniaze ale na ministerské autá má!",
-        "Plačem každý večer. Elektrina zdražela, jedlo zdraželo. Neviem ako prežijem ďalší mesiac s dvoma deťmi."
+        "Toto je koniec slobodných médií na Slovensku! STVR je Orbánov model! Filmujeme, dokumentujeme, bojujeme!",
+        "Na proteste ma zatlačili do steny. Polícia bola agresívna. Mám video. Zverejním to.",
+        "Kamarátky z protestov zvažujú odchod. Ja zostávam — kto bude dokumentovať ak všetci odídu?"
       ]
     }
   },
@@ -492,18 +515,25 @@
       ],
       "reactions": {
         "pos": [
-          "Vítam tento krok. Slovensko potrebuje takéto rozhodnutia.",
-          "Konečne zodpovedná politika. Toto je správny smer.",
-          "Podporujeme tento návrh. Je to v záujme občanov."
+          "Toto je krok správnym smerom a PS ho vítа. Ukazuje, že zodpovedná politika je možná aj v tejto koalícii.",
+          "Konečne rozhodnutie, ktoré obstojí pred európskymi štandardmi. Vítame to, hoci sme čakali dlhšie.",
+          "Právny štát si vyžaduje presne takéto kroky. PS to podporuje a bude dohliadať na implementáciu.",
+          "Toto je dôkaz, že tlak demokratickej opozície funguje. Budeme pokračovať.",
+          "Oceňujem, že vláda tentokrát uprednostnila záujmy občanov pred straníckou aritmetikou."
         ],
         "neg": [
-          "Toto je útok na demokraciu. PS bude proti!",
-          "Odmietame tento populizmus. Fico poškodzuje Slovensko.",
-          "Podáme návrh na preskúmanie ústavným súdom."
+          "Toto nie je vládnutie — toto je demontáž právneho štátu na pokračovanie. PS sa tomu postaví všetkými dostupnými prostriedkami.",
+          "Slovensko je členom EÚ a má záväzky. Toto rozhodnutie ich porušuje a my to budeme nahlas hovoriť v Bruseli aj doma.",
+          "Podávame podnet na Ústavný súd. Ústava Slovenskej republiky nie je koaličný program strany SMER.",
+          "Pán predseda vlády, toto nie je suverenita — toto je izolácia. A za izoláciu zaplatia obyčajní ľudia, nie vy.",
+          "PS organizuje mimoriadnu schôdzu parlamentu. Občania majú právo vedieť, čo sa tu deje v ich mene."
         ],
         "neu": [
-          "Budeme to sledovať. Čakáme na detaily.",
-          "Zatiaľ sa nevyjadrujeme, ale máme obavy."
+          "Čakáme na plné znenie legislatívy. Detaily rozhodnú o tom, či PS bude za alebo proti.",
+          "Zámer nie je zlý, ale implementácia je všetko. Budeme to pozorne sledovať.",
+          "PS si vyhradzuje právo vyjadriť sa po dôkladnej analýze právnych dopadov.",
+          "Opozícia nebude schvaľovať ani odmietať naslepo. Chceme vidieť čísla a dopady.",
+          "Toto je oblasť, kde by mal prebehnúť skutočný medzirezortný dialóg — ak vláda vôbec vie, čo to znamená."
         ]
       }
     },
@@ -529,18 +559,25 @@
       ],
       "reactions": {
         "pos": [
-          "Konečne rozumná ekonomická politika! Toto podporujem.",
-          "Správny krok pre podnikateľské prostredie.",
-          "Ak to zníži byrokraciu, som za."
+          "Z pohľadu ekonomiky toto dáva zmysel. Znižuje transakčné náklady a nedeformuje trh. Výnimočne súhlasím.",
+          "Konečne niečo, čo nespadne do kategórie 'znie dobre, stojí miliard'. Podporujem.",
+          "Podnikateľské prostredie to ocení. Ak vláda toto dotiahne bez bočných efektov, bude to úspech.",
+          "Toto je rozumná politika. Nečakal som to od tejto koalície, ale faktom zostáva fakt.",
+          "SaS dlho presadzovala presne toto. Trochu neskoro, trochu nedokonalo — ale v správnom smere."
         ],
         "neg": [
-          "Toto zruinuje štátny rozpočet! Populizmus na dlh!",
-          "Ekonomický nezmysel. Kto to zaplatí? Daňovníci!",
-          "SaS pripraví alternatívny návrh."
+          "Toto je z pohľadu ekonomiky čistý nezmysel. Zvyšujete výdavky bez krycia. Kto to zaplatí? No predsa daňovníci o desať rokov.",
+          "Každý populista sľubuje viac peňazí zadarmo. Rozdiel je len v tom, komu posiela účet. Tentokrát nám všetkým.",
+          "Deficit sa nezníži tým, že prestaneme o ňom hovoriť. SaS predloží alternatívny, fiškálne zodpovedný návrh.",
+          "Toto nie je sociálna politika — toto je predvolebná investícia zaplatená z budúcich daní. Hanba.",
+          "Požiadali sme Inštitút finančnej politiky o analýzu. Dám vám vedieť, keď príde. Prekvapenie vás nečaká."
         ],
         "neu": [
-          "Uvidíme aký bude dopad na rozpočet.",
-          "Nemám k tomu silný názor."
+          "Závisí od detailov. Pošlite mi plné finančné hodnotenie a budem vedieť povedať áno alebo nie.",
+          "Nie som nadšený, ale ani zúfalý. Potrebujem vidieť čísla — nie PR správu, ale skutočné čísla.",
+          "Mohlo byť horšie. Mohlo byť lepšie. Ekonomika to prežije, ale mohol to byť lepší návrh.",
+          "SaS sa k tomu vyjadrí po poslaneckom brífingu. Zatiaľ zdržujem komentár.",
+          "Politika bez fiškálneho dopadu je rekreácia, nie vládnutie. Pozrime sa, čo z toho naozaj vyjde."
         ]
       }
     },
@@ -558,17 +595,25 @@
       ],
       "reactions": {
         "pos": [
-          "Aj slepé kura niekedy nájde zrno. Ale Fico to myslí inak!",
-          "Ukradol náš nápad! My sme to navrhovali ako prví!"
+          "Toto sme NAVRHOVALI MY! Ukradli nám nápad!!! Fico je ako zlodej, ktorý kradne aj dobré nápady!!! ZDIEĽAJTE!!!",
+          "Aj slepé kura niekedy nájde zrno 😂😂😂 Ale verím, že za tým je nejaký škandál. Preverujem. Čoskoro zverejním VŠETKO.",
+          "Nahrával som o tom 3-hodinové video. Fico robí správnu vec zo zlého dôvodu. To je HORŠIE ako keby robil zlú vec 🤯🤯🤯",
+          "OĽaNO VÍŤAZÍ! Naša pravda sa presadila! Aj keď nás nikto nepozerá, máme PRAVDU a história nám dá za pravdu!!!",
+          "Čudujem sa ale SÚHLASÍM. Aj hodiny zastavia sa dvakrát denne 🙂 Zdieľajte priateľom nech vidia, že aj Fico občas niečo spraví dobre!!"
         ],
         "neg": [
-          "ZLOČINEC! Toto je mafiansky štát! Fico kradne!",
-          "Hanba! Toto by som nikdy neurobil! (OK možno áno ale inak)",
-          "Na Facebooku to rozbalím! Ľudia MUSIA vedieť!"
+          "ZLOČINECKÁ BANDA!!! MAFIA!!! Fico je ZLODEJ a KRIMINALNÍK a celý SMER sú GAUNEŘI!!! Toto NEBUDEm tolerovať!!! ZDIEĽAJTE 10000x!!!",
+          "Píšem o tom na Facebooku TERAZ. Mám 14 strán dokumentov. UVIDÍTE čo sa tu deje za chrbtom slovenského národa 😡😡😡",
+          "Hanba! HANBA! Keď som bol premiér, NIKDY som niečo takéto neurobil!!! (Dobre možno raz ale to bol iný kontext NEVYTRHÁVAZTE Z KONTEXTU)",
+          "Volám prokuratúru, volám políciu, volám Europol, volám Vatikán. Toto MUSÍ niekto zastaviť!!! Je toto ešte právny štát???",
+          "Ľudia, BDELOSŤ! Toto je plán globálneho mafianskeho deep-state! Mám dôkazy! O 20:00 živý prenos, 4 hodiny! PRÍĎTE!"
         ],
         "neu": [
-          "*zdieľa 47 príspevkov na Facebooku o tejto téme*",
-          "Urobil som video. 2 hodiny. Pozrite si ho celé."
+          "*zdieľa 47 príspevkov na Facebooku* Nechcem komentovať kým nebudem mať VŠETKY fakty. Mám ich o 95%. Čoskoro 💯",
+          "Nakrútil som o tom video. 2 hodiny a 37 minút. Ak to nepozeráte celé, tak klamete sami sebe 🙂",
+          "Toto je ZLOŽITÉ. Nie je to čierne ani biele. Je to tmavomodré s oranžovými škvrnami 🤔 Vysvetlím v ďalšom videu.",
+          "Sledujte moj Facebook. Mám informácie, ktoré ZMENIA váš pohľad na túto vec. Ale ešte nie som pripravený. Čoskoro.",
+          "OĽaNO analyzuje situáciu. Keď poslanec Matovič analyzuje, VÝSLEDKY ŠOKUJÚ 😤 Dajte odber nech vám neunikne."
         ]
       }
     },
@@ -587,16 +632,25 @@
       "kw_neg": [],
       "reactions": {
         "pos": [
-          "Správna vec pre slovenské rodiny!",
-          "Podporujem. Rodina je základ štátu."
+          "Toto je pre slovenské rodiny! Sme rodina to vždy hovorila — rodina je základ a toto rozhodnutie to potvrdzuje.",
+          "Podporujeme. Keď vláda myslí na ľudí a nie len na korporácie, máme sa prečo tešiť.",
+          "Moje deti by povedali — ocko, toto dáva zmysel 😄 A keď toto hovoria moje deti, to niečo znamená!",
+          "Sme rodina hlasuje ZA. Bez diskusie. Toto je sociálna politika, ktorá má srdce.",
+          "Výborne. Takúto koalíciu som chcel. Keď koalícia funguje, Slovensko funguje."
         ],
         "neg": [
-          "Nemám s tým problém, ale treba to premyslieť.",
-          "Nechám to na koalíciu."
+          "Kolegovia, toto treba prehodnotiť. Sme rodina nebude slepo hlasovať za niečo, čo poškodzuje ľudí.",
+          "Mám s tým problém a poviem to otvorene na koaličnej rade. Nie každá dohoda je dobrá dohoda.",
+          "Slovenské rodiny si nezaslúžia takúto politiku. Ak sa toto nezmení, budeme musieť zvážiť náš postoj.",
+          "Zavolal som Ficovi. Povedal som mu — Robert, toto neprejde cez Sme rodina. Uvidíme.",
+          "Parlament je miesto dialógu, nie monológu. Sme rodina požaduje rokovanie o alternatívach."
         ],
         "neu": [
-          "Uvidíme ako to dopadne.",
-          "Parlament to prerokuje."
+          "Počkáme na detaily. Sme rodina nepodpisuje prázdne šeky — ani koaličným partnerom.",
+          "Uvidíme ako to dopadne v druhom čítaní. Parlament to prerokuje dôkladne.",
+          "Nezaujatý som nie — ale pred komentárom chcem vidieť kompletný materiál.",
+          "Sme rodina sa vyjadrí po koaličnej porade. Zatiaľ sledujeme a počúvame.",
+          "Máme otázky. Keď dostaneme odpovede, budeme mať aj postoj."
         ]
       }
     },
@@ -619,16 +673,25 @@
       ],
       "reactions": {
         "pos": [
-          "Zodpovedný prístup. Presne to Slovensko potrebuje.",
-          "Ako prezident vídam tento smer pozitívne."
+          "Ako prezident Slovenskej republiky musím konštatovať, že tento krok vláda urobila zodpovedne a v súlade s ústavnými hodnotami.",
+          "Vnímam to pozitívne. Slovensko potrebuje vládu, ktorá hľadá konsenzus — a dnes som videl práve to.",
+          "Toto je rozhodnutie, ktoré môžem ako hlava štátu podporiť. Dôležité je, aby implementácia reflektovala záujmy všetkých občanov.",
+          "Z Prezidentského paláca vítam tento krok. Je to signál stabilizácie a nie eskalácie.",
+          "Zodpovedná politika si vyžaduje odvahu aj kompromis. Dnešné rozhodnutie splnilo obe."
         ],
         "neg": [
-          "Mám obavy. Zvážim použitie prezidentského veta.",
-          "Vyzývam vládu na konzultácie pred schválením."
+          "Ako prezident republiky som povinný vyjadriť vážne obavy. Tento zákon bude predmetom môjho dôkladného preskúmania pred podpisom.",
+          "Využijem svoje ústavné právo a vrátim zákon parlamentu na opätovné prerokovanie. Takto si vládu Slovenska nepredstavujem.",
+          "Vyzývam predsedu vlády na bezodkladné konzultácie. Prezidentský palác nie je guľatá pečiatka.",
+          "Ak vláda trvá na tomto postupe, budem nútený konať. Ústava mi dáva nástroje a ja ich použijem.",
+          "Musím konštatovať hlboké znepokojenie. Žiadam medzirezortné rokovanie a nezávislé právne posúdenie."
         ],
         "neu": [
-          "Sledujem situáciu. Verím v dialóg.",
-          "Očakávam konštruktívny prístup od všetkých strán."
+          "Ako prezident sledujem situáciu pozorne. Verím, že inštitúcie Slovenskej republiky sú dostatočne silné, aby zvládli túto výzvu.",
+          "Očakávam konštruktívny prístup od všetkých ústavných činiteľov. Dialog je základ demokratického vládnutia.",
+          "Prezidentský palác sa vyjadrí po dôkladnom právnom posúdení celej veci. Unáhlené závery nikomu nepomôžu.",
+          "Z pohľadu hlavy štátu je dôležité zachovať inštitucionálnu rovnováhu. K tejto veci sa vyjadrím v zákonnej lehote.",
+          "Slovensko je štát práva. Každé rozhodnutie vlády musí prejsť testom ústavnosti — a ja som prvou inštanciou."
         ]
       }
     },
@@ -655,18 +718,25 @@
       ],
       "reactions": {
         "pos": [
-          "Výborne! Slovensko na prvom mieste! Suverenita!",
-          "Toto je politika pre SLOVÁKOV, nie pre Brusel!",
-          "SNS toto plne podporuje!"
+          "SLOVENSKO NA PRVOM MIESTE! Toto je politika, ktorú SLOVÁCI chceli! SNS to vždy hovorila a dnes vidíme výsledky!",
+          "Konečne! Suverenita nie je slovo — suverenita je čin! A dnes vidíme skutočný čin skutočnej vlády!",
+          "Toto podporujem NAPLNO! Slovensko nemusí žobrať o povolenie od Bruselu! Sme hrdý národ!",
+          "SNS hlasuje ZA! Za Slovensko, za národ, za suverenitu! Nič nám Brusel nediktuje!",
+          "Výborne, pán predseda vlády! Takto sa vládne! SNS je súčasťou tejto víťaznej koalície!"
         ],
         "neg": [
-          "Toto je zrada národných záujmov! SNS bude proti!",
-          "Odmietame podriadiť sa Bruselu!",
-          "Navrhujem mimoriadne zasadnutie koaličnej rady."
+          "NEPRIJATEĽNÉ! Toto je zrada národných záujmov! SNS to ODMIETAME a budeme bojovať každým prostriedkom!",
+          "Kto z vás podpisuje podriadenie Slovenska Bruselu? JA NIE! SNS sa búri! Mimoriadna koaličná rada IHNEĎ!",
+          "Toto nie je koaličná dohoda — toto je jej porušenie! SNS bude zvažovať ďalší postup!",
+          "Slovenský národ si nezaslúži takúto politiku! Zavolal som koaličným partnerom — toto musí padnúť!",
+          "Ak vláda takto pokračuje, SNS bude musieť chrániť slovenské záujmy aj mimo koalície! VARUJEME!"
         ],
         "neu": [
-          "SNS to prerokuje na predsedníctve.",
-          "Nemám k tomu komentár."
+          "SNS to prerokuje na predsedníctve strany. Slovensko si zaslúži dôkladnú analýzu, nie unáhlené rozhodnutia.",
+          "Počkáme na detaily. Ak to posilní suverenitu Slovenska — sme za. Ak nie — sme proti. Jednoduchá matematika.",
+          "Nemám k tomu komentár pre médiá. Pre médiá, ktoré slúžia Slovensku — tým poviem viac neskôr.",
+          "SNS sleduje. Národná strana musí byť opatrná. História nám nedá zabudnúť, čo sa stane keď sme naivní.",
+          "Toto je vec, ktorá si vyžaduje čas. SNS nebude unáhlená. Ale ak treba konať — SNS KONÁ."
         ]
       }
     },
@@ -693,18 +763,25 @@
       ],
       "reactions": {
         "pos": [
-          "BRAVÓ! Konečne spravodlivá politika pre ľud!",
-          "Toto je víťazstvo nad liberálnymi fašistami!",
-          "Zdieľam na FB — 50 000 lajkov do rána!"
+          "BRAVO!!! Toto je víťazstvo ľudu nad liberálnymi fašistami! SMER VÍŤAZÍ! Slovensko sa bráni! Zdieľajte!",
+          "Konečne spravodlivá politika! Nie pre Soros-ove mimovládky, nie pre bruselské elity — ale pre SLOVENSKÝ ĽUDIA!",
+          "Toto som hovoril ROKY! A teraz to vidí celý svet! SMER má pravdu! Vždy mal! Vždy bude mať!",
+          "Odpoveď pre všetkých liberálnych novinárov, ktorí klamali: VIDÍTE?! Toto je reálna politika, nie ich dezinformácie!",
+          "50 000 lajkov do rána! Ľudia na Slovensku VEDIA, čo je pravda! A pravda je SMER a Robert Fico!"
         ],
         "neg": [
-          "Liberáli a ich médiá nás nikdy nepodporia!",
-          "Progresívci a ich americkí sponzori zas útočia!",
-          "Nepriateľ je v Bruseli, nie v Moskve!"
+          "LIBERÁLNI FAŠISTI znova útočia! Toto nie je náhoda — toto je koordinovaný útok Sorosových štruktúr na Slovensko!",
+          "Bruselské elity a ich domáci posluhovači opäť robia to, čo vždy — útočia na suverénne Slovensko! NEDÁME SA!",
+          "Toto financuje Soros! Toto organizuje Washington! Toto šíria Šimečkove mimovládky! ALE ĽUDIA UŽ VEDIA!",
+          "Všetky progresívne médiá budú dnes večer klamať o tom, čo sa stalo. JA VÁM POVIEM PRAVDU. Tu. Teraz.",
+          "Zradcovia slovenského národa sú dnes aktívni. Mená poznám. História si ich zapamätá. SMER nezabudne."
         ],
         "neu": [
-          "Pokračujeme v boji za Slovensko!",
-          "SMER je tu pre ľudí, nie pre elity!"
+          "Pokračujeme v boji za Slovensko! Každý deň nový útok liberálov, každý deň nová odpoveď SMER-u!",
+          "SMER je tu pre ľudí, nie pre elity. Toto je len ďalší deň v slovenskom politickom boji. Sme pripravení.",
+          "Sledujem vývoj. Keď príde čas konať, KONÁME. Liberáli nás neprekvapili ešte nikdy a neprekvapí ani dnes.",
+          "Toto má globálny kontext, ktorý mainstreamové médiá skrývajú. Čítajte môj blog. Pravda vás oslobodí.",
+          "SMER analyzuje situáciu. Keď Robert Fico a Ľuboš Blaha analyzujú — výsledky ich neprekvapujú."
         ]
       }
     },
@@ -731,16 +808,25 @@
       ],
       "reactions": {
         "pos": [
-          "Dôležitý krok pre budúcnosť Slovenska a jeho demokratické inštitúcie.",
-          "Toto je signál, že Slovensko je stále súčasťou demokratického sveta."
+          "Toto je krok, ktorý posilňuje demokratické inštitúcie a právny štát. Je to dôležitý signál — pre Slovensko aj pre Európu.",
+          "Vítam toto rozhodnutie. Ukazuje, že zodpovedná politika je možná aj vtedy, keď je to politicky náročné.",
+          "Slovensko je a ostane súčasťou demokratického sveta. Takéto kroky nás v tom potvrdzujú.",
+          "Toto je presne to, čo som vždy obhajovala — politika, ktorá rešpektuje ľudia aj inštitúcie.",
+          "Ďakujem každému, kto bojoval za takéto rozhodnutia. Tichá vytrvalá práca priniesla výsledky."
         ],
         "neg": [
-          "Veľmi ma to znepokojuje. Demokratické štandardy sú ohrozené.",
-          "Vyzývam občanov, aby bránili hodnoty, na ktorých stojí naša spoločnosť."
+          "Som hlboko znepokojená. Toto nie je len politické rozhodnutie — toto je test toho, čo si ako spoločnosť ceníme.",
+          "Vyzývam všetkých občanov: bráňte hodnoty, na ktorých stojí naša spoločnosť. Demokracia nie je samozrejmosť.",
+          "Demokratické štandardy nie sú prekážka — sú zárukou. Keď ich demontujeme, demontujeme ochranu nás všetkých.",
+          "Obrátim sa na európske inštitúcie. Slovensko má záväzky, ktoré vyplývajú z členstva v EÚ — a tie platia.",
+          "História bude súdiť tých, ktorí mlčali. Ja nemlčím a nebudem mlčať."
         ],
         "neu": [
-          "Sledujem situáciu. Dôležité je zachovať dialóg.",
-          "Každé rozhodnutie vlády by malo rešpektovať ústavu."
+          "Sledujem situáciu pozorne. Dôležité je zachovať dialóg a nerobiť unáhlené závery — ani jedným smerom.",
+          "Každé rozhodnutie vlády by malo rešpektovať ústavu a záväzky Slovenska voči Európe a vlastným občanom.",
+          "Počkám na úplné informácie. Záleží mi na faktoch, nie na dojmoch — to je rozdiel, na ktorom trvám.",
+          "Toto je moment, keď by mali prehovoriť inštitúcie — nie politici. Verím, že tak aj urobia.",
+          "Otázky, ktoré toto vyvoláva, sú dôležitejšie ako samotné rozhodnutie. Slovenská spoločnosť ich zaslúži počuť."
         ]
       }
     }
@@ -1076,19 +1162,18 @@
     },
     "plat": {
       "p": {
-        "peter": 10,
-        "eva": 8,
-        "zuzana": 7,
-        "helena": 5
+        "eva": 7,
+        "peter": 6,
+        "helena": 5,
+        "zuzana": 6
       },
       "s": {
-        "unions": 8,
-        "smer": 4,
-        "business": -6
+        "unions": 5,
+        "smer": 3
       },
       "e": {
-        "deficit": 0.2,
-        "gdpGrowth": 0.05
+        "deficit": 0.1,
+        "infl": 0.1
       }
     },
     "eu": {
@@ -1895,6 +1980,288 @@
         "judiciary": -3,
         "smer": 2
       }
+    },
+    "infraštruktúr": {
+      "p": {
+        "peter": 6,
+        "eva": 5,
+        "jozef": 4
+      },
+      "s": {
+        "business": 5,
+        "smer": 3
+      },
+      "e": {
+        "gdpGrowth": 0.15,
+        "deficit": 0.1
+      }
+    },
+    "infrastruktur": {
+      "p": {
+        "peter": 6,
+        "eva": 5,
+        "jozef": 4
+      },
+      "s": {
+        "business": 5,
+        "smer": 3
+      },
+      "e": {
+        "gdpGrowth": 0.15,
+        "deficit": 0.1
+      }
+    },
+    "nemocnic": {
+      "p": {
+        "maria": 7,
+        "eva": 6,
+        "helena": 5,
+        "zuzana": 8
+      },
+      "s": {
+        "healthcare": 6,
+        "smer": 3
+      },
+      "e": {
+        "deficit": 0.15
+      }
+    },
+    "škol": {
+      "p": {
+        "eva": 8,
+        "martin": 6,
+        "helena": 5
+      },
+      "s": {
+        "ps": 3,
+        "smer": 2
+      },
+      "e": {
+        "deficit": 0.1
+      }
+    },
+    "skol": {
+      "p": {
+        "eva": 8,
+        "martin": 6,
+        "helena": 5
+      },
+      "s": {
+        "ps": 3,
+        "smer": 2
+      },
+      "e": {
+        "deficit": 0.1
+      }
+    },
+    "nezamestn": {
+      "p": {
+        "peter": 7,
+        "robert": 6,
+        "helena": 5,
+        "maria": 5
+      },
+      "s": {
+        "smer": 4,
+        "hlas": 3,
+        "unions": 5
+      },
+      "e": {
+        "unemp": -0.3
+      }
+    },
+    "dôchod": {
+      "p": {
+        "maria": 8,
+        "jozef": 5,
+        "eva": 4
+      },
+      "s": {
+        "smer": 5,
+        "hlas": 4
+      },
+      "e": {
+        "deficit": 0.2
+      }
+    },
+    "dochod": {
+      "p": {
+        "maria": 8,
+        "jozef": 5,
+        "eva": 4
+      },
+      "s": {
+        "smer": 5,
+        "hlas": 4
+      },
+      "e": {
+        "deficit": 0.2
+      }
+    },
+    "bývan": {
+      "p": {
+        "martin": 7,
+        "katarina": 5,
+        "helena": 6
+      },
+      "s": {
+        "ps": 4,
+        "hlas": 3
+      },
+      "e": {
+        "deficit": 0.15
+      }
+    },
+    "byvan": {
+      "p": {
+        "martin": 7,
+        "katarina": 5,
+        "helena": 6
+      },
+      "s": {
+        "ps": 4,
+        "hlas": 3
+      },
+      "e": {
+        "deficit": 0.15
+      }
+    },
+    "infláci": {
+      "p": {
+        "maria": 5,
+        "peter": 5,
+        "eva": 4,
+        "helena": 4
+      },
+      "s": {
+        "business": 4,
+        "smer": 3
+      },
+      "e": {
+        "infl": -0.5,
+        "deficit": -0.1
+      }
+    },
+    "inflaci": {
+      "p": {
+        "maria": 5,
+        "peter": 5,
+        "eva": 4,
+        "helena": 4
+      },
+      "s": {
+        "business": 4,
+        "smer": 3
+      },
+      "e": {
+        "infl": -0.5,
+        "deficit": -0.1
+      }
+    },
+    "cen": {
+      "p": {
+        "maria": 5,
+        "peter": 4,
+        "helena": 4
+      },
+      "s": {
+        "smer": 3
+      },
+      "e": {
+        "infl": -0.3
+      }
+    },
+    "konsolidáci": {
+      "p": {
+        "tomas": 5,
+        "katarina": 4
+      },
+      "s": {
+        "business": 5,
+        "eu_nato": 3
+      },
+      "e": {
+        "deficit": -0.3,
+        "infl": -0.2
+      }
+    },
+    "konsolidaci": {
+      "p": {
+        "tomas": 5,
+        "katarina": 4
+      },
+      "s": {
+        "business": 5,
+        "eu_nato": 3
+      },
+      "e": {
+        "deficit": -0.3,
+        "infl": -0.2
+      }
+    },
+    "úspor": {
+      "p": {
+        "tomas": 4,
+        "katarina": 3,
+        "maria": -4,
+        "peter": -3
+      },
+      "s": {
+        "business": 4,
+        "eu_nato": 3,
+        "smer": -3
+      },
+      "e": {
+        "deficit": -0.4,
+        "infl": -0.2,
+        "gdpGrowth": -0.1
+      }
+    },
+    "uspor": {
+      "p": {
+        "tomas": 4,
+        "katarina": 3,
+        "maria": -4,
+        "peter": -3
+      },
+      "s": {
+        "business": 4,
+        "eu_nato": 3,
+        "smer": -3
+      },
+      "e": {
+        "deficit": -0.4,
+        "infl": -0.2,
+        "gdpGrowth": -0.1
+      }
+    },
+    "doprav": {
+      "p": {
+        "peter": 5,
+        "jozef": 5,
+        "eva": 4
+      },
+      "s": {
+        "business": 4
+      },
+      "e": {
+        "gdpGrowth": 0.1,
+        "deficit": 0.1
+      }
+    },
+    "turizm": {
+      "p": {
+        "jozef": 5,
+        "eva": 4,
+        "helena": 4
+      },
+      "s": {
+        "business": 4
+      },
+      "e": {
+        "gdpGrowth": 0.1,
+        "unemp": -0.2
+      }
     }
   },
   "forcedEvents": [
@@ -1972,7 +2339,7 @@
       "id": "presidential",
       "m": 5,
       "h": "Prezidentské voľby",
-      "d": "Pellegrini (Hlas) vs Korčok (prozápadný diplomat). Tesný súťaž. Referendum o vašej vláde.",
+      "d": "Pellegrini (Hlas) vs Korčok (prozápadný diplomat). Tesný súboj. Referendum o vašej vláde.",
       "c": "Korčok = proeurópsky tábor. Pellegrini = koalícia.",
       "t": "situation",
       "cat": "Sociálna politika",
@@ -1985,15 +2352,15 @@
     {
       "id": "rtvs",
       "m": 6,
-      "h": "Reforma RTVS na STVR",
-      "d": "Zákon umožňuje ministerstvu vymenovať vedenie. Novinári to nazývajú prevzatím médií.",
-      "c": "EBU odsúdila krok. Opozícia podala na Ústavný súd.",
+      "h": "Návrh zákona o STVR",
+      "d": "Ministerka Šimkovičová predkladá návrh zákona o zrušení RTVS a vzniku STVR. Novinári to nazývajú prevzatím médií. Ústavný súd a EBU sa pripravujú na odpor.",
+      "c": "Zákon pôjde do parlamentu v lete. Reforma vstúpi do platnosti až 1. júla 2024. EBU varuje pred dôsledkami.",
       "t": "situation",
       "cat": "Médiá",
       "s": [
-        "Pretlačiť reformu",
+        "Pretlačiť reformu rýchlo",
         "Pridať nezávislý dozor",
-        "Garantovať editoriálnu nezávislosť"
+        "Garantovať redakčnú nezávislosť"
       ]
     },
     {
@@ -2013,9 +2380,9 @@
     {
       "id": "eu_elections",
       "m": 8,
-      "h": "Voľby do EP",
-      "d": "Pravicové sily získali mandáty po celej Európe. Nové aliancie v Bruseli. Zotavujete sa z atentátu — podpora vzrástla na vlne sympatií.",
-      "c": "SMER sedí v S&D. Orbán tlačí nový blok. Koaliční partneri sa predbiehajú o vplyv.",
+      "h": "Voľby do EP a inaugurácia Pellegriniho",
+      "d": "Jún 2024: najprv 8. júna Slováci volia Európsky parlament (PS získalo najviac hlasov pred SMERom), potom 15. júna Peter Pellegrini skladá prezidentský sľub. Zotavujete sa z atentátu — podpora vzrástla na vlne sympatií.",
+      "c": "SMER sedí v S&D. Orbán tlačí nový blok. Pellegrini v paláci znamená spojeneckého prezidenta. Koaliční partneri sa predbiehajú o vplyv.",
       "t": "open",
       "cat": "Zahraničná politika",
       "s": [
@@ -2055,9 +2422,9 @@
     {
       "id": "pellegrini",
       "m": 11,
-      "h": "Inaugurácia Pellegriniho",
-      "d": "Pellegrini sa ujíma úradu. Koalícia kontroluje parlament aj prezidentský palác.",
-      "c": "Nižšie riziko veta. Ale obavy o demokratické brzdy.",
+      "h": "Prvých 100 dní prezidenta Pellegriniho",
+      "d": "Pellegrini je od júna v úrade. Po prvých mesiacoch koalícia kontroluje parlament aj prezidentský palác. Opozícia varuje pred rozbitím demokratických bŕzd.",
+      "c": "Nižšie riziko veta. Ale obavy o demokratické brzdy a koncentráciu moci.",
       "t": "situation",
       "cat": "Sociálna politika",
       "s": [
@@ -3160,9 +3527,12 @@
       "china": 20
     },
     "social": {
-      "press": 65,
-      "corrupt": 45,
-      "emigr": 60
+      "press": 40,
+      "corrupt": 50,
+      "emigr": 60,
+      "dezinfo": 45,
+      "mediaTrust": 35,
+      "civilSociety": 50
     },
     "cp": {
       "smer": {
@@ -3194,8 +3564,7 @@
       "ps": 32,
       "sas": 11,
       "kdh": 12,
-      "smerodina": 11,
-      "republika": 5
+      "olano": 16
     },
     "stances": {
       "ekonomika": 0,
@@ -3230,8 +3599,7 @@
       "ps": "#7c3aed",
       "sas": "#0ea5e9",
       "kdh": "#f97316",
-      "smerodina": "#854d0e",
-      "republika": "#1f2937"
+      "olano": "#f59e0b"
     },
     "names": {
       "smer": "SMER-SD",
@@ -3240,8 +3608,7 @@
       "ps": "Progresívne Slovensko",
       "sas": "SaS",
       "kdh": "KDH",
-      "smerodina": "Sme rodina",
-      "republika": "Republika"
+      "olano": "Slovensko (OĽaNO)"
     }
   },
   "quietMonths": [
@@ -3270,5 +3637,72 @@
       "d": "Politická atmosféra je pokojná. Médiá sa zaoberajú bežnými témami. Koaličná rada zasadá rutinne.",
       "c": "Využite priestor na dlhodobé plánovanie a strategické rozhodnutia."
     }
-  ]
+  ],
+  "court": {
+    "judges": [
+      { "id": "fiacan", "name": "Ivan Fiačan", "ideology": 5, "competence": 7, "conviction": 6, "loyalty": 4, "termEnd": 30, "isChair": true },
+      { "id": "barik", "name": "Peter Barík", "ideology": 4, "competence": 7, "conviction": 7, "loyalty": 3, "termEnd": 36, "isChair": false },
+      { "id": "fulop", "name": "Libor Duľa", "ideology": 6, "competence": 6, "conviction": 5, "loyalty": 5, "termEnd": 42, "isChair": false },
+      { "id": "lalik", "name": "Rastislav Kaššák", "ideology": 5, "competence": 7, "conviction": 6, "loyalty": 4, "termEnd": -1, "isChair": false },
+      { "id": "straka", "name": "Miloš Maďar", "ideology": 6, "competence": 5, "conviction": 5, "loyalty": 6, "termEnd": -1, "isChair": false },
+      { "id": "moczo", "name": "Peter Molnár", "ideology": 4, "competence": 7, "conviction": 7, "loyalty": 3, "termEnd": -1, "isChair": false },
+      { "id": "tolnai", "name": "Ladislav Duditš", "ideology": 7, "competence": 5, "conviction": 4, "loyalty": 7, "termEnd": 18, "isChair": false },
+      { "id": "hornik", "name": "Róbert Šorl", "ideology": 5, "competence": 6, "conviction": 6, "loyalty": 4, "termEnd": -1, "isChair": false },
+      { "id": "meszaros", "name": "Jana Laššáková", "ideology": 7, "competence": 5, "conviction": 4, "loyalty": 8, "termEnd": -1, "isChair": false },
+      { "id": "husarova", "name": "Petra Husárová", "ideology": 4, "competence": 7, "conviction": 7, "loyalty": 3, "termEnd": -1, "isChair": false },
+      { "id": "korecky", "name": "Martin Vernarský", "ideology": 5, "competence": 6, "conviction": 6, "loyalty": 5, "termEnd": 24, "isChair": false },
+      { "id": "stena", "name": "Ľuboš Šteňa", "ideology": 6, "competence": 6, "conviction": 5, "loyalty": 5, "termEnd": -1, "isChair": false },
+      { "id": "pokryvka", "name": "Ivan Pokrývka", "ideology": 3, "competence": 8, "conviction": 8, "loyalty": 2, "termEnd": -1, "isChair": false }
+    ]
+  },
+  "cabinet": {
+    "ministries": [
+      { "id": "mv", "name": "Ministerstvo vnútra", "emoji": "🛡️", "domain": ["polícia", "bezpečnosť", "SIS", "migrácia"], "allocatedTo": "hlas" },
+      { "id": "mf", "name": "Ministerstvo financií", "emoji": "💰", "domain": ["dane", "rozpočet", "konsolidácia", "eufondy"], "allocatedTo": "smer" },
+      { "id": "ms", "name": "Ministerstvo spravodlivosti", "emoji": "⚖️", "domain": ["justícia", "trestný zákon", "súdy", "právny štát"], "allocatedTo": "smer" },
+      { "id": "mzv", "name": "Ministerstvo zahraničných vecí", "emoji": "🌍", "domain": ["diplomacia", "EÚ", "NATO", "Rusko", "Ukrajina"], "allocatedTo": "smer" },
+      { "id": "mo", "name": "Ministerstvo obrany", "emoji": "🎖️", "domain": ["armáda", "NATO", "obrana", "zbrojenie"], "allocatedTo": "smer" },
+      { "id": "mh", "name": "Ministerstvo hospodárstva", "emoji": "🏭", "domain": ["priemysel", "energetika", "investície", "podnikanie"], "allocatedTo": "hlas" },
+      { "id": "mpsvr", "name": "Ministerstvo práce", "emoji": "👷", "domain": ["sociálna", "dôchodky", "minimálna mzda", "zamestnanosť"], "allocatedTo": "hlas" },
+      { "id": "mz", "name": "Ministerstvo zdravotníctva", "emoji": "🏥", "domain": ["zdravotníctvo", "nemocnice", "lekári", "reformy"], "allocatedTo": "hlas" },
+      { "id": "msmt", "name": "Ministerstvo školstva", "emoji": "📚", "domain": ["školstvo", "veda", "univerzity", "učitelia"], "allocatedTo": "hlas" },
+      { "id": "mdv", "name": "Ministerstvo dopravy", "emoji": "🚄", "domain": ["doprava", "infraštruktúra", "diaľnice", "železnice"], "allocatedTo": "sns" },
+      { "id": "mzp", "name": "Ministerstvo životného prostredia", "emoji": "🌿", "domain": ["ekológia", "klíma", "odpady", "voda"], "allocatedTo": "sns" },
+      { "id": "mk", "name": "Ministerstvo kultúry", "emoji": "🎭", "domain": ["kultúra", "RTVS", "médiá", "pamiatky"], "allocatedTo": "sns" },
+      { "id": "mprv", "name": "Ministerstvo pôdohospodárstva", "emoji": "🌾", "domain": ["poľnohospodárstvo", "potraviny", "dotácie", "vidiek"], "allocatedTo": "smer" }
+    ],
+    "ministers": [
+      { "id": "sutaj_estok", "name": "Matúš Šutaj Eštok", "party": "hlas", "ministry": "mv", "ideology": 6, "competence": 5, "loyalty": 6, "partyLoyalty": 8, "corruption": 4, "publicProfile": 7 },
+      { "id": "kamenicky", "name": "Ladislav Kamenický", "party": "smer", "ministry": "mf", "ideology": 7, "competence": 6, "loyalty": 9, "partyLoyalty": 9, "corruption": 4, "publicProfile": 5 },
+      { "id": "susko", "name": "Boris Susko", "party": "smer", "ministry": "ms", "ideology": 8, "competence": 5, "loyalty": 9, "partyLoyalty": 9, "corruption": 5, "publicProfile": 7 },
+      { "id": "blanar", "name": "Juraj Blanár", "party": "smer", "ministry": "mzv", "ideology": 7, "competence": 5, "loyalty": 8, "partyLoyalty": 9, "corruption": 3, "publicProfile": 6 },
+      { "id": "kalinak2", "name": "Robert Kaliňák", "party": "smer", "ministry": "mo", "ideology": 7, "competence": 7, "loyalty": 10, "partyLoyalty": 10, "corruption": 7, "publicProfile": 8 },
+      { "id": "sasko", "name": "Denisa Saková", "party": "hlas", "ministry": "mh", "ideology": 5, "competence": 6, "loyalty": 5, "partyLoyalty": 7, "corruption": 3, "publicProfile": 4 },
+      { "id": "tomanova", "name": "Erik Tomáš", "party": "hlas", "ministry": "mpsvr", "ideology": 6, "competence": 6, "loyalty": 5, "partyLoyalty": 8, "corruption": 3, "publicProfile": 5 },
+      { "id": "kamenska", "name": "Zuzana Dolinková", "party": "hlas", "ministry": "mz", "ideology": 5, "competence": 5, "loyalty": 4, "partyLoyalty": 7, "corruption": 2, "publicProfile": 6 },
+      { "id": "druzbacka", "name": "Tomáš Drucker", "party": "hlas", "ministry": "msmt", "ideology": 4, "competence": 7, "loyalty": 5, "partyLoyalty": 6, "corruption": 2, "publicProfile": 5 },
+      { "id": "raz", "name": "Jozef Ráž", "party": "sns", "ministry": "mdv", "ideology": 7, "competence": 4, "loyalty": 4, "partyLoyalty": 8, "corruption": 5, "publicProfile": 4 },
+      { "id": "tarabova", "name": "Tomáš Taraba", "party": "sns", "ministry": "mzp", "ideology": 9, "competence": 4, "loyalty": 3, "partyLoyalty": 9, "corruption": 4, "publicProfile": 8 },
+      { "id": "simkovicova", "name": "Martina Šimkovičová", "party": "sns", "ministry": "mk", "ideology": 9, "competence": 3, "loyalty": 3, "partyLoyalty": 9, "corruption": 3, "publicProfile": 9 },
+      { "id": "takac", "name": "Richard Takáč", "party": "smer", "ministry": "mprv", "ideology": 7, "competence": 5, "loyalty": 8, "partyLoyalty": 9, "corruption": 4, "publicProfile": 3 }
+    ]
+  },
+  "institutions": {
+    "institutions": [
+      { "id": "sis", "name": "Riaditeľ SIS", "emoji": "🕵️", "appointedBy": "pm_parliament", "replaceCost": 8, "description": "Slovenská informačná služba — tajná služba. PM navrhuje, parlament volí." },
+      { "id": "gp", "name": "Generálny prokurátor", "emoji": "⚖️", "appointedBy": "parliament", "replaceCost": 35, "description": "Rozhoduje o trestných stíhaniach. 7-ročný mandát. Takmer nemožné odvolať." },
+      { "id": "pp", "name": "Policajný prezident", "emoji": "👮", "appointedBy": "interior", "replaceCost": 10, "description": "Velí polícii a NAKA. Menuje minister vnútra — kto ovláda MV, ovláda políciu." },
+      { "id": "nbs", "name": "Guvernér NBS", "emoji": "🏦", "appointedBy": "president", "replaceCost": 18, "description": "Národná banka Slovenska. Po vstupe do eurozóny menší vplyv, ale stále regulátor." },
+      { "id": "rtvs", "name": "Riaditeľ STVR", "emoji": "📺", "appointedBy": "parliament", "replaceCost": 12, "description": "Verejnoprávne médiá. Koalícia presadila nový zákon o STVR pre väčšiu kontrolu." },
+      { "id": "nku", "name": "Predseda NKÚ", "emoji": "📋", "appointedBy": "parliament", "replaceCost": 20, "description": "Najvyšší kontrolný úrad. Audituje vládne výdavky. 7-ročný mandát." }
+    ],
+    "heads": [
+      { "id": "head_sis", "name": "Pavol Gašpar", "institution": "sis", "ideology": 7, "competence": 5, "loyalty": 8, "conviction": 4, "termEnd": -1, "appointedBy": "Fico 2023" },
+      { "id": "head_gp", "name": "Maroš Žilinka", "institution": "gp", "ideology": 7, "competence": 6, "loyalty": 5, "conviction": 7, "termEnd": 36, "appointedBy": "Matovič 2020" },
+      { "id": "head_pp", "name": "Ľubomír Solák", "institution": "pp", "ideology": 6, "competence": 5, "loyalty": 7, "conviction": 4, "termEnd": -1, "appointedBy": "Fico 2023" },
+      { "id": "head_nbs", "name": "Peter Kažimír", "institution": "nbs", "ideology": 6, "competence": 7, "loyalty": 7, "conviction": 5, "termEnd": 24, "appointedBy": "Pellegrini 2019" },
+      { "id": "head_rtvs", "name": "Ľuboš Machaj", "institution": "rtvs", "ideology": 4, "competence": 6, "loyalty": 3, "conviction": 7, "termEnd": 6, "appointedBy": "Čaputová 2022" },
+      { "id": "head_nku", "name": "Ľubomír Andrassy", "institution": "nku", "ideology": 5, "competence": 6, "loyalty": 4, "conviction": 6, "termEnd": 42, "appointedBy": "Matovič 2020" }
+    ]
+  }
 }
