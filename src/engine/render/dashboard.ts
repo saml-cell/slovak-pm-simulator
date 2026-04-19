@@ -232,6 +232,39 @@ export function updateDash() {
   if (coalitionSeats() < 76) warnings.push('⚠️ Menšinová vláda! ' + coalitionSeats() + '/150 kresiel.');
   if (warnings.length) { wb.innerHTML = warnings.join('<br>'); wb.classList.add('show'); } else wb.classList.remove('show');
 
+  // Global mood banner — visible every turn above warnings, tinted by mood.
+  // Hidden when mood === 'normal' to keep the dashboard quiet.
+  const mb = document.getElementById('moodBanner');
+  if (mb) {
+    const moodCopy: Record<typeof G.mood, { text: string; bg: string; emoji: string }> = {
+      honeymoon: {
+        text: `Medové týždne — prvé mesiace vlády: verejnosť je zhovievavá (+10% k podpore).`,
+        bg: 'linear-gradient(90deg,rgba(74,222,128,.18),rgba(74,222,128,.05))',
+        emoji: '🌸',
+      },
+      crisis: {
+        text: `Kríza — každé rozhodnutie má zosilnené následky. Chyby bolia dvojnásobne.`,
+        bg: 'linear-gradient(90deg,rgba(248,113,113,.22),rgba(248,113,113,.06))',
+        emoji: '🚨',
+      },
+      mourning: {
+        text: `Národný smútok — delivé politiky sa trestajú, jednota odmeňuje.`,
+        bg: 'linear-gradient(90deg,rgba(148,163,184,.22),rgba(148,163,184,.06))',
+        emoji: '🕊️',
+      },
+      normal: { text: '', bg: '', emoji: '' },
+    };
+    const c = moodCopy[G.mood];
+    if (G.mood === 'normal' || !c.text) {
+      mb.style.display = 'none';
+      mb.innerHTML = '';
+    } else {
+      mb.style.display = 'block';
+      mb.style.background = c.bg;
+      mb.innerHTML = `<span style="font-size:1.1rem;margin-right:6px">${c.emoji}</span>${esc(c.text)}`;
+    }
+  }
+
   const mapEl = document.getElementById('dashMap');
   if (mapEl) mapEl.innerHTML = renderMap();
   const econCoalEl = document.getElementById('dashEconCoalition')!;

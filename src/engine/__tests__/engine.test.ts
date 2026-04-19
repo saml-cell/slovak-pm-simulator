@@ -31,6 +31,7 @@ function makeState(overrides: Partial<GameState>): GameState {
     court: { judges: [], pendingVacancies: 0, courtPrestige: 50 },
     cabinet: { ministers: [], cabinetCohesion: 70, reshuffleCount: 0 },
     institutions: { heads: [], institutionalIntegrity: 60, capturedCount: 0 },
+    mood: 'honeymoon', moodUntil: 3,
   };
   return { ...defaults, ...overrides };
 }

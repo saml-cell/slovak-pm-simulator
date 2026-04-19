@@ -2354,6 +2354,22 @@
       ]
     },
     {
+      "id": "gorila_whispers",
+      "m": 8,
+      "h": "Gorila — dôstojník SIS hovorí o starom spise",
+      "d": "Vyšetrovateľ na dôchodku anonymne opisuje desaťročia starý spis SIS, ktorý vraj mapuje prepojenie medzi biznismenmi a politikmi. Ešte nie je potvrdené, že ide o pravý dokument. Noviny začínajú prinášať úryvky.",
+      "c": "Toto je predsieň veľkej krízy. Môžete sa postaviť čelom, vyčkať, alebo potichu upokojiť prameň skôr, než sa spis objaví.",
+      "t": "situation",
+      "cat": "Justícia",
+      "s": [
+        "Verejne sa zaviazať k transparentnému vyšetrovaniu",
+        "Nereagovať — nech sa to vyrieši samo",
+        "Koordinovať obranu a minimalizovať dosah"
+      ],
+      "scheme": "gorila",
+      "schemeStage": "hint"
+    },
+    {
       "id": "greek_crisis",
       "m": 10,
       "h": "Grécka kríza vrcholí — kontagia v eurozóne",
@@ -2379,7 +2395,9 @@
         "Okamžité vyšetrovanie a zverejnenie spisu",
         "Parlamentná komisia",
         "Počkať na výsledky policajného vyšetrovania"
-      ]
+      ],
+      "scheme": "gorila",
+      "schemeStage": "decision"
     },
     {
       "id": "gorila_intensifies",
@@ -2393,7 +2411,9 @@
         "Osobná zodpovednosť — vymenovanie špeciálneho prokurátora",
         "Dištancovanie sa od kompromitovaných osôb",
         "Obhájiť stranu — označiť spis za politicky motivovaný"
-      ]
+      ],
+      "scheme": "gorila",
+      "schemeStage": "climax"
     },
     {
       "id": "efsf_vote",

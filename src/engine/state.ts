@@ -78,6 +78,8 @@ export function initGame(): GameState {
       institutionalIntegrity: 60,
       capturedCount: 0,
     },
+    mood: 'honeymoon',
+    moodUntil: 3,  // honeymoon lasts 3 months
   };
   era.personas.forEach(p => {
     const leanScores: Record<string, number> = {

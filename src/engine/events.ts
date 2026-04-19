@@ -48,7 +48,11 @@ function getEvent(m: number): ActiveEvent {
   const fe = era.forcedEvents.find(e => e.m === m && !G.used.has(e.id));
   if (fe) {
     G.used.add(fe.id);
-    return { id: fe.id, headline: fe.h, description: fe.d, context: fe.c, tier: fe.t, category: fe.cat, suggestions: fe.s };
+    return {
+      id: fe.id, headline: fe.h, description: fe.d, context: fe.c,
+      tier: fe.t, category: fe.cat, suggestions: fe.s,
+      scheme: fe.scheme, schemeStage: fe.schemeStage,
+    };
   }
 
   // Quiet months get rarer as the era progresses (30% early, 10% late).
@@ -95,6 +99,19 @@ export function displayEvent() {
   if (ev.originPolicy) {
     oe.style.display = 'block';
     oe.textContent = 'Dôsledok politiky z M' + ((ev.originMonth || 0) + 1) + ': "' + (ev.originPolicy || '').substring(0, 80) + '..."';
+  } else if (ev.scheme) {
+    // Scheme label: tells the player this event is part of a multi-stage
+    // narrative arc. Three stages: hint (introduction), decision (turning
+    // point), climax (resolution). The connective tissue is content, not
+    // engine state — players notice the recurring theme across events.
+    const stageCopy: Record<NonNullable<ActiveEvent['schemeStage']>, string> = {
+      hint: 'Zvesti sa zatiaľ len šuškajú.',
+      decision: 'Toto je bod zlomu — vaša odpoveď rozhodne o dôsledkoch.',
+      climax: 'Dôsledky vašich skorších rozhodnutí dozrievajú.',
+    };
+    const stage = ev.schemeStage || 'hint';
+    oe.style.display = 'block';
+    oe.textContent = `🎭 INTRIGA — ${ev.scheme.toUpperCase()}: ${stageCopy[stage]}`;
   } else {
     oe.style.display = 'none';
   }

@@ -95,6 +95,14 @@ export interface GameEvent {
   t: string;
   cat: string;
   s: string[];
+  // Optional scheme linkage: events sharing the same `scheme` id form a
+  // multi-stage arc (hint → decision → climax). The UI tags scheme events
+  // with "🎭 INTRIGA" so the player sees the thread. No engine state
+  // machine — the existing forcedEvents + consequenceChains flow handles
+  // scheduling; `scheme` is purely a UX/narrative label + future-proofing
+  // for automation.
+  scheme?: string;
+  schemeStage?: 'hint' | 'decision' | 'climax';
 }
 
 export interface HeadlineEntry {
@@ -170,6 +178,11 @@ export interface CoalitionPartnerState {
   pat: number;
   dem: string | null;
   lastD: number;
+  // Plot mechanic: month when partner started plotting (sat < 40) or null
+  // if not plotting. After ~4 months of unresolved low satisfaction the
+  // plot resolves as either defection (p.on = 0) or a forced-demand event
+  // in the upcoming turn. Returning to sat >= 50 cancels the plot.
+  plotSince?: number | null;
 }
 
 export interface InitialState {
@@ -331,6 +344,8 @@ export interface ActiveEvent {
   suggestions: string[];
   originPolicy?: string;
   originMonth?: number;
+  scheme?: string;
+  schemeStage?: 'hint' | 'decision' | 'climax';
 }
 
 export interface AnalysisResult {
@@ -414,7 +429,17 @@ export interface GameState {
   court: CourtState;
   cabinet: CabinetState;
   institutions: InstitutionsState;
+  // Global mood colours every turn's deltas and is surfaced as a tinted
+  // banner on the dashboard. 'honeymoon' during the first 3 months of an
+  // era (+10% approval gains); 'crisis' while certain flags are active
+  // (approval × 1.5, stability extra drain); 'mourning' for 2 months
+  // after a national tragedy (polarising policies penalised);
+  // 'normal' otherwise. See applyMoodModifier() in game-flow.ts.
+  mood: 'honeymoon' | 'normal' | 'crisis' | 'mourning';
+  moodUntil: number;  // month when non-normal mood expires
 }
+
+export type Mood = GameState['mood'];
 
 /** Shape expected from AI JSON responses (before normalization). */
 export interface RawAIResult {

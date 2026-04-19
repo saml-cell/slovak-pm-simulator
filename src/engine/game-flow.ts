@@ -6,6 +6,95 @@ import { esc } from './sanitize';
 import { trackAnalytics } from './analytics';
 import { clamp, applyMomentum, socialInfluence, econFeedback, policyConsistency, oppositionMove, nashBargaining, simulateElection, businessCycleTick, deficitDynamics, euFundsLink, smartMinWage, econCrisisCheck, incumbencyPenalty, crisisFatigueTick, politicalCapitalTick, diploFeedback, computeShapley, fiscalHealth, fdiDynamics, okunsLaw, mediaCycleTick, updatePolling, laborMarketTick, brainDrainTick, oligarchicTick, mediaEcosystemTick, courtTick, courtIdeologyScore, cabinetTick, cabinetImplementationMod, institutionsTick } from './advanced';
 
+// Coalition-partner plot state machine. Partners whose satisfaction stays
+// below 40 start plotting (plotSince set to current month). After 4 months
+// of unresolved plotting they either defect outright (20% chance per month
+// past the threshold, capped) or force a demand event on the player.
+// Returning sat to ≥ 50 cancels the plot.
+// Returns a flavor message describing the most severe active plot for the
+// dashboard banner, or '' if nothing plot-worthy.
+function updateCoalitionPlots(G: GameState): string {
+  const messages: string[] = [];
+  let defectionHappened = false;
+  for (const [id, p] of Object.entries(G.cp)) {
+    if (!p.on) continue;
+    // Start plotting
+    if (p.sat < 40 && !p.plotSince) {
+      p.plotSince = G.month;
+    }
+    // Cancel plot on recovery
+    if (p.sat >= 50 && p.plotSince) {
+      p.plotSince = null;
+      continue;
+    }
+    // Resolve plot
+    if (p.plotSince !== null && p.plotSince !== undefined) {
+      const age = G.month - p.plotSince;
+      if (age >= 4) {
+        // 25% per month past age 4 — defects within a few more turns
+        if (Math.random() < 0.25) {
+          p.on = 0;
+          p.sat = 10;
+          p.plotSince = null;
+          G.stability = Math.max(0, G.stability - 25);
+          G.coalition = Math.max(0, G.coalition - 15);
+          G.flags[id + '_defected'] = true;
+          messages.push(`💥 ${id.toUpperCase()} opustil koalíciu po dlhom napätí.`);
+          defectionHappened = true;
+        } else {
+          // Publish demand — stays in plot state, surfaces a warning
+          p.dem = `${id.toUpperCase()} žiada ústupky — inak zvažuje odchod.`;
+          messages.push(`⚠️ ${id.toUpperCase()} tlačí na vládu — štvorica mesiacov nespokojnosti sa blíži k rozbúrke.`);
+        }
+      } else if (age >= 2) {
+        messages.push(`🕯️ ${id.toUpperCase()} rokuje za zatvorenými dverami.`);
+      }
+    }
+  }
+  return messages.join('<br>') + (defectionHappened ? '' : '');
+}
+
+// Mood state machine. The mood colours every turn's approval/stability
+// deltas and is surfaced as a tinted banner on the dashboard. Transitions:
+//   start-of-era           -> honeymoon (first 3 months)
+//   honeymoon expires      -> normal
+//   crisis flag becomes true -> crisis (for 4 months)
+//   national_tragedy flag  -> mourning (for 2 months)
+//   mourning/crisis expire -> normal
+//
+// Crisis flags are any of: assassination, bank_collapse, eu_sanctions,
+// national_tragedy, covid_active. If multiple apply, mourning wins over
+// crisis (tragedy > external crisis). Honeymoon never re-triggers.
+const CRISIS_FLAGS = ['assassination', 'bank_collapse', 'eu_sanctions', 'covid_active'];
+
+function updateMood(G: GameState): void {
+  const hasTragedy = !!G.flags['national_tragedy'] || !!G.flags['national_unity'];
+  const hasCrisis = CRISIS_FLAGS.some(f => G.flags[f]);
+
+  if (hasTragedy && G.mood !== 'mourning') {
+    G.mood = 'mourning';
+    G.moodUntil = G.month + 2;
+    return;
+  }
+  if (hasCrisis && G.mood !== 'crisis' && G.mood !== 'mourning') {
+    G.mood = 'crisis';
+    G.moodUntil = G.month + 4;
+    return;
+  }
+  if (G.mood !== 'normal' && G.month >= G.moodUntil) {
+    G.mood = 'normal';
+  }
+}
+
+function moodMultiplier(G: GameState): { approvalMult: number; stabilityMult: number; coalitionMult: number } {
+  switch (G.mood) {
+    case 'honeymoon': return { approvalMult: 1.1, stabilityMult: 1.0, coalitionMult: 1.0 };
+    case 'crisis':    return { approvalMult: 1.5, stabilityMult: 1.3, coalitionMult: 1.2 };
+    case 'mourning':  return { approvalMult: 1.0, stabilityMult: 1.0, coalitionMult: 1.0 };
+    default:          return { approvalMult: 1.0, stabilityMult: 1.0, coalitionMult: 1.0 };
+  }
+}
+
 function clampEcon(G: GameState): void {
   G.econ.gdpGrowth = clamp(G.econ.gdpGrowth, -5, 15);
   G.econ.unemp = clamp(G.econ.unemp, 2, 30);
@@ -83,9 +172,12 @@ export function proceed(a: AnalysisResult) {
   G.prevA = G.approval; G.prevS = G.stability; G.prevC = G.coalition; G.prevImpl = G.impl;
   const ir = ((a.cb.implementationRate || 80) / 100) * capMult;
   const mediaAmp = mediaCycleTick(G, eventTier, G.event?.headline || '');
-  G.approval = clamp(G.approval + applyMomentum(G, a.aD * ir * fatigueMult * mediaAmp));
-  G.stability = clamp(G.stability + a.stD * ir);
-  G.coalition = clamp(G.coalition + a.cD * ir);
+  // Mood applied AFTER other modifiers. Note: 'crisis' amplifies negative
+  // moves too — a bad policy during a crisis hurts harder. Intentional.
+  const mood = moodMultiplier(G);
+  G.approval = clamp(G.approval + applyMomentum(G, a.aD * ir * fatigueMult * mediaAmp * mood.approvalMult));
+  G.stability = clamp(G.stability + a.stD * ir * mood.stabilityMult);
+  G.coalition = clamp(G.coalition + a.cD * ir * mood.coalitionMult);
   G.impl = a.cb.implementationRate || G.impl;
 
   blendScores(G.pScores, a.pScores);
@@ -240,6 +332,8 @@ export function proceed(a: AnalysisResult) {
   G.approvalH.push(G.approval);
   G.month++;
   nashBargaining(G, era);
+  updateMood(G);
+  const plotMessage = updateCoalitionPlots(G);
 
   try {
     const sv = JSON.parse(JSON.stringify(G)) as Omit<GameState, 'used'> & { used: string[] };
@@ -261,6 +355,7 @@ export function proceed(a: AnalysisResult) {
       if (ministerScandal) extras.push('🔥 ' + ministerScandal);
       if (G.court.pendingVacancies > 0) extras.push('🏛️ Ústavný súd: ' + G.court.pendingVacancies + ' voľné miesta');
       if (G.institutions.capturedCount >= 4) extras.push('⚠️ EÚ varuje pred úpadkom inštitúcií');
+      if (plotMessage) extras.push(plotMessage);
       if (extras.length) {
         const existing = wb.innerHTML;
         wb.innerHTML = (existing ? existing + '<br>' : '') + extras.join('<br>');
