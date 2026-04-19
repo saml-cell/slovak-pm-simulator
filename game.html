@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Slovak Prime Minister Simulator</title>
+  <title>Slovenský Politický Simulátor</title>
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://js.puter.com; style-src 'self' 'unsafe-inline'; connect-src 'self' https://api.groq.com https://api.anthropic.com; font-src 'self'">
   <link rel="stylesheet" href="./fonts/fonts.css">
-  <script type="module" crossorigin src="./assets/game-Cr1eovWO.js"></script>
+  <script type="module" crossorigin src="./assets/game-B1fcdX84.js"></script>
   <link rel="stylesheet" crossorigin href="./assets/game-CSzRO-0_.css">
 </head>
 <body>
   <!-- Title Screen -->
   <div id="titleScreen" class="screen active">
-    <div class="ai-indicator" id="aiIndicator">AI Mode Active</div>
+    <div class="ai-indicator" id="aiIndicator">AI režim aktívny</div>
     <button class="settings-toggle" id="settingsToggle">Nastavenia</button>
     <div class="settings-panel" id="settingsPanel">
       <label>AI Provider
@@ -32,8 +32,8 @@
         <ol style="font-size:.75rem;color:var(--text-dim);padding-left:16px;line-height:1.7">
           <li>Choď na <a href="https://console.groq.com" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:underline">console.groq.com</a></li>
           <li>Zaregistruj sa (stačí Google účet)</li>
-          <li>Klikni na <strong style="color:#fff">API Keys</strong> v ľavom menu</li>
-          <li>Klikni <strong style="color:#fff">Create API Key</strong></li>
+          <li>Klikni na <strong style="color:#fff">API Keys</strong> (Kľúče) v ľavom menu</li>
+          <li>Klikni <strong style="color:#fff">Create API Key</strong> (Vytvoriť kľúč)</li>
           <li>Skopíruj kľúč a vlož ho sem hore</li>
         </ol>
         <p style="font-size:.7rem;color:var(--text-dim);margin-top:6px">Groq je zadarmo (rate limit ~30 req/min). AI analyzuje tvoje politiky realistickejšie než lokálny systém.</p>
@@ -51,7 +51,7 @@
       <p style="font-size:.7rem;color:var(--text-dim);margin-top:8px">Predvolené: lokálne bodovanie (funguje offline). AI provideri sú voliteľní — zlepšia kvalitu analýzy vašich politík.</p>
     </div>
     <div class="title-content">
-      <h1>Slovak Prime Minister Simulator</h1>
+      <h1>Slovenský Politický Simulátor</h1>
       <p class="subtitle" id="titleSubtitle"></p>
       <p class="desc" id="titleDesc"></p>
       <div class="mode-selector" id="modeSelector">
@@ -68,7 +68,7 @@
       <div style="display:flex;gap:6px;align-items:center">
         <button id="backToMenuBtn" class="nav-button">← Menu</button>
         <button id="historyBtn" class="nav-button">Kronika</button>
-        <button id="bugReportBtn" class="nav-button" style="color:#f59e0b">Bug</button>
+        <button id="bugReportBtn" class="nav-button" style="color:#f59e0b">Chyba</button>
       </div>
       <div style="display:flex;align-items:center;gap:16px;flex:1;justify-content:center">
         <h2 id="dashPmName" style="font-size:1.3rem;margin:0;white-space:nowrap"></h2>
