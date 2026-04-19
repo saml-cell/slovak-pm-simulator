@@ -2,7 +2,7 @@ import type { AnalysisResult, EconomyState, GameState, LeaderboardEntry } from '
 import { getEra, getState, getCalendarDate } from './state';
 import { showScreen } from './screen';
 import { updateDash } from './render/dashboard';
-import { esc } from './sanitize';
+import { esc, normalizeText } from './sanitize';
 import { trackAnalytics } from './analytics';
 import { clamp, applyMomentum, socialInfluence, econFeedback, policyConsistency, oppositionMove, nashBargaining, simulateElection, businessCycleTick, deficitDynamics, euFundsLink, smartMinWage, econCrisisCheck, incumbencyPenalty, crisisFatigueTick, politicalCapitalTick, diploFeedback, computeShapley, fiscalHealth, fdiDynamics, okunsLaw, mediaCycleTick, updatePolling, laborMarketTick, brainDrainTick, oligarchicTick, mediaEcosystemTick, courtTick, courtIdeologyScore, cabinetTick, cabinetImplementationMod, institutionsTick } from './advanced';
 
@@ -475,19 +475,22 @@ export function proceed(a: AnalysisResult) {
     }
   }
 
-  const lastPol = (G.history.length ? G.history[G.history.length - 1].p : '').toLowerCase();
+  // Apply same diacritic-stripped normalisation as scoring.ts so that a
+  // player typing "sociálna" or "sociálna" or "socialna" or "SOCIÁLNA"
+  // all trigger the same stance drift. Keyword list is canonical ASCII.
+  const lastPol = G.history.length ? normalizeText(G.history[G.history.length - 1].p) : '';
   const stanceLabels: Record<string, string> = { ekonomika: 'Ekonomika', eu: 'EÚ/NATO', rusko: 'Rusko', social: 'Sociálna', media: 'Média', justicia: 'Justícia', migracia: 'Migrácia', identita: 'Identita' };
   const stanceChanges: string[] = [];
   if (lastPol) {
     const prevStances = { ...G.stances };
     const stMap = [
-      { kws: ['eu', 'nato', 'brusel', 'európ'], k: 'eu', d: 1 }, { kws: ['sovereign', 'suverenita', 'suverén'], k: 'eu', d: -1 },
-      { kws: ['sovereign', 'suverenita', 'národn', 'tradíci'], k: 'identita', d: 1 },
-      { kws: ['russia', 'rusko', 'moskva'], k: 'rusko', d: 1 }, { kws: ['social', 'pension', 'dochodok', 'dôchod', 'sociáln'], k: 'social', d: 1 },
-      { kws: ['tax', 'dan', 'daň', 'konsolidáci'], k: 'ekonomika', d: -1 }, { kws: ['invest', 'startup', 'biznis', 'podnik'], k: 'ekonomika', d: 1 },
-      { kws: ['media', 'rtvs', 'stvr', 'tlač'], k: 'media', d: -1 }, { kws: ['transparentnosť', 'slobod'], k: 'media', d: 1 },
-      { kws: ['súd', 'justíci', 'reform', 'právny štát'], k: 'justicia', d: 1 }, { kws: ['kontrolovať súd', 'ovládnuť'], k: 'justicia', d: -1 },
-      { kws: ['migráci', 'migrant', 'azyl', 'utečen'], k: 'migracia', d: -1 }, { kws: ['kvóty', 'solidarit'], k: 'migracia', d: 1 },
+      { kws: ['eu', 'nato', 'brusel', 'europ'], k: 'eu', d: 1 }, { kws: ['sovereign', 'suverenita', 'suveren'], k: 'eu', d: -1 },
+      { kws: ['sovereign', 'suverenita', 'narodn', 'tradici'], k: 'identita', d: 1 },
+      { kws: ['russia', 'rusko', 'moskva'], k: 'rusko', d: 1 }, { kws: ['social', 'pension', 'dochodok', 'dochod', 'socialn'], k: 'social', d: 1 },
+      { kws: ['tax', 'dan', 'konsolidaci'], k: 'ekonomika', d: -1 }, { kws: ['invest', 'startup', 'biznis', 'podnik'], k: 'ekonomika', d: 1 },
+      { kws: ['media', 'rtvs', 'stvr', 'tlac'], k: 'media', d: -1 }, { kws: ['transparentnost', 'slobod'], k: 'media', d: 1 },
+      { kws: ['sud', 'justici', 'pravny stat'], k: 'justicia', d: 1 }, { kws: ['kontrolovat sud', 'ovladnut'], k: 'justicia', d: -1 },
+      { kws: ['migraci', 'migrant', 'azyl', 'utecen'], k: 'migracia', d: -1 }, { kws: ['kvoty', 'solidarit'], k: 'migracia', d: 1 },
       { kws: ['ukraine', 'ukrajin'], k: 'eu', d: 1 }, { kws: ['mier', 'peace', 'neutralit'], k: 'rusko', d: 1 },
     ];
     stMap.forEach(m => { if (m.kws.some(k => lastPol.includes(k))) { G.stances[m.k] = Math.max(-5, Math.min(5, (G.stances[m.k] || 0) + m.d)); } });
@@ -522,7 +525,17 @@ export function proceed(a: AnalysisResult) {
     }
   }
 
-  Object.entries(G.cp).forEach(([id, p]) => { if (p.on) p.sat = G.sScores[id] || 50; });
+  // Blend p.sat toward the stakeholder score so it trends with the coalition
+  // mood, but preserve in-turn events (concessions from handleDem, satisfaction
+  // hits from refused demands, plot recoveries). Previous version overwrote
+  // p.sat outright every turn, which erased those events entirely — making the
+  // coalition-deal buttons and the plot mechanic feel broken.
+  Object.entries(G.cp).forEach(([id, p]) => {
+    if (!p.on) return;
+    const target = G.sScores[id] || 50;
+    // 40% weight on the new target, 60% on the current (in-turn adjusted) sat
+    p.sat = Math.max(0, Math.min(100, p.sat * 0.6 + target * 0.4));
+  });
 
   businessCycleTick(G);
   // GDP grown from the monthly growth rate: (1 + annual%/100)/12 ≈ /1200.
@@ -673,9 +686,22 @@ function gameOver(collapsed: boolean) {
     else if (avg >= 50) { title = 'Úspešné obdobie'; narr = 'Prežili ste obdobie s viacerými úspechmi. Slovensko je stabilnejšie.'; }
     else if (avg >= 35) { title = 'Prežitie za cenu'; narr = 'Dotiahli ste to do konca, no nie bez jaziev. Polarizácia je na maxime.'; }
     else { title = 'Vlečúca sa vláda'; narr = 'Obdobie za vami, ale vláda sa len vliekla. Podpora slabá, koalícia rozháraná.'; }
-    if (G.social.press < 30 && G.approval > 50) { title = 'Autoritárska konsolidácia'; narr = 'Oslabili ste demokratické inštitúcie.'; }
-    if (G.diplo.eu < 20) { title = 'Izolácia od EÚ'; narr = 'Vzťahy s EÚ na historickom minime. Fondy zmrazené.'; }
-    if (G.flags.national_unity) { title = 'Národná jednota'; narr = 'Po atentáte ste zvolili cestu zmierenia. Slovensko je jednotnejšie.'; }
+    // Ending modifiers previously overwrote title + narr in sequence, so
+    // a game that matched multiple conditions (authoritarian AND EU-isolated
+    // AND national-unity) showed only the LAST matched string. Now we
+    // collect modifiers and append them as a secondary narrative — the
+    // base title stays tied to the averaged scores, and the character of
+    // the era reads as a list of defining traits.
+    const traits: string[] = [];
+    if (G.social.press < 30 && G.approval > 50) traits.push('autoritárska konsolidácia — oslabené demokratické inštitúcie');
+    if (G.diplo.eu < 20) traits.push('izolácia od EÚ — fondy zmrazené');
+    if (G.flags.national_unity) traits.push('národná jednota — po tragédii ste zvolili cestu zmierenia');
+    if (G.institutions.capturedCount >= 4) traits.push('inštitucionálny prelom — 4+ ovládnutých inštitúcií');
+    if (G.oligarchicTies >= 60) traits.push('prepojenie s oligarchami — tajné dohody vás vyniesli aj zaťažili');
+    if (G.brainDrain >= 60) traits.push('odliv talentov — mladí odchádzajú zo Slovenska');
+    if (traits.length) {
+      narr += ' Charakter obdobia: ' + traits.join('; ') + '.';
+    }
   }
 
   const el = (id: string) => document.getElementById(id)!;

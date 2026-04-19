@@ -43,7 +43,17 @@ export function initGame(): GameState {
     used: new Set(),
     analysis: null,
     event: null,
-    pellegrini: era.meta.presidentUnfriendlyMonth !== undefined || era.meta.pellegriniMonth === 0,
+    // Presidential friendliness at game start. Two era conventions:
+    //  - `pellegriniMonth` = month when a friendly-to-PM president takes office.
+    //    If 0, start already friendly; otherwise start unfriendly.
+    //  - `presidentUnfriendlyMonth` = month when the president turns hostile.
+    //    Era uses this convention when play starts with a friendly president,
+    //    so presence of ANY non-zero value = start friendly. A value of 0 on
+    //    this field means hostile from day one.
+    pellegrini:
+      (era.meta.pellegriniMonth === 0)
+      || (era.meta.presidentUnfriendlyMonth !== undefined
+          && era.meta.presidentUnfriendlyMonth > 0),
     stances: { ...s.stances },
     momentum: 0,
     policyThemes: [],
