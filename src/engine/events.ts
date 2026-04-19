@@ -32,14 +32,29 @@ function getEvent(m: number): ActiveEvent {
   G.cq = G.cq.filter(c => c.fire > m);
   for (const cq of dueCqs) {
     if (Math.random() < cq.prob) {
+      // Fallback copy for consequences generated dynamically by policy
+      // analysis (a.consequence) — those are pushed without a context
+      // field, so without these defaults the event card rendered blank.
+      // Era-authored consequenceChains include full h/d/c strings, so
+      // the fallbacks only kick in for the dynamic path.
+      const headline = cq.ev.h && cq.ev.h.trim()
+        ? cq.ev.h
+        : 'Dôsledok predchádzajúcej politiky';
+      const description = cq.ev.d && cq.ev.d.trim()
+        ? cq.ev.d
+        : 'Vaše staršie rozhodnutie sa teraz prejavuje. Médiá si to všimli, opozícia tiež.';
+      const context = cq.ev.c && cq.ev.c.trim()
+        ? cq.ev.c
+        : 'Premiér musí reagovať — buď problém pomenovať a prevziať zodpovednosť, alebo ho odsunúť bokom a dúfať, že sa rozpustí sám.';
+      const suggestions = Array.isArray(cq.ev.s) && cq.ev.s.length
+        ? cq.ev.s
+        : ['Verejne prevziať zodpovednosť', 'Tlačová konferencia s hľadaním vinníkov', 'Ignorovať a presmerovať pozornosť'];
       return {
         id: 'csq_' + m,
-        headline: cq.ev.h || '',
-        description: cq.ev.d || '',
-        context: cq.ev.c || '',
+        headline, description, context,
         tier: 'consequence',
         category: cq.ev.cat || 'Ekonomika',
-        suggestions: cq.ev.s || ['Riešiť', 'Ignorovať', 'Kompromis'],
+        suggestions,
         originPolicy: cq.originP,
         originMonth: cq.originM,
       };

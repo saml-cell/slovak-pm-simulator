@@ -506,7 +506,17 @@ export function proceed(a: AnalysisResult) {
     const fireMonth = G.month + (a.consequence.delay || 3);
     if (fireMonth < era.totalMonths - 1) {
       G.cq.push({
-        ev: { h: a.consequence.headline, d: a.consequence.description, cat: 'Ekonomika', s: ['Riešiť', 'Ignorovať', 'Kompromis'] },
+        // `c` (context) + `s` (suggestions) are intentionally left for the
+        // event-rendering fallbacks in events.ts::getEvent to fill in —
+        // that keeps the event card from rendering blank when the
+        // analysis layer didn't author full narrative copy.
+        ev: {
+          h: a.consequence.headline,
+          d: a.consequence.description,
+          c: 'Dôsledky starších politík dozrievajú. Čo urobíte?',
+          cat: 'Ekonomika',
+          s: ['Prevziať zodpovednosť', 'Nájsť vinníka', 'Presmerovať pozornosť'],
+        },
         fire: fireMonth, originP: G.history[G.history.length - 1]?.p || '', originM: G.month, prob: a.consequence.probability || .5
       });
     }
