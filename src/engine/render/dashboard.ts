@@ -339,9 +339,11 @@ function renderCourt(): string {
   const ideCol = avgIdeology > 6 ? 'var(--red)' : avgIdeology > 4 ? 'var(--yellow)' : 'var(--green)';
   const loyCol = avgLoyalty > 6 ? 'var(--green)' : avgLoyalty > 4 ? 'var(--yellow)' : 'var(--red)';
   const chair = G.court.judges.find(j => j.isChair);
+  // Legend for the judge stat abbreviations shown on each row.
+  const judgeLegend = `<div style="font-size:.62rem;color:var(--text-dim);padding:2px 0 4px;line-height:1.4"><strong style="color:var(--gold)">I</strong> ideológia (1 liberálna → 10 nacionalistická) · <strong style="color:var(--gold)">K</strong> kompetencia · <strong style="color:var(--gold)">P</strong> presvedčenie (odpor voči tlaku) · <strong style="color:var(--gold)">L</strong> lojalita k vláde. Vyššia <em>L</em> znamená, že sudca skôr nezablokuje váš zákon; vyššia <em>P</em>, že sa nedá kúpiť alebo zastrašiť.</div>`;
   const judgeList = G.court.judges.map(j => {
     const col = j.loyalty > 6 ? 'rgba(16,185,129,.3)' : j.loyalty < 4 ? 'rgba(239,68,68,.3)' : 'rgba(255,255,255,.05)';
-    return `<div style="display:flex;justify-content:space-between;padding:3px 6px;background:${col};border-radius:3px;font-size:.7rem;margin:1px 0"><span style="color:#fff">${esc(j.name)}${j.isChair ? ' ⭐' : ''}</span><span style="color:var(--text-dim)">I:${j.ideology} K:${j.competence} P:${j.conviction} L:${j.loyalty}</span></div>`;
+    return `<div style="display:flex;justify-content:space-between;padding:3px 6px;background:${col};border-radius:3px;font-size:.7rem;margin:1px 0" title="Ideológia ${j.ideology} · Kompetencia ${j.competence} · Presvedčenie ${j.conviction} · Lojalita ${j.loyalty}"><span style="color:#fff">${esc(j.name)}${j.isChair ? ' ⭐' : ''}</span><span style="color:var(--text-dim)">I:${j.ideology} K:${j.competence} P:${j.conviction} L:${j.loyalty}</span></div>`;
   }).join('');
   const canNominate = G.politicalCapital >= 25 && G.court.judges.length < 13;
   const nomBtn = canNominate
@@ -356,7 +358,7 @@ function renderCourt(): string {
     <div class="economy-row"><span class="economy-label">Priemerná lojalita${info('1-10. Vysoká lojalita = súd menej často blokuje vaše zákony. Príliš lojálny súd ale stráca prestíž.')}</span><span class="economy-value" style="color:${loyCol}">${avgLoyalty.toFixed(1)}</span></div>
     <div class="economy-row"><span class="economy-label">Prestíž súdu${info('0-100. Pokles prestíže znižuje legitimitu rozhodnutí. Presadenie kontroverzných zákonov klesá prestíž, odmietanie politického tlaku ju zvyšuje.')}</span><span class="economy-value" style="color:${G.court.courtPrestige > 60 ? 'var(--green)' : G.court.courtPrestige > 35 ? 'var(--yellow)' : 'var(--red)'}">${Math.round(G.court.courtPrestige)}</span></div>
     ${G.court.pendingVacancies > 0 ? `<div class="economy-row"><span class="economy-label">Voľné miesta</span><span class="economy-value" style="color:var(--red)">${G.court.pendingVacancies}</span></div>` : ''}
-    <details style="margin-top:6px"><summary style="font-size:.7rem;color:var(--gold);cursor:pointer">Sudcovia (${G.court.judges.length})</summary>${judgeList}</details>
+    <details style="margin-top:6px"><summary style="font-size:.7rem;color:var(--gold);cursor:pointer">Sudcovia (${G.court.judges.length})</summary>${judgeLegend}${judgeList}</details>
     ${nomBtn}
   </div>`;
 }
@@ -368,11 +370,12 @@ function renderCabinet(): string {
   const cohCol = G.cabinet.cabinetCohesion > 60 ? 'var(--green)' : G.cabinet.cabinetCohesion > 40 ? 'var(--yellow)' : 'var(--red)';
   const avgComp = G.cabinet.ministers.reduce((s, m) => s + m.competence, 0) / G.cabinet.ministers.length;
   const compCol = avgComp > 6 ? 'var(--green)' : avgComp > 4 ? 'var(--yellow)' : 'var(--red)';
+  const ministerLegend = `<div style="font-size:.62rem;color:var(--text-dim);padding:2px 0 4px;line-height:1.4"><strong style="color:var(--gold)">K</strong> kompetencia (ovplyvňuje implementačnú sadzbu) · <strong style="color:var(--gold)">L</strong> lojalita (1 intrikán → 10 absolútne verný) · <strong style="color:var(--gold)">R</strong> riziko škandálu / korupcia (čím vyššie, tým pravdepodobnejšia aféra)</div>`;
   const ministerList = G.cabinet.ministers.map(m => {
     const ministry = era.cabinet!.ministries.find(x => x.id === m.ministry);
     const scandalRisk = m.corruption > 6 ? 'var(--red)' : m.corruption > 3 ? 'var(--yellow)' : 'var(--green)';
     const loyCol = m.loyalty > 6 ? 'var(--green)' : m.loyalty > 4 ? 'var(--yellow)' : 'var(--red)';
-    return `<div style="display:flex;justify-content:space-between;padding:3px 6px;background:rgba(255,255,255,.03);border-radius:3px;font-size:.7rem;margin:1px 0;border-left:3px solid ${loyCol}"><span style="color:#fff">${ministry ? ministry.emoji + ' ' : ''}${esc(m.name)}</span><span style="color:var(--text-dim)">${era.partyDisplay?.names[m.party] || m.party} | K:${m.competence} L:${m.loyalty} <span style="color:${scandalRisk}">R:${m.corruption}</span></span></div>`;
+    return `<div style="display:flex;justify-content:space-between;padding:3px 6px;background:rgba(255,255,255,.03);border-radius:3px;font-size:.7rem;margin:1px 0;border-left:3px solid ${loyCol}" title="Kompetencia ${m.competence} · Lojalita ${m.loyalty} · Riziko/korupcia ${m.corruption}"><span style="color:#fff">${ministry ? ministry.emoji + ' ' : ''}${esc(m.name)}</span><span style="color:var(--text-dim)">${era.partyDisplay?.names[m.party] || m.party} | K:${m.competence} L:${m.loyalty} <span style="color:${scandalRisk}">R:${m.corruption}</span></span></div>`;
   }).join('');
   const canReshuffle = G.politicalCapital >= 20 && G.cabinet.ministers.length > 0;
   const reBtn = canReshuffle
@@ -384,7 +387,7 @@ function renderCabinet(): string {
     <div class="economy-row"><span class="economy-label">Súdržnosť kabinetu${info('0-100%. Vyššia súdržnosť = menej interných únikov a škandálov. Každé premiešanie ju dočasne zníži.')}</span><span class="economy-value" style="color:${cohCol}">${Math.round(G.cabinet.cabinetCohesion)}%</span></div>
     <div class="economy-row"><span class="economy-label">Priemerná kompetencia${info('1-10. Vysoká kompetencia zvyšuje implementačnú sadzbu (úspešné presadzovanie zákonov).')}</span><span class="economy-value" style="color:${compCol}">${avgComp.toFixed(1)}</span></div>
     <div class="economy-row"><span class="economy-label">Premiešania${info('Koľkokrát ste vymenili ministra. Každé premiešanie má krátkodobý šok na súdržnosť.')}</span><span class="economy-value">${G.cabinet.reshuffleCount}</span></div>
-    <details style="margin-top:6px"><summary style="font-size:.7rem;color:var(--gold);cursor:pointer">Ministri (${G.cabinet.ministers.length})</summary>${ministerList}</details>
+    <details style="margin-top:6px"><summary style="font-size:.7rem;color:var(--gold);cursor:pointer">Ministri (${G.cabinet.ministers.length})</summary>${ministerLegend}${ministerList}</details>
     ${reBtn}
   </div>`;
 }
@@ -395,11 +398,12 @@ function renderInstitutions(): string {
   if (!G.institutions.heads.length || !era.institutions) return '';
   const intCol = G.institutions.institutionalIntegrity > 60 ? 'var(--green)' : G.institutions.institutionalIntegrity > 35 ? 'var(--yellow)' : 'var(--red)';
   const capCol = G.institutions.capturedCount >= 4 ? 'var(--red)' : G.institutions.capturedCount >= 2 ? 'var(--yellow)' : 'var(--green)';
+  const headLegend = `<div style="font-size:.62rem;color:var(--text-dim);padding:2px 0 4px;line-height:1.4"><strong style="color:var(--gold)">L</strong> lojalita k vláde (čím vyššia, tým skôr robí, čo od neho chcete) · <strong style="color:var(--gold)">P</strong> presvedčenie — odpor voči tlaku (vysoká P = nedá sa prikázať). Pri L≥8 sa inštitúcia ráta ako „ovládnutá".</div>`;
   const headList = G.institutions.heads.map(h => {
     const inst = era.institutions!.institutions.find(x => x.id === h.institution);
     const loyCol = h.loyalty > 6 ? 'var(--green)' : h.loyalty > 4 ? 'var(--yellow)' : 'var(--red)';
     const convCol = h.conviction > 6 ? 'var(--green)' : h.conviction > 4 ? 'var(--yellow)' : 'var(--red)';
-    return `<div style="display:flex;justify-content:space-between;padding:3px 6px;background:rgba(255,255,255,.03);border-radius:3px;font-size:.7rem;margin:1px 0;border-left:3px solid ${loyCol}"><span style="color:#fff">${inst ? inst.emoji + ' ' : ''}${esc(h.name)}</span><span style="color:var(--text-dim)">${inst ? inst.name : h.institution} | L:${h.loyalty} <span style="color:${convCol}">P:${h.conviction}</span></span></div>`;
+    return `<div style="display:flex;justify-content:space-between;padding:3px 6px;background:rgba(255,255,255,.03);border-radius:3px;font-size:.7rem;margin:1px 0;border-left:3px solid ${loyCol}" title="Lojalita ${h.loyalty} · Presvedčenie (odpor voči tlaku) ${h.conviction}"><span style="color:#fff">${inst ? inst.emoji + ' ' : ''}${esc(h.name)}</span><span style="color:var(--text-dim)">${inst ? inst.name : h.institution} | L:${h.loyalty} <span style="color:${convCol}">P:${h.conviction}</span></span></div>`;
   }).join('');
   const influenceableHeads = G.institutions.heads.filter(h => h.loyalty < 9);
   const influenceButtons = G.politicalCapital >= 20 && influenceableHeads.length > 0
@@ -411,7 +415,7 @@ function renderInstitutions(): string {
   return `<div class="dashboard-panel"><div class="panel-title">🏗️ Nezávislé inštitúcie${info('Generálny prokurátor, SIS, NKÚ, RTVS atď. — majú byť nezávislé. Ovládnuté inštitúcie (≥4) priťahujú EÚ varovania a môžu viesť k Článku 7.')}</div>
     <div class="economy-row"><span class="economy-label">Integrita inštitúcií${info('0-100. Klesá pri ovládnutí, politickom tlaku, a škandálov. Nízka integrita = EÚ sankcie, protesty občianskej spoločnosti.')}</span><span class="economy-value" style="color:${intCol}">${Math.round(G.institutions.institutionalIntegrity)}</span></div>
     <div class="economy-row"><span class="economy-label">Ovládnuté inštitúcie${info('Počet, kde šéf má lojalitu ≥ 8. Pri ≥ 4 ovládnutých EÚ spustí procedúru a vaše diplomatické vzťahy sa zhoršia.')}</span><span class="economy-value" style="color:${capCol}">${G.institutions.capturedCount}/${G.institutions.heads.length}</span></div>
-    <details style="margin-top:6px;"><summary style="font-size:.7rem;color:var(--gold);cursor:pointer">Predstavitelia (${G.institutions.heads.length})</summary>${headList}</details>
+    <details style="margin-top:6px;"><summary style="font-size:.7rem;color:var(--gold);cursor:pointer">Predstavitelia (${G.institutions.heads.length})</summary>${headLegend}${headList}</details>
     ${influenceButtons}
   </div>`;
 }
