@@ -114,8 +114,95 @@ export function showAnalysis(a: AnalysisResult) {
   else document.getElementById('consequenceSection')!.style.display = 'none';
 }
 
+// Map persona demographics + ideological lean to one of 10 archetypes.
+// Each archetype has an SVG portrait baked into the bundle (see
+// personaPortrait). Keeps the focus-group screen visually varied without
+// a 108-image asset pipeline. Scales by loading 10 tiny SVGs once.
+function archetypeFor(p: {
+  age?: number; demo?: string; lean?: string; location?: string;
+}): 'baba' | 'dedo' | 'student' | 'podnikatel' | 'pracujuci' | 'umelkyna' | 'vidiek' | 'progresivny' | 'skeptik' | 'senior' {
+  const demo = (p.demo || '').toLowerCase();
+  const lean = (p.lean || '').toLowerCase();
+  const loc = (p.location || '').toLowerCase();
+  const age = p.age ?? 40;
+  // Priority order: explicit demo labels win, then age+lean fall-backs.
+  if (demo.includes('študen') || demo.includes('student') || age < 24) return 'student';
+  if (demo.includes('podnik') || demo.includes('biznis') || demo.includes('manaž')) return 'podnikatel';
+  if (demo.includes('uči') || demo.includes('umel') || demo.includes('novin') || demo.includes('kultúr')) return 'umelkyna';
+  if (demo.includes('dôchodca') || demo.includes('dôchod') || age >= 65) {
+    return demo.includes('žena') || demo.includes('pani') ? 'baba' : 'dedo';
+  }
+  if (loc.includes('vidiek') || loc.includes('dedina') || demo.includes('roľník') || demo.includes('fark')) return 'vidiek';
+  if (lean === 'progressive' || lean === 'moderate' && age < 35) return 'progresivny';
+  if (lean === 'opposition' || lean === 'far_right') return 'skeptik';
+  if (age >= 55) return 'senior';
+  return 'pracujuci';
+}
+
+// Lightweight inline SVG portrait. Each archetype is a ~500-byte SVG
+// that renders as a circular illustrated avatar. Consistent style, no
+// network load, scales cleanly on retina.
+function personaPortrait(archetype: ReturnType<typeof archetypeFor>): string {
+  const tones: Record<string, { skin: string; hair: string; clothes: string; accent: string }> = {
+    baba:        { skin: '#f5d6b3', hair: '#e4e4e7', clothes: '#7c2d12', accent: '#fb923c' },
+    dedo:        { skin: '#e8cfb0', hair: '#d4d4d8', clothes: '#1e3a8a', accent: '#60a5fa' },
+    student:     { skin: '#f4c8a1', hair: '#4c1d95', clothes: '#064e3b', accent: '#22c55e' },
+    podnikatel:  { skin: '#eac29e', hair: '#1c1917', clothes: '#0f172a', accent: '#fcd34d' },
+    pracujuci:   { skin: '#eabf9b', hair: '#44403c', clothes: '#78350f', accent: '#eab308' },
+    umelkyna:    { skin: '#f4c8a1', hair: '#be123c', clothes: '#581c87', accent: '#f472b6' },
+    vidiek:      { skin: '#e8c49a', hair: '#57534e', clothes: '#365314', accent: '#84cc16' },
+    progresivny: { skin: '#eec7a0', hair: '#1e40af', clothes: '#065f46', accent: '#06b6d4' },
+    skeptik:     { skin: '#e4b894', hair: '#3f3f46', clothes: '#450a0a', accent: '#dc2626' },
+    senior:      { skin: '#ead2b3', hair: '#a1a1aa', clothes: '#1e293b', accent: '#64748b' },
+  };
+  const t = tones[archetype] || tones.pracujuci;
+  // Base: circle background + head (ellipse) + hair cap + shoulder strip + accent dot
+  return `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" style="width:56px;height:56px;border-radius:50%;display:block">
+    <defs><clipPath id="circ_${archetype}"><circle cx="32" cy="32" r="32"/></clipPath></defs>
+    <g clip-path="url(#circ_${archetype})">
+      <rect x="0" y="0" width="64" height="64" fill="${t.accent}" opacity="0.28"/>
+      <rect x="0" y="46" width="64" height="18" fill="${t.clothes}"/>
+      <ellipse cx="32" cy="30" rx="14" ry="16" fill="${t.skin}"/>
+      <path d="M18,24 Q32,10 46,24 Q46,18 32,12 Q18,18 18,24Z" fill="${t.hair}"/>
+      <circle cx="27" cy="30" r="1.6" fill="#1c1917"/>
+      <circle cx="37" cy="30" r="1.6" fill="#1c1917"/>
+      <path d="M28,38 Q32,41 36,38" stroke="#1c1917" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+      <circle cx="50" cy="50" r="3.5" fill="${t.accent}"/>
+    </g>
+  </svg>`;
+}
+
+// Build a short reason phrase derived from the score tier + the current
+// event's topic. Replaces the generic feel of tier-only quotes with a
+// sentence that connects the persona's reaction to what the player just
+// did. No new quote strings — uses existing persona + event data.
+function reasonPhrase(tier: 'vp' | 'p' | 'n' | 'ng' | 'vn', eventCategory: string | undefined): string {
+  const topic = (eventCategory || '').toLowerCase();
+  const themes: Record<string, string> = {
+    'ekonomika':           'ekonomických krokov',
+    'sociálna politika':   'sociálnych opatrení',
+    'zdravotníctvo':       'zdravotníckej reformy',
+    'školstvo':            'školskej politiky',
+    'justícia':            'zásahu do justície',
+    'zahraničná politika': 'zahraničnej politiky',
+    'európska politika':   'postoja voči EÚ',
+    'bezpečnosť':          'bezpečnostnej otázky',
+    'energetika':          'energetickej otázky',
+    'médiá':               'vzťahu vlády k médiám',
+  };
+  const what = themes[topic] || 'vášho rozhodnutia';
+  switch (tier) {
+    case 'vp': return `Nadšený z ${what}.`;
+    case 'p':  return `Podporuje smer ${what}.`;
+    case 'n':  return `Vyčkáva, čo prinesie ďalší krok.`;
+    case 'ng': return `Rozčarovaný z ${what}.`;
+    case 'vn': return `Cíti sa zradený v otázke ${what}.`;
+  }
+}
+
 export function showFG(a: AnalysisResult) {
   const era = getEra();
+  const G = getState();
   const sc = a.pScores;
   const sorted = Object.keys(sc).sort((x, y) => sc[y] - sc[x]);
   let sum = 0, html = '';
@@ -123,14 +210,36 @@ export function showFG(a: AnalysisResult) {
     const p = era.personas.find(x => x.id === id);
     if (!p) return;
     const s = sc[id]; sum += s;
+    const prev = G.pScores[id] ?? 50;
+    const delta = Math.round(s - prev);
+    const deltaHtml = delta === 0 ? '' : `<span style="color:${delta > 0 ? 'var(--green)' : 'var(--red)'};font-size:.7rem;font-weight:700;margin-left:6px">${delta > 0 ? '▲' : '▼'} ${Math.abs(delta)}</span>`;
     const q = era.personaQuotes[id] || {};
-    let tierKey: keyof typeof q = 'n';
+    let tierKey: 'vp' | 'p' | 'n' | 'ng' | 'vn' = 'n';
     if (s >= 75) tierKey = 'vp'; else if (s >= 60) tierKey = 'p'; else if (s >= 40) tierKey = 'n'; else if (s >= 25) tierKey = 'ng'; else tierKey = 'vn';
     const qArr = q[tierKey];
     const qtRaw = Array.isArray(qArr) && qArr.length ? qArr[Math.floor(Math.random() * qArr.length)] : qArr;
     const qt: string = typeof qtRaw === 'string' ? qtRaw : 'Bez komentára.';
     const col = s > 60 ? 'var(--green)' : s > 40 ? 'var(--yellow)' : 'var(--red)';
-    html += `<div class="persona-card"><div class="persona-header"><div class="persona-emoji">${esc(p.emoji)}</div><div><div class="persona-name">${esc(p.name)}</div><div class="persona-demo">${esc(p.demo)}</div><span class="persona-lean ${esc(p.lean)}">${esc(p.lean)}</span></div></div><div class="persona-score" style="color:${col}">${Math.round(s)}</div><div class="persona-bar"><div class="metric-fill" style="background:${col};width:${s}%"></div></div><div class="persona-quote">"${esc(qt)}"</div></div>`;
+    const archetype = archetypeFor(p);
+    const portrait = personaPortrait(archetype);
+    const age = (p as { age?: number }).age;
+    const loc = (p as { location?: string }).location;
+    const subline = [age ? `${age}r.` : '', loc || '', esc(p.demo)].filter(x => x).join(' · ');
+    const reason = reasonPhrase(tierKey, G.event?.category);
+    html += `<div class="persona-card">
+      <div class="persona-header" style="display:flex;gap:10px;align-items:flex-start">
+        <div style="flex-shrink:0">${portrait}</div>
+        <div style="flex:1;min-width:0">
+          <div class="persona-name" style="display:flex;align-items:center;flex-wrap:wrap;gap:4px">${esc(p.name)}${deltaHtml}</div>
+          <div class="persona-demo" style="font-size:.7rem;color:var(--text-dim);line-height:1.4">${subline}</div>
+          <span class="persona-lean ${esc(p.lean)}">${esc(p.lean)}</span>
+        </div>
+        <div class="persona-score" style="color:${col};flex-shrink:0">${Math.round(s)}</div>
+      </div>
+      <div class="persona-bar"><div class="metric-fill" style="background:${col};width:${s}%"></div></div>
+      <div style="font-size:.72rem;color:var(--text-dim);margin:4px 0 4px;font-style:italic">${esc(reason)}</div>
+      <div class="persona-quote">"${esc(qt)}"</div>
+    </div>`;
   });
   document.getElementById('personasContainer')!.innerHTML = html;
   document.getElementById('averagePersonaScore')!.textContent = sorted.length ? String(Math.round(sum / sorted.length)) : '--';
