@@ -247,7 +247,7 @@ export function kwScore(policy: string): AnalysisResult {
   if (G.court.judges.length > 0) {
     const avgCourtLoyalty = G.court.judges.reduce((s, j) => s + j.loyalty, 0) / G.court.judges.length;
     const courtBonus = (avgCourtLoyalty - 5) * 5;
-    a.cb.court = clamp(a.cb.court + courtBonus, 5, 95);
+    a.cb.court = Math.round(clamp(a.cb.court + courtBonus, 5, 95));
     // Sub-quorum court rubber-stamps everything — shown as 95/100 with a reason.
     if (G.court.judges.length < 7) {
       a.cb.court = 95;
@@ -260,7 +260,7 @@ export function kwScore(policy: string): AnalysisResult {
   if (G.cabinet.ministers.length > 0) {
     const avgComp = G.cabinet.ministers.reduce((s, m) => s + m.competence, 0) / G.cabinet.ministers.length;
     const compMod = (avgComp - 5) * 3;
-    a.cb.implementationRate = clamp(a.cb.implementationRate + compMod, 5, 95);
+    a.cb.implementationRate = Math.round(clamp(a.cb.implementationRate + compMod, 5, 95));
   }
 
   const stBase = (a.cb.parliament > 60 ? 2 : -2) + (a.cb.court > 50 ? 1 : -1);

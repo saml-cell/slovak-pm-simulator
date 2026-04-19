@@ -21,7 +21,7 @@ export function showAnalysis(a: AnalysisResult) {
     { l: 'Ústavný súd', v: cb.court, r: cbR.court },
     { l: 'Prezident', v: cb.president, r: cbR.president },
     { l: 'Implementácia', v: cb.implementationRate },
-  ].map(c => `<div class="check-card"><div class="check-label">${esc(c.l)}</div><div class="check-value ${(c.v || 0) >= 50 ? 'check-passed' : 'check-failed'}">${c.v || '?'}</div>${c.r ? '<div style="font-size:.7rem;color:var(--text-dim);margin-top:4px;line-height:1.4;text-align:left">' + esc(c.r) + '</div>' : ''}</div>`).join('');
+  ].map(c => `<div class="check-card"><div class="check-label">${esc(c.l)}</div><div class="check-value ${(c.v || 0) >= 50 ? 'check-passed' : 'check-failed'}">${c.v !== undefined && c.v !== null ? Math.round(c.v) : '?'}</div>${c.r ? '<div style="font-size:.7rem;color:var(--text-dim);margin-top:4px;line-height:1.4;text-align:left">' + esc(c.r) + '</div>' : ''}</div>`).join('');
 
   const cs = a.cs;
   document.getElementById('civilServiceContent')!.innerHTML = `<p>${esc(cs.summary || 'Analyzované.')}</p><div class="risk-pills"><span class="risk-pill ${esc((cs.risk || 'medium').toLowerCase())}">Riziko: ${esc(cs.risk || 'Medium')}</span><span class="risk-pill ${esc((cs.treasuryCost || 'medium').toLowerCase())}">Náklady: ${esc(cs.treasuryCost || 'Medium')}</span><span class="risk-pill ${esc((cs.growthPotential || 'medium').toLowerCase())}">Rast: ${esc(cs.growthPotential || 'Medium')}</span></div><div class="fiscal-note">${esc(cs.recommendation || '')}</div>`;
