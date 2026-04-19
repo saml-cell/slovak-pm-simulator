@@ -38,6 +38,14 @@ function renderEconomy(): string {
   </div>`;
 }
 
+// Small inline info-tooltip helper. Produces a ℹ icon with a native
+// browser tooltip (title=) — works on mobile tap-hold and desktop hover,
+// no JS needed, no new modal framework. Adds accessibility via aria-label.
+function info(text: string): string {
+  const safe = text.replace(/"/g, '&quot;');
+  return ` <span style="color:var(--gold);cursor:help;font-size:.7rem;margin-left:4px" title="${safe}" aria-label="${safe}">ⓘ</span>`;
+}
+
 function renderCoalition(): string {
   const G = getState();
   const era = getEra();
@@ -46,19 +54,27 @@ function renderCoalition(): string {
     const p = G.cp[cp.id];
     if (!p) return;
     const status = !p.on ? 'gone' : p.sat < 30 ? 'threatening' : p.sat < 50 ? 'uneasy' : 'content';
+    const seatPct = Math.round((cp.seats / 150) * 100);
+    const bargain = G.shapleyPower[cp.id] !== undefined
+      ? Math.round((G.shapleyPower[cp.id] || 0) * 100)
+      : null;
     html += `<div class="partner-card ${status}">
       <div class="partner-name">${cp.name}</div>
-      <div class="partner-seats">${cp.seats} kresiel</div>
+      <div class="partner-seats">${cp.seats} kresiel · ${seatPct}% parlamentu</div>
       <div class="partner-stats">
-        <div class="partner-stat"><div class="partner-stat-label">Spokojnosť</div><div class="partner-stat-value">${Math.round(p.sat)}</div></div>
-        <div class="partner-stat"><div class="partner-stat-label">Trpezlivosť</div><div class="partner-stat-value">${Math.round(p.pat)}</div></div>
+        <div class="partner-stat"><div class="partner-stat-label">Spokojnosť${info('Ako veľmi partner podporuje vašu vládu (0-100). Pod 40 začne tajne plánovať odchod.')}</div><div class="partner-stat-value">${Math.round(p.sat)}</div></div>
+        <div class="partner-stat"><div class="partner-stat-label">Trpezlivosť${info('Koľko zlých mesiacov partner ešte znesie. Keď klesne na 0, môže sám odísť alebo predložiť ultimátum.')}</div><div class="partner-stat-value">${Math.round(p.pat)}</div></div>
       </div>
-      ${G.shapleyPower[cp.id] !== undefined ? `<div style="font-size:.7rem;color:var(--text-dim);margin-top:4px">Vyj. sila: <span style="color:var(--gold)">${Math.round((G.shapleyPower[cp.id] || 0) * 100)}%</span></div>` : ''}
-      ${p.dem ? `<div class="partner-demand">⚠️ ${esc(p.dem)}</div><div><button class="partner-btn concede" onclick="window.__handleDem('${esc(cp.id)}','c')">Ustúpiť</button><button class="partner-btn negotiate" onclick="window.__handleDem('${esc(cp.id)}','n')">Vyjednávať</button><button class="partner-btn refuse" onclick="window.__handleDem('${esc(cp.id)}','r')">Odmietnuť</button></div>` : ''}
-      ${p.on ? `<button class="partner-btn kick" onclick="window.__kickP('${esc(cp.id)}')">Vyhodiť</button>` : '<div style="color:var(--text-dim);font-size:.8rem">Odišli z koalície</div>'}
+      ${bargain !== null ? `<div style="font-size:.7rem;color:var(--text-dim);margin-top:4px">Vyjednávacia sila${info('Shapley-Shubik index. Percento ciest, ktorými tento partner rozhoduje o 76-hlasnej väčšine. Pri troch-štyroch približne rovnako veľkých partneroch býva ~25% — každý z nich je kľúčový. Toto NIE JE seat share — tá je vyššie (' + cp.seats + ' kresiel).')}: <span style="color:var(--gold)">${bargain}%</span></div>` : ''}
+      ${p.plotSince ? `<div style="font-size:.7rem;color:var(--red);margin-top:4px">🕯️ Partner plánuje odchod (${G.month - p.plotSince}. mesiac nespokojnosti)</div>` : ''}
+      ${p.dem ? `<div class="partner-demand">⚠️ ${esc(p.dem)}</div><div><button class="partner-btn concede" onclick="window.__handleDem('${esc(cp.id)}','c')" title="Ustúpte požiadavke: +15 sat, +5 koalícia, ostatní partneri −5 sat">Ustúpiť</button><button class="partner-btn negotiate" onclick="window.__handleDem('${esc(cp.id)}','n')" title="Čiastočný kompromis: +5 sat, +5 pat">Vyjednávať</button><button class="partner-btn refuse" onclick="window.__handleDem('${esc(cp.id)}','r')" title="Odmietnite: −15 sat, −10 pat, −5 koalícia">Odmietnuť</button></div>` : ''}
+      ${p.on ? `<button class="partner-btn kick" onclick="window.__kickP('${esc(cp.id)}')" title="Vyhodiť partnera: strata ${cp.seats} kresiel, −25 stabilita, −15 koalícia. Najväčší (prvý) partner sa vyhodiť nedá.">Vyhodiť</button>` : '<div style="color:var(--text-dim);font-size:.8rem">Odišli z koalície</div>'}
     </div>`;
   });
-  return `<div class="dashboard-panel"><div class="panel-title">🤝 Koalícia</div>${html}</div>`;
+  const legend = `<div style="font-size:.7rem;color:var(--text-dim);margin-top:8px;line-height:1.5;border-top:1px solid rgba(255,255,255,.05);padding-top:8px">
+    <strong>Ako funguje koalícia:</strong> Partneri s nízkou spokojnosťou (pod 40) tajne rokujú o odchode. Po 4 mesiacoch nespokojnosti začnú s 25%/mes. riskovať defekt. Požiadavky publikujú podľa frekvencie a trpezlivosti. Tlačidlom "Vyhodiť" zbavíte partnera ich kresiel — stratíte ich hlasy a veľkú časť stability.
+  </div>`;
+  return `<div class="dashboard-panel"><div class="panel-title">🤝 Koalícia${info('Spojenci vo vláde. Potrebujete ich kresiel aby ste prehlasovali zákony (spolu ≥ 76 / 150). Dohodnite sa s nimi, inak ultimatujú alebo odídu.')}</div>${html}${legend}</div>`;
 }
 
 function renderParliament(): string {
@@ -185,12 +201,12 @@ function renderAdvancedMetrics(): string {
   const fatCol = G.crisisFatigue < 0.3 ? 'var(--green)' : G.crisisFatigue < 0.6 ? 'var(--yellow)' : 'var(--red)';
   const momCol = G.momentum > 0.2 ? 'var(--green)' : G.momentum < -0.2 ? 'var(--red)' : 'var(--text-dim)';
   const momLabel = G.momentum > 0.3 ? '↑ Rastúci' : G.momentum < -0.3 ? '↓ Klesajúci' : '— Stabilný';
-  return `<div class="dashboard-panel" style="margin-top:12px"><div class="panel-title">⚙️ Vládna sila</div>
-    <div class="economy-row"><span class="economy-label">Politický kapitál</span><span class="economy-value" style="color:${capCol}">${Math.round(G.politicalCapital)}</span></div>
-    <div class="economy-row"><span class="economy-label">Únava z kríz</span><span class="economy-value" style="color:${fatCol}">${Math.round(G.crisisFatigue * 100)}%</span></div>
-    <div class="economy-row"><span class="economy-label">Momentum</span><span class="economy-value" style="color:${momCol}">${momLabel}</span></div>
-    <div class="economy-row"><span class="economy-label">Mediálny cyklus</span><span class="economy-value" style="color:${G.mediaCycle > 0.6 ? 'var(--red)' : G.mediaCycle > 0.3 ? 'var(--yellow)' : 'var(--green)'}">${G.mediaCycle > 0.5 ? '🔥 Horúce' : G.mediaCycle > 0.2 ? '📰 Aktívne' : '😴 Pokojné'}</span></div>
-    <div class="economy-row"><span class="economy-label">Prieskumy</span><span class="economy-value" style="color:${G.pollApproval > 50 ? 'var(--green)' : G.pollApproval > 35 ? 'var(--yellow)' : 'var(--red)'}">~${Math.round(G.pollApproval)}%</span></div>
+  return `<div class="dashboard-panel" style="margin-top:12px"><div class="panel-title">⚙️ Vládna sila${info('Zdroje, ktoré určujú, koľko toho môžete v danom mesiaci pretlačiť.')}</div>
+    <div class="economy-row"><span class="economy-label">Politický kapitál${info('0-100 bodov. Získavate ho za kľudné mesiace a úspechy, miniete ho za ambiciózne politiky (veľké zákony, tajné akcie, nominácie sudcov). Pri nízkom PC vaše politiky dosahujú menší dopad (multiplikátor).')}</span><span class="economy-value" style="color:${capCol}">${Math.round(G.politicalCapital)}</span></div>
+    <div class="economy-row"><span class="economy-label">Únava z kríz${info('Keď vláda rieši jednu krízu za druhou, verejnosť otupie a vaše opatrenia stratia účinnosť.')}</span><span class="economy-value" style="color:${fatCol}">${Math.round(G.crisisFatigue * 100)}%</span></div>
+    <div class="economy-row"><span class="economy-label">Momentum${info('Keď máte dlhšie obdobie rastúcej podpory, ďalšie malé výhry sa násobia. V klesajúcej špirále funguje opačne.')}</span><span class="economy-value" style="color:${momCol}">${momLabel}</span></div>
+    <div class="economy-row"><span class="economy-label">Mediálny cyklus${info('Intenzita mediálnej pozornosti. Vo "horúcom" stave sú dopady politik nadsadené, v "pokojnom" potlmené.')}</span><span class="economy-value" style="color:${G.mediaCycle > 0.6 ? 'var(--red)' : G.mediaCycle > 0.3 ? 'var(--yellow)' : 'var(--green)'}">${G.mediaCycle > 0.5 ? '🔥 Horúce' : G.mediaCycle > 0.2 ? '📰 Aktívne' : '😴 Pokojné'}</span></div>
+    <div class="economy-row"><span class="economy-label">Prieskumy${info('Meraná preferencia. Líši sa od skutočnej Podpory (tá je reálny stav) — prieskumy sú vnímanie.')}</span><span class="economy-value" style="color:${G.pollApproval > 50 ? 'var(--green)' : G.pollApproval > 35 ? 'var(--yellow)' : 'var(--red)'}">~${Math.round(G.pollApproval)}%</span></div>
     <div style="font-size:.6rem;color:var(--gold);text-transform:uppercase;letter-spacing:1px;padding:8px 0 4px;border-bottom:1px solid rgba(224,184,74,.15);margin-top:4px">Mediálny ekosystém</div>
     <div class="economy-row"><span class="economy-label">Dezinformácie</span><span class="economy-value" style="color:${(G.social.dezinfo || 0) > 50 ? 'var(--red)' : (G.social.dezinfo || 0) > 30 ? 'var(--yellow)' : 'var(--green)'}">${Math.round(G.social.dezinfo || 0)}</span></div>
     <div class="economy-row"><span class="economy-label">Dôvera v médiá</span><span class="economy-value" style="color:${(G.social.mediaTrust || 50) < 30 ? 'var(--red)' : (G.social.mediaTrust || 50) < 50 ? 'var(--yellow)' : 'var(--green)'}">${Math.round(G.social.mediaTrust || 0)}</span></div>
@@ -310,7 +326,7 @@ function renderLaws(): string {
         return `<div style="padding:8px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:4px;font-size:.75rem;margin:4px 0"><strong style="color:#fff">${esc(l.name)}</strong><div style="color:var(--text-dim);font-size:.7rem;margin:3px 0">${esc(l.description)}</div>${l.realHistoricalRef ? `<div style="color:var(--gold);font-size:.65rem;margin-bottom:5px">Historicky: ${esc(l.realHistoricalRef)}</div>` : ''}<button style="background:${disabled ? 'rgba(100,100,100,.2)' : 'var(--gold)'};color:${disabled ? 'var(--text-dim)' : '#1a1a1a'};border:0;border-radius:4px;padding:5px 10px;font-size:.7rem;font-weight:700;cursor:${disabled ? 'not-allowed' : 'pointer'};margin-top:4px" ${disabled ? 'disabled' : `onclick="window.__adoptLaw('${esc(l.id)}')"`}>Prijať zákon (−30 PC)</button></div>`;
       }).join('')
     : `<div style="font-size:.7rem;color:var(--text-dim);font-style:italic">Signátový zákon už bol prijatý — každé obdobie len jeden.</div>`;
-  return `<div class="dashboard-panel"><div class="panel-title">📜 Signátové zákony</div>${passed}${available}</div>`;
+  return `<div class="dashboard-panel"><div class="panel-title">📜 Signátové zákony${info('Jeden trvalý zákon za celé obdobie. Nezrušiteľný. Každý kus mesačne ovplyvňuje podporu/stabilitu/koalíciu/implementáciu — vyberajte podľa toho, aký tail-wind chcete.')}</div>${passed}${available}</div>`;
 }
 
 
@@ -327,14 +343,21 @@ function renderCourt(): string {
     const col = j.loyalty > 6 ? 'rgba(16,185,129,.3)' : j.loyalty < 4 ? 'rgba(239,68,68,.3)' : 'rgba(255,255,255,.05)';
     return `<div style="display:flex;justify-content:space-between;padding:3px 6px;background:${col};border-radius:3px;font-size:.7rem;margin:1px 0"><span style="color:#fff">${esc(j.name)}${j.isChair ? ' ⭐' : ''}</span><span style="color:var(--text-dim)">I:${j.ideology} K:${j.competence} P:${j.conviction} L:${j.loyalty}</span></div>`;
   }).join('');
-  return `<div class="dashboard-panel"><div class="panel-title">🏛️ Ústavný súd SR</div>
+  const canNominate = G.politicalCapital >= 25 && G.court.judges.length < 13;
+  const nomBtn = canNominate
+    ? `<button style="background:var(--gold);color:#1a1a1a;border:0;border-radius:4px;padding:6px 10px;font-size:.7rem;font-weight:700;cursor:pointer;margin-top:6px;width:100%" onclick="window.__nominateJudge()" title="Navrhnúť lojálneho sudcu. Cena: 25 PC, −3 stabilita, −2 integrita inštitúcií. Súd, kde prevažuje vaša lojalita, menej pravdepodobne zablokuje kontroverzné zákony.">⚖️ Nominovať sudcu (−25 PC)</button>`
+    : G.court.judges.length >= 13
+      ? `<div style="font-size:.7rem;color:var(--text-dim);font-style:italic;margin-top:6px">Súd plný (13/13).</div>`
+      : `<div style="font-size:.7rem;color:var(--text-dim);font-style:italic;margin-top:6px">Nedostatok politického kapitálu (potrebných 25).</div>`;
+  return `<div class="dashboard-panel"><div class="panel-title">🏛️ Ústavný súd SR${info('13 sudcov rozhoduje o ústavnosti zákonov. Pod kvórom (7) súd prijíma všetko bez kontroly — zvyčajne v neprospech ústavnosti. Súd s vysokou priemernou lojalitou menej často blokuje zákony. Sudcovia sú menovaní doživotne.')}</div>
     <div class="economy-row"><span class="economy-label">Sudcov</span><span class="economy-value" style="color:${quorum ? 'var(--green)' : 'var(--red)'}">${G.court.judges.length}/13 ${quorum ? '✓' : '✗ pod kvórom!'}</span></div>
     <div class="economy-row"><span class="economy-label">Predseda</span><span class="economy-value">${chair ? esc(chair.name) : 'neobsadený'}</span></div>
-    <div class="economy-row"><span class="economy-label">Priemerná ideológia</span><span class="economy-value" style="color:${ideCol}">${avgIdeology.toFixed(1)}</span></div>
-    <div class="economy-row"><span class="economy-label">Priemerná lojalita</span><span class="economy-value" style="color:${loyCol}">${avgLoyalty.toFixed(1)}</span></div>
-    <div class="economy-row"><span class="economy-label">Prestíž súdu</span><span class="economy-value" style="color:${G.court.courtPrestige > 60 ? 'var(--green)' : G.court.courtPrestige > 35 ? 'var(--yellow)' : 'var(--red)'}">${Math.round(G.court.courtPrestige)}</span></div>
+    <div class="economy-row"><span class="economy-label">Priemerná ideológia${info('1 = reformný/liberálny, 10 = národný/autoritársky. Ovplyvňuje, akým zákonom súd viac praje.')}</span><span class="economy-value" style="color:${ideCol}">${avgIdeology.toFixed(1)}</span></div>
+    <div class="economy-row"><span class="economy-label">Priemerná lojalita${info('1-10. Vysoká lojalita = súd menej často blokuje vaše zákony. Príliš lojálny súd ale stráca prestíž.')}</span><span class="economy-value" style="color:${loyCol}">${avgLoyalty.toFixed(1)}</span></div>
+    <div class="economy-row"><span class="economy-label">Prestíž súdu${info('0-100. Pokles prestíže znižuje legitimitu rozhodnutí. Presadenie kontroverzných zákonov klesá prestíž, odmietanie politického tlaku ju zvyšuje.')}</span><span class="economy-value" style="color:${G.court.courtPrestige > 60 ? 'var(--green)' : G.court.courtPrestige > 35 ? 'var(--yellow)' : 'var(--red)'}">${Math.round(G.court.courtPrestige)}</span></div>
     ${G.court.pendingVacancies > 0 ? `<div class="economy-row"><span class="economy-label">Voľné miesta</span><span class="economy-value" style="color:var(--red)">${G.court.pendingVacancies}</span></div>` : ''}
     <details style="margin-top:6px"><summary style="font-size:.7rem;color:var(--gold);cursor:pointer">Sudcovia (${G.court.judges.length})</summary>${judgeList}</details>
+    ${nomBtn}
   </div>`;
 }
 
@@ -351,11 +374,18 @@ function renderCabinet(): string {
     const loyCol = m.loyalty > 6 ? 'var(--green)' : m.loyalty > 4 ? 'var(--yellow)' : 'var(--red)';
     return `<div style="display:flex;justify-content:space-between;padding:3px 6px;background:rgba(255,255,255,.03);border-radius:3px;font-size:.7rem;margin:1px 0;border-left:3px solid ${loyCol}"><span style="color:#fff">${ministry ? ministry.emoji + ' ' : ''}${esc(m.name)}</span><span style="color:var(--text-dim)">${era.partyDisplay?.names[m.party] || m.party} | K:${m.competence} L:${m.loyalty} <span style="color:${scandalRisk}">R:${m.corruption}</span></span></div>`;
   }).join('');
-  return `<div class="dashboard-panel"><div class="panel-title">🏢 Vláda SR — Kabinet</div>
-    <div class="economy-row"><span class="economy-label">Súdržnosť kabinetu</span><span class="economy-value" style="color:${cohCol}">${Math.round(G.cabinet.cabinetCohesion)}%</span></div>
-    <div class="economy-row"><span class="economy-label">Priemerná kompetencia</span><span class="economy-value" style="color:${compCol}">${avgComp.toFixed(1)}</span></div>
-    <div class="economy-row"><span class="economy-label">Premiešania</span><span class="economy-value">${G.cabinet.reshuffleCount}</span></div>
+  const canReshuffle = G.politicalCapital >= 20 && G.cabinet.ministers.length > 0;
+  const reBtn = canReshuffle
+    ? `<button style="background:var(--gold);color:#1a1a1a;border:0;border-radius:4px;padding:6px 10px;font-size:.7rem;font-weight:700;cursor:pointer;margin-top:6px;width:100%" onclick="window.__reshuffleMinister()" title="Vymeniť najnekvalifikovanejšieho ministra za nového. Cena: 20 PC, −2 stabilita, −10 kohézia. Zvýši priemernú kompetenciu → zlepší implementačnú sadzbu.">🔄 Výmena ministra (−20 PC)</button>`
+    : G.cabinet.ministers.length === 0
+      ? `<div style="font-size:.7rem;color:var(--text-dim);font-style:italic;margin-top:6px">Žiadni ministri — nie je čo vymeniť.</div>`
+      : `<div style="font-size:.7rem;color:var(--text-dim);font-style:italic;margin-top:6px">Nedostatok politického kapitálu (potrebných 20).</div>`;
+  return `<div class="dashboard-panel"><div class="panel-title">🏢 Vláda SR — Kabinet${info('Ministri vykonávajú vaše politiky. Kompetentný a súdržný kabinet zvyšuje implementačnú sadzbu; nekompetentný ju brzdí. Skorumpovaní ministri provokujú škandály. Premiešania menia zloženie — ale znižujú súdržnosť.')}</div>
+    <div class="economy-row"><span class="economy-label">Súdržnosť kabinetu${info('0-100%. Vyššia súdržnosť = menej interných únikov a škandálov. Každé premiešanie ju dočasne zníži.')}</span><span class="economy-value" style="color:${cohCol}">${Math.round(G.cabinet.cabinetCohesion)}%</span></div>
+    <div class="economy-row"><span class="economy-label">Priemerná kompetencia${info('1-10. Vysoká kompetencia zvyšuje implementačnú sadzbu (úspešné presadzovanie zákonov).')}</span><span class="economy-value" style="color:${compCol}">${avgComp.toFixed(1)}</span></div>
+    <div class="economy-row"><span class="economy-label">Premiešania${info('Koľkokrát ste vymenili ministra. Každé premiešanie má krátkodobý šok na súdržnosť.')}</span><span class="economy-value">${G.cabinet.reshuffleCount}</span></div>
     <details style="margin-top:6px"><summary style="font-size:.7rem;color:var(--gold);cursor:pointer">Ministri (${G.cabinet.ministers.length})</summary>${ministerList}</details>
+    ${reBtn}
   </div>`;
 }
 
@@ -371,9 +401,17 @@ function renderInstitutions(): string {
     const convCol = h.conviction > 6 ? 'var(--green)' : h.conviction > 4 ? 'var(--yellow)' : 'var(--red)';
     return `<div style="display:flex;justify-content:space-between;padding:3px 6px;background:rgba(255,255,255,.03);border-radius:3px;font-size:.7rem;margin:1px 0;border-left:3px solid ${loyCol}"><span style="color:#fff">${inst ? inst.emoji + ' ' : ''}${esc(h.name)}</span><span style="color:var(--text-dim)">${inst ? inst.name : h.institution} | L:${h.loyalty} <span style="color:${convCol}">P:${h.conviction}</span></span></div>`;
   }).join('');
-  return `<div class="dashboard-panel"><div class="panel-title">🏗️ Nezávislé inštitúcie</div>
-    <div class="economy-row"><span class="economy-label">Integrita inštitúcií</span><span class="economy-value" style="color:${intCol}">${Math.round(G.institutions.institutionalIntegrity)}</span></div>
-    <div class="economy-row"><span class="economy-label">Ovládnuté inštitúcie</span><span class="economy-value" style="color:${capCol}">${G.institutions.capturedCount}/${G.institutions.heads.length}</span></div>
+  const influenceableHeads = G.institutions.heads.filter(h => h.loyalty < 9);
+  const influenceButtons = G.politicalCapital >= 20 && influenceableHeads.length > 0
+    ? `<details style="margin-top:6px"><summary style="font-size:.7rem;color:var(--gold);cursor:pointer">Ovplyvniť šéfa inštitúcie (−20 PC)</summary>${influenceableHeads.map(h => {
+        const inst = era.institutions!.institutions.find(x => x.id === h.institution);
+        return `<button style="display:block;width:100%;text-align:left;background:rgba(255,255,255,.03);color:#fff;border:1px solid rgba(255,255,255,.08);border-radius:4px;padding:5px 8px;font-size:.7rem;cursor:pointer;margin-top:3px" onclick="window.__influenceInstitution('${esc(h.institution)}')" title="Zvýšiť lojalitu šéfa: +2 loyalty, −1 conviction, −5 integrita inštitúcií, −3 EÚ. Keď lojalita ≥ 8, inštitúcia sa ráta ako 'ovládnutá'.">${inst ? inst.emoji + ' ' : ''}${esc(h.name)} (L:${h.loyalty})</button>`;
+      }).join('')}</details>`
+    : '';
+  return `<div class="dashboard-panel"><div class="panel-title">🏗️ Nezávislé inštitúcie${info('Generálny prokurátor, SIS, NKÚ, RTVS atď. — majú byť nezávislé. Ovládnuté inštitúcie (≥4) priťahujú EÚ varovania a môžu viesť k Článku 7.')}</div>
+    <div class="economy-row"><span class="economy-label">Integrita inštitúcií${info('0-100. Klesá pri ovládnutí, politickom tlaku, a škandálov. Nízka integrita = EÚ sankcie, protesty občianskej spoločnosti.')}</span><span class="economy-value" style="color:${intCol}">${Math.round(G.institutions.institutionalIntegrity)}</span></div>
+    <div class="economy-row"><span class="economy-label">Ovládnuté inštitúcie${info('Počet, kde šéf má lojalitu ≥ 8. Pri ≥ 4 ovládnutých EÚ spustí procedúru a vaše diplomatické vzťahy sa zhoršia.')}</span><span class="economy-value" style="color:${capCol}">${G.institutions.capturedCount}/${G.institutions.heads.length}</span></div>
     <details style="margin-top:6px;"><summary style="font-size:.7rem;color:var(--gold);cursor:pointer">Predstavitelia (${G.institutions.heads.length})</summary>${headList}</details>
+    ${influenceButtons}
   </div>`;
 }

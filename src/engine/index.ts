@@ -10,6 +10,7 @@ import { proceed, confirmResign } from './game-flow';
 import { openHistory, generateWiki } from './wiki';
 import { trackAnalytics } from './analytics';
 import { esc } from './sanitize';
+import { maybeStartTutorial, observeScreenChanges } from './tutorial';
 import type { GameState } from './types';
 
 async function main() {
@@ -309,7 +310,13 @@ function showProactiveResult(msg: string) {
   if (el) { el.textContent = msg; el.style.display = 'block'; setTimeout(() => { el.style.display = 'none'; }, 3000); }
 }
 
-main().catch(err => {
+main().then(() => {
+  // Tutorial: runs once per browser. Also observes screen changes so
+  // dashboard-specific steps fire when the player lands on the dashboard
+  // after picking an era.
+  observeScreenChanges();
+  maybeStartTutorial();
+}).catch(err => {
   console.error('Failed to initialize game:', err);
   const errDiv = document.createElement('div');
   errDiv.style.cssText = 'color:red;padding:40px;text-align:center';

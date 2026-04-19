@@ -304,6 +304,100 @@ export function initiateScheme(schemeId: string): void {
 
 window.__initiateScheme = initiateScheme;
 
+// Nominate a loyalist judge to the Constitutional Court. Costs 25 PC and
+// 5 stability. Adds a judge with high loyalty + ideology-aligned but
+// moderate competence. Each nomination risks EU backlash if integrity
+// drops too low. Practical effect: friendly court boosts implementation
+// rate and is less likely to block controversial laws.
+export function nominateJudge(): void {
+  const G = getState();
+  if (G.politicalCapital < 25) return;
+  if (G.court.judges.length >= 13) return;
+  G.politicalCapital -= 25;
+  G.stability = clamp(G.stability - 3);
+  const nextId = 'j' + (G.court.judges.length + Math.floor(Math.random() * 1000));
+  G.court.judges.push({
+    id: nextId,
+    name: `Sudca ${String.fromCharCode(65 + (G.court.judges.length % 26))}.`,
+    ideology: 4 + Math.floor(Math.random() * 4),  // 4-7, centrist to slightly nationalist
+    competence: 5 + Math.floor(Math.random() * 4),
+    conviction: 3 + Math.floor(Math.random() * 3),  // lower = more pressure-susceptible
+    loyalty: 7 + Math.floor(Math.random() * 3),    // 7-9, friendly
+    termEnd: G.month + 120,
+    isChair: false,
+  });
+  G.court.pendingVacancies = Math.max(0, G.court.pendingVacancies - 1);
+  G.institutions.institutionalIntegrity = Math.max(0, G.institutions.institutionalIntegrity - 2);
+  const wb = document.getElementById('warningBanner');
+  if (wb) {
+    wb.innerHTML = (wb.innerHTML ? wb.innerHTML + '<br>' : '') + '⚖️ Nominovaný lojálny sudca — integrita inštitúcií −2.';
+    wb.classList.add('show');
+  }
+  updateDash();
+}
+
+window.__nominateJudge = nominateJudge;
+
+// Reshuffle: replace the least-competent minister with a fresh pick.
+// Costs 20 PC, dampens cabinetCohesion for a moment, but lifts average
+// competence. Use when cabinet drags implementation down.
+export function reshuffleMinister(): void {
+  const G = getState();
+  if (G.politicalCapital < 20) return;
+  if (G.cabinet.ministers.length === 0) return;
+  G.politicalCapital -= 20;
+  // Find lowest competence minister
+  const sorted = [...G.cabinet.ministers].sort((a, b) => a.competence - b.competence);
+  const victim = sorted[0];
+  const idx = G.cabinet.ministers.findIndex(m => m.id === victim.id);
+  if (idx < 0) return;
+  // Replace with a fresh minister: better competence, lower corruption
+  G.cabinet.ministers[idx] = {
+    ...victim,
+    competence: 6 + Math.floor(Math.random() * 3),
+    corruption: Math.max(1, victim.corruption - 2),
+  };
+  G.cabinet.reshuffleCount++;
+  G.cabinet.cabinetCohesion = Math.max(20, G.cabinet.cabinetCohesion - 10);
+  G.stability = clamp(G.stability - 2);
+  const wb = document.getElementById('warningBanner');
+  if (wb) {
+    wb.innerHTML = (wb.innerHTML ? wb.innerHTML + '<br>' : '') + `🔄 Výmena ministra: ${esc(victim.name)} odvolaný, kohézia kabinetu −10.`;
+    wb.classList.add('show');
+  }
+  updateDash();
+}
+
+window.__reshuffleMinister = reshuffleMinister;
+
+// Influence an institutional head (e.g., GP, SIS, NKU, RTVS). Costs 20 PC
+// + raises capturedCount. Makes that institution more loyal but at the
+// cost of institutional integrity + EU diplomatic relations. One-way
+// action — use carefully.
+export function influenceInstitution(instId: string): void {
+  const G = getState();
+  if (G.politicalCapital < 20) return;
+  const head = G.institutions.heads.find(h => h.institution === instId);
+  if (!head) return;
+  if (head.loyalty >= 9) return;  // already maxed
+  G.politicalCapital -= 20;
+  head.loyalty = Math.min(10, head.loyalty + 2);
+  head.conviction = Math.max(1, head.conviction - 1);
+  G.institutions.institutionalIntegrity = Math.max(0, G.institutions.institutionalIntegrity - 5);
+  G.diplo.eu = clamp((G.diplo.eu || 50) - 3);
+  if (head.loyalty >= 8 && G.institutions.capturedCount < G.institutions.heads.length) {
+    G.institutions.capturedCount++;
+  }
+  const wb = document.getElementById('warningBanner');
+  if (wb) {
+    wb.innerHTML = (wb.innerHTML ? wb.innerHTML + '<br>' : '') + `🏗️ ${esc(head.name)} ovplyvnený — lojalita rastie, integrita inštitúcií klesla.`;
+    wb.classList.add('show');
+  }
+  updateDash();
+}
+
+window.__influenceInstitution = influenceInstitution;
+
 export function proceed(a: AnalysisResult) {
   const G = getState();
   const era = getEra();
