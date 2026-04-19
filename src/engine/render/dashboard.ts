@@ -38,12 +38,73 @@ function renderEconomy(): string {
   </div>`;
 }
 
-// Small inline info-tooltip helper. Produces a ℹ icon with a native
-// browser tooltip (title=) — works on mobile tap-hold and desktop hover,
-// no JS needed, no new modal framework. Adds accessibility via aria-label.
+// Info-tooltip with click-popover. The earlier version relied on the
+// native `title` attribute, which on desktop shows only after a ~1.5 s
+// hover delay and on mobile does nothing. This version dispatches to a
+// JS handler (installed once in installInfoHandler) that renders a
+// visible floating box immediately on click. Works on both desktop and
+// touch devices. Popover closes on any other click, including clicking
+// the same icon again.
 function info(text: string): string {
-  const safe = text.replace(/"/g, '&quot;');
-  return ` <span style="color:var(--gold);cursor:help;font-size:.7rem;margin-left:4px" title="${safe}" aria-label="${safe}">ⓘ</span>`;
+  // Use base64 to safely embed arbitrary text (including quotes +
+  // non-ASCII) inside a data-info attribute. No HTML escaping worries
+  // because we set textContent at render time, not innerHTML.
+  const encoded = btoa(unescape(encodeURIComponent(text)));
+  return ` <span class="info-icon" data-info-b64="${encoded}" style="color:var(--gold);cursor:help;font-size:.75rem;margin-left:4px;user-select:none;display:inline-block;padding:0 4px" aria-label="Info">ⓘ</span>`;
+}
+
+let infoHandlerInstalled = false;
+function installInfoHandler(): void {
+  if (infoHandlerInstalled) return;
+  infoHandlerInstalled = true;
+  // Ensure the popover host exists
+  let popover = document.getElementById('infoPopover');
+  if (!popover) {
+    popover = document.createElement('div');
+    popover.id = 'infoPopover';
+    popover.style.cssText = 'display:none;position:absolute;max-width:280px;background:rgba(10,14,20,.98);border:1px solid rgba(224,184,74,.4);border-radius:8px;padding:10px 12px;font-size:.75rem;color:#e4e4e7;line-height:1.5;z-index:9999;box-shadow:0 6px 20px rgba(0,0,0,.5);pointer-events:auto';
+    document.body.appendChild(popover);
+  }
+  // Delegated click handler — one listener covers every ⓘ on the page,
+  // past and future (since the dashboard re-renders).
+  document.addEventListener('click', (ev) => {
+    const target = ev.target as HTMLElement;
+    const icon = target.closest('.info-icon') as HTMLElement | null;
+    if (icon) {
+      ev.stopPropagation();
+      const encoded = icon.getAttribute('data-info-b64') || '';
+      let text = '';
+      try { text = decodeURIComponent(escape(atob(encoded))); } catch { text = '?'; }
+      const p = document.getElementById('infoPopover')!;
+      if (p.style.display === 'block' && p.dataset.anchor === encoded) {
+        p.style.display = 'none';
+        p.dataset.anchor = '';
+        return;
+      }
+      p.textContent = text;
+      p.dataset.anchor = encoded;
+      // Position near the icon (with viewport clamping).
+      const r = icon.getBoundingClientRect();
+      p.style.display = 'block';
+      const pw = p.offsetWidth;
+      const ph = p.offsetHeight;
+      let left = r.left + window.scrollX + r.width / 2 - pw / 2;
+      left = Math.max(8, Math.min(window.innerWidth - pw - 8, left));
+      let top = r.bottom + window.scrollY + 6;
+      if (top + ph > window.scrollY + window.innerHeight) {
+        top = r.top + window.scrollY - ph - 6;
+      }
+      p.style.left = left + 'px';
+      p.style.top = top + 'px';
+      return;
+    }
+    // Any other click closes the popover
+    const p = document.getElementById('infoPopover');
+    if (p && p.style.display === 'block') {
+      p.style.display = 'none';
+      p.dataset.anchor = '';
+    }
+  });
 }
 
 function renderCoalition(): string {
@@ -227,6 +288,7 @@ function renderHistoryPanel(): string {
 }
 
 export function updateDash() {
+  installInfoHandler();
   const G = getState();
   const era = getEra();
 
