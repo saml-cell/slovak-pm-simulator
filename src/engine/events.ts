@@ -1,6 +1,7 @@
 import type { ActiveEvent } from './types';
 import { getEra, getState } from './state';
 import { esc } from './sanitize';
+import { kwScore } from './scoring';
 
 const defaultQuietMonths = [
   { h: 'Pokojný mesiac', d: 'Žiadne veľké udalosti tento mesiac. Vláda funguje v bežnom režime. Máte priestor na vlastné iniciatívy a dlhodobé plány.', c: 'Využite čas na posilnenie pozície alebo riešenie dlhodobých problémov.' },
@@ -127,6 +128,8 @@ export function displayEvent() {
   if (spinInput) spinInput.value = '';
   const spinSection = document.getElementById('spinSection');
   if (spinSection) spinSection.style.display = 'none';
+  const preview = document.getElementById('policyPreview');
+  if (preview) { preview.style.display = 'none'; preview.innerHTML = ''; }
 }
 
 export function updateCC() {
@@ -135,6 +138,74 @@ export function updateCC() {
   cc.textContent = n + ' / 2000';
   (document.getElementById('submitPolicyButton') as HTMLButtonElement).disabled = n < 10;
   cc.className = 'char-count' + (n < 10 ? ' error' : '');
+  schedulePreview();
+}
+
+// Debounced policy preview. Runs kwScore on the current textarea content
+// ~300 ms after the last keystroke and renders a one-line summary of the
+// predicted parliament/court/president check, approval/stability/coalition
+// deltas, and the three biggest stakeholder shifts. Only surfaces when the
+// policy is ≥ 30 chars — below that the signal is mostly noise. The result
+// is advisory; the actual submitted analysis re-runs kwScore server-side
+// in the analysis screen.
+let previewTimer: number | null = null;
+
+function schedulePreview(): void {
+  if (previewTimer !== null) window.clearTimeout(previewTimer);
+  previewTimer = window.setTimeout(renderPolicyPreview, 300);
+}
+
+function renderPolicyPreview(): void {
+  const ta = document.getElementById('policyInput') as HTMLTextAreaElement | null;
+  const box = document.getElementById('policyPreview');
+  if (!ta || !box) return;
+  const policy = ta.value.trim();
+  if (policy.length < 30) {
+    box.style.display = 'none';
+    box.innerHTML = '';
+    return;
+  }
+  // kwScore is a pure function over (era, state, policy). Running it for
+  // preview does not mutate game state — the result is discarded.
+  const a = kwScore(policy);
+
+  const color = (v: number) => v >= 70 ? 'var(--green)' : v >= 40 ? 'var(--yellow)' : 'var(--red)';
+  const signColor = (v: number) => v > 0 ? 'var(--green)' : v < 0 ? 'var(--red)' : 'var(--text-dim)';
+  const sign = (v: number) => (v > 0 ? '+' : '') + v;
+
+  // Top 3 stakeholder shifts (biggest absolute delta from baseline 50).
+  const era = getEra();
+  const shifts = Object.entries(a.sScores)
+    .map(([id, v]) => {
+      const name = era.stakeholders.find(s => s.id === id)?.name || id;
+      return { id, name, delta: Math.round(v - 50) };
+    })
+    .filter(x => x.delta !== 0)
+    .sort((a, b) => Math.abs(b.delta) - Math.abs(a.delta))
+    .slice(0, 3);
+  const shiftsHtml = shifts.length
+    ? shifts.map(s => `<span style="color:${signColor(s.delta)}">${esc(s.name)} ${sign(s.delta)}</span>`).join(' · ')
+    : '<span style="color:var(--text-dim)">žiadne výrazné posuny</span>';
+
+  const overall =
+    `<div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:6px">
+      <span>📊 <strong>Predpokladaný dopad</strong> <span style="color:var(--text-dim);font-size:.7rem">(reálne po odoslaní)</span></span>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:4px">
+      <span>Parlament <strong style="color:${color(a.cb.parliament)}">${a.cb.parliament}</strong>/100</span>
+      <span>Súd <strong style="color:${color(a.cb.court)}">${a.cb.court}</strong></span>
+      <span>Prezident <strong style="color:${color(a.cb.president)}">${a.cb.president}</strong></span>
+      <span>Implementácia <strong style="color:${color(a.cb.implementationRate || 80)}">${a.cb.implementationRate || 80}%</strong></span>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:4px">
+      <span>Podpora <strong style="color:${signColor(a.aD)}">${sign(a.aD)}</strong></span>
+      <span>Stabilita <strong style="color:${signColor(a.stD)}">${sign(a.stD)}</strong></span>
+      <span>Koalícia <strong style="color:${signColor(a.cD)}">${sign(a.cD)}</strong></span>
+    </div>
+    <div>Kľúčové presuny: ${shiftsHtml}</div>`;
+
+  box.style.display = 'block';
+  box.innerHTML = overall;
 }
 
 // Exposed on window for inline onclick handlers in generated HTML.
