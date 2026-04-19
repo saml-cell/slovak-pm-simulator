@@ -1,6 +1,7 @@
 import type { ActiveEvent, AnalysisResult, EraConfig } from './types';
 import { getEra, getState, coalitionSeats } from './state';
 import { clamp } from './advanced';
+import { normalizeText } from './sanitize';
 
 function generateHeadlines(policy: string, ev: ActiveEvent | null): AnalysisResult['press'] {
   const era = getEra();
@@ -70,7 +71,11 @@ function generateHeadlines(policy: string, ev: ActiveEvent | null): AnalysisResu
 export function kwScore(policy: string): AnalysisResult {
   const era = getEra();
   const G = getState();
-  const low = policy.toLowerCase();
+  // `low` is diacritic-stripped + lowercased so keywords stored with or
+  // without Slovak diacritics match natural player input. See
+  // sanitize.ts::normalizeText. The `.toLowerCase()` was retained in the
+  // normalization for the short-keyword regex paths below.
+  const low = normalizeText(policy);
 
   const a: AnalysisResult = {
     pScores: {}, sScores: {},
@@ -98,8 +103,11 @@ export function kwScore(policy: string): AnalysisResult {
   era.diplomacy.forEach(d => { a.diploFx[d.key] = 0; });
 
   // Short keywords (<=3 chars) use word-boundary matching so e.g. "eu"
-  // doesn't fire on "európa" or "reu" fragments.
-  Object.entries(era.keywords).forEach(([kw, fx]) => {
+  // doesn't fire on "európa" or "reu" fragments. Normalize the keyword
+  // the same way the policy was normalized above so legacy entries like
+  // "plochaDan" / "efsf_nie" / "prvá_pomoc" match natural input.
+  Object.entries(era.keywords).forEach(([rawKw, fx]) => {
+    const kw = normalizeText(rawKw);
     const matched = kw.length <= 3
       ? new RegExp(`(?:^|[\\s,;.!?()"])${kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?:$|[\\s,;.!?()"])`, 'i').test(low)
       : low.includes(kw);
@@ -111,8 +119,10 @@ export function kwScore(policy: string): AnalysisResult {
     }
   });
 
-  const fdiPositive = ['investícia', 'invest', 'priemysel', 'fabrika', 'automobilka', 'startup', 'inovácia', 'výskum'];
-  const fdiNegative = ['znárodniť', 'znárodnenie', 'regulácia', 'zákaz', 'protekcionizmus'];
+  // FDI sentiment: diacritics stripped via normalizeText so lists written
+  // without diacritics still match players who type with them.
+  const fdiPositive = ['investicia', 'invest', 'priemysel', 'fabrika', 'automobilka', 'startup', 'inovacia', 'vyskum'];
+  const fdiNegative = ['znarodnit', 'znarodnenie', 'regulacia', 'zakaz', 'protekcionizmus'];
   if (fdiPositive.some(k => low.includes(k))) {
     a.econFx.gdpGrowth = (a.econFx.gdpGrowth || 0) + 0.2;
   }
@@ -127,12 +137,20 @@ export function kwScore(policy: string): AnalysisResult {
   a.aD = Math.round((avg - 50) * 0.3);
 
   const cs = coalitionSeats();
-  const isConstitutional = low.includes('ústav') || low.includes('constitution') || low.includes('zmena zákon');
+  // Hardcoded match strings below are intentionally diacritic-free so they
+  // match the normalized `low` (see normalizeText above).
+  const isConstitutional = low.includes('ustav') || low.includes('constitution') || low.includes('zmena zakon');
   const requiredSeats = isConstitutional ? 90 : 76;
-  if (cs >= requiredSeats) { a.cb.parliament = 65 + Math.round(Math.random() * 25); }
-  else if (cs >= 76 && isConstitutional) { a.cb.parliament = 15 + Math.round(Math.random() * 20); }
-  else if (cs >= 70) { a.cb.parliament = 30 + Math.round(Math.random() * 25); }
-  else { a.cb.parliament = 10 + Math.round(Math.random() * 20); }
+  // Tightened random spreads (±4 instead of ±10-12). Two similar policies
+  // should give similar parliament scores — the signal is `cs`, not noise.
+  // Former ±25 spread was the main driver of the "huge jumps for no reason"
+  // UX complaint, because implementationRate = parliament*0.4 + court*0.3 +
+  // president*0.3 propagates the noise into approval/stability/coalition.
+  const noise = () => Math.round(Math.random() * 8 - 4);
+  if (cs >= requiredSeats) { a.cb.parliament = 78 + noise(); }
+  else if (cs >= 76 && isConstitutional) { a.cb.parliament = 25 + noise(); }
+  else if (cs >= 70) { a.cb.parliament = 42 + noise(); }
+  else { a.cb.parliament = 20 + noise(); }
 
   const crazyKw = ['zavri', 'zakáz', 'zakaz', 'zruš opozíc', 'zrus opozic', 'diktát', 'diktat', 'cenzúr', 'cenzur', 'zatkn', 'umlč', 'umlc', 'rozpust parlament', 'zastav voľb', 'zastav volb', 'odvola sudc', 'odvola súdc'];
   const antiDemoKw = ['zruš ústavn', 'zrus ustavn', 'ovládn médi', 'ovladn medi', 'kontrolova súd', 'kontrolova sud', 'potlač protest', 'potlac protest'];
@@ -140,8 +158,8 @@ export function kwScore(policy: string): AnalysisResult {
   const isAntiDemo = antiDemoKw.some(k => low.includes(k));
 
   if (isCrazy || isAntiDemo) {
-    a.cb.court = 5 + Math.round(Math.random() * 15);
-    a.cb.president = G.pellegrini ? 30 + Math.round(Math.random() * 20) : 5 + Math.round(Math.random() * 10);
+    a.cb.court = 12 + noise();
+    a.cb.president = G.pellegrini ? 40 + noise() : 10 + noise();
     if (a.sScores.judiciary !== undefined) a.sScores.judiciary = Math.max(5, (a.sScores.judiciary || 50) - 20);
     if (a.sScores.eu_nato !== undefined) a.sScores.eu_nato = Math.max(5, (a.sScores.eu_nato || 50) - 15);
     if (a.sScores.media_ind !== undefined) a.sScores.media_ind = Math.max(5, (a.sScores.media_ind || 50) - 15);
@@ -149,8 +167,8 @@ export function kwScore(policy: string): AnalysisResult {
     a.diploFx.eu = (a.diploFx.eu || 0) - 5;
     a.diploFx.usa = (a.diploFx.usa || 0) - 3;
   } else {
-    a.cb.court = 60 + Math.round(Math.random() * 30);
-    a.cb.president = G.pellegrini ? 75 + Math.round(Math.random() * 20) : 40 + Math.round(Math.random() * 30);
+    a.cb.court = 75 + noise();
+    a.cb.president = G.pellegrini ? 85 + noise() : 55 + noise();
   }
 
   if (G.court.judges.length > 0) {
@@ -180,7 +198,7 @@ export function kwScore(policy: string): AnalysisResult {
   a.cD = Math.round((cpAvg - 50) * 0.2 + (Math.random() * 2 - 1));
 
   if (!a.cb.reasons) a.cb.reasons = {};
-  const snsKw = low.includes('suverenita') || low.includes('sovereign') || low.includes('národn');
+  const snsKw = low.includes('suverenita') || low.includes('sovereign') || low.includes('narodn');
   if (cs >= 76 && !isConstitutional) a.cb.reasons.parliament = 'Koaličná väčšina (' + cs + '/150) zabezpečuje schválenie.';
   else if (cs >= 76 && isConstitutional) a.cb.reasons.parliament = 'Ústavná zmena vyžaduje 90 hlasov. Koalícia má len ' + cs + '.';
   else if (cs >= 70) a.cb.reasons.parliament = 'Menšinová vláda (' + cs + '/150) — opozícia môže blokovať.';
@@ -188,7 +206,7 @@ export function kwScore(policy: string): AnalysisResult {
   if (snsKw) a.cb.reasons.parliament += ' SNS nadšene podporuje.';
 
   if (isCrazy || isAntiDemo) a.cb.reasons.court = 'Ústavný súd pravdepodobne zablokuje — rozpor s ústavnými právami.';
-  else if (low.includes('zákon') || low.includes('novel')) a.cb.reasons.court = 'Ústavný súd preskúma zákonnosť, ale nemá zásadné námietky.';
+  else if (low.includes('zakon') || low.includes('novel')) a.cb.reasons.court = 'Ústavný súd preskúma zákonnosť, ale nemá zásadné námietky.';
   else a.cb.reasons.court = 'Ústavný súd nemá námietky.';
 
   const friendlyPres = era.meta.presidentFriendly || 'koaličný prezident';
@@ -204,14 +222,14 @@ export function kwScore(policy: string): AnalysisResult {
 
   const ev = G.event;
   if (ev) {
-    if (ev.id === 'criminal_code' && (low.includes('pretlačiť') || low.includes('rýchlo') || low.includes('push'))) a.flags.criminal_aggressive = true;
-    if (ev.id === 'ukraine_aid' && (low.includes('ukončiť') || low.includes('zastaviť') || low.includes('stop'))) a.flags.ukraine_stopped = true;
-    if (ev.id === 'rtvs' && (low.includes('pretlačiť') || low.includes('push'))) a.flags.rtvs_aggressive = true;
-    if (ev.id === 'healthcare' && (low.includes('núdzov') || low.includes('500'))) a.flags.healthcare_emergency = true;
+    if (ev.id === 'criminal_code' && (low.includes('pretlacit') || low.includes('rychlo') || low.includes('push'))) a.flags.criminal_aggressive = true;
+    if (ev.id === 'ukraine_aid' && (low.includes('ukoncit') || low.includes('zastavit') || low.includes('stop'))) a.flags.ukraine_stopped = true;
+    if (ev.id === 'rtvs' && (low.includes('pretlacit') || low.includes('push'))) a.flags.rtvs_aggressive = true;
+    if (ev.id === 'healthcare' && (low.includes('nudzov') || low.includes('500'))) a.flags.healthcare_emergency = true;
     if (ev.id === 'assassination' && (low.includes('jednot') || low.includes('zmieren') || low.includes('unity'))) a.flags.national_unity = true;
     if (ev.id === 'healthcare' && (low.includes('invest') || low.includes('plat') || low.includes('reforma'))) a.flags.healthcare_reform = true;
     if (ev.id === 'eu_funds' && (low.includes('transparentn') || low.includes('reform') || low.includes('kontrola'))) a.flags.eu_funds_success = true;
-    if (ev.id === 'consolidation' && (low.includes('úspor') || low.includes('efektív') || low.includes('škrt'))) a.flags.fiscal_discipline = true;
+    if (ev.id === 'consolidation' && (low.includes('uspor') || low.includes('efektiv') || low.includes('skrt'))) a.flags.fiscal_discipline = true;
   }
 
   return a;

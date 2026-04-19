@@ -771,7 +771,7 @@
       "kw_pos": [
         "demokracia",
         "opozícia",
-        "právny_štát",
+        "pravny stat",
         "sloboda"
       ],
       "kw_neg": [
@@ -814,7 +814,7 @@
         "eu",
         "nato",
         "reformy",
-        "právny_štát"
+        "pravny stat"
       ],
       "kw_neg": [
         "privatizácia",
@@ -3062,66 +3062,537 @@
   },
   "court": {
     "judges": [
-      { "id": "cic", "name": "Milan Čič", "ideology": 6, "competence": 7, "conviction": 5, "loyalty": 6, "termEnd": 24, "isChair": true },
-      { "id": "sramek", "name": "Juraj Šrámek", "ideology": 5, "competence": 6, "conviction": 6, "loyalty": 4, "termEnd": 36, "isChair": false },
-      { "id": "fodor", "name": "Tibor Šafárik", "ideology": 6, "competence": 5, "conviction": 5, "loyalty": 5, "termEnd": 30, "isChair": false },
-      { "id": "ogurcan", "name": "Ján Ogurčák", "ideology": 4, "competence": 7, "conviction": 7, "loyalty": 3, "termEnd": -1, "isChair": false },
-      { "id": "brzobohatá", "name": "Eva Brzobohatá", "ideology": 5, "competence": 6, "conviction": 6, "loyalty": 4, "termEnd": 42, "isChair": false },
-      { "id": "drgonec", "name": "Ján Drgonec", "ideology": 3, "competence": 9, "conviction": 8, "loyalty": 2, "termEnd": -1, "isChair": false },
-      { "id": "cernak", "name": "Štefan Ogurčák", "ideology": 7, "competence": 5, "conviction": 4, "loyalty": 7, "termEnd": -1, "isChair": false },
-      { "id": "kresak", "name": "Peter Kresák", "ideology": 4, "competence": 7, "conviction": 7, "loyalty": 3, "termEnd": -1, "isChair": false },
-      { "id": "baranová", "name": "Viera Baranová", "ideology": 5, "competence": 6, "conviction": 5, "loyalty": 5, "termEnd": 18, "isChair": false },
-      { "id": "slotka", "name": "Ladislav Orosz", "ideology": 6, "competence": 6, "conviction": 5, "loyalty": 6, "termEnd": -1, "isChair": false }
+      {
+        "id": "cic",
+        "name": "Milan Čič",
+        "ideology": 6,
+        "competence": 7,
+        "conviction": 5,
+        "loyalty": 6,
+        "termEnd": 24,
+        "isChair": true
+      },
+      {
+        "id": "sramek",
+        "name": "Juraj Šrámek",
+        "ideology": 5,
+        "competence": 6,
+        "conviction": 6,
+        "loyalty": 4,
+        "termEnd": 36,
+        "isChair": false
+      },
+      {
+        "id": "fodor",
+        "name": "Tibor Šafárik",
+        "ideology": 6,
+        "competence": 5,
+        "conviction": 5,
+        "loyalty": 5,
+        "termEnd": 30,
+        "isChair": false
+      },
+      {
+        "id": "ogurcan",
+        "name": "Ján Ogurčák",
+        "ideology": 4,
+        "competence": 7,
+        "conviction": 7,
+        "loyalty": 3,
+        "termEnd": -1,
+        "isChair": false
+      },
+      {
+        "id": "brzobohatá",
+        "name": "Eva Brzobohatá",
+        "ideology": 5,
+        "competence": 6,
+        "conviction": 6,
+        "loyalty": 4,
+        "termEnd": 42,
+        "isChair": false
+      },
+      {
+        "id": "drgonec",
+        "name": "Ján Drgonec",
+        "ideology": 3,
+        "competence": 9,
+        "conviction": 8,
+        "loyalty": 2,
+        "termEnd": -1,
+        "isChair": false
+      },
+      {
+        "id": "cernak",
+        "name": "Štefan Ogurčák",
+        "ideology": 7,
+        "competence": 5,
+        "conviction": 4,
+        "loyalty": 7,
+        "termEnd": -1,
+        "isChair": false
+      },
+      {
+        "id": "kresak",
+        "name": "Peter Kresák",
+        "ideology": 4,
+        "competence": 7,
+        "conviction": 7,
+        "loyalty": 3,
+        "termEnd": -1,
+        "isChair": false
+      },
+      {
+        "id": "baranová",
+        "name": "Viera Baranová",
+        "ideology": 5,
+        "competence": 6,
+        "conviction": 5,
+        "loyalty": 5,
+        "termEnd": 18,
+        "isChair": false
+      },
+      {
+        "id": "slotka",
+        "name": "Ladislav Orosz",
+        "ideology": 6,
+        "competence": 6,
+        "conviction": 5,
+        "loyalty": 6,
+        "termEnd": -1,
+        "isChair": false
+      }
     ]
   },
   "cabinet": {
     "ministries": [
-      { "id": "mv", "name": "Ministerstvo vnútra", "emoji": "🛡️", "domain": ["polícia", "bezpečnosť", "SIS", "migrácia"], "allocatedTo": "hzds" },
-      { "id": "mf", "name": "Ministerstvo financií", "emoji": "💰", "domain": ["dane", "rozpočet", "privatizácia", "ekonomika"], "allocatedTo": "hzds" },
-      { "id": "ms", "name": "Ministerstvo spravodlivosti", "emoji": "⚖️", "domain": ["justícia", "súdy", "právny štát"], "allocatedTo": "hzds" },
-      { "id": "mzv", "name": "Ministerstvo zahraničných vecí", "emoji": "🌍", "domain": ["diplomacia", "EÚ", "NATO", "V4"], "allocatedTo": "hzds" },
-      { "id": "mo", "name": "Ministerstvo obrany", "emoji": "🎖️", "domain": ["armáda", "NATO", "obrana"], "allocatedTo": "hzds" },
-      { "id": "mh", "name": "Ministerstvo hospodárstva", "emoji": "🏭", "domain": ["priemysel", "privatizácia", "investície", "podnikanie"], "allocatedTo": "hzds" },
-      { "id": "mpsvr", "name": "Ministerstvo práce", "emoji": "👷", "domain": ["sociálna", "dôchodky", "zamestnanosť"], "allocatedTo": "zrs" },
-      { "id": "mz", "name": "Ministerstvo zdravotníctva", "emoji": "🏥", "domain": ["zdravotníctvo", "nemocnice", "lekári"], "allocatedTo": "zrs" },
-      { "id": "msmt", "name": "Ministerstvo školstva", "emoji": "📚", "domain": ["školstvo", "veda", "univerzity"], "allocatedTo": "sns_c" },
-      { "id": "mdv", "name": "Ministerstvo dopravy", "emoji": "🚄", "domain": ["doprava", "infraštruktúra", "pošta", "telekomunikácie"], "allocatedTo": "sns_c" },
-      { "id": "mzp", "name": "Ministerstvo životného prostredia", "emoji": "🌿", "domain": ["ekológia", "voda", "lesy"], "allocatedTo": "hzds" },
-      { "id": "mk", "name": "Ministerstvo kultúry", "emoji": "🎭", "domain": ["kultúra", "STV", "médiá", "pamiatky"], "allocatedTo": "sns_c" },
-      { "id": "mprv", "name": "Ministerstvo pôdohospodárstva", "emoji": "🌾", "domain": ["poľnohospodárstvo", "potraviny", "vidiek"], "allocatedTo": "hzds" }
+      {
+        "id": "mv",
+        "name": "Ministerstvo vnútra",
+        "emoji": "🛡️",
+        "domain": [
+          "polícia",
+          "bezpečnosť",
+          "SIS",
+          "migrácia"
+        ],
+        "allocatedTo": "hzds"
+      },
+      {
+        "id": "mf",
+        "name": "Ministerstvo financií",
+        "emoji": "💰",
+        "domain": [
+          "dane",
+          "rozpočet",
+          "privatizácia",
+          "ekonomika"
+        ],
+        "allocatedTo": "hzds"
+      },
+      {
+        "id": "ms",
+        "name": "Ministerstvo spravodlivosti",
+        "emoji": "⚖️",
+        "domain": [
+          "justícia",
+          "súdy",
+          "právny štát"
+        ],
+        "allocatedTo": "hzds"
+      },
+      {
+        "id": "mzv",
+        "name": "Ministerstvo zahraničných vecí",
+        "emoji": "🌍",
+        "domain": [
+          "diplomacia",
+          "EÚ",
+          "NATO",
+          "V4"
+        ],
+        "allocatedTo": "hzds"
+      },
+      {
+        "id": "mo",
+        "name": "Ministerstvo obrany",
+        "emoji": "🎖️",
+        "domain": [
+          "armáda",
+          "NATO",
+          "obrana"
+        ],
+        "allocatedTo": "hzds"
+      },
+      {
+        "id": "mh",
+        "name": "Ministerstvo hospodárstva",
+        "emoji": "🏭",
+        "domain": [
+          "priemysel",
+          "privatizácia",
+          "investície",
+          "podnikanie"
+        ],
+        "allocatedTo": "hzds"
+      },
+      {
+        "id": "mpsvr",
+        "name": "Ministerstvo práce",
+        "emoji": "👷",
+        "domain": [
+          "sociálna",
+          "dôchodky",
+          "zamestnanosť"
+        ],
+        "allocatedTo": "zrs"
+      },
+      {
+        "id": "mz",
+        "name": "Ministerstvo zdravotníctva",
+        "emoji": "🏥",
+        "domain": [
+          "zdravotníctvo",
+          "nemocnice",
+          "lekári"
+        ],
+        "allocatedTo": "zrs"
+      },
+      {
+        "id": "msmt",
+        "name": "Ministerstvo školstva",
+        "emoji": "📚",
+        "domain": [
+          "školstvo",
+          "veda",
+          "univerzity"
+        ],
+        "allocatedTo": "sns_c"
+      },
+      {
+        "id": "mdv",
+        "name": "Ministerstvo dopravy",
+        "emoji": "🚄",
+        "domain": [
+          "doprava",
+          "infraštruktúra",
+          "pošta",
+          "telekomunikácie"
+        ],
+        "allocatedTo": "sns_c"
+      },
+      {
+        "id": "mzp",
+        "name": "Ministerstvo životného prostredia",
+        "emoji": "🌿",
+        "domain": [
+          "ekológia",
+          "voda",
+          "lesy"
+        ],
+        "allocatedTo": "hzds"
+      },
+      {
+        "id": "mk",
+        "name": "Ministerstvo kultúry",
+        "emoji": "🎭",
+        "domain": [
+          "kultúra",
+          "STV",
+          "médiá",
+          "pamiatky"
+        ],
+        "allocatedTo": "sns_c"
+      },
+      {
+        "id": "mprv",
+        "name": "Ministerstvo pôdohospodárstva",
+        "emoji": "🌾",
+        "domain": [
+          "poľnohospodárstvo",
+          "potraviny",
+          "vidiek"
+        ],
+        "allocatedTo": "hzds"
+      }
     ],
     "ministers": [
-      { "id": "hudek", "name": "Ľudovít Hudek", "party": "hzds", "ministry": "mv", "ideology": 7, "competence": 5, "loyalty": 9, "partyLoyalty": 9, "corruption": 8, "publicProfile": 7 },
-      { "id": "kozlik", "name": "Sergej Kozlík", "party": "hzds", "ministry": "mf", "ideology": 6, "competence": 6, "loyalty": 8, "partyLoyalty": 9, "corruption": 6, "publicProfile": 5 },
-      { "id": "baco", "name": "Jozef Liščák", "party": "hzds", "ministry": "ms", "ideology": 7, "competence": 4, "loyalty": 8, "partyLoyalty": 8, "corruption": 5, "publicProfile": 4 },
-      { "id": "schenk", "name": "Pavol Hamžík", "party": "hzds", "ministry": "mzv", "ideology": 6, "competence": 6, "loyalty": 7, "partyLoyalty": 8, "corruption": 3, "publicProfile": 6 },
-      { "id": "sitek", "name": "Ján Sitek", "party": "hzds", "ministry": "mo", "ideology": 7, "competence": 5, "loyalty": 9, "partyLoyalty": 9, "corruption": 5, "publicProfile": 5 },
-      { "id": "kalman", "name": "Jozef Kalman", "party": "hzds", "ministry": "mh", "ideology": 7, "competence": 5, "loyalty": 8, "partyLoyalty": 9, "corruption": 7, "publicProfile": 5 },
-      { "id": "tkac", "name": "Vojtech Tkáč", "party": "zrs", "ministry": "mpsvr", "ideology": 8, "competence": 5, "loyalty": 6, "partyLoyalty": 8, "corruption": 4, "publicProfile": 4 },
-      { "id": "javorcik", "name": "Ľubomír Javorčík", "party": "zrs", "ministry": "mz", "ideology": 7, "competence": 4, "loyalty": 5, "partyLoyalty": 7, "corruption": 5, "publicProfile": 3 },
-      { "id": "slavkovska", "name": "Eva Slavkovská", "party": "sns_c", "ministry": "msmt", "ideology": 8, "competence": 4, "loyalty": 5, "partyLoyalty": 8, "corruption": 3, "publicProfile": 5 },
-      { "id": "rezesm", "name": "Alexander Rezeš", "party": "hzds", "ministry": "mdv", "ideology": 7, "competence": 5, "loyalty": 7, "partyLoyalty": 8, "corruption": 7, "publicProfile": 6 },
-      { "id": "zlocha", "name": "Jozef Zlocha", "party": "hzds", "ministry": "mzp", "ideology": 6, "competence": 5, "loyalty": 7, "partyLoyalty": 8, "corruption": 4, "publicProfile": 3 },
-      { "id": "hudec_k", "name": "Ivan Hudec", "party": "sns_c", "ministry": "mk", "ideology": 8, "competence": 4, "loyalty": 5, "partyLoyalty": 8, "corruption": 4, "publicProfile": 5 },
-      { "id": "baco_p", "name": "Peter Baco", "party": "hzds", "ministry": "mprv", "ideology": 7, "competence": 6, "loyalty": 8, "partyLoyalty": 9, "corruption": 5, "publicProfile": 4 }
+      {
+        "id": "hudek",
+        "name": "Ľudovít Hudek",
+        "party": "hzds",
+        "ministry": "mv",
+        "ideology": 7,
+        "competence": 5,
+        "loyalty": 9,
+        "partyLoyalty": 9,
+        "corruption": 8,
+        "publicProfile": 7
+      },
+      {
+        "id": "kozlik",
+        "name": "Sergej Kozlík",
+        "party": "hzds",
+        "ministry": "mf",
+        "ideology": 6,
+        "competence": 6,
+        "loyalty": 8,
+        "partyLoyalty": 9,
+        "corruption": 6,
+        "publicProfile": 5
+      },
+      {
+        "id": "baco",
+        "name": "Jozef Liščák",
+        "party": "hzds",
+        "ministry": "ms",
+        "ideology": 7,
+        "competence": 4,
+        "loyalty": 8,
+        "partyLoyalty": 8,
+        "corruption": 5,
+        "publicProfile": 4
+      },
+      {
+        "id": "schenk",
+        "name": "Pavol Hamžík",
+        "party": "hzds",
+        "ministry": "mzv",
+        "ideology": 6,
+        "competence": 6,
+        "loyalty": 7,
+        "partyLoyalty": 8,
+        "corruption": 3,
+        "publicProfile": 6
+      },
+      {
+        "id": "sitek",
+        "name": "Ján Sitek",
+        "party": "hzds",
+        "ministry": "mo",
+        "ideology": 7,
+        "competence": 5,
+        "loyalty": 9,
+        "partyLoyalty": 9,
+        "corruption": 5,
+        "publicProfile": 5
+      },
+      {
+        "id": "kalman",
+        "name": "Jozef Kalman",
+        "party": "hzds",
+        "ministry": "mh",
+        "ideology": 7,
+        "competence": 5,
+        "loyalty": 8,
+        "partyLoyalty": 9,
+        "corruption": 7,
+        "publicProfile": 5
+      },
+      {
+        "id": "tkac",
+        "name": "Vojtech Tkáč",
+        "party": "zrs",
+        "ministry": "mpsvr",
+        "ideology": 8,
+        "competence": 5,
+        "loyalty": 6,
+        "partyLoyalty": 8,
+        "corruption": 4,
+        "publicProfile": 4
+      },
+      {
+        "id": "javorcik",
+        "name": "Ľubomír Javorčík",
+        "party": "zrs",
+        "ministry": "mz",
+        "ideology": 7,
+        "competence": 4,
+        "loyalty": 5,
+        "partyLoyalty": 7,
+        "corruption": 5,
+        "publicProfile": 3
+      },
+      {
+        "id": "slavkovska",
+        "name": "Eva Slavkovská",
+        "party": "sns_c",
+        "ministry": "msmt",
+        "ideology": 8,
+        "competence": 4,
+        "loyalty": 5,
+        "partyLoyalty": 8,
+        "corruption": 3,
+        "publicProfile": 5
+      },
+      {
+        "id": "rezesm",
+        "name": "Alexander Rezeš",
+        "party": "hzds",
+        "ministry": "mdv",
+        "ideology": 7,
+        "competence": 5,
+        "loyalty": 7,
+        "partyLoyalty": 8,
+        "corruption": 7,
+        "publicProfile": 6
+      },
+      {
+        "id": "zlocha",
+        "name": "Jozef Zlocha",
+        "party": "hzds",
+        "ministry": "mzp",
+        "ideology": 6,
+        "competence": 5,
+        "loyalty": 7,
+        "partyLoyalty": 8,
+        "corruption": 4,
+        "publicProfile": 3
+      },
+      {
+        "id": "hudec_k",
+        "name": "Ivan Hudec",
+        "party": "sns_c",
+        "ministry": "mk",
+        "ideology": 8,
+        "competence": 4,
+        "loyalty": 5,
+        "partyLoyalty": 8,
+        "corruption": 4,
+        "publicProfile": 5
+      },
+      {
+        "id": "baco_p",
+        "name": "Peter Baco",
+        "party": "hzds",
+        "ministry": "mprv",
+        "ideology": 7,
+        "competence": 6,
+        "loyalty": 8,
+        "partyLoyalty": 9,
+        "corruption": 5,
+        "publicProfile": 4
+      }
     ]
   },
   "institutions": {
     "institutions": [
-      { "id": "sis", "name": "Riaditeľ SIS", "emoji": "🕵️", "appointedBy": "pm_parliament", "replaceCost": 8, "description": "Slovenská informačná služba — tajná služba. PM navrhuje, parlament volí." },
-      { "id": "gp", "name": "Generálny prokurátor", "emoji": "⚖️", "appointedBy": "parliament", "replaceCost": 35, "description": "Rozhoduje o trestných stíhaniach. Takmer nemožné odvolať." },
-      { "id": "pp", "name": "Policajný prezident", "emoji": "👮", "appointedBy": "interior", "replaceCost": 10, "description": "Velí polícii. Menuje minister vnútra — kto ovláda MV, ovláda políciu." },
-      { "id": "nbs", "name": "Guvernér NBS", "emoji": "🏦", "appointedBy": "president", "replaceCost": 18, "description": "Národná banka Slovenska. Riadi menovú politiku, kľúčová pre stabilitu koruny." },
-      { "id": "stv", "name": "Riaditeľ STV", "emoji": "📺", "appointedBy": "parliament", "replaceCost": 12, "description": "Slovenská televízia. Verejnoprávne médiá, dôležitý nástroj politického vplyvu." },
-      { "id": "nku", "name": "Predseda NKÚ", "emoji": "📋", "appointedBy": "parliament", "replaceCost": 20, "description": "Najvyšší kontrolný úrad. Audituje vládne výdavky." }
+      {
+        "id": "sis",
+        "name": "Riaditeľ SIS",
+        "emoji": "🕵️",
+        "appointedBy": "pm_parliament",
+        "replaceCost": 8,
+        "description": "Slovenská informačná služba — tajná služba. PM navrhuje, parlament volí."
+      },
+      {
+        "id": "gp",
+        "name": "Generálny prokurátor",
+        "emoji": "⚖️",
+        "appointedBy": "parliament",
+        "replaceCost": 35,
+        "description": "Rozhoduje o trestných stíhaniach. Takmer nemožné odvolať."
+      },
+      {
+        "id": "pp",
+        "name": "Policajný prezident",
+        "emoji": "👮",
+        "appointedBy": "interior",
+        "replaceCost": 10,
+        "description": "Velí polícii. Menuje minister vnútra — kto ovláda MV, ovláda políciu."
+      },
+      {
+        "id": "nbs",
+        "name": "Guvernér NBS",
+        "emoji": "🏦",
+        "appointedBy": "president",
+        "replaceCost": 18,
+        "description": "Národná banka Slovenska. Riadi menovú politiku, kľúčová pre stabilitu koruny."
+      },
+      {
+        "id": "stv",
+        "name": "Riaditeľ STV",
+        "emoji": "📺",
+        "appointedBy": "parliament",
+        "replaceCost": 12,
+        "description": "Slovenská televízia. Verejnoprávne médiá, dôležitý nástroj politického vplyvu."
+      },
+      {
+        "id": "nku",
+        "name": "Predseda NKÚ",
+        "emoji": "📋",
+        "appointedBy": "parliament",
+        "replaceCost": 20,
+        "description": "Najvyšší kontrolný úrad. Audituje vládne výdavky."
+      }
     ],
     "heads": [
-      { "id": "head_sis", "name": "Ivan Lexa", "institution": "sis", "ideology": 8, "competence": 6, "loyalty": 10, "conviction": 2, "termEnd": -1, "appointedBy": "Mečiar 1995" },
-      { "id": "head_gp", "name": "Michal Valek", "institution": "gp", "ideology": 6, "competence": 5, "loyalty": 7, "conviction": 4, "termEnd": 36, "appointedBy": "Mečiar 1994" },
-      { "id": "head_pp", "name": "Jaroslav Svěchota", "institution": "pp", "ideology": 7, "competence": 5, "loyalty": 8, "conviction": 3, "termEnd": -1, "appointedBy": "Hudek 1995" },
-      { "id": "head_nbs", "name": "Vladimír Masár", "institution": "nbs", "ideology": 5, "competence": 7, "loyalty": 4, "conviction": 7, "termEnd": 24, "appointedBy": "Kováč 1993" },
-      { "id": "head_stv", "name": "Ján Klepáč", "institution": "stv", "ideology": 7, "competence": 4, "loyalty": 8, "conviction": 3, "termEnd": 12, "appointedBy": "Mečiar 1996" },
-      { "id": "head_nku", "name": "Štefan Balejík", "institution": "nku", "ideology": 6, "competence": 5, "loyalty": 6, "conviction": 5, "termEnd": 30, "appointedBy": "Mečiar 1994" }
+      {
+        "id": "head_sis",
+        "name": "Ivan Lexa",
+        "institution": "sis",
+        "ideology": 8,
+        "competence": 6,
+        "loyalty": 10,
+        "conviction": 2,
+        "termEnd": -1,
+        "appointedBy": "Mečiar 1995"
+      },
+      {
+        "id": "head_gp",
+        "name": "Michal Valek",
+        "institution": "gp",
+        "ideology": 6,
+        "competence": 5,
+        "loyalty": 7,
+        "conviction": 4,
+        "termEnd": 36,
+        "appointedBy": "Mečiar 1994"
+      },
+      {
+        "id": "head_pp",
+        "name": "Jaroslav Svěchota",
+        "institution": "pp",
+        "ideology": 7,
+        "competence": 5,
+        "loyalty": 8,
+        "conviction": 3,
+        "termEnd": -1,
+        "appointedBy": "Hudek 1995"
+      },
+      {
+        "id": "head_nbs",
+        "name": "Vladimír Masár",
+        "institution": "nbs",
+        "ideology": 5,
+        "competence": 7,
+        "loyalty": 4,
+        "conviction": 7,
+        "termEnd": 24,
+        "appointedBy": "Kováč 1993"
+      },
+      {
+        "id": "head_stv",
+        "name": "Ján Klepáč",
+        "institution": "stv",
+        "ideology": 7,
+        "competence": 4,
+        "loyalty": 8,
+        "conviction": 3,
+        "termEnd": 12,
+        "appointedBy": "Mečiar 1996"
+      },
+      {
+        "id": "head_nku",
+        "name": "Štefan Balejík",
+        "institution": "nku",
+        "ideology": 6,
+        "competence": 5,
+        "loyalty": 6,
+        "conviction": 5,
+        "termEnd": 30,
+        "appointedBy": "Mečiar 1994"
+      }
     ]
   }
 }

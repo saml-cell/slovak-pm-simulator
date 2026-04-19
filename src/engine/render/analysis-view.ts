@@ -1,6 +1,6 @@
 import type { AnalysisResult } from '../types';
 import { getEra, getState } from '../state';
-import { esc } from '../sanitize';
+import { esc, normalizeText } from '../sanitize';
 
 export function showAnalysis(a: AnalysisResult) {
   const G = getState();
@@ -50,10 +50,13 @@ export function showAnalysis(a: AnalysisResult) {
     <div class="press-column right"><div class="press-outlet">${esc(hl.right.name)}</div><div class="press-headline">${esc(pr.right.headline)}</div><div class="press-subhead" style="margin-top:6px;line-height:1.5">${esc(pr.right.subhead)}</div></div>
   </div>`;
 
-  const policy = G.history.length ? G.history[G.history.length - 1].p.toLowerCase() : '';
+  // Normalize BOTH sides: strips diacritics (á→a), lowercases, splits
+  // camelCase and underscores so legacy tokens like "plochaDan" or
+  // "efsf_nie" match natural input like "plochá daň" or "efsf nie".
+  const policy = G.history.length ? normalizeText(G.history[G.history.length - 1].p) : '';
   const polHtml = era.politicians.map(pol => {
-    const hasPos = pol.kw_pos.some(k => policy.includes(k));
-    const hasNeg = pol.kw_neg.some(k => policy.includes(k));
+    const hasPos = pol.kw_pos.some(k => policy.includes(normalizeText(k)));
+    const hasNeg = pol.kw_neg.some(k => policy.includes(normalizeText(k)));
     let reaction: string, mood: string;
     if (hasPos && !hasNeg) { mood = 'pos'; reaction = pol.reactions.pos[Math.floor(Math.random() * pol.reactions.pos.length)]; }
     else if (hasNeg && !hasPos) { mood = 'neg'; reaction = pol.reactions.neg[Math.floor(Math.random() * pol.reactions.neg.length)]; }

@@ -107,11 +107,16 @@ export function proceed(a: AnalysisResult) {
 
   // Any consequence chain keyed off a flag we just set gets scheduled once,
   // gated by a _cc_<flag> marker so re-setting the flag can't re-trigger.
+  // Chains whose fire month falls beyond the era's final month are skipped
+  // — scheduling them at totalMonths-1 used to mean they got clamped onto
+  // the last tick, then never fired because gameOver triggers before
+  // displayEvent() on the final month.
   const chains = era.consequenceChains || [];
   for (const chain of chains) {
     if (G.flags[chain.flag] && !G.flags['_cc_' + chain.flag]) {
       G.flags['_cc_' + chain.flag] = true;
-      const fireMonth = Math.min(G.month + chain.delay, era.totalMonths - 1);
+      const fireMonth = G.month + chain.delay;
+      if (fireMonth >= era.totalMonths - 1) continue;
       G.cq.push({
         ev: chain.ev,
         fire: fireMonth,
@@ -150,11 +155,13 @@ export function proceed(a: AnalysisResult) {
   }
 
   if (a.consequence) {
-    const fireMonth = Math.min(G.month + (a.consequence.delay || 3), era.totalMonths - 1);
-    G.cq.push({
-      ev: { h: a.consequence.headline, d: a.consequence.description, cat: 'Ekonomika', s: ['Riešiť', 'Ignorovať', 'Kompromis'] },
-      fire: fireMonth, originP: G.history[G.history.length - 1]?.p || '', originM: G.month, prob: a.consequence.probability || .5
-    });
+    const fireMonth = G.month + (a.consequence.delay || 3);
+    if (fireMonth < era.totalMonths - 1) {
+      G.cq.push({
+        ev: { h: a.consequence.headline, d: a.consequence.description, cat: 'Ekonomika', s: ['Riešiť', 'Ignorovať', 'Kompromis'] },
+        fire: fireMonth, originP: G.history[G.history.length - 1]?.p || '', originM: G.month, prob: a.consequence.probability || .5
+      });
+    }
   }
 
   Object.entries(G.cp).forEach(([id, p]) => { if (p.on) p.sat = G.sScores[id] || 50; });

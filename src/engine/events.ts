@@ -19,11 +19,18 @@ function getEvent(m: number): ActiveEvent {
   const G = getState();
   const era = getEra();
 
-  // Scheduled consequences fire (or fizzle and get dropped) in order.
-  const cqs = G.cq.filter(c => c.fire === m);
-  for (const cq of cqs) {
+  // Scheduled consequences due this month (or earlier — catches stale
+  // entries from bugs in prior builds). Only one consequence can fire per
+  // month; the rest — whether they fizzle on probability or lose the
+  // first-come slot — are dropped from the queue so they don't accumulate.
+  // Prior behaviour: a successful first consequence returned immediately
+  // while the rest stayed in G.cq with fire <= m and never got consumed
+  // (next month's filter uses fire === m+1). Over a full era those orphans
+  // added up to hundreds of dead entries in memory.
+  const dueCqs = G.cq.filter(c => c.fire <= m);
+  G.cq = G.cq.filter(c => c.fire > m);
+  for (const cq of dueCqs) {
     if (Math.random() < cq.prob) {
-      G.cq = G.cq.filter(c => c !== cq);
       return {
         id: 'csq_' + m,
         headline: cq.ev.h || '',
@@ -36,7 +43,6 @@ function getEvent(m: number): ActiveEvent {
         originMonth: cq.originM,
       };
     }
-    G.cq = G.cq.filter(c => c !== cq);
   }
 
   const fe = era.forcedEvents.find(e => e.m === m && !G.used.has(e.id));

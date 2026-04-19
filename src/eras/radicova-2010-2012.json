@@ -559,10 +559,13 @@
       "role": "Predseda NR SR / Predseda SaS",
       "emoji": "🔷",
       "kw_pos": [
-        "plochaDan",
+        "rovna dan",
+        "rovnu dan",
+        "plocha dan",
+        "plochu dan",
         "sloboda",
         "ekonomika",
-        "efsf_nie",
+        "efsf",
         "byrokracia"
       ],
       "kw_neg": [
@@ -736,7 +739,7 @@
         "nato",
         "reforma",
         "liberalizmus",
-        "zahranicnaPolitika"
+        "zahranic"
       ],
       "kw_neg": [
         "populizmus",
@@ -782,7 +785,7 @@
       ],
       "kw_neg": [
         "korupcia",
-        "organizovanyZlocin",
+        "zlocin",
         "beztrestnost"
       ],
       "reactions": {
@@ -817,7 +820,7 @@
       "emoji": "🟠",
       "kw_pos": [
         "rodina",
-        "krestanskeHodnoty",
+        "krestan",
         "skolstvo",
         "cirkev",
         "etika"
@@ -1130,44 +1133,6 @@
       "e": {
         "gdpGrowth": 0.1,
         "deficit": -0.2
-      }
-    },
-    "efsf_nie": {
-      "p": {
-        "tibor": 8,
-        "ondrej_r": -5,
-        "peter_g": 2
-      },
-      "s": {
-        "eu_nato": -7,
-        "smer": 4,
-        "imf_ecb": -5,
-        "business": -3
-      },
-      "dp": {
-        "eu": -6,
-        "usa": -3
-      },
-      "e": {
-        "gdpGrowth": -0.1
-      }
-    },
-    "plochaDan": {
-      "p": {
-        "tibor": 10,
-        "ondrej_r": 5,
-        "peter_g": -3,
-        "zuzana_r": -4,
-        "elena_r": -5
-      },
-      "s": {
-        "business": 7,
-        "smer": -5,
-        "unions": -4
-      },
-      "e": {
-        "gdpGrowth": 0.1,
-        "deficit": -0.1
       }
     },
     "austerita": {
@@ -1998,6 +1963,98 @@
         "roma_comm": -9,
         "eu_nato": -4,
         "smer": 3
+      }
+    },
+    "efsf protivnici": {
+      "p": {
+        "tibor": 8,
+        "ondrej_r": -5,
+        "peter_g": 2
+      },
+      "s": {
+        "eu_nato": -7,
+        "smer": 4,
+        "imf_ecb": -5,
+        "business": -3
+      },
+      "dp": {
+        "eu": -6,
+        "usa": -3
+      },
+      "e": {
+        "gdpGrowth": -0.1
+      }
+    },
+    "rovna dan": {
+      "p": {
+        "tibor": 10,
+        "ondrej_r": 5,
+        "peter_g": -3,
+        "zuzana_r": -4,
+        "elena_r": -5
+      },
+      "s": {
+        "business": 7,
+        "smer": -5,
+        "unions": -4
+      },
+      "e": {
+        "gdpGrowth": 0.1,
+        "deficit": -0.1
+      }
+    },
+    "rovnu dan": {
+      "p": {
+        "tibor": 10,
+        "ondrej_r": 5,
+        "peter_g": -3,
+        "zuzana_r": -4,
+        "elena_r": -5
+      },
+      "s": {
+        "business": 7,
+        "smer": -5,
+        "unions": -4
+      },
+      "e": {
+        "gdpGrowth": 0.1,
+        "deficit": -0.1
+      }
+    },
+    "plocha dan": {
+      "p": {
+        "tibor": 10,
+        "ondrej_r": 5,
+        "peter_g": -3,
+        "zuzana_r": -4,
+        "elena_r": -5
+      },
+      "s": {
+        "business": 7,
+        "smer": -5,
+        "unions": -4
+      },
+      "e": {
+        "gdpGrowth": 0.1,
+        "deficit": -0.1
+      }
+    },
+    "plochu dan": {
+      "p": {
+        "tibor": 10,
+        "ondrej_r": 5,
+        "peter_g": -3,
+        "zuzana_r": -4,
+        "elena_r": -5
+      },
+      "s": {
+        "business": 7,
+        "smer": -5,
+        "unions": -4
+      },
+      "e": {
+        "gdpGrowth": 0.1,
+        "deficit": -0.1
       }
     }
   },
