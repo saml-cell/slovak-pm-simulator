@@ -3634,5 +3634,54 @@
         "appointedBy": "Mečiar 1994"
       }
     ]
-  }
+  },
+  "signatureLaws": [
+    {
+      "id": "amnesty_meciar",
+      "name": "Mečiarove amnestie",
+      "description": "Amnestia pre tých, ktorí sa podieľali na únose Kováča ml. a referende. Posilňuje vašu moc, ale postaví proti vám justíciu a EÚ.",
+      "approvalMod": 0.0,
+      "stabilityMod": 0.5,
+      "coalitionMod": 0.0,
+      "implMod": -2,
+      "flags": {
+        "law_meciar_amnesties_passed": true
+      },
+      "econOnce": {},
+      "realHistoricalRef": "1998 — Mečiar vyhlásil amnestie tesne pred odchodom z funkcie. Rušené až 2017."
+    },
+    {
+      "id": "language_law_1995",
+      "name": "Zákon o štátnom jazyku",
+      "description": "Slovenčina ako výhradný jazyk v úradnom styku. Posilní národnú identitu, ale rozhnevá maďarskú menšinu a EÚ.",
+      "approvalMod": 0.2,
+      "stabilityMod": 0.0,
+      "coalitionMod": 0.0,
+      "implMod": 0,
+      "flags": {
+        "law_lang_strict_passed": true
+      },
+      "econOnce": {
+        "deficit": 0.1
+      },
+      "realHistoricalRef": "1995 — zákon č. 270/1995, kritika OSCE a Rady Európy."
+    },
+    {
+      "id": "privatization_meciar",
+      "name": "Kupónová privatizácia (II. vlna)",
+      "description": "Veľké podniky preberajú spriaznené osoby. Vytvára domácu kapitálovú vrstvu, ale fundamentálne deformuje ekonomiku.",
+      "approvalMod": -0.1,
+      "stabilityMod": 0.2,
+      "coalitionMod": 0.3,
+      "implMod": 0,
+      "flags": {
+        "law_privat_meciar_passed": true
+      },
+      "econOnce": {
+        "gdpGrowth": 0.5,
+        "deficit": 0.5
+      },
+      "realHistoricalRef": "1995-96 — privatizácia FNM bez verejných tendrov."
+    }
+  ]
 }

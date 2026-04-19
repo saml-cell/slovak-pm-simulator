@@ -3682,5 +3682,56 @@
         "appointedBy": "Parlament 2005"
       }
     ]
-  }
+  },
+  "signatureLaws": [
+    {
+      "id": "gorila_law",
+      "name": "Protikorupčný zákon (Gorila)",
+      "description": "Špeciálny prokurátor pre korupciu, transparentné registre, konfiškácia majetku z trestnej činnosti. Trvalo zvyšuje stabilitu a posilňuje justíciu — ale poštve oligarchov.",
+      "approvalMod": 0.3,
+      "stabilityMod": 0.4,
+      "coalitionMod": -0.1,
+      "implMod": 0,
+      "flags": {
+        "law_gorila_passed": true
+      },
+      "econOnce": {
+        "deficit": 0.1
+      },
+      "realHistoricalRef": "Vláda Radičovej pripravila balík proti-korupčných opatrení, ktorý nebol prijatý pred pádom vlády."
+    },
+    {
+      "id": "fiscal_council_law",
+      "name": "Rada pre rozpočtovú zodpovednosť",
+      "description": "Nezávislá kontrola štátneho rozpočtu. Trvalo zlepšuje fiškálnu disciplínu, ale zviaže ruky budúcim vládam.",
+      "approvalMod": 0.0,
+      "stabilityMod": 0.3,
+      "coalitionMod": -0.2,
+      "implMod": 1,
+      "flags": {
+        "law_frrz_passed": true
+      },
+      "econOnce": {
+        "deficit": -0.3,
+        "debt": -1.0
+      },
+      "realHistoricalRef": "Zriadená v decembri 2011 ako súčasť odpovede na dlhovú krízu eurozóny."
+    },
+    {
+      "id": "judicial_reform_law",
+      "name": "Reforma justície (rozkrytie spisov)",
+      "description": "Otvorenie spisov ŠtB, zverejnenie majetkových priznaní sudcov, výber sudcov verejnou súťažou. Posilní transparentnosť, ale vyvolá ohnivú reakciu súdnej kasty.",
+      "approvalMod": 0.5,
+      "stabilityMod": -0.2,
+      "coalitionMod": 0.0,
+      "implMod": 0,
+      "flags": {
+        "law_judicial_reform_passed": true
+      },
+      "econOnce": {
+        "deficit": 0.05
+      },
+      "realHistoricalRef": "Niektoré súčasti pripravoval minister Lipšic; reforma kompletne zlyhala v ďalších volebných obdobiach."
+    }
+  ]
 }

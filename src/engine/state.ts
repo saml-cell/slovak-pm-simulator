@@ -80,6 +80,8 @@ export function initGame(): GameState {
     },
     mood: 'honeymoon',
     moodUntil: 3,  // honeymoon lasts 3 months
+    laws: [],
+    stakeholderDemands: {},
   };
   era.personas.forEach(p => {
     const leanScores: Record<string, number> = {

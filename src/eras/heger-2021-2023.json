@@ -3883,5 +3883,58 @@
         "appointedBy": "Parlament 2020"
       }
     ]
-  }
+  },
+  "signatureLaws": [
+    {
+      "id": "ukraine_aid_package",
+      "name": "Vojenská a humanitárna pomoc Ukrajine",
+      "description": "Tanky, S-300, utečenci. Posilňuje váš západný profil a nahnevá Rusko.",
+      "approvalMod": 0.0,
+      "stabilityMod": 0.2,
+      "coalitionMod": -0.1,
+      "implMod": 0,
+      "flags": {
+        "law_ukraine_aid_passed": true
+      },
+      "econOnce": {
+        "deficit": 1.5,
+        "fdi": 0.5
+      },
+      "realHistoricalRef": "2022 — pod Hegerom Slovensko bolo medzi prvými s ťažkou výzbrojou."
+    },
+    {
+      "id": "consolidation_eu_funds",
+      "name": "Konsolidačné opatrenia + Plán obnovy",
+      "description": "EU recovery fund čerpanie + úspory. Zvyšuje úroveň investícií, ale tvrdé politické náklady.",
+      "approvalMod": -0.2,
+      "stabilityMod": 0.0,
+      "coalitionMod": 0.0,
+      "implMod": 1,
+      "flags": {
+        "law_consolidation_heger_passed": true
+      },
+      "econOnce": {
+        "deficit": -0.8,
+        "gdpGrowth": 0.4,
+        "fdi": 1.0
+      },
+      "realHistoricalRef": "2021-22 — Plán obnovy a odolnosti, 6,3 mld €."
+    },
+    {
+      "id": "energy_help_package",
+      "name": "Energetické dotácie",
+      "description": "Strop cien energií pre domácnosti. Politicky nutné, fiškálne ťažké.",
+      "approvalMod": 0.3,
+      "stabilityMod": 0.1,
+      "coalitionMod": 0.0,
+      "implMod": 0,
+      "flags": {
+        "law_energy_cap_passed": true
+      },
+      "econOnce": {
+        "deficit": 2.0
+      },
+      "realHistoricalRef": "2022-23 — strop cien plynu a elektriny pre domácnosti."
+    }
+  ]
 }

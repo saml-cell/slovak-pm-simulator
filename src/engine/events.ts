@@ -117,6 +117,40 @@ export function displayEvent() {
     oe.style.display = 'none';
   }
 
+  // Advisor counsel: on crisis-tier events, surface 1-2 short politician
+  // quotes hinting at consequences. Picked by overlap between event
+  // headline keywords and politician kw_pos/kw_neg. Drawn from
+  // pol.reactions.neu (advisory tone). Displayed above suggestions; on
+  // non-crisis events the box stays hidden so the standard flow is
+  // unchanged. This is the Suzerain "advisor counsels before decision"
+  // pattern, scoped down to a small flavor strip.
+  const advisorBox = document.getElementById('advisorCounsel');
+  if (advisorBox) {
+    if (ev.tier === 'crisis') {
+      const era = getEra();
+      const evText = (ev.headline + ' ' + ev.description).toLowerCase();
+      const candidates = era.politicians
+        .map(p => {
+          const overlap = [...p.kw_pos, ...p.kw_neg].filter(k => evText.includes(k.toLowerCase())).length;
+          return { p, overlap };
+        })
+        .filter(x => x.overlap > 0)
+        .sort((a, b) => b.overlap - a.overlap)
+        .slice(0, 2);
+      const fallback = era.politicians.slice(0, 2).map(p => ({ p, overlap: 0 }));
+      const pick = candidates.length ? candidates : fallback;
+      advisorBox.style.display = 'block';
+      advisorBox.innerHTML = '<div style="font-size:.7rem;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">Poradcovia hovoria</div>' +
+        pick.map(({ p }) => {
+          const quote = p.reactions.neu[Math.floor(Math.random() * p.reactions.neu.length)] || '...';
+          return `<div style="display:flex;gap:10px;align-items:flex-start;padding:6px 8px;border-left:2px solid rgba(201,168,76,.3);margin-bottom:4px"><span style="font-size:1.1rem">${esc(p.emoji)}</span><div style="flex:1"><div style="font-size:.7rem;color:#fff;font-weight:600">${esc(p.name)} <span style="color:var(--text-dim);font-weight:400;font-style:italic">— ${esc(p.role)}</span></div><div style="font-size:.75rem;color:var(--text-dim);font-style:italic;margin-top:2px">"${esc(quote)}"</div></div></div>`;
+        }).join('');
+    } else {
+      advisorBox.style.display = 'none';
+      advisorBox.innerHTML = '';
+    }
+  }
+
   el('suggestionsContainer').innerHTML = ev.suggestions.map(s =>
     `<div class="suggestion-chip" onclick="document.getElementById('policyInput').value=this.textContent;window.__updateCC()">${esc(s)}</div>`
   ).join('');

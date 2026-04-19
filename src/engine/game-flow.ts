@@ -6,6 +6,52 @@ import { esc } from './sanitize';
 import { trackAnalytics } from './analytics';
 import { clamp, applyMomentum, socialInfluence, econFeedback, policyConsistency, oppositionMove, nashBargaining, simulateElection, businessCycleTick, deficitDynamics, euFundsLink, smartMinWage, econCrisisCheck, incumbencyPenalty, crisisFatigueTick, politicalCapitalTick, diploFeedback, computeShapley, fiscalHealth, fdiDynamics, okunsLaw, mediaCycleTick, updatePolling, laborMarketTick, brainDrainTick, oligarchicTick, mediaEcosystemTick, courtTick, courtIdeologyScore, cabinetTick, cabinetImplementationMod, institutionsTick } from './advanced';
 
+// Stakeholder demands (Tropico-style faction demands extended to non-
+// coalition groups). Every 5 months, scan stakeholders. If sScore < 45
+// and no active demand, post one — drawn from era.demands matching the
+// stakeholder id, or generated. Player addresses by writing a policy
+// that touches the stakeholder's topic. Unaddressed demands decay
+// sScore by ~2/month while active.
+function updateStakeholderDemands(G: GameState, era: ReturnType<typeof getEra>): string[] {
+  const messages: string[] = [];
+  const coalitionIds = new Set(era.coalitionPartners.map(cp => cp.id));
+
+  // Decay any active demand that's been hanging > 1 month
+  for (const [sid, dem] of Object.entries(G.stakeholderDemands)) {
+    const age = G.month - dem.postedAt;
+    if (age >= 1) {
+      G.sScores[sid] = Math.max(5, (G.sScores[sid] || 50) - 2);
+    }
+    if (age >= 4) {
+      // Demand expired unaddressed — sticks as long-term grudge flag
+      G.flags[`demand_unmet_${sid}`] = true;
+      delete G.stakeholderDemands[sid];
+      messages.push(`💢 ${sid.toUpperCase()}: požiadavka nesplnená — obvinia vládu z ignorovania.`);
+    }
+  }
+
+  // Publish new demands every 5 months
+  if (G.month > 0 && G.month % 5 === 0) {
+    for (const sh of era.stakeholders) {
+      if (coalitionIds.has(sh.id)) continue;        // coalition uses its own plot path
+      if (G.stakeholderDemands[sh.id]) continue;    // already has a demand
+      const sScore = G.sScores[sh.id] || 50;
+      if (sScore >= 45) continue;                   // happy enough — no demand
+      // Find an era demand matching this stakeholder, fallback to generic
+      const matched = era.demands.find(d => d.partner === sh.id);
+      const text = matched
+        ? matched.text
+        : `${sh.name} žiada vládu, aby sa konkrétne zaoberala ich situáciou.`;
+      G.stakeholderDemands[sh.id] = {
+        text, postedAt: G.month,
+      };
+      messages.push(`📣 ${sh.name}: ${text}`);
+    }
+  }
+
+  return messages;
+}
+
 // Coalition-partner plot state machine. Partners whose satisfaction stays
 // below 40 start plotting (plotSince set to current month). After 4 months
 // of unresolved plotting they either defect outright (20% chance per month
@@ -153,6 +199,111 @@ function closeModal() {
   document.getElementById('coalitionModal')!.classList.remove('active');
 }
 
+// Signature law: one per era, irreversible.
+// Adopted via the "Prijať zákon" action on the dashboard. Adoption costs
+// 30 political capital + applies econOnce + flags immediately. After
+// adoption, the approval/stability/coalition monthly modifiers are added
+// in proceed().
+export function adoptLaw(lawId: string): void {
+  const G = getState();
+  const era = getEra();
+  if (G.laws.length > 0) return;  // cap: 1 per era
+  const law = (era.signatureLaws || []).find(l => l.id === lawId);
+  if (!law) return;
+  if (G.politicalCapital < 30) return;
+  G.politicalCapital -= 30;
+  G.laws.push(law);
+  if (law.flags) Object.assign(G.flags, law.flags);
+  if (law.econOnce) {
+    Object.entries(law.econOnce).forEach(([k, d]) => {
+      if (d === undefined) return;
+      const ek = k as keyof EconomyState;
+      if (ek in G.econ) G.econ[ek] = (G.econ[ek] as number) + d;
+    });
+  }
+  updateDash();
+}
+
+window.__adoptLaw = adoptLaw;
+
+// Player-initiated intrigue actions (CK3-style schemes, minimum viable).
+// Three generic schemes available to any era. Each costs political capital
+// and applies an immediate effect; no multi-month progress bars in this
+// PoC. Future expansion: era-specific schemes with scheduled reveal.
+export interface SchemeOption {
+  id: string;
+  name: string;
+  description: string;
+  capCost: number;
+  apply: (G: GameState) => string;  // returns a flavour message
+}
+
+export const SCHEMES: SchemeOption[] = [
+  {
+    id: 'press_leak',
+    name: 'Únik do médií',
+    description: 'Tajne dodáte spis novinárom. Opozícia oslabne, ale ak sa to prevalí, vážny škandál.',
+    capCost: 20,
+    apply: (G) => {
+      G.oppositionPressure = Math.max(0, G.oppositionPressure - 10);
+      if (Math.random() < 0.25) {
+        G.flags.scheme_leak_exposed = true;
+        G.approval = clamp(G.approval - 5);
+        return '🔍 Únik prevalený! Opozícia získala kompromat — podpora −5.';
+      }
+      return '📰 Únik bol úspešný — opozícia stratila pôdu pod nohami.';
+    },
+  },
+  {
+    id: 'commission_poll',
+    name: 'Objednať prieskum',
+    description: 'Súkromný prieskum, ktorý ukáže reálnu podporu po regiónoch. Pomôže pri ďalšom rozhodnutí.',
+    capCost: 10,
+    apply: (G) => {
+      G.flags.fresh_poll_data = true;
+      G.pollError = Math.max(0.5, G.pollError * 0.4);
+      return `📊 Prieskum: pollApproval ${Math.round(G.pollApproval)} ± ${G.pollError.toFixed(1)}%.`;
+    },
+  },
+  {
+    id: 'oligarch_bribe',
+    name: 'Tajná dohoda s oligarchom',
+    description: 'Oligarch dodá hlasy v parlamente výmenou za regulačnú výhodu. Riziko expozície vás môže zničiť.',
+    capCost: 30,
+    apply: (G) => {
+      G.oligarchicTies = Math.min(100, G.oligarchicTies + 5);
+      G.coalition = clamp(G.coalition + 4);
+      Object.values(G.cp).forEach(cp => { if (cp.on) cp.sat = Math.min(100, cp.sat + 3); });
+      if (Math.random() < 0.15) {
+        G.flags.scheme_bribe_exposed = true;
+        G.approval = clamp(G.approval - 10);
+        G.stability = clamp(G.stability - 8);
+        return '⚖️ Dohoda prevalená! Médiá majú dôkazy — podpora −10, stabilita −8.';
+      }
+      return '🤝 Dohoda uzavretá — koalícia pevnejšia o niekoľko percent.';
+    },
+  },
+];
+
+export function initiateScheme(schemeId: string): void {
+  const G = getState();
+  const scheme = SCHEMES.find(s => s.id === schemeId);
+  if (!scheme) return;
+  if (G.politicalCapital < scheme.capCost) return;
+  G.politicalCapital -= scheme.capCost;
+  const msg = scheme.apply(G);
+  G.flags[`scheme_used_${schemeId}_${G.month}`] = true;
+  updateDash();
+  // Surface flavour in the warning banner area
+  const wb = document.getElementById('warningBanner');
+  if (wb) {
+    wb.innerHTML = (wb.innerHTML ? wb.innerHTML + '<br>' : '') + msg;
+    wb.classList.add('show');
+  }
+}
+
+window.__initiateScheme = initiateScheme;
+
 export function proceed(a: AnalysisResult) {
   const G = getState();
   const era = getEra();
@@ -179,6 +330,17 @@ export function proceed(a: AnalysisResult) {
   G.stability = clamp(G.stability + a.stD * ir * mood.stabilityMult);
   G.coalition = clamp(G.coalition + a.cD * ir * mood.coalitionMult);
   G.impl = a.cb.implementationRate || G.impl;
+
+  // Signature-law monthly modifiers: every adopted law contributes its
+  // per-turn approval/stability/coalition/impl delta. Applied after the
+  // main policy effects so the law can feel like a steady tail-wind
+  // (or headwind) independent of the current event.
+  for (const law of G.laws) {
+    if (law.approvalMod) G.approval = clamp(G.approval + law.approvalMod);
+    if (law.stabilityMod) G.stability = clamp(G.stability + law.stabilityMod);
+    if (law.coalitionMod) G.coalition = clamp(G.coalition + law.coalitionMod);
+    if (law.implMod) G.impl = clamp(G.impl + law.implMod, 20, 100);
+  }
 
   blendScores(G.pScores, a.pScores);
   blendScores(G.sScores, a.sScores);
@@ -334,6 +496,24 @@ export function proceed(a: AnalysisResult) {
   nashBargaining(G, era);
   updateMood(G);
   const plotMessage = updateCoalitionPlots(G);
+  const demandMessages = updateStakeholderDemands(G, era);
+  // Resolve demands the player may have just addressed: if their policy's
+  // event topic matched a published demand's stakeholder, give the
+  // stakeholder a satisfaction boost and clear the demand. (Crude but
+  // matches the existing topic-tagging machinery without new state.)
+  const eventTopic = G.event?.category;
+  if (eventTopic) {
+    for (const [sid, _dem] of Object.entries(G.stakeholderDemands)) {
+      // If sScore moved up by ≥3 this turn, treat the demand as addressed
+      const before = G.sScores[sid] || 50;
+      const after = a.sScores[sid] || 50;
+      if (after - before >= 3) {
+        G.sScores[sid] = Math.min(95, before + 8);
+        delete G.stakeholderDemands[sid];
+        demandMessages.push(`✅ ${sid.toUpperCase()}: požiadavka splnená — vďačnosť +8.`);
+      }
+    }
+  }
 
   try {
     const sv = JSON.parse(JSON.stringify(G)) as Omit<GameState, 'used'> & { used: string[] };
@@ -356,6 +536,7 @@ export function proceed(a: AnalysisResult) {
       if (G.court.pendingVacancies > 0) extras.push('🏛️ Ústavný súd: ' + G.court.pendingVacancies + ' voľné miesta');
       if (G.institutions.capturedCount >= 4) extras.push('⚠️ EÚ varuje pred úpadkom inštitúcií');
       if (plotMessage) extras.push(plotMessage);
+      for (const m of demandMessages) extras.push(m);
       if (extras.length) {
         const existing = wb.innerHTML;
         wb.innerHTML = (existing ? existing + '<br>' : '') + extras.join('<br>');

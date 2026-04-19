@@ -68,6 +68,31 @@ export interface DiploEntity {
   emoji?: string;
 }
 
+// Signature law: one per era, unrepealable, adopted via a dedicated event.
+// Modifies approval/stability/coalition baselines permanently and often sets
+// one or more flags downstream consequence chains can read. Eras expose a
+// small menu (`signatureLaws`) of flavour-appropriate choices (e.g.
+// Dzurinda → "Rovná daň 19%"; Radičová → "Gorila-zákon"; Fico 2023 →
+// "Zrušenie ÚŠP"). When a law is passed, it lands in GameState.laws and
+// the `signatureLaws` menu is consumed. A single law per era cap keeps
+// the mechanic from over-reaching.
+export interface SignatureLaw {
+  id: string;
+  name: string;
+  description: string;
+  // Permanent per-turn modifiers applied every subsequent proceed().
+  approvalMod?: number;   // e.g. +1 per month
+  stabilityMod?: number;
+  coalitionMod?: number;
+  implMod?: number;
+  // Flags set on adoption — consequence chains can key off these.
+  flags?: { [key: string]: boolean | undefined };
+  // Economic impact (applied once at adoption).
+  econOnce?: { [key: string]: number | undefined };
+  // Narrative: what the historical analogue was.
+  realHistoricalRef?: string;
+}
+
 export interface KeywordEffect {
   p?: Record<string, number>;
   s?: Record<string, number>;
@@ -232,6 +257,7 @@ export interface EraConfig {
   court?: CourtConfig;
   cabinet?: CabinetConfig;
   institutions?: InstitutionsConfig;
+  signatureLaws?: SignatureLaw[];
 }
 
 export interface CourtJudge {
@@ -437,6 +463,17 @@ export interface GameState {
   // 'normal' otherwise. See applyMoodModifier() in game-flow.ts.
   mood: 'honeymoon' | 'normal' | 'crisis' | 'mourning';
   moodUntil: number;  // month when non-normal mood expires
+  // Adopted signature laws (append-only). Exactly one per era (for now).
+  // Each adoption applies econOnce + flags immediately, and the
+  // approvalMod/stabilityMod etc. are added every proceed() after.
+  laws: SignatureLaw[];
+  // Active stakeholder demands. Key = stakeholderId. Each demand was
+  // published by the engine when that stakeholder's sScore dropped below
+  // ~45 and ≥ 4 months had passed since the last demand. Player addresses
+  // a demand by writing a policy that touches the stakeholder's topic
+  // (resolved on next policy submission). Unaddressed demands decay
+  // sScore further.
+  stakeholderDemands: Record<string, { text: string; postedAt: number; topic?: string }>;
 }
 
 export type Mood = GameState['mood'];
@@ -494,5 +531,8 @@ declare global {
     __closeModal: () => void;
     __handleDem: (id: string, action: string) => void;
     __kickP: (id: string) => void;
+    __adoptLaw: (lawId: string) => void;
+    __respondDemand: (stakeholderId: string, action: string) => void;
+    __initiateScheme: (schemeId: string) => void;
   }
 }

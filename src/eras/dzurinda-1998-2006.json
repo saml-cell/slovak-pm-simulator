@@ -3915,5 +3915,58 @@
         "appointedBy": "Mečiar 1994"
       }
     ]
-  }
+  },
+  "signatureLaws": [
+    {
+      "id": "flat_tax_19",
+      "name": "Rovná daň 19%",
+      "description": "Jednotná daňová sadzba 19% pre PIT, PIT a DPH. Atraktívne pre investorov, deformuje sociálnu spravodlivosť.",
+      "approvalMod": -0.1,
+      "stabilityMod": 0.0,
+      "coalitionMod": 0.2,
+      "implMod": 1,
+      "flags": {
+        "law_flat_tax_passed": true
+      },
+      "econOnce": {
+        "gdpGrowth": 0.6,
+        "fdi": 2.0,
+        "deficit": 0.3
+      },
+      "realHistoricalRef": "2004 — Mikloš/Dzurinda; ostala v platnosti do 2013."
+    },
+    {
+      "id": "second_pension_pillar",
+      "name": "Druhý penzijný pilier",
+      "description": "Časť odvodov ide do súkromných správcovských spoločností. Reforma napriek odporu, generačná zmena.",
+      "approvalMod": -0.2,
+      "stabilityMod": 0.0,
+      "coalitionMod": 0.0,
+      "implMod": 0,
+      "flags": {
+        "law_pension_pillar_passed": true
+      },
+      "econOnce": {
+        "deficit": 1.0
+      },
+      "realHistoricalRef": "2005 — Kaník/Dzurinda; ostal v platnosti, znížený 2013."
+    },
+    {
+      "id": "eu_nato_accession",
+      "name": "Vstup do EÚ a NATO",
+      "description": "Definitívny krok do západnej integrácie. Trvalá ochrana medzinárodným systémom.",
+      "approvalMod": 0.5,
+      "stabilityMod": 0.4,
+      "coalitionMod": 0.0,
+      "implMod": 1,
+      "flags": {
+        "law_eu_nato_in_passed": true
+      },
+      "econOnce": {
+        "fdi": 3.0,
+        "gdpGrowth": 0.3
+      },
+      "realHistoricalRef": "2004 — Slovensko vstúpilo do oboch organizácií 1. mája."
+    }
+  ]
 }

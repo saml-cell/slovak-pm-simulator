@@ -1,5 +1,6 @@
 import { getEra, getState, getFullDate, coalitionSeats } from '../state';
 import { esc } from '../sanitize';
+import { SCHEMES } from '../game-flow';
 
 function upMetric(valId: string, fillId: string, trendId: string, val: number, prev: number) {
   const el = document.getElementById(valId);
@@ -275,8 +276,43 @@ export function updateDash() {
   document.getElementById('dashHistory')!.innerHTML = renderHistoryPanel();
 
   const instEl = document.getElementById('dashInstitutions');
-  if (instEl) instEl.innerHTML = renderCourt() + renderCabinet() + renderInstitutions();
+  if (instEl) instEl.innerHTML = renderCourt() + renderCabinet() + renderInstitutions() + renderLaws() + renderSchemes();
 }
+
+function renderSchemes(): string {
+  const G = getState();
+  const items = SCHEMES.map(s => {
+    const can = G.politicalCapital >= s.capCost;
+    const onClick = can ? `onclick="window.__initiateScheme('${esc(s.id)}')"` : 'disabled';
+    return `<div style="padding:8px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:4px;font-size:.75rem;margin:4px 0">
+      <strong style="color:#fff">${esc(s.name)}</strong>
+      <div style="color:var(--text-dim);font-size:.7rem;margin:3px 0">${esc(s.description)}</div>
+      <button style="background:${can ? 'var(--gold)' : 'rgba(100,100,100,.2)'};color:${can ? '#1a1a1a' : 'var(--text-dim)'};border:0;border-radius:4px;padding:5px 10px;font-size:.7rem;font-weight:700;cursor:${can ? 'pointer' : 'not-allowed'};margin-top:4px" ${onClick}>Spustiť (−${s.capCost} PC)</button>
+    </div>`;
+  }).join('');
+  return `<div class="dashboard-panel"><div class="panel-title">🕵️ Tajné akcie</div><div style="font-size:.65rem;color:var(--text-dim);margin-bottom:6px">Politický kapitál: ${Math.round(G.politicalCapital)}/100. Riziko expozície na každom ťahu.</div>${items}</div>`;
+}
+
+
+function renderLaws(): string {
+  const G = getState();
+  const era = getEra();
+  const menu = era.signatureLaws || [];
+  if (!menu.length && !G.laws.length) return '';
+  const passed = G.laws.length
+    ? G.laws.map(l => `<div style="padding:6px 8px;background:rgba(74,222,128,.08);border-left:3px solid var(--green);border-radius:3px;font-size:.75rem;margin:3px 0"><strong style="color:#fff">✓ ${esc(l.name)}</strong><div style="color:var(--text-dim);font-size:.7rem;margin-top:2px">${esc(l.description)}</div>${l.realHistoricalRef ? `<div style="color:var(--gold);font-size:.65rem;margin-top:3px">Historicky: ${esc(l.realHistoricalRef)}</div>` : ''}</div>`).join('')
+    : '';
+  const canAdopt = G.laws.length === 0;
+  const capOk = G.politicalCapital >= 30;
+  const available = canAdopt
+    ? menu.map(l => {
+        const disabled = !capOk;
+        return `<div style="padding:8px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:4px;font-size:.75rem;margin:4px 0"><strong style="color:#fff">${esc(l.name)}</strong><div style="color:var(--text-dim);font-size:.7rem;margin:3px 0">${esc(l.description)}</div>${l.realHistoricalRef ? `<div style="color:var(--gold);font-size:.65rem;margin-bottom:5px">Historicky: ${esc(l.realHistoricalRef)}</div>` : ''}<button style="background:${disabled ? 'rgba(100,100,100,.2)' : 'var(--gold)'};color:${disabled ? 'var(--text-dim)' : '#1a1a1a'};border:0;border-radius:4px;padding:5px 10px;font-size:.7rem;font-weight:700;cursor:${disabled ? 'not-allowed' : 'pointer'};margin-top:4px" ${disabled ? 'disabled' : `onclick="window.__adoptLaw('${esc(l.id)}')"`}>Prijať zákon (−30 PC)</button></div>`;
+      }).join('')
+    : `<div style="font-size:.7rem;color:var(--text-dim);font-style:italic">Signátový zákon už bol prijatý — každé obdobie len jeden.</div>`;
+  return `<div class="dashboard-panel"><div class="panel-title">📜 Signátové zákony</div>${passed}${available}</div>`;
+}
+
 
 function renderCourt(): string {
   const G = getState();

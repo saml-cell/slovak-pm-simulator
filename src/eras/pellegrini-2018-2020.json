@@ -3685,5 +3685,53 @@
         "appointedBy": "Parlament 2015"
       }
     ]
-  }
+  },
+  "signatureLaws": [
+    {
+      "id": "social_package_pelle",
+      "name": "Vlaky zadarmo a obedy zadarmo",
+      "description": "Sociálne balíčky pre seniorov a deti. Populárne, drahé, ťažko zvrátiteľné.",
+      "approvalMod": 0.4,
+      "stabilityMod": 0.0,
+      "coalitionMod": 0.0,
+      "implMod": 0,
+      "flags": {
+        "law_pelle_social_passed": true
+      },
+      "econOnce": {
+        "deficit": 1.2
+      },
+      "realHistoricalRef": "2018-19 — Pellegrini-Smer balíky pred voľbami 2020."
+    },
+    {
+      "id": "constitutional_pension_age",
+      "name": "Ústavný strop dôchodkového veku",
+      "description": "64 rokov ako maximum v ústave. Trvalý fiškálny náklad, voličský magnet.",
+      "approvalMod": 0.5,
+      "stabilityMod": 0.1,
+      "coalitionMod": 0.0,
+      "implMod": 0,
+      "flags": {
+        "law_pension_cap_passed": true
+      },
+      "econOnce": {
+        "deficit": 0.5
+      },
+      "realHistoricalRef": "2019 — schválené Smer-SNS-Most."
+    },
+    {
+      "id": "police_chief_reform",
+      "name": "Reforma vedenia polície",
+      "description": "Nový policajný prezident s tichou väzbou na predchádzajúcu garnitúru. Stabilita za cenu reformy.",
+      "approvalMod": -0.1,
+      "stabilityMod": 0.3,
+      "coalitionMod": 0.0,
+      "implMod": 0,
+      "flags": {
+        "law_police_chief_passed": true
+      },
+      "econOnce": {},
+      "realHistoricalRef": "2018 — Lučanský nahradil Gašpara po Kuciakovej afére."
+    }
+  ]
 }
