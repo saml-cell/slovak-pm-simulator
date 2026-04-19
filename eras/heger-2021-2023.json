@@ -1178,7 +1178,8 @@
       "e": {
         "deficit": 0.25,
         "gdpGrowth": 0.03
-      }
+      },
+      "topic": "social"
     },
     "pension": {
       "p": {
@@ -1194,7 +1195,8 @@
       "e": {
         "deficit": 0.25,
         "gdpGrowth": 0.02
-      }
+      },
+      "topic": "social"
     },
     "dochodok": {
       "p": {
@@ -1208,7 +1210,8 @@
       },
       "e": {
         "deficit": 0.25
-      }
+      },
+      "topic": "social"
     },
     "wage": {
       "p": {
@@ -1226,7 +1229,8 @@
       "e": {
         "deficit": 0.2,
         "gdpGrowth": 0.05
-      }
+      },
+      "topic": "economy"
     },
     "plat": {
       "p": {
@@ -1243,7 +1247,8 @@
       "e": {
         "deficit": 0.2,
         "gdpGrowth": 0.05
-      }
+      },
+      "topic": "economy"
     },
     "eu": {
       "p": {
@@ -1263,7 +1268,8 @@
       },
       "e": {
         "gdpGrowth": 0.05
-      }
+      },
+      "topic": "foreign"
     },
     "brusel": {
       "p": {
@@ -1278,7 +1284,8 @@
       },
       "dp": {
         "eu": 2
-      }
+      },
+      "topic": "foreign"
     },
     "nato": {
       "p": {
@@ -1292,7 +1299,8 @@
       },
       "dp": {
         "nato_r": 3
-      }
+      },
+      "topic": "foreign"
     },
     "sovereign": {
       "p": {
@@ -1307,7 +1315,8 @@
       },
       "dp": {
         "eu": -2
-      }
+      },
+      "topic": "governance"
     },
     "suverenita": {
       "p": {
@@ -1322,7 +1331,8 @@
       },
       "dp": {
         "eu": -2
-      }
+      },
+      "topic": "governance"
     },
     "russia": {
       "p": {
@@ -1338,7 +1348,8 @@
         "russia": 5,
         "eu": -4,
         "ukraine": -5
-      }
+      },
+      "topic": "foreign"
     },
     "rusko": {
       "p": {
@@ -1354,7 +1365,8 @@
         "russia": 5,
         "eu": -4,
         "ukraine": -5
-      }
+      },
+      "topic": "foreign"
     },
     "ukraine": {
       "p": {
@@ -1373,7 +1385,8 @@
         "ukraine": 5,
         "eu": 3,
         "nato_r": 3
-      }
+      },
+      "topic": "foreign"
     },
     "ukrajina": {
       "p": {
@@ -1390,7 +1403,8 @@
       "dp": {
         "ukraine": 5,
         "eu": 3
-      }
+      },
+      "topic": "foreign"
     },
     "vojna": {
       "p": {
@@ -1408,7 +1422,8 @@
         "ukraine": 4,
         "nato_r": 3,
         "russia": -5
-      }
+      },
+      "topic": "foreign"
     },
     "utecenci": {
       "p": {
@@ -1425,7 +1440,8 @@
       "dp": {
         "ukraine": 3,
         "eu": 2
-      }
+      },
+      "topic": "migration"
     },
     "energia": {
       "p": {
@@ -1442,7 +1458,8 @@
       "e": {
         "deficit": 0.3,
         "gdpGrowth": -0.05
-      }
+      },
+      "topic": "energy"
     },
     "plyn": {
       "p": {
@@ -1460,7 +1477,8 @@
       },
       "dp": {
         "russia": -3
-      }
+      },
+      "topic": "energy"
     },
     "inflacia": {
       "p": {
@@ -1476,7 +1494,8 @@
       },
       "e": {
         "infl": 0.3
-      }
+      },
+      "topic": "economy"
     },
     "vakcina": {
       "p": {
@@ -1492,7 +1511,8 @@
       },
       "e": {
         "gdpGrowth": 0.05
-      }
+      },
+      "topic": "healthcare"
     },
     "koalicia": {
       "p": {
@@ -1503,7 +1523,8 @@
         "olano": 3,
         "sas": -2,
         "smerodina": 2
-      }
+      },
+      "topic": "governance"
     },
     "dovera": {
       "p": {
@@ -1530,7 +1551,8 @@
       "e": {
         "deficit": -0.3,
         "gdpGrowth": 0.05
-      }
+      },
+      "topic": "economy"
     },
     "sankcie": {
       "p": {
@@ -1547,7 +1569,8 @@
         "russia": -5,
         "eu": 3,
         "usa": 3
-      }
+      },
+      "topic": "foreign"
     },
     "reform": {
       "p": {
@@ -1568,7 +1591,8 @@
       "e": {
         "deficit": -0.1,
         "gdpGrowth": 0.1
-      }
+      },
+      "topic": "governance"
     },
     "reforma": {
       "p": {
@@ -1589,7 +1613,8 @@
       "e": {
         "deficit": -0.1,
         "gdpGrowth": 0.1
-      }
+      },
+      "topic": "governance"
     },
     "transparency": {
       "p": {
@@ -1614,7 +1639,8 @@
         "olano": 5,
         "media_ind": 5,
         "smer": -6
-      }
+      },
+      "topic": "justice"
     },
     "korupcia": {
       "p": {
@@ -1626,7 +1652,8 @@
         "olano": 5,
         "media_ind": 5,
         "smer": -6
-      }
+      },
+      "topic": "justice"
     },
     "health": {
       "p": {
@@ -1641,7 +1668,8 @@
       "e": {
         "deficit": 0.4,
         "gdpGrowth": 0.05
-      }
+      },
+      "topic": "healthcare"
     },
     "zdravotnictvo": {
       "p": {
@@ -1656,7 +1684,8 @@
       "e": {
         "deficit": 0.4,
         "gdpGrowth": 0.05
-      }
+      },
+      "topic": "healthcare"
     },
     "education": {
       "p": {
@@ -1671,7 +1700,8 @@
       "e": {
         "deficit": 0.18,
         "gdpGrowth": 0.05
-      }
+      },
+      "topic": "education"
     },
     "skolstvo": {
       "p": {
@@ -1684,7 +1714,8 @@
       "e": {
         "deficit": 0.18,
         "gdpGrowth": 0.05
-      }
+      },
+      "topic": "education"
     },
     "tax": {
       "p": {
@@ -1699,7 +1730,8 @@
       "e": {
         "deficit": -0.2,
         "gdpGrowth": -0.1
-      }
+      },
+      "topic": "economy"
     },
     "dan": {
       "p": {
@@ -1713,7 +1745,8 @@
       "e": {
         "deficit": -0.2,
         "gdpGrowth": -0.1
-      }
+      },
+      "topic": "economy"
     },
     "invest": {
       "p": {
@@ -1727,7 +1760,8 @@
       "e": {
         "deficit": 0.2,
         "gdpGrowth": 0.15
-      }
+      },
+      "topic": "economy"
     },
     "investicia": {
       "p": {
@@ -1741,7 +1775,8 @@
       "e": {
         "deficit": 0.2,
         "gdpGrowth": 0.15
-      }
+      },
+      "topic": "economy"
     },
     "security": {
       "p": {
@@ -1754,7 +1789,8 @@
       },
       "e": {
         "deficit": 0.12
-      }
+      },
+      "topic": "security"
     },
     "bezpecnost": {
       "p": {
@@ -1766,7 +1802,8 @@
       },
       "e": {
         "deficit": 0.12
-      }
+      },
+      "topic": "security"
     },
     "obrana": {
       "p": {
@@ -1783,7 +1820,8 @@
       },
       "e": {
         "deficit": 0.15
-      }
+      },
+      "topic": "security"
     },
     "media": {
       "p": {
@@ -1795,7 +1833,8 @@
         "media_ind": 5,
         "zaludi": 4,
         "smer": -3
-      }
+      },
+      "topic": "media"
     },
     "family": {
       "p": {
@@ -1806,7 +1845,8 @@
       "s": {
         "smerodina": 6,
         "olano": 4
-      }
+      },
+      "topic": "social"
     },
     "rodina": {
       "p": {
@@ -1817,7 +1857,8 @@
       "s": {
         "smerodina": 6,
         "olano": 4
-      }
+      },
+      "topic": "social"
     },
     "compromise": {
       "p": {
@@ -1897,7 +1938,8 @@
       },
       "e": {
         "deficit": 1.5
-      }
+      },
+      "topic": "healthcare"
     },
     "ucitel": {
       "p": {
@@ -1910,7 +1952,8 @@
       },
       "e": {
         "deficit": 1
-      }
+      },
+      "topic": "education"
     },
     "ekonom": {
       "p": {
@@ -1935,7 +1978,8 @@
       },
       "e": {
         "deficit": 0.5
-      }
+      },
+      "topic": "security"
     },
     "skandal": {
       "p": {
@@ -1964,7 +2008,8 @@
       "e": {
         "gdpGrowth": -0.1,
         "deficit": 0.3
-      }
+      },
+      "topic": "healthcare"
     },
     "s300": {
       "p": {
