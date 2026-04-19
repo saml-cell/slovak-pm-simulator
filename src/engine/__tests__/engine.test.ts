@@ -291,18 +291,22 @@ describe('kwScore — semantic polarity flips keyword effects', () => {
 
   it('negation verb ("zruším") flips a kw_pos-aligned keyword to negative', () => {
     loadRealEra();
+    // Force an Ekonomika event so topic-tagged 'dan' keyword applies at
+    // full weight (topic 'economy' == event topic 'economy'). Without an
+    // event context, tagged keywords scale to 30% and the flip is too
+    // small to cross the assertion threshold.
+    const G = getState();
+    G.event = {
+      id: 'test_economy', headline: '', description: '', context: '',
+      tier: 'situation', category: 'Ekonomika', suggestions: [],
+    };
     const pos = kwScore('Zavediem rovnú daň pre všetkých');
     const neg = kwScore('Zruším rovnú daň a zdvihnem progresívnu');
-    // Whichever stakeholder moves on 'dan', its sign should be inverted
-    // between the positive-verb and negation-verb policies.
-    const movers = Object.keys(pos.sScores).filter(id =>
-      Math.abs(pos.sScores[id] - 50) > 2 || Math.abs(neg.sScores[id] - 50) > 2);
-    expect(movers.length).toBeGreaterThan(0);
     // At least one stakeholder should have flipped sign relative to baseline 50.
-    const flipped = movers.some(id =>
+    const flipped = Object.keys(pos.sScores).some(id =>
       Math.sign(pos.sScores[id] - 50) === -Math.sign(neg.sScores[id] - 50) &&
-      Math.abs(pos.sScores[id] - 50) > 0 &&
-      Math.abs(neg.sScores[id] - 50) > 0);
+      Math.abs(pos.sScores[id] - 50) > 1 &&
+      Math.abs(neg.sScores[id] - 50) > 1);
     expect(flipped).toBe(true);
   });
 });

@@ -1172,7 +1172,8 @@
       "e": {
         "deficit": 0.5,
         "gdpGrowth": -0.1
-      }
+      },
+      "topic": "healthcare"
     },
     "lockdown": {
       "p": {
@@ -1191,7 +1192,8 @@
       "e": {
         "deficit": 0.3,
         "gdpGrowth": -0.3
-      }
+      },
+      "topic": "healthcare"
     },
     "testovanie": {
       "p": {
@@ -1209,7 +1211,8 @@
       },
       "e": {
         "deficit": 0.4
-      }
+      },
+      "topic": "healthcare"
     },
     "vakcina": {
       "p": {
@@ -1226,7 +1229,8 @@
       "e": {
         "deficit": 0.3,
         "gdpGrowth": 0.05
-      }
+      },
+      "topic": "healthcare"
     },
     "sputnik": {
       "p": {
@@ -1248,7 +1252,8 @@
       },
       "e": {
         "deficit": 0.1
-      }
+      },
+      "topic": "healthcare"
     },
     "ruska": {
       "p": {
@@ -1264,7 +1269,8 @@
       "dp": {
         "russia": 3,
         "eu": -3
-      }
+      },
+      "topic": "foreign"
     },
     "nemocnica": {
       "p": {
@@ -1278,7 +1284,8 @@
       },
       "e": {
         "deficit": 0.5
-      }
+      },
+      "topic": "healthcare"
     },
     "karantena": {
       "p": {
@@ -1294,7 +1301,8 @@
       },
       "e": {
         "gdpGrowth": -0.1
-      }
+      },
+      "topic": "healthcare"
     },
     "kompenzacie": {
       "p": {
@@ -1311,7 +1319,8 @@
       "e": {
         "deficit": 0.5,
         "gdpGrowth": 0.05
-      }
+      },
+      "topic": "economy"
     },
     "podpora": {
       "p": {
@@ -1339,7 +1348,8 @@
         "sas": 3,
         "smerodina": 2,
         "zaludi": 2
-      }
+      },
+      "topic": "governance"
     },
     "demisia": {
       "p": {
@@ -1353,7 +1363,8 @@
         "zaludi": 5,
         "smer": 8,
         "olano": -8
-      }
+      },
+      "topic": "governance"
     },
     "reforma": {
       "p": {
@@ -1373,7 +1384,8 @@
       "e": {
         "deficit": -0.1,
         "gdpGrowth": 0.1
-      }
+      },
+      "topic": "governance"
     },
     "transparency": {
       "p": {
@@ -1398,7 +1410,8 @@
         "olano": 5,
         "media_ind": 5,
         "smer": -6
-      }
+      },
+      "topic": "justice"
     },
     "zdravotnictvo": {
       "p": {
@@ -1413,7 +1426,8 @@
       "e": {
         "deficit": 0.4,
         "gdpGrowth": 0.05
-      }
+      },
+      "topic": "healthcare"
     },
     "ekonomika": {
       "p": {
@@ -1427,7 +1441,8 @@
       },
       "e": {
         "gdpGrowth": 0.05
-      }
+      },
+      "topic": "economy"
     },
     "eu": {
       "p": {
@@ -1446,7 +1461,8 @@
       },
       "e": {
         "gdpGrowth": 0.05
-      }
+      },
+      "topic": "foreign"
     },
     "nato": {
       "p": {
@@ -1458,7 +1474,8 @@
       },
       "dp": {
         "nato_r": 3
-      }
+      },
+      "topic": "foreign"
     },
     "social": {
       "p": {
@@ -1475,7 +1492,8 @@
       "e": {
         "deficit": 0.25,
         "gdpGrowth": 0.03
-      }
+      },
+      "topic": "social"
     },
     "rodina": {
       "p": {
@@ -1485,7 +1503,8 @@
       },
       "s": {
         "smerodina": 6
-      }
+      },
+      "topic": "social"
     },
     "skola": {
       "p": {
@@ -1497,7 +1516,8 @@
       },
       "e": {
         "deficit": 0.18
-      }
+      },
+      "topic": "education"
     },
     "invest": {
       "p": {
@@ -1511,7 +1531,8 @@
       "e": {
         "deficit": 0.2,
         "gdpGrowth": 0.15
-      }
+      },
+      "topic": "economy"
     },
     "bezpecnost": {
       "p": {
@@ -1523,7 +1544,8 @@
       },
       "e": {
         "deficit": 0.12
-      }
+      },
+      "topic": "security"
     },
     "media": {
       "p": {
@@ -1535,7 +1557,8 @@
         "media_ind": 5,
         "zaludi": 4,
         "smer": -3
-      }
+      },
+      "topic": "media"
     },
     "roma": {
       "p": {
@@ -1545,7 +1568,8 @@
       "s": {
         "eu_nato": 4,
         "lsns": -8
-      }
+      },
+      "topic": "social"
     },
     "nezamestnanost": {
       "p": {
@@ -1561,7 +1585,8 @@
       "e": {
         "unemp": 0.5,
         "gdpGrowth": -0.1
-      }
+      },
+      "topic": "economy"
     },
     "pandemia": {
       "p": {
@@ -1578,7 +1603,8 @@
       "e": {
         "deficit": 0.4,
         "gdpGrowth": -0.08
-      }
+      },
+      "topic": "healthcare"
     },
     "virus": {
       "p": {
@@ -1591,7 +1617,8 @@
       },
       "e": {
         "gdpGrowth": -0.05
-      }
+      },
+      "topic": "healthcare"
     },
     "rusko": {
       "p": {
@@ -1607,7 +1634,8 @@
       "dp": {
         "russia": 2,
         "eu": -2
-      }
+      },
+      "topic": "foreign"
     },
     "dezinfekcia": {
       "p": {
@@ -1620,7 +1648,8 @@
       },
       "e": {
         "deficit": 0.1
-      }
+      },
+      "topic": "healthcare"
     },
     "respirator": {
       "p": {
@@ -1634,7 +1663,8 @@
       },
       "e": {
         "deficit": 0.15
-      }
+      },
+      "topic": "healthcare"
     },
     "pcr": {
       "p": {
@@ -1648,7 +1678,8 @@
       },
       "e": {
         "deficit": 0.2
-      }
+      },
+      "topic": "healthcare"
     },
     "antigen": {
       "p": {
@@ -1662,7 +1693,8 @@
       },
       "e": {
         "deficit": 0.15
-      }
+      },
+      "topic": "healthcare"
     },
     "hospitalizacia": {
       "p": {
@@ -1719,7 +1751,8 @@
       "e": {
         "deficit": 0.3,
         "gdpGrowth": 0.05
-      }
+      },
+      "topic": "healthcare"
     },
     "moderna": {
       "p": {
@@ -1777,7 +1810,8 @@
       },
       "e": {
         "deficit": 0.4
-      }
+      },
+      "topic": "social"
     },
     "plosne": {
       "p": {
@@ -1968,7 +2002,8 @@
       "e": {
         "deficit": 0.3,
         "gdpGrowth": 0.03
-      }
+      },
+      "topic": "economy"
     },
     "bankrot": {
       "p": {
@@ -1998,7 +2033,8 @@
       "e": {
         "unemp": 0.5,
         "gdpGrowth": -0.08
-      }
+      },
+      "topic": "economy"
     },
     "dlh": {
       "p": {
@@ -2012,7 +2048,8 @@
       },
       "e": {
         "deficit": 0.3
-      }
+      },
+      "topic": "economy"
     },
     "deficit": {
       "p": {
@@ -2025,7 +2062,8 @@
       },
       "e": {
         "deficit": 0.4
-      }
+      },
+      "topic": "economy"
     },
     "kriza": {
       "p": {
@@ -2049,7 +2087,8 @@
       "s": {
         "smer": 5,
         "olano": -3
-      }
+      },
+      "topic": "governance"
     },
     "protest": {
       "p": {

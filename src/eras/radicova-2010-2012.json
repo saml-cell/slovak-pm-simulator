@@ -1174,7 +1174,8 @@
       },
       "e": {
         "gdpGrowth": 0.08
-      }
+      },
+      "topic": "governance"
     },
     "transparency": {
       "p": {
@@ -1470,7 +1471,8 @@
       "s": {
         "smer": 4
       },
-      "e": {}
+      "e": {},
+      "topic": "governance"
     },
     "v4": {
       "p": {

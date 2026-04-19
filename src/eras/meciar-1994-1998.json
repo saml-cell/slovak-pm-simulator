@@ -1121,7 +1121,8 @@
       "e": {
         "gdpGrowth": 0.1,
         "deficit": -2
-      }
+      },
+      "topic": "economy"
     },
     "privatizacia": {
       "p": {
@@ -1136,7 +1137,8 @@
       "e": {
         "gdpGrowth": 0.1,
         "deficit": -2
-      }
+      },
+      "topic": "economy"
     },
     "narod": {
       "p": {
@@ -1154,7 +1156,8 @@
       "dp": {
         "eu": -2,
         "hungary": -3
-      }
+      },
+      "topic": "governance"
     },
     "national": {
       "p": {
@@ -1167,7 +1170,8 @@
         "hzds": 4,
         "eu_nato": -5,
         "smk": -6
-      }
+      },
+      "topic": "governance"
     },
     "sis": {
       "p": {
@@ -1184,7 +1188,8 @@
       "dp": {
         "eu": -2,
         "usa": -2
-      }
+      },
+      "topic": "security"
     },
     "bezpecnost": {
       "p": {
@@ -1197,7 +1202,8 @@
       },
       "e": {
         "deficit": 1.5
-      }
+      },
+      "topic": "security"
     },
     "lexa": {
       "p": {
@@ -1213,7 +1219,8 @@
       "dp": {
         "eu": -3,
         "usa": -3
-      }
+      },
+      "topic": "security"
     },
     "mensin": {
       "p": {
@@ -1228,7 +1235,8 @@
       "dp": {
         "eu": 2,
         "hungary": 3
-      }
+      },
+      "topic": "social"
     },
     "minority": {
       "p": {
@@ -1242,7 +1250,8 @@
       "dp": {
         "eu": 2,
         "hungary": 3
-      }
+      },
+      "topic": "social"
     },
     "madar": {
       "p": {
@@ -1257,7 +1266,8 @@
       "dp": {
         "hungary": 3,
         "eu": 1
-      }
+      },
+      "topic": "foreign"
     },
     "eu": {
       "p": {
@@ -1277,7 +1287,8 @@
       },
       "e": {
         "gdpGrowth": 0.05
-      }
+      },
+      "topic": "foreign"
     },
     "nato": {
       "p": {
@@ -1292,7 +1303,8 @@
       "dp": {
         "nato_r": 4,
         "usa": 2
-      }
+      },
+      "topic": "foreign"
     },
     "demokracia": {
       "p": {
@@ -1311,7 +1323,8 @@
       "dp": {
         "eu": 3,
         "usa": 2
-      }
+      },
+      "topic": "governance"
     },
     "reform": {
       "p": {
@@ -1331,7 +1344,8 @@
       "e": {
         "deficit": -1.5,
         "gdpGrowth": 0.1
-      }
+      },
+      "topic": "governance"
     },
     "reforma": {
       "p": {
@@ -1350,7 +1364,8 @@
       "e": {
         "deficit": -1.5,
         "gdpGrowth": 0.1
-      }
+      },
+      "topic": "governance"
     },
     "robotnik": {
       "p": {
@@ -1366,7 +1381,8 @@
       "e": {
         "deficit": 2,
         "gdpGrowth": 0.03
-      }
+      },
+      "topic": "economy"
     },
     "worker": {
       "p": {
@@ -1377,7 +1393,8 @@
       "s": {
         "zrs": 8,
         "hzds": 3
-      }
+      },
+      "topic": "economy"
     },
     "plat": {
       "p": {
@@ -1393,7 +1410,8 @@
       "e": {
         "deficit": 2,
         "gdpGrowth": 0.05
-      }
+      },
+      "topic": "economy"
     },
     "jazyk": {
       "p": {
@@ -1408,7 +1426,8 @@
       "dp": {
         "eu": -3,
         "hungary": -5
-      }
+      },
+      "topic": "social"
     },
     "language": {
       "p": {
@@ -1423,7 +1442,8 @@
       "dp": {
         "eu": -2,
         "hungary": -4
-      }
+      },
+      "topic": "social"
     },
     "amnestia": {
       "p": {
@@ -1443,7 +1463,8 @@
         "eu": -5,
         "usa": -4,
         "austria": -3
-      }
+      },
+      "topic": "governance"
     },
     "cenzur": {
       "p": {
@@ -1460,7 +1481,8 @@
       "dp": {
         "eu": -3,
         "usa": -2
-      }
+      },
+      "topic": "media"
     },
     "media": {
       "p": {
@@ -1471,7 +1493,8 @@
         "media_m": 5,
         "eu_nato": 3,
         "hzds": -3
-      }
+      },
+      "topic": "media"
     },
     "transparentnost": {
       "p": {
@@ -1501,7 +1524,8 @@
       "e": {
         "deficit": 3,
         "gdpGrowth": 0.03
-      }
+      },
+      "topic": "social"
     },
     "dochodok": {
       "p": {
@@ -1514,7 +1538,8 @@
       },
       "e": {
         "deficit": 3
-      }
+      },
+      "topic": "social"
     },
     "pension": {
       "p": {
@@ -1526,7 +1551,8 @@
       },
       "e": {
         "deficit": 3
-      }
+      },
+      "topic": "social"
     },
     "sovereign": {
       "p": {
@@ -1542,7 +1568,8 @@
       "dp": {
         "eu": -3,
         "russia": 2
-      }
+      },
+      "topic": "governance"
     },
     "suverenita": {
       "p": {
@@ -1557,7 +1584,8 @@
       },
       "dp": {
         "eu": -3
-      }
+      },
+      "topic": "governance"
     },
     "kontrola": {
       "p": {
@@ -1595,7 +1623,8 @@
       "e": {
         "deficit": 4,
         "gdpGrowth": 0.05
-      }
+      },
+      "topic": "healthcare"
     },
     "zdravotnictvo": {
       "p": {
@@ -1608,7 +1637,8 @@
       "e": {
         "deficit": 4,
         "gdpGrowth": 0.05
-      }
+      },
+      "topic": "healthcare"
     },
     "skolstvo": {
       "p": {
@@ -1622,7 +1652,8 @@
       "e": {
         "deficit": 2,
         "gdpGrowth": 0.05
-      }
+      },
+      "topic": "education"
     },
     "education": {
       "p": {
@@ -1635,7 +1666,8 @@
       "e": {
         "deficit": 2,
         "gdpGrowth": 0.05
-      }
+      },
+      "topic": "education"
     },
     "cirkev": {
       "p": {
@@ -1645,7 +1677,8 @@
       },
       "s": {
         "kdh_o": 6
-      }
+      },
+      "topic": "social"
     },
     "tradition": {
       "p": {
@@ -1657,7 +1690,8 @@
       "s": {
         "sns_c": 5,
         "kdh_o": 4
-      }
+      },
+      "topic": "social"
     },
     "kompromis": {
       "p": {
@@ -1723,7 +1757,8 @@
       "e": {
         "deficit": 2,
         "gdpGrowth": 0.15
-      }
+      },
+      "topic": "economy"
     },
     "roma": {
       "p": {
@@ -1733,7 +1768,8 @@
       "s": {
         "eu_nato": 4,
         "sns_c": -5
-      }
+      },
+      "topic": "social"
     },
     "russia": {
       "p": {
@@ -1746,7 +1782,8 @@
       "dp": {
         "russia": 4,
         "eu": -3
-      }
+      },
+      "topic": "foreign"
     },
     "rusko": {
       "p": {
@@ -1759,7 +1796,8 @@
       "dp": {
         "russia": 4,
         "eu": -3
-      }
+      },
+      "topic": "foreign"
     },
     "vysetrov": {
       "p": {
@@ -1771,7 +1809,8 @@
         "prezident": 5,
         "sis": -8,
         "hzds": -5
-      }
+      },
+      "topic": "justice"
     },
     "autoritarsk": {
       "p": {
@@ -1802,7 +1841,8 @@
         "media_m": -4,
         "eu_nato": -3,
         "hzds": 3
-      }
+      },
+      "topic": "justice"
     }
   },
   "forcedEvents": [
