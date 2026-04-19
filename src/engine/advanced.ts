@@ -445,10 +445,15 @@ export function deficitDynamics(G: GameState): void {
   const socialPressure = Math.max(0, G.stances.social || 0) * 0.2;
   G.econ.deficit += socialPressure * 0.1;
 
+  // Deficit is signed: negative = shortfall, positive = surplus. Growth
+  // produces extra tax revenue → deficit moves toward zero/positive.
+  // Recession shrinks the base → deficit moves more negative. The previous
+  // version had these inverted, so strong growth WIDENED the deficit —
+  // contradicting the comment and the whole fiscal model.
   if (G.econ.gdpGrowth > 2) {
-    G.econ.deficit -= (G.econ.gdpGrowth - 2) * 0.15;
+    G.econ.deficit += (G.econ.gdpGrowth - 2) * 0.15;
   } else if (G.econ.gdpGrowth < 0) {
-    G.econ.deficit += Math.abs(G.econ.gdpGrowth) * 0.3;
+    G.econ.deficit -= Math.abs(G.econ.gdpGrowth) * 0.3;
   }
 
   G.econ.deficit += ((-3.0) - G.econ.deficit) * 0.02;

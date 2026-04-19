@@ -11,6 +11,7 @@ import { openHistory, generateWiki } from './wiki';
 import { trackAnalytics } from './analytics';
 import { esc } from './sanitize';
 import { maybeStartTutorial, observeScreenChanges } from './tutorial';
+import { downloadShareCard } from './share-card';
 import type { GameState } from './types';
 
 async function main() {
@@ -257,6 +258,11 @@ async function main() {
         prompt('Skopírujte odkaz:', url);
       });
     }
+  });
+
+  document.getElementById('downloadCardButton')?.addEventListener('click', () => {
+    const title = document.getElementById('gameOverTitle')?.textContent || 'Koniec obdobia';
+    downloadShareCard(title);
   });
 
   document.getElementById('closeHistoryBtn')!.addEventListener('click', () => {

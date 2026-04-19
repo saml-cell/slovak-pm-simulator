@@ -702,6 +702,42 @@ function gameOver(collapsed: boolean) {
     if (traits.length) {
       narr += ' Charakter obdobia: ' + traits.join('; ') + '.';
     }
+    // Concrete legacy: what the player actually passed, used, and did.
+    // Separately appended so the "era character" prose reads as traits
+    // and the "what you shipped" prose reads as a ledger of deeds.
+    const legacy: string[] = [];
+    if (G.laws.length) {
+      legacy.push('Prijaté zákony: ' + G.laws.map(l => l.name).join(', '));
+    }
+    // Count scheme uses from flags scheme_used_<id>_<month>
+    const schemeUses: Record<string, number> = {};
+    Object.keys(G.flags)
+      .filter(k => k.startsWith('scheme_used_') && G.flags[k])
+      .forEach(k => {
+        const id = k.replace('scheme_used_', '').replace(/_\d+$/, '');
+        schemeUses[id] = (schemeUses[id] || 0) + 1;
+      });
+    const schemeCount = Object.values(schemeUses).reduce((s, n) => s + n, 0);
+    if (schemeCount > 0) {
+      const parts = Object.entries(schemeUses).map(([id, n]) => {
+        const scheme = SCHEMES.find(s => s.id === id);
+        return (scheme ? scheme.name : id) + (n > 1 ? ` (${n}×)` : '');
+      });
+      legacy.push('Tajné akcie: ' + parts.join(', '));
+    }
+    if (G.cabinet.reshuffleCount > 0) {
+      legacy.push(`Výmeny ministrov: ${G.cabinet.reshuffleCount}`);
+    }
+    // Defections the player caused (partner_defected flags)
+    const defections = Object.keys(G.flags).filter(k => k.endsWith('_defected') && G.flags[k]).length;
+    if (defections > 0) {
+      legacy.push(`Odchody koaličných partnerov: ${defections}`);
+    }
+    if (G.flags.scheme_leak_exposed) legacy.push('Únik do médií bol prevalený — škandál');
+    if (G.flags.scheme_bribe_exposed) legacy.push('Dohoda s oligarchom prevalená — škandál');
+    if (legacy.length) {
+      narr += ' Odkaz: ' + legacy.join('. ') + '.';
+    }
   }
 
   const el = (id: string) => document.getElementById(id)!;

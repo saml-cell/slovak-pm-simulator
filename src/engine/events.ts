@@ -155,11 +155,16 @@ export function displayEvent() {
       const fallback = era.politicians.slice(0, 2).map(p => ({ p, overlap: 0 }));
       const pick = candidates.length ? candidates : fallback;
       advisorBox.style.display = 'block';
-      advisorBox.innerHTML = '<div style="font-size:.7rem;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">Poradcovia hovoria</div>' +
-        pick.map(({ p }) => {
-          const quote = p.reactions.neu[Math.floor(Math.random() * p.reactions.neu.length)] || '...';
-          return `<div style="display:flex;gap:10px;align-items:flex-start;padding:6px 8px;border-left:2px solid rgba(201,168,76,.3);margin-bottom:4px"><span style="font-size:1.1rem">${esc(p.emoji)}</span><div style="flex:1"><div style="font-size:.7rem;color:#fff;font-weight:600">${esc(p.name)} <span style="color:var(--text-dim);font-weight:400;font-style:italic">— ${esc(p.role)}</span></div><div style="font-size:.75rem;color:var(--text-dim);font-style:italic;margin-top:2px">"${esc(quote)}"</div></div></div>`;
-        }).join('');
+      // Collapsed by default — only the summary "Poradcovia hovoria (2) ▾"
+      // shows at first. On tap, the full quotes expand. Uses <details> so
+      // no JS state is needed and the browser remembers expansion per
+      // session on some platforms. Saves vertical space on mobile so the
+      // suggestion chips stay above the fold.
+      const quotes = pick.map(({ p }) => {
+        const quote = p.reactions.neu[Math.floor(Math.random() * p.reactions.neu.length)] || '...';
+        return `<div style="display:flex;gap:10px;align-items:flex-start;padding:6px 8px;border-left:2px solid rgba(201,168,76,.3);margin-bottom:4px"><span style="font-size:1.1rem">${esc(p.emoji)}</span><div style="flex:1"><div style="font-size:.7rem;color:#fff;font-weight:600">${esc(p.name)} <span style="color:var(--text-dim);font-weight:400;font-style:italic">— ${esc(p.role)}</span></div><div style="font-size:.75rem;color:var(--text-dim);font-style:italic;margin-top:2px">"${esc(quote)}"</div></div></div>`;
+      }).join('');
+      advisorBox.innerHTML = `<details><summary style="font-size:.7rem;color:var(--gold);text-transform:uppercase;letter-spacing:1px;cursor:pointer;padding:2px 0;list-style:none;user-select:none">💬 Poradcovia hovoria (${pick.length}) <span style="color:var(--text-dim)">— klikni pre rady</span></summary><div style="margin-top:6px">${quotes}</div></details>`;
     } else {
       advisorBox.style.display = 'none';
       advisorBox.innerHTML = '';

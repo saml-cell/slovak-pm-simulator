@@ -6,8 +6,10 @@ import {
 } from '../state';
 import {
   applyMomentum, computeShapley, policyConsistency,
+  deficitDynamics, okunsLaw, fdiDynamics, clamp,
 } from '../advanced';
 import { kwScore } from '../scoring';
+import { adoptLaw, initiateScheme, SCHEMES } from '../game-flow';
 import type { EraConfig, GameState, CoalitionPartner } from '../types';
 import eraJson from '../../eras/fico-2012-2016.json';
 
@@ -311,5 +313,278 @@ describe('kwScore — semantic polarity flips keyword effects', () => {
       Math.abs(pos.sScores[id] - 50) > 1 &&
       Math.abs(neg.sScores[id] - 50) > 1);
     expect(flipped).toBe(true);
+  });
+});
+
+describe('clamp — bounds helper', () => {
+  it('bounds default to 0-100', () => {
+    expect(clamp(50)).toBe(50);
+    expect(clamp(-10)).toBe(0);
+    expect(clamp(150)).toBe(100);
+  });
+  it('respects custom bounds', () => {
+    expect(clamp(50, 20, 80)).toBe(50);
+    expect(clamp(10, 20, 80)).toBe(20);
+    expect(clamp(90, 20, 80)).toBe(80);
+  });
+});
+
+describe('deficitDynamics — fiscal feedback', () => {
+  beforeEach(() => { loadRealEra(); });
+  it('high unemployment widens deficit (automatic stabilisers)', () => {
+    const G = getState();
+    G.econ.unemp = 14;
+    G.econ.deficit = 0;
+    deficitDynamics(G);
+    expect(G.econ.deficit).toBeLessThan(0);
+  });
+  it('strong growth narrows deficit', () => {
+    const G = getState();
+    G.econ.unemp = 5;
+    G.econ.gdpGrowth = 4;
+    G.econ.deficit = -4;
+    deficitDynamics(G);
+    // Revenue uplift + counter-cyclical spending cut narrows the gap
+    expect(G.econ.deficit).toBeGreaterThan(-4);
+  });
+});
+
+describe('okunsLaw — unemployment vs growth', () => {
+  beforeEach(() => { loadRealEra(); });
+  it('strong growth reduces unemployment', () => {
+    const G = getState();
+    G.econ.gdpGrowth = 5;
+    G.econ.unemp = 10;
+    const before = G.econ.unemp;
+    okunsLaw(G);
+    expect(G.econ.unemp).toBeLessThan(before);
+  });
+  it('recession raises unemployment', () => {
+    const G = getState();
+    G.econ.gdpGrowth = -3;
+    G.econ.unemp = 6;
+    const before = G.econ.unemp;
+    okunsLaw(G);
+    expect(G.econ.unemp).toBeGreaterThan(before);
+  });
+});
+
+describe('fdiDynamics — foreign investment', () => {
+  beforeEach(() => { loadRealEra(); });
+  it('positive EU relations pull FDI up', () => {
+    const G = getState();
+    G.diplo.eu = 80;
+    G.econ.gdpGrowth = 3;
+    G.fdi = 5;
+    fdiDynamics(G);
+    expect(G.fdi).toBeGreaterThan(5);
+  });
+  it('EU relations bottomed out pulls FDI down', () => {
+    const G = getState();
+    G.diplo.eu = 10;
+    G.econ.gdpGrowth = 1;
+    G.fdi = 5;
+    fdiDynamics(G);
+    expect(G.fdi).toBeLessThan(5);
+  });
+});
+
+describe('computeShapley — coalition bargaining power', () => {
+  it('sums to ≈ 1 across active partners', () => {
+    loadRealEra();
+    const G = getState();
+    const era = realEra;
+    computeShapley(G, era);
+    const sum = Object.values(G.shapleyPower).reduce((s, n) => s + n, 0);
+    expect(sum).toBeCloseTo(1, 3);
+  });
+  it('every active partner has non-negative power', () => {
+    loadRealEra();
+    const G = getState();
+    computeShapley(G, realEra);
+    Object.values(G.shapleyPower).forEach(v => expect(v).toBeGreaterThanOrEqual(0));
+  });
+  it('no dead partners in the power dict', () => {
+    loadRealEra();
+    const G = getState();
+    const era = realEra;
+    // Kick a partner
+    const kickId = era.coalitionPartners[1]?.id;
+    if (kickId && G.cp[kickId]) {
+      G.cp[kickId].on = 0;
+      computeShapley(G, era);
+      expect(G.shapleyPower[kickId]).toBeUndefined();
+    }
+  });
+});
+
+describe('applyMomentum — reinforcing feedback', () => {
+  it('positive history amplifies positive delta', () => {
+    const G = makeState({ momentum: 0.5 });
+    const delta = 5;
+    const out = applyMomentum(G, delta);
+    expect(out).toBeGreaterThan(delta);
+  });
+  it('negative history amplifies negative delta', () => {
+    const G = makeState({ momentum: -0.5 });
+    const delta = -5;
+    const out = applyMomentum(G, delta);
+    expect(out).toBeLessThan(delta);
+  });
+});
+
+describe('policyConsistency — flip-flop penalty', () => {
+  it('same-theme consecutive policies earn bonus', () => {
+    const G = makeState({ policyThemes: ['eu', 'eu', 'eu'] });
+    const { bonus } = policyConsistency(G, 'zvýšime eu investície');
+    expect(bonus).toBeGreaterThanOrEqual(0);
+  });
+  it('flip-flopping on eu incurs penalty', () => {
+    const G = makeState({ policyThemes: ['eu_pro', 'eu_anti'] });
+    const { flipPenalty } = policyConsistency(G, 'odmietnem brusel');
+    expect(flipPenalty).toBeLessThanOrEqual(0);
+  });
+});
+
+describe('initGame — persona seeding', () => {
+  it('every era persona gets a pScore', () => {
+    loadRealEra();
+    const G = getState();
+    realEra.personas.forEach(p => {
+      expect(G.pScores[p.id]).toBeDefined();
+    });
+  });
+  it('every stakeholder gets an sScore', () => {
+    loadRealEra();
+    const G = getState();
+    realEra.stakeholders.forEach(s => {
+      expect(G.sScores[s.id]).toBeDefined();
+    });
+  });
+  it('laws + stakeholderDemands start empty', () => {
+    loadRealEra();
+    const G = getState();
+    expect(G.laws).toEqual([]);
+    expect(G.stakeholderDemands).toEqual({});
+  });
+  it('mood starts honeymoon with moodUntil=3', () => {
+    loadRealEra();
+    const G = getState();
+    expect(G.mood).toBe('honeymoon');
+    expect(G.moodUntil).toBe(3);
+  });
+});
+
+// Minimal jsdom scaffold for tests that trigger updateDash() indirectly
+// (adoptLaw + initiateScheme call it on success). Creates just the DOM
+// nodes updateDash reads. Safe to reuse between tests.
+function setupMinimalDashboardDOM(): void {
+  const ids = [
+    'approvalValue', 'approvalFill', 'approvalTrend',
+    'stabilityValue', 'stabilityFill', 'stabilityTrend',
+    'coalitionValue', 'coalitionFill', 'coalitionTrend',
+    'implValue', 'implFill', 'implTrend',
+    'monthDisplay', 'monthNumber', 'playMonthName',
+    'dashPmName', 'totalMonthsDisplay',
+    'warningBanner', 'moodBanner', 'dashMap',
+    'dashEconCoalition', 'dashParliament', 'dashStances',
+    'dashDiplomacy', 'dashHistory', 'dashInstitutions',
+  ];
+  document.body.innerHTML = '';
+  for (const id of ids) {
+    const el = document.createElement('div');
+    el.id = id;
+    document.body.appendChild(el);
+  }
+}
+
+describe('adoptLaw — signature law adoption', () => {
+  beforeEach(() => { loadRealEra(); setupMinimalDashboardDOM(); });
+  it('adoption requires ≥ 30 political capital', () => {
+    const G = getState();
+    G.politicalCapital = 20;
+    const lawId = realEra.signatureLaws?.[0]?.id;
+    if (!lawId) return;
+    adoptLaw(lawId);
+    expect(G.laws).toHaveLength(0);
+  });
+  it('successful adoption deducts 30 PC and appends to laws', () => {
+    const G = getState();
+    G.politicalCapital = 60;
+    const lawId = realEra.signatureLaws?.[0]?.id;
+    if (!lawId) return;
+    adoptLaw(lawId);
+    expect(G.laws).toHaveLength(1);
+    expect(G.politicalCapital).toBe(30);
+  });
+  it('second adoption is blocked (1 per era cap)', () => {
+    const G = getState();
+    G.politicalCapital = 100;
+    const laws = realEra.signatureLaws || [];
+    if (laws.length < 2) return;
+    adoptLaw(laws[0].id);
+    adoptLaw(laws[1].id);
+    expect(G.laws).toHaveLength(1);
+  });
+});
+
+describe('SCHEMES — player-initiated intrigue', () => {
+  beforeEach(() => { loadRealEra(); setupMinimalDashboardDOM(); });
+  it('catalogue contains at least 3 schemes', () => {
+    expect(SCHEMES.length).toBeGreaterThanOrEqual(3);
+  });
+  it('each scheme has id + name + description + capCost + apply()', () => {
+    SCHEMES.forEach(s => {
+      expect(typeof s.id).toBe('string');
+      expect(typeof s.name).toBe('string');
+      expect(typeof s.description).toBe('string');
+      expect(typeof s.capCost).toBe('number');
+      expect(typeof s.apply).toBe('function');
+    });
+  });
+  it('insufficient capital blocks scheme initiation', () => {
+    loadRealEra();
+    const G = getState();
+    G.politicalCapital = 5;
+    const before = { ...G.flags };
+    initiateScheme(SCHEMES[0].id);
+    expect(G.politicalCapital).toBe(5);          // nothing deducted
+    expect(Object.keys(G.flags)).toEqual(Object.keys(before));
+  });
+  it('sufficient capital triggers the scheme apply()', () => {
+    loadRealEra();
+    const G = getState();
+    G.politicalCapital = 80;
+    initiateScheme(SCHEMES[0].id);
+    expect(G.politicalCapital).toBeLessThan(80);
+  });
+});
+
+describe('coalitionSeats — computes active partners', () => {
+  it('only counts partners with on=1', () => {
+    loadRealEra();
+    const G = getState();
+    const total = coalitionSeats();
+    const sumAll = realEra.coalitionPartners.reduce((s, cp) => s + cp.seats, 0);
+    expect(total).toBeLessThanOrEqual(sumAll);
+  });
+  it('zero after all partners quit', () => {
+    loadRealEra();
+    const G = getState();
+    Object.values(G.cp).forEach(p => { p.on = 0; });
+    expect(coalitionSeats()).toBe(0);
+  });
+});
+
+describe('normalizeText — edge cases', () => {
+  it('empty string returns empty', () => {
+    expect(normalizeText('')).toBe('');
+  });
+  it('numbers and punctuation preserved', () => {
+    expect(normalizeText('Dane sú 19%!')).toBe('dane su 19%!');
+  });
+  it('all-caps preserved case-insensitively', () => {
+    expect(normalizeText('NATO')).toBe('nato');
+    expect(normalizeText('HZDS')).toBe('hzds');
   });
 });

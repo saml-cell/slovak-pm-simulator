@@ -4,9 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Slovenský Politický Simulátor</title>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://js.puter.com; style-src 'self' 'unsafe-inline'; connect-src 'self' https://api.groq.com https://api.anthropic.com; font-src 'self'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://js.puter.com https://plausible.io; style-src 'self' 'unsafe-inline'; connect-src 'self' https://api.groq.com https://api.anthropic.com https://plausible.io; font-src 'self'">
   <link rel="stylesheet" href="/fonts/fonts.css">
   <link rel="stylesheet" href="/src/styles/main.css">
+  <!-- Plausible — privacy-friendly, GDPR-exempt, no cookies. Domain is
+       the gh-pages host; if you deploy elsewhere, update data-domain. -->
+  <script defer data-domain="saml-cell.github.io" src="https://plausible.io/js/script.tagged-events.js"></script>
+  <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
 <body>
   <!-- Title Screen -->
@@ -58,6 +62,10 @@
         <button class="mode-btn" id="modeBtnMobile" data-mode="mobile">📱 Mobil</button>
       </div>
       <button class="start-button" id="startButton">Začať hru</button>
+      <div style="margin-top:18px;padding:10px 14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:6px;font-size:.7rem;color:var(--text-dim);line-height:1.5;max-width:480px;margin-left:auto;margin-right:auto;text-align:center">
+        <strong style="color:var(--gold)">Upozornenie:</strong> satiricko-edukačný simulátor. Výroky politikov a udalosti sú fiktívne, vytvorené pre hru. Nereprezentujú skutočné slová ani postoje.
+        <div style="margin-top:6px"><a href="https://ko-fi.com/samkell" target="_blank" rel="noopener" style="color:#29abe0;text-decoration:none;font-weight:600">☕ Podpor vývojára</a> · <a href="https://github.com/saml-cell/slovak-pm-simulator" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none">GitHub</a></div>
+      </div>
     </div>
   </div>
 
@@ -203,6 +211,12 @@
         <button class="play-again-button" id="playAgainButton">Hrať znova</button>
         <button class="play-again-button" id="wikiButton" style="background:linear-gradient(135deg,#854d0e,#a16207)">Generovať Wikipédiu</button>
         <button class="play-again-button" id="shareButton" style="background:linear-gradient(135deg,#0ea5e9,#3b82f6)">Zdieľať výsledok</button>
+        <button class="play-again-button" id="downloadCardButton" style="background:linear-gradient(135deg,#059669,#10b981)">Stiahnuť obrázok</button>
+      </div>
+      <div style="margin-top:24px;padding:16px;background:rgba(255,255,255,.03);border-radius:8px;border:1px solid rgba(255,255,255,.06);font-size:.75rem;color:var(--text-dim);line-height:1.6;text-align:center">
+        <strong style="color:var(--gold)">Satiricko-edukačný simulátor.</strong> Všetky výroky politikov a udalosti sú <em>fiktívne a vytvorené pre hru</em> — nereprezentujú skutočné slová ani postoje žiadnej osoby. Hra je mierená na civickú výchovu a politickú satiru.
+        <br><br>
+        <a href="https://ko-fi.com/samkell" target="_blank" rel="noopener" style="display:inline-block;padding:8px 16px;background:#29abe0;color:#fff;text-decoration:none;border-radius:6px;font-weight:600;font-size:.8rem">☕ Podporiť vývojára na Ko-fi</a>
       </div>
     </div>
   </div>
