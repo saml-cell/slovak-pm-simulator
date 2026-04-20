@@ -110,8 +110,19 @@ export function showAnalysis(a: AnalysisResult) {
   }).join('');
   document.getElementById('politicianContent')!.innerHTML = polHtml;
 
-  if (a.consequence) { document.getElementById('consequenceSection')!.style.display = 'block'; document.getElementById('consequenceContent')!.innerHTML = `<p style="color:#fde68a">⚠️ Vaše rozhodnutie môže mať dôsledky v budúcnosti.</p>`; }
-  else document.getElementById('consequenceSection')!.style.display = 'none';
+  const ce = G.lastCapitalEvent;
+  const ceMsg = ce && ce.month === G.month
+    ? (ce.kind === 'positive'
+        ? `<p style="color:#86efac">✨ Pozitívny zlom: ${ce.delta >= 0 ? '+' : ''}${ce.delta} politického kapitálu (neočakávaná priazeň.)</p>`
+        : `<p style="color:#fca5a5">💥 Škandál v médiách: ${ce.delta} politického kapitálu.</p>`)
+    : '';
+  if (a.consequence || ceMsg) {
+    document.getElementById('consequenceSection')!.style.display = 'block';
+    const cMsg = a.consequence ? `<p style="color:#fde68a">⚠️ Vaše rozhodnutie môže mať dôsledky v budúcnosti.</p>` : '';
+    document.getElementById('consequenceContent')!.innerHTML = cMsg + ceMsg;
+  } else {
+    document.getElementById('consequenceSection')!.style.display = 'none';
+  }
 }
 
 // Build a short reason phrase derived from the score tier + the current

@@ -474,6 +474,9 @@ export interface GameState {
   // (resolved on next policy submission). Unaddressed demands decay
   // sScore further.
   stakeholderDemands: Record<string, { text: string; postedAt: number; topic?: string }>;
+  // Most recent discrete capital event (scandal, EU pochvala etc.), for
+  // surfacing in the proactive-result banner. Cleared each turn it's shown.
+  lastCapitalEvent?: { kind: 'positive' | 'negative'; delta: number; month: number };
 }
 
 export type Mood = GameState['mood'];
@@ -538,5 +541,9 @@ declare global {
     __openReshuffleDialog: (ministerId: string) => void;
     __confirmReshuffle: (ministerId: string, candidateIdx: number) => void;
     __influenceInstitution: (instId: string) => void;
+    __openPressConfDialog: () => void;
+    __applyPressConf: (theme: string, tone: string) => void;
+    __openMiniLawDialog: () => void;
+    __applyMiniLaw: (domain: string, intensity: string) => void;
   }
 }

@@ -634,13 +634,38 @@ export function crisisFatigueTick(G: GameState, eventTier: string): number {
   return 1 - G.crisisFatigue * 0.4;
 }
 
-// Policy length proxies ambition and costs capital; high approval speeds
-// recharge. Returned multiplier weakens low-capital policy impact.
-export function politicalCapitalTick(G: GameState, policyLength: number): number {
+// Policy length proxies ambition and costs capital. Regen scales with the
+// health of approval/coalition/stability and is penalised during active
+// crises — a well-run government recharges to +6/mo, a bleeding one to 0.
+// Occasional discrete capital events (scandals, EU pochvala) add ±5-8 PC
+// for narrative variance. Returned multiplier weakens low-capital impact.
+export function politicalCapitalTick(
+  G: GameState,
+  policyLength: number,
+  eventTier: string = 'situation',
+): number {
   const cost = Math.min(20, policyLength / 50);
   G.politicalCapital = Math.max(0, G.politicalCapital - cost);
-  G.politicalCapital = Math.min(100, G.politicalCapital + 3);
-  if (G.approval > 60) G.politicalCapital = Math.min(100, G.politicalCapital + 2);
+
+  let regen = 1; // base
+  if (G.approval > 50) regen += 2;
+  if (G.coalition > 60) regen += 1;
+  if (G.stability > 60) regen += 1;
+  if (eventTier === 'crisis') regen -= 1;
+  regen = Math.max(0, Math.min(6, regen));
+  G.politicalCapital = Math.min(100, G.politicalCapital + regen);
+
+  // Discrete capital events: state-gated, stochastic, narrative delta.
+  const roll = Math.random();
+  if (G.approval > 55 && roll < 0.08) {
+    const delta = 5 + Math.floor(Math.random() * 4); // +5..+8
+    G.politicalCapital = Math.min(100, G.politicalCapital + delta);
+    G.lastCapitalEvent = { kind: 'positive', delta, month: G.month };
+  } else if (G.approval < 35 && roll < 0.08) {
+    const delta = -(5 + Math.floor(Math.random() * 4)); // -5..-8
+    G.politicalCapital = Math.max(0, G.politicalCapital + delta);
+    G.lastCapitalEvent = { kind: 'negative', delta, month: G.month };
+  }
 
   if (G.politicalCapital < 20) return 0.6;
   if (G.politicalCapital < 40) return 0.8;

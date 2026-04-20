@@ -511,6 +511,219 @@ export function confirmReshuffle(ministerId: string, candidateIdx: number): void
 window.__openReshuffleDialog = openReshuffleDialog;
 window.__confirmReshuffle = confirmReshuffle;
 
+// Press conference as a 4-theme × 4-tone matrix. Each cell computes its
+// effect from theme.base × tone.mult so the 16 combinations stay compact.
+// Fields touched: approval, stability, coalition, social.press (media
+// trust), diplo.eu, oppositionPressure, momentum, PC. Populist attack =
+// cheap, big approval, bleeds press + EU + coalition. Technocratic
+// initiative = expensive, small approval, big press + stability + EU.
+type PressTheme = 'defend' | 'attack' | 'initiative' | 'scandal';
+type PressTone = 'concil' | 'firm' | 'populist' | 'techno';
+interface PressEffect {
+  pcCost: number; approval: number; stability: number; coalition: number;
+  press: number; eu: number; opp: number; momentum: number;
+}
+const PRESS_THEMES: Record<PressTheme, { label: string; emoji: string; base: PressEffect }> = {
+  defend:     { label: 'Bránenie vlády',     emoji: '🛡️', base: { pcCost: 10, approval:  2, stability:  4, coalition:  3, press:  0, eu:  0, opp: -4, momentum: 0.05 } },
+  attack:     { label: 'Útok na opozíciu',   emoji: '⚔️', base: { pcCost: 15, approval:  3, stability: -1, coalition:  2, press: -3, eu:  0, opp: -6, momentum: 0.08 } },
+  initiative: { label: 'Nová iniciatíva',    emoji: '✨', base: { pcCost: 18, approval:  5, stability:  2, coalition:  0, press:  2, eu:  1, opp:  0, momentum: 0.12 } },
+  scandal:    { label: 'Reakcia na škandál', emoji: '🔥', base: { pcCost: 12, approval: -2, stability:  2, coalition:  1, press:  3, eu:  0, opp: -2, momentum: 0.03 } },
+};
+const PRESS_TONES: Record<PressTone, { label: string; mult: Record<keyof PressEffect, number> }> = {
+  concil:   { label: '🕊️ Zmierlivý',      mult: { pcCost: 1.0, approval: 1.0, stability: 1.2, coalition: 1.3, press: 1.1, eu: 1.2, opp: 0.5, momentum: 0.8 } },
+  firm:     { label: '💪 Pevný',          mult: { pcCost: 1.1, approval: 1.2, stability: 1.1, coalition: 0.9, press: 0.9, eu: 0.9, opp: 1.3, momentum: 1.2 } },
+  populist: { label: '🔊 Populistický',   mult: { pcCost: 0.8, approval: 1.5, stability: 0.8, coalition: 0.7, press: 0.6, eu: 0.5, opp: 1.1, momentum: 1.4 } },
+  techno:   { label: '🎓 Technokratický', mult: { pcCost: 1.3, approval: 0.7, stability: 1.3, coalition: 1.1, press: 1.4, eu: 1.3, opp: 0.8, momentum: 0.7 } },
+};
+
+function computePressEffect(theme: PressTheme, tone: PressTone): PressEffect {
+  const b = PRESS_THEMES[theme].base;
+  const m = PRESS_TONES[tone].mult;
+  return {
+    pcCost: Math.round(b.pcCost * m.pcCost),
+    approval:  +(b.approval  * m.approval ).toFixed(1),
+    stability: +(b.stability * m.stability).toFixed(1),
+    coalition: +(b.coalition * m.coalition).toFixed(1),
+    press:     +(b.press     * m.press    ).toFixed(1),
+    eu:        +(b.eu        * m.eu       ).toFixed(1),
+    opp:       +(b.opp       * m.opp      ).toFixed(1),
+    momentum:  +(b.momentum  * m.momentum ).toFixed(2),
+  };
+}
+
+export function openPressConfDialog(): void {
+  const G = getState();
+  const el = (id: string) => document.getElementById(id)!;
+  const fmt = (v: number) => v > 0 ? `+${v}` : v === 0 ? '0' : `${v}`;
+  const rows = (Object.keys(PRESS_THEMES) as PressTheme[]).map(t => {
+    const theme = PRESS_THEMES[t];
+    const cells = (Object.keys(PRESS_TONES) as PressTone[]).map(n => {
+      const e = computePressEffect(t, n);
+      const can = G.politicalCapital >= e.pcCost;
+      const aS = e.approval  >= 0 ? 'var(--green)' : 'var(--red)';
+      const sS = e.stability >= 0 ? 'var(--green)' : 'var(--red)';
+      const kS = e.coalition >= 0 ? 'var(--green)' : 'var(--red)';
+      const mS = e.press     >= 0 ? 'var(--green)' : 'var(--red)';
+      const tip = `${theme.label} · ${PRESS_TONES[n].label} — Kapitál:${e.pcCost} · Podpora ${fmt(e.approval)} · Stabilita ${fmt(e.stability)} · Koalícia ${fmt(e.coalition)} · Médiá ${fmt(e.press)} · EÚ ${fmt(e.eu)} · Opozícia ${fmt(e.opp)}`;
+      return `<button ${can ? '' : 'disabled'} onclick="window.__applyPressConf('${t}','${n}')" title="${esc(tip)}"
+        style="background:rgba(255,255,255,.04);color:${can ? '#fff' : 'var(--text-dim)'};border:1px solid rgba(255,255,255,.1);border-radius:5px;padding:6px 4px;font-size:.68rem;cursor:${can ? 'pointer' : 'not-allowed'};text-align:left;opacity:${can ? 1 : 0.5}">
+        <div style="font-weight:600">${PRESS_TONES[n].label}</div>
+        <div style="color:var(--gold);font-size:.65rem;margin:2px 0">💠 ${e.pcCost} PC</div>
+        <div style="font-size:.65rem;display:flex;gap:4px;flex-wrap:wrap"><span style="color:${aS}">A${fmt(e.approval)}</span><span style="color:${sS}">S${fmt(e.stability)}</span><span style="color:${kS}">K${fmt(e.coalition)}</span><span style="color:${mS}">M${fmt(e.press)}</span></div>
+      </button>`;
+    }).join('');
+    return `<div style="margin:8px 0"><div style="font-size:.75rem;font-weight:700;color:#fff;margin-bottom:4px">${theme.emoji} ${theme.label}</div><div style="display:grid;grid-template-columns:repeat(4,1fr);gap:4px">${cells}</div></div>`;
+  }).join('');
+  el('modalTitle').textContent = '📢 Tlačová konferencia';
+  el('modalText').innerHTML = `Vyberte tému (riadok) a tón (stĺpec). Každá kombinácia má iný dopad. <span style="color:var(--text-dim)">A=podpora · S=stabilita · K=koalícia · M=médiá</span>`;
+  el('modalActions').innerHTML = `${rows}<button class="partner-btn negotiate" style="width:100%;margin-top:8px" onclick="window.__closeModal()">Zrušiť</button>`;
+  document.getElementById('coalitionModal')!.classList.add('active');
+}
+
+export function applyPressConf(theme: string, tone: string): void {
+  const t = theme as PressTheme;
+  const n = tone as PressTone;
+  if (!PRESS_THEMES[t] || !PRESS_TONES[n]) return;
+  const G = getState();
+  const e = computePressEffect(t, n);
+  if (G.politicalCapital < e.pcCost) return;
+  G.politicalCapital -= e.pcCost;
+  G.approval  = clamp(G.approval  + e.approval);
+  G.stability = clamp(G.stability + e.stability);
+  G.coalition = clamp(G.coalition + e.coalition);
+  if (G.social.press !== undefined) G.social.press = Math.max(0, Math.min(100, G.social.press + e.press));
+  if (G.diplo.eu   !== undefined) G.diplo.eu   = Math.max(0, Math.min(100, G.diplo.eu   + e.eu));
+  G.oppositionPressure = Math.max(0, Math.min(100, G.oppositionPressure + e.opp));
+  G.momentum += e.momentum;
+  document.getElementById('coalitionModal')!.classList.remove('active');
+  const wb = document.getElementById('warningBanner');
+  if (wb) {
+    wb.innerHTML = (wb.innerHTML ? wb.innerHTML + '<br>' : '') + `📢 ${PRESS_THEMES[t].label} · ${PRESS_TONES[n].label} — ${e.pcCost} PC.`;
+    wb.classList.add('show');
+  }
+  updateDash();
+}
+
+window.__openPressConfDialog = openPressConfDialog;
+window.__applyPressConf = applyPressConf;
+
+// Mini-laws: domain × intensity. Cheaper, repeatable counterpart to the
+// 1-per-era signature law. Intensity scales PC cost and effect magnitude.
+// Unlike press conf (narrative, fast), mini-laws nudge econ fields
+// (deficit, minW, gdpGrowth, unemp) and stances so they compound through
+// later ticks. Each cast sets a flag so stakeholders get nudged too.
+type MiniDomain = 'economy' | 'social' | 'security' | 'media' | 'ecology';
+type MiniIntensity = 'symbol' | 'medium' | 'radical';
+interface MiniEffect {
+  pcCost: number;
+  approval: number; stability: number; coalition: number;
+  deficit: number; gdpGrowth: number; unemp: number; minW: number;
+  press: number; eu: number; opp: number;
+  stance: { key: string; delta: number } | null;
+}
+const MINI_DOMAINS: Record<MiniDomain, { label: string; emoji: string }> = {
+  economy:  { label: 'Ekonomika',  emoji: '💰' },
+  social:   { label: 'Sociálny',   emoji: '🤝' },
+  security: { label: 'Bezpečnosť', emoji: '🛡️' },
+  media:    { label: 'Médiá',      emoji: '📺' },
+  ecology:  { label: 'Ekológia',   emoji: '🌿' },
+};
+const MINI_INTENSITIES: Record<MiniIntensity, { label: string; emoji: string }> = {
+  symbol:  { label: 'Symbolický', emoji: '💡' },
+  medium:  { label: 'Stredný',    emoji: '⚖️' },
+  radical: { label: 'Radikálny',  emoji: '🔥' },
+};
+const MINI_EFFECTS: Record<MiniDomain, Record<MiniIntensity, MiniEffect>> = {
+  economy: {
+    symbol:  { pcCost:  8, approval: 1, stability:  0, coalition:  0, deficit: 0.2, gdpGrowth:  0.0, unemp:  0.0, minW: 10, press:  0, eu:  0, opp:  0, stance: { key: 'ekonomika', delta:  0.5 } },
+    medium:  { pcCost: 18, approval: 2, stability:  0, coalition: -2, deficit: 0.5, gdpGrowth:  0.1, unemp: -0.1, minW: 20, press:  0, eu:  0, opp: -1, stance: { key: 'ekonomika', delta:  1.0 } },
+    radical: { pcCost: 35, approval: 4, stability: -3, coalition: -4, deficit: 1.2, gdpGrowth:  0.2, unemp: -0.2, minW: 40, press:  0, eu: -2, opp: -2, stance: { key: 'ekonomika', delta:  2.0 } },
+  },
+  social: {
+    symbol:  { pcCost:  8, approval: 2, stability:  1, coalition:  0, deficit: 0.1, gdpGrowth:  0.0, unemp:  0.0, minW:  0, press:  0, eu:  0, opp:  0, stance: { key: 'social', delta:  0.5 } },
+    medium:  { pcCost: 18, approval: 4, stability:  1, coalition: -1, deficit: 0.4, gdpGrowth:  0.0, unemp: -0.2, minW:  0, press:  0, eu:  0, opp: -2, stance: { key: 'social', delta:  1.0 } },
+    radical: { pcCost: 35, approval: 7, stability: -2, coalition: -3, deficit: 1.0, gdpGrowth: -0.1, unemp: -0.4, minW:  0, press:  0, eu: -1, opp: -4, stance: { key: 'social', delta:  2.0 } },
+  },
+  security: {
+    symbol:  { pcCost:  8, approval: 1, stability:  2, coalition:  0, deficit: 0.0, gdpGrowth:  0.0, unemp:  0.0, minW:  0, press: -1, eu:  0, opp: -2, stance: null },
+    medium:  { pcCost: 18, approval: 3, stability:  4, coalition:  1, deficit: 0.2, gdpGrowth:  0.0, unemp:  0.0, minW:  0, press: -3, eu: -1, opp: -4, stance: null },
+    radical: { pcCost: 35, approval: 4, stability:  6, coalition: -2, deficit: 0.4, gdpGrowth:  0.0, unemp:  0.0, minW:  0, press: -6, eu: -3, opp: -6, stance: null },
+  },
+  media: {
+    symbol:  { pcCost:  8, approval: 1, stability:  0, coalition:  0, deficit: 0.0, gdpGrowth:  0.0, unemp:  0.0, minW:  0, press:  2, eu:  0, opp:  0, stance: { key: 'media', delta:  0.5 } },
+    medium:  { pcCost: 18, approval: 2, stability:  0, coalition: -1, deficit: 0.1, gdpGrowth:  0.0, unemp:  0.0, minW:  0, press:  5, eu:  1, opp:  0, stance: { key: 'media', delta:  1.0 } },
+    radical: { pcCost: 35, approval: 3, stability: -1, coalition: -3, deficit: 0.2, gdpGrowth: -0.05,unemp:  0.0, minW:  0, press: 10, eu:  2, opp: -2, stance: { key: 'media', delta:  2.0 } },
+  },
+  ecology: {
+    symbol:  { pcCost:  8, approval: 1, stability:  0, coalition:  0, deficit: 0.1, gdpGrowth:  0.0, unemp:  0.0, minW:  0, press:  1, eu:  1, opp:  0, stance: null },
+    medium:  { pcCost: 18, approval: 2, stability:  0, coalition: -1, deficit: 0.3, gdpGrowth: -0.1, unemp:  0.1, minW:  0, press:  1, eu:  2, opp:  0, stance: null },
+    radical: { pcCost: 35, approval: 3, stability: -1, coalition: -2, deficit: 0.8, gdpGrowth: -0.3, unemp:  0.3, minW:  0, press:  2, eu:  4, opp: -2, stance: null },
+  },
+};
+
+export function openMiniLawDialog(): void {
+  const G = getState();
+  const el = (id: string) => document.getElementById(id)!;
+  const fmt = (v: number, digits = 0) => v > 0 ? `+${v.toFixed(digits)}` : v === 0 ? '0' : `${v.toFixed(digits)}`;
+  const rows = (Object.keys(MINI_DOMAINS) as MiniDomain[]).map(d => {
+    const dom = MINI_DOMAINS[d];
+    const cells = (Object.keys(MINI_INTENSITIES) as MiniIntensity[]).map(i => {
+      const e = MINI_EFFECTS[d][i];
+      const can = G.politicalCapital >= e.pcCost;
+      const intensity = MINI_INTENSITIES[i];
+      const aS = e.approval  >= 0 ? 'var(--green)' : 'var(--red)';
+      const defS = e.deficit <= 0 ? 'var(--green)' : 'var(--red)';
+      const kS = e.coalition >= 0 ? 'var(--green)' : 'var(--red)';
+      const tip = `${dom.label} · ${intensity.label} — Kapitál:${e.pcCost} · Podpora ${fmt(e.approval)} · Stabilita ${fmt(e.stability)} · Koalícia ${fmt(e.coalition)} · Deficit ${fmt(e.deficit,1)} · HDP ${fmt(e.gdpGrowth,2)} · Médiá ${fmt(e.press)} · EÚ ${fmt(e.eu)}`;
+      return `<button ${can ? '' : 'disabled'} onclick="window.__applyMiniLaw('${d}','${i}')" title="${esc(tip)}"
+        style="background:rgba(255,255,255,.04);color:${can ? '#fff' : 'var(--text-dim)'};border:1px solid rgba(255,255,255,.1);border-radius:5px;padding:6px 4px;font-size:.68rem;cursor:${can ? 'pointer' : 'not-allowed'};text-align:left;opacity:${can ? 1 : 0.5}">
+        <div style="font-weight:600">${intensity.emoji} ${intensity.label}</div>
+        <div style="color:var(--gold);font-size:.65rem;margin:2px 0">💠 ${e.pcCost} PC</div>
+        <div style="font-size:.65rem;display:flex;gap:4px;flex-wrap:wrap"><span style="color:${aS}">A${fmt(e.approval)}</span><span style="color:${defS}">D${fmt(e.deficit,1)}</span><span style="color:${kS}">K${fmt(e.coalition)}</span></div>
+      </button>`;
+    }).join('');
+    return `<div style="margin:8px 0"><div style="font-size:.75rem;font-weight:700;color:#fff;margin-bottom:4px">${dom.emoji} ${dom.label}</div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:4px">${cells}</div></div>`;
+  }).join('');
+  el('modalTitle').textContent = '📜 Mini-zákon';
+  el('modalText').innerHTML = `Opakovateľné menšie zákony. Doména (riadok) × intenzita (stĺpec). <span style="color:var(--text-dim)">A=podpora · D=deficit · K=koalícia</span>`;
+  el('modalActions').innerHTML = `${rows}<button class="partner-btn negotiate" style="width:100%;margin-top:8px" onclick="window.__closeModal()">Zrušiť</button>`;
+  document.getElementById('coalitionModal')!.classList.add('active');
+}
+
+export function applyMiniLaw(domain: string, intensity: string): void {
+  const d = domain as MiniDomain;
+  const i = intensity as MiniIntensity;
+  if (!MINI_EFFECTS[d] || !MINI_EFFECTS[d][i]) return;
+  const G = getState();
+  const e = MINI_EFFECTS[d][i];
+  if (G.politicalCapital < e.pcCost) return;
+  G.politicalCapital -= e.pcCost;
+  G.approval  = clamp(G.approval  + e.approval);
+  G.stability = clamp(G.stability + e.stability);
+  G.coalition = clamp(G.coalition + e.coalition);
+  G.econ.deficit    += e.deficit;
+  G.econ.gdpGrowth  += e.gdpGrowth;
+  G.econ.unemp       = Math.max(2, G.econ.unemp + e.unemp);
+  G.econ.minW        = Math.max(400, G.econ.minW + e.minW);
+  if (G.social.press !== undefined) G.social.press = Math.max(0, Math.min(100, G.social.press + e.press));
+  if (G.diplo.eu   !== undefined) G.diplo.eu   = Math.max(0, Math.min(100, G.diplo.eu   + e.eu));
+  G.oppositionPressure = Math.max(0, Math.min(100, G.oppositionPressure + e.opp));
+  if (e.stance && G.stances[e.stance.key] !== undefined) {
+    G.stances[e.stance.key] = Math.max(-10, Math.min(10, G.stances[e.stance.key] + e.stance.delta));
+  }
+  G.flags[`mini_${d}_${i}`] = true;
+  document.getElementById('coalitionModal')!.classList.remove('active');
+  const wb = document.getElementById('warningBanner');
+  if (wb) {
+    wb.innerHTML = (wb.innerHTML ? wb.innerHTML + '<br>' : '') + `📜 Mini-zákon: ${MINI_DOMAINS[d].label} · ${MINI_INTENSITIES[i].label} — ${e.pcCost} PC.`;
+    wb.classList.add('show');
+  }
+  updateDash();
+}
+
+window.__openMiniLawDialog = openMiniLawDialog;
+window.__applyMiniLaw = applyMiniLaw;
+
 // Influence an institutional head (e.g., GP, SIS, NKU, RTVS). Costs 20 PC
 // + raises capturedCount. Makes that institution more loyal but at the
 // cost of institutional integrity + EU diplomatic relations. One-way
@@ -551,8 +764,8 @@ export function proceed(a: AnalysisResult) {
   const { bonus, flipPenalty } = policyConsistency(G, lastPolicy);
   a.aD += bonus + flipPenalty;
 
-  const capMult = politicalCapitalTick(G, lastPolicy.length);
   const eventTier = G.event?.tier || 'situation';
+  const capMult = politicalCapitalTick(G, lastPolicy.length, eventTier);
   const fatigueMult = crisisFatigueTick(G, eventTier);
 
   G.prevA = G.approval; G.prevS = G.stability; G.prevC = G.coalition; G.prevImpl = G.impl;

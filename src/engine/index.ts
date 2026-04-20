@@ -218,13 +218,7 @@ async function main() {
   document.getElementById('backFromEventButton')!.addEventListener('click', () => showScreen('dashboardScreen'));
 
   document.getElementById('pressConfBtn')!.addEventListener('click', () => {
-    const G = getState();
-    if (G.politicalCapital < 15) { showProactiveResult('Nedostatok politického kapitálu!'); return; }
-    G.politicalCapital -= 15;
-    G.approval = Math.min(100, G.approval + 4);
-    G.momentum += 0.1;
-    showProactiveResult('📢 Tlačová konferencia: +4 podpora, -15 politický kapitál');
-    updateDash();
+    window.__openPressConfDialog();
   });
   document.getElementById('coalMeetBtn')!.addEventListener('click', () => {
     const G = getState();
@@ -243,6 +237,9 @@ async function main() {
     G.stability = Math.min(100, G.stability + 3);
     showProactiveResult('📜 Legislatívna iniciatíva: +8 implementácia, -25 politický kapitál');
     updateDash();
+  });
+  document.getElementById('miniLawBtn')!.addEventListener('click', () => {
+    window.__openMiniLawDialog();
   });
 
   document.getElementById('playAgainButton')!.addEventListener('click', () => location.reload());
