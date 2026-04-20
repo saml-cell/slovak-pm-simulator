@@ -357,6 +357,10 @@ export function updatePolling(G: GameState): void {
   if (G.stability > 70) {
     G.pollError *= 0.9;
   }
+
+  if (G.pollApproval > 35 && G.flags.crisis_address_used) {
+    delete G.flags.crisis_address_used;
+  }
 }
 
 export function oppositionMove(G: GameState, era: EraConfig): { action: string; effect: { approval: number; stability: number; coalition: number } } {

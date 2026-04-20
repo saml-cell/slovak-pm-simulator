@@ -16,9 +16,14 @@ import type { GameState } from './types';
 
 async function main() {
   const params = new URLSearchParams(window.location.search);
-  const eraId = params.get('era') || 'fico-2023-present';
 
   const resultParam = params.get('result');
+  if (!params.get('era') && !resultParam) {
+    window.location.href = './';
+    return;
+  }
+  const eraId = params.get('era') || 'meciar-1994-1998';
+
   if (resultParam) {
     try {
       const r = JSON.parse(atob(resultParam));
@@ -240,6 +245,21 @@ async function main() {
   });
   document.getElementById('miniLawBtn')!.addEventListener('click', () => {
     window.__openMiniLawDialog();
+  });
+  document.getElementById('nationalAddressBtn')!.addEventListener('click', () => {
+    const G = getState();
+    if (G.pollApproval >= 25) { showProactiveResult('Národný prejav má zmysel iba v kríze (prieskumy < 25%).'); return; }
+    if (G.flags.crisis_address_used) { showProactiveResult('Národný prejav už bol využitý — funguje len raz za krízu.'); return; }
+    if (G.politicalCapital < 25) { showProactiveResult('Nedostatok politického kapitálu (potrebných 25).'); return; }
+    G.politicalCapital -= 25;
+    G.approval = Math.min(100, G.approval + 6);
+    G.stability = Math.min(100, G.stability + 4);
+    G.momentum += 2;
+    if (G.social.press !== undefined) G.social.press = Math.max(0, G.social.press - 3);
+    if (G.diplo.eu !== undefined) G.diplo.eu = Math.max(0, G.diplo.eu - 1);
+    G.flags.crisis_address_used = true;
+    showProactiveResult('🆘 Národný prejav: +6 podpora, +4 stabilita, +2 momentum, -3 médiá, -1 EÚ, -25 PC');
+    updateDash();
   });
 
   document.getElementById('playAgainButton')!.addEventListener('click', () => location.reload());

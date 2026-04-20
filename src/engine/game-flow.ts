@@ -712,6 +712,18 @@ export function applyMiniLaw(domain: string, intensity: string): void {
     G.stances[e.stance.key] = Math.max(-10, Math.min(10, G.stances[e.stance.key] + e.stance.delta));
   }
   G.flags[`mini_${d}_${i}`] = true;
+  // Stakeholder coupling: mini-laws nudge non-press social fields too.
+  // Magnitude tier: symbol=1, medium=3, radical=6.
+  const tier = i === 'radical' ? 6 : i === 'medium' ? 3 : 1;
+  if (d === 'social') {
+    G.social.civilSociety = Math.max(0, Math.min(100, (G.social.civilSociety ?? 50) + tier));
+  } else if (d === 'security') {
+    G.social.civilSociety = Math.max(0, Math.min(100, (G.social.civilSociety ?? 50) - tier));
+  } else if (d === 'media') {
+    G.social.mediaTrust = Math.max(0, Math.min(100, (G.social.mediaTrust ?? 50) - tier));
+  } else if (d === 'economy' && i === 'radical') {
+    G.social.corrupt = Math.max(0, Math.min(100, (G.social.corrupt ?? 50) + 3));
+  }
   document.getElementById('coalitionModal')!.classList.remove('active');
   const wb = document.getElementById('warningBanner');
   if (wb) {

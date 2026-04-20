@@ -311,6 +311,9 @@ export function updateDash() {
   if (coalitionSeats() < 76) warnings.push('⚠️ Menšinová vláda! ' + coalitionSeats() + '/150 kresiel.');
   if (warnings.length) { wb.innerHTML = warnings.join('<br>'); wb.classList.add('show'); } else wb.classList.remove('show');
 
+  const naBtn = document.getElementById('nationalAddressBtn');
+  if (naBtn) naBtn.style.display = (G.pollApproval < 25 && !G.flags.crisis_address_used) ? '' : 'none';
+
   // Global mood banner — visible every turn above warnings, tinted by mood.
   // Hidden when mood === 'normal' to keep the dashboard quiet.
   const mb = document.getElementById('moodBanner');
