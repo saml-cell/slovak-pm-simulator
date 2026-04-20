@@ -83,3 +83,53 @@ export async function callAI(sys: string, msg: string): Promise<RawAIResult | nu
 
   return null;
 }
+
+// Same provider routing as callAI() but returns the model's plain text
+// instead of forcing JSON parsing. Used for narrative generation
+// (game-over reflection, press-conf Q+A) where the response is prose.
+export async function callAIText(sys: string, msg: string, maxTokens = 600): Promise<string | null> {
+  const provider = getAIProvider();
+  const k = sessionStorage.getItem('ai_api_key');
+
+  if (provider === 'puter') {
+    try {
+      if (!puterLoaded) await loadPuter();
+      const timeoutP = new Promise<never>((_, rej) => setTimeout(() => rej(new Error('timeout')), 30000));
+      const aiP = puter.ai.chat([{ role: 'system', content: sys }, { role: 'user', content: msg }], { model: 'gpt-4o-mini' });
+      const resp = await Promise.race([aiP, timeoutP]);
+      if (typeof resp === 'string') return resp.trim();
+      const content = resp.message?.content;
+      if (Array.isArray(content)) return (content[0]?.text || '').trim();
+      if (typeof content === 'string') return content.trim();
+      return (resp.text || '').trim() || null;
+    } catch (e) { console.error('Puter AI text:', e); return null; }
+  }
+
+  if (provider === 'groq' && k) {
+    try {
+      const r = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + k },
+        body: JSON.stringify({ model: 'llama-3.3-70b-versatile', max_tokens: maxTokens, temperature: 0.85, messages: [{ role: 'system', content: sys }, { role: 'user', content: msg }] }),
+      });
+      if (!r.ok) return null;
+      const d: { choices: Array<{ message: { content: string } }> } = await r.json();
+      return d.choices[0].message.content.trim();
+    } catch (e) { console.error('Groq text:', e); return null; }
+  }
+
+  if (provider === 'anthropic' && k) {
+    try {
+      const r = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'x-api-key': k, 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' },
+        body: JSON.stringify({ model: 'claude-haiku-4-5', max_tokens: maxTokens, system: sys, messages: [{ role: 'user', content: msg }] }),
+      });
+      if (!r.ok) return null;
+      const d: { content: Array<{ text: string }> } = await r.json();
+      return d.content[0].text.trim();
+    } catch (e) { console.error('Anthropic text:', e); return null; }
+  }
+
+  return null;
+}

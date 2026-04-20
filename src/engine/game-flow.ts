@@ -4,6 +4,7 @@ import { showScreen } from './screen';
 import { updateDash } from './render/dashboard';
 import { esc, normalizeText } from './sanitize';
 import { trackAnalytics } from './analytics';
+import { callAIText, getAIProvider } from './ai';
 import { clamp, applyMomentum, socialInfluence, econFeedback, policyConsistency, oppositionMove, nashBargaining, simulateElection, businessCycleTick, deficitDynamics, euFundsLink, smartMinWage, econCrisisCheck, incumbencyPenalty, crisisFatigueTick, politicalCapitalTick, diploFeedback, computeShapley, fiscalHealth, fdiDynamics, okunsLaw, mediaCycleTick, updatePolling, laborMarketTick, brainDrainTick, oligarchicTick, mediaEcosystemTick, courtTick, courtIdeologyScore, cabinetTick, cabinetImplementationMod, institutionsTick } from './advanced';
 
 // Stakeholder demands (Tropico-style faction demands extended to non-
@@ -602,6 +603,22 @@ export function applyPressConf(theme: string, tone: string): void {
     wb.classList.add('show');
   }
   updateDash();
+
+  const dlg = document.getElementById('aiPressDialog');
+  if (dlg && getAIProvider() !== 'none') {
+    dlg.textContent = '⏳ Generujem reakciu novinárov...';
+    dlg.style.display = 'block';
+    const era = getEra();
+    const sys = 'Si simulátor tlačovej konferencie v slovenskej politike. Vygeneruj jednu krátku otázku novinára (1 veta, ostro) a stručnú odpoveď hovorcu vlády (1-2 vety, v zvolenom tóne). Píš v slovenčine. Formát výstupu: "Novinár: ...\\nHovorca: ...". Žiadny iný text, žiadny markdown, žiadne nadpisy.';
+    const msg = `Téma konferencie: ${PRESS_THEMES[t].label}\nZvolený tón: ${PRESS_TONES[n].label}\nObdobie: ${era.meta.headerTitle}\nSúčasný stav: podpora ${Math.round(G.approval)}%, stabilita ${Math.round(G.stability)}%, koalícia ${Math.round(G.coalition)}%, médiá ${Math.round(G.social.press || 50)}%, mesiac ${G.month + 1}/${era.totalMonths}.\nVygeneruj 1 otázku novinára a 1 odpoveď hovorcu zodpovedajúcu téme aj tónu.`;
+    callAIText(sys, msg, 200).then(text => {
+      if (text) {
+        dlg.textContent = text;
+      } else {
+        dlg.style.display = 'none';
+      }
+    });
+  }
 }
 
 window.__openPressConfDialog = openPressConfDialog;
@@ -769,6 +786,9 @@ export function proceed(a: AnalysisResult) {
   const era = getEra();
 
   trackAnalytics('month_played', { era: era.meta.id, month: G.month });
+
+  const dlg = document.getElementById('aiPressDialog');
+  if (dlg) { dlg.style.display = 'none'; dlg.textContent = ''; }
 
   // Policy consistency scoring runs on the previous month's policy so the
   // bonus/penalty modifies this month's delta before any further math.
@@ -1112,6 +1132,32 @@ function gameOver(collapsed: boolean) {
   const el = (id: string) => document.getElementById(id)!;
   el('gameOverTitle').textContent = title;
   el('gameOverNarrative').textContent = narr;
+
+  const refEl = document.getElementById('aiReflection');
+  if (refEl && getAIProvider() !== 'none') {
+    const cacheKey = `ai_reflection_${era.meta.headerTitle}_${G.month}_${Math.round(G.approval)}_${Math.round(G.stability)}_${Math.round(G.coalition)}`;
+    const cached = sessionStorage.getItem(cacheKey);
+    if (cached) {
+      refEl.textContent = cached;
+      refEl.style.display = 'block';
+    } else {
+      refEl.textContent = '⏳ AI generuje historickú reflexiu...';
+      refEl.style.display = 'block';
+      const sys = 'Si politický komentátor analyzujúci výsledky volebného obdobia v slovenskej politike. Píšeš v slovenčine, kultivovaným, neutrálnym tónom historika ako keby si písal úvodník alebo wikipédiový záver. Vždy presne 2 odseky, spolu max 120 slov. Žiadne nadpisy, žiadny markdown, žiadne odrážky.';
+      const lawsTxt = G.laws.length ? G.laws.map(l => l.name).join(', ') : 'žiadne signature zákony';
+      const schemeFlags = Object.keys(G.flags).filter(k => k.startsWith('scheme_used_') && G.flags[k]).length;
+      const msg = `Premiér: ${era.meta.headerTitle}\nVýsledok obdobia: ${title}\nStatická narácia: ${narr}\nKonečné metriky: podpora ${Math.round(G.approval)}%, stabilita ${Math.round(G.stability)}%, koalícia ${Math.round(G.coalition)}%, mesiace ${G.month}, HDP rast ${G.econ.gdpGrowth.toFixed(1)}%, inflácia ${G.econ.infl.toFixed(1)}%, dlh ${G.econ.debt.toFixed(1)}.\nZákony: ${lawsTxt}.\nTajné akcie: ${schemeFlags}. Výmeny ministrov: ${G.cabinet.reshuffleCount}.\n\nNapíš 2-odsekovú historickú reflexiu tohto obdobia. Prvý odsek: čo si bude verejnosť pamätať. Druhý odsek: dlhodobý odkaz pre Slovensko.`;
+      callAIText(sys, msg, 400).then(text => {
+        if (text) {
+          refEl.textContent = text;
+          try { sessionStorage.setItem(cacheKey, text); } catch { /* quota */ }
+        } else {
+          refEl.style.display = 'none';
+        }
+      });
+    }
+  }
+
   el('gameOverStats').innerHTML = [
     { l: 'Podpora', v: Math.round(G.approval) + '%' }, { l: 'Stabilita', v: Math.round(G.stability) + '%' },
     { l: 'Koalícia', v: Math.round(G.coalition) + '%' }, { l: 'Mesiace', v: String(G.month) },
