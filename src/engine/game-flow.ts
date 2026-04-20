@@ -338,37 +338,178 @@ export function nominateJudge(): void {
 
 window.__nominateJudge = nominateJudge;
 
-// Reshuffle: replace the least-competent minister with a fresh pick.
-// Costs 20 PC, dampens cabinetCohesion for a moment, but lifts average
-// competence. Use when cabinet drags implementation down.
-export function reshuffleMinister(): void {
+// Reshuffle (Fantasy-President-style): player fires a specific minister,
+// then picks a replacement from 3 generated candidates with visible
+// competence / loyalty / ideology / corruption. Costs 20 PC, dampens
+// cabinetCohesion, and lightly hits stability.
+
+const NAME_POOL = [
+  'Peter Varga', 'Martin Hudák', 'Tomáš Sedlák', 'Jozef Baláž', 'Michal Polák',
+  'Andrej Mihalík', 'Igor Krajčí', 'Pavol Urban', 'Marek Vlček', 'Robert Repák',
+  'Miroslav Dudek', 'Ivan Molnár', 'Dušan Greguš', 'Ladislav Varšavský',
+  'Zuzana Horváthová', 'Veronika Kováčová', 'Silvia Novotná', 'Monika Tóthová',
+  'Eva Valková', 'Jana Šimková', 'Katarína Dudeková', 'Lucia Krausová',
+  'Alena Lehotská', 'Martina Bartošová',
+];
+
+type CandidateArchetype = 'technokrat' | 'lojalista' | 'stredový';
+
+interface MinisterCandidate {
+  name: string;
+  archetype: CandidateArchetype;
+  ideology: number;
+  competence: number;
+  loyalty: number;
+  partyLoyalty: number;
+  corruption: number;
+  publicProfile: number;
+}
+
+// Transient UI state — keyed by the fired minister's id.
+const pendingCandidates: Record<string, MinisterCandidate[]> = {};
+
+function randInt(min: number, max: number): number {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function pickName(exclude: Set<string>): string {
+  const pool = NAME_POOL.filter(n => !exclude.has(n.toLowerCase()));
+  const source = pool.length > 0 ? pool : NAME_POOL;
+  return source[Math.floor(Math.random() * source.length)];
+}
+
+function generateCandidates(partyIdeology: number): MinisterCandidate[] {
   const G = getState();
+  const used = new Set<string>(G.cabinet.ministers.map(m => m.name.toLowerCase()));
+  const out: MinisterCandidate[] = [];
+  const archetypes: CandidateArchetype[] = ['technokrat', 'lojalista', 'stredový'];
+  for (const arch of archetypes) {
+    const name = pickName(used);
+    used.add(name.toLowerCase());
+    if (arch === 'technokrat') {
+      out.push({
+        name, archetype: arch,
+        competence: randInt(7, 9),
+        loyalty: randInt(3, 5),
+        partyLoyalty: randInt(3, 5),
+        ideology: clamp10(partyIdeology + randInt(-3, 3)),
+        corruption: randInt(1, 3),
+        publicProfile: randInt(4, 7),
+      });
+    } else if (arch === 'lojalista') {
+      out.push({
+        name, archetype: arch,
+        competence: randInt(3, 6),
+        loyalty: randInt(8, 9),
+        partyLoyalty: randInt(8, 9),
+        ideology: clamp10(partyIdeology + randInt(-1, 1)),
+        corruption: randInt(4, 7),
+        publicProfile: randInt(5, 8),
+      });
+    } else {
+      out.push({
+        name, archetype: arch,
+        competence: randInt(5, 7),
+        loyalty: randInt(5, 7),
+        partyLoyalty: randInt(5, 7),
+        ideology: clamp10(partyIdeology + randInt(-2, 2)),
+        corruption: randInt(2, 5),
+        publicProfile: randInt(4, 7),
+      });
+    }
+  }
+  return out;
+}
+
+function clamp10(v: number): number {
+  return Math.max(1, Math.min(10, v));
+}
+
+export function openReshuffleDialog(ministerId: string): void {
+  const G = getState();
+  const era = getEra();
   if (G.politicalCapital < 20) return;
-  if (G.cabinet.ministers.length === 0) return;
-  G.politicalCapital -= 20;
-  // Find lowest competence minister
-  const sorted = [...G.cabinet.ministers].sort((a, b) => a.competence - b.competence);
-  const victim = sorted[0];
-  const idx = G.cabinet.ministers.findIndex(m => m.id === victim.id);
+  const victim = G.cabinet.ministers.find(m => m.id === ministerId);
+  if (!victim) return;
+  const ministry = era.cabinet?.ministries.find(x => x.id === victim.ministry);
+  // Use the fired minister's own ideology as the party baseline for candidates.
+  const candidates = generateCandidates(victim.ideology);
+  pendingCandidates[ministerId] = candidates;
+
+  const statDot = (label: string, val: number, good: 'high' | 'low'): string => {
+    const isGood = good === 'high' ? val >= 7 : val <= 3;
+    const isBad = good === 'high' ? val <= 4 : val >= 7;
+    const col = isGood ? 'var(--green)' : isBad ? 'var(--red)' : 'var(--yellow)';
+    return `<span style="color:${col};font-weight:600">${label}:${val}</span>`;
+  };
+
+  const archLabel: Record<CandidateArchetype, string> = {
+    technokrat: '🎓 Technokrat',
+    lojalista: '🤝 Lojalista',
+    'stredový': '⚖️ Stredový',
+  };
+
+  const cards = candidates.map((c, i) => `
+    <button class="reshuffle-candidate" onclick="window.__confirmReshuffle('${esc(ministerId)}',${i})"
+      style="display:block;width:100%;text-align:left;background:rgba(255,255,255,.04);color:#fff;
+      border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:10px;margin:6px 0;cursor:pointer;font-size:.78rem">
+      <div style="display:flex;justify-content:space-between;margin-bottom:4px">
+        <strong style="color:var(--gold)">${esc(c.name)}</strong>
+        <span style="color:var(--text-dim);font-size:.72rem">${archLabel[c.archetype]}</span>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;font-size:.72rem">
+        ${statDot('K', c.competence, 'high')}
+        ${statDot('L', c.loyalty, 'high')}
+        <span style="color:var(--text-dim);font-weight:600">I:${c.ideology}</span>
+        ${statDot('R', c.corruption, 'low')}
+      </div>
+    </button>`).join('');
+
+  const el = (eid: string) => document.getElementById(eid)!;
+  el('modalTitle').textContent = `Vymeniť ${ministry ? ministry.emoji + ' ' : ''}${victim.name}?`;
+  el('modalText').innerHTML = `Cena: <strong>20 PC, −10 kohézia, −2 stabilita</strong>. Vyberte nástupcu — každý kandidát má iný profil. <span style="color:var(--text-dim)">K = kompetencia · L = lojalita k vám · I = ideológia (1 ľavica → 10 pravica) · R = riziko/korupcia</span>`;
+  el('modalActions').innerHTML = `${cards}<button class="partner-btn negotiate" style="width:100%;margin-top:8px" onclick="window.__closeModal()">Zrušiť</button>`;
+  document.getElementById('coalitionModal')!.classList.add('active');
+}
+
+export function confirmReshuffle(ministerId: string, candidateIdx: number): void {
+  const G = getState();
+  const candidates = pendingCandidates[ministerId];
+  if (!candidates) return;
+  const pick = candidates[candidateIdx];
+  if (!pick) return;
+  const idx = G.cabinet.ministers.findIndex(m => m.id === ministerId);
   if (idx < 0) return;
-  // Replace with a fresh minister: better competence, lower corruption
+  if (G.politicalCapital < 20) return;
+  const victim = G.cabinet.ministers[idx];
+  G.politicalCapital -= 20;
   G.cabinet.ministers[idx] = {
-    ...victim,
-    competence: 6 + Math.floor(Math.random() * 3),
-    corruption: Math.max(1, victim.corruption - 2),
+    id: `${victim.ministry}_${Date.now().toString(36)}`,
+    name: pick.name,
+    party: victim.party,
+    ministry: victim.ministry,
+    ideology: pick.ideology,
+    competence: pick.competence,
+    loyalty: pick.loyalty,
+    partyLoyalty: pick.partyLoyalty,
+    corruption: pick.corruption,
+    publicProfile: pick.publicProfile,
   };
   G.cabinet.reshuffleCount++;
   G.cabinet.cabinetCohesion = Math.max(20, G.cabinet.cabinetCohesion - 10);
   G.stability = clamp(G.stability - 2);
+  delete pendingCandidates[ministerId];
   const wb = document.getElementById('warningBanner');
   if (wb) {
-    wb.innerHTML = (wb.innerHTML ? wb.innerHTML + '<br>' : '') + `🔄 Výmena ministra: ${esc(victim.name)} odvolaný, kohézia kabinetu −10.`;
+    wb.innerHTML = (wb.innerHTML ? wb.innerHTML + '<br>' : '') + `🔄 Výmena ministra: ${esc(victim.name)} odvolaný, nastúpil ${esc(pick.name)} — kohézia kabinetu −10.`;
     wb.classList.add('show');
   }
+  document.getElementById('coalitionModal')!.classList.remove('active');
   updateDash();
 }
 
-window.__reshuffleMinister = reshuffleMinister;
+window.__openReshuffleDialog = openReshuffleDialog;
+window.__confirmReshuffle = confirmReshuffle;
 
 // Influence an institutional head (e.g., GP, SIS, NKU, RTVS). Costs 20 PC
 // + raises capturedCount. Makes that institution more loyal but at the
@@ -620,14 +761,17 @@ export function proceed(a: AnalysisResult) {
   // matches the existing topic-tagging machinery without new state.)
   const eventTopic = G.event?.category;
   if (eventTopic) {
-    for (const [sid, _dem] of Object.entries(G.stakeholderDemands)) {
+    for (const [sid, dem] of Object.entries(G.stakeholderDemands)) {
       // If sScore moved up by ≥3 this turn, treat the demand as addressed
       const before = G.sScores[sid] || 50;
       const after = a.sScores[sid] || 50;
       if (after - before >= 3) {
         G.sScores[sid] = Math.min(95, before + 8);
+        const sh = era.stakeholders.find(s => s.id === sid);
+        const name = sh ? sh.name : sid.toUpperCase();
+        const excerpt = dem.text.length > 90 ? dem.text.slice(0, 87) + '…' : dem.text;
         delete G.stakeholderDemands[sid];
-        demandMessages.push(`✅ ${sid.toUpperCase()}: požiadavka splnená — vďačnosť +8.`);
+        demandMessages.push(`✅ ${name}: požiadavka „${excerpt}" splnená — vďačnosť +8.`);
       }
     }
   }

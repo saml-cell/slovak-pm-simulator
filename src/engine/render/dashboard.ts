@@ -347,7 +347,7 @@ export function updateDash() {
   const mapEl = document.getElementById('dashMap');
   if (mapEl) mapEl.innerHTML = renderMap();
   const econCoalEl = document.getElementById('dashEconCoalition')!;
-  econCoalEl.innerHTML = renderEconomy() + renderCoalition();
+  econCoalEl.innerHTML = renderEconomy() + renderCoalition() + renderDemands();
   document.getElementById('dashParliament')!.innerHTML = renderParliament();
   document.getElementById('dashStances')!.innerHTML = renderStances() + renderAdvancedMetrics();
   document.getElementById('dashDiplomacy')!.innerHTML = renderDiplomacy();
@@ -425,6 +425,32 @@ function renderCourt(): string {
   </div>`;
 }
 
+function renderDemands(): string {
+  const G = getState();
+  const era = getEra();
+  const entries = Object.entries(G.stakeholderDemands);
+  if (entries.length === 0) return '';
+  const rows = entries.map(([sid, d]) => {
+    const sh = era.stakeholders.find(x => x.id === sid);
+    const name = sh ? sh.name : sid.toUpperCase();
+    const age = G.month - d.postedAt;
+    const monthsLeft = Math.max(0, 4 - age);
+    const urgencyCol = monthsLeft <= 1 ? 'var(--red)' : monthsLeft <= 2 ? 'var(--yellow)' : 'var(--text-dim)';
+    const urgencyLabel = monthsLeft === 0
+      ? 'posledný mesiac'
+      : `${monthsLeft} mes. do vypršania`;
+    return `<div style="padding:6px 8px;background:rgba(255,255,255,.03);border-left:3px solid ${urgencyCol};border-radius:3px;margin:4px 0;font-size:.72rem;line-height:1.45">
+      <div style="display:flex;justify-content:space-between;gap:8px;margin-bottom:3px">
+        <strong style="color:var(--gold)">📣 ${esc(name)}</strong>
+        <span style="color:${urgencyCol};font-size:.65rem;white-space:nowrap">${urgencyLabel}</span>
+      </div>
+      <div style="color:#fff">${esc(d.text)}</div>
+      <div style="color:var(--text-dim);font-size:.65rem;margin-top:3px;font-style:italic">Splníte prijatím politiky, ktorá zlepší ich spokojnosť (sScore). Ignorované požiadavky po 4 mesiacoch prejdú do dlhodobej krivdy.</div>
+    </div>`;
+  }).join('');
+  return `<div class="dashboard-panel"><div class="panel-title">📣 Aktívne požiadavky${info('Stakeholderi (opozičné strany, odbory, cirkev, biznis ...) vám posielajú požiadavky, keď ich spokojnosť klesne pod 45. Splňte ich politikou, ktorá sa týka ich oblasti, inak sa nahnevajú ešte viac.')} <span style="color:var(--text-dim);font-size:.65rem">(${entries.length})</span></div>${rows}</div>`;
+}
+
 function renderCabinet(): string {
   const G = getState();
   const era = getEra();
@@ -433,18 +459,21 @@ function renderCabinet(): string {
   const avgComp = G.cabinet.ministers.reduce((s, m) => s + m.competence, 0) / G.cabinet.ministers.length;
   const compCol = avgComp > 6 ? 'var(--green)' : avgComp > 4 ? 'var(--yellow)' : 'var(--red)';
   const ministerLegend = `<div style="font-size:.62rem;color:var(--text-dim);padding:2px 0 4px;line-height:1.4"><strong style="color:var(--gold)">K</strong> kompetencia (ovplyvňuje implementačnú sadzbu) · <strong style="color:var(--gold)">L</strong> lojalita (1 intrikán → 10 absolútne verný) · <strong style="color:var(--gold)">R</strong> riziko škandálu / korupcia (čím vyššie, tým pravdepodobnejšia aféra)</div>`;
+  const canAfford = G.politicalCapital >= 20;
   const ministerList = G.cabinet.ministers.map(m => {
     const ministry = era.cabinet!.ministries.find(x => x.id === m.ministry);
     const scandalRisk = m.corruption > 6 ? 'var(--red)' : m.corruption > 3 ? 'var(--yellow)' : 'var(--green)';
     const loyCol = m.loyalty > 6 ? 'var(--green)' : m.loyalty > 4 ? 'var(--yellow)' : 'var(--red)';
-    return `<div style="display:flex;justify-content:space-between;padding:3px 6px;background:rgba(255,255,255,.03);border-radius:3px;font-size:.7rem;margin:1px 0;border-left:3px solid ${loyCol}" title="Kompetencia ${m.competence} · Lojalita ${m.loyalty} · Riziko/korupcia ${m.corruption}"><span style="color:#fff">${ministry ? ministry.emoji + ' ' : ''}${esc(m.name)}</span><span style="color:var(--text-dim)">${era.partyDisplay?.names[m.party] || m.party} | K:${m.competence} L:${m.loyalty} <span style="color:${scandalRisk}">R:${m.corruption}</span></span></div>`;
+    const swapBtn = canAfford
+      ? `<button onclick="window.__openReshuffleDialog('${esc(m.id)}')" title="Vyhodiť a vybrať nástupcu z 3 kandidátov (20 PC)" style="background:transparent;border:1px solid var(--gold);color:var(--gold);border-radius:3px;padding:1px 5px;font-size:.65rem;cursor:pointer;margin-left:6px">🔄</button>`
+      : `<span title="Potrebujete 20 PC" style="opacity:.3;margin-left:6px;font-size:.65rem">🔄</span>`;
+    return `<div style="display:flex;justify-content:space-between;align-items:center;padding:3px 6px;background:rgba(255,255,255,.03);border-radius:3px;font-size:.7rem;margin:1px 0;border-left:3px solid ${loyCol}" title="Kompetencia ${m.competence} · Lojalita ${m.loyalty} · Ideológia ${m.ideology} · Riziko/korupcia ${m.corruption}"><span style="color:#fff">${ministry ? ministry.emoji + ' ' : ''}${esc(m.name)}</span><span style="color:var(--text-dim);display:flex;align-items:center">${era.partyDisplay?.names[m.party] || m.party} | K:${m.competence} L:${m.loyalty} I:${m.ideology} <span style="color:${scandalRisk}">R:${m.corruption}</span>${swapBtn}</span></div>`;
   }).join('');
-  const canReshuffle = G.politicalCapital >= 20 && G.cabinet.ministers.length > 0;
-  const reBtn = canReshuffle
-    ? `<button style="background:var(--gold);color:#1a1a1a;border:0;border-radius:4px;padding:6px 10px;font-size:.7rem;font-weight:700;cursor:pointer;margin-top:6px;width:100%" onclick="window.__reshuffleMinister()" title="Vymeniť najnekvalifikovanejšieho ministra za nového. Cena: 20 PC, −2 stabilita, −10 kohézia. Zvýši priemernú kompetenciu → zlepší implementačnú sadzbu.">🔄 Výmena ministra (−20 PC)</button>`
-    : G.cabinet.ministers.length === 0
-      ? `<div style="font-size:.7rem;color:var(--text-dim);font-style:italic;margin-top:6px">Žiadni ministri — nie je čo vymeniť.</div>`
-      : `<div style="font-size:.7rem;color:var(--text-dim);font-style:italic;margin-top:6px">Nedostatok politického kapitálu (potrebných 20).</div>`;
+  const reBtn = G.cabinet.ministers.length === 0
+    ? `<div style="font-size:.7rem;color:var(--text-dim);font-style:italic;margin-top:6px">Žiadni ministri — nie je čo vymeniť.</div>`
+    : !canAfford
+      ? `<div style="font-size:.7rem;color:var(--text-dim);font-style:italic;margin-top:6px">Výmena ministra: potrebných 20 PC (máte ${Math.round(G.politicalCapital)}).</div>`
+      : `<div style="font-size:.7rem;color:var(--text-dim);margin-top:6px">Kliknite 🔄 vedľa ministra → vyberte nástupcu z 3 kandidátov (−20 PC, −10 kohézia, −2 stabilita).</div>`;
   return `<div class="dashboard-panel"><div class="panel-title">🏢 Vláda SR — Kabinet${info('Ministri vykonávajú vaše politiky. Kompetentný a súdržný kabinet zvyšuje implementačnú sadzbu; nekompetentný ju brzdí. Skorumpovaní ministri provokujú škandály. Premiešania menia zloženie — ale znižujú súdržnosť.')}</div>
     <div class="economy-row"><span class="economy-label">Súdržnosť kabinetu${info('0-100%. Vyššia súdržnosť = menej interných únikov a škandálov. Každé premiešanie ju dočasne zníži.')}</span><span class="economy-value" style="color:${cohCol}">${Math.round(G.cabinet.cabinetCohesion)}%</span></div>
     <div class="economy-row"><span class="economy-label">Priemerná kompetencia${info('1-10. Vysoká kompetencia zvyšuje implementačnú sadzbu (úspešné presadzovanie zákonov).')}</span><span class="economy-value" style="color:${compCol}">${avgComp.toFixed(1)}</span></div>

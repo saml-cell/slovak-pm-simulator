@@ -535,7 +535,8 @@ declare global {
     __respondDemand: (stakeholderId: string, action: string) => void;
     __initiateScheme: (schemeId: string) => void;
     __nominateJudge: () => void;
-    __reshuffleMinister: () => void;
+    __openReshuffleDialog: (ministerId: string) => void;
+    __confirmReshuffle: (ministerId: string, candidateIdx: number) => void;
     __influenceInstitution: (instId: string) => void;
   }
 }
