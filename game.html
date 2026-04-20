@@ -10,7 +10,7 @@
        the gh-pages host; if you deploy elsewhere, update data-domain. -->
   <script defer data-domain="saml-cell.github.io" src="https://plausible.io/js/script.tagged-events.js"></script>
   <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
-  <script type="module" crossorigin src="./assets/game-CicMtogV.js"></script>
+  <script type="module" crossorigin src="./assets/game-DfNJ87X4.js"></script>
   <link rel="stylesheet" crossorigin href="./assets/game-CSzRO-0_.css">
 </head>
 <body>
@@ -101,6 +101,7 @@
         <button class="nav-button" id="nationalAddressBtn" style="flex:1;padding:10px;font-size:.8rem;display:none;background:linear-gradient(90deg,rgba(248,113,113,.25),rgba(248,113,113,.1));border-color:rgba(248,113,113,.5)">🆘 Národný prejav</button>
       </div>
       <div id="proactiveResult" style="display:none;background:rgba(224,184,74,.08);border:1px solid rgba(224,184,74,.2);border-radius:8px;padding:8px 12px;margin-bottom:12px;font-size:.8rem;color:var(--gold);text-align:center"></div>
+      <div id="aiPressDialog" style="display:none;background:linear-gradient(135deg,rgba(99,179,237,.08),rgba(99,179,237,.02));border-left:3px solid #63b3ed;border-radius:6px;padding:10px 14px;margin-bottom:12px;font-size:.82rem;color:#e2e8f0;line-height:1.55;white-space:pre-line"></div>
       <button class="play-button" id="playButton" style="margin-bottom:20px">▶ Hrať mesiac: <span id="playMonthName"></span></button>
       <div class="metrics-row">
         <div class="metric-card"><div class="metric-label">Podpora</div><div class="metric-value" id="approvalValue">--</div><div class="metric-bar"><div class="metric-fill" id="approvalFill" style="background:linear-gradient(90deg,var(--green),var(--yellow));width:0%"></div></div><div class="metric-trend" id="approvalTrend"></div></div>
@@ -206,6 +207,7 @@
   <div id="gameOverScreen" class="screen">
     <div class="game-over-content">
       <div class="game-over-header"><h1 class="game-over-title" id="gameOverTitle">Koniec</h1><p class="game-over-narrative" id="gameOverNarrative"></p></div>
+      <div id="aiReflection" style="display:none;margin:16px 0;padding:14px 18px;background:linear-gradient(135deg,rgba(224,184,74,.08),rgba(224,184,74,.03));border-left:3px solid var(--gold);border-radius:6px;font-size:.9rem;line-height:1.6;color:#e2e8f0;white-space:pre-line"></div>
       <div class="game-over-stats" id="gameOverStats"></div>
       <div id="realComparisonSection"></div>
       <div class="approval-chart"><h3 class="chart-title">Podpora verejnosti</h3><div class="chart-container" id="approvalChart"></div></div>
