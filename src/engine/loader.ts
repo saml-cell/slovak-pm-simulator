@@ -1,12 +1,15 @@
 import type { EraConfig } from './types';
 
+const eraModules = import.meta.glob<{ default: EraConfig }>('../eras/*.json');
+
 export async function loadEra(eraId: string): Promise<EraConfig> {
   if (!/^[a-z0-9-]+$/.test(eraId)) {
     throw new Error(`Invalid era ID: "${eraId}"`);
   }
-  const resp = await fetch(`./eras/${eraId}.json`);
-  if (!resp.ok) {
-    throw new Error(`Era "${eraId}" not found (${resp.status})`);
+  const load = eraModules[`../eras/${eraId}.json`];
+  if (!load) {
+    throw new Error(`Era "${eraId}" not found`);
   }
-  return resp.json() as Promise<EraConfig>;
+  const mod = await load();
+  return mod.default;
 }
